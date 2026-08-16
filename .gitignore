@@ -255,6 +255,12 @@ Generated_Code/
 # because we have git ;-)
 _UpgradeReport_Files/
 Backup*/
+
+# Kiota request builders can legitimately use these API path names.
+!src/Soenneker.DigitalOcean.OpenApiClient/**/Logs/
+!src/Soenneker.DigitalOcean.OpenApiClient/**/Logs/**
+!src/Soenneker.DigitalOcean.OpenApiClient/**/Backups/
+!src/Soenneker.DigitalOcean.OpenApiClient/**/Backups/**
 UpgradeLog*.XML
 UpgradeLog*.htm
 ServiceFabricBackup/
