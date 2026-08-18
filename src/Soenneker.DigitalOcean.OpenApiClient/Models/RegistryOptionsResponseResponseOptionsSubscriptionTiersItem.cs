@@ -27,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A boolean indicating whether your account it eligible to use a certain subscription tier.</summary>
         public bool? Eligible { get; set; }
         /// <summary>The amount of outbound data transfer included in the subscription tier in bytes.</summary>
-        public int? IncludedBandwidthBytes { get; set; }
+        public long? IncludedBandwidthBytes { get; set; }
         /// <summary>The number of repositories included in the subscription tier. `0` indicates that the subscription tier includes unlimited repositories.</summary>
         public int? IncludedRepositories { get; set; }
         /// <summary>The amount of storage included in the subscription tier in bytes.</summary>
-        public int? IncludedStorageBytes { get; set; }
+        public long? IncludedStorageBytes { get; set; }
         /// <summary>The monthly cost of the subscription tier in cents.</summary>
         public int? MonthlyPriceInCents { get; set; }
         /// <summary>The name of the subscription tier.</summary>
@@ -80,9 +80,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "allow_storage_overage", n => { AllowStorageOverage = n.GetBoolValue(); } },
                 { "eligibility_reasons", n => { EligibilityReasons = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SubscriptionTierExtendedEligibilityReasonsItem>()?.AsList(); } },
                 { "eligible", n => { Eligible = n.GetBoolValue(); } },
-                { "included_bandwidth_bytes", n => { IncludedBandwidthBytes = n.GetIntValue(); } },
+                { "included_bandwidth_bytes", n => { IncludedBandwidthBytes = n.GetLongValue(); } },
                 { "included_repositories", n => { IncludedRepositories = n.GetIntValue(); } },
-                { "included_storage_bytes", n => { IncludedStorageBytes = n.GetIntValue(); } },
+                { "included_storage_bytes", n => { IncludedStorageBytes = n.GetLongValue(); } },
                 { "monthly_price_in_cents", n => { MonthlyPriceInCents = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
@@ -99,9 +99,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("allow_storage_overage", AllowStorageOverage);
             writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SubscriptionTierExtendedEligibilityReasonsItem>("eligibility_reasons", EligibilityReasons);
             writer.WriteBoolValue("eligible", Eligible);
-            writer.WriteIntValue("included_bandwidth_bytes", IncludedBandwidthBytes);
+            writer.WriteLongValue("included_bandwidth_bytes", IncludedBandwidthBytes);
             writer.WriteIntValue("included_repositories", IncludedRepositories);
-            writer.WriteIntValue("included_storage_bytes", IncludedStorageBytes);
+            writer.WriteLongValue("included_storage_bytes", IncludedStorageBytes);
             writer.WriteIntValue("monthly_price_in_cents", MonthlyPriceInCents);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("slug", Slug);

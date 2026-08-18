@@ -39,7 +39,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The default cleanup policy for segments beyond the retention window</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy? LogCleanupPolicy { get; set; }
         /// <summary>The number of messages accumulated on a log partition before messages are flushed to disk</summary>
-        public int? LogFlushIntervalMessages { get; set; }
+        public long? LogFlushIntervalMessages { get; set; }
         /// <summary>The maximum time in ms that a message in any topic is kept in memory before flushed to disk. If not set, the value in log.flush.scheduler.interval.ms is used</summary>
         public int? LogFlushIntervalMs { get; set; }
         /// <summary>The interval with which Kafka adds an entry to the offset index</summary>
@@ -133,7 +133,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "log_cleaner_min_cleanable_ratio", n => { LogCleanerMinCleanableRatio = n.GetDoubleValue(); } },
                 { "log_cleaner_min_compaction_lag_ms", n => { LogCleanerMinCompactionLagMs = n.GetIntValue(); } },
                 { "log_cleanup_policy", n => { LogCleanupPolicy = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy>(); } },
-                { "log_flush_interval_messages", n => { LogFlushIntervalMessages = n.GetIntValue(); } },
+                { "log_flush_interval_messages", n => { LogFlushIntervalMessages = n.GetLongValue(); } },
                 { "log_flush_interval_ms", n => { LogFlushIntervalMs = n.GetIntValue(); } },
                 { "log_index_interval_bytes", n => { LogIndexIntervalBytes = n.GetIntValue(); } },
                 { "log_index_size_max_bytes", n => { LogIndexSizeMaxBytes = n.GetIntValue(); } },
@@ -182,7 +182,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDoubleValue("log_cleaner_min_cleanable_ratio", LogCleanerMinCleanableRatio);
             writer.WriteIntValue("log_cleaner_min_compaction_lag_ms", LogCleanerMinCompactionLagMs);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy>("log_cleanup_policy", LogCleanupPolicy);
-            writer.WriteIntValue("log_flush_interval_messages", LogFlushIntervalMessages);
+            writer.WriteLongValue("log_flush_interval_messages", LogFlushIntervalMessages);
             writer.WriteIntValue("log_flush_interval_ms", LogFlushIntervalMs);
             writer.WriteIntValue("log_index_interval_bytes", LogIndexIntervalBytes);
             writer.WriteIntValue("log_index_size_max_bytes", LogIndexSizeMaxBytes);

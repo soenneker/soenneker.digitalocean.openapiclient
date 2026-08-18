@@ -42062,7 +42062,7 @@
             "minimum": 1,
             "type": "integer",
             "description": "The number of messages accumulated on a log partition before messages are flushed to disk",
-            "example": 9223372036854776000
+            "format": "int64"
           },
           "log_flush_interval_ms": {
             "maximum": 9223372036854776000,
@@ -50681,6 +50681,7 @@
           "included_storage_bytes": {
             "type": "integer",
             "description": "The amount of storage included in the subscription tier in bytes.",
+            "format": "int64",
             "example": 5368709120
           },
           "allow_storage_overage": {
@@ -50691,6 +50692,7 @@
           "included_bandwidth_bytes": {
             "type": "integer",
             "description": "The amount of outbound data transfer included in the subscription tier in bytes.",
+            "format": "int64",
             "example": 5368709120
           },
           "monthly_price_in_cents": {
@@ -71054,7 +71056,7 @@
             "minimum": 1,
             "type": "integer",
             "description": "The number of messages accumulated on a log partition before messages are flushed to disk",
-            "example": 9223372036854776000
+            "format": "int64"
           },
           "log_flush_interval_ms": {
             "maximum": 9223372036854776000,
@@ -75135,7 +75137,7 @@
             "minimum": 1,
             "type": "integer",
             "description": "The number of messages accumulated on a log partition before messages are flushed to disk",
-            "example": 9223372036854776000
+            "format": "int64"
           },
           "log_flush_interval_ms": {
             "maximum": 9223372036854776000,
@@ -76191,6 +76193,7 @@
           "included_storage_bytes": {
             "type": "integer",
             "description": "The amount of storage included in the subscription tier in bytes.",
+            "format": "int64",
             "example": 5368709120
           },
           "allow_storage_overage": {
@@ -76201,6 +76204,7 @@
           "included_bandwidth_bytes": {
             "type": "integer",
             "description": "The amount of outbound data transfer included in the subscription tier in bytes.",
+            "format": "int64",
             "example": 5368709120
           },
           "monthly_price_in_cents": {
