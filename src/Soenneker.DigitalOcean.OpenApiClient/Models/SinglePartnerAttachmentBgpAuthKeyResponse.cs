@@ -17,10 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The bgp_auth_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SinglePartnerAttachmentBgpAuthKeyResponseAllOf1BgpAuthKey? BgpAuthKey { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>? BgpAuthKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SinglePartnerAttachmentBgpAuthKeyResponseAllOf1BgpAuthKey BgpAuthKey { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey> BgpAuthKey { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SinglePartnerAttachmentBgpAuthKeyResponse"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "bgp_auth_key", n => { BgpAuthKey = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SinglePartnerAttachmentBgpAuthKeyResponseAllOf1BgpAuthKey>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SinglePartnerAttachmentBgpAuthKeyResponseAllOf1BgpAuthKey.CreateFromDiscriminatorValue); } },
+                { "bgp_auth_key", n => { BgpAuthKey = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SinglePartnerAttachmentBgpAuthKeyResponseAllOf1BgpAuthKey>("bgp_auth_key", BgpAuthKey);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>("bgp_auth_key", BgpAuthKey);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

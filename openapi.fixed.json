@@ -66674,7 +66674,10 @@
         "type": "object",
         "properties": {
           "bgp_auth_key": {
-            "$ref": "#/components/schemas/SinglePartnerAttachmentBgpAuthKeyResponseAllOf1BgpAuthKey"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartnerAttachmentServiceKey"
+            }
           }
         },
         "example": {
@@ -66721,7 +66724,10 @@
         "type": "object",
         "properties": {
           "service_key": {
-            "$ref": "#/components/schemas/SinglePartnerAttachmentServiceKeyResponseAllOf1ServiceKey"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartnerAttachmentServiceKey"
+            }
           }
         },
         "example": {
@@ -76067,7 +76073,10 @@
         "type": "object",
         "properties": {
           "bgp_auth_key": {
-            "$ref": "#/components/schemas/SinglePartnerAttachmentBgpAuthKeyResponseAllOf1BgpAuthKey"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartnerAttachmentServiceKey"
+            }
           }
         }
       },
@@ -76086,7 +76095,10 @@
         "type": "object",
         "properties": {
           "service_key": {
-            "$ref": "#/components/schemas/SinglePartnerAttachmentServiceKeyResponseAllOf1ServiceKey"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartnerAttachmentServiceKey"
+            }
           }
         }
       },
@@ -79302,18 +79314,6 @@
           "$ref": "#/components/schemas/DropletBackupPolicyRecord"
         },
         "description": "A map where the keys are the Droplet IDs and the values are\nobjects containing the backup policy information for each Droplet.\n"
-      },
-      "SinglePartnerAttachmentBgpAuthKeyResponseAllOf1BgpAuthKey": {
-        "type": "object",
-        "items": {
-          "$ref": "#/components/schemas/PartnerAttachmentServiceKey"
-        }
-      },
-      "SinglePartnerAttachmentServiceKeyResponseAllOf1ServiceKey": {
-        "type": "object",
-        "items": {
-          "$ref": "#/components/schemas/PartnerAttachmentServiceKey"
-        }
       },
       "ChatCompletionRequestToolChoiceOneOf2Function": {
         "required": [
