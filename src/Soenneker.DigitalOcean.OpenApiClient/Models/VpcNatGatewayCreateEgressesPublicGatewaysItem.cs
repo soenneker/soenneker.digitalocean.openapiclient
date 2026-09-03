@@ -7,14 +7,23 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Specify the address using either `ip` or `ipv4`. Both fields accept the same value and `ip` takes precedence if both are provided. The assigned address is returned in the `ipv4` field of GET and list responses.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class VpcNatGatewayGetEgressesPublicGatewaysItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class VpcNatGatewayCreateEgressesPublicGatewaysItem : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The public egress IPv4 address of the VPC NAT gateway. This is the address assigned to the gateway, which you can optionally set when creating the gateway using the `ip` or `ipv4` field.</summary>
+        /// <summary>The public egress IP address to assign to the VPC NAT gateway, and the preferred field for setting it. Provide an unassigned Bring Your Own IP (BYOIP) address on your account in the same region to use your own IP address. This field is only applied when creating the gateway and cannot be changed afterward. The assigned address is returned as `ipv4` in GET and list responses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Ip { get; set; }
+#nullable restore
+#else
+        public string Ip { get; set; }
+#endif
+        /// <summary>An alternative to `ip` for setting the public egress IP address on create. Accepts the same value as `ip`, which takes precedence if both are provided. This field is only applied when creating the gateway and cannot be changed afterward.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Ipv4 { get; set; }
@@ -23,21 +32,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string Ipv4 { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayGetEgressesPublicGatewaysItem"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgressesPublicGatewaysItem"/> and sets the default values.
         /// </summary>
-        public VpcNatGatewayGetEgressesPublicGatewaysItem()
+        public VpcNatGatewayCreateEgressesPublicGatewaysItem()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayGetEgressesPublicGatewaysItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgressesPublicGatewaysItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayGetEgressesPublicGatewaysItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgressesPublicGatewaysItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayGetEgressesPublicGatewaysItem();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgressesPublicGatewaysItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,6 +56,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ip", n => { Ip = n.GetStringValue(); } },
                 { "ipv4", n => { Ipv4 = n.GetStringValue(); } },
             };
         }
@@ -57,6 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("ip", Ip);
             writer.WriteStringValue("ipv4", Ipv4);
             writer.WriteAdditionalData(AdditionalData);
         }

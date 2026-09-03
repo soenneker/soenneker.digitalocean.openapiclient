@@ -11,7 +11,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// The region where the load balancer instance is located. When setting a region, the value should be the slug identifier for the region. When you query a load balancer, an entire region object will be returned.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class LoadBalancerAllOf2Region : IAdditionalDataHolder, IParsable
+    public partial class LoadBalancerAllOf3Region : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -50,21 +50,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf2Region"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region"/> and sets the default values.
         /// </summary>
-        public LoadBalancerAllOf2Region()
+        public LoadBalancerAllOf3Region()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf2Region"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf2Region CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf2Region();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region();
         }
         /// <summary>
         /// The deserialization information for the current model

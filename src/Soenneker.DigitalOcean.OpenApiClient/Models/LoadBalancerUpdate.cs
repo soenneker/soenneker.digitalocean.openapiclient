@@ -9,7 +9,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class LoadBalancer : IAdditionalDataHolder, IParsable
+    public partial class LoadBalancerUpdate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -77,14 +77,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? HttpIdleTimeoutSeconds { get; set; }
         /// <summary>A unique ID that can be used to identify and reference a load balancer.</summary>
         public Guid? Id { get; private set; }
-        /// <summary>An attribute containing the public-facing IP address of the load balancer.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Ip { get; private set; }
-#nullable restore
-#else
-        public string Ip { get; private set; }
-#endif
         /// <summary>An attribute containing the public-facing IPv6 address of the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,14 +107,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.</summary>
         public bool? RedirectHttpToHttps { get; set; }
-        /// <summary>The region where the load balancer instance is located. When setting a region, the value should be the slug identifier for the region. When you query a load balancer, an entire region object will be returned.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region? Region { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region Region { get; set; }
-#endif
+        /// <summary>The slug identifier for the region where the resource will initially be  available.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionSlug? Region { get; set; }
         /// <summary>This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.* `lb-small` = 1 node* `lb-medium` = 3 nodes* `lb-large` = 6 nodesYou can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.</summary>
         [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseSize? Size { get; set; }
@@ -161,9 +147,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A string specifying the UUID of the VPC to which the load balancer is assigned.</summary>
         public Guid? VpcUuid { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancer"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerUpdate"/> and sets the default values.
         /// </summary>
-        public LoadBalancer()
+        public LoadBalancerUpdate()
         {
             AdditionalData = new Dictionary<string, object>();
             DisableLetsEncryptDnsRecords = false;
@@ -176,12 +162,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancer"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerUpdate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancer();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerUpdate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -204,14 +190,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "health_check", n => { HealthCheck = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck>(global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck.CreateFromDiscriminatorValue); } },
                 { "http_idle_timeout_seconds", n => { HttpIdleTimeoutSeconds = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "ip", n => { Ip = n.GetStringValue(); } },
                 { "ipv6", n => { Ipv6 = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetwork>(); } },
                 { "network_stack", n => { NetworkStack = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetworkStack>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "redirect_http_to_https", n => { RedirectHttpToHttps = n.GetBoolValue(); } },
-                { "region", n => { Region = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region>(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region.CreateFromDiscriminatorValue); } },
+                { "region", n => { Region = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionSlug>(); } },
                 { "size", n => { Size = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseSize>(); } },
                 { "size_unit", n => { SizeUnit = n.GetIntValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseStatus>(); } },
@@ -246,7 +231,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetworkStack>("network_stack", NetworkStack);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteBoolValue("redirect_http_to_https", RedirectHttpToHttps);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerAllOf3Region>("region", Region);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionSlug>("region", Region);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseSize>("size", Size);
             writer.WriteIntValue("size_unit", SizeUnit);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions>("sticky_sessions", StickySessions);

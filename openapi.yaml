@@ -22031,7 +22031,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/load_balancer_create'
+              $ref: '#/components/schemas/load_balancer_update'
             examples:
               load_balancer_update_request:
                 $ref: '#/components/examples/load_balancer_update_request'
@@ -60903,15 +60903,6 @@ components:
             no ID is provided at creation, the load balancer associates with the
             user's default project. If an invalid project ID is provided, the
             load balancer will not be created.
-        ip:
-          type: string
-          pattern: >-
-            ^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
-          readOnly: true
-          example: 104.131.186.241
-          description: >-
-            An attribute containing the public-facing IP address of the load
-            balancer.
         ipv6:
           type: string
           readOnly: true
@@ -61116,6 +61107,17 @@ components:
         - $ref: '#/components/schemas/load_balancer_base'
         - type: object
           properties:
+            ip:
+              type: string
+              pattern: >-
+                ^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
+              readOnly: true
+              example: 104.131.186.241
+              description: >-
+                An attribute containing the public-facing IP address of the load
+                balancer.
+        - type: object
+          properties:
             region:
               type: object
               allOf:
@@ -61145,7 +61147,7 @@ components:
               description: >-
                 The name of a Droplet tag corresponding to Droplets assigned to
                 the load balancer.
-    load_balancer_create:
+    load_balancer_update:
       oneOf:
         - title: Assign Droplets by ID
           allOf:
@@ -61187,6 +61189,28 @@ components:
           required:
             - tag
             - region
+    load_balancer_create:
+      description: >-
+        The request schema for creating a load balancer. This is the same as the
+        update schema with the addition of the create-only `ip` field, which
+        assigns a Bring Your Own IP (BYOIP) address to the load balancer.
+      allOf:
+        - $ref: '#/components/schemas/load_balancer_update'
+        - type: object
+          properties:
+            ip:
+              type: string
+              pattern: >-
+                ^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
+              example: 203.0.113.42
+              description: >-
+                An optional IP address to assign to the load balancer from one
+                of your Bring Your Own IP (BYOIP) prefixes. The address must be
+                an unassigned BYOIP address on your account in the same region
+                as the load balancer. If omitted, DigitalOcean assigns a public
+                IP address automatically. This field is only applied when
+                creating the load balancer, cannot be changed afterward, and is
+                not supported for `GLOBAL` or `INTERNAL` load balancers.
     slack_details:
       type: object
       required:
@@ -64969,7 +64993,11 @@ components:
                   ipv4:
                     type: string
                     example: 174.138.113.197
-                    description: IPv4 address of the public gateway.
+                    description: >-
+                      The public egress IPv4 address of the VPC NAT gateway.
+                      This is the address assigned to the gateway, which you can
+                      optionally set when creating the gateway using the `ip` or
+                      `ipv4` field.
           description: An object containing egress information for the VPC NAT gateway.
         udp_timeout_seconds:
           type: integer
@@ -65068,6 +65096,47 @@ components:
           type: integer
           example: 30
           description: The TCP timeout in seconds for the VPC NAT gateway.
+        egresses:
+          type: object
+          description: >-
+            An optional object specifying the public egress IP address to assign
+            to the VPC NAT gateway. Provide this only to use a specific address.
+            If omitted, DigitalOcean allocates a public IP address
+            automatically.
+          properties:
+            public_gateways:
+              type: array
+              description: >-
+                An array containing a single public gateway object that sets the
+                gateway's public egress IP address.
+              items:
+                type: object
+                description: >-
+                  Specify the address using either `ip` or `ipv4`. Both fields
+                  accept the same value and `ip` takes precedence if both are
+                  provided. The assigned address is returned in the `ipv4` field
+                  of GET and list responses.
+                properties:
+                  ip:
+                    type: string
+                    example: 203.0.113.42
+                    description: >-
+                      The public egress IP address to assign to the VPC NAT
+                      gateway, and the preferred field for setting it. Provide
+                      an unassigned Bring Your Own IP (BYOIP) address on your
+                      account in the same region to use your own IP address.
+                      This field is only applied when creating the gateway and
+                      cannot be changed afterward. The assigned address is
+                      returned as `ipv4` in GET and list responses.
+                  ipv4:
+                    type: string
+                    example: 203.0.113.42
+                    description: >-
+                      An alternative to `ip` for setting the public egress IP
+                      address on create. Accepts the same value as `ip`, which
+                      takes precedence if both are provided. This field is only
+                      applied when creating the gateway and cannot be changed
+                      afterward.
       required:
         - name
         - type

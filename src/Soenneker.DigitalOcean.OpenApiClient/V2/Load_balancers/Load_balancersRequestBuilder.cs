@@ -79,7 +79,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Load_balancers
         /// To create a new load balancer instance, send a POST request to`/v2/load_balancers`.You can specify the Droplets that will sit behind the load balancer using oneof two methods:* Set `droplet_ids` to a list of specific Droplet IDs.* Set `tag` to the name of a tag. All Droplets with this tag applied will be  assigned to the load balancer. Additional Droplets will be automatically  assigned as they are tagged.These methods are mutually exclusive.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreateResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">The request schema for creating a load balancer. This is the same as the update schema with the addition of the create-only `ip` field, which assigns a Bring Your Own IP (BYOIP) address to the load balancer.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -129,7 +129,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Load_balancers
         /// To create a new load balancer instance, send a POST request to`/v2/load_balancers`.You can specify the Droplets that will sit behind the load balancer using oneof two methods:* Set `droplet_ids` to a list of specific Droplet IDs.* Set `tag` to the name of a tag. All Droplets with this tag applied will be  assigned to the load balancer. Additional Droplets will be automatically  assigned as they are tagged.These methods are mutually exclusive.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">The request schema for creating a load balancer. This is the same as the update schema with the addition of the create-only `ip` field, which assigns a Bring Your Own IP (BYOIP) address to the load balancer.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

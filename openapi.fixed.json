@@ -13460,7 +13460,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoadBalancerCreate"
+                "$ref": "#/components/schemas/LoadBalancerUpdate"
               },
               "examples": {
                 "load_balancer_update_request": {
@@ -48611,13 +48611,6 @@
             "description": "The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user\u0027s default project. If an invalid project ID is provided, the load balancer will not be created.",
             "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
           },
-          "ip": {
-            "pattern": "^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
-            "type": "string",
-            "description": "An attribute containing the public-facing IP address of the load balancer.",
-            "readOnly": true,
-            "example": "104.131.186.241"
-          },
           "ipv6": {
             "type": "string",
             "description": "An attribute containing the public-facing IPv6 address of the load balancer.",
@@ -48757,13 +48750,6 @@
             "description": "The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user\u0027s default project. If an invalid project ID is provided, the load balancer will not be created.",
             "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
           },
-          "ip": {
-            "pattern": "^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
-            "type": "string",
-            "description": "An attribute containing the public-facing IP address of the load balancer.",
-            "readOnly": true,
-            "example": "104.131.186.241"
-          },
           "ipv6": {
             "type": "string",
             "description": "An attribute containing the public-facing IPv6 address of the load balancer.",
@@ -48878,8 +48864,15 @@
           "tls_cipher_policy": {
             "$ref": "#/components/schemas/LoadBalancerBaseTlsCipherPolicy"
           },
+          "ip": {
+            "pattern": "^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+            "type": "string",
+            "description": "An attribute containing the public-facing IP address of the load balancer.",
+            "readOnly": true,
+            "example": "104.131.186.241"
+          },
           "region": {
-            "$ref": "#/components/schemas/LoadBalancerAllOf2Region"
+            "$ref": "#/components/schemas/LoadBalancerAllOf3Region"
           },
           "droplet_ids": {
             "type": "array",
@@ -48895,7 +48888,7 @@
           }
         }
       },
-      "LoadBalancerCreate": {
+      "LoadBalancerUpdate": {
         "required": [
           "region",
           "forwarding_rules"
@@ -48929,13 +48922,6 @@
             "description": "The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user\u0027s default project. If an invalid project ID is provided, the load balancer will not be created.",
             "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
           },
-          "ip": {
-            "pattern": "^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
-            "type": "string",
-            "description": "An attribute containing the public-facing IP address of the load balancer.",
-            "readOnly": true,
-            "example": "104.131.186.241"
-          },
           "ipv6": {
             "type": "string",
             "description": "An attribute containing the public-facing IPv6 address of the load balancer.",
@@ -49056,6 +49042,23 @@
             "example": "prod:web"
           }
         }
+      },
+      "LoadBalancerCreate": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LoadBalancerUpdate"
+          }
+        ],
+        "properties": {
+          "ip": {
+            "pattern": "^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+            "type": "string",
+            "description": "An optional IP address to assign to the load balancer from one of your Bring Your Own IP (BYOIP) prefixes. The address must be an unassigned BYOIP address on your account in the same region as the load balancer. If omitted, DigitalOcean assigns a public IP address automatically. This field is only applied when creating the load balancer, cannot be changed afterward, and is not supported for \u0060GLOBAL\u0060 or \u0060INTERNAL\u0060 load balancers.",
+            "example": "203.0.113.42"
+          }
+        },
+        "description": "The request schema for creating a load balancer. This is the same as the update schema with the addition of the create-only \u0060ip\u0060 field, which assigns a Bring Your Own IP (BYOIP) address to the load balancer."
       },
       "SlackDetails": {
         "required": [
@@ -52967,6 +52970,9 @@
             "type": "integer",
             "description": "The TCP timeout in seconds for the VPC NAT gateway.",
             "example": 30
+          },
+          "egresses": {
+            "$ref": "#/components/schemas/VpcNatGatewayCreateEgresses"
           }
         }
       },
@@ -72931,26 +72937,38 @@
       "LoadBalancerAllOf2": {
         "type": "object",
         "properties": {
-          "region": {
-            "$ref": "#/components/schemas/LoadBalancerAllOf2Region"
+          "ip": {
+            "pattern": "^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+            "type": "string",
+            "description": "An attribute containing the public-facing IP address of the load balancer.",
+            "readOnly": true,
+            "example": "104.131.186.241"
           }
         }
       },
       "LoadBalancerAllOf3": {
         "type": "object",
         "properties": {
-          "droplet_ids": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
-            "description": "An array containing the IDs of the Droplets assigned to the load balancer."
+          "region": {
+            "$ref": "#/components/schemas/LoadBalancerAllOf3Region"
           }
         }
       },
       "LoadBalancerAllOf4": {
         "type": "object",
         "properties": {
+          "droplet_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "An array containing the IDs of the Droplets assigned to the load balancer."
+          }
+        }
+      },
+      "LoadBalancerAllOf5": {
+        "type": "object",
+        "properties": {
           "tag": {
             "type": "string",
             "description": "The name of a Droplet tag corresponding to Droplets assigned to the load balancer.",
@@ -72958,7 +72976,7 @@
           }
         }
       },
-      "LoadBalancerCreateAssignDropletsByIdAllOf1": {
+      "LoadBalancerUpdateAssignDropletsByIdAllOf1": {
         "type": "object",
         "properties": {
           "droplet_ids": {
@@ -72970,7 +72988,7 @@
           }
         }
       },
-      "LoadBalancerCreateAssignDropletsByIdAllOf2": {
+      "LoadBalancerUpdateAssignDropletsByIdAllOf2": {
         "type": "object",
         "properties": {
           "region": {
@@ -72978,7 +72996,7 @@
           }
         }
       },
-      "LoadBalancerCreateAssignDropletsByTagAllOf1": {
+      "LoadBalancerUpdateAssignDropletsByTagAllOf1": {
         "type": "object",
         "properties": {
           "tag": {
@@ -72988,11 +73006,22 @@
           }
         }
       },
-      "LoadBalancerCreateAssignDropletsByTagAllOf2": {
+      "LoadBalancerUpdateAssignDropletsByTagAllOf2": {
         "type": "object",
         "properties": {
           "region": {
             "$ref": "#/components/schemas/RegionSlug"
+          }
+        }
+      },
+      "LoadBalancerCreateAllOf2": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "pattern": "^$|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+            "type": "string",
+            "description": "An optional IP address to assign to the load balancer from one of your Bring Your Own IP (BYOIP) prefixes. The address must be an unassigned BYOIP address on your account in the same region as the load balancer. If omitted, DigitalOcean assigns a public IP address automatically. This field is only applied when creating the load balancer, cannot be changed afterward, and is not supported for \u0060GLOBAL\u0060 or \u0060INTERNAL\u0060 load balancers.",
+            "example": "203.0.113.42"
           }
         }
       },
@@ -77009,7 +77038,7 @@
         "description": "An array containing the names of the Tags assigned to the firewall. \u003Cbr\u003E\u003Cbr\u003ERequires \u0060tag:read\u0060 scope.",
         "example": "gateway"
       },
-      "LoadBalancerAllOf2Region": {
+      "LoadBalancerAllOf3Region": {
         "required": [
           "available",
           "features",
@@ -78339,6 +78368,19 @@
           }
         }
       },
+      "VpcNatGatewayCreateEgresses": {
+        "type": "object",
+        "properties": {
+          "public_gateways": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VpcNatGatewayCreateEgressesPublicGatewaysItem"
+            },
+            "description": "An array containing a single public gateway object that sets the gateway\u0027s public egress IP address."
+          }
+        },
+        "description": "An optional object specifying the public egress IP address to assign to the VPC NAT gateway. Provide this only to use a specific address. If omitted, DigitalOcean allocates a public IP address automatically."
+      },
       "VpcNatGatewayUpdateVpcsItem": {
         "type": "object",
         "properties": {
@@ -79504,10 +79546,26 @@
         "properties": {
           "ipv4": {
             "type": "string",
-            "description": "IPv4 address of the public gateway.",
+            "description": "The public egress IPv4 address of the VPC NAT gateway. This is the address assigned to the gateway, which you can optionally set when creating the gateway using the \u0060ip\u0060 or \u0060ipv4\u0060 field.",
             "example": "174.138.113.197"
           }
         }
+      },
+      "VpcNatGatewayCreateEgressesPublicGatewaysItem": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "description": "The public egress IP address to assign to the VPC NAT gateway, and the preferred field for setting it. Provide an unassigned Bring Your Own IP (BYOIP) address on your account in the same region to use your own IP address. This field is only applied when creating the gateway and cannot be changed afterward. The assigned address is returned as \u0060ipv4\u0060 in GET and list responses.",
+            "example": "203.0.113.42"
+          },
+          "ipv4": {
+            "type": "string",
+            "description": "An alternative to \u0060ip\u0060 for setting the public egress IP address on create. Accepts the same value as \u0060ip\u0060, which takes precedence if both are provided. This field is only applied when creating the gateway and cannot be changed afterward.",
+            "example": "203.0.113.42"
+          }
+        },
+        "description": "Specify the address using either \u0060ip\u0060 or \u0060ipv4\u0060. Both fields accept the same value and \u0060ip\u0060 takes precedence if both are provided. The assigned address is returned in the \u0060ipv4\u0060 field of GET and list responses."
       },
       "ChatCompletionResponseChoicesItemMessage": {
         "required": [

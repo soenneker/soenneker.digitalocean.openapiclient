@@ -14,6 +14,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>An optional object specifying the public egress IP address to assign to the VPC NAT gateway. Provide this only to use a specific address. If omitted, DigitalOcean allocates a public IP address automatically.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgresses? Egresses { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgresses Egresses { get; set; }
+#endif
         /// <summary>The ICMP timeout in seconds for the VPC NAT gateway.</summary>
         public int? IcmpTimeoutSeconds { get; set; }
         /// <summary>The human-readable name of the VPC NAT gateway.</summary>
@@ -67,6 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "egresses", n => { Egresses = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgresses>(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgresses.CreateFromDiscriminatorValue); } },
                 { "icmp_timeout_seconds", n => { IcmpTimeoutSeconds = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateRegion>(); } },
@@ -84,6 +93,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateEgresses>("egresses", Egresses);
             writer.WriteIntValue("icmp_timeout_seconds", IcmpTimeoutSeconds);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateRegion>("region", Region);

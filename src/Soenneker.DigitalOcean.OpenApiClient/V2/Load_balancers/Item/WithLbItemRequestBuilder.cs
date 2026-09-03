@@ -126,11 +126,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Load_balancers.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdatedLoadBalancerResponse?> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdatedLoadBalancerResponse?> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdatedLoadBalancerResponse> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdatedLoadBalancerResponse> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -191,11 +191,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Load_balancers.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
