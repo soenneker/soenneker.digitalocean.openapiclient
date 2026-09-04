@@ -68,10 +68,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet&apos;s root account upon creation. You must add the keys to your team before they can be embedded on a Droplet.&lt;br&gt;Requires `ssh_key:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? SshKeys { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_ssh_keys>? SshKeys { get; set; }
 #nullable restore
 #else
-        public List<int?> SshKeys { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_ssh_keys> SshKeys { get; set; }
 #endif
         /// <summary>A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.&lt;br&gt;Requires `tag:create` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -147,7 +147,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "public_networking", n => { PublicNetworking = n.GetBoolValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetStringValue(); } },
-                { "ssh_keys", n => { SshKeys = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "ssh_keys", n => { SshKeys = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_ssh_keys>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_ssh_keys.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "user_data", n => { UserData = n.GetStringValue(); } },
                 { "volumes", n => { Volumes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -172,7 +172,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("public_networking", PublicNetworking);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("size", Size);
-            writer.WriteCollectionOfPrimitiveValues<int?>("ssh_keys", SshKeys);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_ssh_keys>("ssh_keys", SshKeys);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("user_data", UserData);
             writer.WriteCollectionOfPrimitiveValues<string>("volumes", Volumes);
@@ -204,7 +204,69 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_image CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_image();
+                if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="int"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class DropletSingleCreate_ssh_keys : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_ssh_keys"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_ssh_keys CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletSingleCreate.DropletSingleCreate_ssh_keys();
                 if(parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;

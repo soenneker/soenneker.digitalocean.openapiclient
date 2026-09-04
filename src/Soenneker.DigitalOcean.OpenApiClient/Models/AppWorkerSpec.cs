@@ -158,7 +158,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public AppWorkerSpec()
         {
             AdditionalData = new Dictionary<string, object>();
-            InstanceCount = 1;
+            InstanceCount = 1L;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

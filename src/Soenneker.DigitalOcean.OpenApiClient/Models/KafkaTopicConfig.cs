@@ -64,10 +64,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             DeleteRetentionMs = 86400000;
             FileDeleteDelayMs = 60000;
-            FlushMessages = 9223372036854775807;
-            FlushMs = 9223372036854775807;
+            FlushMessages = 9223372036854775807L;
+            FlushMs = 9223372036854775807L;
             IndexIntervalBytes = 4096;
-            MaxCompactionLagMs = 9223372036854775807;
+            MaxCompactionLagMs = 9223372036854775807L;
             MaxMessageBytes = 1048588;
             MessageDownConversionEnable = true;
             MinCleanableDirtyRatio = 0.5f;

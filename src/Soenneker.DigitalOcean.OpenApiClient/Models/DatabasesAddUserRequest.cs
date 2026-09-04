@@ -54,7 +54,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Password { get; private set; }
 #endif
-        /// <summary>(To be deprecated: use settings.mongo_user_settings.role instead for access controls to MongoDB databases). For MongoDB clusters, set to `true` to create a read-only user.This option is not currently supported for other database engines.           </summary>
+        /// <summary>(To be deprecated: use settings.mongo_user_settings.role instead for access controls to MongoDB databases). For MongoDB clusters, set to `true` to create a read-only user.This option is not currently supported for other database engines.</summary>
         public bool? Readonly { get; set; }
         /// <summary>A string representing the database user&apos;s role. The value will be either&quot;primary&quot; or &quot;normal&quot;.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseUserRole? Role { get; private set; }

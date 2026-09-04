@@ -21,7 +21,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Images
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.images.item collection</summary>
         /// <param name="position">A unique number (id) or string (slug) used to identify and reference aspecific image.**Public** images can be identified by image `id` or `slug`.**Private** images *must* be identified by image `id`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Images.Item.WithImageItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Images.Item.WithImageItemRequestBuilder this[int position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Images.Item.WithImageItemRequestBuilder this[string position]
         {
             get
             {

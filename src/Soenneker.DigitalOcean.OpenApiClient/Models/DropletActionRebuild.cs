@@ -88,6 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionRebuild.DropletActionRebuild_image CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionRebuild.DropletActionRebuild_image();
                 if(parseNode.GetIntValue() is int integerValue)
                 {
