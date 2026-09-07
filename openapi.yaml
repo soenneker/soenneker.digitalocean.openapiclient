@@ -14306,8 +14306,9 @@ paths:
         <nobr>`droplet:update`</nobr> |
 
         | <nobr>`enable_ipv6`</nobr>               | Enables IPv6 for a Droplet.
-        Once enabled for a Droplet, IPv6 can not be disabled. When enabling IPv6
-        on an existing Droplet, [additional OS-level
+        Once enabled for a Droplet, IPv6 can not be disabled. **Warning:** The
+        Droplet must be powered off before enabling IPv6 on an existing Droplet.
+        When enabling IPv6 on an existing Droplet, [additional OS-level
         configuration](https://docs.digitalocean.com/products/networking/ipv6/how-to/enable/#on-existing-droplets)
         is required. | <nobr>`droplet:update`</nobr> |
 
@@ -14741,7 +14742,8 @@ paths:
 
         - `shutdown`
 
-        - `enable_ipv6`
+        - `enable_ipv6` (**Warning:** The Droplet must be powered off before
+        enabling IPv6 on an existing Droplet.)
 
         - `enable_backups`
 
@@ -77554,7 +77556,7 @@ components:
             message: request payload validation failed
             request_id: 4851a473-1621-42ea-b2f9-5071c0ea8414
     database_backups:
-      description: A JSON object with a key of `database_backups`.
+      description: A JSON object with a key of `backups`.
       headers:
         ratelimit-limit:
           $ref: '#/components/headers/ratelimit-limit'

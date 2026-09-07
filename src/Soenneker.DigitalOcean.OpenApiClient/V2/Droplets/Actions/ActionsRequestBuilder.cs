@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Droplets.Actions
         {
         }
         /// <summary>
-        /// Some actions can be performed in bulk on tagged Droplets. The actions can beinitiated by sending a POST to `/v2/droplets/actions?tag_name=$TAG_NAME` withthe action arguments.Only a sub-set of action types are supported:- `power_cycle`- `power_on`- `power_off`- `shutdown`- `enable_ipv6`- `enable_backups`- `disable_backups`- `snapshot` (also requires `image:create` permission)
+        /// Some actions can be performed in bulk on tagged Droplets. The actions can beinitiated by sending a POST to `/v2/droplets/actions?tag_name=$TAG_NAME` withthe action arguments.Only a sub-set of action types are supported:- `power_cycle`- `power_on`- `power_off`- `shutdown`- `enable_ipv6` (**Warning:** The Droplet must be powered off before enabling IPv6 on an existing Droplet.)- `enable_backups`- `disable_backups`- `snapshot` (also requires `image:create` permission)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionsResponseResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Droplets.Actions
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionsResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Some actions can be performed in bulk on tagged Droplets. The actions can beinitiated by sending a POST to `/v2/droplets/actions?tag_name=$TAG_NAME` withthe action arguments.Only a sub-set of action types are supported:- `power_cycle`- `power_on`- `power_off`- `shutdown`- `enable_ipv6`- `enable_backups`- `disable_backups`- `snapshot` (also requires `image:create` permission)
+        /// Some actions can be performed in bulk on tagged Droplets. The actions can beinitiated by sending a POST to `/v2/droplets/actions?tag_name=$TAG_NAME` withthe action arguments.Only a sub-set of action types are supported:- `power_cycle`- `power_on`- `power_off`- `shutdown`- `enable_ipv6` (**Warning:** The Droplet must be powered off before enabling IPv6 on an existing Droplet.)- `enable_backups`- `disable_backups`- `snapshot` (also requires `image:create` permission)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -96,7 +96,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Droplets.Actions
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Droplets.Actions.ActionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Some actions can be performed in bulk on tagged Droplets. The actions can beinitiated by sending a POST to `/v2/droplets/actions?tag_name=$TAG_NAME` withthe action arguments.Only a sub-set of action types are supported:- `power_cycle`- `power_on`- `power_off`- `shutdown`- `enable_ipv6`- `enable_backups`- `disable_backups`- `snapshot` (also requires `image:create` permission)
+        /// Some actions can be performed in bulk on tagged Droplets. The actions can beinitiated by sending a POST to `/v2/droplets/actions?tag_name=$TAG_NAME` withthe action arguments.Only a sub-set of action types are supported:- `power_cycle`- `power_on`- `power_off`- `shutdown`- `enable_ipv6` (**Warning:** The Droplet must be powered off before enabling IPv6 on an existing Droplet.)- `enable_backups`- `disable_backups`- `snapshot` (also requires `image:create` permission)
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ActionsRequestBuilderPostQueryParameters 
