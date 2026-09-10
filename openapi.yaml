@@ -11467,7 +11467,7 @@ paths:
           $ref: '#/components/responses/unexpected_error'
       security:
         - bearer_auth:
-            - database:write
+            - database:update
   /v2/databases/{database_cluster_uuid}/schema-registry/config/{subject_name}:
     get:
       operationId: databases_get_kafka_schema_subject_config
@@ -11557,7 +11557,7 @@ paths:
           $ref: '#/components/responses/unexpected_error'
       security:
         - bearer_auth:
-            - database:write
+            - database:update
   /v2/databases/metrics/credentials:
     get:
       operationId: databases_get_cluster_metrics_credentials
@@ -12239,7 +12239,7 @@ paths:
               -H "Authorization: Bearer $DO_TOKEN"
       security:
         - bearer_auth:
-            - dedicated_inference_tokens:read
+            - dedicated_inference_token:read
     post:
       operationId: dedicatedInferences_create_tokens
       summary: Create a Dedicated Inference Token
@@ -12286,7 +12286,7 @@ paths:
               -d '{"name": "new-inference-token"}'
       security:
         - bearer_auth:
-            - dedicated_inference_tokens:create
+            - dedicated_inference_token:create
   /v2/dedicated-inferences/{dedicated_inference_id}/tokens/{token_id}:
     delete:
       operationId: dedicatedInferences_delete_tokens
@@ -12332,7 +12332,7 @@ paths:
               -H "Authorization: Bearer $DO_TOKEN"
       security:
         - bearer_auth:
-            - dedicated_inference_tokens:delete
+            - dedicated_inference_token:delete
   /v2/dedicated-inferences/sizes:
     get:
       operationId: dedicatedInferences_list_sizes
@@ -25939,7 +25939,7 @@ paths:
               "https://api.digitalocean.com/v2/nfs?region=atl1"
       security:
         - bearer_auth:
-            - nfs:list
+            - nfs:read
   /v2/nfs/{nfs_id}:
     get:
       operationId: nfs_get
@@ -26148,7 +26148,7 @@ paths:
               "https://api.digitalocean.com/v2/nfs/snapshots?region=atl1"
       security:
         - bearer_auth:
-            - nfs:list
+            - nfs:read
   /v2/nfs/snapshots/{nfs_snapshot_id}:
     get:
       operationId: nfs_get_snapshot
@@ -26353,7 +26353,7 @@ paths:
               "https://api.digitalocean.com/v2/nfs/shares/baf4827c-6fa9-456f-9dbd-9ddfcacd0720/access_points"
       security:
         - bearer_auth:
-            - nfs:list
+            - nfs:read
   /v2/nfs/access_points/{access_point_id}:
     get:
       operationId: nfs_get_access_point
@@ -26541,7 +26541,7 @@ paths:
               "https://api.digitalocean.com/v2/organizations/teams"
       security:
         - bearer_auth:
-            - organization:read
+            - organization_membership:read_teams
   /v2/partner_network_connect/attachments:
     get:
       operationId: partnerAttachments_list
@@ -27135,7 +27135,7 @@ paths:
             client.partner_attachments.create_service_key("5a4981aa-9653-4bd1-bef5-d6bff52042e4")
       security:
         - bearer_auth:
-            - partner_network_connect:write
+            - partner_network_connect:update
   /v2/projects:
     get:
       operationId: projects_list
@@ -31961,7 +31961,7 @@ paths:
             body=req)
       security:
         - bearer_auth:
-            - byoip_prefix:write
+            - byoip_prefix:update
   /v2/byoip_prefixes/{byoip_prefix_uuid}/ips:
     get:
       operationId: byoipPrefixes_list_resources
@@ -39435,7 +39435,7 @@ paths:
           $ref: '#/components/responses/unexpected_error'
       security:
         - bearer_auth:
-            - genai:default
+            - genai:update
       summary: Update Custom Model Metadata
       tags:
         - GradientAI Platform
