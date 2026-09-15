@@ -20,7 +20,10 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Oauth2;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Regions;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Scenario_library;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Scenario_sets;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ScheduledIndexing;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Workspaces;
 using System.Collections.Generic;
 using System.IO;
@@ -124,10 +127,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Regions.RegionsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The scenario_library property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Scenario_library.Scenario_libraryRequestBuilder Scenario_library
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Scenario_library.Scenario_libraryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The scenario_sets property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Scenario_sets.Scenario_setsRequestBuilder Scenario_sets
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Scenario_sets.Scenario_setsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The scheduledIndexing property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ScheduledIndexing.ScheduledIndexingRequestBuilder ScheduledIndexing
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ScheduledIndexing.ScheduledIndexingRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The simulation_runs property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Simulation_runsRequestBuilder Simulation_runs
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Simulation_runsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workspaces property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Workspaces.WorkspacesRequestBuilder Workspaces

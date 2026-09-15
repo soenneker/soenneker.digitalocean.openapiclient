@@ -9820,6 +9820,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "80",
+                    "action": "allow",
                     "sources": {
                       "load_balancer_uids": [
                         "4de7ac8b-495b-4884-9a69-1050c6793cd6"
@@ -9829,6 +9830,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "22",
+                    "action": "allow",
                     "sources": {
                       "tags": [
                         "gateway"
@@ -9843,6 +9845,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "80",
+                    "action": "allow",
                     "destinations": {
                       "addresses": [
                         "0.0.0.0/0",
@@ -9952,6 +9955,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "8080",
+                    "action": "allow",
                     "sources": {
                       "load_balancer_uids": [
                         "4de7ac8b-495b-4884-9a69-1050c6793cd6"
@@ -9961,6 +9965,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "22",
+                    "action": "allow",
                     "sources": {
                       "tags": [
                         "gateway"
@@ -9975,6 +9980,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "8080",
+                    "action": "allow",
                     "destinations": {
                       "addresses": [
                         "0.0.0.0/0",
@@ -10321,6 +10327,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "3306",
+                    "action": "allow",
                     "sources": {
                       "droplet_ids": [
                         49696269
@@ -10332,6 +10339,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "3306",
+                    "action": "allow",
                     "destinations": {
                       "droplet_ids": [
                         49696269
@@ -10397,6 +10405,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "3306",
+                    "action": "allow",
                     "sources": {
                       "droplet_ids": [
                         49696269
@@ -10408,6 +10417,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "3306",
+                    "action": "allow",
                     "destinations": {
                       "droplet_ids": [
                         49696269
@@ -33497,6 +33507,1086 @@
         ]
       }
     },
+    "/v2/gen-ai/scenario_library": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "List Common Scenario \u0026 Goal Library",
+        "description": "To list the platform-curated Common Scenario \u0026 Goal Library, send a GET request to \u0060/v2/gen-ai/scenario_library\u0060.",
+        "operationId": "GenaiListScenarioLibrary",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter by category (exact match). Empty means no category filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Free-text search across name, description, and goal_description\n(case-insensitive substring match). Empty means no search.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Field to sort by. Defaults to name when unspecified.\n\n - SCENARIO_LIBRARY_SORT_FIELD_NAME: Sort by customer-facing name (case-insensitive). Default.\n - SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT: Sort by creation date.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListScenarioLibrarySortByParameter"
+            },
+            "example": "SCENARIO_LIBRARY_SORT_FIELD_UNSPECIFIED"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "description": "Sort direction. Defaults to ascending when unspecified.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListScenarioLibrarySortDirectionParameter"
+            },
+            "example": "SORT_DIRECTION_UNSPECIFIED"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiListScenarioLibraryOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_library/{libraryScenarioUuid}/create_scenario_set": {
+      "post": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Create Scenario Set From Library",
+        "description": "To create a scenario set from a Common Scenario \u0026 Goal Library entry, send a POST request to \u0060/v2/gen-ai/scenario_library/{library_scenario_uuid}/create_scenario_set\u0060. The library scenarios are copied into a new scenario set owned by the calling team. The new set is ready to use when creating a simulation run.",
+        "operationId": "GenaiCreateScenarioSetFromLibrary",
+        "parameters": [
+          {
+            "name": "libraryScenarioUuid",
+            "in": "path",
+            "description": "UUID of the library entry to copy.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiCreateScenarioSetFromLibraryInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCreateScenarioSetFromLibraryOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_library/{libraryScenarioUuid}/scenarios": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "List Scenarios In Library Entry",
+        "description": "To list the scenarios inside a Common Scenario \u0026 Goal Library entry without creating a team-owned scenario set, send a GET request to \u0060/v2/gen-ai/scenario_library/{library_scenario_uuid}/scenarios\u0060.",
+        "operationId": "GenaiListScenarioLibraryScenarios",
+        "parameters": [
+          {
+            "name": "libraryScenarioUuid",
+            "in": "path",
+            "description": "UUID of the library entry to read.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Free-text search across name, description, and user_persona\n(case-insensitive substring match). Empty means no search.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Field to sort by. Defaults to original file order when unspecified.\n\n - SCENARIO_SORT_FIELD_FILE_ORDER: Preserve original file order. Default.\n - SCENARIO_SORT_FIELD_NAME: Sort by scenario name (case-insensitive). Empty names sort last.\n - SCENARIO_SORT_FIELD_DESCRIPTION: Sort by scenario description (case-insensitive).",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListScenarioLibraryScenariosSortByParameter"
+            },
+            "example": "SCENARIO_SORT_FIELD_UNSPECIFIED"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "description": "Sort direction. Defaults to ascending when unspecified.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListScenarioLibraryScenariosSortDirectionParameter"
+            },
+            "example": "SORT_DIRECTION_UNSPECIFIED"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiListScenariosOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_sets": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "List Scenario Sets",
+        "description": "To list scenario sets, send a GET request to \u0060/v2/gen-ai/scenario_sets\u0060.",
+        "operationId": "GenaiListScenarioSets",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "statuses",
+            "in": "query",
+            "description": "Filter by one or more statuses. Empty means no status filter.\n\n - SCENARIO_SET_STATUS_GENERATING: Generation is in progress. The scenarios are not ready yet.\n - SCENARIO_SET_STATUS_READY: The scenario set is ready to use.\n - SCENARIO_SET_STATUS_FAILED: Generation failed. The scenario set has no readable scenarios.\n - SCENARIO_SET_STATUS_CANCELLED: Generation was cancelled before completion.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GenaiListScenarioSetsStatusesParameterItem"
+              }
+            },
+            "example": [
+              "SCENARIO_SET_STATUS_READY"
+            ]
+          },
+          {
+            "name": "source_kinds",
+            "in": "query",
+            "description": "Filter by one or more source kinds. Empty means no source-kind filter.\n\n - SCENARIO_SET_SOURCE_KIND_USER_UPLOAD: Created from uploaded or inline scenarios.\n - SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED: Produced by goal-driven generation.\n - SCENARIO_SET_SOURCE_KIND_LIBRARY: Copied from a platform-curated library entry.\n - SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED: Produced from a completed Signals export.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GenaiListScenarioSetsSourceKindsParameterItem"
+              }
+            },
+            "example": [
+              "SCENARIO_SET_SOURCE_KIND_USER_UPLOAD"
+            ]
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Free-text search across name and description\n(case-insensitive substring match). Empty means no search.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Field to sort by. Defaults to creation date when unspecified.\n\n - SCENARIO_SET_SORT_FIELD_CREATED_AT: Sort by creation date. Default.\n - SCENARIO_SET_SORT_FIELD_NAME: Sort by customer-supplied name (case-insensitive).\n - SCENARIO_SET_SORT_FIELD_STATUS: Sort by status using lifecycle order (generating \u2192 ready \u2192 terminal).\n - SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT: Sort by scenario_count.\n - SCENARIO_SET_SORT_FIELD_UPDATED_AT: Sort by last update date.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListScenarioSetsSortByParameter"
+            },
+            "example": "SCENARIO_SET_SORT_FIELD_UNSPECIFIED"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "description": "Sort direction. Defaults to descending when unspecified.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListScenarioSetsSortDirectionParameter"
+            },
+            "example": "SORT_DIRECTION_UNSPECIFIED"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiListScenarioSetsOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Create Scenario Set",
+        "description": "To create a scenario set, send a POST request to \u0060/v2/gen-ai/scenario_sets\u0060. Provide exactly one of \u0060scenarios\u0060 or \u0060file_upload_scenario_set\u0060. The set is created in the ready state.",
+        "operationId": "GenaiCreateScenarioSet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiCreateScenarioSetInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCreateScenarioSetOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_sets/file_upload_presigned_urls": {
+      "post": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Create Presigned URLs for Scenario Set File Upload",
+        "description": "To create presigned URLs for uploading a scenario set file, send a POST request to \u0060/v2/gen-ai/scenario_sets/file_upload_presigned_urls\u0060. After uploading, pass the stored object in Create Scenario Set as \u0060file_upload_scenario_set\u0060.",
+        "operationId": "GenaiCreateScenarioSetUploadPresignedUrls",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiCreateScenarioSetUploadPresignedUrlsInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCreateDataSourceFileUploadPresignedUrlsOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_sets/generate": {
+      "post": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Generate Scenario Set",
+        "description": "To dispatch goal-driven scenario generation, send a POST request to \u0060/v2/gen-ai/scenario_sets/generate\u0060. The scenario set is returned in the generating state. Poll the retrieve scenario set endpoint until the set reaches a ready, failed, or cancelled status.",
+        "operationId": "GenaiCreateGeneratedScenarioSet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiGenerateScenarioSetInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGenerateScenarioSetOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_sets/{scenarioSetUuid}": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Retrieve Scenario Set",
+        "description": "To retrieve a scenario set, send a GET request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}\u0060.",
+        "operationId": "GenaiGetScenarioSet",
+        "parameters": [
+          {
+            "name": "scenarioSetUuid",
+            "in": "path",
+            "description": "UUID of the scenario set.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetScenarioSetOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Update Scenario Set",
+        "description": "To update a scenario set in place, send a PUT request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}\u0060. Provide a new \u0060name\u0060 and/or replacement \u0060scenarios\u0060. At least one is required. Replacing contents keeps the same scenario set UUID, remints scenario UUIDs, and is rejected unless the set is ready and no simulation run references it. There is no file-upload path on update.",
+        "operationId": "GenaiUpdateScenarioSet",
+        "parameters": [
+          {
+            "name": "scenarioSetUuid",
+            "in": "path",
+            "description": "UUID of the scenario set to update. Returned by \u0060CreateScenarioSet\u0060\nand listed via \u0060ListScenarioSets\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiUpdateScenarioSetInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiUpdateScenarioSetOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:update"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Delete Scenario Set",
+        "description": "To delete a scenario set, send a DELETE request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}\u0060. A scenario set that is referenced by a simulation run cannot be deleted.",
+        "operationId": "GenaiDeleteScenarioSet",
+        "parameters": [
+          {
+            "name": "scenarioSetUuid",
+            "in": "path",
+            "description": "UUID of the scenario set to delete. Returned by \u0060CreateScenarioSet\u0060\nand listed via \u0060ListScenarioSets\u0060. A set still referenced by a\nsimulation run cannot be deleted.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDeleteScenarioSetOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:delete"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_sets/{scenarioSetUuid}/download_url": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Retrieve Scenario Set Download URL",
+        "description": "To retrieve a presigned download URL for a scenario set file, send a GET request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}/download_url\u0060.",
+        "operationId": "GenaiGetScenarioSetDownloadUrl",
+        "parameters": [
+          {
+            "name": "scenarioSetUuid",
+            "in": "path",
+            "description": "UUID of the scenario set.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetScenarioSetDownloadUrlOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_sets/{scenarioSetUuid}/duplicate": {
+      "post": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Duplicate Scenario Set",
+        "description": "To duplicate a scenario set, send a POST request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}/duplicate\u0060. The source set must be ready. The new set is named \u0060{original name} duplicate\u0060 and contains a copy of the source scenarios.",
+        "operationId": "GenaiCreateDuplicateScenarioSet",
+        "parameters": [
+          {
+            "name": "scenarioSetUuid",
+            "in": "path",
+            "description": "UUID of the scenario set to duplicate.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiDuplicateScenarioSetInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDuplicateScenarioSetOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/scenario_sets/{scenarioSetUuid}/scenarios": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "List Scenarios",
+        "description": "To list the scenarios in a scenario set, send a GET request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}/scenarios\u0060.",
+        "operationId": "GenaiListScenarios",
+        "parameters": [
+          {
+            "name": "scenarioSetUuid",
+            "in": "path",
+            "description": "UUID of the scenario set to read.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Free-text search across name, description, and user_persona\n(case-insensitive substring match). Empty means no search.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Field to sort by. Defaults to original file order when unspecified.\n\n - SCENARIO_SORT_FIELD_FILE_ORDER: Preserve original file order. Default.\n - SCENARIO_SORT_FIELD_NAME: Sort by scenario name (case-insensitive). Empty names sort last.\n - SCENARIO_SORT_FIELD_DESCRIPTION: Sort by scenario description (case-insensitive).",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListScenariosSortByParameter"
+            },
+            "example": "SCENARIO_SORT_FIELD_UNSPECIFIED"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "description": "Sort direction. Defaults to ascending when unspecified.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListScenariosSortDirectionParameter"
+            },
+            "example": "SORT_DIRECTION_UNSPECIFIED"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiListScenariosOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      }
+    },
     "/v2/gen-ai/scheduled-indexing": {
       "post": {
         "tags": [
@@ -33690,6 +34780,855 @@
           {
             "bearer_auth": [
               "genai:delete"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/simulation_runs": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "List Simulation Runs",
+        "description": "To list simulation runs, send a GET request to \u0060/v2/gen-ai/simulation_runs\u0060.",
+        "operationId": "GenaiListSimulationRuns",
+        "parameters": [
+          {
+            "name": "scenario_set_uuid",
+            "in": "query",
+            "description": "Optional filter by scenario set.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "statuses",
+            "in": "query",
+            "description": "Filter by one or more statuses. Empty means no status filter.\n\n - SIMULATION_RUN_STATUS_PENDING: Accepted and queued, not yet executing.\n - SIMULATION_RUN_STATUS_RUNNING: Journeys are executing.\n - SIMULATION_RUN_STATUS_SUCCEEDED: All journeys finished successfully.\n - SIMULATION_RUN_STATUS_FAILED: The run failed, for example because of a timeout or workflow error.\n - SIMULATION_RUN_STATUS_CANCELLED: The run was cancelled.\n - SIMULATION_RUN_STATUS_EVALUATING: Journeys finished and an attached evaluation is running. Only reachable\nwhen the create request included evaluation_config. When the evaluation\nreaches a terminal status, its outcome is reflected in the simulation run\nstatus.\n - SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL: The simulation or its attached evaluation completed with a mixture of\nsuccessful and failed results.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GenaiListSimulationRunsStatusesParameterItem"
+              }
+            },
+            "example": [
+              "SIMULATION_RUN_STATUS_RUNNING"
+            ]
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Free-text search across the run name and scenario set name\n(case-insensitive substring match). Empty means no search.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Field to sort by. Defaults to creation date when unspecified.\n\n - SIMULATION_RUN_SORT_FIELD_CREATED_AT: Sort by creation date. Default.\n - SIMULATION_RUN_SORT_FIELD_NAME: Sort by customer-supplied run name (case-insensitive).\n - SIMULATION_RUN_SORT_FIELD_STATUS: Sort by status using lifecycle order (pending \u2192 running \u2192 terminal).\n - SIMULATION_RUN_SORT_FIELD_UPDATED_AT: Sort by last update date.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListSimulationRunsSortByParameter"
+            },
+            "example": "SIMULATION_RUN_SORT_FIELD_UNSPECIFIED"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "description": "Sort direction. Defaults to descending when unspecified.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListSimulationRunsSortDirectionParameter"
+            },
+            "example": "SORT_DIRECTION_UNSPECIFIED"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiListSimulationRunsOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Create Simulation Run",
+        "description": "To create a simulation run, send a POST request to \u0060/v2/gen-ai/simulation_runs\u0060. The scenario set must be ready. Judge and user simulator models are optional and use platform defaults when omitted. The run is returned in the pending state.",
+        "operationId": "GenaiCreateSimulationRun",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiCreateSimulationRunInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCreateSimulationRunOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/simulation_runs/{runUuid}": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Retrieve Simulation Run",
+        "description": "To retrieve a simulation run, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}\u0060.",
+        "operationId": "GenaiGetSimulationRun",
+        "parameters": [
+          {
+            "name": "runUuid",
+            "in": "path",
+            "description": "UUID of the simulation run.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetSimulationRunOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Update Simulation Run",
+        "description": "To update a simulation run\u0027s display name, send a PUT request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}\u0060. Only the name is mutable; run configuration and results are immutable.",
+        "operationId": "GenaiUpdateSimulationRun",
+        "parameters": [
+          {
+            "name": "runUuid",
+            "in": "path",
+            "description": "UUID of the simulation run to update. Returned by \u0060CreateSimulationRun\u0060\nand listed via \u0060ListSimulationRuns\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiUpdateSimulationRunInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiUpdateSimulationRunOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:update"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Delete Simulation Run",
+        "description": "To delete a simulation run, send a DELETE request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}\u0060. The run must be in a terminal status (\u0060SIMULATION_RUN_STATUS_SUCCEEDED\u0060, \u0060SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL\u0060, \u0060SIMULATION_RUN_STATUS_FAILED\u0060, or \u0060SIMULATION_RUN_STATUS_CANCELLED\u0060). For runs still in progress, cancel the run first, then retry the delete.",
+        "operationId": "GenaiDeleteSimulationRun",
+        "parameters": [
+          {
+            "name": "runUuid",
+            "in": "path",
+            "description": "UUID of the simulation run to delete. The run must be in a terminal\nstatus. For runs still in progress, cancel the run first, then retry\nthe delete.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDeleteSimulationRunOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:delete"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/simulation_runs/{runUuid}/cancel": {
+      "patch": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Cancel Simulation Run",
+        "description": "To cancel an in-progress simulation run, send a PATCH request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/cancel\u0060.",
+        "operationId": "GenaiPatchCancelSimulationRun",
+        "parameters": [
+          {
+            "name": "runUuid",
+            "in": "path",
+            "description": "UUID of the simulation run to cancel. Returned by \u0060CreateSimulationRun\u0060\nand listed via \u0060ListSimulationRuns\u0060. The run must be in a non-terminal\nstatus; already-terminal runs return an error.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiCancelSimulationRunInputPublic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCancelSimulationRunOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:update"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/simulation_runs/{runUuid}/journeys": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "List Simulation Journeys",
+        "description": "To list the journeys within a simulation run, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/journeys\u0060.",
+        "operationId": "GenaiListSimulationJourneys",
+        "parameters": [
+          {
+            "name": "runUuid",
+            "in": "path",
+            "description": "UUID of the run whose journeys to list.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          },
+          {
+            "name": "scenario_uuid",
+            "in": "query",
+            "description": "Optional filter by scenario.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "statuses",
+            "in": "query",
+            "description": "Filter by one or more statuses. Empty means no status filter.\n\n - SIMULATION_JOURNEY_STATUS_RUNNING: The journey is executing and a trajectory is available to retrieve.\n - SIMULATION_JOURNEY_STATUS_FINISHED: The journey reached a stop condition and produced a verdict.\n - SIMULATION_JOURNEY_STATUS_FAILED: The journey failed because of a cancel, timeout, or error.\n - SIMULATION_JOURNEY_STATUS_PREPARING: The journey is allocated but its trajectory is not available yet.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GenaiListSimulationJourneysStatusesParameterItem"
+              }
+            },
+            "example": [
+              "SIMULATION_JOURNEY_STATUS_FINISHED"
+            ]
+          },
+          {
+            "name": "verdicts",
+            "in": "query",
+            "description": "Filter by one or more verdicts. Empty means no verdict filter.\n\n - SIMULATION_JOURNEY_VERDICT_SUCCESS: The candidate agent satisfied the scenario\u0027s stopping criteria.\n - SIMULATION_JOURNEY_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria.\n - SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GenaiListSimulationJourneysVerdictsParameterItem"
+              }
+            },
+            "example": [
+              "SIMULATION_JOURNEY_VERDICT_SUCCESS"
+            ]
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Free-text search across scenario_uuid and session_id\n(case-insensitive substring match). Empty means no search.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Field to sort by. Defaults to scenario ordering when unspecified.\n\n - SIMULATION_JOURNEY_SORT_FIELD_SCENARIO: Sort by scenario_uuid then journey_index. Default.\n - SIMULATION_JOURNEY_SORT_FIELD_CREATED_AT: Sort by creation date.\n - SIMULATION_JOURNEY_SORT_FIELD_STATUS: Sort by journey status using lifecycle order.\n - SIMULATION_JOURNEY_SORT_FIELD_VERDICT: Sort by verdict (nulls last).",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListSimulationJourneysSortByParameter"
+            },
+            "example": "SIMULATION_JOURNEY_SORT_FIELD_UNSPECIFIED"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "description": "Sort direction. Defaults to ascending when unspecified.",
+            "schema": {
+              "$ref": "#/components/schemas/GenaiListSimulationJourneysSortDirectionParameter"
+            },
+            "example": "SORT_DIRECTION_UNSPECIFIED"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiListSimulationJourneysOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Retrieve Simulation Journey",
+        "description": "To retrieve a single journey, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}\u0060.",
+        "operationId": "GenaiGetSimulationJourney",
+        "parameters": [
+          {
+            "name": "runUuid",
+            "in": "path",
+            "description": "UUID of the run the journey belongs to.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          },
+          {
+            "name": "journeyUuid",
+            "in": "path",
+            "description": "UUID of the journey.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetSimulationJourneyOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}/trajectory": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Retrieve Journey Trajectory",
+        "description": "To retrieve a journey\u0027s live trajectory, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}/trajectory\u0060. Poll while the journey is running to watch turn-by-turn progress.",
+        "operationId": "GenaiGetSimulationJourneyTrajectory",
+        "parameters": [
+          {
+            "name": "runUuid",
+            "in": "path",
+            "description": "UUID of the run the journey belongs to.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          },
+          {
+            "name": "journeyUuid",
+            "in": "path",
+            "description": "UUID of the journey.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetSimulationJourneyTrajectoryOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}/trajectory_url": {
+      "get": {
+        "tags": [
+          "GradientAI Platform"
+        ],
+        "summary": "Retrieve Journey Trajectory Download URL",
+        "description": "To retrieve a presigned download URL for a journey\u0027s trajectory, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}/trajectory_url\u0060.",
+        "operationId": "GenaiGetSimulationJourneyTrajectoryUrl",
+        "parameters": [
+          {
+            "name": "runUuid",
+            "in": "path",
+            "description": "UUID of the run the journey belongs to.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          },
+          {
+            "name": "journeyUuid",
+            "in": "path",
+            "description": "UUID of the journey.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "\u0022123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetSimulationJourneyTrajectoryUrlOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
             ]
           }
         ]
@@ -46114,6 +48053,9 @@
             "type": "string",
             "description": "The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. \u00228000-9000\u0022), or \u00220\u0022 when all ports are open for a protocol. For ICMP rules this parameter will always return \u00220\u0022.",
             "example": "8000"
+          },
+          "action": {
+            "$ref": "#/components/schemas/FirewallRuleBaseAction"
           }
         }
       },
@@ -62230,6 +64172,728 @@
         },
         "description": "Region Codes"
       },
+      "ApiScenarioLibrarySortField": {
+        "enum": [
+          "SCENARIO_LIBRARY_SORT_FIELD_UNSPECIFIED",
+          "SCENARIO_LIBRARY_SORT_FIELD_NAME",
+          "SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Sortable fields for listing the scenario library.\n\n - SCENARIO_LIBRARY_SORT_FIELD_NAME: Sort by customer-facing name (case-insensitive). Default.\n - SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT: Sort by creation date.",
+        "example": "SCENARIO_LIBRARY_SORT_FIELD_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiScenarioLibrarySortField",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_LIBRARY_SORT_FIELD_UNSPECIFIED",
+              "name": "ScenarioLibrarySortFieldUnspecified"
+            },
+            {
+              "value": "SCENARIO_LIBRARY_SORT_FIELD_NAME",
+              "name": "ScenarioLibrarySortFieldName"
+            },
+            {
+              "value": "SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT",
+              "name": "ScenarioLibrarySortFieldCreatedAt"
+            }
+          ]
+        }
+      },
+      "ApiScenarioLibraryEntryStatus": {
+        "enum": [
+          "SCENARIO_LIBRARY_ENTRY_STATUS_UNSPECIFIED",
+          "SCENARIO_LIBRARY_ENTRY_STATUS_ACTIVE",
+          "SCENARIO_LIBRARY_ENTRY_STATUS_ARCHIVED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Lifecycle status of a Common Scenario \u0026 Goal Library entry.\n\n - SCENARIO_LIBRARY_ENTRY_STATUS_ACTIVE: Visible in the library and available to copy into a scenario set.\n - SCENARIO_LIBRARY_ENTRY_STATUS_ARCHIVED: Hidden from the library catalog. Existing scenario sets created from\nthis entry keep their provenance.",
+        "example": "SCENARIO_LIBRARY_ENTRY_STATUS_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiScenarioLibraryEntryStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_LIBRARY_ENTRY_STATUS_UNSPECIFIED",
+              "name": "ScenarioLibraryEntryStatusUnspecified"
+            },
+            {
+              "value": "SCENARIO_LIBRARY_ENTRY_STATUS_ACTIVE",
+              "name": "ScenarioLibraryEntryStatusActive"
+            },
+            {
+              "value": "SCENARIO_LIBRARY_ENTRY_STATUS_ARCHIVED",
+              "name": "ScenarioLibraryEntryStatusArchived"
+            }
+          ]
+        }
+      },
+      "ApiScenarioLibraryEntry": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Optional grouping for catalog browsing (e.g. \u0022Billing\u0022, \u0022Onboarding\u0022).\nEmpty when uncategorized.",
+            "example": "example string"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Time created at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "description": {
+            "type": "string",
+            "description": "Curated description.",
+            "example": "example string"
+          },
+          "goal_description": {
+            "type": "string",
+            "description": "The goal this scenario set demonstrates, shown as context alongside\ngoal-driven generation.",
+            "example": "example string"
+          },
+          "library_scenario_uuid": {
+            "type": "string",
+            "description": "UUID of the library entry.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "Curated display name.",
+            "example": "example name"
+          },
+          "scenario_count": {
+            "type": "integer",
+            "description": "Number of scenarios in the library entry.",
+            "format": "int64",
+            "example": 123
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApiScenarioLibraryEntryStatus"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Time last updated at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          }
+        },
+        "description": "A platform-curated, ready-to-run scenario set that any team can pick from."
+      },
+      "ApiListScenarioLibraryOutput": {
+        "type": "object",
+        "properties": {
+          "available_categories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "example string"
+            },
+            "description": "Categories currently in use, for filtering library results."
+          },
+          "available_sort_by": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenarioLibrarySortField"
+            },
+            "description": "Sort-by values available for this list request."
+          },
+          "available_sort_directions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSortDirection"
+            },
+            "description": "Sort-direction values available for this list request."
+          },
+          "links": {
+            "$ref": "#/components/schemas/ApiLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ApiMeta"
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenarioLibraryEntry"
+            },
+            "description": "The library entries for the current page."
+          }
+        },
+        "description": "Output for listing the Common Scenario \u0026 Goal Library."
+      },
+      "ApiCreateScenarioSetFromLibraryInputPublic": {
+        "type": "object",
+        "properties": {
+          "library_scenario_uuid": {
+            "type": "string",
+            "description": "UUID of the library entry to copy.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional name for the new scenario set. Defaults to the library entry\u0027s\nname when unset.",
+            "example": "example name"
+          }
+        },
+        "description": "Public parameters for creating a scenario set from a Common Scenario \u0026 Goal Library entry."
+      },
+      "ApiScenarioSetSourceKind": {
+        "enum": [
+          "SCENARIO_SET_SOURCE_KIND_UNSPECIFIED",
+          "SCENARIO_SET_SOURCE_KIND_USER_UPLOAD",
+          "SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED",
+          "SCENARIO_SET_SOURCE_KIND_LIBRARY",
+          "SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How a scenario set was created.\n\n - SCENARIO_SET_SOURCE_KIND_USER_UPLOAD: Created from uploaded or inline scenarios.\n - SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED: Produced by goal-driven generation.\n - SCENARIO_SET_SOURCE_KIND_LIBRARY: Copied from a platform-curated library entry.\n - SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED: Produced from a completed Signals export.",
+        "example": "SCENARIO_SET_SOURCE_KIND_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiScenarioSetSourceKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_UNSPECIFIED",
+              "name": "ScenarioSetSourceKindUnspecified"
+            },
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_USER_UPLOAD",
+              "name": "ScenarioSetSourceKindUserUpload"
+            },
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED",
+              "name": "ScenarioSetSourceKindGoalGenerated"
+            },
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_LIBRARY",
+              "name": "ScenarioSetSourceKindLibrary"
+            },
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED",
+              "name": "ScenarioSetSourceKindSignalGenerated"
+            }
+          ]
+        }
+      },
+      "ApiScenarioSetStatus": {
+        "enum": [
+          "SCENARIO_SET_STATUS_UNSPECIFIED",
+          "SCENARIO_SET_STATUS_GENERATING",
+          "SCENARIO_SET_STATUS_READY",
+          "SCENARIO_SET_STATUS_FAILED",
+          "SCENARIO_SET_STATUS_CANCELLED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Lifecycle status of a scenario set. Uploaded sets are created as ready.\nGenerated sets start as generating and then become ready, failed, or\ncancelled.\n\n - SCENARIO_SET_STATUS_GENERATING: Generation is in progress. The scenarios are not ready yet.\n - SCENARIO_SET_STATUS_READY: The scenario set is ready to use.\n - SCENARIO_SET_STATUS_FAILED: Generation failed. The scenario set has no readable scenarios.\n - SCENARIO_SET_STATUS_CANCELLED: Generation was cancelled before completion.",
+        "example": "SCENARIO_SET_STATUS_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiScenarioSetStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SET_STATUS_UNSPECIFIED",
+              "name": "ScenarioSetStatusUnspecified"
+            },
+            {
+              "value": "SCENARIO_SET_STATUS_GENERATING",
+              "name": "ScenarioSetStatusGenerating"
+            },
+            {
+              "value": "SCENARIO_SET_STATUS_READY",
+              "name": "ScenarioSetStatusReady"
+            },
+            {
+              "value": "SCENARIO_SET_STATUS_FAILED",
+              "name": "ScenarioSetStatusFailed"
+            },
+            {
+              "value": "SCENARIO_SET_STATUS_CANCELLED",
+              "name": "ScenarioSetStatusCancelled"
+            }
+          ]
+        }
+      },
+      "ApiScenarioSet": {
+        "type": "object",
+        "properties": {
+          "bucket_name": {
+            "type": "string",
+            "description": "Object storage bucket holding the scenario file. Unset while status is generating.",
+            "example": "example name"
+          },
+          "bucket_region": {
+            "type": "string",
+            "description": "Object storage bucket region. Unset while status is generating.",
+            "example": "example string"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Time created at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "deleted_at": {
+            "type": "string",
+            "description": "Time deleted at. Unset unless the scenario set has been deleted.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "description": {
+            "type": "string",
+            "description": "Customer-supplied description.",
+            "example": "example string"
+          },
+          "failure_reason": {
+            "type": "string",
+            "description": "Human-readable explanation of a terminal FAILED status. Empty otherwise.",
+            "example": "example string"
+          },
+          "generator_model_uuid": {
+            "type": "string",
+            "description": "Model that produced the scenarios. Only set for goal-generated scenario sets.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "library_scenario_uuid": {
+            "type": "string",
+            "description": "UUID of the source library entry. Only set for library scenario sets\n(\u0060source_kind=SCENARIO_SET_SOURCE_KIND_LIBRARY\u0060).",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "Customer-supplied name.",
+            "example": "example name"
+          },
+          "scenario_count": {
+            "type": "integer",
+            "description": "Number of scenarios in the set. Unset while status is generating.",
+            "format": "int64",
+            "example": 123
+          },
+          "scenario_set_uuid": {
+            "type": "string",
+            "description": "UUID of the scenario set.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "source_export_id": {
+            "type": "string",
+            "description": "Signals export UUID that produced this set. Only set for signal-generated\nscenario sets (\u0060source_kind=SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED\u0060).",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "source_goal_description": {
+            "type": "string",
+            "description": "The goal that drove generation. Only set for goal_generated scenario sets.",
+            "example": "example string"
+          },
+          "source_kind": {
+            "$ref": "#/components/schemas/ApiScenarioSetSourceKind"
+          },
+          "spaces_key": {
+            "type": "string",
+            "description": "Object storage key for the scenario file. Unset while status is generating.",
+            "example": "example string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApiScenarioSetStatus"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Time last updated at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "workflow_uuid": {
+            "type": "string",
+            "description": "Identifier of the generation workflow. Only set for goal-generated scenario sets.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "A team-owned collection of scenarios."
+      },
+      "ApiCreateScenarioSetFromLibraryOutput": {
+        "type": "object",
+        "properties": {
+          "scenario_set": {
+            "$ref": "#/components/schemas/ApiScenarioSet"
+          }
+        },
+        "description": "Output for creating a scenario set from a Common Scenario \u0026 Goal Library entry."
+      },
+      "ApiScenarioSortField": {
+        "enum": [
+          "SCENARIO_SORT_FIELD_UNSPECIFIED",
+          "SCENARIO_SORT_FIELD_FILE_ORDER",
+          "SCENARIO_SORT_FIELD_NAME",
+          "SCENARIO_SORT_FIELD_DESCRIPTION"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Sortable fields for listing scenarios.\n\n - SCENARIO_SORT_FIELD_FILE_ORDER: Preserve original file order. Default.\n - SCENARIO_SORT_FIELD_NAME: Sort by scenario name (case-insensitive). Empty names sort last.\n - SCENARIO_SORT_FIELD_DESCRIPTION: Sort by scenario description (case-insensitive).",
+        "example": "SCENARIO_SORT_FIELD_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiScenarioSortField",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SORT_FIELD_UNSPECIFIED",
+              "name": "ScenarioSortFieldUnspecified"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_FILE_ORDER",
+              "name": "ScenarioSortFieldFileOrder"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_NAME",
+              "name": "ScenarioSortFieldName"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_DESCRIPTION",
+              "name": "ScenarioSortFieldDescription"
+            }
+          ]
+        }
+      },
+      "ApiScenario": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "What the user tries to accomplish. Required.",
+            "example": "example string"
+          },
+          "exploration_budget": {
+            "type": "integer",
+            "description": "Number of journeys to explore for this scenario. Defaults to 1 if unset.",
+            "format": "int64",
+            "example": 123
+          },
+          "max_turns": {
+            "type": "integer",
+            "description": "Turn budget for the scenario. Falls back to the run-level default if unset.",
+            "format": "int64",
+            "example": 123
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable name for the scenario. Optional.",
+            "example": "example name"
+          },
+          "scenario_uuid": {
+            "type": "string",
+            "description": "Unique id for the scenario. Always generated by the API; any\ncustomer-supplied value is ignored and overwritten.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "stopping_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "example string"
+            },
+            "description": "Judge stopping criteria. Required; must contain at least one entry."
+          },
+          "user_persona": {
+            "type": "string",
+            "description": "How the user communicates (tone, role). Optional.",
+            "example": "example string"
+          }
+        },
+        "description": "A single test case in a scenario set."
+      },
+      "ApiListScenariosOutput": {
+        "type": "object",
+        "properties": {
+          "available_sort_by": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenarioSortField"
+            },
+            "description": "Sort-by values available for this list request."
+          },
+          "available_sort_directions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSortDirection"
+            },
+            "description": "Sort-direction values available for this list request."
+          },
+          "links": {
+            "$ref": "#/components/schemas/ApiLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ApiMeta"
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenario"
+            },
+            "description": "The scenarios for the current page."
+          }
+        },
+        "description": "Output for listing the scenarios in a scenario set."
+      },
+      "ApiScenarioSetSortField": {
+        "enum": [
+          "SCENARIO_SET_SORT_FIELD_UNSPECIFIED",
+          "SCENARIO_SET_SORT_FIELD_CREATED_AT",
+          "SCENARIO_SET_SORT_FIELD_NAME",
+          "SCENARIO_SET_SORT_FIELD_STATUS",
+          "SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT",
+          "SCENARIO_SET_SORT_FIELD_UPDATED_AT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Sortable fields for listing scenario sets.\n\n - SCENARIO_SET_SORT_FIELD_CREATED_AT: Sort by creation date. Default.\n - SCENARIO_SET_SORT_FIELD_NAME: Sort by customer-supplied name (case-insensitive).\n - SCENARIO_SET_SORT_FIELD_STATUS: Sort by status using lifecycle order (generating \u2192 ready \u2192 terminal).\n - SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT: Sort by scenario_count.\n - SCENARIO_SET_SORT_FIELD_UPDATED_AT: Sort by last update date.",
+        "example": "SCENARIO_SET_SORT_FIELD_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiScenarioSetSortField",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_UNSPECIFIED",
+              "name": "ScenarioSetSortFieldUnspecified"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_CREATED_AT",
+              "name": "ScenarioSetSortFieldCreatedAt"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_NAME",
+              "name": "ScenarioSetSortFieldName"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_STATUS",
+              "name": "ScenarioSetSortFieldStatus"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT",
+              "name": "ScenarioSetSortFieldScenarioCount"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_UPDATED_AT",
+              "name": "ScenarioSetSortFieldUpdatedAt"
+            }
+          ]
+        }
+      },
+      "ApiListScenarioSetsOutput": {
+        "type": "object",
+        "properties": {
+          "available_sort_by": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenarioSetSortField"
+            },
+            "description": "Sort-by values available for this list request."
+          },
+          "available_sort_directions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSortDirection"
+            },
+            "description": "Sort-direction values available for this list request."
+          },
+          "available_source_kinds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenarioSetSourceKind"
+            },
+            "description": "Source kinds available for filtering this list request."
+          },
+          "available_statuses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenarioSetStatus"
+            },
+            "description": "Statuses available for filtering this list request."
+          },
+          "links": {
+            "$ref": "#/components/schemas/ApiLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ApiMeta"
+          },
+          "scenario_sets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenarioSet"
+            },
+            "description": "The scenario sets for the current page."
+          }
+        },
+        "description": "Output for listing scenario sets."
+      },
+      "ApiCreateScenarioSetInputPublic": {
+        "type": "object",
+        "properties": {
+          "file_upload_scenario_set": {
+            "$ref": "#/components/schemas/ApiCreateScenarioSetInputPublicFileUploadScenarioSet"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the scenario set.",
+            "example": "support-agent-scenarios"
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenario"
+            },
+            "description": "Inline scenarios. Provide this or \u0060file_upload_scenario_set\u0060, not both."
+          }
+        },
+        "description": "Public parameters for creating a scenario set."
+      },
+      "ApiCreateScenarioSetOutput": {
+        "type": "object",
+        "properties": {
+          "scenario_set": {
+            "$ref": "#/components/schemas/ApiScenarioSet"
+          }
+        },
+        "description": "Output for creating a scenario set."
+      },
+      "ApiCreateScenarioSetUploadPresignedUrlsInputPublic": {
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiPresignedUrlFile"
+            },
+            "description": "A list of files to generate presigned URLs for."
+          }
+        },
+        "description": "Public parameters for requesting scenario set upload presigned URLs."
+      },
+      "ApiGenerateScenarioSetInputPublic": {
+        "type": "object",
+        "properties": {
+          "generator_model_uuid": {
+            "type": "string",
+            "description": "Optional model to use for generation. Platform default when unset.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "goal_description": {
+            "type": "string",
+            "description": "The goal that drives scenario generation.",
+            "example": "Test how the agent handles refund requests"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the scenario set to create.",
+            "example": "billing-support-generated"
+          },
+          "num_scenarios": {
+            "type": "integer",
+            "description": "Number of scenarios to generate. Defaults to 1 if unset.",
+            "format": "int64",
+            "example": 123
+          }
+        },
+        "description": "Public parameters for dispatching goal-driven scenario generation."
+      },
+      "ApiGenerateScenarioSetOutput": {
+        "type": "object",
+        "properties": {
+          "scenario_set": {
+            "$ref": "#/components/schemas/ApiScenarioSet"
+          }
+        },
+        "description": "Output for dispatching goal-driven scenario generation."
+      },
+      "ApiGetScenarioSetOutput": {
+        "type": "object",
+        "properties": {
+          "scenario_set": {
+            "$ref": "#/components/schemas/ApiScenarioSet"
+          }
+        },
+        "description": "Output for getting a scenario set."
+      },
+      "ApiUpdateScenarioSetInputPublic": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Optional new name. When set, must be non-empty and at most 255 characters.",
+            "example": "example name"
+          },
+          "scenario_set_uuid": {
+            "type": "string",
+            "description": "UUID of the scenario set to update.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiScenario"
+            },
+            "description": "Optional inline scenarios to replace the set contents. At least one of\nname or scenarios is required."
+          }
+        },
+        "description": "Public parameters for updating a scenario set."
+      },
+      "ApiUpdateScenarioSetOutput": {
+        "type": "object",
+        "properties": {
+          "scenario_set": {
+            "$ref": "#/components/schemas/ApiScenarioSet"
+          }
+        },
+        "description": "Output for updating a scenario set."
+      },
+      "ApiDeleteScenarioSetOutput": {
+        "type": "object",
+        "properties": {
+          "scenario_set_uuid": {
+            "type": "string",
+            "description": "UUID of the deleted scenario set.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "Output for deleting a scenario set."
+      },
+      "ApiGetScenarioSetDownloadUrlOutput": {
+        "type": "object",
+        "properties": {
+          "download_url": {
+            "type": "string",
+            "description": "The presigned URL to download the scenario set file.",
+            "example": "example string"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "The time the URL expires at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          }
+        },
+        "description": "Output containing a presigned download URL for a scenario set."
+      },
+      "ApiDuplicateScenarioSetInputPublic": {
+        "type": "object",
+        "properties": {
+          "scenario_set_uuid": {
+            "type": "string",
+            "description": "UUID of the scenario set to duplicate.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "Public parameters for duplicating a scenario set."
+      },
+      "ApiDuplicateScenarioSetOutput": {
+        "type": "object",
+        "properties": {
+          "scenario_set": {
+            "$ref": "#/components/schemas/ApiScenarioSet"
+          }
+        },
+        "description": "Output for duplicating a scenario set."
+      },
       "ApiCreateScheduledIndexingInputPublic": {
         "type": "object",
         "properties": {
@@ -62342,6 +65006,1061 @@
             "$ref": "#/components/schemas/ApiScheduledIndexingInfo"
           }
         }
+      },
+      "ApiSimulationRunSortField": {
+        "enum": [
+          "SIMULATION_RUN_SORT_FIELD_UNSPECIFIED",
+          "SIMULATION_RUN_SORT_FIELD_CREATED_AT",
+          "SIMULATION_RUN_SORT_FIELD_NAME",
+          "SIMULATION_RUN_SORT_FIELD_STATUS",
+          "SIMULATION_RUN_SORT_FIELD_UPDATED_AT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Sortable fields for listing simulation runs.\n\n - SIMULATION_RUN_SORT_FIELD_CREATED_AT: Sort by creation date. Default.\n - SIMULATION_RUN_SORT_FIELD_NAME: Sort by customer-supplied run name (case-insensitive).\n - SIMULATION_RUN_SORT_FIELD_STATUS: Sort by status using lifecycle order (pending \u2192 running \u2192 terminal).\n - SIMULATION_RUN_SORT_FIELD_UPDATED_AT: Sort by last update date.",
+        "example": "SIMULATION_RUN_SORT_FIELD_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiSimulationRunSortField",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_UNSPECIFIED",
+              "name": "SimulationRunSortFieldUnspecified"
+            },
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_CREATED_AT",
+              "name": "SimulationRunSortFieldCreatedAt"
+            },
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_NAME",
+              "name": "SimulationRunSortFieldName"
+            },
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_STATUS",
+              "name": "SimulationRunSortFieldStatus"
+            },
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_UPDATED_AT",
+              "name": "SimulationRunSortFieldUpdatedAt"
+            }
+          ]
+        }
+      },
+      "ApiSimulationRunStatus": {
+        "enum": [
+          "SIMULATION_RUN_STATUS_UNSPECIFIED",
+          "SIMULATION_RUN_STATUS_PENDING",
+          "SIMULATION_RUN_STATUS_RUNNING",
+          "SIMULATION_RUN_STATUS_SUCCEEDED",
+          "SIMULATION_RUN_STATUS_FAILED",
+          "SIMULATION_RUN_STATUS_CANCELLED",
+          "SIMULATION_RUN_STATUS_EVALUATING",
+          "SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Lifecycle status of a simulation run.\n\n - SIMULATION_RUN_STATUS_PENDING: Accepted and queued, not yet executing.\n - SIMULATION_RUN_STATUS_RUNNING: Journeys are executing.\n - SIMULATION_RUN_STATUS_SUCCEEDED: All journeys finished successfully.\n - SIMULATION_RUN_STATUS_FAILED: The run failed, for example because of a timeout or workflow error.\n - SIMULATION_RUN_STATUS_CANCELLED: The run was cancelled.\n - SIMULATION_RUN_STATUS_EVALUATING: Journeys finished and an attached evaluation is running. Only reachable\nwhen the create request included evaluation_config. When the evaluation\nreaches a terminal status, its outcome is reflected in the simulation run\nstatus.\n - SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL: The simulation or its attached evaluation completed with a mixture of\nsuccessful and failed results.",
+        "example": "SIMULATION_RUN_STATUS_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiSimulationRunStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_RUN_STATUS_UNSPECIFIED",
+              "name": "SimulationRunStatusUnspecified"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_PENDING",
+              "name": "SimulationRunStatusPending"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_RUNNING",
+              "name": "SimulationRunStatusRunning"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_SUCCEEDED",
+              "name": "SimulationRunStatusSucceeded"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_FAILED",
+              "name": "SimulationRunStatusFailed"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_CANCELLED",
+              "name": "SimulationRunStatusCancelled"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_EVALUATING",
+              "name": "SimulationRunStatusEvaluating"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL",
+              "name": "SimulationRunStatusPartiallySuccessful"
+            }
+          ]
+        }
+      },
+      "ApiCandidateAgentConfig": {
+        "type": "object",
+        "properties": {
+          "agent_deployment_uuid": {
+            "type": "string",
+            "description": "Optional agent deployment to run. Defaults to the agent\u0027s current deployment when unset.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "agent_uuid": {
+            "type": "string",
+            "description": "UUID of the agent to exercise as the candidate.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name of the candidate agent. Persisted with the run.",
+            "example": "example name"
+          }
+        },
+        "description": "Configuration of the candidate agent under test for a simulation run."
+      },
+      "ApiSimulationTokenUsage": {
+        "type": "object",
+        "properties": {
+          "candidate_agent_tokens": {
+            "type": "string",
+            "description": "Tokens consumed by the candidate agent.",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "generator_tokens": {
+            "type": "string",
+            "description": "Tokens consumed by the scenario generator.",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "judge_tokens": {
+            "type": "string",
+            "description": "Tokens consumed by the judge.",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "simulator_tokens": {
+            "type": "string",
+            "description": "Tokens consumed by the user simulator.",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "total_tokens": {
+            "type": "string",
+            "description": "Total tokens across all actors.",
+            "format": "uint64",
+            "example": "12345"
+          }
+        },
+        "description": "Per-actor token accounting for a run or journey."
+      },
+      "ApiSimulationJourneyCounts": {
+        "type": "object",
+        "properties": {
+          "failure_count": {
+            "type": "integer",
+            "description": "Number of journeys with a FAILURE verdict.",
+            "format": "int64",
+            "example": 123
+          },
+          "inconclusive_count": {
+            "type": "integer",
+            "description": "Number of journeys with an INCONCLUSIVE verdict.",
+            "format": "int64",
+            "example": 123
+          },
+          "success_count": {
+            "type": "integer",
+            "description": "Number of journeys with a SUCCESS verdict.",
+            "format": "int64",
+            "example": 123
+          }
+        },
+        "description": "Breakdown of journey outcomes by judge verdict. Reused wherever a\nsuccess / failure / inconclusive tally is reported (run row, result summary,\nper-scenario rollup)."
+      },
+      "ApiSimulationRunResultSummary": {
+        "type": "object",
+        "properties": {
+          "token_usage": {
+            "$ref": "#/components/schemas/ApiSimulationTokenUsage"
+          },
+          "total_duration_sec": {
+            "type": "string",
+            "description": "Total wall-clock duration across the run, in seconds.",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "verdict_counts": {
+            "$ref": "#/components/schemas/ApiSimulationJourneyCounts"
+          }
+        },
+        "description": "Aggregated final result of a simulation run: verdict counts plus token and\nduration totals."
+      },
+      "ApiSimulationRun": {
+        "type": "object",
+        "properties": {
+          "agent_config": {
+            "$ref": "#/components/schemas/ApiCandidateAgentConfig"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Time created at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "created_by_user_email": {
+            "type": "string",
+            "description": "Email of the user who triggered this run.",
+            "example": "example@example.com"
+          },
+          "created_by_user_id": {
+            "type": "string",
+            "description": "User id of the actor who triggered this run.",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "deleted_at": {
+            "type": "string",
+            "description": "Time deleted at. Unset unless the run has been deleted.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "evaluation_run_uuid": {
+            "type": "string",
+            "description": "UUID of the evaluation run reserved for this simulation, when the create\nrequest included evaluation_config. Empty when no evaluation is attached.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "exploration_budget": {
+            "type": "integer",
+            "description": "Optional run-level journeys-per-scenario override. When set, overrides each scenario\u0027s exploration_budget.",
+            "format": "int64",
+            "example": 123
+          },
+          "failure_reason": {
+            "type": "string",
+            "description": "Human-readable explanation of a terminal FAILED status. Empty otherwise.",
+            "example": "example string"
+          },
+          "journeys_finished": {
+            "type": "integer",
+            "description": "Number of journeys that have finished (successfully or not).",
+            "format": "int64",
+            "example": 123
+          },
+          "judge_model_name": {
+            "type": "string",
+            "description": "Display name of the judge model (from the model catalog).",
+            "example": "example name"
+          },
+          "judge_model_uuid": {
+            "type": "string",
+            "description": "Model used by the judge.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "max_turns": {
+            "type": "integer",
+            "description": "Optional run-level turn budget. When set, overrides each scenario\u0027s max_turns.",
+            "format": "int64",
+            "example": 123
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional run name.",
+            "example": "example name"
+          },
+          "result_summary": {
+            "$ref": "#/components/schemas/ApiSimulationRunResultSummary"
+          },
+          "run_uuid": {
+            "type": "string",
+            "description": "UUID of the run.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "scenario_count": {
+            "type": "integer",
+            "description": "Number of scenarios in the scenario set for this run.",
+            "format": "int64",
+            "example": 123
+          },
+          "scenario_set_uuid": {
+            "type": "string",
+            "description": "UUID of the scenario set being executed (must exist at run create).",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApiSimulationRunStatus"
+          },
+          "total_journeys": {
+            "type": "integer",
+            "description": "Total number of journeys (sum of exploration budgets).",
+            "format": "int64",
+            "example": 123
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Time last updated at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "user_simulator_config": {
+            "$ref": "#/components/schemas/ApiSimulationRunUserSimulatorConfigProperty"
+          },
+          "user_simulator_model_name": {
+            "type": "string",
+            "description": "Display name of the user simulator model (from the model catalog).",
+            "example": "example name"
+          },
+          "user_simulator_model_uuid": {
+            "type": "string",
+            "description": "Model used by the user simulator.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "workflow_uuid": {
+            "type": "string",
+            "description": "Identifier of the workflow executing this run.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "One execution of a scenario set against a candidate agent."
+      },
+      "ApiListSimulationRunsOutput": {
+        "type": "object",
+        "properties": {
+          "available_sort_by": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationRunSortField"
+            },
+            "description": "Sort-by values available for this list request."
+          },
+          "available_sort_directions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSortDirection"
+            },
+            "description": "Sort-direction values available for this list request."
+          },
+          "available_statuses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationRunStatus"
+            },
+            "description": "Statuses available for filtering this list request."
+          },
+          "links": {
+            "$ref": "#/components/schemas/ApiLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ApiMeta"
+          },
+          "simulation_runs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationRun"
+            },
+            "description": "The simulation runs for the current page."
+          }
+        },
+        "description": "Output for listing simulation runs."
+      },
+      "ApiSimulationEvaluationConfig": {
+        "type": "object",
+        "properties": {
+          "metric_uuids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "example string"
+            },
+            "description": "Evaluation metric UUIDs (from the evaluation metrics catalog). Must be\nsimulation-eligible (multi-turn) metrics; the create request is rejected\nif any UUID is unknown or ineligible."
+          },
+          "star_metric": {
+            "$ref": "#/components/schemas/ApiStarMetric"
+          }
+        },
+        "description": "Optional configuration that opts a simulation run into an evaluation. When\nincluded on the create-run request, the platform reserves a\nmodel_evaluation_run linked to this simulation run and dispatches the\nevaluation automatically after the simulation finishes. The evaluation\nreuses the simulation run\u0027s judge_model_uuid."
+      },
+      "ApiCreateSimulationRunInputPublic": {
+        "type": "object",
+        "properties": {
+          "agent_config": {
+            "$ref": "#/components/schemas/ApiCandidateAgentConfig"
+          },
+          "evaluation_config": {
+            "$ref": "#/components/schemas/ApiSimulationEvaluationConfig"
+          },
+          "exploration_budget": {
+            "type": "integer",
+            "description": "Optional run-level journeys-per-scenario override. When set, overrides each scenario\u0027s exploration_budget.",
+            "format": "int64",
+            "example": 123
+          },
+          "judge_model_uuid": {
+            "type": "string",
+            "description": "Optional model override for the judge. Platform default when unset.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "max_turns": {
+            "type": "integer",
+            "description": "Optional run-level turn budget. When set, overrides each scenario\u0027s max_turns.",
+            "format": "int64",
+            "example": 123
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional run name.",
+            "example": "example name"
+          },
+          "scenario_set_uuid": {
+            "type": "string",
+            "description": "UUID of the existing scenario set to execute. The set must be ready.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "user_simulator_config": {
+            "$ref": "#/components/schemas/ApiCreateSimulationRunInputPublicUserSimulatorConfigProperty"
+          },
+          "user_simulator_model_uuid": {
+            "type": "string",
+            "description": "Optional model override for the user simulator. Platform default when unset.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "Public parameters for creating a simulation run."
+      },
+      "ApiCreateSimulationRunOutput": {
+        "type": "object",
+        "properties": {
+          "simulation_run": {
+            "$ref": "#/components/schemas/ApiSimulationRun"
+          }
+        },
+        "description": "Output for creating a simulation run."
+      },
+      "ApiSimulationScenarioResult": {
+        "type": "object",
+        "properties": {
+          "journeys_finished": {
+            "type": "integer",
+            "description": "Journeys that have finished (successfully or not).",
+            "format": "int64",
+            "example": 123
+          },
+          "scenario_uuid": {
+            "type": "string",
+            "description": "UUID of the scenario.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "total_journeys": {
+            "type": "integer",
+            "description": "Total journeys for this scenario (its exploration budget).",
+            "format": "int64",
+            "example": 123
+          },
+          "verdict_counts": {
+            "$ref": "#/components/schemas/ApiSimulationJourneyCounts"
+          }
+        },
+        "description": "Per-scenario rollup of journey outcomes within a run, aggregated from the\nrun\u0027s journey rows."
+      },
+      "ApiGetSimulationRunOutput": {
+        "type": "object",
+        "properties": {
+          "scenario_results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationScenarioResult"
+            },
+            "description": "Per-scenario breakdown of journey outcomes, aggregated from journey rows."
+          },
+          "simulation_run": {
+            "$ref": "#/components/schemas/ApiSimulationRun"
+          }
+        },
+        "description": "Output for getting a simulation run."
+      },
+      "ApiUpdateSimulationRunInputPublic": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The new name of the run.",
+            "example": "example name"
+          },
+          "run_uuid": {
+            "type": "string",
+            "description": "UUID of the run to update.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "Public parameters for updating a simulation run."
+      },
+      "ApiUpdateSimulationRunOutput": {
+        "type": "object",
+        "properties": {
+          "simulation_run": {
+            "$ref": "#/components/schemas/ApiSimulationRun"
+          }
+        },
+        "description": "Output for updating a simulation run."
+      },
+      "ApiDeleteSimulationRunOutput": {
+        "type": "object",
+        "properties": {
+          "run_uuid": {
+            "type": "string",
+            "description": "UUID of the deleted run.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "Output for deleting a simulation run."
+      },
+      "ApiCancelSimulationRunInputPublic": {
+        "type": "object",
+        "properties": {
+          "run_uuid": {
+            "type": "string",
+            "description": "UUID of the run to cancel.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "Public parameters for cancelling a simulation run."
+      },
+      "ApiCancelSimulationRunOutput": {
+        "type": "object",
+        "properties": {
+          "simulation_run": {
+            "$ref": "#/components/schemas/ApiSimulationRun"
+          }
+        },
+        "description": "Output for cancelling a simulation run."
+      },
+      "ApiSimulationJourneySortField": {
+        "enum": [
+          "SIMULATION_JOURNEY_SORT_FIELD_UNSPECIFIED",
+          "SIMULATION_JOURNEY_SORT_FIELD_SCENARIO",
+          "SIMULATION_JOURNEY_SORT_FIELD_CREATED_AT",
+          "SIMULATION_JOURNEY_SORT_FIELD_STATUS",
+          "SIMULATION_JOURNEY_SORT_FIELD_VERDICT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Sortable fields for listing simulation journeys.\n\n - SIMULATION_JOURNEY_SORT_FIELD_SCENARIO: Sort by scenario_uuid then journey_index. Default.\n - SIMULATION_JOURNEY_SORT_FIELD_CREATED_AT: Sort by creation date.\n - SIMULATION_JOURNEY_SORT_FIELD_STATUS: Sort by journey status using lifecycle order.\n - SIMULATION_JOURNEY_SORT_FIELD_VERDICT: Sort by verdict (nulls last).",
+        "example": "SIMULATION_JOURNEY_SORT_FIELD_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiSimulationJourneySortField",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_UNSPECIFIED",
+              "name": "SimulationJourneySortFieldUnspecified"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_SCENARIO",
+              "name": "SimulationJourneySortFieldScenario"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_CREATED_AT",
+              "name": "SimulationJourneySortFieldCreatedAt"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_STATUS",
+              "name": "SimulationJourneySortFieldStatus"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_VERDICT",
+              "name": "SimulationJourneySortFieldVerdict"
+            }
+          ]
+        }
+      },
+      "ApiSimulationJourneyStatus": {
+        "enum": [
+          "SIMULATION_JOURNEY_STATUS_UNSPECIFIED",
+          "SIMULATION_JOURNEY_STATUS_RUNNING",
+          "SIMULATION_JOURNEY_STATUS_FINISHED",
+          "SIMULATION_JOURNEY_STATUS_FAILED",
+          "SIMULATION_JOURNEY_STATUS_PREPARING"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Lifecycle status of a single journey.\n\n - SIMULATION_JOURNEY_STATUS_RUNNING: The journey is executing and a trajectory is available to retrieve.\n - SIMULATION_JOURNEY_STATUS_FINISHED: The journey reached a stop condition and produced a verdict.\n - SIMULATION_JOURNEY_STATUS_FAILED: The journey failed because of a cancel, timeout, or error.\n - SIMULATION_JOURNEY_STATUS_PREPARING: The journey is allocated but its trajectory is not available yet.",
+        "example": "SIMULATION_JOURNEY_STATUS_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiSimulationJourneyStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_UNSPECIFIED",
+              "name": "SimulationJourneyStatusUnspecified"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_RUNNING",
+              "name": "SimulationJourneyStatusRunning"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_FINISHED",
+              "name": "SimulationJourneyStatusFinished"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_FAILED",
+              "name": "SimulationJourneyStatusFailed"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_PREPARING",
+              "name": "SimulationJourneyStatusPreparing"
+            }
+          ]
+        }
+      },
+      "ApiSimulationJourneyVerdict": {
+        "enum": [
+          "SIMULATION_JOURNEY_VERDICT_UNSPECIFIED",
+          "SIMULATION_JOURNEY_VERDICT_SUCCESS",
+          "SIMULATION_JOURNEY_VERDICT_FAILURE",
+          "SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The judge\u0027s verdict for a journey.\n\n - SIMULATION_JOURNEY_VERDICT_SUCCESS: The candidate agent satisfied the scenario\u0027s stopping criteria.\n - SIMULATION_JOURNEY_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria.\n - SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).",
+        "example": "SIMULATION_JOURNEY_VERDICT_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiSimulationJourneyVerdict",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_JOURNEY_VERDICT_UNSPECIFIED",
+              "name": "SimulationJourneyVerdictUnspecified"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_VERDICT_SUCCESS",
+              "name": "SimulationJourneyVerdictSuccess"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_VERDICT_FAILURE",
+              "name": "SimulationJourneyVerdictFailure"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE",
+              "name": "SimulationJourneyVerdictInconclusive"
+            }
+          ]
+        }
+      },
+      "ApiSimulationJourney": {
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "description": "Time created at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "duration_sec": {
+            "type": "string",
+            "description": "Wall-clock time taken for the journey to complete, in seconds.",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "failure_reason": {
+            "type": "string",
+            "description": "Human-readable explanation of a terminal FAILED status. Empty otherwise.",
+            "example": "example string"
+          },
+          "journey_index": {
+            "type": "integer",
+            "description": "Zero-based index of this journey within its scenario\u0027s exploration budget.",
+            "format": "int64",
+            "example": 123
+          },
+          "journey_uuid": {
+            "type": "string",
+            "description": "UUID of the journey.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "judge_reasoning": {
+            "type": "string",
+            "description": "Optional judge reasoning for the verdict.",
+            "example": "example string"
+          },
+          "run_uuid": {
+            "type": "string",
+            "description": "UUID of the run this journey belongs to.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "scenario_uuid": {
+            "type": "string",
+            "description": "UUID of the scenario this journey executed.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "Session identifier for this journey.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApiSimulationJourneyStatus"
+          },
+          "token_usage": {
+            "$ref": "#/components/schemas/ApiSimulationTokenUsage"
+          },
+          "trajectory_bucket_name": {
+            "type": "string",
+            "description": "Object storage bucket holding the trajectory JSON. Set when the journey finishes.",
+            "example": "example name"
+          },
+          "trajectory_bucket_region": {
+            "type": "string",
+            "description": "Object storage bucket region for the trajectory JSON. Set when the journey finishes.",
+            "example": "example string"
+          },
+          "trajectory_spaces_key": {
+            "type": "string",
+            "description": "Object storage key for the trajectory JSON. Set when the journey finishes.",
+            "example": "example string"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Time last updated at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "verdict": {
+            "$ref": "#/components/schemas/ApiSimulationJourneyVerdict"
+          }
+        },
+        "description": "One independent execution within a simulation run, including its trajectory and verdict."
+      },
+      "ApiListSimulationJourneysOutput": {
+        "type": "object",
+        "properties": {
+          "available_sort_by": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationJourneySortField"
+            },
+            "description": "Sort-by values available for this list request."
+          },
+          "available_sort_directions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSortDirection"
+            },
+            "description": "Sort-direction values available for this list request."
+          },
+          "available_statuses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationJourneyStatus"
+            },
+            "description": "Statuses available for filtering this list request."
+          },
+          "available_verdicts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationJourneyVerdict"
+            },
+            "description": "Verdicts available for filtering this list request."
+          },
+          "journeys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationJourney"
+            },
+            "description": "The journeys for the current page."
+          },
+          "links": {
+            "$ref": "#/components/schemas/ApiLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ApiMeta"
+          }
+        },
+        "description": "Output for listing the journeys within a simulation run."
+      },
+      "ApiGetSimulationJourneyOutput": {
+        "type": "object",
+        "properties": {
+          "journey": {
+            "$ref": "#/components/schemas/ApiSimulationJourney"
+          }
+        },
+        "description": "Output for getting a single journey."
+      },
+      "ApiSimulationTrajectoryJudgeCriterion": {
+        "type": "object",
+        "properties": {
+          "criterion": {
+            "type": "string",
+            "example": "example string"
+          },
+          "passed": {
+            "type": "boolean",
+            "example": true
+          },
+          "reasoning": {
+            "type": "string",
+            "example": "example string"
+          }
+        },
+        "description": "Per-criterion judge evaluation recorded in the trajectory JSON."
+      },
+      "ApiSimulationTrajectoryJudgeResult": {
+        "type": "object",
+        "properties": {
+          "criteria_pass_fail": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationTrajectoryJudgeCriterion"
+            }
+          },
+          "reasoning": {
+            "type": "string",
+            "example": "example string"
+          },
+          "verdict": {
+            "$ref": "#/components/schemas/ApiSimulationJourneyVerdict"
+          }
+        },
+        "description": "Judge output embedded in the trajectory JSON."
+      },
+      "ApiSimulationTrajectoryMessageTokens": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "integer",
+            "format": "int64",
+            "example": 123
+          },
+          "output": {
+            "type": "integer",
+            "format": "int64",
+            "example": 123
+          }
+        },
+        "description": "Token usage for a single assistant message in the trajectory JSON."
+      },
+      "ApiSimulationTrajectoryToolCall": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "example": "example string"
+          },
+          "input_parameters": {
+            "$ref": "#/components/schemas/ApiSimulationTrajectoryToolCallInputParametersProperty"
+          },
+          "name": {
+            "type": "string",
+            "example": "example name"
+          },
+          "ok": {
+            "type": "boolean",
+            "example": true
+          },
+          "output": {
+            "$ref": "#/components/schemas/ApiSimulationTrajectoryToolCallOutputProperty"
+          },
+          "tool_call_id": {
+            "type": "string",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "description": "A tool call recorded on an assistant turn in the trajectory JSON."
+      },
+      "ApiSimulationTrajectoryMessage": {
+        "type": "object",
+        "properties": {
+          "completed_at": {
+            "type": "string",
+            "description": "ISO-8601 timestamp when the message completed.",
+            "example": "example string"
+          },
+          "content": {
+            "type": "string",
+            "description": "Message body text.",
+            "example": "example string"
+          },
+          "role": {
+            "type": "string",
+            "description": "Message role: \u0022user\u0022 or \u0022assistant\u0022.",
+            "example": "example string"
+          },
+          "started_at": {
+            "type": "string",
+            "description": "ISO-8601 timestamp when the message started.",
+            "example": "example string"
+          },
+          "tokens": {
+            "$ref": "#/components/schemas/ApiSimulationTrajectoryMessageTokens"
+          },
+          "tool_calls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationTrajectoryToolCall"
+            },
+            "description": "Tool calls on assistant turns."
+          },
+          "turn_index": {
+            "type": "integer",
+            "description": "Zero-based turn index shared by the user and assistant messages in one exchange.",
+            "format": "int64",
+            "example": 123
+          }
+        },
+        "description": "One user or assistant message in the turn-by-turn conversation view."
+      },
+      "ApiSimulationTrajectoryStatus": {
+        "enum": [
+          "SIMULATION_TRAJECTORY_STATUS_UNSPECIFIED",
+          "SIMULATION_TRAJECTORY_STATUS_RUNNING",
+          "SIMULATION_TRAJECTORY_STATUS_COMPLETED",
+          "SIMULATION_TRAJECTORY_STATUS_FAILED",
+          "SIMULATION_TRAJECTORY_STATUS_CANCELLED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Lifecycle status of the trajectory. Distinct from journey status: the\ntrajectory is updated on every turn while the journey is executing.\n\n - SIMULATION_TRAJECTORY_STATUS_RUNNING: The journey loop is in progress; messages may grow on each poll.\n - SIMULATION_TRAJECTORY_STATUS_COMPLETED: The journey reached a stop condition and the trajectory is complete.\n - SIMULATION_TRAJECTORY_STATUS_FAILED: The journey failed before or during execution.\n - SIMULATION_TRAJECTORY_STATUS_CANCELLED: The journey was cancelled.",
+        "example": "SIMULATION_TRAJECTORY_STATUS_UNSPECIFIED",
+        "x-ms-enum": {
+          "name": "ApiSimulationTrajectoryStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_TRAJECTORY_STATUS_UNSPECIFIED",
+              "name": "SimulationTrajectoryStatusUnspecified"
+            },
+            {
+              "value": "SIMULATION_TRAJECTORY_STATUS_RUNNING",
+              "name": "SimulationTrajectoryStatusRunning"
+            },
+            {
+              "value": "SIMULATION_TRAJECTORY_STATUS_COMPLETED",
+              "name": "SimulationTrajectoryStatusCompleted"
+            },
+            {
+              "value": "SIMULATION_TRAJECTORY_STATUS_FAILED",
+              "name": "SimulationTrajectoryStatusFailed"
+            },
+            {
+              "value": "SIMULATION_TRAJECTORY_STATUS_CANCELLED",
+              "name": "SimulationTrajectoryStatusCancelled"
+            }
+          ]
+        }
+      },
+      "ApiSimulationTrajectory": {
+        "type": "object",
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "description": "Identifier of the candidate agent under test for this journey.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "completed_at": {
+            "type": "string",
+            "example": "example string"
+          },
+          "duration_sec": {
+            "type": "string",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "evaluation_metrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiEvaluationMetricResult"
+            },
+            "description": "Per-metric scores and judge reasoning for this trajectory. Empty when the\nsimulation run has no associated evaluation."
+          },
+          "failure_reason": {
+            "type": "string",
+            "example": "example string"
+          },
+          "journey_index": {
+            "type": "integer",
+            "format": "int64",
+            "example": 123
+          },
+          "journey_uuid": {
+            "type": "string",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "judge": {
+            "$ref": "#/components/schemas/ApiSimulationTrajectoryJudgeResult"
+          },
+          "max_turns": {
+            "type": "integer",
+            "description": "Turn budget configured for this journey (per-scenario max_turns, after\nany run-level override). Compare with turn_count to see how many of the\nbudgeted turns actually ran.",
+            "format": "int64",
+            "example": 123
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSimulationTrajectoryMessage"
+            }
+          },
+          "run_uuid": {
+            "type": "string",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "scenario_uuid": {
+            "type": "string",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "session_id": {
+            "type": "string",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "started_at": {
+            "type": "string",
+            "example": "example string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApiSimulationTrajectoryStatus"
+          },
+          "token_usage": {
+            "$ref": "#/components/schemas/ApiSimulationTokenUsage"
+          },
+          "turn_count": {
+            "type": "integer",
+            "format": "int64",
+            "example": 123
+          },
+          "verdict": {
+            "$ref": "#/components/schemas/ApiSimulationJourneyVerdict"
+          }
+        },
+        "description": "Turn-by-turn trajectory for one journey. Poll this resource while the journey is running to watch live progress."
+      },
+      "ApiGetSimulationJourneyTrajectoryOutput": {
+        "type": "object",
+        "properties": {
+          "trajectory": {
+            "$ref": "#/components/schemas/ApiSimulationTrajectory"
+          }
+        },
+        "description": "Output containing the parsed trajectory JSON."
+      },
+      "ApiGetSimulationJourneyTrajectoryUrlOutput": {
+        "type": "object",
+        "properties": {
+          "download_url": {
+            "type": "string",
+            "description": "The presigned URL to download the trajectory JSON file.",
+            "example": "example string"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "The time the URL expires at.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          }
+        },
+        "description": "Output containing a presigned download URL for a journey\u0027s trajectory JSON."
       },
       "ApiListWorkspacesOutput": {
         "type": "object",
@@ -72428,6 +76147,9 @@
             "description": "The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. \u00228000-9000\u0022), or \u00220\u0022 when all ports are open for a protocol. For ICMP rules this parameter will always return \u00220\u0022.",
             "example": "8000"
           },
+          "action": {
+            "$ref": "#/components/schemas/FirewallRuleBaseAction"
+          },
           "sources": {
             "$ref": "#/components/schemas/FirewallRulesInboundRulesItemAllOf2Sources"
           }
@@ -72448,6 +76170,9 @@
             "type": "string",
             "description": "The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. \u00228000-9000\u0022), or \u00220\u0022 when all ports are open for a protocol. For ICMP rules this parameter will always return \u00220\u0022.",
             "example": "8000"
+          },
+          "action": {
+            "$ref": "#/components/schemas/FirewallRuleBaseAction"
           },
           "destinations": {
             "$ref": "#/components/schemas/FirewallRulesOutboundRulesItemAllOf2Destinations"
@@ -73855,6 +77580,28 @@
             "description": "The new size of the block storage volume in GiB (1024^3)."
           }
         }
+      },
+      "ApiCreateScenarioSetInputPublicFileUploadScenarioSet": {
+        "type": "object",
+        "properties": {
+          "original_file_name": {
+            "type": "string",
+            "description": "The original file name",
+            "example": "example name"
+          },
+          "size_in_bytes": {
+            "type": "string",
+            "description": "The size of the file in bytes",
+            "format": "uint64",
+            "example": "12345"
+          },
+          "stored_object_key": {
+            "type": "string",
+            "description": "The object key the file was stored as",
+            "example": "example string"
+          }
+        },
+        "description": "Uploaded scenario file to ingest. Provide this or \u0060scenarios\u0060, not both."
       },
       "ChatCompletionRequestToolChoice": {
         "type": "object",
@@ -78504,6 +82251,20 @@
       "ApiUpdateModelRouterInputPublicFallbackModelsItem": {
         "type": "object"
       },
+      "ApiSimulationRunUserSimulatorConfig": {
+        "type": "object",
+        "description": "Optional user simulator model settings such as temperature and max_tokens."
+      },
+      "ApiCreateSimulationRunInputPublicUserSimulatorConfig": {
+        "type": "object",
+        "description": "Optional user simulator model settings such as temperature and max_tokens."
+      },
+      "ApiSimulationTrajectoryToolCallInputParameters": {
+        "type": "object"
+      },
+      "ApiSimulationTrajectoryToolCallOutput": {
+        "type": "object"
+      },
       "ChatCompletionToolCallFunction": {
         "required": [
           "name",
@@ -82450,6 +86211,20 @@
       "ApiUpdateModelRouterInputPublicFallbackModelsItemProperty": {
         "type": "object"
       },
+      "ApiSimulationRunUserSimulatorConfigProperty": {
+        "type": "object",
+        "description": "Optional user simulator model settings such as temperature and max_tokens."
+      },
+      "ApiCreateSimulationRunInputPublicUserSimulatorConfigProperty": {
+        "type": "object",
+        "description": "Optional user simulator model settings such as temperature and max_tokens."
+      },
+      "ApiSimulationTrajectoryToolCallInputParametersProperty": {
+        "type": "object"
+      },
+      "ApiSimulationTrajectoryToolCallOutputProperty": {
+        "type": "object"
+      },
       "FunctionObjectParametersProperty": {
         "type": "object",
         "description": "The parameters the function accepts, described as a JSON Schema object."
@@ -85759,6 +89534,30 @@
             {
               "value": "icmp",
               "name": "Icmp"
+            }
+          ]
+        }
+      },
+      "FirewallRuleBaseAction": {
+        "enum": [
+          "allow",
+          "deny"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The action to be taken when traffic matches the rule. This may be one of \u0060allow\u0060 or \u0060deny\u0060. For backward compatibility, this field is optional. When not set, it defaults to \u0060allow\u0060.",
+        "example": "allow",
+        "x-ms-enum": {
+          "name": "FirewallRuleBaseAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "allow",
+              "name": "Allow"
+            },
+            {
+              "value": "deny",
+              "name": "Deny"
             }
           ]
         }
@@ -91661,6 +95460,570 @@
           ]
         }
       },
+      "GenaiListScenarioLibrarySortByParameter": {
+        "enum": [
+          "SCENARIO_LIBRARY_SORT_FIELD_UNSPECIFIED",
+          "SCENARIO_LIBRARY_SORT_FIELD_NAME",
+          "SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenarioLibrarySortByParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_LIBRARY_SORT_FIELD_UNSPECIFIED",
+              "name": "ScenarioLibrarySortFieldUnspecified"
+            },
+            {
+              "value": "SCENARIO_LIBRARY_SORT_FIELD_NAME",
+              "name": "ScenarioLibrarySortFieldName"
+            },
+            {
+              "value": "SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT",
+              "name": "ScenarioLibrarySortFieldCreatedAt"
+            }
+          ]
+        }
+      },
+      "GenaiListScenarioLibrarySortDirectionParameter": {
+        "enum": [
+          "SORT_DIRECTION_UNSPECIFIED",
+          "SORT_DIRECTION_ASC",
+          "SORT_DIRECTION_DESC"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenarioLibrarySortDirectionParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SORT_DIRECTION_UNSPECIFIED",
+              "name": "SortDirectionUnspecified"
+            },
+            {
+              "value": "SORT_DIRECTION_ASC",
+              "name": "SortDirectionAsc"
+            },
+            {
+              "value": "SORT_DIRECTION_DESC",
+              "name": "SortDirectionDesc"
+            }
+          ]
+        }
+      },
+      "GenaiListScenarioLibraryScenariosSortByParameter": {
+        "enum": [
+          "SCENARIO_SORT_FIELD_UNSPECIFIED",
+          "SCENARIO_SORT_FIELD_FILE_ORDER",
+          "SCENARIO_SORT_FIELD_NAME",
+          "SCENARIO_SORT_FIELD_DESCRIPTION"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenarioLibraryScenariosSortByParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SORT_FIELD_UNSPECIFIED",
+              "name": "ScenarioSortFieldUnspecified"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_FILE_ORDER",
+              "name": "ScenarioSortFieldFileOrder"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_NAME",
+              "name": "ScenarioSortFieldName"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_DESCRIPTION",
+              "name": "ScenarioSortFieldDescription"
+            }
+          ]
+        }
+      },
+      "GenaiListScenarioLibraryScenariosSortDirectionParameter": {
+        "enum": [
+          "SORT_DIRECTION_UNSPECIFIED",
+          "SORT_DIRECTION_ASC",
+          "SORT_DIRECTION_DESC"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenarioLibraryScenariosSortDirectionParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SORT_DIRECTION_UNSPECIFIED",
+              "name": "SortDirectionUnspecified"
+            },
+            {
+              "value": "SORT_DIRECTION_ASC",
+              "name": "SortDirectionAsc"
+            },
+            {
+              "value": "SORT_DIRECTION_DESC",
+              "name": "SortDirectionDesc"
+            }
+          ]
+        }
+      },
+      "GenaiListScenarioSetsStatusesParameterItem": {
+        "enum": [
+          "SCENARIO_SET_STATUS_UNSPECIFIED",
+          "SCENARIO_SET_STATUS_GENERATING",
+          "SCENARIO_SET_STATUS_READY",
+          "SCENARIO_SET_STATUS_FAILED",
+          "SCENARIO_SET_STATUS_CANCELLED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenarioSetsStatusesParameterItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SET_STATUS_UNSPECIFIED",
+              "name": "ScenarioSetStatusUnspecified"
+            },
+            {
+              "value": "SCENARIO_SET_STATUS_GENERATING",
+              "name": "ScenarioSetStatusGenerating"
+            },
+            {
+              "value": "SCENARIO_SET_STATUS_READY",
+              "name": "ScenarioSetStatusReady"
+            },
+            {
+              "value": "SCENARIO_SET_STATUS_FAILED",
+              "name": "ScenarioSetStatusFailed"
+            },
+            {
+              "value": "SCENARIO_SET_STATUS_CANCELLED",
+              "name": "ScenarioSetStatusCancelled"
+            }
+          ]
+        }
+      },
+      "GenaiListScenarioSetsSourceKindsParameterItem": {
+        "enum": [
+          "SCENARIO_SET_SOURCE_KIND_UNSPECIFIED",
+          "SCENARIO_SET_SOURCE_KIND_USER_UPLOAD",
+          "SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED",
+          "SCENARIO_SET_SOURCE_KIND_LIBRARY",
+          "SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenarioSetsSourceKindsParameterItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_UNSPECIFIED",
+              "name": "ScenarioSetSourceKindUnspecified"
+            },
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_USER_UPLOAD",
+              "name": "ScenarioSetSourceKindUserUpload"
+            },
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED",
+              "name": "ScenarioSetSourceKindGoalGenerated"
+            },
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_LIBRARY",
+              "name": "ScenarioSetSourceKindLibrary"
+            },
+            {
+              "value": "SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED",
+              "name": "ScenarioSetSourceKindSignalGenerated"
+            }
+          ]
+        }
+      },
+      "GenaiListScenarioSetsSortByParameter": {
+        "enum": [
+          "SCENARIO_SET_SORT_FIELD_UNSPECIFIED",
+          "SCENARIO_SET_SORT_FIELD_CREATED_AT",
+          "SCENARIO_SET_SORT_FIELD_NAME",
+          "SCENARIO_SET_SORT_FIELD_STATUS",
+          "SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT",
+          "SCENARIO_SET_SORT_FIELD_UPDATED_AT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenarioSetsSortByParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_UNSPECIFIED",
+              "name": "ScenarioSetSortFieldUnspecified"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_CREATED_AT",
+              "name": "ScenarioSetSortFieldCreatedAt"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_NAME",
+              "name": "ScenarioSetSortFieldName"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_STATUS",
+              "name": "ScenarioSetSortFieldStatus"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT",
+              "name": "ScenarioSetSortFieldScenarioCount"
+            },
+            {
+              "value": "SCENARIO_SET_SORT_FIELD_UPDATED_AT",
+              "name": "ScenarioSetSortFieldUpdatedAt"
+            }
+          ]
+        }
+      },
+      "GenaiListScenarioSetsSortDirectionParameter": {
+        "enum": [
+          "SORT_DIRECTION_UNSPECIFIED",
+          "SORT_DIRECTION_ASC",
+          "SORT_DIRECTION_DESC"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenarioSetsSortDirectionParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SORT_DIRECTION_UNSPECIFIED",
+              "name": "SortDirectionUnspecified"
+            },
+            {
+              "value": "SORT_DIRECTION_ASC",
+              "name": "SortDirectionAsc"
+            },
+            {
+              "value": "SORT_DIRECTION_DESC",
+              "name": "SortDirectionDesc"
+            }
+          ]
+        }
+      },
+      "GenaiListScenariosSortByParameter": {
+        "enum": [
+          "SCENARIO_SORT_FIELD_UNSPECIFIED",
+          "SCENARIO_SORT_FIELD_FILE_ORDER",
+          "SCENARIO_SORT_FIELD_NAME",
+          "SCENARIO_SORT_FIELD_DESCRIPTION"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenariosSortByParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SCENARIO_SORT_FIELD_UNSPECIFIED",
+              "name": "ScenarioSortFieldUnspecified"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_FILE_ORDER",
+              "name": "ScenarioSortFieldFileOrder"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_NAME",
+              "name": "ScenarioSortFieldName"
+            },
+            {
+              "value": "SCENARIO_SORT_FIELD_DESCRIPTION",
+              "name": "ScenarioSortFieldDescription"
+            }
+          ]
+        }
+      },
+      "GenaiListScenariosSortDirectionParameter": {
+        "enum": [
+          "SORT_DIRECTION_UNSPECIFIED",
+          "SORT_DIRECTION_ASC",
+          "SORT_DIRECTION_DESC"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListScenariosSortDirectionParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SORT_DIRECTION_UNSPECIFIED",
+              "name": "SortDirectionUnspecified"
+            },
+            {
+              "value": "SORT_DIRECTION_ASC",
+              "name": "SortDirectionAsc"
+            },
+            {
+              "value": "SORT_DIRECTION_DESC",
+              "name": "SortDirectionDesc"
+            }
+          ]
+        }
+      },
+      "GenaiListSimulationRunsStatusesParameterItem": {
+        "enum": [
+          "SIMULATION_RUN_STATUS_UNSPECIFIED",
+          "SIMULATION_RUN_STATUS_PENDING",
+          "SIMULATION_RUN_STATUS_RUNNING",
+          "SIMULATION_RUN_STATUS_SUCCEEDED",
+          "SIMULATION_RUN_STATUS_FAILED",
+          "SIMULATION_RUN_STATUS_CANCELLED",
+          "SIMULATION_RUN_STATUS_EVALUATING",
+          "SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListSimulationRunsStatusesParameterItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_RUN_STATUS_UNSPECIFIED",
+              "name": "SimulationRunStatusUnspecified"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_PENDING",
+              "name": "SimulationRunStatusPending"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_RUNNING",
+              "name": "SimulationRunStatusRunning"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_SUCCEEDED",
+              "name": "SimulationRunStatusSucceeded"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_FAILED",
+              "name": "SimulationRunStatusFailed"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_CANCELLED",
+              "name": "SimulationRunStatusCancelled"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_EVALUATING",
+              "name": "SimulationRunStatusEvaluating"
+            },
+            {
+              "value": "SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL",
+              "name": "SimulationRunStatusPartiallySuccessful"
+            }
+          ]
+        }
+      },
+      "GenaiListSimulationRunsSortByParameter": {
+        "enum": [
+          "SIMULATION_RUN_SORT_FIELD_UNSPECIFIED",
+          "SIMULATION_RUN_SORT_FIELD_CREATED_AT",
+          "SIMULATION_RUN_SORT_FIELD_NAME",
+          "SIMULATION_RUN_SORT_FIELD_STATUS",
+          "SIMULATION_RUN_SORT_FIELD_UPDATED_AT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListSimulationRunsSortByParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_UNSPECIFIED",
+              "name": "SimulationRunSortFieldUnspecified"
+            },
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_CREATED_AT",
+              "name": "SimulationRunSortFieldCreatedAt"
+            },
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_NAME",
+              "name": "SimulationRunSortFieldName"
+            },
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_STATUS",
+              "name": "SimulationRunSortFieldStatus"
+            },
+            {
+              "value": "SIMULATION_RUN_SORT_FIELD_UPDATED_AT",
+              "name": "SimulationRunSortFieldUpdatedAt"
+            }
+          ]
+        }
+      },
+      "GenaiListSimulationRunsSortDirectionParameter": {
+        "enum": [
+          "SORT_DIRECTION_UNSPECIFIED",
+          "SORT_DIRECTION_ASC",
+          "SORT_DIRECTION_DESC"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListSimulationRunsSortDirectionParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SORT_DIRECTION_UNSPECIFIED",
+              "name": "SortDirectionUnspecified"
+            },
+            {
+              "value": "SORT_DIRECTION_ASC",
+              "name": "SortDirectionAsc"
+            },
+            {
+              "value": "SORT_DIRECTION_DESC",
+              "name": "SortDirectionDesc"
+            }
+          ]
+        }
+      },
+      "GenaiListSimulationJourneysStatusesParameterItem": {
+        "enum": [
+          "SIMULATION_JOURNEY_STATUS_UNSPECIFIED",
+          "SIMULATION_JOURNEY_STATUS_RUNNING",
+          "SIMULATION_JOURNEY_STATUS_FINISHED",
+          "SIMULATION_JOURNEY_STATUS_FAILED",
+          "SIMULATION_JOURNEY_STATUS_PREPARING"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListSimulationJourneysStatusesParameterItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_UNSPECIFIED",
+              "name": "SimulationJourneyStatusUnspecified"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_RUNNING",
+              "name": "SimulationJourneyStatusRunning"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_FINISHED",
+              "name": "SimulationJourneyStatusFinished"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_FAILED",
+              "name": "SimulationJourneyStatusFailed"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_STATUS_PREPARING",
+              "name": "SimulationJourneyStatusPreparing"
+            }
+          ]
+        }
+      },
+      "GenaiListSimulationJourneysVerdictsParameterItem": {
+        "enum": [
+          "SIMULATION_JOURNEY_VERDICT_UNSPECIFIED",
+          "SIMULATION_JOURNEY_VERDICT_SUCCESS",
+          "SIMULATION_JOURNEY_VERDICT_FAILURE",
+          "SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListSimulationJourneysVerdictsParameterItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_JOURNEY_VERDICT_UNSPECIFIED",
+              "name": "SimulationJourneyVerdictUnspecified"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_VERDICT_SUCCESS",
+              "name": "SimulationJourneyVerdictSuccess"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_VERDICT_FAILURE",
+              "name": "SimulationJourneyVerdictFailure"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE",
+              "name": "SimulationJourneyVerdictInconclusive"
+            }
+          ]
+        }
+      },
+      "GenaiListSimulationJourneysSortByParameter": {
+        "enum": [
+          "SIMULATION_JOURNEY_SORT_FIELD_UNSPECIFIED",
+          "SIMULATION_JOURNEY_SORT_FIELD_SCENARIO",
+          "SIMULATION_JOURNEY_SORT_FIELD_CREATED_AT",
+          "SIMULATION_JOURNEY_SORT_FIELD_STATUS",
+          "SIMULATION_JOURNEY_SORT_FIELD_VERDICT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListSimulationJourneysSortByParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_UNSPECIFIED",
+              "name": "SimulationJourneySortFieldUnspecified"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_SCENARIO",
+              "name": "SimulationJourneySortFieldScenario"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_CREATED_AT",
+              "name": "SimulationJourneySortFieldCreatedAt"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_STATUS",
+              "name": "SimulationJourneySortFieldStatus"
+            },
+            {
+              "value": "SIMULATION_JOURNEY_SORT_FIELD_VERDICT",
+              "name": "SimulationJourneySortFieldVerdict"
+            }
+          ]
+        }
+      },
+      "GenaiListSimulationJourneysSortDirectionParameter": {
+        "enum": [
+          "SORT_DIRECTION_UNSPECIFIED",
+          "SORT_DIRECTION_ASC",
+          "SORT_DIRECTION_DESC"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GenaiListSimulationJourneysSortDirectionParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SORT_DIRECTION_UNSPECIFIED",
+              "name": "SortDirectionUnspecified"
+            },
+            {
+              "value": "SORT_DIRECTION_ASC",
+              "name": "SortDirectionAsc"
+            },
+            {
+              "value": "SORT_DIRECTION_DESC",
+              "name": "SortDirectionDesc"
+            }
+          ]
+        }
+      },
       "InferenceListBatchesStatusParameter": {
         "enum": [
           "validating",
@@ -96691,6 +101054,7 @@
                     {
                       "protocol": "udp",
                       "ports": "8000-9000",
+                      "action": "allow",
                       "sources": {
                         "addresses": [
                           "1.2.3.4",
@@ -96714,6 +101078,7 @@
                     {
                       "protocol": "tcp",
                       "ports": "7000-9000",
+                      "action": "allow",
                       "destinations": {
                         "addresses": [
                           "1.2.3.4",
@@ -97071,6 +101436,7 @@
                     {
                       "protocol": "tcp",
                       "ports": "80",
+                      "action": "allow",
                       "sources": {
                         "load_balancer_uids": [
                           "4de7ac8b-495b-4884-9a69-1050c6793cd6"
@@ -97080,6 +101446,7 @@
                     {
                       "protocol": "tcp",
                       "ports": "22",
+                      "action": "allow",
                       "sources": {
                         "tags": [
                           "gateway"
@@ -97094,6 +101461,7 @@
                     {
                       "protocol": "tcp",
                       "ports": "80",
+                      "action": "allow",
                       "destinations": {
                         "addresses": [
                           "0.0.0.0/0",
@@ -97145,6 +101513,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "80",
+                    "action": "allow",
                     "sources": {
                       "load_balancer_uids": [
                         "4de7ac8b-495b-4884-9a69-1050c6793cd6"
@@ -97154,6 +101523,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "22",
+                    "action": "allow",
                     "sources": {
                       "tags": [
                         "gateway"
@@ -97168,6 +101538,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "80",
+                    "action": "allow",
                     "destinations": {
                       "addresses": [
                         "0.0.0.0/0",
@@ -97220,6 +101591,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "80",
+                    "action": "allow",
                     "sources": {
                       "load_balancer_uids": [
                         "4de7ac8b-495b-4884-9a69-1050c6793cd6"
@@ -97229,6 +101601,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "22",
+                    "action": "allow",
                     "sources": {
                       "tags": [
                         "gateway"
@@ -97243,6 +101616,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "80",
+                    "action": "allow",
                     "destinations": {
                       "addresses": [
                         "0.0.0.0/0",
@@ -97288,6 +101662,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "80",
+                    "action": "allow",
                     "sources": {
                       "load_balancer_uids": [
                         "4de7ac8b-495b-4884-9a69-1050c6793cd6"
@@ -97297,6 +101672,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "22",
+                    "action": "allow",
                     "sources": {
                       "tags": [
                         "gateway"
@@ -97311,6 +101687,7 @@
                   {
                     "protocol": "tcp",
                     "ports": "80",
+                    "action": "allow",
                     "destinations": {
                       "addresses": [
                         "0.0.0.0/0",

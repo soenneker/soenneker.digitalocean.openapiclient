@@ -12,6 +12,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     public partial class FirewallRulesOutboundRulesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleBaseAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An object specifying locations to which outbound traffic that will be allowed.</summary>
@@ -57,6 +59,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleBaseAction>(); } },
                 { "destinations", n => { Destinations = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItemAllOf2Destinations>(global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItemAllOf2Destinations.CreateFromDiscriminatorValue); } },
                 { "ports", n => { Ports = n.GetStringValue(); } },
                 { "protocol", n => { Protocol = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleBaseProtocol>(); } },
@@ -69,6 +72,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleBaseAction>("action", Action);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItemAllOf2Destinations>("destinations", Destinations);
             writer.WriteStringValue("ports", Ports);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleBaseProtocol>("protocol", Protocol);
