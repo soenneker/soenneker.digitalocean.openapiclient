@@ -5,6 +5,8 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Balance;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Billing_history;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Invoices;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Prepayment_config;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Prepayment_status;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,6 +33,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Invoices.InvoicesRequestBuilder Invoices
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Invoices.InvoicesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The prepayment_config property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Prepayment_config.Prepayment_configRequestBuilder Prepayment_config
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Prepayment_config.Prepayment_configRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The prepayment_status property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Prepayment_status.Prepayment_statusRequestBuilder Prepayment_status
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Prepayment_status.Prepayment_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.MyRequestBuilder"/> and sets the default values.
