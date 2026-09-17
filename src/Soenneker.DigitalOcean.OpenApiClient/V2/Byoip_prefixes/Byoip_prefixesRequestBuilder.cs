@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Byoip_prefixes
     public partial class Byoip_prefixesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.byoip_prefixes.item collection</summary>
-        /// <param name="position">A unique identifier for a BYOIP prefix.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Byoip_prefixes.Item.WithByoipPrefixUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Byoip_prefixes.Item.WithByoipPrefixUuItemRequestBuilder this[Guid position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Byoip_prefixes.Item.WithByoipPrefixUuItemRequestBuilder this[string position]
         {
             get
             {

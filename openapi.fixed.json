@@ -231,7 +231,12 @@
         "operationId": "SshKeysGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/ssh_key_identifier"
+            "name": "sshKeyIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -271,7 +276,12 @@
         "operationId": "SshKeysUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/ssh_key_identifier"
+            "name": "sshKeyIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -322,7 +332,12 @@
         "operationId": "SshKeysDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/ssh_key_identifier"
+            "name": "sshKeyIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -406,7 +421,12 @@
         "operationId": "ActionsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/action_id"
+            "name": "actionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -650,7 +670,12 @@
         "operationId": "AddonsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/resource_uuid"
+            "name": "resourceUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1072,7 +1097,12 @@
         "operationId": "AppsRestart",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -1123,12 +1153,6 @@
         "operationId": "AppsGetLogsActiveDeployment",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
-            "$ref": "#/components/parameters/component"
-          },
-          {
             "$ref": "#/components/parameters/live_updates"
           },
           {
@@ -1136,6 +1160,22 @@
           },
           {
             "$ref": "#/components/parameters/time_wait"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "componentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1177,13 +1217,23 @@
         "operationId": "AppsGetExecActiveDeployment",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
-            "$ref": "#/components/parameters/component"
-          },
-          {
             "$ref": "#/components/parameters/instance_name"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "componentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1225,7 +1275,12 @@
         "operationId": "AppsGetInstances",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1267,9 +1322,6 @@
         "operationId": "AppsListDeployments",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
             "$ref": "#/components/parameters/page"
           },
           {
@@ -1289,6 +1341,14 @@
               "MANUAL",
               "AUTOSCALED"
             ]
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1328,7 +1388,12 @@
         "operationId": "AppsCreateDeployment",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -1380,10 +1445,20 @@
         "operationId": "AppsGetDeployment",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/deployment_id"
+            "name": "deploymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1425,10 +1500,20 @@
         "operationId": "AppsCancelDeployment",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/deployment_id"
+            "name": "deploymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1470,15 +1555,6 @@
         "operationId": "AppsGetLogs",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
-            "$ref": "#/components/parameters/deployment_id"
-          },
-          {
-            "$ref": "#/components/parameters/component"
-          },
-          {
             "$ref": "#/components/parameters/live_updates"
           },
           {
@@ -1486,6 +1562,30 @@
           },
           {
             "$ref": "#/components/parameters/time_wait"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deploymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "componentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1527,12 +1627,6 @@
         "operationId": "AppsGetLogsAggregate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
-            "$ref": "#/components/parameters/deployment_id"
-          },
-          {
             "$ref": "#/components/parameters/live_updates"
           },
           {
@@ -1540,6 +1634,22 @@
           },
           {
             "$ref": "#/components/parameters/time_wait"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deploymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1581,16 +1691,31 @@
         "operationId": "AppsGetExec",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
-            "$ref": "#/components/parameters/deployment_id"
-          },
-          {
-            "$ref": "#/components/parameters/component"
-          },
-          {
             "$ref": "#/components/parameters/instance_name"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deploymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "componentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1632,9 +1757,6 @@
         "operationId": "AppsGetLogsActiveDeploymentAggregate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
             "$ref": "#/components/parameters/live_updates"
           },
           {
@@ -1642,6 +1764,14 @@
           },
           {
             "$ref": "#/components/parameters/time_wait"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1683,9 +1813,6 @@
         "operationId": "AppsListJobInvocations",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
             "$ref": "#/components/parameters/job_names"
           },
           {
@@ -1702,6 +1829,14 @@
           },
           {
             "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1743,13 +1878,23 @@
         "operationId": "AppsGetJobInvocation",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
-            "$ref": "#/components/parameters/job_invocation_id"
-          },
-          {
             "$ref": "#/components/parameters/job_name"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobInvocationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1791,13 +1936,23 @@
         "operationId": "AppsCancelJobInvocation",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
-            "$ref": "#/components/parameters/job_invocation_id"
-          },
-          {
             "$ref": "#/components/parameters/job_name"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobInvocationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1839,9 +1994,6 @@
         "operationId": "AppsGetJobInvocationLogs",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
             "name": "jobName",
             "in": "path",
             "description": "The job name to list job invocations for.",
@@ -1850,9 +2002,6 @@
               "type": "string"
             },
             "example": "component"
-          },
-          {
-            "$ref": "#/components/parameters/job_invocation_id"
           },
           {
             "name": "deployment_id",
@@ -1881,6 +2030,22 @@
           },
           {
             "$ref": "#/components/parameters/number_lines"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobInvocationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1922,9 +2087,6 @@
         "operationId": "AppsListEvents",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
             "$ref": "#/components/parameters/page"
           },
           {
@@ -1943,6 +2105,14 @@
             "example": [
               "DEPLOYMENT"
             ]
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1984,10 +2154,20 @@
         "operationId": "AppsGetEvent",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/event_id"
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2029,10 +2209,20 @@
         "operationId": "AppsCancelEvent",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/event_id"
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2074,12 +2264,6 @@
         "operationId": "AppsGetEventLogs",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
-            "$ref": "#/components/parameters/event_id"
-          },
-          {
             "$ref": "#/components/parameters/live_updates"
           },
           {
@@ -2087,6 +2271,22 @@
           },
           {
             "$ref": "#/components/parameters/time_wait"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2308,7 +2508,12 @@
         "operationId": "AppsListAlerts",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2350,10 +2555,20 @@
         "operationId": "AppsAssignAlertDestinations",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/alert_id"
+            "name": "alertId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -2405,7 +2620,12 @@
         "operationId": "AppsCreateRollback",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -2457,7 +2677,12 @@
         "operationId": "AppsValidateRollback",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -2509,7 +2734,12 @@
         "operationId": "AppsCommitRollback",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2551,7 +2781,12 @@
         "operationId": "AppsRevertRollback",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2593,9 +2828,6 @@
         "operationId": "AppsGetMetricsBandwidthDaily",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
-          },
-          {
             "name": "date",
             "in": "query",
             "description": "Optional day to query. Only the date component of the timestamp will be considered. Default: yesterday.",
@@ -2604,6 +2836,14 @@
               "format": "date-time"
             },
             "example": "2023-01-17T00:00:00Z"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2699,7 +2939,12 @@
         "operationId": "AppsGetHealth",
         "parameters": [
           {
-            "$ref": "#/components/parameters/app_id"
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2841,7 +3086,12 @@
         "operationId": "CdnGetEndpoint",
         "parameters": [
           {
-            "$ref": "#/components/parameters/cdn_endpoint_id"
+            "name": "cdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2881,7 +3131,12 @@
         "operationId": "CdnUpdateEndpoints",
         "parameters": [
           {
-            "$ref": "#/components/parameters/cdn_endpoint_id"
+            "name": "cdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -2931,7 +3186,12 @@
         "operationId": "CdnDeleteEndpoint",
         "parameters": [
           {
-            "$ref": "#/components/parameters/cdn_endpoint_id"
+            "name": "cdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2973,7 +3233,12 @@
         "operationId": "CdnPurgeCache",
         "parameters": [
           {
-            "$ref": "#/components/parameters/cdn_endpoint_id"
+            "name": "cdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -3112,7 +3377,12 @@
         "operationId": "CertificatesGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/certificate_id"
+            "name": "certificateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3152,7 +3422,12 @@
         "operationId": "CertificatesDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/certificate_id"
+            "name": "certificateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3384,13 +3659,18 @@
         "operationId": "InvoicesGetByUuid",
         "parameters": [
           {
-            "$ref": "#/components/parameters/invoice_uuid"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "invoiceUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3432,7 +3712,12 @@
         "operationId": "InvoicesGetCsvByUuid",
         "parameters": [
           {
-            "$ref": "#/components/parameters/invoice_uuid"
+            "name": "invoiceUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3474,7 +3759,12 @@
         "operationId": "InvoicesGetPdfByUuid",
         "parameters": [
           {
-            "$ref": "#/components/parameters/invoice_uuid"
+            "name": "invoiceUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3516,7 +3806,12 @@
         "operationId": "InvoicesGetSummaryByUuid",
         "parameters": [
           {
-            "$ref": "#/components/parameters/invoice_uuid"
+            "name": "invoiceUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3558,19 +3853,34 @@
         "operationId": "BillingInsightsList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/account_urn"
-          },
-          {
-            "$ref": "#/components/parameters/start_date"
-          },
-          {
-            "$ref": "#/components/parameters/end_date"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "accountUrn",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3861,7 +4171,12 @@
         "operationId": "DatabasesGetCluster",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3901,7 +4216,12 @@
         "operationId": "DatabasesDestroyCluster",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3943,7 +4263,12 @@
         "operationId": "DatabasesGetConfig",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3983,7 +4308,12 @@
         "operationId": "DatabasesPatchConfig",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4041,7 +4371,12 @@
         "operationId": "DatabasesGetCa",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4083,7 +4418,12 @@
         "operationId": "DatabasesGetMigrationStatus",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4123,7 +4463,12 @@
         "operationId": "DatabasesUpdateOnlineMigration",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4189,10 +4534,20 @@
         "operationId": "DatabasesDeleteOnlineMigration",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/migration_id"
+            "name": "migrationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4234,7 +4589,12 @@
         "operationId": "DatabasesUpdateRegion",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4286,7 +4646,12 @@
         "operationId": "DatabasesUpdateClusterSize",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4343,7 +4708,12 @@
         "operationId": "DatabasesListFirewallRules",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4383,7 +4753,12 @@
         "operationId": "DatabasesUpdateFirewallRules",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4456,7 +4831,12 @@
         "operationId": "DatabasesGetDoSettings",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4496,7 +4876,12 @@
         "operationId": "DatabasesUpdateDoSettings",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4562,7 +4947,12 @@
         "operationId": "DatabasesUpdateMaintenanceWindow",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4618,7 +5008,12 @@
         "operationId": "DatabasesInstallUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4660,7 +5055,12 @@
         "operationId": "DatabasesListBackups",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4702,7 +5102,12 @@
         "operationId": "DatabasesListReplicas",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4742,7 +5147,12 @@
         "operationId": "DatabasesCreateReplica",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4817,7 +5227,12 @@
         "operationId": "DatabasesListEventsLogs",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4859,10 +5274,20 @@
         "operationId": "DatabasesGetReplica",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/replica_name"
+            "name": "replicaName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4902,10 +5327,20 @@
         "operationId": "DatabasesDestroyReplica",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/replica_name"
+            "name": "replicaName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4947,10 +5382,20 @@
         "operationId": "DatabasesPromoteReplica",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/replica_name"
+            "name": "replicaName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4992,7 +5437,12 @@
         "operationId": "DatabasesListUsers",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5032,7 +5482,12 @@
         "operationId": "DatabasesAddUser",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -5148,10 +5603,15 @@
         "operationId": "DatabasesGetUser",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "$ref": "#/components/parameters/username"
           },
           {
-            "$ref": "#/components/parameters/username"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5191,10 +5651,15 @@
         "operationId": "DatabasesDeleteUser",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "$ref": "#/components/parameters/username"
           },
           {
-            "$ref": "#/components/parameters/username"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5234,10 +5699,15 @@
         "operationId": "DatabasesUpdateUser",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "$ref": "#/components/parameters/username"
           },
           {
-            "$ref": "#/components/parameters/username"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -5321,10 +5791,15 @@
         "operationId": "DatabasesResetAuth",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "$ref": "#/components/parameters/username"
           },
           {
-            "$ref": "#/components/parameters/username"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -5381,7 +5856,12 @@
         "operationId": "DatabasesList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5421,7 +5901,12 @@
         "operationId": "DatabasesAdd",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -5476,10 +5961,20 @@
         "operationId": "DatabasesGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/database_name"
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5519,10 +6014,20 @@
         "operationId": "DatabasesDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/database_name"
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5564,7 +6069,12 @@
         "operationId": "DatabasesListConnectionPools",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5604,7 +6114,12 @@
         "operationId": "DatabasesAddConnectionPool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -5663,10 +6178,20 @@
         "operationId": "DatabasesGetConnectionPool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/pool_name"
+            "name": "poolName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5706,10 +6231,20 @@
         "operationId": "DatabasesUpdateConnectionPool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/pool_name"
+            "name": "poolName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -5765,10 +6300,20 @@
         "operationId": "DatabasesDeleteConnectionPool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/pool_name"
+            "name": "poolName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5810,7 +6355,12 @@
         "operationId": "DatabasesGetEvictionPolicy",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5850,7 +6400,12 @@
         "operationId": "DatabasesUpdateEvictionPolicy",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -5905,7 +6460,12 @@
         "operationId": "DatabasesGetSqlMode",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5945,7 +6505,12 @@
         "operationId": "DatabasesUpdateSqlMode",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -6000,7 +6565,12 @@
         "operationId": "DatabasesUpdateMajorVersion",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -6055,7 +6625,12 @@
         "operationId": "DatabasesGetAutoscale",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6095,7 +6670,12 @@
         "operationId": "DatabasesUpdateAutoscale",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -6157,7 +6737,12 @@
         "operationId": "DatabasesListKafkaTopics",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6197,7 +6782,12 @@
         "operationId": "DatabasesCreateKafkaTopic",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -6257,10 +6847,20 @@
         "operationId": "DatabasesGetKafkaTopic",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kafka_topic_name"
+            "name": "topicName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6300,10 +6900,20 @@
         "operationId": "DatabasesUpdateKafkaTopic",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kafka_topic_name"
+            "name": "topicName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -6360,10 +6970,20 @@
         "operationId": "DatabasesDeleteKafkaTopic",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kafka_topic_name"
+            "name": "topicName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6405,7 +7025,12 @@
         "operationId": "DatabasesListLogsink",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6445,7 +7070,12 @@
         "operationId": "DatabasesCreateLogsink",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -6543,10 +7173,20 @@
         "operationId": "DatabasesGetLogsink",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/logsink_id"
+            "name": "logsinkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6586,10 +7226,20 @@
         "operationId": "DatabasesUpdateLogsink",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/logsink_id"
+            "name": "logsinkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -6647,10 +7297,20 @@
         "operationId": "DatabasesDeleteLogsink",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/logsink_id"
+            "name": "logsinkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6692,7 +7352,12 @@
         "operationId": "DatabasesListKafkaSchemas",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6732,7 +7397,12 @@
         "operationId": "DatabasesCreateKafkaSchema",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -6789,10 +7459,20 @@
         "operationId": "DatabasesGetKafkaSchema",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kafka_schema_subject_name"
+            "name": "subjectName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6829,10 +7509,20 @@
         "operationId": "DatabasesDeleteKafkaSchema",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kafka_schema_subject_name"
+            "name": "subjectName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6871,13 +7561,23 @@
         "operationId": "DatabasesGetKafkaSchemaVersion",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
-          },
-          {
-            "$ref": "#/components/parameters/kafka_schema_subject_name"
-          },
-          {
             "$ref": "#/components/parameters/kafka_schema_version"
+          },
+          {
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subjectName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6916,7 +7616,12 @@
         "operationId": "DatabasesGetKafkaSchemaConfig",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6956,7 +7661,12 @@
         "operationId": "DatabasesUpdateKafkaSchemaConfig",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -7010,10 +7720,20 @@
         "operationId": "DatabasesGetKafkaSchemaSubjectConfig",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kafka_schema_subject_name"
+            "name": "subjectName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -7053,10 +7773,20 @@
         "operationId": "DatabasesUpdateKafkaSchemaSubjectConfig",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kafka_schema_subject_name"
+            "name": "subjectName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -7195,7 +7925,12 @@
         "operationId": "DatabasesListOpeasearchIndexes",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -7237,10 +7972,20 @@
         "operationId": "DatabasesDeleteOpensearchIndex",
         "parameters": [
           {
-            "$ref": "#/components/parameters/database_cluster_uuid"
+            "name": "databaseClusterUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/opensearch_index_name"
+            "name": "indexName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -7282,7 +8027,12 @@
         "operationId": "DedicatedInferencesGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/dedicated_inference_id"
+            "name": "dedicatedInferenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -7322,7 +8072,12 @@
         "operationId": "DedicatedInferencesPatch",
         "parameters": [
           {
-            "$ref": "#/components/parameters/dedicated_inference_id"
+            "name": "dedicatedInferenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -7372,7 +8127,12 @@
         "operationId": "DedicatedInferencesDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/dedicated_inference_id"
+            "name": "dedicatedInferenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -7583,10 +8343,20 @@
         "operationId": "DedicatedInferencesGetAccelerator",
         "parameters": [
           {
-            "$ref": "#/components/parameters/dedicated_inference_id"
+            "name": "dedicatedInferenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/accelerator_id"
+            "name": "acceleratorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -7646,7 +8416,12 @@
         "operationId": "DedicatedInferencesGetCa",
         "parameters": [
           {
-            "$ref": "#/components/parameters/dedicated_inference_id"
+            "name": "dedicatedInferenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -7688,13 +8463,18 @@
         "operationId": "DedicatedInferencesListTokens",
         "parameters": [
           {
-            "$ref": "#/components/parameters/dedicated_inference_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "dedicatedInferenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -7734,7 +8514,12 @@
         "operationId": "DedicatedInferencesCreateTokens",
         "parameters": [
           {
-            "$ref": "#/components/parameters/dedicated_inference_id"
+            "name": "dedicatedInferenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -7786,10 +8571,20 @@
         "operationId": "DedicatedInferencesDeleteTokens",
         "parameters": [
           {
-            "$ref": "#/components/parameters/dedicated_inference_id"
+            "name": "dedicatedInferenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/token_id"
+            "name": "tokenId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8058,7 +8853,12 @@
         "operationId": "DomainsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/domain_name"
+            "name": "domainName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8098,7 +8898,12 @@
         "operationId": "DomainsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/domain_name"
+            "name": "domainName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8140,9 +8945,6 @@
         "operationId": "DomainsListRecords",
         "parameters": [
           {
-            "$ref": "#/components/parameters/domain_name"
-          },
-          {
             "$ref": "#/components/parameters/domain_name_query"
           },
           {
@@ -8153,6 +8955,14 @@
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "domainName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8192,7 +9002,12 @@
         "operationId": "DomainsCreateRecord",
         "parameters": [
           {
-            "$ref": "#/components/parameters/domain_name"
+            "name": "domainName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -8259,10 +9074,20 @@
         "operationId": "DomainsGetRecord",
         "parameters": [
           {
-            "$ref": "#/components/parameters/domain_name"
+            "name": "domainName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/domain_record_id"
+            "name": "domainRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8302,10 +9127,20 @@
         "operationId": "DomainsPatchRecord",
         "parameters": [
           {
-            "$ref": "#/components/parameters/domain_name"
+            "name": "domainName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/domain_record_id"
+            "name": "domainRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -8358,10 +9193,20 @@
         "operationId": "DomainsUpdateRecord",
         "parameters": [
           {
-            "$ref": "#/components/parameters/domain_name"
+            "name": "domainName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/domain_record_id"
+            "name": "domainRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -8414,10 +9259,20 @@
         "operationId": "DomainsDeleteRecord",
         "parameters": [
           {
-            "$ref": "#/components/parameters/domain_name"
+            "name": "domainName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/domain_record_id"
+            "name": "domainRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8604,7 +9459,12 @@
         "operationId": "DropletsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8644,7 +9504,12 @@
         "operationId": "DropletsDestroy",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8686,13 +9551,18 @@
         "operationId": "DropletsListBackups",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8734,7 +9604,12 @@
         "operationId": "DropletsGetBackupPolicy",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8858,13 +9733,18 @@
         "operationId": "DropletsListSnapshots",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8906,13 +9786,18 @@
         "operationId": "DropletActionsList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8952,7 +9837,12 @@
         "operationId": "DropletActionsPost",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -9053,10 +9943,20 @@
         "operationId": "DropletActionsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/action_id"
+            "name": "actionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9098,13 +9998,18 @@
         "operationId": "DropletsListKernels",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9146,13 +10051,18 @@
         "operationId": "DropletsListFirewalls",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9194,7 +10104,12 @@
         "operationId": "DropletsListNeighbors",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9236,7 +10151,12 @@
         "operationId": "DropletsListAssociatedResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9278,7 +10198,12 @@
         "operationId": "DropletsDestroyWithAssociatedResourcesSelective",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -9333,10 +10258,15 @@
         "operationId": "DropletsDestroyWithAssociatedResourcesDangerous",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "$ref": "#/components/parameters/x_dangerous"
           },
           {
-            "$ref": "#/components/parameters/x_dangerous"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9382,7 +10312,12 @@
         "operationId": "DropletsGetDestroyAssociatedResourcesStatus",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9424,7 +10359,12 @@
         "operationId": "DropletsDestroyRetryWithAssociatedResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/droplet_id"
+            "name": "dropletId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9567,7 +10507,12 @@
         "operationId": "AutoscalepoolsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/autoscale_pool_id"
+            "name": "autoscalePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9607,7 +10552,12 @@
         "operationId": "AutoscalepoolsUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/autoscale_pool_id"
+            "name": "autoscalePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -9661,7 +10611,12 @@
         "operationId": "AutoscalepoolsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/autoscale_pool_id"
+            "name": "autoscalePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9703,10 +10658,15 @@
         "operationId": "AutoscalepoolsDeleteDangerous",
         "parameters": [
           {
-            "$ref": "#/components/parameters/autoscale_pool_id"
+            "$ref": "#/components/parameters/parameters_x_dangerous"
           },
           {
-            "$ref": "#/components/parameters/parameters_x_dangerous"
+            "name": "autoscalePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9754,7 +10714,12 @@
             "$ref": "#/components/parameters/page"
           },
           {
-            "$ref": "#/components/parameters/autoscale_pool_id"
+            "name": "autoscalePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9802,7 +10767,12 @@
             "$ref": "#/components/parameters/page"
           },
           {
-            "$ref": "#/components/parameters/autoscale_pool_id"
+            "name": "autoscalePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9974,7 +10944,12 @@
         "operationId": "FirewallsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10014,7 +10989,12 @@
         "operationId": "FirewallsUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -10113,7 +11093,12 @@
         "operationId": "FirewallsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10155,7 +11140,12 @@
         "operationId": "FirewallsAssignDroplets",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -10212,7 +11202,12 @@
         "operationId": "FirewallsDeleteDroplets",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -10271,7 +11266,12 @@
         "operationId": "FirewallsAddTags",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -10328,7 +11328,12 @@
         "operationId": "FirewallsDeleteTags",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -10387,7 +11392,12 @@
         "operationId": "FirewallsAddRules",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -10465,7 +11475,12 @@
         "operationId": "FirewallsDeleteRules",
         "parameters": [
           {
-            "$ref": "#/components/parameters/firewall_id"
+            "name": "firewallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -10629,7 +11644,12 @@
         "operationId": "FloatingIPsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/floating_ip"
+            "name": "floatingIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10669,7 +11689,12 @@
         "operationId": "FloatingIPsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/floating_ip"
+            "name": "floatingIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10711,7 +11736,12 @@
         "operationId": "FloatingIPsActionList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/floating_ip"
+            "name": "floatingIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10751,7 +11781,12 @@
         "operationId": "FloatingIPsActionPost",
         "parameters": [
           {
-            "$ref": "#/components/parameters/floating_ip"
+            "name": "floatingIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -10803,10 +11838,20 @@
         "operationId": "FloatingIPsActionGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/floating_ip"
+            "name": "floatingIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/action_id"
+            "name": "actionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10932,7 +11977,12 @@
         "operationId": "FunctionsGetNamespace",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10975,7 +12025,12 @@
         "operationId": "FunctionsDeleteNamespace",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -11018,7 +12073,12 @@
         "operationId": "FunctionsListTriggers",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -11059,7 +12119,12 @@
         "operationId": "FunctionsCreateTrigger",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11118,10 +12183,20 @@
         "operationId": "FunctionsGetTrigger",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/trigger_name"
+            "name": "triggerName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -11162,10 +12237,20 @@
         "operationId": "FunctionsUpdateTrigger",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/trigger_name"
+            "name": "triggerName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11219,10 +12304,20 @@
         "operationId": "FunctionsDeleteTrigger",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/trigger_name"
+            "name": "triggerName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -11265,7 +12360,12 @@
         "operationId": "FunctionsAccessKeyList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -11305,7 +12405,12 @@
         "operationId": "FunctionsAccessKeyCreate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11376,10 +12481,20 @@
         "operationId": "FunctionsAccessKeyUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/key_id"
+            "name": "keyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11442,10 +12557,20 @@
         "operationId": "FunctionsAccessKeyDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/namespace_id"
+            "name": "namespaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/key_id"
+            "name": "keyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -11661,7 +12786,12 @@
         "operationId": "ImagesUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11711,7 +12841,12 @@
         "operationId": "ImagesDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -11753,7 +12888,12 @@
         "operationId": "ImagesPostAccountTransferCreate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11809,7 +12949,12 @@
         "operationId": "ImagesPostAccountTransferAccept",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11864,7 +13009,12 @@
         "operationId": "ImagesPostAccountTransferCancel",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11919,7 +13069,12 @@
         "operationId": "ImagesPostAccountTransferDecline",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -11974,7 +13129,12 @@
         "operationId": "ImageActionsList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12014,7 +13174,12 @@
         "operationId": "ImageActionsPost",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -12065,10 +13230,20 @@
         "operationId": "ImageActionsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/image_id"
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/action_id"
+            "name": "actionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12202,7 +13377,12 @@
         "operationId": "KubernetesGetCluster",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12242,7 +13422,12 @@
         "operationId": "KubernetesUpdateCluster",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -12292,7 +13477,12 @@
         "operationId": "KubernetesDeleteCluster",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12334,7 +13524,12 @@
         "operationId": "KubernetesListAssociatedResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12376,7 +13571,12 @@
         "operationId": "KubernetesDestroyAssociatedResourcesSelective",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -12428,7 +13628,12 @@
         "operationId": "KubernetesDestroyAssociatedResourcesDangerous",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12470,13 +13675,18 @@
         "operationId": "KubernetesGetKubeconfig",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
-          },
-          {
             "$ref": "#/components/parameters/kubernetes_expiry_seconds"
           },
           {
             "$ref": "#/components/parameters/kubernetes_credentials_type"
+          },
+          {
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12518,10 +13728,15 @@
         "operationId": "KubernetesGetCredentials",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "$ref": "#/components/parameters/kubernetes_expiry_seconds"
           },
           {
-            "$ref": "#/components/parameters/kubernetes_expiry_seconds"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12563,7 +13778,12 @@
         "operationId": "KubernetesGetAvailableUpgrades",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12605,7 +13825,12 @@
         "operationId": "KubernetesUpgradeCluster",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -12657,7 +13882,12 @@
         "operationId": "KubernetesListNodePools",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12697,7 +13927,12 @@
         "operationId": "KubernetesAddNodePool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -12760,10 +13995,20 @@
         "operationId": "KubernetesGetNodePool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kubernetes_node_pool_id"
+            "name": "nodePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12803,10 +14048,20 @@
         "operationId": "KubernetesUpdateNodePool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kubernetes_node_pool_id"
+            "name": "nodePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -12856,10 +14111,20 @@
         "operationId": "KubernetesDeleteNodePool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kubernetes_node_pool_id"
+            "name": "nodePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12901,19 +14166,34 @@
         "operationId": "KubernetesDeleteNode",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
-          },
-          {
-            "$ref": "#/components/parameters/kubernetes_node_pool_id"
-          },
-          {
-            "$ref": "#/components/parameters/kubernetes_node_id"
-          },
-          {
             "$ref": "#/components/parameters/kubernetes_node_skip_drain"
           },
           {
             "$ref": "#/components/parameters/kubernetes_node_replace"
+          },
+          {
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nodePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nodeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12955,10 +14235,20 @@
         "operationId": "KubernetesRecycleNodePool",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/kubernetes_node_pool_id"
+            "name": "nodePoolId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -13011,7 +14301,12 @@
         "operationId": "KubernetesGetClusterUser",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -13090,7 +14385,12 @@
         "operationId": "KubernetesRunClusterLint",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -13139,10 +14439,15 @@
         "operationId": "KubernetesGetClusterLintResults",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "$ref": "#/components/parameters/clusterlint_run_id"
           },
           {
-            "$ref": "#/components/parameters/clusterlint_run_id"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -13354,10 +14659,15 @@
         "operationId": "KubernetesGetStatusMessages",
         "parameters": [
           {
-            "$ref": "#/components/parameters/kubernetes_cluster_id"
+            "$ref": "#/components/parameters/kubernetes_status_messages_since"
           },
           {
-            "$ref": "#/components/parameters/kubernetes_status_messages_since"
+            "name": "clusterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -13497,7 +14807,12 @@
         "operationId": "LoadBalancersGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/load_balancer_id"
+            "name": "lbId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -13537,7 +14852,12 @@
         "operationId": "LoadBalancersUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/load_balancer_id"
+            "name": "lbId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -13592,7 +14912,12 @@
         "operationId": "LoadBalancersDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/load_balancer_id"
+            "name": "lbId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -13634,7 +14959,12 @@
         "operationId": "LoadBalancersDeleteCache",
         "parameters": [
           {
-            "$ref": "#/components/parameters/load_balancer_id"
+            "name": "lbId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -13676,7 +15006,12 @@
         "operationId": "LoadBalancersAddDroplets",
         "parameters": [
           {
-            "$ref": "#/components/parameters/load_balancer_id"
+            "name": "lbId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -13726,7 +15061,12 @@
         "operationId": "LoadBalancersRemoveDroplets",
         "parameters": [
           {
-            "$ref": "#/components/parameters/load_balancer_id"
+            "name": "lbId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -13778,7 +15118,12 @@
         "operationId": "LoadBalancersAddForwardingRules",
         "parameters": [
           {
-            "$ref": "#/components/parameters/load_balancer_id"
+            "name": "lbId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -13828,7 +15173,12 @@
         "operationId": "LoadBalancersRemoveForwardingRules",
         "parameters": [
           {
-            "$ref": "#/components/parameters/load_balancer_id"
+            "name": "lbId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -13965,7 +15315,12 @@
         "operationId": "MonitoringGetAlertPolicy",
         "parameters": [
           {
-            "$ref": "#/components/parameters/alert_uuid"
+            "name": "alertUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -14005,7 +15360,12 @@
         "operationId": "MonitoringUpdateAlertPolicy",
         "parameters": [
           {
-            "$ref": "#/components/parameters/alert_uuid"
+            "name": "alertUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -14056,7 +15416,12 @@
         "operationId": "MonitoringDeleteAlertPolicy",
         "parameters": [
           {
-            "$ref": "#/components/parameters/alert_uuid"
+            "name": "alertUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -16898,7 +18263,12 @@
         "operationId": "MonitoringGetDestination",
         "parameters": [
           {
-            "$ref": "#/components/parameters/destination_uuid"
+            "name": "destinationUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -16938,7 +18308,12 @@
         "operationId": "MonitoringUpdateDestination",
         "parameters": [
           {
-            "$ref": "#/components/parameters/destination_uuid"
+            "name": "destinationUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -16988,7 +18363,12 @@
         "operationId": "MonitoringDeleteDestination",
         "parameters": [
           {
-            "$ref": "#/components/parameters/destination_uuid"
+            "name": "destinationUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17117,7 +18497,12 @@
         "operationId": "MonitoringGetSink",
         "parameters": [
           {
-            "$ref": "#/components/parameters/sink_uuid"
+            "name": "sinkUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17157,7 +18542,12 @@
         "operationId": "MonitoringDeleteSink",
         "parameters": [
           {
-            "$ref": "#/components/parameters/sink_uuid"
+            "name": "sinkUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17299,10 +18689,15 @@
         "operationId": "NfsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/nfs_id"
+            "$ref": "#/components/parameters/parameters_region"
           },
           {
-            "$ref": "#/components/parameters/parameters_region"
+            "name": "nfsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17342,10 +18737,15 @@
         "operationId": "NfsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/nfs_id"
+            "$ref": "#/components/parameters/parameters_region"
           },
           {
-            "$ref": "#/components/parameters/parameters_region"
+            "name": "nfsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17387,7 +18787,12 @@
         "operationId": "NfsCreateAction",
         "parameters": [
           {
-            "$ref": "#/components/parameters/nfs_id"
+            "name": "nfsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17485,10 +18890,15 @@
         "operationId": "NfsGetSnapshot",
         "parameters": [
           {
-            "$ref": "#/components/parameters/nfs_snapshot_id"
+            "$ref": "#/components/parameters/parameters_region"
           },
           {
-            "$ref": "#/components/parameters/parameters_region"
+            "name": "nfsSnapshotId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17528,10 +18938,15 @@
         "operationId": "NfsDeleteSnapshot",
         "parameters": [
           {
-            "$ref": "#/components/parameters/nfs_snapshot_id"
+            "$ref": "#/components/parameters/parameters_region"
           },
           {
-            "$ref": "#/components/parameters/parameters_region"
+            "name": "nfsSnapshotId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17573,7 +18988,12 @@
         "operationId": "NfsCreateAccessPoint",
         "parameters": [
           {
-            "$ref": "#/components/parameters/share_id_path"
+            "name": "shareId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17648,9 +19068,6 @@
         "operationId": "NfsListAccessPoints",
         "parameters": [
           {
-            "$ref": "#/components/parameters/share_id_path"
-          },
-          {
             "name": "status",
             "in": "query",
             "description": "Filter access points by status.",
@@ -17658,6 +19075,14 @@
               "$ref": "#/components/schemas/NfsListAccessPointsStatusParameter"
             },
             "example": "ACCESS_POINT_ACTIVE"
+          },
+          {
+            "name": "shareId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17702,7 +19127,12 @@
         "operationId": "NfsGetAccessPoint",
         "parameters": [
           {
-            "$ref": "#/components/parameters/access_point_id"
+            "name": "accessPointId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17742,7 +19172,12 @@
         "operationId": "NfsDeleteAccessPoint",
         "parameters": [
           {
-            "$ref": "#/components/parameters/access_point_id"
+            "name": "accessPointId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17994,7 +19429,12 @@
         "operationId": "PartnerAttachmentsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/pa_id"
+            "name": "paId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18034,7 +19474,12 @@
         "operationId": "PartnerAttachmentsPatch",
         "parameters": [
           {
-            "$ref": "#/components/parameters/pa_id"
+            "name": "paId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18083,7 +19528,12 @@
         "operationId": "PartnerAttachmentsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/pa_id"
+            "name": "paId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18125,7 +19575,12 @@
         "operationId": "PartnerAttachmentsGetBgpAuthKey",
         "parameters": [
           {
-            "$ref": "#/components/parameters/pa_id"
+            "name": "paId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18167,13 +19622,18 @@
         "operationId": "PartnerAttachmentsListRemoteRoutes",
         "parameters": [
           {
-            "$ref": "#/components/parameters/pa_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "paId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18215,7 +19675,12 @@
         "operationId": "PartnerAttachmentsGetServiceKey",
         "parameters": [
           {
-            "$ref": "#/components/parameters/pa_id"
+            "name": "paId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18255,7 +19720,12 @@
         "operationId": "PartnerAttachmentsCreateServiceKey",
         "parameters": [
           {
-            "$ref": "#/components/parameters/pa_id"
+            "name": "paId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18511,7 +19981,12 @@
         "operationId": "ProjectsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/project_id"
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18551,7 +20026,12 @@
         "operationId": "ProjectsUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/project_id"
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18601,7 +20081,12 @@
         "operationId": "ProjectsPatch",
         "parameters": [
           {
-            "$ref": "#/components/parameters/project_id"
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18654,7 +20139,12 @@
         "operationId": "ProjectsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/project_id"
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18699,13 +20189,18 @@
         "operationId": "ProjectsListResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/project_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -18745,7 +20240,12 @@
         "operationId": "ProjectsAssignResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/project_id"
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -19020,7 +20520,12 @@
         "operationId": "RegistriesGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19060,7 +20565,12 @@
         "operationId": "RegistriesDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19102,7 +20612,12 @@
         "operationId": "RegistriesGetDockerCredentials",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19254,7 +20769,12 @@
         "operationId": "RegistriesGetGarbageCollection",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19294,7 +20814,12 @@
         "operationId": "RegistriesRunGarbageCollection",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19336,13 +20861,18 @@
         "operationId": "RegistriesListGarbageCollections",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19384,10 +20914,20 @@
         "operationId": "RegistriesUpdateGarbageCollection",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/garbage_collection_uuid"
+            "name": "garbageCollectionUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -19448,7 +20988,12 @@
             "$ref": "#/components/parameters/token_pagination_page_token"
           },
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19493,10 +21038,20 @@
         "operationId": "RegistriesDeleteRepository",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19544,10 +21099,20 @@
             "$ref": "#/components/parameters/page"
           },
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19589,13 +21154,28 @@
         "operationId": "RegistriesDeleteRepositoryTag",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_tag"
+            "name": "repositoryTag",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19643,10 +21223,20 @@
             "$ref": "#/components/parameters/page"
           },
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -19688,13 +21278,28 @@
         "operationId": "RegistriesDeleteRepositoryManifest",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_manifest_digest"
+            "name": "manifestDigest",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20081,7 +21686,12 @@
             "$ref": "#/components/parameters/page"
           },
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20133,7 +21743,12 @@
             "$ref": "#/components/parameters/token_pagination_page_token"
           },
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20185,10 +21800,20 @@
             "$ref": "#/components/parameters/page"
           },
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20231,13 +21856,28 @@
         "operationId": "RegistryDeleteRepositoryTag",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_tag"
+            "name": "repositoryTag",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20286,10 +21926,20 @@
             "$ref": "#/components/parameters/page"
           },
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20332,13 +21982,28 @@
         "operationId": "RegistryDeleteRepositoryManifest",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_repository_name"
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/registry_manifest_digest"
+            "name": "manifestDigest",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20381,7 +22046,12 @@
         "operationId": "RegistryRunGarbageCollection",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -20431,7 +22101,12 @@
         "operationId": "RegistryGetGarbageCollection",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20474,13 +22149,18 @@
         "operationId": "RegistryListGarbageCollections",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20523,10 +22203,20 @@
         "operationId": "RegistryUpdateGarbageCollection",
         "parameters": [
           {
-            "$ref": "#/components/parameters/registry_name"
+            "name": "registryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/garbage_collection_uuid"
+            "name": "garbageCollectionUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -20735,7 +22425,12 @@
         "operationId": "ReservedIPsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/reserved_ip"
+            "name": "reservedIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20775,7 +22470,12 @@
         "operationId": "ReservedIPsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/reserved_ip"
+            "name": "reservedIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20817,7 +22517,12 @@
         "operationId": "ReservedIPsActionsList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/reserved_ip"
+            "name": "reservedIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20857,7 +22562,12 @@
         "operationId": "ReservedIPsActionsPost",
         "parameters": [
           {
-            "$ref": "#/components/parameters/reserved_ip"
+            "name": "reservedIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -20909,10 +22619,20 @@
         "operationId": "ReservedIPsActionsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/reserved_ip"
+            "name": "reservedIp",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/action_id"
+            "name": "actionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21038,7 +22758,12 @@
         "operationId": "ReservedIPv6Get",
         "parameters": [
           {
-            "$ref": "#/components/parameters/reserved_ipv6"
+            "name": "reservedIpv6",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21078,7 +22803,12 @@
         "operationId": "ReservedIPv6Delete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/reserved_ipv6"
+            "name": "reservedIpv6",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21123,7 +22853,12 @@
         "operationId": "ReservedIPv6ActionsPost",
         "parameters": [
           {
-            "$ref": "#/components/parameters/reserved_ipv6"
+            "name": "reservedIpv6",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -21262,7 +22997,12 @@
         "operationId": "ByoipPrefixesGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/byoip_prefix"
+            "name": "byoipPrefixUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21305,7 +23045,12 @@
         "operationId": "ByoipPrefixesDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/byoip_prefix"
+            "name": "byoipPrefixUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21411,13 +23156,18 @@
         "operationId": "ByoipPrefixesListResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/byoip_prefix"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "byoipPrefixUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21542,9 +23292,6 @@
         "operationId": "SecurityGetScan",
         "parameters": [
           {
-            "$ref": "#/components/parameters/scan_id"
-          },
-          {
             "$ref": "#/components/parameters/severity"
           },
           {
@@ -21561,6 +23308,14 @@
               "type": "string"
             },
             "example": "CSPM"
+          },
+          {
+            "name": "scanId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21709,16 +23464,26 @@
         "operationId": "SecurityListScanFindingAffectedResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/scan_id"
-          },
-          {
-            "$ref": "#/components/parameters/finding_uuid"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "scanId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "findingUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21905,7 +23670,12 @@
         "operationId": "SecurityDeleteSuppression",
         "parameters": [
           {
-            "$ref": "#/components/parameters/suppression_uuid"
+            "name": "suppressionUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22035,7 +23805,12 @@
         "operationId": "SnapshotsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/snapshot_id"
+            "name": "snapshotId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22079,7 +23854,12 @@
         "operationId": "SnapshotsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/snapshot_id"
+            "name": "snapshotId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22283,7 +24063,12 @@
         "operationId": "SpacesKeyGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/access_key_id"
+            "name": "accessKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22323,7 +24108,12 @@
         "operationId": "SpacesKeyDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/access_key_id"
+            "name": "accessKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22363,7 +24153,12 @@
         "operationId": "SpacesKeyUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/access_key_id"
+            "name": "accessKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -22423,7 +24218,12 @@
         "operationId": "SpacesKeyPatch",
         "parameters": [
           {
-            "$ref": "#/components/parameters/access_key_id"
+            "name": "accessKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -22572,7 +24372,12 @@
         "operationId": "TagsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/tag_id"
+            "name": "tagId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22612,7 +24417,12 @@
         "operationId": "TagsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/tag_id"
+            "name": "tagId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22654,7 +24464,12 @@
         "operationId": "TagsAssignResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/tag_id"
+            "name": "tagId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -22704,7 +24519,12 @@
         "operationId": "TagsUnassignResources",
         "parameters": [
           {
-            "$ref": "#/components/parameters/tag_id"
+            "name": "tagId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -23790,7 +25610,12 @@
         "operationId": "VolumeSnapshotsGetById",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_snapshot_id"
+            "name": "snapshotId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -23830,7 +25655,12 @@
         "operationId": "VolumeSnapshotsDeleteById",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_snapshot_id"
+            "name": "snapshotId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -23872,7 +25702,12 @@
         "operationId": "VolumesGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_id"
+            "name": "volumeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -23912,7 +25747,12 @@
         "operationId": "VolumesDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_id"
+            "name": "volumeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -23954,13 +25794,18 @@
         "operationId": "VolumeActionsList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "volumeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -24000,13 +25845,18 @@
         "operationId": "VolumeActionsPostById",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "volumeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -24084,16 +25934,26 @@
         "operationId": "VolumeActionsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_id"
-          },
-          {
-            "$ref": "#/components/parameters/action_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "volumeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "actionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -24135,13 +25995,18 @@
         "operationId": "VolumeSnapshotsList",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "volumeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -24181,7 +26046,12 @@
         "operationId": "VolumeSnapshotsCreate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/volume_id"
+            "name": "volumeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -24326,7 +26196,12 @@
         "operationId": "VpcsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_id"
+            "name": "vpcId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -24366,7 +26241,12 @@
         "operationId": "VpcsUpdate",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_id"
+            "name": "vpcId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -24416,7 +26296,12 @@
         "operationId": "VpcsPatch",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_id"
+            "name": "vpcId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -24466,7 +26351,12 @@
         "operationId": "VpcsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_id"
+            "name": "vpcId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -24508,9 +26398,6 @@
         "operationId": "VpcsListMembers",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_id"
-          },
-          {
             "$ref": "#/components/parameters/vpc_resource_type"
           },
           {
@@ -24518,6 +26405,14 @@
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "vpcId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -24559,13 +26454,18 @@
         "operationId": "VpcsListPeerings",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "vpcId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -24605,7 +26505,12 @@
         "operationId": "VpcsCreatePeerings",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_id"
+            "name": "vpcId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -24657,10 +26562,20 @@
         "operationId": "VpcsPatchPeerings",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_id"
+            "name": "vpcId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/vpc_peering_id"
+            "name": "vpcPeeringId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -24802,7 +26717,12 @@
         "operationId": "VpcPeeringsGet",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_peering_id"
+            "name": "vpcPeeringId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -24842,7 +26762,12 @@
         "operationId": "VpcPeeringsPatch",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_peering_id"
+            "name": "vpcPeeringId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -24892,7 +26817,12 @@
         "operationId": "VpcPeeringsDelete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/vpc_peering_id"
+            "name": "vpcPeeringId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25257,7 +27187,12 @@
         "operationId": "UptimeGetCheck",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25297,7 +27232,12 @@
         "operationId": "UptimeUpdateCheck",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -25347,7 +27287,12 @@
         "operationId": "UptimeDeleteCheck",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25389,7 +27334,12 @@
         "operationId": "UptimeGetCheckState",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25431,13 +27381,18 @@
         "operationId": "UptimeListAlerts",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
-          },
-          {
             "$ref": "#/components/parameters/per_page"
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25477,7 +27432,12 @@
         "operationId": "UptimeCreateAlert",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -25531,10 +27491,20 @@
         "operationId": "UptimeGetAlert",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/parameters_alert_id"
+            "name": "alertId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25574,10 +27544,20 @@
         "operationId": "UptimeUpdateAlert",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/parameters_alert_id"
+            "name": "alertId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -25627,10 +27607,20 @@
         "operationId": "UptimeDeleteAlert",
         "parameters": [
           {
-            "$ref": "#/components/parameters/check_id"
+            "name": "checkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/parameters_alert_id"
+            "name": "alertId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
