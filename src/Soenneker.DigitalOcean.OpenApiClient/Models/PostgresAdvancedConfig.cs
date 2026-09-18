@@ -92,6 +92,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? MaxWalSenders { get; set; }
         /// <summary>Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.</summary>
         public int? MaxWorkerProcesses { get; set; }
+        /// <summary>System-wide settings for the pgaudit extension. When `feature_enabled` is true, the pgaudit extension is automatically installed. When false, the extension is uninstalled but auditing configurations (such as `log`) are preserved.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit? Pgaudit { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit Pgaudit { get; set; }
+#endif
         /// <summary>PGBouncer connection pooling settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -217,6 +225,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "pg_partman_bgw.interval", n => { PgPartmanBgwInterval = n.GetIntValue(); } },
                 { "pg_partman_bgw.role", n => { PgPartmanBgwRole = n.GetStringValue(); } },
                 { "pg_stat_statements.track", n => { PgStatStatementsTrack = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgStatStatementsTrack>(); } },
+                { "pgaudit", n => { Pgaudit = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit.CreateFromDiscriminatorValue); } },
                 { "pgbouncer", n => { Pgbouncer = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig.CreateFromDiscriminatorValue); } },
                 { "shared_buffers_percentage", n => { SharedBuffersPercentage = n.GetDoubleValue(); } },
                 { "stat_monitor_enable", n => { StatMonitorEnable = n.GetBoolValue(); } },
@@ -279,6 +288,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("max_standby_streaming_delay", MaxStandbyStreamingDelay);
             writer.WriteIntValue("max_wal_senders", MaxWalSenders);
             writer.WriteIntValue("max_worker_processes", MaxWorkerProcesses);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit>("pgaudit", Pgaudit);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig>("pgbouncer", Pgbouncer);
             writer.WriteIntValue("pg_partman_bgw.interval", PgPartmanBgwInterval);
             writer.WriteStringValue("pg_partman_bgw.role", PgPartmanBgwRole);

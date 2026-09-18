@@ -45855,6 +45855,9 @@
             "type": "integer",
             "description": "PostgreSQL maximum WAL size (MB) reserved for replication slots. If -1 is specified, replication slots may retain an unlimited amount of WAL files. The default is -1 (upstream default). wal_keep_size minimum WAL size setting takes precedence over this.",
             "example": 100
+          },
+          "pgaudit": {
+            "$ref": "#/components/schemas/PostgresAdvancedConfigPgaudit"
           }
         }
       },
@@ -76670,6 +76673,9 @@
             "description": "PostgreSQL maximum WAL size (MB) reserved for replication slots. If -1 is specified, replication slots may retain an unlimited amount of WAL files. The default is -1 (upstream default). wal_keep_size minimum WAL size setting takes precedence over this.",
             "example": 100
           },
+          "pgaudit": {
+            "$ref": "#/components/schemas/PostgresAdvancedConfigPgaudit"
+          },
           "redis_maxmemory_policy": {
             "$ref": "#/components/schemas/RedisAdvancedConfigRedisMaxmemoryPolicy"
           },
@@ -80833,6 +80839,9 @@
             "description": "PostgreSQL maximum WAL size (MB) reserved for replication slots. If -1 is specified, replication slots may retain an unlimited amount of WAL files. The default is -1 (upstream default). wal_keep_size minimum WAL size setting takes precedence over this.",
             "example": 100
           },
+          "pgaudit": {
+            "$ref": "#/components/schemas/PostgresAdvancedConfigPgaudit"
+          },
           "redis_maxmemory_policy": {
             "$ref": "#/components/schemas/RedisAdvancedConfigRedisMaxmemoryPolicy"
           },
@@ -83579,6 +83588,24 @@
           }
         },
         "description": "MongoDB-specific settings for the user. This option is not currently supported for other database engines."
+      },
+      "PostgresAdvancedConfigPgaudit": {
+        "type": "object",
+        "properties": {
+          "feature_enabled": {
+            "type": "boolean",
+            "description": "Enable pgaudit extension. When enabled, pgaudit extension will be automatically installed. Otherwise, extension will be uninstalled but auditing configurations will be preserved.",
+            "example": false
+          },
+          "log": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostgresAdvancedConfigPgauditLogItem"
+            },
+            "description": "Specifies which classes of statements will be logged by session audit logging. Available values are \u0060read\u0060 (SELECT and COPY when the source is a relation or query), \u0060write\u0060 (INSERT, UPDATE, DELETE, TRUNCATE, and COPY when the destination is a relation), \u0060function\u0060 (function calls and DO blocks), \u0060role\u0060 (statements related to roles and privileges: GRANT, REVOKE, CREATE/ALTER/DROP ROLE), \u0060ddl\u0060 (all DDL that is not included in the role class), \u0060misc\u0060 (miscellaneous commands, e.g. DISCARD, FETCH, CHECKPOINT, VACUUM, SET), \u0060misc_set\u0060 (miscellaneous SET commands, e.g. SET ROLE), and \u0060all\u0060 (include all of the above)."
+          }
+        },
+        "description": "System-wide settings for the pgaudit extension. When \u0060feature_enabled\u0060 is true, the pgaudit extension is automatically installed. When false, the extension is uninstalled but auditing configurations (such as \u0060log\u0060) are preserved."
       },
       "SourceDatabaseSource": {
         "type": "object",
@@ -95670,6 +95697,58 @@
             {
               "value": "dbAdmin",
               "name": "DbAdmin"
+            }
+          ]
+        }
+      },
+      "PostgresAdvancedConfigPgauditLogItem": {
+        "enum": [
+          "read",
+          "write",
+          "function",
+          "role",
+          "ddl",
+          "misc",
+          "misc_set",
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostgresAdvancedConfigPgauditLogItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "read",
+              "name": "Read"
+            },
+            {
+              "value": "write",
+              "name": "Write"
+            },
+            {
+              "value": "function",
+              "name": "Function"
+            },
+            {
+              "value": "role",
+              "name": "Role"
+            },
+            {
+              "value": "ddl",
+              "name": "Ddl"
+            },
+            {
+              "value": "misc",
+              "name": "Misc"
+            },
+            {
+              "value": "misc_set",
+              "name": "MiscSet"
+            },
+            {
+              "value": "all",
+              "name": "All"
             }
           ]
         }
