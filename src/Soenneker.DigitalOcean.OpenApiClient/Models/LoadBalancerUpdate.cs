@@ -124,6 +124,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions StickySessions { get; set; }
 #endif
+        /// <summary>A string specifying the UUID of the VPC subnet to which the load balancer is assigned.</summary>
+        public Guid? SubnetUuid { get; set; }
         /// <summary>The name of a Droplet tag corresponding to Droplets assigned to the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -201,6 +203,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "size_unit", n => { SizeUnit = n.GetIntValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseStatus>(); } },
                 { "sticky_sessions", n => { StickySessions = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions>(global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions.CreateFromDiscriminatorValue); } },
+                { "subnet_uuid", n => { SubnetUuid = n.GetGuidValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "target_load_balancer_ids", n => { TargetLoadBalancerIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tls_cipher_policy", n => { TlsCipherPolicy = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseTlsCipherPolicy>(); } },
@@ -235,6 +238,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseSize>("size", Size);
             writer.WriteIntValue("size_unit", SizeUnit);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions>("sticky_sessions", StickySessions);
+            writer.WriteGuidValue("subnet_uuid", SubnetUuid);
             writer.WriteStringValue("tag", Tag);
             writer.WriteCollectionOfPrimitiveValues<string>("target_load_balancer_ids", TargetLoadBalancerIds);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseTlsCipherPolicy>("tls_cipher_policy", TlsCipherPolicy);

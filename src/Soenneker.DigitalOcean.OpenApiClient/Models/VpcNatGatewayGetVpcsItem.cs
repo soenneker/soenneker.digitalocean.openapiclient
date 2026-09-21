@@ -22,14 +22,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string GatewayIp { get; set; }
 #endif
+        /// <summary>The unique identifier of the VPC subnet to which the NAT gateway is attached.</summary>
+        public Guid? SubnetUuid { get; set; }
         /// <summary>The unique identifier of the VPC to which the NAT gateway is attached.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? VpcUuid { get; set; }
-#nullable restore
-#else
-        public string VpcUuid { get; set; }
-#endif
+        public Guid? VpcUuid { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayGetVpcsItem"/> and sets the default values.
         /// </summary>
@@ -56,7 +52,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "gateway_ip", n => { GatewayIp = n.GetStringValue(); } },
-                { "vpc_uuid", n => { VpcUuid = n.GetStringValue(); } },
+                { "subnet_uuid", n => { SubnetUuid = n.GetGuidValue(); } },
+                { "vpc_uuid", n => { VpcUuid = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -67,7 +64,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("gateway_ip", GatewayIp);
-            writer.WriteStringValue("vpc_uuid", VpcUuid);
+            writer.WriteGuidValue("subnet_uuid", SubnetUuid);
+            writer.WriteGuidValue("vpc_uuid", VpcUuid);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

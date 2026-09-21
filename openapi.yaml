@@ -62996,6 +62996,13 @@ components:
           description: >-
             A string specifying the UUID of the VPC to which the load balancer
             is assigned.
+        subnet_uuid:
+          type: string
+          format: uuid
+          example: cbd79771-23eb-49be-b5ea-59cc56222622
+          description: >-
+            A string specifying the UUID of the VPC subnet to which the load
+            balancer is assigned.
         disable_lets_encrypt_dns_records:
           type: boolean
           example: true
@@ -66944,10 +66951,18 @@ components:
             properties:
               vpc_uuid:
                 type: string
+                format: uuid
                 example: 0d3db13e-a604-4944-9827-7ec2642d32ac
                 description: >-
                   The unique identifier of the VPC to which the NAT gateway is
                   attached.
+              subnet_uuid:
+                type: string
+                format: uuid
+                example: cbd79771-23eb-49be-b5ea-59cc56222622
+                description: >-
+                  The unique identifier of the VPC subnet to which the NAT
+                  gateway is attached.
               gateway_ip:
                 type: string
                 example: 10.118.0.35
@@ -67043,10 +67058,18 @@ components:
             properties:
               vpc_uuid:
                 type: string
+                format: uuid
                 example: 0d3db13e-a604-4944-9827-7ec2642d32ac
                 description: >-
                   The unique identifier of the VPC to which the NAT gateway is
                   attached.
+              subnet_uuid:
+                type: string
+                format: uuid
+                example: cbd79771-23eb-49be-b5ea-59cc56222622
+                description: >-
+                  The unique identifier of the VPC subnet to which the NAT
+                  gateway is attached.
               default_gateway:
                 type: boolean
                 example: true
@@ -67133,10 +67156,18 @@ components:
             properties:
               vpc_uuid:
                 type: string
+                format: uuid
                 example: 0d3db13e-a604-4944-9827-7ec2642d32ac
                 description: >-
                   The unique identifier of the VPC to which the NAT gateway is
                   attached.
+              subnet_uuid:
+                type: string
+                format: uuid
+                example: cbd79771-23eb-49be-b5ea-59cc56222622
+                description: >-
+                  The unique identifier of the VPC subnet to which the NAT
+                  gateway is attached.
               default_gateway:
                 type: boolean
                 example: false
@@ -92483,6 +92514,7 @@ components:
             enable_proxy_protocol: false
             enable_backend_keepalive: false
             vpc_uuid: c33931f2-a26a-4e61-b85c-4e95a2ec431b
+            subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
             disable_lets_encrypt_dns_records: false
             firewall:
               deny:
@@ -92551,6 +92583,7 @@ components:
             enable_proxy_protocol: false
             enable_backend_keepalive: false
             vpc_uuid: 587d698c-de84-11e8-80bc-3cfdfea9fcd1
+            subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
             disable_lets_encrypt_dns_records: false
             project_id: 9cc10173-e9ea-4176-9dbc-a4cee4c4ff30
             http_idle_timeout_seconds: 60
@@ -92569,6 +92602,7 @@ components:
       value:
         name: example-lb-01
         region: nyc3
+        subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
         forwarding_rules:
           - entry_protocol: http
             entry_port: 80
@@ -92713,6 +92747,7 @@ components:
           enable_proxy_protocol: false
           enable_backend_keepalive: false
           vpc_uuid: c33931f2-a26a-4e61-b85c-4e95a2ec431b
+          subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
           disable_lets_encrypt_dns_records: false
           project_id: 9cc10173-e9ea-4176-9dbc-a4cee4c4ff30
           http_idle_timeout_seconds: 60
@@ -92782,6 +92817,7 @@ components:
           enable_proxy_protocol: false
           enable_backend_keepalive: false
           vpc_uuid: c33931f2-a26a-4e61-b85c-4e95a2ec431b
+          subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
           disable_lets_encrypt_dns_records: false
     load_balancer_using_tag_response:
       value:
@@ -92842,6 +92878,7 @@ components:
           enable_proxy_protocol: false
           enable_backend_keepalive: false
           vpc_uuid: c33931f2-a26a-4e61-b85c-4e95a2ec431b
+          subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
           disable_lets_encrypt_dns_records: false
           project_id: 9cc10173-e9ea-4176-9dbc-a4cee4c4ff30
     load_balancer_sticky_sessions_and_health_check_response:
@@ -92905,6 +92942,7 @@ components:
           enable_proxy_protocol: false
           enable_backend_keepalive: false
           vpc_uuid: c33931f2-a26a-4e61-b85c-4e95a2ec431b
+          subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
           disable_lets_encrypt_dns_records: false
           project_id: 9cc10173-e9ea-4176-9dbc-a4cee4c4ff30
     load_balancer_update_request:
@@ -92942,6 +92980,7 @@ components:
         enable_proxy_protocol: true
         enable_backend_keepalive: true
         vpc_uuid: c33931f2-a26a-4e61-b85c-4e95a2ec431b
+        subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
         project_id: 9cc10173-e9ea-4176-9dbc-a4cee4c4ff30
         http_idle_timeout_seconds: 60
         firewall:
@@ -93017,6 +93056,7 @@ components:
           enable_proxy_protocol: true
           enable_backend_keepalive: true
           vpc_uuid: c33931f2-a26a-4e61-b85c-4e95a2ec431b
+          subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
           disable_lets_encrypt_dns_records: false
           project_id: 9cc10173-e9ea-4176-9dbc-a4cee4c4ff30
           http_idle_timeout_seconds: 60
@@ -93929,6 +93969,7 @@ components:
             size: 1
             vpcs:
               - vpc_uuid: 0eb1752f-807b-4562-a077-8018e13ab1fb
+                subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
                 gateway_ip: 10.118.0.35
             egresses:
               public_gateways:
@@ -93950,6 +93991,7 @@ components:
         size: 1
         vpcs:
           - vpc_uuid: 0eb1752f-807b-4562-a077-8018e13ab1fb
+            subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
             default_gateway: true
         udp_timeout_seconds: 30
         icmp_timeout_seconds: 30
@@ -93966,6 +94008,7 @@ components:
           size: 1
           vpcs:
             - vpc_uuid: 0eb1752f-807b-4562-a077-8018e13ab1fb
+              subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
               default_gateway: true
           egresses: {}
           udp_timeout_seconds: 30
@@ -93984,6 +94027,7 @@ components:
           size: 1
           vpcs:
             - vpc_uuid: 0eb1752f-807b-4562-a077-8018e13ab1fb
+              subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
               gateway_ip: 10.118.0.35
               default_gateway: true
           egresses:
@@ -94015,6 +94059,7 @@ components:
           size: 2
           vpcs:
             - vpc_uuid: 0eb1752f-807b-4562-a077-8018e13ab1fb
+              subnet_uuid: cbd79771-23eb-49be-b5ea-59cc56222622
               gateway_ip: 10.118.0.35
           egresses:
             public_gateways:
