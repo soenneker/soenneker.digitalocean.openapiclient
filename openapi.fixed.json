@@ -5439,11 +5439,11 @@
               },
               "example": {
                 "source": {
-                  "host": "source-do-user-6607903-0.b.db.ondigitalocean.com",
+                  "host": "source-db.example.com",
                   "dbname": "defaultdb",
                   "port": 25060,
                   "username": "doadmin",
-                  "password": "paakjnfe10rsrsmf"
+                  "password": "example_password"
                 },
                 "disable_ssl": false,
                 "ignore_dbs": [
@@ -5485,11 +5485,11 @@
         "x-codeSamples": [
           {
             "lang": "cURL",
-            "source": "curl -X PUT \\\n-H \u0022Content-Type: application/json\u0022 \\\n-H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n-d \u0027{\u0022source\u0022:{\u0022host\u0022:\u0022source-do-user-6607903-0.b.db.ondigitalocean.com\u0022,\u0022dbname\u0022:\u0022defaultdb\u0022,\u0022port\u0022:25060,\u0022username\u0022:\u0022doadmin\u0022,\u0022password\u0022:\u0022paakjnfe10rsrsmf\u0022},\u0022disable_ssl\u0022:false,\u0022ignore_dbs\u0022:[\u0022db0\u0022,\u0022db1\u0022]}\u0027 \\\n\u0022https://api.digitalocean.com/v2/databases/9cc10173-e9ea-4176-9dbc-a4cee4c4ff30/online-migration\u0022"
+            "source": "curl -X PUT \\\n-H \u0022Content-Type: application/json\u0022 \\\n-H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n-d \u0027{\u0022source\u0022:{\u0022host\u0022:\u0022source-db.example.com\u0022,\u0022dbname\u0022:\u0022defaultdb\u0022,\u0022port\u0022:25060,\u0022username\u0022:\u0022doadmin\u0022,\u0022password\u0022:\u0022example_password\u0022},\u0022disable_ssl\u0022:false,\u0022ignore_dbs\u0022:[\u0022db0\u0022,\u0022db1\u0022]}\u0027 \\\n\u0022https://api.digitalocean.com/v2/databases/9cc10173-e9ea-4176-9dbc-a4cee4c4ff30/online-migration\u0022"
           },
           {
             "lang": "Python",
-            "source": "import os\nfrom pydo import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\nreq = {\n  \u0022source\u0022: {\n    \u0022host\u0022: \u0022source-do-user-6607903-0.b.db.ondigitalocean.com\u0022,\n    \u0022dbname\u0022: \u0022defaultdb\u0022,\n    \u0022port\u0022: 25060,\n    \u0022username\u0022: \u0022doadmin\u0022,\n    \u0022password\u0022: \u0022paakjnfe10rsrsmf\u0022\n  },\n  \u0022disable_ssl\u0022: False\n  \u0022ignore_dbs\u0022: [\u0022db0\u0022,\u0022db1\u0022]\n}\n\nupdate_resp = client.databases.update_online_migration(database_cluster_uuid=\u0022a7a8bas\u0022, body=req)"
+            "source": "import os\nfrom pydo import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\nreq = {\n  \u0022source\u0022: {\n    \u0022host\u0022: \u0022source-db.example.com\u0022,\n    \u0022dbname\u0022: \u0022defaultdb\u0022,\n    \u0022port\u0022: 25060,\n    \u0022username\u0022: \u0022doadmin\u0022,\n    \u0022password\u0022: \u0022example_password\u0022\n  },\n  \u0022disable_ssl\u0022: False\n  \u0022ignore_dbs\u0022: [\u0022db0\u0022,\u0022db1\u0022]\n}\n\nupdate_resp = client.databases.update_online_migration(database_cluster_uuid=\u0022a7a8bas\u0022, body=req)"
           }
         ]
       }
@@ -11276,19 +11276,19 @@
         "x-codeSamples": [
           {
             "lang": "cURL",
-            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022name\u0022:\u0022example.com\u0022,\u0022region\u0022:\u0022nyc3\u0022,\u0022size\u0022:\u0022s-1vcpu-1gb\u0022,\u0022image\u0022:\u0022ubuntu-20-04-x64\u0022,\u0022ssh_keys\u0022:[289794,\u00223b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45\u0022],\u0022backups\u0022:true,\u0022ipv6\u0022:true,\u0022monitoring\u0022:true,\u0022tags\u0022:[\u0022env:prod\u0022,\u0022web\u0022],\u0022user_data\u0022:\u0022#cloud-config\\nruncmd:\\n  - touch /test.txt\\n\u0022,\u0022vpc_uuid\u0022:\u0022760e09ef-dc84-11e8-981e-3cfdfeaae000\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/droplets\u0022"
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022name\u0022:\u0022example.com\u0022,\u0022region\u0022:\u0022nyc3\u0022,\u0022size\u0022:\u0022s-1vcpu-1gb\u0022,\u0022image\u0022:\u0022ubuntu-20-04-x64\u0022,\u0022ssh_keys\u0022:[289794,\u00223b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45\u0022],\u0022backups\u0022:true,\u0022ipv6\u0022:true,\u0022monitoring\u0022:true,\u0022tags\u0022:[\u0022env:prod\u0022,\u0022web\u0022],\u0022user_data\u0022:\u0022#cloud-config\\nruncmd:\\n  - touch /test.txt\\n\u0022,\u0022vpc_uuid\u0022:\u0022760e09ef-dc84-11e8-981e-3cfdfeaae000\u0022,\u0022subnet_uuid\u0022:\u00229c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/droplets\u0022"
           },
           {
             "lang": "Go",
-            "source": "import (\n    \u0022context\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    token := os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022)\n\n    client := godo.NewFromToken(token)\n    ctx := context.TODO()\n\n    createRequest := \u0026godo.DropletCreateRequest{\n        Name:   \u0022example.com\u0022,\n        Region: \u0022nyc3\u0022,\n        Size:   \u0022s-1vcpu-1gb\u0022,\n        Image: godo.DropletCreateImage{\n            Slug: \u0022ubuntu-20-04-x64\u0022,\n        },\n        SSHKeys: []godo.DropletCreateSSHKey{\n            godo.DropletCreateSSHKey{ID: 289794},\n            godo.DropletCreateSSHKey{Fingerprint: \u00223b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45\u0022}\n        },\n        Backups: true,\n        IPv6: true,\n        Monitoring: true,\n        Tags: []string{\u0022env:prod\u0022,\u0022web\u0022},\n        UserData: \u0022#cloud-config\\nruncmd:\\n  - touch /test.txt\\n\u0022,\n        VPCUUID: \u0022760e09ef-dc84-11e8-981e-3cfdfeaae000\u0022,\n    }"
+            "source": "import (\n    \u0022context\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    token := os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022)\n\n    client := godo.NewFromToken(token)\n    ctx := context.TODO()\n\n    createRequest := \u0026godo.DropletCreateRequest{\n        Name:   \u0022example.com\u0022,\n        Region: \u0022nyc3\u0022,\n        Size:   \u0022s-1vcpu-1gb\u0022,\n        Image: godo.DropletCreateImage{\n            Slug: \u0022ubuntu-20-04-x64\u0022,\n        },\n        SSHKeys: []godo.DropletCreateSSHKey{\n            godo.DropletCreateSSHKey{ID: 289794},\n            godo.DropletCreateSSHKey{Fingerprint: \u00223b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45\u0022}\n        },\n        Backups: true,\n        IPv6: true,\n        Monitoring: true,\n        Tags: []string{\u0022env:prod\u0022,\u0022web\u0022},\n        UserData: \u0022#cloud-config\\nruncmd:\\n  - touch /test.txt\\n\u0022,\n        VPCUUID: \u0022760e09ef-dc84-11e8-981e-3cfdfeaae000\u0022,\n        SubnetUUID: \u00229c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1\u0022,\n    }"
           },
           {
             "lang": "Ruby",
-            "source": "require \u0027droplet_kit\u0027\ntoken = ENV[\u0027DIGITALOCEAN_TOKEN\u0027]\nclient = DropletKit::Client.new(access_token: token)\n\ndroplet = DropletKit::Droplet.new(\n  name: \u0027example.com\u0027,\n  region: \u0027nyc3\u0027,\n  size: \u0027s-1vcpu-1gb\u0027,\n  image: \u0027ubuntu-20-04-x64\u0027,\n  ssh_keys: [289794,\u00223b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45\u0022],\n  backups: true,\n  ipv6: true,\n  monitoring: true,\n  tags: [\u0022env:prod\u0022,\u0022web\u0022],\n  user_data: \u0022#cloud-config\\nruncmd:\\n  - touch /test.txt\\n\u0022,\n  vpc_uuid: \u0022760e09ef-dc84-11e8-981e-3cfdfeaae000\u0022,\n)\nclient.droplets.create(droplet)"
+            "source": "require \u0027droplet_kit\u0027\ntoken = ENV[\u0027DIGITALOCEAN_TOKEN\u0027]\nclient = DropletKit::Client.new(access_token: token)\n\ndroplet = DropletKit::Droplet.new(\n  name: \u0027example.com\u0027,\n  region: \u0027nyc3\u0027,\n  size: \u0027s-1vcpu-1gb\u0027,\n  image: \u0027ubuntu-20-04-x64\u0027,\n  ssh_keys: [289794,\u00223b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45\u0022],\n  backups: true,\n  ipv6: true,\n  monitoring: true,\n  tags: [\u0022env:prod\u0022,\u0022web\u0022],\n  user_data: \u0022#cloud-config\\nruncmd:\\n  - touch /test.txt\\n\u0022,\n  vpc_uuid: \u0022760e09ef-dc84-11e8-981e-3cfdfeaae000\u0022,\n  subnet_uuid: \u00229c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1\u0022,\n)\nclient.droplets.create(droplet)"
           },
           {
             "lang": "Python",
-            "source": "import os\nfrom pydo import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\nreq = {\n  \u0022name\u0022: \u0022example.com\u0022,\n  \u0022region\u0022: \u0022nyc3\u0022,\n  \u0022size\u0022: \u0022s-1vcpu-1gb\u0022,\n  \u0022image\u0022: \u0022ubuntu-20-04-x64\u0022,\n  \u0022ssh_keys\u0022: [\n    289794,\n    \u00223b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45\u0022\n  ],\n  \u0022backups\u0022: True,\n  \u0022ipv6\u0022: True,\n  \u0022monitoring\u0022: True,\n  \u0022tags\u0022: [\n    \u0022env:prod\u0022,\n    \u0022web\u0022\n  ],\n  \u0022user_data\u0022: \u0022#cloud-config\\nruncmd:\\n  - touch /test.txt\\n\u0022,\n  \u0022vpc_uuid\u0022: \u0022760e09ef-dc84-11e8-981e-3cfdfeaae000\u0022\n}\n\nresp = client.droplets.create(body=req)"
+            "source": "import os\nfrom pydo import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\nreq = {\n  \u0022name\u0022: \u0022example.com\u0022,\n  \u0022region\u0022: \u0022nyc3\u0022,\n  \u0022size\u0022: \u0022s-1vcpu-1gb\u0022,\n  \u0022image\u0022: \u0022ubuntu-20-04-x64\u0022,\n  \u0022ssh_keys\u0022: [\n    289794,\n    \u00223b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45\u0022\n  ],\n  \u0022backups\u0022: True,\n  \u0022ipv6\u0022: True,\n  \u0022monitoring\u0022: True,\n  \u0022tags\u0022: [\n    \u0022env:prod\u0022,\n    \u0022web\u0022\n  ],\n  \u0022user_data\u0022: \u0022#cloud-config\\nruncmd:\\n  - touch /test.txt\\n\u0022,\n  \u0022vpc_uuid\u0022: \u0022760e09ef-dc84-11e8-981e-3cfdfeaae000\u0022,\n  \u0022subnet_uuid\u0022: \u00229c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1\u0022\n}\n\nresp = client.droplets.create(body=req)"
           }
         ]
       },
@@ -32183,6 +32183,748 @@
         ]
       }
     },
+    "/v2/vpcs/{vpcUuid}/routes": {
+      "get": {
+        "tags": [
+          "VPC Routes [Public Preview]"
+        ],
+        "summary": "List VPC Routes",
+        "description": "To list the read-only VPC-scoped routes for a VPC, send a GET request to\n\u0060/v2/vpcs/$VPC_UUID/routes\u0060. VPC-scoped routes cannot be created, updated,\nor deleted through the public API.\n",
+        "operationId": "VpcRoutesList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/all_vpc_routes"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "route:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/routes\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/vpcs/{vpcUuid}/subnets": {
+      "get": {
+        "tags": [
+          "VPC Subnets [Public Preview]"
+        ],
+        "summary": "List VPC Subnets",
+        "description": "To list all subnets within a VPC, send a GET request to\n\u0060/v2/vpcs/$VPC_UUID/subnets\u0060.\n",
+        "operationId": "VpcSubnetsList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/all_vpc_subnets"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "vpc:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets\u0022"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "VPC Subnets [Public Preview]"
+        ],
+        "summary": "Create a VPC Subnet",
+        "description": "To create a subnet within a VPC, send a POST request to\n\u0060/v2/vpcs/$VPC_UUID/subnets\u0060 with a name and, optionally, an IP range.\n",
+        "operationId": "VpcSubnetsCreate",
+        "parameters": [
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VpcSubnetCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/single_vpc_subnet"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "vpc:create"
+            ]
+          },
+          {
+            "bearer_auth": [
+              "vpc:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022name\u0022:\u0022new-subnet\u0022,\u0022ip_range\u0022:\u002210.20.0.0/16\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/vpcs/{vpcUuid}/subnets/{subnetUuid}": {
+      "get": {
+        "tags": [
+          "VPC Subnets [Public Preview]"
+        ],
+        "summary": "Retrieve a VPC Subnet",
+        "description": "To retrieve a specific subnet within a VPC, send a GET request to\n\u0060/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID\u0060.\n",
+        "operationId": "VpcSubnetsGet",
+        "parameters": [
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subnetUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/single_vpc_subnet"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "vpc:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6\u0022"
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "VPC Subnets [Public Preview]"
+        ],
+        "summary": "Update a VPC Subnet",
+        "description": "To update the name of a specific subnet within a VPC, send a PATCH request\nto \u0060/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID\u0060.\n",
+        "operationId": "VpcSubnetsUpdate",
+        "parameters": [
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subnetUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VpcSubnetUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/single_vpc_subnet"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "vpc:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X PATCH \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022name\u0022:\u0022renamed-subnet\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6\u0022"
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "VPC Subnets [Public Preview]"
+        ],
+        "summary": "Delete a VPC Subnet",
+        "description": "To delete a specific subnet from a VPC, send a DELETE request to\n\u0060/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID\u0060. A successful request returns a\n204 status code with no response body.\n",
+        "operationId": "VpcSubnetsDelete",
+        "parameters": [
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subnetUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "vpc:delete"
+            ]
+          },
+          {
+            "bearer_auth": [
+              "vpc:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/vpcs/{vpcUuid}/subnets/{subnetUuid}/members": {
+      "get": {
+        "tags": [
+          "VPC Subnets [Public Preview]"
+        ],
+        "summary": "List the Member Resources of a VPC Subnet",
+        "description": "To list all resources that are members of a VPC subnet, send a GET request to\n\u0060/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/members\u0060.\n\nTo list only members of a specific type, include the \u0060resource_type\u0060 query\nparameter. Only resources that you are authorized to view are returned. For\nexample, viewing Droplets requires the \u0060droplet:read\u0060 scope.\n",
+        "operationId": "VpcSubnetsListMembers",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/resource_type"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subnetUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/vpc_subnet_members"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "vpc:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6/members\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/vpcs/{vpcUuid}/subnets/{subnetUuid}/routes": {
+      "get": {
+        "tags": [
+          "VPC Routes [Public Preview]"
+        ],
+        "summary": "List VPC Subnet Routes",
+        "description": "To list routes for a VPC subnet, send a GET request to\n\u0060/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes\u0060. The response includes\nVPC-scoped routes propagated into the subnet and subnet-scoped routes.\n",
+        "operationId": "VpcSubnetRoutesList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subnetUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/all_vpc_subnet_routes"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "route:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6/routes\u0022"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "VPC Routes [Public Preview]"
+        ],
+        "summary": "Create a VPC Subnet Route",
+        "description": "To add a static route to a VPC subnet, send a POST request to\n\u0060/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes\u0060. This route is additional\nto the routes the VPC already propagates to the subnet. The server assigns\nthe route\u0027s \u0060id\u0060 and \u0060type\u0060.\n\nDroplet targets must use a numeric ID. A Droplet UUID or another invalid\n\u0060target_urns\u0060 value returns a 422 response.\n",
+        "operationId": "VpcSubnetRoutesCreate",
+        "parameters": [
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subnetUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RouteCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/single_route"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable_entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "route:create"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022destination_cidr\u0022:\u00220.0.0.0/0\u0022,\u0022target_urns\u0022:[\u0022do:droplet:4126873\u0022]}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6/routes\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/vpcs/{vpcUuid}/subnets/{subnetUuid}/routes/{routeUuid}": {
+      "patch": {
+        "tags": [
+          "VPC Routes [Public Preview]"
+        ],
+        "summary": "Update a VPC Subnet Route",
+        "description": "To update the next hop for a user-defined VPC subnet route, send a PATCH\nrequest to\n\u0060/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes/$ROUTE_UUID\u0060. The\n\u0060destination_cidr\u0060 cannot be changed.\n\nDroplet targets must use a numeric ID. A Droplet UUID or another invalid\n\u0060target_urns\u0060 value returns a 422 response.\n",
+        "operationId": "VpcSubnetRoutesUpdate",
+        "parameters": [
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subnetUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routeUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RouteUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/single_route"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable_entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "route:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X PATCH \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022target_urns\u0022:[\u0022do:droplet:4126873\u0022]}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6/routes/f0e1d2c3-b4a5-6789-0fed-cba987654321\u0022"
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "VPC Routes [Public Preview]"
+        ],
+        "summary": "Delete a VPC Subnet Route",
+        "description": "To delete a user-defined VPC subnet route, send a DELETE request to\n\u0060/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes/$ROUTE_UUID\u0060. Managed routes\ncannot be deleted. A successful request returns a 204 status code with no\nresponse body.\n",
+        "operationId": "VpcSubnetRoutesDelete",
+        "parameters": [
+          {
+            "name": "vpcUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subnetUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routeUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "route:delete"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6/routes/f0e1d2c3-b4a5-6789-0fed-cba987654321\u0022"
+          }
+        ]
+      }
+    },
     "/v2/vpc_peerings": {
       "get": {
         "tags": [
@@ -46436,32 +47178,22 @@
           }
         }
       },
-      "AddonsGetResponse": {
-        "type": "object",
-        "properties": {
-          "resource": {
-            "$ref": "#/components/schemas/AddonsResource"
-          }
-        }
+      "SshKeyId": {
+        "type": "integer",
+        "description": "A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet.",
+        "readOnly": true,
+        "example": 512189
       },
-      "AddonsCreateResponse": {
-        "type": "object",
-        "properties": {
-          "resource": {
-            "$ref": "#/components/schemas/AddonsResource"
-          }
-        }
+      "SshKeyFingerprint": {
+        "type": "string",
+        "description": "A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.",
+        "readOnly": true,
+        "example": "3b:16:bf:e4:8b:00:8b:b8:59:8c:a9:d3:f0:19:45:fa"
       },
-      "AddonsListResponse": {
-        "type": "object",
-        "properties": {
-          "resources": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AddonsResource"
-            }
-          }
-        }
+      "SshKeyName": {
+        "type": "string",
+        "description": "A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.",
+        "example": "My SSH Public Key"
       },
       "SshKeys": {
         "required": [
@@ -49739,16 +50471,8 @@
           }
         }
       },
-      "AddonsGetAppMetadataResponse": {
-        "type": "object",
-        "properties": {
-          "metadata": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AddonsAppMetadata"
-            }
-          }
-        }
+      "SchemaValue": {
+        "type": "string"
       },
       "AppJobInvocation": {
         "type": "object",
@@ -50054,16 +50778,9 @@
           }
         }
       },
-      "AddonsGetAppResponse": {
-        "type": "object",
-        "properties": {
-          "apps": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AddonsAppInfo"
-            }
-          }
-        }
+      "AppAlertEmail": {
+        "type": "string",
+        "example": "sammy@digitalocean.com"
       },
       "AppAlertSlackWebhook": {
         "type": "object",
@@ -51209,13 +51926,13 @@
             "type": "string",
             "description": "This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "https://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060"
+            "example": "https://doadmin:example_password@db.example.com:25060"
           },
           "host": {
             "type": "string",
             "description": "The FQDN pointing to the opensearch cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -51233,7 +51950,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -51250,13 +51967,13 @@
             "type": "string",
             "description": "This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "https://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060"
+            "example": "https://doadmin:example_password@db.example.com:25060"
           },
           "host": {
             "type": "string",
             "description": "The FQDN pointing to the schema registry connection uri.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -51274,7 +51991,7 @@
             "type": "string",
             "description": "The randomly generated password for the schema registry.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -51291,7 +52008,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -51303,7 +52020,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -51321,7 +52038,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -51387,19 +52104,19 @@
             "type": "string",
             "description": "A randomly generated password for the database user.\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "jge5lfxtzhx42iff"
+            "example": "example_password"
           },
           "access_cert": {
             "type": "string",
             "description": "Access certificate for TLS client authentication. (Kafka only)",
             "readOnly": true,
-            "example": "-----BEGIN CERTIFICATE-----\nMIIFFjCCA/6gAwIBAgISA0AznUJmXhu08/89ZuSPC/kRMA0GCSqGSIb3DQEBCwUA\nMEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\nExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xNjExMjQwMDIzMDBaFw0x\nNzAyMjIwMDIzMDBaMCQxIjAgBgNVBAMTGWNsb3VkLmFuZHJld3NvbWV0aGluZy5j\nb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDBIZMz8pnK6V52SVf\u002B\nCYssOfCQHAx5f0Ou5rYbq3xNh8VWHIYJCQ1QxQIxKSP6\u002BuODSYrb2KWyurP1DwGb\n8OYm0J3syEDtCUQik1cpCzpeNlAZ2f8FzXyYQAqPopxdRpsFz8DtZnVvu86XwrE4\noFPl9MReICmZfBNWylpV5qgFPoXyJ70ZAsTm3cEe3n\u002BLBXEnY4YrVDRWxA3wZ2mz\nZ03HZ1hHrxK9CMnS829U\u002B8sK\u002BUneZpCO7yLRPuxwhmps0wpK/YuZZfRAKF1FZRna\nk/SIQ28rnWufmdg16YqqHgl5JOgnb3aslKRvL4dI2Gwnkd2IHtpZnTR0gxFXfqqb\nQwuRAgMBAAGjggIaMIICFjAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYB\nBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFLsAFcxAhFX1\nMbCnzr9hEO5rL4jqMB8GA1UdIwQYMBaAFKhKamMEfd265tE5t6ZFZe/zqOyhMHAG\nCCsGAQUFBwEBBGQwYjAvBggrBgEFBQcwAYYjaHR0cDovL29jc3AuaW50LXgzLmxl\ndHNlbmNyeXB0Lm9yZy8wLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5s\nZXRzZW5jcnlwdC5vcmcvMCQGA1UdEQQdMBuCGWNsb3VkLmFuZHJld3NvbWV0aGlu\nZy5jb20wgf4GA1UdIASB9jCB8zAIBgZngQwBAgWrgeYGCysGAQQBgt8TAQEBMIHW\nMCYGCCsGAQUFBwIBFhpodHRwOi8vY3BzLmxldHNlbmNyeXB0Lm9yZzCBqwYIKwYB\nBQUHAgIwgZ4MgZtUaGlzIENlcnRpZmljYXRlIG1heSBvbmx5IGJlIHJlbGllZCB1\ncG9uIGJ5IFJlbHlpbmcgUGFydGllcyBhbmQgb25seSQ2ziBhY2NvcmRhbmNlIHdp\ndGggdGhlIENlcnRpZmljYXRlIFBvbGljeSBmb3VuZCBhdCBodHRwczovL2xldHNl\nbmNyeXB0Lm9yZy9yZXBvc2l0b3J5LzANBgkqhkiG9w0BAQsFAAOCAQEAOZVQvrjM\nPKXLARTjB5XsgfyDN3/qwLl7SmwGkPe\u002BB\u002B9FJpfScYG1JzVuCj/SoaPaK34G4x/e\niXwlwOXtMOtqjQYzNu2Pr2C\u002BI\u002BrVmaxIrCUXFmC205IMuUBEeWXG9Y/HvXQLPabD\nD3Gdl5\u002BFeink9SDRP7G0HaAwq13hI7ARxkL9p\u002BUIY39X0dV3WOboW2Re8nrkFXJ7\nq9Z6shK5QgpBfsLjtjNsQzaGV3ve1gOg25aTJGearBWOvEjJNA1wGMoKVXOtYwm/\nWyWoVdCQ8HmconcbJB6xc0UZ1EjvzRr5ZIvSa5uHZD0L3m7/kpPWlAlFJ7hHASPu\nUlF1zblDmg2Iaw==\n-----END CERTIFICATE-----"
+            "example": "-----BEGIN CERTIFICATE-----\nMIIEexampleCertificateNotForProductionUseOnly\n-----END CERTIFICATE-----"
           },
           "access_key": {
             "type": "string",
             "description": "Access key for TLS client authentication. (Kafka only)",
             "readOnly": true,
-            "example": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDBIZMz8pnK6V52\nSVf\u002BCYssOfCQHAx5f0Ou5rYbq3xNh8VHAIYJCQ1QxQIxKSP6\u002BuODSYrb2KWyurP1\nDwGb8OYm0J3syEDtCUQik1cpCzpeNlAZ2f8FzXyYQAqPopxdRpsFz8DtZnVvu86X\nwrE4oFPl9MReICmZfBNWylpV5qgFPoXyJ70ZAsTm3cEe3n\u002BLBXEnY4YrVDRWxA3w\nZ2mzZ03HZ1hHrxK9CMnS829U\u002B8sK\u002BUneZpCO7yLRPuxwhmps0wpK/YuZZfRAKF1F\nZRnak/SIQ28rnWufmdg16YqqHgl5JOgnb3aslKRvL4dI2Gwnkd2IHtpZnTR0gxFX\nfqqbQwuRAgMBAAECggEBAILLmkW0JzOkmLTDNzR0giyRkLoIROqDpfLtjKdwm95l\n9NUBJcU4vCvXQITKt/NhtnNTexcowg8pInb0ksJpg3UGE\u002B4oMNBXVi2UW5MQZ5cm\ncVkQqgXkBF2YAY8FMaB6EML\u002B0En2\u002BdGR/3gIAr221xsFiXe1kHbB8Nb2c/d5HpFt\neRpLVJnK\u002BTxSr78PcZA8DDGlSgwvgimdAaFUNO2OqB9/0E9UPyKk2ycdff/Z6ldF\n0hkCLtdYTTl8Kf/OwjcuTgmA2O3Y8/CoQX/L\u002BoP9Rvt9pWCEfuebiOmHJVPO6Y6x\ngtQVEXwmF1pDHH4Qtz/e6UZTdYeMl9G4aNO2CawwcaYECgYEA57imgSOG4XsJLRh\nGGncV9R/xhy4AbDWLtAMzQRX4ktvKCaHWyQV2XK2we/cu29NLv2Y89WmerTNPOU\u002B\nP8\u002BpB31uty2ELySVn15QhKpQClVEAlxCnnNjXYrii5LOM80\u002BlVmxvQwxVd8Yz8nj\nIntyioXNBEnYS7V2RxxFGgFun1cCgYEA1V3W\u002BUyamhq8JS5EY0FhyGcXdHd70K49\nW1ou7McIpncf9tM9acLS1hkI98rd2T69Zo8mKoV1V2hjFaKUYfNys6tTkYWeZCcJ\n3rW44j9DTD\u002BFmmjcX6b8DzfybGLehfNbCw6n67/r45DXIV/fk6XZfkx6IEGO4ODt\nNfnvx4TuI1cCgYBACDiKqwSUvmkUuweOo4IuCxyb5Ee8v98P5JIE/VRDxlCbKbpx\npxEam6aBBQVcDi\u002Bn8o0H3WjjlKc6UqbW/01YMoMrvzotxNBLz8Y0QtQHZvR6KoCG\nRKCKstxTcWflzKuknbqN4RapAhNbKBDJ8PMSWfyDWNyaXzSmBdvaidbF1QKBgDI0\no4oD0Xkjg1QIYAUu9FBQmb9JAjRnW36saNBEQS/SZg4RRKknM683MtoDvVIKJk0E\nsAlfX\u002B4SXQZRPDMUMtA\u002BJyrd0xhj6zmhbwClvDMr20crF3fWdgcqtft1BEFmsuyW\nJUMe5OWmRkjPI2\u002B9ncDPRAllA7a8lnSV/Crph5N/AoGBAIK249temKrGe9pmsmAo\nQbNuYSmwpnMoAqdHTrl70HEmK7ob6SIVmsR8QFAkH7xkYZc4Bxbx4h1bdpozGB\u002B/\nAangbiaYJcAOD1QyfiFbflvI1RFeHgrk7VIafeSeQv6qu0LLMi2zUbpgVzxt78Wg\neTuK2xNR0PIM8OI7pRpgyj1I\n-----END PRIVATE KEY-----"
+            "example": "-----BEGIN PRIVATE KEY-----\nMIIEexamplePrivateKeyNotForProductionUseOnly\n-----END PRIVATE KEY-----"
           },
           "mysql_settings": {
             "$ref": "#/components/schemas/MysqlSettings"
@@ -51492,7 +52209,7 @@
             "type": "string",
             "description": "A FQDN pointing to the database cluster\u0027s node(s).",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -53851,13 +54568,10 @@
           }
         }
       },
-      "ActionResponse": {
-        "type": "object",
-        "properties": {
-          "action": {
-            "$ref": "#/components/schemas/Action"
-          }
-        }
+      "Version": {
+        "type": "string",
+        "description": "A string representing the version of the database engine in use for the cluster.",
+        "example": "8"
       },
       "Version2": {
         "type": "object",
@@ -55711,25 +56425,10 @@
         },
         "nullable": true
       },
-      "ActionsResponse": {
-        "required": [
-          "meta"
-        ],
-        "type": "object",
-        "properties": {
-          "actions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Action"
-            }
-          },
-          "links": {
-            "$ref": "#/components/schemas/PageLinks"
-          },
-          "meta": {
-            "$ref": "#/components/schemas/MetaMeta"
-          }
-        }
+      "ImageName": {
+        "type": "string",
+        "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.",
+        "example": "Nifty New Snapshot"
       },
       "Distribution": {
         "enum": [
@@ -55886,13 +56585,10 @@
         },
         "description": "This attribute is an array of the regions that the image is available in. The regions are represented by their identifying slug values."
       },
-      "SshKeysExistingResponse": {
-        "type": "object",
-        "properties": {
-          "ssh_key": {
-            "$ref": "#/components/schemas/SshKeys"
-          }
-        }
+      "ImageDescription": {
+        "type": "string",
+        "description": "An optional free-form text field to describe an image.",
+        "example": " "
       },
       "TagsArray": {
         "type": "array",
@@ -56264,6 +56960,11 @@
             "description": "A string specifying the UUID of the VPC to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
           },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "A string specifying the UUID of the VPC subnet to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
+          },
           "gpu_info": {
             "$ref": "#/components/schemas/GpuInfo"
           }
@@ -56394,6 +57095,11 @@
             "description": "A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account\u0027s default VPC for the region.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
           },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "An optional string specifying the UUID of the VPC subnet to which the Droplet will be assigned. If excluded, the Droplet will be assigned to a default subnet of the VPC.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
+          },
           "with_droplet_agent": {
             "type": "boolean",
             "description": "A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to \u0060false\u0060. To make installation errors fatal, explicitly set it to \u0060true\u0060.",
@@ -56514,6 +57220,11 @@
             "type": "string",
             "description": "A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account\u0027s default VPC for the region.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+          },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "An optional string specifying the UUID of the VPC subnet to which the Droplet will be assigned. If excluded, the Droplet will be assigned to a default subnet of the VPC.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
           },
           "with_droplet_agent": {
             "type": "boolean",
@@ -56637,6 +57348,11 @@
             "type": "string",
             "description": "A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account\u0027s default VPC for the region.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+          },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "An optional string specifying the UUID of the VPC subnet to which the Droplet will be assigned. If excluded, the Droplet will be assigned to a default subnet of the VPC.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
           },
           "with_droplet_agent": {
             "type": "boolean",
@@ -58044,13 +58760,10 @@
           }
         }
       },
-      "SshKeysNewResponse": {
-        "type": "object",
-        "properties": {
-          "ssh_key": {
-            "$ref": "#/components/schemas/SshKeys"
-          }
-        }
+      "TransferId": {
+        "type": "integer",
+        "description": "A unique number that used to identify and reference an image account transfer.\n",
+        "example": 3164444
       },
       "ImagesPostAccountTransferAcceptBody": {
         "required": [
@@ -60318,39 +61031,11 @@
           }
         }
       },
-      "SshKeysAllResponse": {
-        "required": [
-          "meta"
-        ],
-        "type": "object",
-        "properties": {
-          "ssh_keys": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SshKeys"
-            }
-          },
-          "links": {
-            "$ref": "#/components/schemas/PageLinks"
-          },
-          "meta": {
-            "$ref": "#/components/schemas/MetaMeta"
-          }
-        },
-        "example": {
-          "ssh_keys": [
-            {
-              "id": 289794,
-              "fingerprint": "3b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45",
-              "public_key": "ssh-rsa ANOTHEREXAMPLEaC1yc2EAAAADAQABAAAAQQDDHr/jh2Jy4yALcK4JyWbVkPRaWmhck3IgCoeOO3z1e2dBowLh64QAM\u002BQb72pxekALga2oi4GvT\u002BTlWNhzPH4V anotherexample",
-              "name": "Other Public Key"
-            }
-          ],
-          "links": {},
-          "meta": {
-            "total": 1
-          }
-        }
+      "Urn": {
+        "pattern": "^do:(dbaas|domain|droplet|floatingip|loadbalancer|space|volume|kubernetes|vpc):.*",
+        "type": "string",
+        "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.",
+        "example": "do:droplet:13457723"
       },
       "OpensearchConfig": {
         "required": [
@@ -63255,13 +63940,10 @@
           }
         }
       },
-      "AccountResponse": {
-        "type": "object",
-        "properties": {
-          "account": {
-            "$ref": "#/components/schemas/Account"
-          }
-        }
+      "VolumeWriteFileSystemLabel": {
+        "type": "string",
+        "description": "The label applied to the filesystem. Labels for ext4 type filesystems may contain 16 characters while labels for xfs type filesystems are limited to 12 characters. May only be used in conjunction with filesystem_type.",
+        "example": "example"
       },
       "VolumesExt4": {
         "required": [
@@ -63413,15 +64095,10 @@
           }
         }
       },
-      "OneClicksCreateResponse": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "A message about the result of the request.",
-            "example": "Successfully kicked off addon job."
-          }
-        }
+      "VolumeActionDropletId": {
+        "type": "integer",
+        "description": "The unique identifier for the Droplet the volume will be attached or detached from.",
+        "example": 11612190
       },
       "VolumeActionPostAttach": {
         "required": [
@@ -63576,16 +64253,11 @@
           }
         }
       },
-      "OneClicksAllResponse": {
-        "type": "object",
-        "properties": {
-          "1_clicks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OneClicks"
-            }
-          }
-        }
+      "Urn2": {
+        "pattern": "^do:(dbaas|domain|droplet|floatingip|loadbalancer|space|volume|kubernetes|vpc):.*",
+        "type": "string",
+        "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.",
+        "example": "do:vpc:5a4981aa-9653-4bd1-bef5-d6bff52042e4"
       },
       "VpcBase": {
         "type": "object",
@@ -63765,6 +64437,211 @@
             "type": "string",
             "description": "The name of the VPC peering. Must be unique within the team and may only contain alphanumeric characters and dashes.",
             "example": "nyc1-blr1-peering"
+          }
+        }
+      },
+      "Route": {
+        "required": [
+          "id",
+          "type",
+          "destination_cidr",
+          "target_urns"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the route.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "f0e1d2c3-b4a5-6789-0fed-cba987654321"
+          },
+          "type": {
+            "$ref": "#/components/schemas/RouteType"
+          },
+          "destination_cidr": {
+            "type": "string",
+            "description": "The destination IPv4 network for the route in CIDR notation.",
+            "example": "0.0.0.0/0"
+          },
+          "target_urns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The URNs of resources that act as next hops for the route. Supported\nnext hops are Droplets, using a numeric ID in the format\n\u0060do:droplet:\u003Cid\u003E\u0060, and VPC NAT Gateways, using a UUID in the format\n\u0060do:nat_gateway:\u003Cuuid\u003E\u0060.\n"
+          },
+          "modifiable": {
+            "type": "boolean",
+            "description": "Whether the caller can update or delete the route.",
+            "readOnly": true,
+            "example": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time when the route was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-01-14T10:05:00Z"
+          }
+        }
+      },
+      "VpcSubnetStatistics": {
+        "type": "object",
+        "properties": {
+          "members": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of members in the VPC subnet.",
+            "format": "int32",
+            "example": 3
+          },
+          "resources": {
+            "$ref": "#/components/schemas/VpcSubnetStatisticsResourcesProperty"
+          }
+        },
+        "description": "Member statistics, excluding resources the caller is not permitted to read."
+      },
+      "VpcSubnetMeta": {
+        "type": "object",
+        "properties": {
+          "stats": {
+            "$ref": "#/components/schemas/VpcSubnetStatistics"
+          }
+        },
+        "description": "Additional information about the VPC subnet."
+      },
+      "VpcSubnet": {
+        "required": [
+          "id",
+          "urn",
+          "name",
+          "ip_range",
+          "type",
+          "region",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the VPC subnet.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
+          },
+          "urn": {
+            "type": "string",
+            "description": "The uniform resource name of the VPC subnet.",
+            "readOnly": true,
+            "example": "do:vpc_subnet:4de7ac8b-495b-4884-9a69-1050c6793cd6"
+          },
+          "name": {
+            "type": "string",
+            "description": "The human-readable name of the VPC subnet.",
+            "example": "new-subnet"
+          },
+          "ip_range": {
+            "type": "string",
+            "description": "The IPv4 range assigned to the subnet in CIDR notation.",
+            "readOnly": true,
+            "example": "10.20.0.0/16"
+          },
+          "default": {
+            "type": "boolean",
+            "description": "Whether this is the default subnet for the VPC.",
+            "readOnly": true,
+            "example": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/VpcSubnetType"
+          },
+          "region": {
+            "type": "string",
+            "description": "The slug of the region containing the VPC subnet.",
+            "readOnly": true,
+            "example": "nyc3"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time when the VPC subnet was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2024-01-01T12:00:00Z"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/VpcSubnetMeta"
+          }
+        }
+      },
+      "VpcSubnetCreate": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": "string",
+            "description": "The human-readable name of the VPC subnet.",
+            "example": "new-subnet"
+          },
+          "ip_range": {
+            "type": "string",
+            "description": "An RFC1918 CIDR range between /16 and /24 that does not overlap another team or VPC network.",
+            "example": "10.20.0.0/16"
+          }
+        }
+      },
+      "VpcSubnetUpdate": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": "string",
+            "description": "The new human-readable name of the VPC subnet.",
+            "example": "renamed-subnet"
+          }
+        }
+      },
+      "RouteCreate": {
+        "required": [
+          "destination_cidr",
+          "target_urns"
+        ],
+        "type": "object",
+        "properties": {
+          "destination_cidr": {
+            "type": "string",
+            "description": "A valid IPv4 CIDR accepted by the VPC routing product.",
+            "example": "0.0.0.0/0"
+          },
+          "target_urns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The URNs of supported next-hop resources. Droplet targets must use a\nnumeric ID in the format \u0060do:droplet:\u003Cid\u003E\u0060. VPC NAT Gateway targets use\na UUID in the format \u0060do:nat_gateway:\u003Cuuid\u003E\u0060.\n"
+          }
+        }
+      },
+      "RouteUpdate": {
+        "required": [
+          "target_urns"
+        ],
+        "type": "object",
+        "properties": {
+          "target_urns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The URNs of supported next-hop resources. Droplet targets must use a\nnumeric ID in the format \u0060do:droplet:\u003Cid\u003E\u0060. VPC NAT Gateway targets use\na UUID in the format \u0060do:nat_gateway:\u003Cuuid\u003E\u0060.\n"
           }
         }
       },
@@ -77154,6 +78031,162 @@
         },
         "description": "Presigned download URLs for a batch job. URLs are short-lived \u2014 download the artifacts soon after fetching them.\n"
       },
+      "OneClicksAllResponse": {
+        "type": "object",
+        "properties": {
+          "1_clicks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OneClicks"
+            }
+          }
+        }
+      },
+      "OneClicksCreateResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "A message about the result of the request.",
+            "example": "Successfully kicked off addon job."
+          }
+        }
+      },
+      "AccountResponse": {
+        "type": "object",
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/Account"
+          }
+        }
+      },
+      "SshKeysAllResponse": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "ssh_keys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SshKeys"
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PageLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaMeta"
+          }
+        },
+        "example": {
+          "ssh_keys": [
+            {
+              "id": 289794,
+              "fingerprint": "3b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45",
+              "public_key": "ssh-rsa ANOTHEREXAMPLEaC1yc2EAAAADAQABAAAAQQDDHr/jh2Jy4yALcK4JyWbVkPRaWmhck3IgCoeOO3z1e2dBowLh64QAM\u002BQb72pxekALga2oi4GvT\u002BTlWNhzPH4V anotherexample",
+              "name": "Other Public Key"
+            }
+          ],
+          "links": {},
+          "meta": {
+            "total": 1
+          }
+        }
+      },
+      "SshKeysNewResponse": {
+        "type": "object",
+        "properties": {
+          "ssh_key": {
+            "$ref": "#/components/schemas/SshKeys"
+          }
+        }
+      },
+      "SshKeysExistingResponse": {
+        "type": "object",
+        "properties": {
+          "ssh_key": {
+            "$ref": "#/components/schemas/SshKeys"
+          }
+        }
+      },
+      "ActionsResponse": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PageLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaMeta"
+          }
+        }
+      },
+      "ActionResponse": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/Action"
+          }
+        }
+      },
+      "AddonsGetAppResponse": {
+        "type": "object",
+        "properties": {
+          "apps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddonsAppInfo"
+            }
+          }
+        }
+      },
+      "AddonsGetAppMetadataResponse": {
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddonsAppMetadata"
+            }
+          }
+        }
+      },
+      "AddonsListResponse": {
+        "type": "object",
+        "properties": {
+          "resources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddonsResource"
+            }
+          }
+        }
+      },
+      "AddonsCreateResponse": {
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/AddonsResource"
+          }
+        }
+      },
+      "AddonsGetResponse": {
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/AddonsResource"
+          }
+        }
+      },
       "AddonsUpdateResponse": {
         "type": "object",
         "properties": {
@@ -81032,6 +82065,102 @@
           }
         }
       },
+      "AllVpcRoutesResponse": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "routes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Route"
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PageLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaMeta"
+          }
+        }
+      },
+      "AllVpcSubnetsResponse": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "vpc_subnet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VpcSubnet"
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PageLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaMeta"
+          }
+        }
+      },
+      "SingleVpcSubnetResponse": {
+        "type": "object",
+        "properties": {
+          "vpc_subnet": {
+            "$ref": "#/components/schemas/VpcSubnet"
+          }
+        }
+      },
+      "VpcSubnetMembersResponse": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VpcMember"
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PageLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaMeta"
+          }
+        }
+      },
+      "AllVpcSubnetRoutesResponse": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "routes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Route"
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PageLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaMeta"
+          }
+        }
+      },
+      "SingleRouteResponse": {
+        "type": "object",
+        "properties": {
+          "route": {
+            "$ref": "#/components/schemas/Route"
+          }
+        }
+      },
       "AllVpcPeeringsResponse": {
         "required": [
           "meta"
@@ -82174,13 +83303,13 @@
             "type": "string",
             "description": "This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "https://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060"
+            "example": "https://doadmin:example_password@db.example.com:25060"
           },
           "host": {
             "type": "string",
             "description": "The FQDN pointing to the opensearch cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82198,7 +83327,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82217,13 +83346,13 @@
             "type": "string",
             "description": "This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "https://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060"
+            "example": "https://doadmin:example_password@db.example.com:25060"
           },
           "host": {
             "type": "string",
             "description": "The FQDN pointing to the schema registry connection uri.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82241,7 +83370,7 @@
             "type": "string",
             "description": "The randomly generated password for the schema registry.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82260,7 +83389,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -82272,7 +83401,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82290,7 +83419,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82308,7 +83437,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -82320,7 +83449,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82338,7 +83467,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82356,7 +83485,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -82368,7 +83497,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82386,7 +83515,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82404,7 +83533,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -82416,7 +83545,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82434,7 +83563,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82505,13 +83634,13 @@
             "type": "string",
             "description": "This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "https://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060"
+            "example": "https://doadmin:example_password@db.example.com:25060"
           },
           "host": {
             "type": "string",
             "description": "The FQDN pointing to the opensearch cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82529,7 +83658,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82548,13 +83677,13 @@
             "type": "string",
             "description": "This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "https://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060"
+            "example": "https://doadmin:example_password@db.example.com:25060"
           },
           "host": {
             "type": "string",
             "description": "The FQDN pointing to the schema registry connection uri.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82572,7 +83701,7 @@
             "type": "string",
             "description": "The randomly generated password for the schema registry.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82591,7 +83720,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -82603,7 +83732,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82621,7 +83750,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82639,7 +83768,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -82651,7 +83780,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82669,7 +83798,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82687,7 +83816,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -82699,7 +83828,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82717,7 +83846,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -82735,7 +83864,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -82747,7 +83876,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -82765,7 +83894,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84236,7 +85365,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -84248,7 +85377,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -84266,7 +85395,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84284,7 +85413,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -84296,7 +85425,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -84314,7 +85443,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84348,7 +85477,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -84360,7 +85489,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -84378,7 +85507,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84396,7 +85525,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -84408,7 +85537,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -84426,7 +85555,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84460,7 +85589,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -84472,7 +85601,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -84490,7 +85619,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84508,7 +85637,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -84520,7 +85649,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -84538,7 +85667,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84556,7 +85685,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -84568,7 +85697,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -84586,7 +85715,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84604,7 +85733,7 @@
             "type": "string",
             "description": "A connection string in the format accepted by the \u0060psql\u0060 command. This is provided as a convenience and should be able to be constructed by the other attributes.",
             "readOnly": true,
-            "example": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+            "example": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require"
           },
           "database": {
             "type": "string",
@@ -84616,7 +85745,7 @@
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
             "readOnly": true,
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -84634,7 +85763,7 @@
             "type": "string",
             "description": "The randomly generated password for the default user.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           },
           "ssl": {
             "type": "boolean",
@@ -84785,17 +85914,6 @@
           },
           "health": {
             "$ref": "#/components/schemas/OpensearchIndexHealth"
-          }
-        }
-      },
-      "ActionsResponseAllOf1": {
-        "type": "object",
-        "properties": {
-          "actions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Action"
-            }
           }
         }
       },
@@ -85483,6 +86601,11 @@
             "description": "A string specifying the UUID of the VPC to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
           },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "A string specifying the UUID of the VPC subnet to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
+          },
           "gpu_info": {
             "$ref": "#/components/schemas/GpuInfo"
           }
@@ -85721,17 +86844,6 @@
             "type": "string",
             "description": "An optional IP address to assign to the load balancer from one of your Bring Your Own IP (BYOIP) prefixes. The address must be an unassigned BYOIP address on your account in the same region as the load balancer. If omitted, DigitalOcean assigns a public IP address automatically. This field is only applied when creating the load balancer, cannot be changed afterward, and is not supported for \u0060GLOBAL\u0060 or \u0060INTERNAL\u0060 load balancers.",
             "example": "203.0.113.42"
-          }
-        }
-      },
-      "SshKeysAllResponseAllOf1": {
-        "type": "object",
-        "properties": {
-          "ssh_keys": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SshKeys"
-            }
           }
         }
       },
@@ -86009,6 +87121,11 @@
             "description": "A string specifying the UUID of the VPC to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
           },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "A string specifying the UUID of the VPC subnet to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
+          },
           "gpu_info": {
             "$ref": "#/components/schemas/GpuInfo"
           }
@@ -86188,6 +87305,11 @@
             "description": "A string specifying the UUID of the VPC to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
           },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "A string specifying the UUID of the VPC subnet to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
+          },
           "gpu_info": {
             "$ref": "#/components/schemas/GpuInfo"
           }
@@ -86318,6 +87440,11 @@
             "type": "string",
             "description": "A string specifying the UUID of the VPC to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+          },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "A string specifying the UUID of the VPC subnet to which the Droplet is assigned.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
           },
           "gpu_info": {
             "$ref": "#/components/schemas/GpuInfo"
@@ -86896,6 +88023,28 @@
           }
         },
         "description": "An optional field that will only be present when you set \u0060stream_options: {\u0022include_usage\u0022: true}\u0060 in your request. When present, it contains a null value except for the last chunk which contains the token usage statistics for the entire request.\n"
+      },
+      "SshKeysAllResponseAllOf1": {
+        "type": "object",
+        "properties": {
+          "ssh_keys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SshKeys"
+            }
+          }
+        }
+      },
+      "ActionsResponseAllOf1": {
+        "type": "object",
+        "properties": {
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            }
+          }
+        }
       },
       "AppsValidateRollbackResponseError": {
         "type": "object",
@@ -89331,6 +90480,50 @@
           }
         }
       },
+      "AllVpcRoutesResponseAllOf1": {
+        "type": "object",
+        "properties": {
+          "routes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Route"
+            }
+          }
+        }
+      },
+      "AllVpcSubnetsResponseAllOf1": {
+        "type": "object",
+        "properties": {
+          "vpc_subnet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VpcSubnet"
+            }
+          }
+        }
+      },
+      "VpcSubnetMembersResponseAllOf1": {
+        "type": "object",
+        "properties": {
+          "members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VpcMember"
+            }
+          }
+        }
+      },
+      "AllVpcSubnetRoutesResponseAllOf1": {
+        "type": "object",
+        "properties": {
+          "routes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Route"
+            }
+          }
+        }
+      },
       "AllVpcPeeringsResponseAllOf1": {
         "type": "object",
         "properties": {
@@ -90431,7 +91624,7 @@
           "host": {
             "type": "string",
             "description": "The FQDN pointing to the database cluster\u0027s current primary node.",
-            "example": "backend-do-user-19081923-0.db.ondigitalocean.com"
+            "example": "db.example.com"
           },
           "port": {
             "type": "integer",
@@ -90451,7 +91644,7 @@
           "password": {
             "type": "string",
             "description": "The randomly generated password for the default user.",
-            "example": "wv78n3zpz42xezdk"
+            "example": "example_password"
           }
         }
       },
@@ -91062,6 +92255,19 @@
           "resource_type": {
             "$ref": "#/components/schemas/TagsResourceResourcesItemResourceType"
           }
+        }
+      },
+      "VpcSubnetStatisticsResources": {
+        "type": "object",
+        "additionalProperties": {
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": "The number of members grouped by resource type.",
+        "example": {
+          "droplet": 2,
+          "loadbalancer": 1
         }
       },
       "VpcNatGatewayGetVpcsItem": {
@@ -93109,19 +94315,19 @@
             "type": "string",
             "description": "A randomly generated password for the database user.\u003Cbr\u003ERequires \u0060database:view_credentials\u0060 scope.",
             "readOnly": true,
-            "example": "jge5lfxtzhx42iff"
+            "example": "example_password"
           },
           "access_cert": {
             "type": "string",
             "description": "Access certificate for TLS client authentication. (Kafka only)",
             "readOnly": true,
-            "example": "-----BEGIN CERTIFICATE-----\nMIIFFjCCA/6gAwIBAgISA0AznUJmXhu08/89ZuSPC/kRMA0GCSqGSIb3DQEBCwUA\nMEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\nExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xNjExMjQwMDIzMDBaFw0x\nNzAyMjIwMDIzMDBaMCQxIjAgBgNVBAMTGWNsb3VkLmFuZHJld3NvbWV0aGluZy5j\nb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDBIZMz8pnK6V52SVf\u002B\nCYssOfCQHAx5f0Ou5rYbq3xNh8VWHIYJCQ1QxQIxKSP6\u002BuODSYrb2KWyurP1DwGb\n8OYm0J3syEDtCUQik1cpCzpeNlAZ2f8FzXyYQAqPopxdRpsFz8DtZnVvu86XwrE4\noFPl9MReICmZfBNWylpV5qgFPoXyJ70ZAsTm3cEe3n\u002BLBXEnY4YrVDRWxA3wZ2mz\nZ03HZ1hHrxK9CMnS829U\u002B8sK\u002BUneZpCO7yLRPuxwhmps0wpK/YuZZfRAKF1FZRna\nk/SIQ28rnWufmdg16YqqHgl5JOgnb3aslKRvL4dI2Gwnkd2IHtpZnTR0gxFXfqqb\nQwuRAgMBAAGjggIaMIICFjAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYB\nBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFLsAFcxAhFX1\nMbCnzr9hEO5rL4jqMB8GA1UdIwQYMBaAFKhKamMEfd265tE5t6ZFZe/zqOyhMHAG\nCCsGAQUFBwEBBGQwYjAvBggrBgEFBQcwAYYjaHR0cDovL29jc3AuaW50LXgzLmxl\ndHNlbmNyeXB0Lm9yZy8wLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5s\nZXRzZW5jcnlwdC5vcmcvMCQGA1UdEQQdMBuCGWNsb3VkLmFuZHJld3NvbWV0aGlu\nZy5jb20wgf4GA1UdIASB9jCB8zAIBgZngQwBAgWrgeYGCysGAQQBgt8TAQEBMIHW\nMCYGCCsGAQUFBwIBFhpodHRwOi8vY3BzLmxldHNlbmNyeXB0Lm9yZzCBqwYIKwYB\nBQUHAgIwgZ4MgZtUaGlzIENlcnRpZmljYXRlIG1heSBvbmx5IGJlIHJlbGllZCB1\ncG9uIGJ5IFJlbHlpbmcgUGFydGllcyBhbmQgb25seSQ2ziBhY2NvcmRhbmNlIHdp\ndGggdGhlIENlcnRpZmljYXRlIFBvbGljeSBmb3VuZCBhdCBodHRwczovL2xldHNl\nbmNyeXB0Lm9yZy9yZXBvc2l0b3J5LzANBgkqhkiG9w0BAQsFAAOCAQEAOZVQvrjM\nPKXLARTjB5XsgfyDN3/qwLl7SmwGkPe\u002BB\u002B9FJpfScYG1JzVuCj/SoaPaK34G4x/e\niXwlwOXtMOtqjQYzNu2Pr2C\u002BI\u002BrVmaxIrCUXFmC205IMuUBEeWXG9Y/HvXQLPabD\nD3Gdl5\u002BFeink9SDRP7G0HaAwq13hI7ARxkL9p\u002BUIY39X0dV3WOboW2Re8nrkFXJ7\nq9Z6shK5QgpBfsLjtjNsQzaGV3ve1gOg25aTJGearBWOvEjJNA1wGMoKVXOtYwm/\nWyWoVdCQ8HmconcbJB6xc0UZ1EjvzRr5ZIvSa5uHZD0L3m7/kpPWlAlFJ7hHASPu\nUlF1zblDmg2Iaw==\n-----END CERTIFICATE-----"
+            "example": "-----BEGIN CERTIFICATE-----\nMIIEexampleCertificateNotForProductionUseOnly\n-----END CERTIFICATE-----"
           },
           "access_key": {
             "type": "string",
             "description": "Access key for TLS client authentication. (Kafka only)",
             "readOnly": true,
-            "example": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDBIZMz8pnK6V52\nSVf\u002BCYssOfCQHAx5f0Ou5rYbq3xNh8VHAIYJCQ1QxQIxKSP6\u002BuODSYrb2KWyurP1\nDwGb8OYm0J3syEDtCUQik1cpCzpeNlAZ2f8FzXyYQAqPopxdRpsFz8DtZnVvu86X\nwrE4oFPl9MReICmZfBNWylpV5qgFPoXyJ70ZAsTm3cEe3n\u002BLBXEnY4YrVDRWxA3w\nZ2mzZ03HZ1hHrxK9CMnS829U\u002B8sK\u002BUneZpCO7yLRPuxwhmps0wpK/YuZZfRAKF1F\nZRnak/SIQ28rnWufmdg16YqqHgl5JOgnb3aslKRvL4dI2Gwnkd2IHtpZnTR0gxFX\nfqqbQwuRAgMBAAECggEBAILLmkW0JzOkmLTDNzR0giyRkLoIROqDpfLtjKdwm95l\n9NUBJcU4vCvXQITKt/NhtnNTexcowg8pInb0ksJpg3UGE\u002B4oMNBXVi2UW5MQZ5cm\ncVkQqgXkBF2YAY8FMaB6EML\u002B0En2\u002BdGR/3gIAr221xsFiXe1kHbB8Nb2c/d5HpFt\neRpLVJnK\u002BTxSr78PcZA8DDGlSgwvgimdAaFUNO2OqB9/0E9UPyKk2ycdff/Z6ldF\n0hkCLtdYTTl8Kf/OwjcuTgmA2O3Y8/CoQX/L\u002BoP9Rvt9pWCEfuebiOmHJVPO6Y6x\ngtQVEXwmF1pDHH4Qtz/e6UZTdYeMl9G4aNO2CawwcaYECgYEA57imgSOG4XsJLRh\nGGncV9R/xhy4AbDWLtAMzQRX4ktvKCaHWyQV2XK2we/cu29NLv2Y89WmerTNPOU\u002B\nP8\u002BpB31uty2ELySVn15QhKpQClVEAlxCnnNjXYrii5LOM80\u002BlVmxvQwxVd8Yz8nj\nIntyioXNBEnYS7V2RxxFGgFun1cCgYEA1V3W\u002BUyamhq8JS5EY0FhyGcXdHd70K49\nW1ou7McIpncf9tM9acLS1hkI98rd2T69Zo8mKoV1V2hjFaKUYfNys6tTkYWeZCcJ\n3rW44j9DTD\u002BFmmjcX6b8DzfybGLehfNbCw6n67/r45DXIV/fk6XZfkx6IEGO4ODt\nNfnvx4TuI1cCgYBACDiKqwSUvmkUuweOo4IuCxyb5Ee8v98P5JIE/VRDxlCbKbpx\npxEam6aBBQVcDi\u002Bn8o0H3WjjlKc6UqbW/01YMoMrvzotxNBLz8Y0QtQHZvR6KoCG\nRKCKstxTcWflzKuknbqN4RapAhNbKBDJ8PMSWfyDWNyaXzSmBdvaidbF1QKBgDI0\no4oD0Xkjg1QIYAUu9FBQmb9JAjRnW36saNBEQS/SZg4RRKknM683MtoDvVIKJk0E\nsAlfX\u002B4SXQZRPDMUMtA\u002BJyrd0xhj6zmhbwClvDMr20crF3fWdgcqtft1BEFmsuyW\nJUMe5OWmRkjPI2\u002B9ncDPRAllA7a8lnSV/Crph5N/AoGBAIK249temKrGe9pmsmAo\nQbNuYSmwpnMoAqdHTrl70HEmK7ob6SIVmsR8QFAkH7xkYZc4Bxbx4h1bdpozGB\u002B/\nAangbiaYJcAOD1QyfiFbflvI1RFeHgrk7VIafeSeQv6qu0LLMi2zUbpgVzxt78Wg\neTuK2xNR0PIM8OI7pRpgyj1I\n-----END PRIVATE KEY-----"
+            "example": "-----BEGIN PRIVATE KEY-----\nMIIEexamplePrivateKeyNotForProductionUseOnly\n-----END PRIVATE KEY-----"
           },
           "mysql_settings": {
             "$ref": "#/components/schemas/MysqlSettings"
@@ -93509,6 +94715,11 @@
             "type": "string",
             "description": "A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account\u0027s default VPC for the region.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
             "example": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+          },
+          "subnet_uuid": {
+            "type": "string",
+            "description": "An optional string specifying the UUID of the VPC subnet to which the Droplet will be assigned. If excluded, the Droplet will be assigned to a default subnet of the VPC.\u003Cbr\u003ERequires \u0060vpc:read\u0060 scope.",
+            "example": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
           },
           "with_droplet_agent": {
             "type": "boolean",
@@ -95172,6 +96383,15 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PlanDowngrades"
         }
+      },
+      "VpcSubnetStatisticsResourcesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": "The number of members grouped by resource type."
       },
       "ApiMcpServerHeadersProperty": {
         "type": "object",
@@ -100851,6 +102071,61 @@
           ]
         }
       },
+      "RouteType": {
+        "enum": [
+          "STATIC",
+          "DYNAMIC"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The route type inferred from how the route is sourced.",
+        "readOnly": true,
+        "example": "STATIC",
+        "x-ms-enum": {
+          "name": "RouteType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "STATIC",
+              "name": "StaticValue"
+            },
+            {
+              "value": "DYNAMIC",
+              "name": "Dynamic"
+            }
+          ]
+        }
+      },
+      "VpcSubnetType": {
+        "enum": [
+          "REGULAR",
+          "MANAGED",
+          "OVERLAY"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the VPC subnet.",
+        "readOnly": true,
+        "example": "REGULAR",
+        "x-ms-enum": {
+          "name": "VpcSubnetType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "REGULAR",
+              "name": "Regular"
+            },
+            {
+              "value": "MANAGED",
+              "name": "Managed"
+            },
+            {
+              "value": "OVERLAY",
+              "name": "Overlay"
+            }
+          ]
+        }
+      },
       "VpcNatGatewayGetType": {
         "enum": [
           "PUBLIC"
@@ -103893,6 +105168,100 @@
             {
               "value": "volume",
               "name": "Volume"
+            }
+          ]
+        }
+      },
+      "VpcResourceType": {
+        "enum": [
+          "droplet",
+          "loadbalancer",
+          "kubernetes",
+          "dbaas",
+          "nat_gateway",
+          "app",
+          "nfs_share"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "VpcResourceType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "droplet",
+              "name": "Droplet"
+            },
+            {
+              "value": "loadbalancer",
+              "name": "Loadbalancer"
+            },
+            {
+              "value": "kubernetes",
+              "name": "Kubernetes"
+            },
+            {
+              "value": "dbaas",
+              "name": "Dbaas"
+            },
+            {
+              "value": "nat_gateway",
+              "name": "NatGateway"
+            },
+            {
+              "value": "app",
+              "name": "App"
+            },
+            {
+              "value": "nfs_share",
+              "name": "NfsShare"
+            }
+          ]
+        }
+      },
+      "ResourceType": {
+        "enum": [
+          "droplet",
+          "loadbalancer",
+          "kubernetes",
+          "dbaas",
+          "nat_gateway",
+          "app",
+          "nfs_share"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ResourceType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "droplet",
+              "name": "Droplet"
+            },
+            {
+              "value": "loadbalancer",
+              "name": "Loadbalancer"
+            },
+            {
+              "value": "kubernetes",
+              "name": "Kubernetes"
+            },
+            {
+              "value": "dbaas",
+              "name": "Dbaas"
+            },
+            {
+              "value": "nat_gateway",
+              "name": "NatGateway"
+            },
+            {
+              "value": "app",
+              "name": "App"
+            },
+            {
+              "value": "nfs_share",
+              "name": "NfsShare"
             }
           ]
         }
@@ -107905,28 +109274,28 @@
                   "engine": "pg",
                   "version": "10",
                   "connection": {
-                    "uri": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
+                    "uri": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require",
                     "database": "",
-                    "host": "backend-do-user-19081923-0.db.ondigitalocean.com",
+                    "host": "db.example.com",
                     "port": 25060,
                     "user": "doadmin",
-                    "password": "wv78n3zpz42xezdk",
+                    "password": "example_password",
                     "ssl": true
                   },
                   "private_connection": {
-                    "uri": "postgres://doadmin:wv78n3zpz42xezdk@private-backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
+                    "uri": "postgres://doadmin:example_password@private-db.example.com:25060/defaultdb?sslmode=require",
                     "database": "",
-                    "host": "private-backend-do-user-19081923-0.db.ondigitalocean.com",
+                    "host": "private-db.example.com",
                     "port": 25060,
                     "user": "doadmin",
-                    "password": "wv78n3zpz42xezdk",
+                    "password": "example_password",
                     "ssl": true
                   },
                   "users": [
                     {
                       "name": "doadmin",
                       "role": "primary",
-                      "password": "wv78n3zpz42xezdk"
+                      "password": "example_password"
                     }
                   ],
                   "db_names": [
@@ -107985,46 +109354,46 @@
                 "version": "14",
                 "semantic_version": "14.5",
                 "connection": {
-                  "uri": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
+                  "uri": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require",
                   "database": "",
-                  "host": "backend-do-user-19081923-0.db.ondigitalocean.com",
+                  "host": "db.example.com",
                   "port": 25060,
                   "user": "doadmin",
-                  "password": "wv78n3zpz42xezdk",
+                  "password": "example_password",
                   "ssl": true
                 },
                 "private_connection": {
-                  "uri": "postgres://doadmin:wv78n3zpz42xezdk@private-backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
+                  "uri": "postgres://doadmin:example_password@private-db.example.com:25060/defaultdb?sslmode=require",
                   "database": "",
-                  "host": "private-backend-do-user-19081923-0.db.ondigitalocean.com",
+                  "host": "private-db.example.com",
                   "port": 25060,
                   "user": "doadmin",
-                  "password": "wv78n3zpz42xezdk",
+                  "password": "example_password",
                   "ssl": true
                 },
                 "standby_connection": {
-                  "uri": "postgres://doadmin:wv78n3zpz42xezdk@replica-backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
+                  "uri": "postgres://doadmin:example_password@replica-db.example.com:25060/defaultdb?sslmode=require",
                   "database": "",
-                  "host": "replica-backend-do-user-19081923-0.db.ondigitalocean.com",
+                  "host": "replica-db.example.com",
                   "port": 25060,
                   "user": "doadmin",
-                  "password": "wv78n3zpz42xezdk",
+                  "password": "example_password",
                   "ssl": true
                 },
                 "standby_private_connection": {
-                  "uri": "postgres://doadmin:wv78n3zpz42xezdk@private-replica-backend-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
+                  "uri": "postgres://doadmin:example_password@private-replica-db.example.com:25060/defaultdb?sslmode=require",
                   "database": "",
-                  "host": "private-replica-backend-do-user-19081923-0.db.ondigitalocean.com",
+                  "host": "private-replica-db.example.com",
                   "port": 25060,
                   "user": "doadmin",
-                  "password": "wv78n3zpz42xezdk",
+                  "password": "example_password",
                   "ssl": true
                 },
                 "users": [
                   {
                     "name": "doadmin",
                     "role": "primary",
-                    "password": "wv78n3zpz42xezdk"
+                    "password": "example_password"
                   }
                 ],
                 "db_names": [
@@ -108356,19 +109725,19 @@
                   "connection": {
                     "uri": "",
                     "database": "defaultdb",
-                    "host": "read-nyc3-01-do-user-19081923-0.db.ondigitalocean.com",
+                    "host": "read-db.example.com",
                     "port": 25060,
                     "user": "doadmin",
-                    "password": "wv78n3zpz42xezdk",
+                    "password": "example_password",
                     "ssl": true
                   },
                   "private_connection": {
-                    "uri": "postgres://doadmin:wv78n3zpz42xezdk@private-read-nyc3-01-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
+                    "uri": "postgres://doadmin:example_password@private-read-db.example.com:25060/defaultdb?sslmode=require",
                     "database": "",
-                    "host": "private-read-nyc3-01-do-user-19081923-0.db.ondigitalocean.com",
+                    "host": "private-read-db.example.com",
                     "port": 25060,
                     "user": "doadmin",
-                    "password": "wv78n3zpz42xezdk",
+                    "password": "example_password",
                     "ssl": true
                   },
                   "region": "nyc3",
@@ -108404,19 +109773,19 @@
                 "connection": {
                   "uri": "",
                   "database": "defaultdb",
-                  "host": "read-nyc3-01-do-user-19081923-0.db.ondigitalocean.com",
+                  "host": "read-db.example.com",
                   "port": 25060,
                   "user": "doadmin",
-                  "password": "wv78n3zpz42xezdk",
+                  "password": "example_password",
                   "ssl": true
                 },
                 "private_connection": {
-                  "uri": "postgres://doadmin:wv78n3zpz42xezdk@private-read-nyc3-01-do-user-19081923-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
+                  "uri": "postgres://doadmin:example_password@private-read-db.example.com:25060/defaultdb?sslmode=require",
                   "database": "",
-                  "host": "private-read-nyc3-01-do-user-19081923-0.db.ondigitalocean.com",
+                  "host": "private-read-db.example.com",
                   "port": 25060,
                   "user": "doadmin",
-                  "password": "wv78n3zpz42xezdk",
+                  "password": "example_password",
                   "ssl": true
                 },
                 "region": "nyc3",
@@ -108493,12 +109862,12 @@
                 {
                   "name": "app-01",
                   "role": "normal",
-                  "password": "jge5lfxtzhx42iff"
+                  "password": "example_password"
                 },
                 {
                   "name": "app-02",
                   "role": "normal",
-                  "password": "z421iffftjge5lxh",
+                  "password": "example_password_2",
                   "settings": {
                     "pg_allow_replication": true
                   }
@@ -108506,7 +109875,7 @@
                 {
                   "name": "doadmin",
                   "role": "primary",
-                  "password": "wv78n3zpz42xezd"
+                  "password": "example_password"
                 }
               ]
             }
@@ -108537,7 +109906,7 @@
                   "user": {
                     "name": "app-01",
                     "role": "normal",
-                    "password": "jge5lfxtzhx42iff"
+                    "password": "example_password"
                   }
                 }
               },
@@ -108546,7 +109915,7 @@
                   "user": {
                     "name": "app-02",
                     "role": "normal",
-                    "password": "wv78n3zpz42xezdk",
+                    "password": "example_password",
                     "mysql_settings": {
                       "auth_plugin": "mysql_native_password"
                     }
@@ -108558,7 +109927,7 @@
                   "user": {
                     "name": "app-02",
                     "role": "normal",
-                    "password": "wv78n3zpz42xezdk",
+                    "password": "example_password",
                     "settings": {
                       "pg_allow_replication": true
                     }
@@ -108570,9 +109939,9 @@
                   "user": {
                     "name": "app-03",
                     "role": "normal",
-                    "password": "qv78n3zes42xezdk",
-                    "access_cert": "-----BEGIN CERTIFICATE-----\nMIIFFjCCA/6gAwIBAgISA0AznUJmXhu08/89ZuSPC/kRMA0GCSqGSIb3DQEBCwUA\nMEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\nExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xNjExMjQwMDIzMDBaFw0x\nNzAyMjIwMDIzMDBaMCQxIjAgBgNVBAMTGWNsb3VkLmFuZHJld3NvbWV0aGluZy5j\nb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDBIZMz8pnK6V52SVf\u002B\nCYssOfCQHAx5f0Ou5rYbq3xNh8VWHIYJCQ1QxQIxKSP6\u002BuODSYrb2KWyurP1DwGb\n8OYm0J3syEDtCUQik1cpCzpeNlAZ2f8FzXyYQAqPopxdRpsFz8DtZnVvu86XwrE4\noFPl9MReICmZfBNWylpV5qgFPoXyJ70ZAsTm3cEe3n\u002BLBXEnY4YrVDRWxA3wZ2mz\nZ03HZ1hHrxK9CMnS829U\u002B8sK\u002BUneZpCO7yLRPuxwhmps0wpK/YuZZfRAKF1FZRna\nk/SIQ28rnWufmdg16YqqHgl5JOgnb3aslKRvL4dI2Gwnkd2IHtpZnTR0gxFXfqqb\nQwuRAgMBAAGjggIaMIICFjAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYB\nBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFLsAFcxAhFX1\nMbCnzr9hEO5rL4jqMB8GA1UdIwQYMBaAFKhKamMEfd265tE5t6ZFZe/zqOyhMHAG\nCCsGAQUFBwEBBGQwYjAvBggrBgEFBQcwAYYjaHR0cDovL29jc3AuaW50LXgzLmxl\ndHNlbmNyeXB0Lm9yZy8wLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5s\nZXRzZW5jcnlwdC5vcmcvMCQGA1UdEQQdMBuCGWNsb3VkLmFuZHJld3NvbWV0aGlu\nZy5jb20wgf4GA1UdIASB9jCB8zAIBgZngQwBAgWrgeYGCysGAQQBgt8TAQEBMIHW\nMCYGCCsGAQUFBwIBFhpodHRwOi8vY3BzLmxldHNlbmNyeXB0Lm9yZzCBqwYIKwYB\nBQUHAgIwgZ4MgZtUaGlzIENlcnRpZmljYXRlIG1heSBvbmx5IGJlIHJlbGllZCB1\ncG9uIGJ5IFJlbHlpbmcgUGFydGllcyBhbmQgb25seSQ2ziBhY2NvcmRhbmNlIHdp\ndGggdGhlIENlcnRpZmljYXRlIFBvbGljeSBmb3VuZCBhdCBodHRwczovL2xldHNl\nbmNyeXB0Lm9yZy9yZXBvc2l0b3J5LzANBgkqhkiG9w0BAQsFAAOCAQEAOZVQvrjM\nPKXLARTjB5XsgfyDN3/qwLl7SmwGkPe\u002BB\u002B9FJpfScYG1JzVuCj/SoaPaK34G4x/e\niXwlwOXtMOtqjQYzNu2Pr2C\u002BI\u002BrVmaxIrCUXFmC205IMuUBEeWXG9Y/HvXQLPabD\nD3Gdl5\u002BFeink9SDRP7G0HaAwq13hI7ARxkL9p\u002BUIY39X0dV3WOboW2Re8nrkFXJ7\nq9Z6shK5QgpBfsLjtjNsQzaGV3ve1gOg25aTJGearBWOvEjJNA1wGMoKVXOtYwm/\nWyWoVdCQ8HmconcbJB6xc0UZ1EjvzRr5ZIvSa5uHZD0L3m7/kpPWlAlFJ7hHASPu\nUlF1zblDmg2Iaw==\n-----END CERTIFICATE-----",
-                    "access_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDBIZMz8pnK6V52\nSVf\u002BCYssOfCQHAx5f0Ou5rYbq3xNh8VHAIYJCQ1QxQIxKSP6\u002BuODSYrb2KWyurP1\nDwGb8OYm0J3syEDtCUQik1cpCzpeNlAZ2f8FzXyYQAqPopxdRpsFz8DtZnVvu86X\nwrE4oFPl9MReICmZfBNWylpV5qgFPoXyJ70ZAsTm3cEe3n\u002BLBXEnY4YrVDRWxA3w\nZ2mzZ03HZ1hHrxK9CMnS829U\u002B8sK\u002BUneZpCO7yLRPuxwhmps0wpK/YuZZfRAKF1F\nZRnak/SIQ28rnWufmdg16YqqHgl5JOgnb3aslKRvL4dI2Gwnkd2IHtpZnTR0gxFX\nfqqbQwuRAgMBAAECggEBAILLmkW0JzOkmLTDNzR0giyRkLoIROqDpfLtjKdwm95l\n9NUBJcU4vCvXQITKt/NhtnNTexcowg8pInb0ksJpg3UGE\u002B4oMNBXVi2UW5MQZ5cm\ncVkQqgXkBF2YAY8FMaB6EML\u002B0En2\u002BdGR/3gIAr221xsFiXe1kHbB8Nb2c/d5HpFt\neRpLVJnK\u002BTxSr78PcZA8DDGlSgwvgimdAaFUNO2OqB9/0E9UPyKk2ycdff/Z6ldF\n0hkCLtdYTTl8Kf/OwjcuTgmA2O3Y8/CoQX/L\u002BoP9Rvt9pWCEfuebiOmHJVPO6Y6x\ngtQVEXwmF1pDHH4Qtz/e6UZTdYeMl9G4aNO2CawwcaYECgYEA57imgSOG4XsJLRh\nGGncV9R/xhy4AbDWLtAMzQRX4ktvKCaHWyQV2XK2we/cu29NLv2Y89WmerTNPOU\u002B\nP8\u002BpB31uty2ELySVn15QhKpQClVEAlxCnnNjXYrii5LOM80\u002BlVmxvQwxVd8Yz8nj\nIntyioXNBEnYS7V2RxxFGgFun1cCgYEA1V3W\u002BUyamhq8JS5EY0FhyGcXdHd70K49\nW1ou7McIpncf9tM9acLS1hkI98rd2T69Zo8mKoV1V2hjFaKUYfNys6tTkYWeZCcJ\n3rW44j9DTD\u002BFmmjcX6b8DzfybGLehfNbCw6n67/r45DXIV/fk6XZfkx6IEGO4ODt\nNfnvx4TuI1cCgYBACDiKqwSUvmkUuweOo4IuCxyb5Ee8v98P5JIE/VRDxlCbKbpx\npxEam6aBBQVcDi\u002Bn8o0H3WjjlKc6UqbW/01YMoMrvzotxNBLz8Y0QtQHZvR6KoCG\nRKCKstxTcWflzKuknbqN4RapAhNbKBDJ8PMSWfyDWNyaXzSmBdvaidbF1QKBgDI0\no4oD0Xkjg1QIYAUu9FBQmb9JAjRnW36saNBEQS/SZg4RRKknM683MtoDvVIKJk0E\nsAlfX\u002B4SXQZRPDMUMtA\u002BJyrd0xhj6zmhbwClvDMr20crF3fWdgcqtft1BEFmsuyW\nJUMe5OWmRkjPI2\u002B9ncDPRAllA7a8lnSV/Crph5N/AoGBAIK249temKrGe9pmsmAo\nQbNuYSmwpnMoAqdHTrl70HEmK7ob6SIVmsR8QFAkH7xkYZc4Bxbx4h1bdpozGB\u002B/\nAangbiaYJcAOD1QyfiFbflvI1RFeHgrk7VIafeSeQv6qu0LLMi2zUbpgVzxt78Wg\neTuK2xNR0PIM8OI7pRpgyj1I\n-----END PRIVATE KEY-----",
+                    "password": "example_password",
+                    "access_cert": "-----BEGIN CERTIFICATE-----\nMIIEexampleCertificateNotForProductionUseOnly\n-----END CERTIFICATE-----",
+                    "access_key": "-----BEGIN PRIVATE KEY-----\nMIIEexamplePrivateKeyNotForProductionUseOnly\n-----END PRIVATE KEY-----",
                     "settings": {
                       "acl": [
                         {
@@ -108683,12 +110052,12 @@
                   "db": "defaultdb",
                   "mode": "session",
                   "connection": {
-                    "uri": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25061/foo?sslmode=require",
+                    "uri": "postgres://doadmin:example_password@db.example.com:25061/foo?sslmode=require",
                     "database": "foo",
-                    "host": "backend-do-user-19081923-0.db.ondigitalocean.com",
+                    "host": "db.example.com",
                     "port": 25061,
                     "user": "doadmin",
-                    "password": "wv78n3zpz42xezdk",
+                    "password": "example_password",
                     "ssl": true
                   }
                 },
@@ -108699,12 +110068,12 @@
                   "db": "defaultdb",
                   "mode": "transaction",
                   "connection": {
-                    "uri": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25061/backend-pool?sslmode=require",
+                    "uri": "postgres://doadmin:example_password@db.example.com:25061/backend-pool?sslmode=require",
                     "database": "backend-pool",
-                    "host": "backend-do-user-19081923-0.db.ondigitalocean.com",
+                    "host": "db.example.com",
                     "port": 25061,
                     "user": "doadmin",
-                    "password": "wv78n3zpz42xezdk",
+                    "password": "example_password",
                     "ssl": true
                   }
                 }
@@ -108739,12 +110108,12 @@
                 "db": "defaultdb",
                 "mode": "transaction",
                 "connection": {
-                  "uri": "postgres://doadmin:wv78n3zpz42xezdk@backend-do-user-19081923-0.db.ondigitalocean.com:25061/backend-pool?sslmode=require",
+                  "uri": "postgres://doadmin:example_password@db.example.com:25061/backend-pool?sslmode=require",
                   "database": "backend-pool",
-                  "host": "backend-do-user-19081923-0.db.ondigitalocean.com",
+                  "host": "db.example.com",
                   "port": 25061,
                   "user": "doadmin",
-                  "password": "wv78n3zpz42xezdk",
+                  "password": "example_password",
                   "ssl": true
                 }
               }
@@ -115177,6 +116546,216 @@
           }
         }
       },
+      "all_vpc_routes": {
+        "description": "A list of routes.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AllVpcRoutesResponse"
+            },
+            "example": {
+              "routes": [
+                {
+                  "id": "f0e1d2c3-b4a5-6789-0fed-cba987654321",
+                  "type": "STATIC",
+                  "destination_cidr": "0.0.0.0/0",
+                  "target_urns": [
+                    "do:nat_gateway:14aa1d1b-e6ab-4ccb-bb10-dade56fcb8ec"
+                  ],
+                  "modifiable": false,
+                  "created_at": "2026-01-14T10:00:00Z"
+                }
+              ],
+              "links": {
+                "pages": {
+                  "next": "https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/routes?page=2\u0026per_page=20"
+                }
+              },
+              "meta": {
+                "total": 1
+              }
+            }
+          }
+        }
+      },
+      "all_vpc_subnets": {
+        "description": "A list of VPC subnets.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AllVpcSubnetsResponse"
+            },
+            "examples": {
+              "VPC Subnets Response": {
+                "$ref": "#/components/examples/all_vpc_subnets"
+              }
+            }
+          }
+        }
+      },
+      "single_vpc_subnet": {
+        "description": "A VPC subnet.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SingleVpcSubnetResponse"
+            },
+            "examples": {
+              "VPC Subnet Response": {
+                "$ref": "#/components/examples/single_vpc_subnet"
+              }
+            }
+          }
+        }
+      },
+      "vpc_subnet_members": {
+        "description": "A list of resources that are members of the VPC subnet. Only resources that\nthe caller is authorized to view are returned.\n",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/VpcSubnetMembersResponse"
+            },
+            "example": {
+              "members": [
+                {
+                  "urn": "do:droplet:4126873",
+                  "name": "ubuntu-s-1vcpu-1gb-nyc3-01",
+                  "created_at": "2026-01-14T10:00:00Z"
+                },
+                {
+                  "urn": "do:loadbalancer:fb294d78-d193-4cb2-8737-ea620993591b",
+                  "name": "nyc3-load-balancer-01",
+                  "created_at": "2026-01-14T10:05:00Z"
+                }
+              ],
+              "links": {},
+              "meta": {
+                "total": 2
+              }
+            }
+          }
+        }
+      },
+      "all_vpc_subnet_routes": {
+        "description": "A list of routes.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AllVpcSubnetRoutesResponse"
+            },
+            "example": {
+              "routes": [
+                {
+                  "id": "f0e1d2c3-b4a5-6789-0fed-cba987654321",
+                  "type": "STATIC",
+                  "destination_cidr": "0.0.0.0/0",
+                  "target_urns": [
+                    "do:nat_gateway:14aa1d1b-e6ab-4ccb-bb10-dade56fcb8ec"
+                  ],
+                  "modifiable": false,
+                  "created_at": "2026-01-14T10:00:00Z"
+                }
+              ],
+              "links": {
+                "pages": {
+                  "next": "https://api.digitalocean.com/v2/vpcs/997615ce-132d-4bae-9270-9ee21b395e5d/subnets/4de7ac8b-495b-4884-9a69-1050c6793cd6/routes?page=2\u0026per_page=20"
+                }
+              },
+              "meta": {
+                "total": 1
+              }
+            }
+          }
+        }
+      },
+      "single_route": {
+        "description": "A route.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SingleRouteResponse"
+            },
+            "example": {
+              "route": {
+                "id": "f0e1d2c3-b4a5-6789-0fed-cba987654321",
+                "type": "STATIC",
+                "destination_cidr": "0.0.0.0/0",
+                "target_urns": [
+                  "do:droplet:4126873"
+                ],
+                "modifiable": true,
+                "created_at": "2026-01-14T10:05:00Z"
+              }
+            }
+          }
+        }
+      },
       "all_vpc_peerings": {
         "description": "The response will be a JSON object with a key called \u0060vpc_peerings\u0060. This  will be set to an array of objects, each of which will contain the standard  attributes associated with a VPC peering.",
         "headers": {
@@ -116481,7 +118060,9 @@
         "in": "query",
         "description": "A unique URN for a resource.",
         "schema": {
-          "type": "string"
+          "pattern": "^do:(dbaas|domain|droplet|floatingip|loadbalancer|space|volume|kubernetes|vpc):.*",
+          "type": "string",
+          "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id."
         },
         "example": "do:kubernetes:5ba4518b-b9e2-4978-aa92-2d4c727e8824"
       },
@@ -116903,7 +118484,7 @@
         "in": "query",
         "description": "Used to filter VPC members by a resource type.",
         "schema": {
-          "type": "string"
+          "$ref": "#/components/schemas/VpcResourceType"
         },
         "example": "droplet"
       },
@@ -116917,6 +118498,70 @@
           "format": "uuid"
         },
         "example": "5a4981aa-9653-4bd1-bef5-d6bff52042e4"
+      },
+      "vpc_uuid": {
+        "name": "vpc_uuid",
+        "in": "path",
+        "description": "The unique identifier of the VPC.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "997615ce-132d-4bae-9270-9ee21b395e5d"
+      },
+      "parameters_vpc_uuid": {
+        "name": "vpc_uuid",
+        "in": "path",
+        "description": "The unique identifier of the VPC to which the subnet belongs.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "997615ce-132d-4bae-9270-9ee21b395e5d"
+      },
+      "subnet_uuid": {
+        "name": "subnet_uuid",
+        "in": "path",
+        "description": "The unique identifier of a VPC subnet.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
+      },
+      "resource_type": {
+        "name": "resource_type",
+        "in": "query",
+        "description": "Used to filter VPC subnet members by resource type.",
+        "schema": {
+          "$ref": "#/components/schemas/ResourceType"
+        },
+        "example": "droplet"
+      },
+      "parameters_subnet_uuid": {
+        "name": "subnet_uuid",
+        "in": "path",
+        "description": "The unique identifier of the VPC subnet.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
+      },
+      "route_uuid": {
+        "name": "route_uuid",
+        "in": "path",
+        "description": "The unique identifier of the route.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "f0e1d2c3-b4a5-6789-0fed-cba987654321"
       },
       "vpc_nat_gateway_state": {
         "name": "state",
@@ -118748,7 +120393,8 @@
                 "web",
                 "env:prod"
               ],
-              "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+              "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000",
+              "subnet_uuid": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
             },
             {
               "id": 3164459,
@@ -118889,7 +120535,8 @@
                 "storage",
                 "env:prod"
               ],
-              "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+              "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000",
+              "subnet_uuid": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
             },
             {
               "id": 3164412,
@@ -119029,7 +120676,8 @@
               "tags": [
                 "env:stage"
               ],
-              "vpc_uuid": "5a4981aa-9653-4bd1-bef5-d6bff52042e4"
+              "vpc_uuid": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+              "subnet_uuid": "0f1a2b3c-4d5e-6f70-8192-a3b4c5d6e7f8"
             }
           ],
           "links": {
@@ -119193,7 +120841,8 @@
                 "web",
                 "env:prod"
               ],
-              "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+              "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000",
+              "subnet_uuid": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
             },
             {
               "id": 3164459,
@@ -119334,7 +120983,8 @@
                 "storage",
                 "env:prod"
               ],
-              "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+              "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000",
+              "subnet_uuid": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
             }
           ],
           "links": {
@@ -119503,6 +121153,7 @@
               },
               "tags": [],
               "vpc_uuid": "e2fdd15c-6ae6-4c11-8c5d-72dae2ba1ad1",
+              "subnet_uuid": "b7c8d9e0-1f2a-3b4c-5d6e-7f8091a2b3c4",
               "gpu_info": {
                 "count": 1,
                 "vram": {
@@ -119537,7 +121188,8 @@
             "web"
           ],
           "user_data": "#cloud-config\nruncmd:\n  - touch /test.txt\n",
-          "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+          "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000",
+          "subnet_uuid": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
         }
       },
       "droplet_multi_create_request": {
@@ -119561,7 +121213,8 @@
             "web"
           ],
           "user_data": "#cloud-config\nruncmd:\n  - touch /test.txt\n",
-          "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+          "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000",
+          "subnet_uuid": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
         }
       },
       "droplet_create_response": {
@@ -120124,7 +121777,8 @@
               "web",
               "env:prod"
             ],
-            "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+            "vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000",
+            "subnet_uuid": "9c7a0d63-3c4e-4d3d-9f56-3b0fb0e5e4a1"
           }
         }
       },
@@ -124189,6 +125843,56 @@
           }
         }
       },
+      "all_vpc_subnets": {
+        "value": {
+          "vpc_subnet": [
+            {
+              "id": "4de7ac8b-495b-4884-9a69-1050c6793cd6",
+              "urn": "do:vpc_subnet:4de7ac8b-495b-4884-9a69-1050c6793cd6",
+              "name": "new-subnet",
+              "ip_range": "10.20.0.0/16",
+              "type": "REGULAR",
+              "region": "nyc3",
+              "created_at": "2024-01-01T12:00:00Z",
+              "meta": {
+                "stats": {
+                  "members": 3,
+                  "resources": {
+                    "droplet": 2,
+                    "loadbalancer": 1
+                  }
+                }
+              }
+            }
+          ],
+          "links": {},
+          "meta": {
+            "total": 1
+          }
+        }
+      },
+      "single_vpc_subnet": {
+        "value": {
+          "vpc_subnet": {
+            "id": "4de7ac8b-495b-4884-9a69-1050c6793cd6",
+            "urn": "do:vpc_subnet:4de7ac8b-495b-4884-9a69-1050c6793cd6",
+            "name": "new-subnet",
+            "ip_range": "10.20.0.0/16",
+            "type": "REGULAR",
+            "region": "nyc3",
+            "created_at": "2024-01-01T12:00:00Z",
+            "meta": {
+              "stats": {
+                "members": 3,
+                "resources": {
+                  "droplet": 2,
+                  "loadbalancer": 1
+                }
+              }
+            }
+          }
+        }
+      },
       "vpc_nat_gateways": {
         "value": {
           "vpc_nat_gateways": [
@@ -124659,6 +126363,14 @@
       "description": "[VPC Peerings](https://docs.digitalocean.com/products/networking/vpc/how-to/create-peering/)\njoin two VPC networks with a secure, private connection. This allows\nresources in those networks to connect to each other\u0027s private IP addresses\nas if they were in the same network."
     },
     {
+      "name": "VPC Routes [Public Preview]",
+      "description": "Routes control how traffic from resources in VPC subnets reaches\ndestination networks. VPC-scoped routes are read-only, while\ncustomer-managed static routes can be added to individual VPC subnets."
+    },
+    {
+      "name": "VPC Subnets [Public Preview]",
+      "description": "VPC subnets divide a VPC network into isolated IP ranges. You can create,\nretrieve, rename, list, and delete subnets within a VPC."
+    },
+    {
       "name": "VPCs",
       "description": "[VPCs (virtual private clouds)](https://docs.digitalocean.com/products/networking/vpc/)\nallow you to create virtual networks containing resources that can\ncommunicate with each other in full isolation using private IP addresses.\n\nBy sending requests to the \u0060/v2/vpcs\u0060 endpoint, you can create, configure,\nlist, and delete custom VPCs as well as retrieve information about the\nresources assigned to them."
     },
@@ -124737,6 +126449,8 @@
         "Vector Databases",
         "VPC NAT Gateways",
         "VPC Peerings",
+        "VPC Routes [Public Preview]",
+        "VPC Subnets [Public Preview]",
         "VPCs"
       ]
     },

@@ -20,14 +20,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.vpcs.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.VpcItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.VpcItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("vpcId", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("vpc%2Did", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.VpcItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -73,6 +73,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys> SshKeys { get; set; }
 #endif
+        /// <summary>An optional string specifying the UUID of the VPC subnet to which the Droplet will be assigned. If excluded, the Droplet will be assigned to a default subnet of the VPC.&lt;br&gt;Requires `vpc:read` scope.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubnetUuid { get; set; }
+#nullable restore
+#else
+        public string SubnetUuid { get; set; }
+#endif
         /// <summary>A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.&lt;br&gt;Requires `tag:create` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -148,6 +156,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetStringValue(); } },
                 { "ssh_keys", n => { SshKeys = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "subnet_uuid", n => { SubnetUuid = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "user_data", n => { UserData = n.GetStringValue(); } },
                 { "volumes", n => { Volumes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -173,6 +182,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("size", Size);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys>("ssh_keys", SshKeys);
+            writer.WriteStringValue("subnet_uuid", SubnetUuid);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("user_data", UserData);
             writer.WriteCollectionOfPrimitiveValues<string>("volumes", Volumes);

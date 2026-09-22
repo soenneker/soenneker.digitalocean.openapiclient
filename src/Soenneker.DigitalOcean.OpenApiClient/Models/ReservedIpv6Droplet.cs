@@ -131,6 +131,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>A status string indicating the state of the Droplet instance. This may be &quot;new&quot;, &quot;active&quot;, &quot;off&quot;, or &quot;archive&quot;.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletStatus? Status { get; set; }
+        /// <summary>A string specifying the UUID of the VPC subnet to which the Droplet is assigned.&lt;br&gt;Requires `vpc:read` scope.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubnetUuid { get; set; }
+#nullable restore
+#else
+        public string SubnetUuid { get; set; }
+#endif
         /// <summary>An array of Tags the Droplet has been tagged with.&lt;br&gt;Requires `tag:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -201,6 +209,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "size_slug", n => { SizeSlug = n.GetStringValue(); } },
                 { "snapshot_ids", n => { SnapshotIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletStatus>(); } },
+                { "subnet_uuid", n => { SubnetUuid = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "vcpus", n => { Vcpus = n.GetIntValue(); } },
                 { "volume_ids", n => { VolumeIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -233,6 +242,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("size_slug", SizeSlug);
             writer.WriteCollectionOfPrimitiveValues<int?>("snapshot_ids", SnapshotIds);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletStatus>("status", Status);
+            writer.WriteStringValue("subnet_uuid", SubnetUuid);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteIntValue("vcpus", Vcpus);
             writer.WriteCollectionOfPrimitiveValues<string>("volume_ids", VolumeIds);

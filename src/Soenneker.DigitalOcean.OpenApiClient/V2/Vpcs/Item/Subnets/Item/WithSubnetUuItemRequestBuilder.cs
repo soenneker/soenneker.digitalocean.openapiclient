@@ -4,49 +4,49 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
-using Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Members;
-using Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Members;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
+namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpcId}
+    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\subnets\{subnetUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithVpcItemRequestBuilder : BaseRequestBuilder
+    public partial class WithSubnetUuItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The members property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Members.MembersRequestBuilder Members
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Members.MembersRequestBuilder Members
         {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The peerings property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder Peerings
+        /// <summary>The routes property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder Routes
         {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.WithSubnetUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithVpcItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}", pathParameters)
+        public WithSubnetUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.WithSubnetUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithVpcItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}", rawUrl)
+        public WithSubnetUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}", rawUrl)
         {
         }
         /// <summary>
-        /// To delete a VPC, send a DELETE request to `/v2/vpcs/$VPC_ID`. A 204 statuscode with no body will be returned in response to a successful request.The default VPC for a region can not be deleted. Additionally, a VPC can onlybe deleted if it does not contain any member resources. Attempting to deletea region&apos;s default VPC or a VPC that still has members will result in a403 Forbidden error response.
+        /// To delete a specific subnet from a VPC, send a DELETE request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`. A successful request returns a204 status code with no response body.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -76,9 +76,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To show information about an existing VPC, send a GET request to `/v2/vpcs/$VPC_ID`.
+        /// To retrieve a specific subnet within a VPC, send a GET request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -88,11 +88,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -104,12 +104,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To update a subset of information about a VPC, send a PATCH request to`/v2/vpcs/$VPC_ID`.
+        /// To update the name of a specific subnet within a VPC, send a PATCH requestto `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -120,11 +120,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse?> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsPatchRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse?> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnetUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsPatchRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnetUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -137,43 +137,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleVpcSubnetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To update information about a VPC, send a PUT request to `/v2/vpcs/$VPC_ID`.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse?> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ExistingVpcResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// To delete a VPC, send a DELETE request to `/v2/vpcs/$VPC_ID`. A 204 statuscode with no body will be returned in response to a successful request.The default VPC for a region can not be deleted. Additionally, a VPC can onlybe deleted if it does not contain any member resources. Attempting to deletea region&apos;s default VPC or a VPC that still has members will result in a403 Forbidden error response.
+        /// To delete a specific subnet from a VPC, send a DELETE request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`. A successful request returns a204 status code with no response body.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +159,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
             return requestInfo;
         }
         /// <summary>
-        /// To show information about an existing VPC, send a GET request to `/v2/vpcs/$VPC_ID`.
+        /// To retrieve a specific subnet within a VPC, send a GET request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,18 +178,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
             return requestInfo;
         }
         /// <summary>
-        /// To update a subset of information about a VPC, send a PATCH request to`/v2/vpcs/$VPC_ID`.
+        /// To update the name of a specific subnet within a VPC, send a PATCH requestto `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsPatchRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnetUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsPatchRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnetUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -233,35 +200,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
             return requestInfo;
         }
         /// <summary>
-        /// To update information about a VPC, send a PUT request to `/v2/vpcs/$VPC_ID`.
-        /// </summary>
-        /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
-        {
-#nullable restore
-#else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            return requestInfo;
-        }
-        /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.WithSubnetUuItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.WithSubnetUuItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.WithSubnetUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Members
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpcId}\members
+    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\members
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MembersRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Members
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/members{?page*,per_page*,resource_type*}", pathParameters)
+        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/members{?page*,per_page*,resource_type*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Members
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/members{?page*,per_page*,resource_type*}", rawUrl)
+        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/members{?page*,per_page*,resource_type*}", rawUrl)
         {
         }
         /// <summary>
@@ -105,15 +105,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Members
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>Used to filter VPC members by a resource type.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("resource_type")]
-            public string? ResourceType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("resource_type")]
-            public string ResourceType { get; set; }
-#endif
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcResourceType? ResourceType { get; set; }
         }
     }
 }

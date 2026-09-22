@@ -4,52 +4,52 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
-using Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.Item;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings
+namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\peerings
+    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\subnets\{subnetUuid}\routes
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PeeringsRequestBuilder : BaseRequestBuilder
+    public partial class RoutesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.vpcs.item.peerings.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.vpcs.item.subnets.item.routes.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.Item.WithVpcPeeringItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.Item.WithVpcPeeringItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.Item.WithRouteUuItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.Item.WithRouteUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("vpcPeeringId", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.Item.WithVpcPeeringItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("routeUuid", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.Item.WithRouteUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PeeringsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/peerings{?page*,per_page*}", pathParameters)
+        public RoutesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}/routes{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PeeringsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/peerings{?page*,per_page*}", rawUrl)
+        public RoutesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}/routes{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
-        /// To list all of a VPC&apos;s peerings, send a GET request to`/v2/vpcs/$VPC_ID/peerings`.
+        /// To list routes for a VPC subnet, send a GET request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. The response includesVPC-scoped routes propagated into the subnet and subnet-scoped routes.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AllVpcSubnetRoutesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -59,11 +59,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder.PeeringsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.AllVpcSubnetRoutesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder.RoutesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder.PeeringsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.AllVpcSubnetRoutesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder.RoutesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -75,53 +75,57 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.AllVpcSubnetRoutesResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.AllVpcSubnetRoutesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To create a new VPC peering for a given VPC, send a POST request to`/v2/vpcs/$VPC_ID/peerings`.
+        /// To add a static route to a VPC subnet, send a POST request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. This route is additionalto the routes the VPC already propagates to the subnet. The server assignsthe route&apos;s `id` and `type`.Droplet targets must use a numeric ID. A Droplet UUID or another invalid`target_urns` value returns a 422 response.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleRouteResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsCreatePeeringsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleRouteResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.RouteCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsCreatePeeringsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleRouteResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.RouteCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcPeeringResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleRouteResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.SingleRouteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To list all of a VPC&apos;s peerings, send a GET request to`/v2/vpcs/$VPC_ID/peerings`.
+        /// To list routes for a VPC subnet, send a GET request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. The response includesVPC-scoped routes propagated into the subnet and subnet-scoped routes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder.PeeringsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder.RoutesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder.PeeringsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder.RoutesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -130,18 +134,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings
             return requestInfo;
         }
         /// <summary>
-        /// To create a new VPC peering for a given VPC, send a POST request to`/v2/vpcs/$VPC_ID/peerings`.
+        /// To add a static route to a VPC subnet, send a POST request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. This route is additionalto the routes the VPC already propagates to the subnet. The server assignsthe route&apos;s `id` and `type`.Droplet targets must use a numeric ID. A Droplet UUID or another invalid`target_urns` value returns a 422 response.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsCreatePeeringsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.RouteCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcsCreatePeeringsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.RouteCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -154,17 +158,17 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.PeeringsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.RoutesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// To list all of a VPC&apos;s peerings, send a GET request to`/v2/vpcs/$VPC_ID/peerings`.
+        /// To list routes for a VPC subnet, send a GET request to`/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. The response includesVPC-scoped routes propagated into the subnet and subnet-scoped routes.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PeeringsRequestBuilderGetQueryParameters 
+        public partial class RoutesRequestBuilderGetQueryParameters 
         {
             /// <summary>Which &apos;page&apos; of paginated results to return.</summary>
             [QueryParameter("page")]
