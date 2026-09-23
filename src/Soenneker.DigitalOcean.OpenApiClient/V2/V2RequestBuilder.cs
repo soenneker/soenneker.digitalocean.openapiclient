@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Account;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Actions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.AddOns;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Apps;
@@ -61,6 +62,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Account.AccountRequestBuilder Account
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Account.AccountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The actionGateway property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.ActionGatewayRequestBuilder ActionGateway
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.ActionGatewayRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The actions property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Actions.ActionsRequestBuilder Actions

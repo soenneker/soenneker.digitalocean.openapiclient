@@ -82,6 +82,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>An object specifying whether the NFS CSI plugin should be enabled for the Kubernetes cluster.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin? NfsCsiPlugin { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin NfsCsiPlugin { get; set; }
+#endif
         /// <summary>An object specifying whether the Nvidia GPU Device Plugin should be enabled in the Kubernetes cluster. It&apos;s enabled by default for clusters with an Nvidia GPU node pool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -177,6 +185,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "ha", n => { Ha = n.GetBoolValue(); } },
                 { "maintenance_policy", n => { MaintenancePolicy = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "nfs_csi_plugin", n => { NfsCsiPlugin = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin>(global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin.CreateFromDiscriminatorValue); } },
                 { "nvidia_gpu_device_plugin", n => { NvidiaGpuDevicePlugin = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin>(global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin.CreateFromDiscriminatorValue); } },
                 { "nvidia_gpu_dra_driver", n => { NvidiaGpuDraDriver = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver>(global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver.CreateFromDiscriminatorValue); } },
                 { "p2p_oci_registry_plugin", n => { P2pOciRegistryPlugin = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin>(global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin.CreateFromDiscriminatorValue); } },
@@ -204,6 +213,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("ha", Ha);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy>("maintenance_policy", MaintenancePolicy);
             writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin>("nfs_csi_plugin", NfsCsiPlugin);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin>("nvidia_gpu_device_plugin", NvidiaGpuDevicePlugin);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver>("nvidia_gpu_dra_driver", NvidiaGpuDraDriver);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin>("p2p_oci_registry_plugin", P2pOciRegistryPlugin);

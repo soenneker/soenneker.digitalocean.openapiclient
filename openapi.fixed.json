@@ -21,6 +21,1617 @@
     }
   ],
   "paths": {
+    "/v2/action-gateway/tools": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "List Tools",
+        "description": "Lists active Action Gateway tools visible to the authenticated team.",
+        "operationId": "ToolsList",
+        "parameters": [
+          {
+            "name": "toolkit_id",
+            "in": "query",
+            "description": "Filter tools by toolkit identifier.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "exa"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tools were retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListToolsResponse"
+                },
+                "examples": {
+                  "tools_list_response": {
+                    "$ref": "#/components/examples/tools_list_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/tools?toolkit_id=exa\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/tools/toolkits": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "List Toolkits",
+        "description": "Lists the toolkits that group Action Gateway tools.",
+        "operationId": "ToolsListToolkits",
+        "responses": {
+          "200": {
+            "description": "Toolkits were retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListToolkitsResponse"
+                },
+                "examples": {
+                  "tools_list_toolkits_response": {
+                    "$ref": "#/components/examples/tools_list_toolkits_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/tools/toolkits\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/tools/providers": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "List Tool Providers",
+        "description": "Lists Action Gateway providers and their connection requirements.",
+        "operationId": "ToolsListProviders",
+        "responses": {
+          "200": {
+            "description": "Tool providers were retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListProvidersResponse"
+                },
+                "examples": {
+                  "tools_list_providers_response": {
+                    "$ref": "#/components/examples/tools_list_providers_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/tools/providers\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/tools/{name}/definition": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Retrieve a Tool Definition",
+        "description": "Retrieves the executable definition for an active Action Gateway tool.",
+        "operationId": "ToolsGetDefinition",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The provider-qualified tool name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "exa_web_search"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "The tool version. Omit to retrieve the current version.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "v1"
+          },
+          {
+            "name": "toolkit_id",
+            "in": "query",
+            "description": "The toolkit identifier used to disambiguate a bare tool name.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "exa"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The tool definition was retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolDefinition"
+                },
+                "examples": {
+                  "tools_get_definition_response": {
+                    "$ref": "#/components/examples/tools_get_definition_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/tools/exa_web_search/definition?version=v1\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/toolbelts": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "List Toolbelts",
+        "description": "Lists the latest version of each toolbelt owned by the authenticated team.",
+        "operationId": "ToolbeltsList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/toolbelt_status"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Toolbelts were retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolbeltsResponse"
+                },
+                "examples": {
+                  "toolbelts_list_response": {
+                    "$ref": "#/components/examples/toolbelts_list_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/toolbelts?status=active\u0022"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Create a Toolbelt",
+        "description": "Creates a versioned collection of provider-qualified Action Gateway tool names.",
+        "operationId": "ToolbeltsCreate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ToolbeltCreate"
+              },
+              "examples": {
+                "toolbelts_create_request": {
+                  "$ref": "#/components/examples/toolbelts_create_request"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A toolbelt was created successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolbeltResponse"
+                },
+                "examples": {
+                  "toolbelt_response": {
+                    "$ref": "#/components/examples/toolbelt_response"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\n    \u0022name\u0022: \u0022search-toolbelt\u0022,\n    \u0022display_name\u0022: \u0022Search Tools\u0022,\n    \u0022tools\u0022: [\u0022exa_web_search\u0022, \u0022exa_web_fetch\u0022]\n  }\u0027 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/toolbelts\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/toolbelts/{name}": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Retrieve a Toolbelt",
+        "description": "Retrieves the latest active version or a specified immutable version of a toolbelt.",
+        "operationId": "ToolbeltsGet",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/toolbelt_name"
+          },
+          {
+            "$ref": "#/components/parameters/toolbelt_version"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The toolbelt was retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolbeltResponse"
+                },
+                "examples": {
+                  "toolbelt_response": {
+                    "$ref": "#/components/examples/toolbelt_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/toolbelts/search-toolbelt?version=1\u0022"
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Delete a Toolbelt",
+        "description": "Deprecates the latest active version of a toolbelt.",
+        "operationId": "ToolbeltsDelete",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/toolbelt_name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The toolbelt was deprecated successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolbeltResponse"
+                },
+                "examples": {
+                  "toolbelts_delete_response": {
+                    "$ref": "#/components/examples/toolbelts_delete_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:delete"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/toolbelts/search-toolbelt\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/toolbelts/{name}/tools/add": {
+      "post": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Add Tools to a Toolbelt",
+        "description": "Adds provider-qualified tool names and creates a new immutable toolbelt version.",
+        "operationId": "ToolbeltsAddTools",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/toolbelt_name"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ToolbeltTools"
+              },
+              "examples": {
+                "toolbelts_add_tools_request": {
+                  "$ref": "#/components/examples/toolbelts_add_tools_request"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The resulting toolbelt version.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolbeltResponse"
+                },
+                "examples": {
+                  "toolbelt_response": {
+                    "$ref": "#/components/examples/toolbelt_response"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022tools\u0022: [\u0022exa_web_fetch\u0022]}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/toolbelts/search-toolbelt/tools/add\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/toolbelts/{name}/tools/remove": {
+      "post": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Remove Tools from a Toolbelt",
+        "description": "Removes tool names and creates a new immutable toolbelt version.",
+        "operationId": "ToolbeltsDeleteTools",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/toolbelt_name"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ToolbeltTools"
+              },
+              "examples": {
+                "toolbelts_remove_tools_request": {
+                  "$ref": "#/components/examples/toolbelts_remove_tools_request"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The resulting toolbelt version.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolbeltResponse"
+                },
+                "examples": {
+                  "toolbelt_response": {
+                    "$ref": "#/components/examples/toolbelt_response"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:delete"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022tools\u0022: [\u0022exa_web_fetch\u0022]}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/toolbelts/search-toolbelt/tools/remove\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/connections": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "List Connections",
+        "description": "Lists OAuth connections owned by the authenticated team.",
+        "operationId": "ConnectionsList",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "description": "Filter by provider name.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "github"
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "Filter by end-user identifier.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "end-user-123"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter by connection status.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "active"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Field used to sort results.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "created_at"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "description": "Sort direction.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "desc"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Connections were retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConnectionsResponse"
+                },
+                "examples": {
+                  "connections_list_response": {
+                    "$ref": "#/components/examples/connections_list_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/connections?user_id=end-user-123\u0022"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Create a Connection",
+        "description": "Creates or begins authorization for an OAuth connection to an Action Gateway provider.",
+        "operationId": "ConnectionsCreate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateConnectionRequest"
+              },
+              "examples": {
+                "connections_create_request": {
+                  "$ref": "#/components/examples/connections_create_request"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The connection was created or authorization was started.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateConnectionResponse"
+                },
+                "examples": {
+                  "connections_create_response": {
+                    "$ref": "#/components/examples/connections_create_response"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\n    \u0022provider\u0022: \u0022github\u0022,\n    \u0022user_id\u0022: \u0022end-user-123\u0022,\n    \u0022scopes\u0022: [\u0022repo\u0022],\n    \u0022connection_parameters\u0022: {}\n  }\u0027 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/connections\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/connections/{id}": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Retrieve a Connection",
+        "description": "Retrieves an OAuth connection owned by the authenticated team.",
+        "operationId": "ConnectionsGet",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The connection UUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The connection was retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConnectionResponse"
+                },
+                "examples": {
+                  "connections_get_response": {
+                    "$ref": "#/components/examples/connections_get_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/connections/123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Update Connection Parameters",
+        "description": "Updates non-sensitive connection parameters for an OAuth connection.",
+        "operationId": "ConnectionsUpdate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The connection UUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateConnectionParametersRequest"
+              },
+              "examples": {
+                "connections_update_request": {
+                  "$ref": "#/components/examples/connections_update_request"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The connection parameters were updated successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateConnectionParametersResponse"
+                },
+                "examples": {
+                  "connections_update_response": {
+                    "$ref": "#/components/examples/connections_update_response"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X PATCH \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022connection_parameters\u0022: {\u0022site_url\u0022: \u0022https://github.com\u0022}}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/connections/123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Delete a Connection",
+        "description": "Revokes and deletes an OAuth connection owned by the authenticated team.",
+        "operationId": "ConnectionsDelete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The connection UUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The connection was deleted successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteConnectionResponse"
+                },
+                "examples": {
+                  "connections_delete_response": {
+                    "$ref": "#/components/examples/connections_delete_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:delete"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/connections/123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/users": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "List Action Gateway Users",
+        "description": "Lists end-user identifiers derived from sessions and OAuth connections for the authenticated team.",
+        "operationId": "UsersList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users were retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListUsersResponse"
+                },
+                "examples": {
+                  "users_list_response": {
+                    "$ref": "#/components/examples/users_list_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/users\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/users/{userId}": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Retrieve an Action Gateway User",
+        "description": "Retrieves a derived end-user view containing its sessions and OAuth connections.",
+        "operationId": "UsersGet",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The end-user identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "end-user-123"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user was retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserResponse"
+                },
+                "examples": {
+                  "users_get_response": {
+                    "$ref": "#/components/examples/users_get_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/users/end-user-123\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/sessions": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "List Action Gateway Sessions",
+        "description": "Lists Action Gateway sessions owned by the authenticated team.",
+        "operationId": "SessionsList",
+        "parameters": [
+          {
+            "name": "end_user_id",
+            "in": "query",
+            "description": "Filter sessions by actor identifier.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "end-user-123"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sessions were retrieved successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSessionsResponse"
+                },
+                "examples": {
+                  "sessions_list_response": {
+                    "$ref": "#/components/examples/sessions_list_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/sessions?end_user_id=end-user-123\u0022"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Create an Action Gateway Session",
+        "description": "Creates a session with a tool selection, invocation policy, and optional direct-tool preload configuration.",
+        "operationId": "SessionsCreate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSessionRequest"
+              },
+              "examples": {
+                "sessions_create_request": {
+                  "$ref": "#/components/examples/sessions_create_request"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The session was created successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSessionResponse"
+                },
+                "examples": {
+                  "sessions_create_response": {
+                    "$ref": "#/components/examples/sessions_create_response"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:create"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\n    \u0022name\u0022: \u0022research-session\u0022,\n    \u0022actor_id\u0022: \u0022end-user-123\u0022,\n    \u0022policy\u0022: {\n      \u0022defaultAction\u0022: \u0022ask\u0022,\n      \u0022rules\u0022: [{\u0022tool\u0022: \u0022exa_web_search\u0022, \u0022action\u0022: \u0022allow\u0022}]\n    },\n    \u0022tools\u0022: [\u0022exa_web_search@v1\u0022],\n    \u0022config\u0022: {\u0022preloadTools\u0022: [\u0022exa_web_search@v1\u0022]}\n  }\u0027 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/sessions\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/action-gateway/sessions/{sessionUrn}": {
+      "delete": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "Delete an Action Gateway Session",
+        "description": "Deletes an Action Gateway session owned by the authenticated team.",
+        "operationId": "SessionsDelete",
+        "parameters": [
+          {
+            "name": "sessionUrn",
+            "in": "path",
+            "description": "The URL-encoded managed agents session URN.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "do:managed_agents_session:123e4567-e89b-12d3-a456-426614174000"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The session was deleted successfully.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionsDelete200Response"
+                },
+                "examples": {
+                  "sessions_delete_response": {
+                    "$ref": "#/components/examples/sessions_delete_response"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "genai:delete"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/sessions/do%3Amanaged_agents_session%3A123e4567-e89b-12d3-a456-426614174000\u0022"
+          }
+        ]
+      }
+    },
     "/v2/1-clicks": {
       "get": {
         "tags": [
@@ -47077,6 +48688,1409 @@
           }
         }
       },
+      "ToolAnnotations": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Search the Web"
+          },
+          "readOnlyHint": {
+            "type": "boolean",
+            "example": true
+          },
+          "idempotentHint": {
+            "type": "boolean",
+            "example": true
+          },
+          "openWorldHint": {
+            "type": "boolean",
+            "example": true
+          },
+          "destructiveHint": {
+            "type": "boolean",
+            "example": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tool": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "exa_web_search"
+          },
+          "toolkitId": {
+            "type": "string",
+            "example": "exa"
+          },
+          "title": {
+            "type": "string",
+            "example": "Search the Web"
+          },
+          "description": {
+            "type": "string",
+            "example": "The provider site URL."
+          },
+          "inputSchema": {
+            "$ref": "#/components/schemas/ToolInputSchemaProperty"
+          },
+          "annotations": {
+            "$ref": "#/components/schemas/ToolAnnotations"
+          },
+          "version": {
+            "type": "string",
+            "example": "v1"
+          },
+          "parallelizable": {
+            "type": "boolean",
+            "example": true
+          },
+          "streamingSafe": {
+            "type": "boolean",
+            "example": false
+          },
+          "outputSchema": {
+            "$ref": "#/components/schemas/ToolOutputSchemaProperty"
+          },
+          "toolSlug": {
+            "type": "string",
+            "description": "tool_slug is the provider-qualified, stable tool identifier\n\u0022\u003Ctoolkit_id\u003E_\u003Cname\u003E\u0022. Pass this value back verbatim to the toolbelt\nadd/remove endpoints; clients should treat it as opaque rather than\nreconstructing it from toolkit_id and name.",
+            "example": "exa_web_search"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthInjection": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "example": "header"
+          },
+          "name": {
+            "type": "string",
+            "example": "exa_web_search"
+          },
+          "scheme": {
+            "type": "string",
+            "example": "Bearer"
+          }
+        },
+        "additionalProperties": false,
+        "example": {
+          "location": "header",
+          "name": "Authorization",
+          "scheme": "Bearer"
+        }
+      },
+      "HttpLookupSpec": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "example": "POST"
+          },
+          "url": {
+            "type": "string",
+            "example": "https://api.example.com/resources"
+          },
+          "matchField": {
+            "type": "string",
+            "example": "id"
+          },
+          "matchValue": {
+            "type": "string",
+            "example": "site-123"
+          },
+          "caseInsensitive": {
+            "type": "boolean",
+            "example": false
+          },
+          "trimTrailingSlash": {
+            "type": "boolean",
+            "example": true
+          },
+          "extractField": {
+            "type": "string",
+            "example": "url"
+          },
+          "baseUrlTemplate": {
+            "type": "string",
+            "example": "https://{value}"
+          },
+          "requiredScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "match_value_parameter": {
+            "type": "string",
+            "example": "site_id"
+          }
+        },
+        "additionalProperties": false,
+        "description": "HTTPLookupSpec resolves a base_url by calling url (bearer-authenticated\nwith the just-exchanged access token), selecting an entry in the JSON array,\nextracting extract_field from that entry, and substituting it for \u0022{value}\u0022\nin base_url_template. When match_field and match_value are both set, they\nselect the entry. When both are empty, exactly one entry whose own \u0022scopes\u0022\narray contains required_scopes must exist. Configuring only one match field\nis invalid. Resolution fails fast on zero or multiple compatible entries."
+      },
+      "BaseUrlResolution": {
+        "type": "object",
+        "properties": {
+          "httpLookup": {
+            "$ref": "#/components/schemas/HttpLookupSpec"
+          }
+        },
+        "additionalProperties": false,
+        "description": "BaseURLResolution declaratively describes a post-token-exchange lookup an\nOAuth-backed tool needs to compute its real request base_url (e.g. Jira\nCloud\u0027s per-site cloudId indirection). strategy is a oneof so exactly one\nresolution kind can ever be set at a time; \u0022http_lookup\u0022 is the only kind\nimplemented today, see action-executor/internal/credentials for the\ngeneric resolver that executes this recipe."
+      },
+      "AuthSpec": {
+        "type": "object",
+        "properties": {
+          "modes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "provider": {
+            "type": "string",
+            "example": "github"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "credentialBinding": {
+            "type": "string",
+            "example": "user"
+          },
+          "credentialRefSource": {
+            "type": "string",
+            "example": "connection"
+          },
+          "doManagedCredentialRef": {
+            "type": "string",
+            "example": "do-managed"
+          },
+          "injection": {
+            "$ref": "#/components/schemas/AuthInjection"
+          },
+          "baseUrlResolution": {
+            "$ref": "#/components/schemas/BaseUrlResolution"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpExecution": {
+        "type": "object",
+        "properties": {
+          "baseUrl": {
+            "type": "string",
+            "example": "https://api.example.com"
+          },
+          "path": {
+            "type": "string",
+            "example": "/search"
+          },
+          "method": {
+            "type": "string",
+            "example": "POST"
+          },
+          "allowedHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "requestEncoding": {
+            "type": "string",
+            "example": "json"
+          },
+          "responseFormat": {
+            "type": "string",
+            "example": "json"
+          }
+        },
+        "additionalProperties": false
+      },
+      "McpExecution": {
+        "type": "object",
+        "properties": {
+          "endpoint": {
+            "type": "string",
+            "example": "https://mcp.example.com"
+          },
+          "toolName": {
+            "type": "string",
+            "example": "search"
+          },
+          "transport": {
+            "type": "string",
+            "example": "streamable_http"
+          },
+          "serverRef": {
+            "type": "string",
+            "example": "provider-mcp"
+          },
+          "allowedHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "MCPExecution describes how to invoke a tool that is fronted by a remote\nMCP server (as opposed to a plain HTTP endpoint). endpoint is the remote\nMCP server\u0027s URL, tool_name is the name the remote server expects on\ntools/call (may differ from this tool\u0027s registry name), transport\nselects the wire protocol (\u0022streamable_http\u0022 is the only kind implemented\ntoday), and server_ref is an opaque label identifying the remote server\nfor logging/metrics/allowlisting."
+      },
+      "ExecutionSpec": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "http"
+          },
+          "adapterVersion": {
+            "type": "string",
+            "example": "v1"
+          },
+          "configRef": {
+            "type": "string",
+            "example": "exa_web_search@v1"
+          },
+          "http": {
+            "$ref": "#/components/schemas/HttpExecution"
+          },
+          "mcp": {
+            "$ref": "#/components/schemas/McpExecution"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransformSpec": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "example": "jq"
+          },
+          "input": {
+            "$ref": "#/components/schemas/TransformSpecInputProperty"
+          },
+          "output": {
+            "$ref": "#/components/schemas/TransformSpecOutputProperty"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PolicySpec": {
+        "type": "object",
+        "properties": {
+          "permission": {
+            "type": "string",
+            "example": "read"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetrySpec": {
+        "type": "object",
+        "properties": {
+          "maxAttempts": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3
+          },
+          "backoff": {
+            "type": "string",
+            "example": "exponential"
+          },
+          "retryOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReliabilitySpec": {
+        "type": "object",
+        "properties": {
+          "timeoutMs": {
+            "type": "integer",
+            "format": "int32",
+            "example": 30000
+          },
+          "maxOutputBytes": {
+            "type": "string",
+            "format": "int64",
+            "example": "1048576"
+          },
+          "retry": {
+            "$ref": "#/components/schemas/RetrySpec"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsageMeter": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string",
+            "example": "action-gateway-invocation"
+          },
+          "unit": {
+            "type": "string",
+            "example": "request"
+          },
+          "quantitySource": {
+            "type": "string",
+            "example": "invocation_count"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsageSpec": {
+        "type": "object",
+        "properties": {
+          "billable": {
+            "type": "boolean",
+            "description": "When usage metadata is present, false prevents billing. Omitting usage\nmetadata leaves consumers\u0027 legacy billing classification unchanged.",
+            "example": true
+          },
+          "meters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UsageMeter"
+            },
+            "example": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "HookSpec": {
+        "type": "object",
+        "properties": {
+          "usage": {
+            "$ref": "#/components/schemas/UsageSpec"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Classification": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "example": "search"
+          },
+          "risk": {
+            "type": "string",
+            "example": "low"
+          },
+          "dataClasses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ToolDefinition": {
+        "type": "object",
+        "properties": {
+          "toolId": {
+            "type": "string",
+            "example": "tool-123"
+          },
+          "name": {
+            "type": "string",
+            "example": "exa_web_search"
+          },
+          "toolkitId": {
+            "type": "string",
+            "example": "exa"
+          },
+          "title": {
+            "type": "string",
+            "example": "Search the Web"
+          },
+          "description": {
+            "type": "string",
+            "example": "The provider site URL."
+          },
+          "inputSchema": {
+            "$ref": "#/components/schemas/ToolDefinitionInputSchemaProperty"
+          },
+          "outputSchema": {
+            "$ref": "#/components/schemas/ToolDefinitionOutputSchemaProperty"
+          },
+          "annotations": {
+            "$ref": "#/components/schemas/ToolAnnotations"
+          },
+          "version": {
+            "type": "string",
+            "example": "v1"
+          },
+          "schemaVersion": {
+            "type": "string",
+            "example": "1"
+          },
+          "status": {
+            "type": "string",
+            "example": "active"
+          },
+          "parallelizable": {
+            "type": "boolean",
+            "example": true
+          },
+          "streamingSafe": {
+            "type": "boolean",
+            "example": false
+          },
+          "auth": {
+            "$ref": "#/components/schemas/AuthSpec"
+          },
+          "execution": {
+            "$ref": "#/components/schemas/ExecutionSpec"
+          },
+          "transform": {
+            "$ref": "#/components/schemas/TransformSpec"
+          },
+          "policy": {
+            "$ref": "#/components/schemas/PolicySpec"
+          },
+          "reliability": {
+            "$ref": "#/components/schemas/ReliabilitySpec"
+          },
+          "hooks": {
+            "$ref": "#/components/schemas/HookSpec"
+          },
+          "classification": {
+            "$ref": "#/components/schemas/Classification"
+          },
+          "flipperName": {
+            "type": "string",
+            "example": "action_gateway_search"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "toolSlug": {
+            "type": "string",
+            "description": "tool_slug is the provider-qualified, stable tool identifier\n\u0022\u003Ctoolkit_id\u003E_\u003Cname\u003E\u0022. Pass this value back verbatim to the toolbelt\nadd/remove endpoints; clients should treat it as opaque.",
+            "example": "exa_web_search"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Pagination": {
+        "required": [
+          "page",
+          "per_page",
+          "total"
+        ],
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "per_page": {
+            "type": "integer",
+            "format": "int32",
+            "example": 20
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListToolsResponse": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "example": "v1"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tool"
+            }
+          },
+          "definitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolDefinition"
+            },
+            "example": []
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Toolkit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "example": "exa_web_search"
+          },
+          "description": {
+            "type": "string",
+            "example": "The provider site URL."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListToolkitsResponse": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "example": "v1"
+          },
+          "toolkits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Toolkit"
+            },
+            "example": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConnectionParameterSpec": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "site_url"
+          },
+          "label": {
+            "type": "string",
+            "example": "Site URL"
+          },
+          "description": {
+            "type": "string",
+            "example": "The provider site URL."
+          },
+          "input_kind": {
+            "type": "string",
+            "example": "url"
+          },
+          "required": {
+            "type": "boolean",
+            "example": true
+          },
+          "normalization": {
+            "type": "string",
+            "example": "trim"
+          },
+          "allowed_values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allowed_host_suffixes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "max_length": {
+            "type": "integer",
+            "format": "int32",
+            "example": 255
+          }
+        },
+        "additionalProperties": false,
+        "description": "ConnectionParameterSpec describes one non-sensitive value collected while\nconfiguring a provider connection. The UI and MCP clients render these\nspecifications generically."
+      },
+      "ProviderSummary": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "exa_web_search"
+          },
+          "display_name": {
+            "type": "string",
+            "example": "display_name-example"
+          },
+          "description": {
+            "type": "string",
+            "example": "The provider site URL."
+          },
+          "auth_type": {
+            "type": "string",
+            "example": "auth_type-example"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "connection_parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConnectionParameterSpec"
+            },
+            "example": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListProvidersResponse": {
+        "type": "object",
+        "properties": {
+          "providers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProviderSummary"
+            },
+            "example": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "ToolbeltSummary": {
+        "required": [
+          "name",
+          "latest_version",
+          "version_count",
+          "tool_count",
+          "status",
+          "reference_latest",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "search-toolbelt"
+          },
+          "display_name": {
+            "type": "string",
+            "example": "Search Tools"
+          },
+          "description": {
+            "type": "string",
+            "example": "Tools for searching and fetching public web pages."
+          },
+          "latest_version": {
+            "type": "string",
+            "example": "1"
+          },
+          "version_count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "tool_count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "status": {
+            "$ref": "#/components/schemas/ToolbeltSummaryStatus"
+          },
+          "reference_latest": {
+            "type": "string",
+            "example": "search-toolbelt"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ToolbeltsResponse": {
+        "required": [
+          "toolbelts",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "toolbelts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolbeltSummary"
+            },
+            "example": []
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ToolbeltCreate": {
+        "required": [
+          "name",
+          "tools"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "pattern": "^[a-z][a-z0-9_-]{0,63}$",
+            "type": "string",
+            "example": "search-toolbelt"
+          },
+          "version": {
+            "pattern": "^[0-9]\u002B$",
+            "type": "string",
+            "default": "1",
+            "example": "1"
+          },
+          "display_name": {
+            "maxLength": 128,
+            "type": "string",
+            "example": "Search Tools"
+          },
+          "description": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "Tools for searching and fetching public web pages."
+          },
+          "tools": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Toolbelt": {
+        "required": [
+          "name",
+          "version",
+          "tools",
+          "status",
+          "reference",
+          "reference_latest",
+          "tool_count",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "search-toolbelt"
+          },
+          "version": {
+            "pattern": "^[0-9]\u002B$",
+            "type": "string",
+            "example": "1"
+          },
+          "display_name": {
+            "maxLength": 128,
+            "type": "string",
+            "example": "Search Tools"
+          },
+          "description": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "Tools for searching and fetching public web pages."
+          },
+          "tools": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "$ref": "#/components/schemas/ToolbeltStatus"
+          },
+          "reference": {
+            "type": "string",
+            "description": "A reference pinned to this immutable toolbelt version.",
+            "example": "search-toolbelt@1"
+          },
+          "reference_latest": {
+            "type": "string",
+            "description": "An unversioned reference to the latest active version.",
+            "example": "search-toolbelt"
+          },
+          "tool_count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ToolbeltResponse": {
+        "required": [
+          "toolbelt"
+        ],
+        "type": "object",
+        "properties": {
+          "toolbelt": {
+            "$ref": "#/components/schemas/Toolbelt"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ToolbeltTools": {
+        "required": [
+          "tools"
+        ],
+        "type": "object",
+        "properties": {
+          "tools": {
+            "maxItems": 500,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "OAuthConnection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "provider": {
+            "type": "string",
+            "example": "github"
+          },
+          "user_id": {
+            "type": "string",
+            "example": "end-user-123"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string",
+            "example": "active"
+          },
+          "granted_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          },
+          "revoked_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-12T12:00:00Z"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          },
+          "provider_display_name": {
+            "type": "string",
+            "example": "GitHub"
+          },
+          "connection_parameters": {
+            "$ref": "#/components/schemas/OAuthConnectionConnectionParametersProperty"
+          }
+        },
+        "additionalProperties": false,
+        "description": "-----------------------------------------------------------------------------\nOAuth connection resources\n-----------------------------------------------------------------------------\nOAuthConnection is the public, team-scoped connection metadata returned to\nthe UI. It deliberately excludes the team ID, Secrets Manager assignment,\nactor identifiers, poll URL, and authorization handle."
+      },
+      "ListConnectionsResponse": {
+        "type": "object",
+        "properties": {
+          "connections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthConnection"
+            },
+            "example": []
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateConnectionRequest": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "example": "github"
+          },
+          "user_id": {
+            "type": "string",
+            "example": "end-user-123"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "connection_parameters": {
+            "$ref": "#/components/schemas/CreateConnectionRequestConnectionParametersProperty"
+          }
+        },
+        "additionalProperties": false,
+        "example": {
+          "provider": "github",
+          "user_id": "end-user-123",
+          "scopes": [
+            "repo"
+          ],
+          "connection_parameters": {}
+        }
+      },
+      "ConnectionAuthorization": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "active"
+          },
+          "connect_url": {
+            "type": "string",
+            "example": "https://cloud.digitalocean.com/action-gateway/connections/connect"
+          },
+          "verification_code": {
+            "type": "string",
+            "example": "ABCD-EFGH"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:15:00Z"
+          }
+        },
+        "additionalProperties": false,
+        "description": "ConnectionAuthorization is present only while a connection is pending. The\nUI sends the user to connect_url and polls GetConnection until the connection\nbecomes active or expires. The Secrets Manager poll URL is never exposed."
+      },
+      "CreateConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "connection": {
+            "$ref": "#/components/schemas/OAuthConnection"
+          },
+          "authorization": {
+            "$ref": "#/components/schemas/ConnectionAuthorization"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "connection": {
+            "$ref": "#/components/schemas/OAuthConnection"
+          },
+          "authorization": {
+            "$ref": "#/components/schemas/ConnectionAuthorization"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "connection": {
+            "$ref": "#/components/schemas/OAuthConnection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateConnectionParametersRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "connection_parameters": {
+            "$ref": "#/components/schemas/UpdateConnectionParametersRequestConnectionParametersProperty"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateConnectionParametersResponse": {
+        "type": "object",
+        "properties": {
+          "connection": {
+            "$ref": "#/components/schemas/OAuthConnection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListUsersResponse": {
+        "type": "object",
+        "properties": {
+          "user_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": []
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserSession": {
+        "type": "object",
+        "properties": {
+          "session_urn": {
+            "type": "string",
+            "example": "do:managed_agents_session:123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "example": "exa_web_search"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "example": "end-user-123"
+          },
+          "sessions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserSession"
+            },
+            "example": []
+          },
+          "connections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthConnection"
+            },
+            "example": []
+          }
+        },
+        "additionalProperties": false,
+        "description": "User is a derived, team-scoped view across sessions and OAuth connections."
+      },
+      "GetUserResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionPolicyAction": {
+        "enum": [
+          "allow",
+          "ask",
+          "deny"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "SessionPolicyAction is the disposition applied to a tool call. Lowercase\nvalues are canonical so ProtoJSON matches the public REST vocabulary; the\nprefixed aliases preserve compatibility for existing protobuf clients.",
+        "example": "ask",
+        "x-ms-enum": {
+          "name": "SessionPolicyAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "allow",
+              "name": "Allow"
+            },
+            {
+              "value": "ask",
+              "name": "Ask"
+            },
+            {
+              "value": "deny",
+              "name": "Deny"
+            }
+          ]
+        }
+      },
+      "SessionPolicyRule": {
+        "type": "object",
+        "properties": {
+          "tool": {
+            "type": "string",
+            "example": "exa_web_search"
+          },
+          "match": {
+            "$ref": "#/components/schemas/SessionPolicyRuleMatchProperty"
+          },
+          "action": {
+            "$ref": "#/components/schemas/SessionPolicyAction"
+          }
+        },
+        "additionalProperties": false,
+        "description": "SessionPolicyRule applies an action to a tool or version-pinned toolbelt.\naction must be allow, ask, or deny. match optionally narrows the rule to\ncalls with matching arguments."
+      },
+      "SessionPolicySpec": {
+        "type": "object",
+        "properties": {
+          "defaultAction": {
+            "$ref": "#/components/schemas/SessionPolicyAction"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SessionPolicyRule"
+            },
+            "example": []
+          }
+        },
+        "additionalProperties": false,
+        "description": "SessionPolicySpec is the Gateway-relevant subset of a session\u0027s permission\npolicy. Filesystem and network policy remain enforced by the sandbox."
+      },
+      "SessionToolReferenceKind": {
+        "enum": [
+          "SESSION_TOOL_REFERENCE_KIND_TOOL",
+          "SESSION_TOOL_REFERENCE_KIND_TOOLBELT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "SESSION_TOOL_REFERENCE_KIND_TOOL",
+        "x-ms-enum": {
+          "name": "SessionToolReferenceKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SESSION_TOOL_REFERENCE_KIND_TOOL",
+              "name": "SessionToolReferenceKindTool"
+            },
+            {
+              "value": "SESSION_TOOL_REFERENCE_KIND_TOOLBELT",
+              "name": "SessionToolReferenceKindToolbelt"
+            }
+          ]
+        }
+      },
+      "SessionToolReference": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/SessionToolReferenceKind"
+          },
+          "name": {
+            "type": "string",
+            "example": "exa_web_search"
+          },
+          "version": {
+            "type": "string",
+            "example": "v1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionToolSelection": {
+        "type": "object",
+        "properties": {
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SessionToolReference"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicSessionPolicy": {
+        "type": "object",
+        "properties": {
+          "sessionUrn": {
+            "type": "string",
+            "example": "do:managed_agents_session:123e4567-e89b-12d3-a456-426614174000",
+            "x-client-name": "sessionUrn"
+          },
+          "policy": {
+            "$ref": "#/components/schemas/SessionPolicySpec"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-06-11T12:00:00Z"
+          },
+          "name": {
+            "type": "string",
+            "description": "name is the required human-readable session name.",
+            "example": "exa_web_search"
+          },
+          "actorId": {
+            "type": "string",
+            "description": "actor_id is empty when the session is not bound to an actor.",
+            "example": "end-user-123",
+            "x-client-name": "actorId"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PublicSessionPolicyTools"
+          },
+          "config": {
+            "$ref": "#/components/schemas/PublicSessionPolicyConfigProperty"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A session and the tool-permission policy bound to it."
+      },
+      "ListSessionsResponse": {
+        "type": "object",
+        "properties": {
+          "sessions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicSessionPolicy"
+            },
+            "example": []
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSessionRequest": {
+        "required": [
+          "name",
+          "actor_id"
+        ],
+        "type": "object",
+        "properties": {
+          "policy": {
+            "$ref": "#/components/schemas/CreateSessionRequestPolicy"
+          },
+          "name": {
+            "type": "string",
+            "example": "research-session"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Omitted enables every tool. An explicit empty array enables no tools.\nDirect tools may be \u003Ctool\u003E or \u003Ctool\u003E@\u003Cversion\u003E; toolbelt references must\nbe version-pinned as toolbelt:\u003Cbelt-name\u003E@\u003Cversion\u003E."
+          },
+          "config": {
+            "$ref": "#/components/schemas/CreateSessionRequestConfig"
+          },
+          "actor_id": {
+            "type": "string",
+            "example": "end-user-123"
+          }
+        },
+        "additionalProperties": false,
+        "example": {
+          "name": "research-session",
+          "actor_id": "end-user-123",
+          "policy": {
+            "defaultAction": "ask",
+            "rules": []
+          },
+          "tools": [
+            "exa_web_search@v1"
+          ],
+          "config": {
+            "preloadTools": [
+              "exa_web_search@v1"
+            ]
+          }
+        }
+      },
+      "CreateSessionResponse": {
+        "required": [
+          "session",
+          "mcpUrl",
+          "tools"
+        ],
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/PublicSessionPolicy"
+          },
+          "mcpUrl": {
+            "type": "string",
+            "description": "Public session-pinned MCP URL.",
+            "example": "https://actions.do-ai.run/mcp/session/123e4567-e89b-12d3-a456-426614174000",
+            "x-client-name": "mcpUrl"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Canonical, version-pinned selected tool references."
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteSessionResponse": {
+        "type": "object"
+      },
       "OneClicks": {
         "required": [
           "slug",
@@ -47299,7 +50313,7 @@
           }
         }
       },
-      "Pagination": {
+      "PagesPagination": {
         "type": "object",
         "properties": {
           "links": {
@@ -59247,6 +62261,18 @@
         "description": "An object specifying whether the Peer-to-peer OCI registry component should be enabled for the Kubernetes cluster.",
         "nullable": true
       },
+      "NfsCsiPlugin": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Indicates whether the NFS CSI plugin is enabled.",
+            "example": true
+          }
+        },
+        "description": "An object specifying whether the NFS CSI plugin should be enabled for the Kubernetes cluster.",
+        "nullable": true
+      },
       "ClusterRead": {
         "required": [
           "name",
@@ -59421,6 +62447,9 @@
           },
           "p2p_oci_registry_plugin": {
             "$ref": "#/components/schemas/P2POciRegistryPlugin"
+          },
+          "nfs_csi_plugin": {
+            "$ref": "#/components/schemas/NfsCsiPlugin"
           }
         }
       },
@@ -59569,6 +62598,9 @@
           "p2p_oci_registry_plugin": {
             "$ref": "#/components/schemas/P2POciRegistryPlugin"
           },
+          "nfs_csi_plugin": {
+            "$ref": "#/components/schemas/NfsCsiPlugin"
+          },
           "amd_gpu_device_plugin": {
             "$ref": "#/components/schemas/AmdGpuDevicePlugin"
           },
@@ -59644,6 +62676,9 @@
           },
           "p2p_oci_registry_plugin": {
             "$ref": "#/components/schemas/P2POciRegistryPlugin"
+          },
+          "nfs_csi_plugin": {
+            "$ref": "#/components/schemas/NfsCsiPlugin"
           },
           "amd_gpu_device_plugin": {
             "$ref": "#/components/schemas/AmdGpuDevicePlugin"
@@ -59869,11 +62904,11 @@
           }
         }
       },
-      "User": {
+      "User2": {
         "type": "object",
         "properties": {
           "kubernetes_cluster_user": {
-            "$ref": "#/components/schemas/UserKubernetesClusterUser"
+            "$ref": "#/components/schemas/User2KubernetesClusterUser"
           }
         }
       },
@@ -82377,6 +85412,34 @@
           }
         }
       },
+      "PublicSessionPolicyTools": {
+        "type": "object",
+        "properties": {
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SessionToolReference"
+            }
+          }
+        },
+        "description": "Omitted when the request omitted tools (all tools). A present selection\nwith no references represents tools: []."
+      },
+      "CreateSessionRequestPolicy": {
+        "type": "object",
+        "properties": {
+          "defaultAction": {
+            "$ref": "#/components/schemas/SessionPolicyAction"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SessionPolicyRule"
+            },
+            "example": []
+          }
+        },
+        "description": "Invocation policy. Omit to use a default action of ask."
+      },
       "PageLinksPages": {
         "type": "object",
         "anyOf": [
@@ -91362,6 +94425,80 @@
         },
         "description": "Databases that are tagged with the specified tag.\u003Cbr\u003ERequires \u0060database:read\u0060 scope."
       },
+      "ToolInputSchema": {
+        "type": "object",
+        "example": {
+          "type": "object"
+        }
+      },
+      "ToolOutputSchema": {
+        "type": "object",
+        "example": {
+          "type": "object"
+        }
+      },
+      "TransformSpecInput": {
+        "type": "object"
+      },
+      "TransformSpecOutput": {
+        "type": "object"
+      },
+      "ToolDefinitionInputSchema": {
+        "type": "object",
+        "example": {
+          "type": "object"
+        }
+      },
+      "ToolDefinitionOutputSchema": {
+        "type": "object",
+        "example": {
+          "type": "object"
+        }
+      },
+      "OAuthConnectionConnectionParameters": {
+        "type": "object",
+        "example": {
+          "site_url": "https://example.com"
+        }
+      },
+      "CreateConnectionRequestConnectionParameters": {
+        "type": "object",
+        "example": {
+          "site_url": "https://example.com"
+        }
+      },
+      "UpdateConnectionParametersRequestConnectionParameters": {
+        "type": "object",
+        "example": {
+          "site_url": "https://example.com"
+        }
+      },
+      "SessionPolicyRuleMatch": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "query": "DigitalOcean"
+        }
+      },
+      "PublicSessionPolicyConfig": {
+        "type": "object",
+        "description": "Preserved as an opaque object. Gateway currently interprets\nconfig.preloadTools to add selected direct tools to the session MCP."
+      },
+      "CreateSessionRequestConfig": {
+        "type": "object",
+        "properties": {
+          "preloadTools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Concrete tools or pinned toolbelts to expose directly beside the session meta-tools."
+          }
+        },
+        "description": "Opaque session options. config.preloadTools may contain concrete tool\nnames (optionally version-pinned) and version-pinned toolbelt references."
+      },
       "AccountTeam": {
         "type": "object",
         "properties": {
@@ -91892,7 +95029,7 @@
         "description": "An object containing a \u0060state\u0060 attribute whose value is set to a string indicating the current status of the cluster.",
         "readOnly": true
       },
-      "UserKubernetesClusterUser": {
+      "User2KubernetesClusterUser": {
         "type": "object",
         "properties": {
           "username": {
@@ -96302,6 +99439,9 @@
           }
         }
       },
+      "SessionsDelete200Response": {
+        "type": "object"
+      },
       "FunctionsAccessKeyDelete200ResponseSchema": {
         "type": "object"
       },
@@ -96328,6 +99468,43 @@
       },
       "EmptyJsonObjectResponseContent": {
         "type": "object"
+      },
+      "ToolInputSchemaProperty": {
+        "type": "object"
+      },
+      "ToolOutputSchemaProperty": {
+        "type": "object"
+      },
+      "TransformSpecInputProperty": {
+        "type": "object"
+      },
+      "TransformSpecOutputProperty": {
+        "type": "object"
+      },
+      "ToolDefinitionInputSchemaProperty": {
+        "type": "object"
+      },
+      "ToolDefinitionOutputSchemaProperty": {
+        "type": "object"
+      },
+      "OAuthConnectionConnectionParametersProperty": {
+        "type": "object"
+      },
+      "CreateConnectionRequestConnectionParametersProperty": {
+        "type": "object"
+      },
+      "UpdateConnectionParametersRequestConnectionParametersProperty": {
+        "type": "object"
+      },
+      "SessionPolicyRuleMatchProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "PublicSessionPolicyConfigProperty": {
+        "type": "object",
+        "description": "Preserved as an opaque object. Gateway currently interprets\nconfig.preloadTools to add selected direct tools to the session MCP."
       },
       "AppsDeploymentProgressStepStepsItemProperty": {
         "type": "object"
@@ -96671,6 +99848,52 @@
             "description": "Resource tags to scan for the tier.",
             "default": []
           }
+        }
+      },
+      "ToolbeltSummaryStatus": {
+        "enum": [
+          "active",
+          "deprecated"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "active",
+        "x-ms-enum": {
+          "name": "ToolbeltSummaryStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "deprecated",
+              "name": "Deprecated"
+            }
+          ]
+        }
+      },
+      "ToolbeltStatus": {
+        "enum": [
+          "active",
+          "deprecated"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "active",
+        "x-ms-enum": {
+          "name": "ToolbeltStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "deprecated",
+              "name": "Deprecated"
+            }
+          ]
         }
       },
       "AccountStatus": {
@@ -104680,6 +107903,33 @@
           ]
         }
       },
+      "ToolbeltStatusEnum": {
+        "enum": [
+          "active",
+          "deprecated",
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ToolbeltStatusEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "deprecated",
+              "name": "Deprecated"
+            },
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
+      },
       "OneClicksType": {
         "enum": [
           "droplet",
@@ -106573,43 +109823,6 @@
           }
         }
       },
-      "oneClicks_all": {
-        "description": "A JSON object with a key of \u00601_clicks\u0060.",
-        "headers": {
-          "ratelimit-limit": {
-            "$ref": "#/components/headers/ratelimit-limit"
-          },
-          "ratelimit-remaining": {
-            "$ref": "#/components/headers/ratelimit-remaining"
-          },
-          "ratelimit-reset": {
-            "$ref": "#/components/headers/ratelimit-reset"
-          }
-        },
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/OneClicksAllResponse"
-            },
-            "examples": {
-              "All 1-Click Applications": {
-                "value": {
-                  "1_clicks": [
-                    {
-                      "slug": "monitoring",
-                      "type": "kubernetes"
-                    },
-                    {
-                      "slug": "wordpress-18-04",
-                      "type": "droplet"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
       "unauthorized": {
         "description": "Authentication failed due to invalid credentials.",
         "headers": {
@@ -106681,6 +109894,119 @@
             "example": {
               "id": "server_error",
               "message": "Unexpected server-side error"
+            }
+          }
+        }
+      },
+      "not_found": {
+        "description": "The resource was not found.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "id": "not_found",
+              "message": "The resource you requested could not be found."
+            }
+          }
+        }
+      },
+      "bad_request": {
+        "description": "There was an error parsing the request body.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "id": "bad_request",
+              "message": "error parsing request body",
+              "request_id": "4851a473-1621-42ea-b2f9-5071c0ea8414"
+            }
+          }
+        }
+      },
+      "conflict": {
+        "description": "The request could not be completed due to a conflict.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "id": "conflict",
+              "message": "The request could not be completed due to a conflict."
+            }
+          }
+        }
+      },
+      "oneClicks_all": {
+        "description": "A JSON object with a key of \u00601_clicks\u0060.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/OneClicksAllResponse"
+            },
+            "examples": {
+              "All 1-Click Applications": {
+                "value": {
+                  "1_clicks": [
+                    {
+                      "slug": "monitoring",
+                      "type": "kubernetes"
+                    },
+                    {
+                      "slug": "wordpress-18-04",
+                      "type": "droplet"
+                    }
+                  ]
+                }
+              }
             }
           }
         }
@@ -106822,31 +110148,6 @@
           },
           "sshKeys_delete_by_fingerprint": {
             "$ref": "#/components/links/sshKeys_delete_by_fingerprint"
-          }
-        }
-      },
-      "not_found": {
-        "description": "The resource was not found.",
-        "headers": {
-          "ratelimit-limit": {
-            "$ref": "#/components/headers/ratelimit-limit"
-          },
-          "ratelimit-remaining": {
-            "$ref": "#/components/headers/ratelimit-remaining"
-          },
-          "ratelimit-reset": {
-            "$ref": "#/components/headers/ratelimit-reset"
-          }
-        },
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Error"
-            },
-            "example": {
-              "id": "not_found",
-              "message": "The resource you requested could not be found."
-            }
           }
         }
       },
@@ -109607,32 +112908,6 @@
           }
         }
       },
-      "bad_request": {
-        "description": "There was an error parsing the request body.",
-        "headers": {
-          "ratelimit-limit": {
-            "$ref": "#/components/headers/ratelimit-limit"
-          },
-          "ratelimit-remaining": {
-            "$ref": "#/components/headers/ratelimit-remaining"
-          },
-          "ratelimit-reset": {
-            "$ref": "#/components/headers/ratelimit-reset"
-          }
-        },
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Error"
-            },
-            "example": {
-              "id": "bad_request",
-              "message": "error parsing request body",
-              "request_id": "4851a473-1621-42ea-b2f9-5071c0ea8414"
-            }
-          }
-        }
-      },
       "unprocessable_entity": {
         "description": "Unprocessable Entity",
         "headers": {
@@ -111788,31 +115063,6 @@
           }
         }
       },
-      "conflict": {
-        "description": "The request could not be completed due to a conflict.",
-        "headers": {
-          "ratelimit-limit": {
-            "$ref": "#/components/headers/ratelimit-limit"
-          },
-          "ratelimit-remaining": {
-            "$ref": "#/components/headers/ratelimit-remaining"
-          },
-          "ratelimit-reset": {
-            "$ref": "#/components/headers/ratelimit-reset"
-          }
-        },
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Error"
-            },
-            "example": {
-              "id": "conflict",
-              "message": "The request could not be completed due to a conflict."
-            }
-          }
-        }
-      },
       "all_autoscale_pools": {
         "description": "A JSON object with a key of \u0060autoscale_pools\u0060.",
         "headers": {
@@ -113558,7 +116808,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/User"
+              "$ref": "#/components/schemas/User2"
             }
           }
         }
@@ -117051,14 +120301,16 @@
       }
     },
     "parameters": {
-      "oneClicks_type": {
-        "name": "type",
+      "page": {
+        "name": "page",
         "in": "query",
-        "description": "Restrict results to a certain type of 1-Click.",
+        "description": "Which \u0027page\u0027 of paginated results to return.",
         "schema": {
-          "$ref": "#/components/schemas/OneClicksType"
+          "minimum": 1,
+          "type": "integer",
+          "default": 1
         },
-        "example": "kubernetes"
+        "example": 1
       },
       "per_page": {
         "name": "per_page",
@@ -117072,16 +120324,44 @@
         },
         "example": 2
       },
-      "page": {
-        "name": "page",
+      "toolbelt_status": {
+        "name": "status",
         "in": "query",
-        "description": "Which \u0027page\u0027 of paginated results to return.",
+        "description": "Filter toolbelts by status.",
         "schema": {
-          "minimum": 1,
-          "type": "integer",
-          "default": 1
+          "$ref": "#/components/schemas/ToolbeltStatusEnum"
         },
-        "example": 1
+        "example": "active"
+      },
+      "toolbelt_name": {
+        "name": "name",
+        "in": "path",
+        "description": "The natural key identifying the toolbelt.",
+        "required": true,
+        "schema": {
+          "pattern": "^[a-z][a-z0-9_-]{0,63}$",
+          "type": "string"
+        },
+        "example": "search-toolbelt"
+      },
+      "toolbelt_version": {
+        "name": "version",
+        "in": "query",
+        "description": "An immutable numeric toolbelt version. Omit to retrieve the latest active version.",
+        "schema": {
+          "pattern": "^[0-9]\u002B$",
+          "type": "string"
+        },
+        "example": "1"
+      },
+      "oneClicks_type": {
+        "name": "type",
+        "in": "query",
+        "description": "Restrict results to a certain type of 1-Click.",
+        "schema": {
+          "$ref": "#/components/schemas/OneClicksType"
+        },
+        "example": "kubernetes"
       },
       "ssh_key_identifier": {
         "name": "ssh_key_identifier",
@@ -118633,6 +121913,465 @@
       }
     },
     "examples": {
+      "tools_list_response": {
+        "value": {
+          "version": "v1",
+          "tools": [
+            {
+              "name": "exa_web_search",
+              "toolkitId": "exa",
+              "title": "Search the Web",
+              "description": "Search public web pages.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string"
+                  }
+                }
+              },
+              "annotations": {
+                "title": "Search the Web",
+                "readOnlyHint": true,
+                "idempotentHint": true,
+                "openWorldHint": true,
+                "destructiveHint": false
+              },
+              "version": "v1",
+              "parallelizable": true,
+              "streamingSafe": false,
+              "outputSchema": {
+                "type": "object"
+              },
+              "toolSlug": "exa_web_search"
+            }
+          ],
+          "definitions": [],
+          "pagination": {
+            "page": 1,
+            "per_page": 20,
+            "total": 1
+          }
+        }
+      },
+      "tools_list_toolkits_response": {
+        "value": {
+          "version": "v1",
+          "toolkits": [
+            {
+              "id": "123e4567-e89b-12d3-a456-426614174000",
+              "name": "exa",
+              "description": "Web search and content retrieval tools."
+            }
+          ]
+        }
+      },
+      "tools_list_providers_response": {
+        "value": {
+          "providers": [
+            {
+              "name": "github",
+              "display_name": "GitHub",
+              "description": "Connect Action Gateway to GitHub.",
+              "auth_type": "oauth2",
+              "scopes": [
+                "repo"
+              ],
+              "connection_parameters": []
+            }
+          ]
+        }
+      },
+      "tools_get_definition_response": {
+        "value": {
+          "toolId": "tool-123",
+          "name": "exa_web_search",
+          "toolkitId": "exa",
+          "title": "Search the Web",
+          "description": "Search public web pages.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ]
+          },
+          "outputSchema": {
+            "type": "object"
+          },
+          "annotations": {
+            "title": "Search the Web",
+            "readOnlyHint": true,
+            "idempotentHint": true,
+            "openWorldHint": true,
+            "destructiveHint": false
+          },
+          "version": "v1",
+          "schemaVersion": "1",
+          "status": "active",
+          "parallelizable": true,
+          "streamingSafe": false,
+          "tags": [
+            "search"
+          ],
+          "toolSlug": "exa_web_search"
+        }
+      },
+      "toolbelts_list_response": {
+        "value": {
+          "toolbelts": [
+            {
+              "name": "search-toolbelt",
+              "display_name": "Search Tools",
+              "description": "Tools for searching and fetching public web pages.",
+              "latest_version": "1",
+              "version_count": 1,
+              "tool_count": 2,
+              "status": "active",
+              "reference_latest": "search-toolbelt",
+              "updated_at": "2026-06-11T12:00:00Z"
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "per_page": 20,
+            "total": 1
+          }
+        }
+      },
+      "toolbelts_create_request": {
+        "value": {
+          "name": "search-toolbelt",
+          "display_name": "Search Tools",
+          "description": "Tools for searching and fetching public web pages.",
+          "tools": [
+            "exa_web_search",
+            "exa_web_fetch"
+          ]
+        }
+      },
+      "toolbelt_response": {
+        "value": {
+          "toolbelt": {
+            "name": "search-toolbelt",
+            "version": "1",
+            "display_name": "Search Tools",
+            "description": "Tools for searching and fetching public web pages.",
+            "tools": [
+              "exa_web_search",
+              "exa_web_fetch"
+            ],
+            "status": "active",
+            "reference": "search-toolbelt@1",
+            "reference_latest": "search-toolbelt",
+            "tool_count": 2,
+            "created_at": "2026-06-11T12:00:00Z",
+            "updated_at": "2026-06-11T12:00:00Z"
+          }
+        }
+      },
+      "toolbelts_delete_response": {
+        "value": {
+          "toolbelt": {
+            "name": "search-toolbelt",
+            "version": "1",
+            "display_name": "Search Tools",
+            "description": "Tools for searching and fetching public web pages.",
+            "tools": [
+              "exa_web_search",
+              "exa_web_fetch"
+            ],
+            "status": "deprecated",
+            "reference": "search-toolbelt@1",
+            "reference_latest": "search-toolbelt",
+            "tool_count": 2,
+            "created_at": "2026-06-11T12:00:00Z",
+            "updated_at": "2026-06-11T13:00:00Z"
+          }
+        }
+      },
+      "toolbelts_add_tools_request": {
+        "value": {
+          "tools": [
+            "exa_web_fetch"
+          ]
+        }
+      },
+      "toolbelts_remove_tools_request": {
+        "value": {
+          "tools": [
+            "exa_web_fetch"
+          ]
+        }
+      },
+      "connections_list_response": {
+        "value": {
+          "connections": [
+            {
+              "id": "123e4567-e89b-12d3-a456-426614174000",
+              "provider": "github",
+              "user_id": "end-user-123",
+              "scopes": [
+                "repo"
+              ],
+              "status": "active",
+              "created_at": "2026-06-11T12:00:00Z",
+              "granted_at": "2026-06-11T12:01:00Z",
+              "provider_display_name": "GitHub",
+              "connection_parameters": {}
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "per_page": 20,
+            "total": 1
+          }
+        }
+      },
+      "connections_create_request": {
+        "value": {
+          "provider": "github",
+          "user_id": "end-user-123",
+          "scopes": [
+            "repo"
+          ],
+          "connection_parameters": {}
+        }
+      },
+      "connections_create_response": {
+        "value": {
+          "connection": {
+            "id": "123e4567-e89b-12d3-a456-426614174000",
+            "provider": "github",
+            "user_id": "end-user-123",
+            "scopes": [
+              "repo"
+            ],
+            "status": "pending",
+            "created_at": "2026-06-11T12:00:00Z",
+            "provider_display_name": "GitHub",
+            "connection_parameters": {}
+          },
+          "authorization": {
+            "status": "pending",
+            "connect_url": "https://cloud.digitalocean.com/action-gateway/connections/connect",
+            "verification_code": "ABCD-EFGH",
+            "expires_at": "2026-06-11T12:15:00Z"
+          }
+        }
+      },
+      "connections_get_response": {
+        "value": {
+          "connection": {
+            "id": "123e4567-e89b-12d3-a456-426614174000",
+            "provider": "github",
+            "user_id": "end-user-123",
+            "scopes": [
+              "repo"
+            ],
+            "status": "active",
+            "created_at": "2026-06-11T12:00:00Z",
+            "granted_at": "2026-06-11T12:01:00Z",
+            "provider_display_name": "GitHub",
+            "connection_parameters": {}
+          }
+        }
+      },
+      "connections_delete_response": {
+        "value": {
+          "connection": {
+            "id": "123e4567-e89b-12d3-a456-426614174000",
+            "provider": "github",
+            "user_id": "end-user-123",
+            "scopes": [
+              "repo"
+            ],
+            "status": "revoked",
+            "created_at": "2026-06-11T12:00:00Z",
+            "granted_at": "2026-06-11T12:01:00Z",
+            "revoked_at": "2026-06-11T13:00:00Z",
+            "provider_display_name": "GitHub",
+            "connection_parameters": {}
+          }
+        }
+      },
+      "connections_update_request": {
+        "value": {
+          "connection_parameters": {
+            "site_url": "https://github.com"
+          }
+        }
+      },
+      "connections_update_response": {
+        "value": {
+          "connection": {
+            "id": "123e4567-e89b-12d3-a456-426614174000",
+            "provider": "github",
+            "user_id": "end-user-123",
+            "scopes": [
+              "repo"
+            ],
+            "status": "active",
+            "created_at": "2026-06-11T12:00:00Z",
+            "granted_at": "2026-06-11T12:01:00Z",
+            "provider_display_name": "GitHub",
+            "connection_parameters": {
+              "site_url": "https://github.com"
+            }
+          }
+        }
+      },
+      "users_list_response": {
+        "value": {
+          "user_ids": [
+            "end-user-123"
+          ],
+          "pagination": {
+            "page": 1,
+            "per_page": 20,
+            "total": 1
+          }
+        }
+      },
+      "users_get_response": {
+        "value": {
+          "user": {
+            "user_id": "end-user-123",
+            "sessions": [
+              {
+                "session_urn": "do:managed_agents_session:123e4567-e89b-12d3-a456-426614174000",
+                "name": "research-session",
+                "created_at": "2026-06-11T12:00:00Z",
+                "updated_at": "2026-06-11T12:00:00Z"
+              }
+            ],
+            "connections": [
+              {
+                "id": "123e4567-e89b-12d3-a456-426614174000",
+                "provider": "github",
+                "user_id": "end-user-123",
+                "scopes": [
+                  "repo"
+                ],
+                "status": "active",
+                "created_at": "2026-06-11T12:00:00Z",
+                "granted_at": "2026-06-11T12:01:00Z",
+                "provider_display_name": "GitHub",
+                "connection_parameters": {}
+              }
+            ]
+          }
+        }
+      },
+      "sessions_list_response": {
+        "value": {
+          "sessions": [
+            {
+              "sessionUrn": "do:managed_agents_session:123e4567-e89b-12d3-a456-426614174000",
+              "policy": {
+                "defaultAction": "ask",
+                "rules": [
+                  {
+                    "tool": "exa_web_search",
+                    "action": "allow"
+                  }
+                ]
+              },
+              "createdAt": "2026-06-11T12:00:00Z",
+              "updatedAt": "2026-06-11T12:00:00Z",
+              "name": "research-session",
+              "actorId": "end-user-123",
+              "tools": {
+                "references": [
+                  {
+                    "kind": "SESSION_TOOL_REFERENCE_KIND_TOOL",
+                    "name": "exa_web_search",
+                    "version": "v1"
+                  }
+                ]
+              },
+              "config": {
+                "preloadTools": [
+                  "exa_web_search@v1"
+                ]
+              }
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "per_page": 20,
+            "total": 1
+          }
+        }
+      },
+      "sessions_create_request": {
+        "value": {
+          "name": "research-session",
+          "actor_id": "end-user-123",
+          "policy": {
+            "defaultAction": "ask",
+            "rules": [
+              {
+                "tool": "exa_web_search",
+                "action": "allow"
+              }
+            ]
+          },
+          "tools": [
+            "exa_web_search@v1"
+          ],
+          "config": {
+            "preloadTools": [
+              "exa_web_search@v1"
+            ]
+          }
+        }
+      },
+      "sessions_create_response": {
+        "value": {
+          "session": {
+            "sessionUrn": "do:managed_agents_session:123e4567-e89b-12d3-a456-426614174000",
+            "policy": {
+              "defaultAction": "ask",
+              "rules": [
+                {
+                  "tool": "exa_web_search",
+                  "action": "allow"
+                }
+              ]
+            },
+            "createdAt": "2026-06-11T12:00:00Z",
+            "updatedAt": "2026-06-11T12:00:00Z",
+            "name": "research-session",
+            "actorId": "end-user-123",
+            "tools": {
+              "references": [
+                {
+                  "kind": "SESSION_TOOL_REFERENCE_KIND_TOOL",
+                  "name": "exa_web_search",
+                  "version": "v1"
+                }
+              ]
+            },
+            "config": {
+              "preloadTools": [
+                "exa_web_search@v1"
+              ]
+            }
+          },
+          "mcpUrl": "https://actions.do-ai.run/mcp/session/123e4567-e89b-12d3-a456-426614174000",
+          "tools": [
+            "exa_web_search@v1"
+          ]
+        }
+      },
+      "sessions_delete_response": {
+        "value": {}
+      },
       "apps": {
         "value": {
           "apps": [
@@ -122868,6 +126607,9 @@
               },
               "p2p_oci_registry_plugin": {
                 "enabled": false
+              },
+              "nfs_csi_plugin": {
+                "enabled": false
               }
             }
           ],
@@ -123062,6 +126804,9 @@
               "enabled": false
             },
             "p2p_oci_registry_plugin": {
+              "enabled": false
+            },
+            "nfs_csi_plugin": {
               "enabled": false
             }
           }
@@ -123400,6 +127145,9 @@
             },
             "p2p_oci_registry_plugin": {
               "enabled": false
+            },
+            "nfs_csi_plugin": {
+              "enabled": false
             }
           }
         }
@@ -123582,6 +127330,9 @@
               "enabled": false
             },
             "p2p_oci_registry_plugin": {
+              "enabled": false
+            },
+            "nfs_csi_plugin": {
               "enabled": false
             }
           }
@@ -126171,6 +129922,10 @@
       "description": "Add-ons are third-party applications that can be added to your DigitalOcean account.\nThey are available through the [DigitalOcean Marketplace](https://marketplace.digitalocean.com/).\nAdd-ons can be used to enhance the functionality of your existing resources or to provide\nadditional services.\n\nThe Add-Ons API allows you to manage these resources, including creating, listing, and retrieving\ndetails about specific add-on resources."
     },
     {
+      "name": "Action Gateway",
+      "description": "Discover Action Gateway tools and providers, manage versioned toolbelts and\nOAuth connections, and create policy-bound sessions for end users."
+    },
+    {
       "name": "Apps",
       "description": "App Platform is a Platform-as-a-Service (PaaS) offering from DigitalOcean that allows\ndevelopers to publish code directly to DigitalOcean servers without worrying about the\nunderlying infrastructure.\n\nMost API operations are centered around a few core object types. Following are the\ndefinitions of these types. These definitions will be omitted from the operation-specific\ndocumentation.\n\nFor documentation on app specifications (\u0060AppSpec\u0060 objects), please refer to the\n[product documentation](https://docs.digitalocean.com/products/app-platform/reference/app-spec/))."
     },
@@ -126402,6 +130157,7 @@
         "Account",
         "Actions",
         "Add-Ons",
+        "Action Gateway",
         "Apps",
         "Billing",
         "Block Storage",
