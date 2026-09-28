@@ -47724,6 +47724,146 @@
         ]
       }
     },
+    "/v1/systemone": {
+      "post": {
+        "tags": [
+          "Serverless Inference"
+        ],
+        "summary": "Create a System One evaluation",
+        "description": "Evaluates a provided state against one or more typed questions using TypeSafe AI\u0027s Jev model. Unlike chat completion endpoints, System One returns typed answers, a truth-likelihood score, a choice from a fixed set, or a numeric score, each paired with a calibrated probability, instead of free-form text.",
+        "operationId": "InferenceCreateSystemone",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SystemoneRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful System One evaluation.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemoneResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable_entity"
+          },
+          "424": {
+            "description": "The upstream provider (TypeSafe) failed to process the request. This can indicate the provider is unavailable, an upstream authentication or quota issue, or a provider-side server error.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "id": "failed_dependency",
+                  "message": "the upstream model provider failed to process the request"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "502": {
+            "description": "The upstream provider response could not be read or decoded.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "id": "bad_gateway",
+                  "message": "failed to read or decode the upstream provider response"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "inference_bearer_auth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://inference.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-inference-base-url": "https://inference.do-ai.run",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\n    \u0022model\u0022: \u0022typesafe-jev-1.13.0\u0022,\n    \u0022state\u0022: \u0022The customer said the delivery was late but the product quality was excellent.\u0022,\n    \u0022questions\u0022: {\n      \u0022sentiment\u0022: {\n        \u0022type\u0022: \u0022choice\u0022,\n        \u0022instructions\u0022: \u0022What is the overall sentiment of this feedback?\u0022,\n        \u0022criteria\u0022: {\n          \u0022positive\u0022: \u0022Customer is happy overall\u0022,\n          \u0022negative\u0022: \u0022Customer is unhappy overall\u0022,\n          \u0022mixed\u0022: \u0022Customer has both good and bad things to say\u0022\n        }\n      },\n      \u0022needs_followup\u0022: {\n        \u0022type\u0022: \u0022noul\u0022,\n        \u0022instructions\u0022: \u0022Does this feedback require a follow-up from the support team?\u0022\n      }\n    }\n  }\u0027 \\\n  \u0022https://inference.do-ai.run/v1/systemone\u0022"
+          },
+          {
+            "lang": "Python",
+            "source": "import os\nfrom pydo import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\nresp = client.systemone.create(\n    model=\u0022typesafe-jev-1.13.0\u0022,\n    state=\u0022The customer said the delivery was late but the product quality was excellent.\u0022,\n    questions={\n        \u0022sentiment\u0022: {\n            \u0022type\u0022: \u0022choice\u0022,\n            \u0022instructions\u0022: \u0022What is the overall sentiment of this feedback?\u0022,\n            \u0022criteria\u0022: {\n                \u0022positive\u0022: \u0022Customer is happy overall\u0022,\n                \u0022negative\u0022: \u0022Customer is unhappy overall\u0022,\n                \u0022mixed\u0022: \u0022Customer has both good and bad things to say\u0022,\n            },\n        },\n        \u0022needs_followup\u0022: {\n            \u0022type\u0022: \u0022noul\u0022,\n            \u0022instructions\u0022: \u0022Does this feedback require a follow-up from the support team?\u0022,\n        },\n    },\n)\n\nprint(resp.answers[\u0022sentiment\u0022])"
+          },
+          {
+            "lang": "JavaScript",
+            "source": "import { InferenceClient } from \u0022@digitalocean/dots\u0022;\n\nconst client = new InferenceClient({ apiKey: process.env.DIGITALOCEAN_TOKEN });\n\nconst result = await client.systemone.create({\n    model: \u0022typesafe-jev-1.13.0\u0022,\n    state: \u0022The customer said the delivery was late but the product quality was excellent.\u0022,\n    questions: {\n        sentiment: {\n            type: \u0022choice\u0022,\n            instructions: \u0022What is the overall sentiment of this feedback?\u0022,\n            criteria: {\n                positive: \u0022Customer is happy overall\u0022,\n                negative: \u0022Customer is unhappy overall\u0022,\n                mixed: \u0022Customer has both good and bad things to say\u0022,\n            },\n        },\n        needs_followup: {\n            type: \u0022noul\u0022,\n            instructions: \u0022Does this feedback require a follow-up from the support team?\u0022,\n        },\n    },\n});\n\nconsole.log(result.answers.sentiment);"
+          }
+        ]
+      }
+    },
     "/v1/responses": {
       "post": {
         "tags": [
@@ -80460,6 +80600,138 @@
         },
         "description": "Response listing available models."
       },
+      "SystemoneQuestion": {
+        "required": [
+          "type",
+          "instructions"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SystemoneQuestionType"
+          },
+          "instructions": {
+            "type": "string",
+            "description": "The prompt describing what the question is asking the model to evaluate.",
+            "example": "What is the overall sentiment of this feedback?"
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/SystemoneQuestionCriteria"
+          }
+        },
+        "description": "A single question to evaluate against the provided state. The \u0060type\u0060 field determines how \u0060criteria\u0060 should be shaped and how the corresponding answer is returned."
+      },
+      "SystemoneRequest": {
+        "required": [
+          "state",
+          "model",
+          "questions"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "The state to evaluate.",
+            "example": "The customer said the delivery was late but the product quality was excellent."
+          },
+          "model": {
+            "type": "string",
+            "description": "Model ID used to evaluate the request.",
+            "example": "typesafe-jev-1.13.0"
+          },
+          "questions": {
+            "$ref": "#/components/schemas/SystemoneRequestQuestionsProperty"
+          }
+        },
+        "description": "Request payload for a System One evaluation."
+      },
+      "SystemoneAnswer": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SystemoneAnswerType"
+          },
+          "noul": {
+            "type": "number",
+            "description": "Present when the question type is \u0060noul\u0060. A truth-likelihood value.",
+            "format": "double",
+            "example": 0.74
+          },
+          "choice": {
+            "type": "string",
+            "description": "Present when the question type is \u0060choice\u0060. The selected option name from the question\u0027s \u0060criteria\u0060 map.",
+            "example": "positive"
+          },
+          "score": {
+            "type": "number",
+            "description": "Present when the question type is \u0060score\u0060. The numeric position along the ordered rubric levels supplied in the question\u0027s \u0060criteria\u0060.",
+            "format": "double",
+            "example": 2
+          },
+          "legend": {
+            "$ref": "#/components/schemas/SystemoneAnswerLegendProperty"
+          },
+          "probabilities": {
+            "$ref": "#/components/schemas/SystemoneAnswerProbabilitiesProperty"
+          },
+          "confidence": {
+            "type": "number",
+            "description": "Overall calibrated confidence in the returned answer.",
+            "format": "double",
+            "example": 0.82
+          }
+        },
+        "description": "The evaluated answer for a single question. The fields that are populated depend on the corresponding question\u0027s \u0060type\u0060."
+      },
+      "SystemoneUsage": {
+        "required": [
+          "input_tokens",
+          "output_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "input_tokens": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "Number of input tokens consumed by the request.",
+            "format": "int64",
+            "example": 42
+          },
+          "output_tokens": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "Number of output tokens consumed by the request. Always 0 for System One.",
+            "format": "int64",
+            "example": 0
+          }
+        },
+        "description": "Token usage for the request. System One billing is input-token only."
+      },
+      "SystemoneResponse": {
+        "required": [
+          "model",
+          "answers",
+          "usage"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model ID that produced the response.",
+            "example": "typesafe-jev-1.13.0"
+          },
+          "answers": {
+            "$ref": "#/components/schemas/SystemoneResponseAnswersProperty"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/SystemoneUsage"
+          }
+        },
+        "description": "Response returned by a System One evaluation."
+      },
       "CreateResponseRequest": {
         "required": [
           "model",
@@ -90993,6 +91265,34 @@
         },
         "description": "Usage statistics for the image generation request."
       },
+      "SystemoneQuestionCriteria": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/schemas/SystemoneQuestionCriteriaBranch2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Optional criteria payload. The expected shape depends on \u0060type\u0060: for \u0060noul\u0060, an optional object describing the true/false semantics; for \u0060choice\u0060, an object mapping each option name to a description of that option (minimum 2 options, maximum 255 options); for \u0060score\u0060, an ordered array of descriptive rubric levels (minimum 2, maximum 10 levels). Score levels must be descriptive labels, such as \u0060[\u0022poor\u0022, \u0022average\u0022, \u0022excellent\u0022]\u0060, not numeric values.",
+        "example": {
+          "positive": "Customer is happy overall",
+          "negative": "Customer is unhappy overall",
+          "mixed": "Customer has both good and bad things to say"
+        }
+      },
       "CreateResponseRequestInput": {
         "type": "object",
         "oneOf": [
@@ -95849,6 +96149,52 @@
         },
         "description": "Detailed breakdown of input tokens."
       },
+      "SystemoneRequestQuestions": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SystemoneQuestion"
+        },
+        "description": "A map of question name to question definition. Each key becomes the corresponding key in the response\u0027s \u0060answers\u0060 object.",
+        "example": {
+          "sentiment": {
+            "type": "choice",
+            "instructions": "What is the overall sentiment of this feedback?",
+            "criteria": {
+              "positive": "Customer is happy overall",
+              "negative": "Customer is unhappy overall",
+              "mixed": "Customer has both good and bad things to say"
+            }
+          },
+          "needs_followup": {
+            "type": "noul",
+            "instructions": "Does this feedback require a follow-up from the support team?"
+          }
+        }
+      },
+      "SystemoneAnswerLegend": {
+        "type": "object",
+        "description": "Present when the question type is \u0060score\u0060. Maps rubric levels to their corresponding numeric positions."
+      },
+      "SystemoneAnswerProbabilities": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "number",
+          "format": "double"
+        },
+        "description": "Calibrated probability for each possible answer value.",
+        "example": {
+          "positive": 0.82,
+          "negative": 0.05,
+          "mixed": 0.13
+        }
+      },
+      "SystemoneResponseAnswers": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SystemoneAnswer"
+        },
+        "description": "A map of question name to answer, using the same keys as the request\u0027s \u0060questions\u0060 object."
+      },
       "CreateResponseRequestStreamOptions": {
         "type": "object",
         "properties": {
@@ -99406,6 +99752,20 @@
           }
         }
       },
+      "SystemoneQuestionCriteriaBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "ExistingTagsArrayWrapper2": {
         "required": [
           "value"
@@ -99712,6 +100072,32 @@
       "MessagesStreamEventDeltaProperty": {
         "type": "object",
         "description": "Present on \u0060content_block_delta\u0060 and \u0060message_delta\u0060."
+      },
+      "SystemoneRequestQuestionsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SystemoneQuestion"
+        },
+        "description": "A map of question name to question definition. Each key becomes the corresponding key in the response\u0027s \u0060answers\u0060 object."
+      },
+      "SystemoneAnswerLegendProperty": {
+        "type": "object",
+        "description": "Present when the question type is \u0060score\u0060. Maps rubric levels to their corresponding numeric positions."
+      },
+      "SystemoneAnswerProbabilitiesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "number",
+          "format": "double"
+        },
+        "description": "Calibrated probability for each possible answer value."
+      },
+      "SystemoneResponseAnswersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SystemoneAnswer"
+        },
+        "description": "A map of question name to answer, using the same keys as the request\u0027s \u0060questions\u0060 object."
       },
       "CreateResponseRequestMetadataProperty": {
         "type": "object",
@@ -106552,6 +106938,64 @@
             {
               "value": "model",
               "name": "Model"
+            }
+          ]
+        }
+      },
+      "SystemoneQuestionType": {
+        "enum": [
+          "noul",
+          "choice",
+          "score"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Question discriminator. Use \u0060noul\u0060 for a boolean-like true/false check, \u0060choice\u0060 to select one option from a fixed set, and \u0060score\u0060 to rate against an ordered rubric.",
+        "example": "choice",
+        "x-ms-enum": {
+          "name": "SystemoneQuestionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "noul",
+              "name": "Noul"
+            },
+            {
+              "value": "choice",
+              "name": "Choice"
+            },
+            {
+              "value": "score",
+              "name": "Score"
+            }
+          ]
+        }
+      },
+      "SystemoneAnswerType": {
+        "enum": [
+          "noul",
+          "choice",
+          "score"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Echoes the \u0060type\u0060 of the question this answer corresponds to.",
+        "example": "choice",
+        "x-ms-enum": {
+          "name": "SystemoneAnswerType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "noul",
+              "name": "Noul"
+            },
+            {
+              "value": "choice",
+              "name": "Choice"
+            },
+            {
+              "value": "score",
+              "name": "Score"
             }
           ]
         }

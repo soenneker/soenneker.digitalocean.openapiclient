@@ -10,6 +10,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V1.Images;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Messages;
 using Soenneker.DigitalOcean.OpenApiClient.V1.ModelsRequests;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Responses;
+using Soenneker.DigitalOcean.OpenApiClient.V1.Systemone;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -61,6 +62,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Responses.ResponsesRequestBuilder Responses
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Responses.ResponsesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The systemone property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Systemone.SystemoneRequestBuilder Systemone
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Systemone.SystemoneRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.V1RequestBuilder"/> and sets the default values.
