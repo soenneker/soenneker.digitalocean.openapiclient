@@ -35745,7 +35745,7 @@
     "/v2/gen-ai/agents": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Agents",
         "description": "To list all agents, send a GET request to \u0060/v2/gen-ai/agents\u0060.",
@@ -35833,7 +35833,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create an Agent",
         "description": "To create a new agent, send a POST request to \u0060/v2/gen-ai/agents\u0060. The response body contains a JSON object with the newly created agent object.",
@@ -35903,7 +35903,7 @@
     "/v2/gen-ai/agents/{agentUuid}/api_keys": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Agent API Keys",
         "description": "To list all agent API keys, send a GET request to \u0060/v2/gen-ai/agents/{agent_uuid}/api_keys\u0060.",
@@ -35992,7 +35992,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create an Agent API Key",
         "description": "To create an agent API key, send a POST request to \u0060/v2/gen-ai/agents/{agent_uuid}/api_keys\u0060.",
@@ -36074,7 +36074,7 @@
     "/v2/gen-ai/agents/{agentUuid}/api_keys/{apiKeyUuid}": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update API Key for an Agent",
         "description": "To update an agent API key, send a PUT request to \u0060/v2/gen-ai/agents/{agent_uuid}/api_keys/{api_key_uuid}\u0060.",
@@ -36164,7 +36164,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete API Key for an Agent ",
         "description": "To delete an API key for an agent, send a DELETE request to \u0060/v2/gen-ai/agents/{agent_uuid}/api_keys/{api_key_uuid}\u0060.",
@@ -36247,7 +36247,7 @@
     "/v2/gen-ai/agents/{agentUuid}/api_keys/{apiKeyUuid}/regenerate": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Regenerate API Key for an Agent",
         "description": "To regenerate an agent API key, send a PUT request to \u0060/v2/gen-ai/agents/{agent_uuid}/api_keys/{api_key_uuid}/regenerate\u0060.",
@@ -36330,7 +36330,7 @@
     "/v2/gen-ai/agents/{agentUuid}/functions": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Add Function Route to an Agent",
         "description": "To create a function route for an agent, send a POST request to \u0060/v2/gen-ai/agents/{agent_uuid}/functions\u0060.",
@@ -36412,7 +36412,7 @@
     "/v2/gen-ai/agents/{agentUuid}/functions/{functionUuid}": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Function Route for an Agent",
         "description": "To update the function route, send a PUT request to \u0060/v2/gen-ai/agents/{agent_uuid}/functions/{function_uuid}\u0060.",
@@ -36502,7 +36502,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Function Route for an Agent",
         "description": "To delete a function route from an agent, send a DELETE request to \u0060/v2/gen-ai/agents/{agent_uuid}/functions/{function_uuid}\u0060.",
@@ -36585,7 +36585,7 @@
     "/v2/gen-ai/agents/{agentUuid}/guardrails": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Attach Guardrails to an Agent",
         "description": "To attach guardrails to an agent, send a POST request to \u0060/v2/gen-ai/agents/{agent_uuid}/guardrails\u0060.",
@@ -36667,7 +36667,7 @@
     "/v2/gen-ai/agents/{agentUuid}/guardrails/{guardrailUuid}": {
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Detach a Guardrail from an Agent",
         "description": "To detach a guardrail from an agent, send a DELETE request to \u0060/v2/gen-ai/agents/{agent_uuid}/guardrails/{guardrail_uuid}\u0060.",
@@ -36750,7 +36750,7 @@
     "/v2/gen-ai/agents/{agentUuid}/knowledge_bases": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Attach Knowledge Bases to an Agent",
         "description": "To attach knowledge bases to an agent, send a POST request to \u0060/v2/gen-ai/agents/{agent_uuid}/knowledge_bases\u0060",
@@ -36823,7 +36823,7 @@
     "/v2/gen-ai/agents/{agentUuid}/knowledge_bases/{knowledgeBaseUuid}": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Attach Knowledge Base to an Agent",
         "description": "To attach a knowledge base to an agent, send a POST request to \u0060/v2/gen-ai/agents/{agent_uuid}/knowledge_bases/{knowledge_base_uuid}\u0060",
@@ -36904,7 +36904,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Detach Knowledge Base from an Agent",
         "description": "To detach a knowledge base from an agent, send a DELETE request to \u0060/v2/gen-ai/agents/{agent_uuid}/knowledge_bases/{knowledge_base_uuid}\u0060.",
@@ -36987,7 +36987,7 @@
     "/v2/gen-ai/agents/{parentAgentUuid}/child_agents/{childAgentUuid}": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Add Agent Route to an Agent",
         "description": "To add an agent route to an agent, send a POST request to \u0060/v2/gen-ai/agents/{parent_agent_uuid}/child_agents/{child_agent_uuid}\u0060.",
@@ -37077,7 +37077,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Agent Route for an Agent",
         "description": "To update an agent route for an agent, send a PUT request to \u0060/v2/gen-ai/agents/{parent_agent_uuid}/child_agents/{child_agent_uuid}\u0060.",
@@ -37167,7 +37167,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Agent Route for an Agent",
         "description": "To delete an agent route from a parent agent, send a DELETE request to \u0060/v2/gen-ai/agents/{parent_agent_uuid}/child_agents/{child_agent_uuid}\u0060.",
@@ -37250,7 +37250,7 @@
     "/v2/gen-ai/agents/{uuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve an Existing Agent",
         "description": "To retrieve details of an agent, GET request to \u0060/v2/gen-ai/agents/{uuid}\u0060. The response body is a JSON object containing the agent.",
@@ -37321,7 +37321,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update an Agent",
         "description": "To update an agent, send a PUT request to \u0060/v2/gen-ai/agents/{uuid}\u0060. The response body is a JSON object containing the agent.",
@@ -37401,7 +37401,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete an Agent",
         "description": "To delete an agent, send a DELETE request to \u0060/v2/gen-ai/agents/{uuid}\u0060.",
@@ -37474,7 +37474,7 @@
     "/v2/gen-ai/agents/{uuid}/child_agents": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "View Agent Routes",
         "description": "To view agent routes for an agent, send a GET requtest to \u0060/v2/gen-ai/agents/{uuid}/child_agents\u0060.",
@@ -37547,7 +37547,7 @@
     "/v2/gen-ai/agents/{uuid}/deployment_visibility": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Agent Status",
         "description": "Check whether an agent is public or private. To update the agent status, send a PUT request to \u0060/v2/gen-ai/agents/{uuid}/deployment_visibility\u0060.",
@@ -37629,7 +37629,7 @@
     "/v2/gen-ai/agents/{uuid}/usage": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Agent Usage",
         "description": "To get agent usage, send a GET request to \u0060/v2/gen-ai/agents/{uuid}/usage\u0060. Returns usage metrics for the specified agent within the provided time range.",
@@ -37720,7 +37720,7 @@
     "/v2/gen-ai/agents/{uuid}/versions": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Agent Versions",
         "description": "To list all agent versions, send a GET request to \u0060/v2/gen-ai/agents/{uuid}/versions\u0060.",
@@ -37809,7 +37809,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Rollback to Agent Version",
         "description": "To update to a specific agent version, send a PUT request to \u0060/v2/gen-ai/agents/{uuid}/versions\u0060.",
@@ -37891,7 +37891,7 @@
     "/v2/gen-ai/anthropic/keys": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Anthropic API Keys",
         "description": "To list all Anthropic API keys, send a GET request to \u0060/v2/gen-ai/anthropic/keys\u0060.",
@@ -37970,7 +37970,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Anthropic API Key",
         "description": "To create an Anthropic API key, send a POST request to \u0060/v2/gen-ai/anthropic/keys\u0060.",
@@ -38040,7 +38040,7 @@
     "/v2/gen-ai/anthropic/keys/{apiKeyUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Anthropic API Key",
         "description": "To retrieve details of an Anthropic API key, send a GET request to \u0060/v2/gen-ai/anthropic/keys/{api_key_uuid}\u0060.",
@@ -38111,7 +38111,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Anthropic API Key",
         "description": "To update an Anthropic API key, send a PUT request to \u0060/v2/gen-ai/anthropic/keys/{api_key_uuid}\u0060.",
@@ -38191,7 +38191,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Anthropic API Key",
         "description": "To delete an Anthropic API key, send a DELETE request to \u0060/v2/gen-ai/anthropic/keys/{api_key_uuid}\u0060.",
@@ -38264,7 +38264,7 @@
     "/v2/gen-ai/anthropic/keys/{uuid}/agents": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List agents by Anthropic key",
         "description": "List Agents by Anthropic Key.",
@@ -38355,7 +38355,7 @@
     "/v2/gen-ai/custom_models": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Custom Models",
         "description": "To list custom models, send a GET request to \u0060/v2/gen-ai/custom_models\u0060.",
@@ -38445,7 +38445,7 @@
     "/v2/gen-ai/custom_models/import": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Import Custom Model",
         "description": "To import a custom model, send a POST request to \u0060/v2/gen-ai/custom_models/import\u0060.",
@@ -38515,7 +38515,7 @@
     "/v2/gen-ai/custom_models/{uuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Custom Model",
         "description": "To retrieve details of a custom model, send a GET request to \u0060/v2/gen-ai/custom_models/{uuid}\u0060.",
@@ -38586,7 +38586,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Custom Model",
         "description": "To delete a custom model, send a DELETE request to \u0060/v2/genai/custom_models/{uuid}\u0060.",
@@ -38659,7 +38659,7 @@
     "/v2/gen-ai/custom_models/{uuid}/metadata": {
       "patch": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Custom Model Metadata",
         "description": "To update custom model metadata, send a PATCH request to \u0060/v2/gen-ai/custom_models/{uuid}/metadata\u0060.",
@@ -38741,7 +38741,7 @@
     "/v2/gen-ai/evaluation_datasets": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Evaluation Datasets",
         "description": "To list evaluation datasets, send a GET request to \u0060/v2/gen-ai/evaluation_datasets\u0060.",
@@ -38811,7 +38811,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Evaluation Dataset",
         "description": "To create an evaluation dataset, send a POST request to \u0060/v2/gen-ai/evaluation_datasets\u0060.",
@@ -38881,7 +38881,7 @@
     "/v2/gen-ai/evaluation_datasets/file_upload_presigned_urls": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Presigned URLs for Evaluation Dataset File Upload",
         "description": "To create presigned URLs for evaluation dataset file upload, send a POST request to \u0060/v2/gen-ai/evaluation_datasets/file_upload_presigned_urls\u0060.",
@@ -38951,7 +38951,7 @@
     "/v2/gen-ai/evaluation_datasets/{datasetUuid}": {
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Evaluation Dataset",
         "description": "To delete an evaluation dataset, send a DELETE request to \u0060/v2/genai/evaluation_datasets/{dataset_uuid}\u0060. This works for both model and agent evaluation datasets.",
@@ -39024,7 +39024,7 @@
     "/v2/gen-ai/evaluation_datasets/{datasetUuid}/download_url": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Download URL for Evaluation Dataset",
         "description": "To get a presigned download URL for an evaluation dataset, send a GET request to \u0060/v2/genai/evaluation_datasets/{dataset_uuid}/download_url\u0060.",
@@ -39097,7 +39097,7 @@
     "/v2/gen-ai/evaluation_metrics": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Evaluation Metrics",
         "description": "To list all evaluation metrics, send a GET request to \u0060/v2/gen-ai/evaluation_metrics\u0060.",
@@ -39158,7 +39158,7 @@
     "/v2/gen-ai/custom_evaluation_metrics": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Custom Evaluation Metric",
         "description": "To create a custom LLM-as-judge metric for model evaluation, send a POST request to \u0060/v2/gen-ai/custom_evaluation_metrics\u0060.",
@@ -39228,7 +39228,7 @@
     "/v2/gen-ai/custom_evaluation_metrics/{metricUuid}": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Custom Evaluation Metric",
         "description": "To update a custom metric (issuing a new metric UUID), send a PUT request to \u0060/v2/gen-ai/custom_evaluation_metrics/{metric_uuid}\u0060.",
@@ -39308,7 +39308,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Custom Evaluation Metric",
         "description": "To soft-delete a custom model evaluation metric, send a DELETE request to \u0060/v2/gen-ai/custom_evaluation_metrics/{metric_uuid}\u0060.",
@@ -39381,7 +39381,7 @@
     "/v2/gen-ai/evaluation_runs": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Run an Evaluation Test Case",
         "description": "To run an evaluation test case, send a POST request to \u0060/v2/gen-ai/evaluation_runs\u0060.",
@@ -39451,7 +39451,7 @@
     "/v2/gen-ai/evaluation_runs/{evaluationRunUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Information About an Existing Evaluation Run",
         "description": "To retrive information about an existing evaluation run, send a GET request to \u0060/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}\u0060.",
@@ -39524,7 +39524,7 @@
     "/v2/gen-ai/evaluation_runs/{evaluationRunUuid}/results": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Results of an Evaluation Run",
         "description": "To retrieve results of an evaluation run, send a GET request to \u0060/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}/results\u0060.",
@@ -39615,7 +39615,7 @@
     "/v2/gen-ai/evaluation_runs/{evaluationRunUuid}/results/{promptId}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Results of an Evaluation Run Prompt",
         "description": "To retrieve results of an evaluation run, send a GET request to \u0060/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}/results/{prompt_id}\u0060.",
@@ -39698,7 +39698,7 @@
     "/v2/gen-ai/evaluation_test_cases": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Evaluation Test Cases",
         "description": "To list all evaluation test cases, send a GET request to \u0060/v2/gen-ai/evaluation_test_cases\u0060.",
@@ -39757,7 +39757,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Evaluation Test Case.",
         "description": "To create an evaluation test-case send a POST request to \u0060/v2/gen-ai/evaluation_test_cases\u0060.",
@@ -39827,7 +39827,7 @@
     "/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUuid}/evaluation_runs": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Evaluation Runs by Test Case",
         "description": "To list all evaluation runs by test case, send a GET request to \u0060/v2/gen-ai/evaluation_test_cases/{evaluation_test_case_uuid}/evaluation_runs\u0060.",
@@ -39909,7 +39909,7 @@
     "/v2/gen-ai/evaluation_test_cases/{testCaseUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Information About an Existing Evaluation Test Case",
         "description": "To retrive information about an existing evaluation test case, send a GET request to \u0060/v2/gen-ai/evaluation_test_case/{test_case_uuid}\u0060.",
@@ -39989,7 +39989,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update an Evaluation Test Case.",
         "description": "To update an evaluation test-case send a PUT request to \u0060/v2/gen-ai/evaluation_test_cases/{test_case_uuid}\u0060.",
@@ -40071,7 +40071,7 @@
     "/v2/gen-ai/indexing_jobs": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Indexing Jobs for a Knowledge Base",
         "description": "To list all indexing jobs for a knowledge base, send a GET request to \u0060/v2/gen-ai/indexing_jobs\u0060.",
@@ -40150,7 +40150,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Start Indexing Job for a Knowledge Base",
         "description": "To start an indexing job for a knowledge base, send a POST request to \u0060/v2/gen-ai/indexing_jobs\u0060.",
@@ -40220,7 +40220,7 @@
     "/v2/gen-ai/indexing_jobs/{indexingJobUuid}/data_sources": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Data Sources for Indexing Job for a Knowledge Base",
         "description": "To list all datasources for an indexing job, send a GET request to \u0060/v2/gen-ai/indexing_jobs/{indexing_job_uuid}/data_sources\u0060.",
@@ -40293,7 +40293,7 @@
     "/v2/gen-ai/indexing_jobs/{indexingJobUuid}/details_signed_url": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Signed URL for Indexing Job Details",
         "description": "To get a signed URL for indexing job details, send a GET request to \u0060/v2/gen-ai/indexing_jobs/{uuid}/details_signed_url\u0060.",
@@ -40366,7 +40366,7 @@
     "/v2/gen-ai/indexing_jobs/{uuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Status of Indexing Job for a Knowledge Base",
         "description": "To get status of an indexing Job for a knowledge base, send a GET request to \u0060/v2/gen-ai/indexing_jobs/{uuid}\u0060.",
@@ -40439,7 +40439,7 @@
     "/v2/gen-ai/indexing_jobs/{uuid}/cancel": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Cancel Indexing Job for a Knowledge Base",
         "description": "To cancel an indexing job for a knowledge base, send a PUT request to \u0060/v2/gen-ai/indexing_jobs/{uuid}/cancel\u0060.",
@@ -40521,7 +40521,7 @@
     "/v2/gen-ai/knowledge_bases": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Knowledge Bases",
         "description": "To list all knowledge bases, send a GET request to \u0060/v2/gen-ai/knowledge_bases\u0060.",
@@ -40600,7 +40600,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create a Knowledge Base",
         "description": "To create a knowledge base, send a POST request to \u0060/v2/gen-ai/knowledge_bases\u0060.",
@@ -40670,7 +40670,7 @@
     "/v2/gen-ai/knowledge_bases/data_sources/file_upload_presigned_urls": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Presigned URLs for Data Source File Upload",
         "description": "To create presigned URLs for knowledge base data source file upload, send a POST request to \u0060/v2/gen-ai/knowledge_bases/data_sources/file_upload_presigned_urls\u0060.",
@@ -40740,7 +40740,7 @@
     "/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}/data_sources": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Data Sources for a Knowledge Base",
         "description": "To list all data sources for a knowledge base, send a GET request to \u0060/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources\u0060.",
@@ -40829,7 +40829,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Add Data Source to a Knowledge Base",
         "description": "To add a data source to a knowledge base, send a POST request to \u0060/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources\u0060.",
@@ -40911,7 +40911,7 @@
     "/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}/data_sources/{dataSourceUuid}": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Data Source options",
         "description": "To update a data source (e.g. chunking options), send a PUT request to \u0060/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources/{data_source_uuid}\u0060.",
@@ -41001,7 +41001,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete a Data Source from a Knowledge Base",
         "description": "To delete a data source from a knowledge base, send a DELETE request to \u0060/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources/{data_source_uuid}\u0060.",
@@ -41084,7 +41084,7 @@
     "/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}/indexing_jobs": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Indexing Jobs for a Knowledge Base",
         "description": "To list latest 15 indexing jobs for a knowledge base, send a GET request to \u0060/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/indexing_jobs\u0060.",
@@ -41157,7 +41157,7 @@
     "/v2/gen-ai/knowledge_bases/{uuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Information About an Existing Knowledge Base",
         "description": "To retrive information about an existing knowledge base, send a GET request to \u0060/v2/gen-ai/knowledge_bases/{uuid}\u0060.",
@@ -41228,7 +41228,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update a Knowledge Base",
         "description": "To update a knowledge base, send a PUT request to \u0060/v2/gen-ai/knowledge_bases/{uuid}\u0060.",
@@ -41308,7 +41308,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete a Knowledge Base",
         "description": "To delete a knowledge base, send a DELETE request to \u0060/v2/gen-ai/knowledge_bases/{uuid}\u0060.",
@@ -41381,7 +41381,7 @@
     "/v2/gen-ai/model_evaluation/datasets/file_upload_presigned_urls": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Presigned URLs for Model Evaluation Dataset File Upload",
         "description": "To create presigned URLs for model evaluation dataset file upload, send a POST request to \u0060/v2/genai/model_evaluation/datasets/file_upload_presigned_urls\u0060.",
@@ -41451,7 +41451,7 @@
     "/v2/gen-ai/model_evaluation_metrics": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Model Evaluation Metrics",
         "description": "To list all available metrics for model evaluation, send a GET request to \u0060/v2/genai/model_evaluation_metrics\u0060.",
@@ -41512,7 +41512,7 @@
     "/v2/gen-ai/model_evaluation_presets": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Model Evaluation Presets",
         "description": "To list all saved model evaluation presets, send a GET request to \u0060/v2/genai/model_evaluation_presets\u0060.",
@@ -41573,7 +41573,7 @@
     "/v2/gen-ai/model_evaluation_presets/{evalPresetUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Model Evaluation Preset",
         "description": "To retrieve a saved model evaluation preset, send a GET request to \u0060/v2/genai/model_evaluation_presets/{eval_preset_uuid}\u0060.",
@@ -41644,7 +41644,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Model Evaluation Preset",
         "description": "To delete a saved model evaluation preset, send a DELETE request to \u0060/v2/gen-ai/model_evaluation_presets/{eval_preset_uuid}\u0060.",
@@ -41717,7 +41717,7 @@
     "/v2/gen-ai/model_evaluation_runs": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Model Evaluation Runs",
         "description": "To list model evaluation runs, send a GET request to \u0060/v2/genai/model_evaluation_runs\u0060.",
@@ -41869,7 +41869,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Model Evaluation Run",
         "description": "To create a model evaluation run, send a POST request to \u0060/v2/genai/model_evaluation_runs\u0060.",
@@ -41939,7 +41939,7 @@
     "/v2/gen-ai/model_evaluation_runs/{evalRunUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Model Evaluation Run",
         "description": "To retrieve a model evaluation run, send a GET request to \u0060/v2/genai/model_evaluation_runs/{eval_run_uuid}\u0060.",
@@ -42028,7 +42028,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Model Evaluation Run",
         "description": "To delete a model evaluation run, send a DELETE request to \u0060/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}\u0060. The run must be in a terminal status (\u0060successful\u0060, \u0060partially_successful\u0060, \u0060failed\u0060, or \u0060cancelled\u0060). For runs still in progress, either wait for the run to finish or cancel it, then retry the delete once the run reaches a terminal status.",
@@ -42099,7 +42099,7 @@
       },
       "patch": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Model Evaluation Run",
         "description": "To update a model evaluation run\u0027s display name, send a PATCH request to \u0060/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}\u0060.",
@@ -42181,7 +42181,7 @@
     "/v2/gen-ai/model_evaluation_runs/{evalRunUuid}/cancel": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Cancel Model Evaluation Run",
         "description": "To cancel an in-progress model evaluation run, send a PUT request to \u0060/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}/cancel\u0060.",
@@ -42263,7 +42263,7 @@
     "/v2/gen-ai/model_evaluation_runs/{evalRunUuid}/results/download_url": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Download URL for Model Evaluation Run Results",
         "description": "To get a presigned download URL for model evaluation run results (gzip-compressed JSON), send a GET request to \u0060/v2/genai/model_evaluation_runs/{eval_run_uuid}/results/download_url\u0060.",
@@ -42336,7 +42336,7 @@
     "/v2/gen-ai/models": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Available Models",
         "description": "To list all models, send a GET request to \u0060/v2/gen-ai/models\u0060.",
@@ -42440,7 +42440,7 @@
     "/v2/gen-ai/models/api_keys": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Model API Keys",
         "description": "To list all model API keys, send a GET request to \u0060/v2/gen-ai/models/api_keys\u0060.",
@@ -42519,7 +42519,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create a Model API Key",
         "description": "**Note: This endpoint is deprecated and has been retired. All requests return a \u0060410 gone\u0060 response.**\n\nCreating model API keys through this endpoint is no longer supported. To create a model access key, visit the manage page in the control panel.\n\nPreviously, you could create a model API key by sending a POST request to \u0060/v2/gen-ai/models/api_keys\u0060.\n",
@@ -42585,7 +42585,7 @@
     "/v2/gen-ai/models/api_keys/{apiKeyUuid}": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update API Key for a Model",
         "description": "To update a model API key, send a PUT request to \u0060/v2/gen-ai/models/api_keys/{api_key_uuid}\u0060.",
@@ -42665,7 +42665,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete API Key for a Model",
         "description": "To delete an API key for a model, send a DELETE request to \u0060/v2/gen-ai/models/api_keys/{api_key_uuid}\u0060.",
@@ -42738,7 +42738,7 @@
     "/v2/gen-ai/models/api_keys/{apiKeyUuid}/regenerate": {
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Regenerate API Key for a Model",
         "description": "To regenerate a model API key, send a PUT request to \u0060/v2/gen-ai/models/api_keys/{api_key_uuid}/regenerate\u0060.",
@@ -42811,7 +42811,7 @@
     "/v2/gen-ai/models/catalog": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Model Catalog",
         "description": "Returns all available models.",
@@ -42993,7 +42993,7 @@
     "/v2/gen-ai/models/catalog/{id}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Model Catalog Card",
         "description": "Returns detailed information for a specific model in the catalog including capabilities, pricing, and code examples.",
@@ -43074,7 +43074,7 @@
     "/v2/gen-ai/models/routers": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Model Routers",
         "description": "To list model routers, send a GET request to \u0060/v2/gen-ai/models/routers\u0060.",
@@ -43153,7 +43153,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create a Model Router",
         "description": "To create a model router, send a POST request to \u0060/v2/gen-ai/models/routers\u0060.",
@@ -43223,7 +43223,7 @@
     "/v2/gen-ai/models/routers/presets": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Model Router Presets",
         "description": "To list model router presets, send a GET request to \u0060/v2/gen-ai/models/routers/presets\u0060.",
@@ -43304,7 +43304,7 @@
     "/v2/gen-ai/models/routers/tasks/presets": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Model Router Task Presets",
         "description": "To list model router task presets, send a GET request to \u0060/v2/gen-ai/models/routers/tasks/presets\u0060.",
@@ -43385,7 +43385,7 @@
     "/v2/gen-ai/models/routers/{uuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve an Existing Model Router",
         "description": "To retrieve details of a model router, send a GET request to \u0060/v2/gen-ai/models/routers/{uuid}\u0060.",
@@ -43456,7 +43456,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update a Model Router",
         "description": "To update a model router, send a PUT request to \u0060/v2/gen-ai/models/routers/{uuid}\u0060.",
@@ -43536,7 +43536,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete a Model Router",
         "description": "To delete a model router, send a DELETE request to \u0060/v2/gen-ai/models/routers/{uuid}\u0060.",
@@ -43609,7 +43609,7 @@
     "/v2/gen-ai/oauth2/dropbox/tokens": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Oauth2 Dropbox Tokens",
         "description": "To obtain the refresh token, needed for creation of data sources, send a GET request to \u0060/v2/gen-ai/oauth2/dropbox/tokens\u0060. Pass the code you obtrained from the oauth flow in the field \u0027code\u0027",
@@ -43679,7 +43679,7 @@
     "/v2/gen-ai/oauth2/url": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Oauth2 URL",
         "description": "To generate an Oauth2-URL for use with your localhost, send a GET request to \u0060/v2/gen-ai/oauth2/url\u0060. Pass \u0027http://localhost:3000 as redirect_url",
@@ -43760,7 +43760,7 @@
     "/v2/gen-ai/openai/keys": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List OpenAI API Keys",
         "description": "To list all OpenAI API keys, send a GET request to \u0060/v2/gen-ai/openai/keys\u0060.",
@@ -43839,7 +43839,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create OpenAI API Key",
         "description": "To create an OpenAI API key, send a POST request to \u0060/v2/gen-ai/openai/keys\u0060.",
@@ -43909,7 +43909,7 @@
     "/v2/gen-ai/openai/keys/{apiKeyUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get OpenAI API Key",
         "description": "To retrieve details of an OpenAI API key, send a GET request to \u0060/v2/gen-ai/openai/keys/{api_key_uuid}\u0060.",
@@ -43980,7 +43980,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update OpenAI API Key",
         "description": "To update an OpenAI API key, send a PUT request to \u0060/v2/gen-ai/openai/keys/{api_key_uuid}\u0060.",
@@ -44060,7 +44060,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete OpenAI API Key",
         "description": "To delete an OpenAI API key, send a DELETE request to \u0060/v2/gen-ai/openai/keys/{api_key_uuid}\u0060.",
@@ -44133,7 +44133,7 @@
     "/v2/gen-ai/openai/keys/{uuid}/agents": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List agents by OpenAI key",
         "description": "List Agents by OpenAI Key.",
@@ -44224,7 +44224,7 @@
     "/v2/gen-ai/regions": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Datacenter Regions",
         "description": "To list all datacenter regions, send a GET request to \u0060/v2/gen-ai/regions\u0060.",
@@ -44305,7 +44305,7 @@
     "/v2/gen-ai/scenario_library": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Common Scenario \u0026 Goal Library",
         "description": "To list the platform-curated Common Scenario \u0026 Goal Library, send a GET request to \u0060/v2/gen-ai/scenario_library\u0060.",
@@ -44422,7 +44422,7 @@
     "/v2/gen-ai/scenario_library/{libraryScenarioUuid}/create_scenario_set": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Scenario Set From Library",
         "description": "To create a scenario set from a Common Scenario \u0026 Goal Library entry, send a POST request to \u0060/v2/gen-ai/scenario_library/{library_scenario_uuid}/create_scenario_set\u0060. The library scenarios are copied into a new scenario set owned by the calling team. The new set is ready to use when creating a simulation run.",
@@ -44504,7 +44504,7 @@
     "/v2/gen-ai/scenario_library/{libraryScenarioUuid}/scenarios": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Scenarios In Library Entry",
         "description": "To list the scenarios inside a Common Scenario \u0026 Goal Library entry without creating a team-owned scenario set, send a GET request to \u0060/v2/gen-ai/scenario_library/{library_scenario_uuid}/scenarios\u0060.",
@@ -44622,7 +44622,7 @@
     "/v2/gen-ai/scenario_sets": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Scenario Sets",
         "description": "To list scenario sets, send a GET request to \u0060/v2/gen-ai/scenario_sets\u0060.",
@@ -44756,7 +44756,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Scenario Set",
         "description": "To create a scenario set, send a POST request to \u0060/v2/gen-ai/scenario_sets\u0060. Provide exactly one of \u0060scenarios\u0060 or \u0060file_upload_scenario_set\u0060. The set is created in the ready state.",
@@ -44826,7 +44826,7 @@
     "/v2/gen-ai/scenario_sets/file_upload_presigned_urls": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Presigned URLs for Scenario Set File Upload",
         "description": "To create presigned URLs for uploading a scenario set file, send a POST request to \u0060/v2/gen-ai/scenario_sets/file_upload_presigned_urls\u0060. After uploading, pass the stored object in Create Scenario Set as \u0060file_upload_scenario_set\u0060.",
@@ -44896,7 +44896,7 @@
     "/v2/gen-ai/scenario_sets/generate": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Generate Scenario Set",
         "description": "To dispatch goal-driven scenario generation, send a POST request to \u0060/v2/gen-ai/scenario_sets/generate\u0060. The scenario set is returned in the generating state. Poll the retrieve scenario set endpoint until the set reaches a ready, failed, or cancelled status.",
@@ -44966,7 +44966,7 @@
     "/v2/gen-ai/scenario_sets/{scenarioSetUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Scenario Set",
         "description": "To retrieve a scenario set, send a GET request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}\u0060.",
@@ -45037,7 +45037,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Scenario Set",
         "description": "To update a scenario set in place, send a PUT request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}\u0060. Provide a new \u0060name\u0060 and/or replacement \u0060scenarios\u0060. At least one is required. Replacing contents keeps the same scenario set UUID, remints scenario UUIDs, and is rejected unless the set is ready and no simulation run references it. There is no file-upload path on update.",
@@ -45117,7 +45117,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Scenario Set",
         "description": "To delete a scenario set, send a DELETE request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}\u0060. A scenario set that is referenced by a simulation run cannot be deleted.",
@@ -45190,7 +45190,7 @@
     "/v2/gen-ai/scenario_sets/{scenarioSetUuid}/download_url": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Scenario Set Download URL",
         "description": "To retrieve a presigned download URL for a scenario set file, send a GET request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}/download_url\u0060.",
@@ -45263,7 +45263,7 @@
     "/v2/gen-ai/scenario_sets/{scenarioSetUuid}/duplicate": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Duplicate Scenario Set",
         "description": "To duplicate a scenario set, send a POST request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}/duplicate\u0060. The source set must be ready. The new set is named \u0060{original name} duplicate\u0060 and contains a copy of the source scenarios.",
@@ -45345,7 +45345,7 @@
     "/v2/gen-ai/scenario_sets/{scenarioSetUuid}/scenarios": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Scenarios",
         "description": "To list the scenarios in a scenario set, send a GET request to \u0060/v2/gen-ai/scenario_sets/{scenario_set_uuid}/scenarios\u0060.",
@@ -45463,7 +45463,7 @@
     "/v2/gen-ai/scheduled-indexing": {
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create scheduled indexing for knowledge base",
         "description": "To create scheduled indexing for a knowledge base, send a POST request to \u0060/v2/gen-ai/scheduled-indexing\u0060.",
@@ -45533,7 +45533,7 @@
     "/v2/gen-ai/scheduled-indexing/knowledge-base/{knowledgeBaseUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Get Scheduled Indexing for Knowledge Base",
         "description": "Get Scheduled Indexing for knowledge base using knoweldge base uuid, send a GET request to \u0060/v2/gen-ai/scheduled-indexing/knowledge-base/{knowledge_base_uuid}\u0060.",
@@ -45606,7 +45606,7 @@
     "/v2/gen-ai/scheduled-indexing/{uuid}": {
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Scheduled Indexing",
         "description": "Delete Scheduled Indexing for knowledge base, send a DELETE request to \u0060/v2/gen-ai/scheduled-indexing/{uuid}\u0060.",
@@ -45679,7 +45679,7 @@
     "/v2/gen-ai/simulation_runs": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Simulation Runs",
         "description": "To list simulation runs, send a GET request to \u0060/v2/gen-ai/simulation_runs\u0060.",
@@ -45808,7 +45808,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create Simulation Run",
         "description": "To create a simulation run, send a POST request to \u0060/v2/gen-ai/simulation_runs\u0060. The scenario set must be ready. Judge and user simulator models are optional and use platform defaults when omitted. The run is returned in the pending state.",
@@ -45878,7 +45878,7 @@
     "/v2/gen-ai/simulation_runs/{runUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Simulation Run",
         "description": "To retrieve a simulation run, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}\u0060.",
@@ -45949,7 +45949,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update Simulation Run",
         "description": "To update a simulation run\u0027s display name, send a PUT request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}\u0060. Only the name is mutable; run configuration and results are immutable.",
@@ -46029,7 +46029,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete Simulation Run",
         "description": "To delete a simulation run, send a DELETE request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}\u0060. The run must be in a terminal status (\u0060SIMULATION_RUN_STATUS_SUCCEEDED\u0060, \u0060SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL\u0060, \u0060SIMULATION_RUN_STATUS_FAILED\u0060, or \u0060SIMULATION_RUN_STATUS_CANCELLED\u0060). For runs still in progress, cancel the run first, then retry the delete.",
@@ -46102,7 +46102,7 @@
     "/v2/gen-ai/simulation_runs/{runUuid}/cancel": {
       "patch": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Cancel Simulation Run",
         "description": "To cancel an in-progress simulation run, send a PATCH request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/cancel\u0060.",
@@ -46184,7 +46184,7 @@
     "/v2/gen-ai/simulation_runs/{runUuid}/journeys": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Simulation Journeys",
         "description": "To list the journeys within a simulation run, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/journeys\u0060.",
@@ -46339,7 +46339,7 @@
     "/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Simulation Journey",
         "description": "To retrieve a single journey, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}\u0060.",
@@ -46422,7 +46422,7 @@
     "/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}/trajectory": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Journey Trajectory",
         "description": "To retrieve a journey\u0027s live trajectory, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}/trajectory\u0060. Poll while the journey is running to watch turn-by-turn progress.",
@@ -46505,7 +46505,7 @@
     "/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}/trajectory_url": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve Journey Trajectory Download URL",
         "description": "To retrieve a presigned download URL for a journey\u0027s trajectory, send a GET request to \u0060/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}/trajectory_url\u0060.",
@@ -46588,7 +46588,7 @@
     "/v2/gen-ai/workspaces": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Workspaces",
         "description": "To list all workspaces, send a GET request to \u0060/v2/gen-ai/workspaces\u0060.",
@@ -46647,7 +46647,7 @@
       },
       "post": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Create a Workspace",
         "description": "To create a new workspace, send a POST request to \u0060/v2/gen-ai/workspaces\u0060. The response body contains a JSON object with the newly created workspace object.",
@@ -46717,7 +46717,7 @@
     "/v2/gen-ai/workspaces/{workspaceUuid}": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Retrieve an Existing Workspace",
         "description": "To retrieve details of a workspace, GET request to \u0060/v2/gen-ai/workspaces/{workspace_uuid}\u0060. The response body is a JSON object containing the workspace.",
@@ -46788,7 +46788,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Update a Workspace",
         "description": "To update a workspace, send a PUT request to \u0060/v2/gen-ai/workspaces/{workspace_uuid}\u0060. The response body is a JSON object containing the workspace.",
@@ -46868,7 +46868,7 @@
       },
       "delete": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Delete a Workspace",
         "description": "To delete a workspace, send a DELETE request to \u0060/v2/gen-ai/workspace/{workspace_uuid}\u0060.",
@@ -46941,7 +46941,7 @@
     "/v2/gen-ai/workspaces/{workspaceUuid}/agents": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List agents by Workspace",
         "description": "To list all agents by a Workspace, send a GET request to \u0060/v2/gen-ai/workspaces/{workspace_uuid}/agents\u0060.",
@@ -47039,7 +47039,7 @@
       },
       "put": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "Move Agents to a Workspace",
         "description": "To move all listed agents a given workspace, send a PUT request to \u0060/v2/gen-ai/workspaces/{workspace_uuid}/agents\u0060.",
@@ -47121,7 +47121,7 @@
     "/v2/gen-ai/workspaces/{workspaceUuid}/evaluation_test_cases": {
       "get": {
         "tags": [
-          "GradientAI Platform"
+          "Agent Platform API"
         ],
         "summary": "List Evaluation Test Cases by Workspace",
         "description": "To list all evaluation test cases by a workspace, send a GET request to \u0060/v2/gen-ai/workspaces/{workspace_uuid}/evaluation_test_cases\u0060.",
@@ -74348,7 +74348,7 @@
             "items": {
               "$ref": "#/components/schemas/ApiKbDataSource"
             },
-            "description": "Optional data sources to attach at creation. Omit or use an empty list to create the knowledge base without sources, then add sources (with chunking strategy and sizes) using [Add a Data Source to a Knowledge Base](#operation/create_knowledge_base_data_source). When provided, see [Organize Data Sources](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/create-manage-agent-knowledge-bases/#add-data-sources) for best practices."
+            "description": "Optional data sources to attach at creation. Omit or use an empty list to create the knowledge base without sources, then add sources (with chunking strategy and sizes) using [Add a Data Source to a Knowledge Base](#operation/create_knowledge_base_data_source). When provided, see [Organize Data Sources](https://docs.digitalocean.com/products/inference/how-to/create-manage-agent-knowledge-bases/#add-data-sources) for best practices."
           },
           "embedding_model_uuid": {
             "type": "string",
@@ -130370,6 +130370,10 @@
       "description": "Discover Action Gateway tools and providers, manage versioned toolbelts and\nOAuth connections, and create policy-bound sessions for end users."
     },
     {
+      "name": "Agent Platform API",
+      "description": "The API lets you build GPU-powered AI agents with pre-built or custom foundation models, function and agent routes, and RAG pipelines with knowledge bases."
+    },
+    {
       "name": "Apps",
       "description": "App Platform is a Platform-as-a-Service (PaaS) offering from DigitalOcean that allows\ndevelopers to publish code directly to DigitalOcean servers without worrying about the\nunderlying infrastructure.\n\nMost API operations are centered around a few core object types. Following are the\ndefinitions of these types. These definitions will be omitted from the operation-specific\ndocumentation.\n\nFor documentation on app specifications (\u0060AppSpec\u0060 objects), please refer to the\n[product documentation](https://docs.digitalocean.com/products/app-platform/reference/app-spec/))."
     },
@@ -130452,10 +130456,6 @@
     {
       "name": "Functions",
       "description": "[Serverless functions](https://docs.digitalocean.com/products/functions) are blocks of code that run on demand without the need to manage any infrastructure.\nYou can develop functions on your local machine and then deploy them to a namespace using \u0060doctl\u0060, the [official DigitalOcean CLI tool](https://docs.digitalocean.com/reference/doctl).\n\nThe Serverless Functions API currently only supports creating and managing namespaces."
-    },
-    {
-      "name": "GradientAI Platform",
-      "description": "The API lets you build GPU-powered AI agents with pre-built or custom foundation models, function and agent routes, and RAG pipelines with knowledge bases."
     },
     {
       "name": "Image Actions",
@@ -130575,17 +130575,17 @@
     },
     {
       "name": "Inference Introduction",
-      "description": "The DigitalOcean Gradient\u2122 AI Agentic Cloud provides inference capabilities through\ntwo API variants:\n\n- **Serverless Inference**: Access serverless inference models using an inference key\n  at \u0060https://inference.do-ai.run\u0060.\n- **Agent Inference**: Integrate multi-agent workflows into your AI applications using\n  a customer-specific agent endpoint.\n\nThese APIs are independent of the main DigitalOcean control-plane API (\u0060https://api.digitalocean.com\u0060).\n\n## Base URLs\n\n| API | Base URL |\n|-----|----------|\n| Serverless Inference | \u0060https://inference.do-ai.run\u0060 |\n| Agent Inference | \u0060https://{your-agent-url}.agents.do-ai.run\u0060 |\n\n## Requests\n\nAny tool that is fluent in HTTP can communicate with the API simply by\nrequesting the correct URI. Requests should be made using the HTTPS protocol\nso that traffic is encrypted. The interface responds to different methods\ndepending on the action required.\n\n|Method|Usage|\n|--- |--- |\n|GET|For simple retrieval of information about your account, Droplets, or environment, you should use the GET method.  The information you request will be returned to you as a JSON object. The attributes defined by the JSON object can be used to form additional requests.  Any request using the GET method is read-only and will not affect any of the objects you are querying.|\n|DELETE|To destroy a resource and remove it from your account and environment, the DELETE method should be used.  This will remove the specified object if it is found.  If it is not found, the operation will return a response indicating that the object was not found. This idempotency means that you do not have to check for a resource\u0027s availability prior to issuing a delete command, the final state will be the same regardless of its existence.|\n|PUT|To update the information about a resource in your account, the PUT method is available. Like the DELETE Method, the PUT method is idempotent.  It sets the state of the target using the provided values, regardless of their current values. Requests using the PUT method do not need to check the current attributes of the object.|\n|PATCH|Some resources support partial modification. In these cases, the PATCH method is available. Unlike PUT which generally requires a complete representation of a resource, a PATCH request is a set of instructions on how to modify a resource updating only specific attributes.|\n|POST|To create a new object, your request should specify the POST method. The POST request includes all of the attributes necessary to create a new object.  When you wish to create a new object, send a POST request to the target endpoint.|\n|HEAD|Finally, to retrieve metadata information, you should use the HEAD method to get the headers.  This returns only the header of what would be returned with an associated GET request. Response headers contain some useful information about your API access and the results that are available for your request. For instance, the headers contain your current rate-limit value and the amount of time available until the limit resets. It also contains metrics about the total number of objects found, pagination information, and the total content length.|\n\n## HTTP Statuses\n\nAlong with the HTTP methods that the API responds to, it will also return\nstandard HTTP statuses, including error codes.\n\nIn the event of a problem, the status will contain the error code, while the\nbody of the response will usually contain additional information about the\nproblem that was encountered.\n\nIn general, if the status returned is in the 200 range, it indicates that\nthe request was fulfilled successfully and that no error was encountered.\n\nReturn codes in the 400 range typically indicate that there was an issue\nwith the request that was sent. Among other things, this could mean that you\ndid not authenticate correctly, that you are requesting an action that you\ndo not have authorization for, that the object you are requesting does not\nexist, or that your request is malformed.\n\nIf you receive a status in the 500 range, this generally indicates a\nserver-side problem. This means that we are having an issue on our end and\ncannot fulfill your request currently.\n\n400 and 500 level error responses will include a JSON object in their body,\nincluding the following attributes:\n\n|Name|Type|Description|\n|--- |--- |--- |\n|id|string|A short identifier corresponding to the HTTP status code returned. For example, the ID for a response returning a 404 status code would be \u0022not_found.\u0022|\n|message|string|A message providing additional information about the error, including details to help resolve it when possible.|\n|request_id|string|Optionally, some endpoints may include a request ID that should be provided when reporting bugs or opening support tickets to help identify the issue.|\n\n### Example Error Response\n\n\u0060\u0060\u0060\n    HTTP/1.1 403 Forbidden\n    {\n      \u0022id\u0022:       \u0022forbidden\u0022,\n      \u0022message\u0022:  \u0022You do not have access for the attempted action.\u0022\n    }\n\u0060\u0060\u0060\n\n## Responses\n\nWhen a request is successful, a response body will typically be sent back in\none of two formats depending on the request parameters:\n\n### JSON Response (Non-Streaming)\n\nBy default, or when \u0060stream\u0060 is set to \u0060false\u0060, the API returns a complete JSON\nresponse once the inference is finished. The response contains the full generated\ncontent in a single payload.\n\n\u0060\u0060\u0060json\n    {\n        \u0022id\u0022: \u0022chatcmpl-abc123\u0022,\n        \u0022object\u0022: \u0022chat.completion\u0022,\n        \u0022created\u0022: 1677858242,\n        \u0022model\u0022: \u0022meta-llama/Llama-3.3-70B-Instruct\u0022,\n        \u0022choices\u0022: [\n            {\n                \u0022index\u0022: 0,\n                \u0022message\u0022: {\n                    \u0022role\u0022: \u0022assistant\u0022,\n                    \u0022content\u0022: \u0022Hello! How can I help you today?\u0022\n                },\n                \u0022finish_reason\u0022: \u0022stop\u0022\n            }\n        ],\n        \u0022usage\u0022: {\n            \u0022prompt_tokens\u0022: 10,\n            \u0022completion_tokens\u0022: 12,\n            \u0022total_tokens\u0022: 22\n        }\n    }\n\u0060\u0060\u0060\n\n### Streaming Response (Server-Sent Events)\n\nWhen \u0060stream\u0060 is set to \u0060true\u0060, the API returns the response as Server-Sent Events\n(SSE) with content type \u0060text/event-stream\u0060. This allows you to receive tokens as\nthey are generated, providing a more responsive user experience.\n\nEach event in the stream is prefixed with \u0060data: \u0060 and contains a JSON object\nrepresenting a chunk of the response. The stream ends with a \u0060data: [DONE]\u0060 message.\n\n\u0060\u0060\u0060\n    data: {\u0022id\u0022:\u0022chatcmpl-abc123\u0022,\u0022object\u0022:\u0022chat.completion.chunk\u0022,\u0022created\u0022:1677858242,\u0022model\u0022:\u0022meta-llama/Llama-3.3-70B-Instruct\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022delta\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Hello\u0022},\u0022finish_reason\u0022:null}]}\n\n    data: {\u0022id\u0022:\u0022chatcmpl-abc123\u0022,\u0022object\u0022:\u0022chat.completion.chunk\u0022,\u0022created\u0022:1677858242,\u0022model\u0022:\u0022meta-llama/Llama-3.3-70B-Instruct\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022delta\u0022:{\u0022content\u0022:\u0022!\u0022},\u0022finish_reason\u0022:null}]}\n\n    data: {\u0022id\u0022:\u0022chatcmpl-abc123\u0022,\u0022object\u0022:\u0022chat.completion.chunk\u0022,\u0022created\u0022:1677858242,\u0022model\u0022:\u0022meta-llama/Llama-3.3-70B-Instruct\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022delta\u0022:{},\u0022finish_reason\u0022:\u0022stop\u0022}]}\n\n    data: [DONE]\n\u0060\u0060\u0060\n\nTo consume streaming responses, read the response body line by line, parse each\n\u0060data:\u0060 line as JSON, and process the \u0060delta.content\u0060 field to build up the\ncomplete response incrementally.\n\n## Rate Limit\n\nRequests through the API are rate limited per OAuth token. Current rate limits:\n\n*   5,000 requests per hour\n*   250 requests per minute (5% of the hourly total)\n\nOnce you exceed either limit, you will be rate limited until the next cycle\nstarts. Space out any requests that you would otherwise issue in bursts for\nthe best results.\n\nThe rate limiting information is contained within the response headers of\neach request. The relevant headers are:\n\n*   **ratelimit-limit**: The number of requests that can be made per hour.\n*   **ratelimit-remaining**: The number of requests that remain before you hit your request limit. See the information below for how the request limits expire.\n*   **ratelimit-reset**: This represents the time when the oldest request will expire. The value is given in [Unix epoch time](http://en.wikipedia.org/wiki/Unix_time). See below for more information about how request limits expire.\n\nMore rate limiting information is returned only within burst limit error response headers:\n*   **retry-after**: The number of seconds to wait before making another request when rate limited.\n\nAs long as the \u0060ratelimit-remaining\u0060 count is above zero, you will be able\nto make additional requests.\n\nThe way that a request expires and is removed from the current limit count\nis important to understand. Rather than counting all of the requests for an\nhour and resetting the \u0060ratelimit-remaining\u0060 value at the end of the hour,\neach request instead has its own timer.\n\nThis means that each request contributes toward the \u0060ratelimit-remaining\u0060\ncount for one complete hour after the request is made. When that request\u0027s\ntimer runs out, it is no longer counted towards the request limit.\n\nThis has implications on the meaning of the \u0060ratelimit-reset\u0060 header as\nwell. Because the entire rate limit is not reset at one time, the value of\nthis header is set to the time when the _oldest_ request will expire.\n\nKeep this in mind if you see your \u0060ratelimit-reset\u0060 value change, but not\nmove an entire hour into the future.\n\nIf the \u0060ratelimit-remaining\u0060 reaches zero, subsequent requests will receive\na 429 error code until the request reset has been reached. \n\n\u0060ratelimit-remaining\u0060 reaching zero can also indicate that the \u0022burst limit\u0022 of 250 \nrequests per minute limit was met, even if the 5,000 requests per hour limit was not. \nIn this case, the 429 error response will include a \u0060retry-after\u0060 header to indicate how \nlong to wait (in seconds) until the request may be retried.\n\nYou can see the format of the response in the examples.\n\n### Sample Rate Limit Headers\n\n\u0060\u0060\u0060\n    . . .\n    ratelimit-limit: 1200\n    ratelimit-remaining: 1193\n    rateLimit-reset: 1402425459\n    . . .\n\u0060\u0060\u0060\n\n### Sample Rate Limit Headers When Burst Limit is Reached:\n\n\u0060\u0060\u0060\n    . . .\n    ratelimit-limit: 5000\n    ratelimit-remaining: 0\n    rateLimit-reset: 1402425459\n    retry-after: 29\n    . . .\n\u0060\u0060\u0060\n\n### Sample Rate Exceeded Response\n\n\u0060\u0060\u0060\n    429 Too Many Requests\n    {\n            id: \u0022too_many_requests\u0022,\n            message: \u0022API Rate limit exceeded.\u0022\n    }\n\u0060\u0060\u0060\n",
+      "description": "DigitalOcean Inference provides inference capabilities through\ntwo API variants:\n\n- **Serverless Inference**: Access serverless inference models using an inference key\n  at \u0060https://inference.do-ai.run\u0060.\n- **Agent Inference**: Integrate multi-agent workflows into your AI applications using\n  a customer-specific agent endpoint.\n\nThese APIs are independent of the main DigitalOcean control-plane API (\u0060https://api.digitalocean.com\u0060).\n\n## Base URLs\n\n| API | Base URL |\n|-----|----------|\n| Serverless Inference | \u0060https://inference.do-ai.run\u0060 |\n| Agent Inference | \u0060https://{your-agent-url}.agents.do-ai.run\u0060 |\n\n## Requests\n\nAny tool that is fluent in HTTP can communicate with the API simply by\nrequesting the correct URI. Requests should be made using the HTTPS protocol\nso that traffic is encrypted. The interface responds to different methods\ndepending on the action required.\n\n|Method|Usage|\n|--- |--- |\n|GET|For simple retrieval of information about your account, Droplets, or environment, you should use the GET method.  The information you request will be returned to you as a JSON object. The attributes defined by the JSON object can be used to form additional requests.  Any request using the GET method is read-only and will not affect any of the objects you are querying.|\n|DELETE|To destroy a resource and remove it from your account and environment, the DELETE method should be used.  This will remove the specified object if it is found.  If it is not found, the operation will return a response indicating that the object was not found. This idempotency means that you do not have to check for a resource\u0027s availability prior to issuing a delete command, the final state will be the same regardless of its existence.|\n|PUT|To update the information about a resource in your account, the PUT method is available. Like the DELETE Method, the PUT method is idempotent.  It sets the state of the target using the provided values, regardless of their current values. Requests using the PUT method do not need to check the current attributes of the object.|\n|PATCH|Some resources support partial modification. In these cases, the PATCH method is available. Unlike PUT which generally requires a complete representation of a resource, a PATCH request is a set of instructions on how to modify a resource updating only specific attributes.|\n|POST|To create a new object, your request should specify the POST method. The POST request includes all of the attributes necessary to create a new object.  When you wish to create a new object, send a POST request to the target endpoint.|\n|HEAD|Finally, to retrieve metadata information, you should use the HEAD method to get the headers.  This returns only the header of what would be returned with an associated GET request. Response headers contain some useful information about your API access and the results that are available for your request. For instance, the headers contain your current rate-limit value and the amount of time available until the limit resets. It also contains metrics about the total number of objects found, pagination information, and the total content length.|\n\n## HTTP Statuses\n\nAlong with the HTTP methods that the API responds to, it will also return\nstandard HTTP statuses, including error codes.\n\nIn the event of a problem, the status will contain the error code, while the\nbody of the response will usually contain additional information about the\nproblem that was encountered.\n\nIn general, if the status returned is in the 200 range, it indicates that\nthe request was fulfilled successfully and that no error was encountered.\n\nReturn codes in the 400 range typically indicate that there was an issue\nwith the request that was sent. Among other things, this could mean that you\ndid not authenticate correctly, that you are requesting an action that you\ndo not have authorization for, that the object you are requesting does not\nexist, or that your request is malformed.\n\nIf you receive a status in the 500 range, this generally indicates a\nserver-side problem. This means that we are having an issue on our end and\ncannot fulfill your request currently.\n\n400 and 500 level error responses will include a JSON object in their body,\nincluding the following attributes:\n\n|Name|Type|Description|\n|--- |--- |--- |\n|id|string|A short identifier corresponding to the HTTP status code returned. For example, the ID for a response returning a 404 status code would be \u0022not_found.\u0022|\n|message|string|A message providing additional information about the error, including details to help resolve it when possible.|\n|request_id|string|Optionally, some endpoints may include a request ID that should be provided when reporting bugs or opening support tickets to help identify the issue.|\n\n### Example Error Response\n\n\u0060\u0060\u0060\n    HTTP/1.1 403 Forbidden\n    {\n      \u0022id\u0022:       \u0022forbidden\u0022,\n      \u0022message\u0022:  \u0022You do not have access for the attempted action.\u0022\n    }\n\u0060\u0060\u0060\n\n## Responses\n\nWhen a request is successful, a response body will typically be sent back in\none of two formats depending on the request parameters:\n\n### JSON Response (Non-Streaming)\n\nBy default, or when \u0060stream\u0060 is set to \u0060false\u0060, the API returns a complete JSON\nresponse once the inference is finished. The response contains the full generated\ncontent in a single payload.\n\n\u0060\u0060\u0060json\n    {\n        \u0022id\u0022: \u0022chatcmpl-abc123\u0022,\n        \u0022object\u0022: \u0022chat.completion\u0022,\n        \u0022created\u0022: 1677858242,\n        \u0022model\u0022: \u0022meta-llama/Llama-3.3-70B-Instruct\u0022,\n        \u0022choices\u0022: [\n            {\n                \u0022index\u0022: 0,\n                \u0022message\u0022: {\n                    \u0022role\u0022: \u0022assistant\u0022,\n                    \u0022content\u0022: \u0022Hello! How can I help you today?\u0022\n                },\n                \u0022finish_reason\u0022: \u0022stop\u0022\n            }\n        ],\n        \u0022usage\u0022: {\n            \u0022prompt_tokens\u0022: 10,\n            \u0022completion_tokens\u0022: 12,\n            \u0022total_tokens\u0022: 22\n        }\n    }\n\u0060\u0060\u0060\n\n### Streaming Response (Server-Sent Events)\n\nWhen \u0060stream\u0060 is set to \u0060true\u0060, the API returns the response as Server-Sent Events\n(SSE) with content type \u0060text/event-stream\u0060. This allows you to receive tokens as\nthey are generated, providing a more responsive user experience.\n\nEach event in the stream is prefixed with \u0060data: \u0060 and contains a JSON object\nrepresenting a chunk of the response. The stream ends with a \u0060data: [DONE]\u0060 message.\n\n\u0060\u0060\u0060\n    data: {\u0022id\u0022:\u0022chatcmpl-abc123\u0022,\u0022object\u0022:\u0022chat.completion.chunk\u0022,\u0022created\u0022:1677858242,\u0022model\u0022:\u0022meta-llama/Llama-3.3-70B-Instruct\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022delta\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Hello\u0022},\u0022finish_reason\u0022:null}]}\n\n    data: {\u0022id\u0022:\u0022chatcmpl-abc123\u0022,\u0022object\u0022:\u0022chat.completion.chunk\u0022,\u0022created\u0022:1677858242,\u0022model\u0022:\u0022meta-llama/Llama-3.3-70B-Instruct\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022delta\u0022:{\u0022content\u0022:\u0022!\u0022},\u0022finish_reason\u0022:null}]}\n\n    data: {\u0022id\u0022:\u0022chatcmpl-abc123\u0022,\u0022object\u0022:\u0022chat.completion.chunk\u0022,\u0022created\u0022:1677858242,\u0022model\u0022:\u0022meta-llama/Llama-3.3-70B-Instruct\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022delta\u0022:{},\u0022finish_reason\u0022:\u0022stop\u0022}]}\n\n    data: [DONE]\n\u0060\u0060\u0060\n\nTo consume streaming responses, read the response body line by line, parse each\n\u0060data:\u0060 line as JSON, and process the \u0060delta.content\u0060 field to build up the\ncomplete response incrementally.\n\n## Rate Limit\n\nRequests through the API are rate limited per OAuth token. Current rate limits:\n\n*   5,000 requests per hour\n*   250 requests per minute (5% of the hourly total)\n\nOnce you exceed either limit, you will be rate limited until the next cycle\nstarts. Space out any requests that you would otherwise issue in bursts for\nthe best results.\n\nThe rate limiting information is contained within the response headers of\neach request. The relevant headers are:\n\n*   **ratelimit-limit**: The number of requests that can be made per hour.\n*   **ratelimit-remaining**: The number of requests that remain before you hit your request limit. See the information below for how the request limits expire.\n*   **ratelimit-reset**: This represents the time when the oldest request will expire. The value is given in [Unix epoch time](http://en.wikipedia.org/wiki/Unix_time). See below for more information about how request limits expire.\n\nMore rate limiting information is returned only within burst limit error response headers:\n*   **retry-after**: The number of seconds to wait before making another request when rate limited.\n\nAs long as the \u0060ratelimit-remaining\u0060 count is above zero, you will be able\nto make additional requests.\n\nThe way that a request expires and is removed from the current limit count\nis important to understand. Rather than counting all of the requests for an\nhour and resetting the \u0060ratelimit-remaining\u0060 value at the end of the hour,\neach request instead has its own timer.\n\nThis means that each request contributes toward the \u0060ratelimit-remaining\u0060\ncount for one complete hour after the request is made. When that request\u0027s\ntimer runs out, it is no longer counted towards the request limit.\n\nThis has implications on the meaning of the \u0060ratelimit-reset\u0060 header as\nwell. Because the entire rate limit is not reset at one time, the value of\nthis header is set to the time when the _oldest_ request will expire.\n\nKeep this in mind if you see your \u0060ratelimit-reset\u0060 value change, but not\nmove an entire hour into the future.\n\nIf the \u0060ratelimit-remaining\u0060 reaches zero, subsequent requests will receive\na 429 error code until the request reset has been reached. \n\n\u0060ratelimit-remaining\u0060 reaching zero can also indicate that the \u0022burst limit\u0022 of 250 \nrequests per minute limit was met, even if the 5,000 requests per hour limit was not. \nIn this case, the 429 error response will include a \u0060retry-after\u0060 header to indicate how \nlong to wait (in seconds) until the request may be retried.\n\nYou can see the format of the response in the examples.\n\n### Sample Rate Limit Headers\n\n\u0060\u0060\u0060\n    . . .\n    ratelimit-limit: 1200\n    ratelimit-remaining: 1193\n    rateLimit-reset: 1402425459\n    . . .\n\u0060\u0060\u0060\n\n### Sample Rate Limit Headers When Burst Limit is Reached:\n\n\u0060\u0060\u0060\n    . . .\n    ratelimit-limit: 5000\n    ratelimit-remaining: 0\n    rateLimit-reset: 1402425459\n    retry-after: 29\n    . . .\n\u0060\u0060\u0060\n\n### Sample Rate Exceeded Response\n\n\u0060\u0060\u0060\n    429 Too Many Requests\n    {\n            id: \u0022too_many_requests\u0022,\n            message: \u0022API Rate limit exceeded.\u0022\n    }\n\u0060\u0060\u0060\n",
       "x-displayName": "Introduction",
       "x-traitTag": true
     },
     {
       "name": "Serverless Inference",
-      "description": "DigitalOcean Gradient\u2122 AI Agentic Cloud allows access to serverless inference models.\nYou can access models by providing an inference key.\n\n**Note:** The Serverless Inference API uses a separate base URL (\u0060https://inference.do-ai.run\u0060)\nand is independent of the main DigitalOcean control-plane API (\u0060https://api.digitalocean.com\u0060)."
+      "description": "DigitalOcean Inference allows access to serverless inference models.\nYou can access models by providing an inference key.\n\n**Note:** The Serverless Inference API uses a separate base URL (\u0060https://inference.do-ai.run\u0060)\nand is independent of the main DigitalOcean control-plane API (\u0060https://api.digitalocean.com\u0060)."
     },
     {
       "name": "Agent Inference",
-      "description": "DigitalOcean Gradient\u2122 AI Agentic Cloud allows you to create multi-agent workflows\nto power your AI applications. This allows developers to integrate agents into your\nAI applications.\n\n**Note:** The Agent Inference API uses a customer-specific base URL (the agent endpoint)\nand is independent of the main DigitalOcean control-plane API (\u0060https://api.digitalocean.com\u0060)."
+      "description": "DigitalOcean Agent Platform allows you to create multi-agent workflows\nto power your AI applications. This allows developers to integrate agents into your\nAI applications.\n\n**Note:** The Agent Inference API uses a customer-specific base URL (the agent endpoint)\nand is independent of the main DigitalOcean control-plane API (\u0060https://api.digitalocean.com\u0060)."
     },
     {
       "name": "Batch Inference",
@@ -130602,6 +130602,7 @@
         "Actions",
         "Add-Ons",
         "Action Gateway",
+        "Agent Platform API",
         "Apps",
         "Billing",
         "Block Storage",
@@ -130622,7 +130623,6 @@
         "Floating IP Actions",
         "Floating IPs",
         "Functions",
-        "GradientAI Platform",
         "Image Actions",
         "Images",
         "Kubernetes",

@@ -823,6 +823,11 @@ tags:
       and
 
       OAuth connections, and create policy-bound sessions for end users.
+  - name: Agent Platform API
+    description: >-
+      The API lets you build GPU-powered AI agents with pre-built or custom
+      foundation models, function and agent routes, and RAG pipelines with
+      knowledge bases.
   - name: Apps
     description: >-
       App Platform is a Platform-as-a-Service (PaaS) offering from DigitalOcean
@@ -1329,11 +1334,6 @@ tags:
 
       The Serverless Functions API currently only supports creating and managing
       namespaces.
-  - name: GradientAI Platform
-    description: >-
-      The API lets you build GPU-powered AI agents with pre-built or custom
-      foundation models, function and agent routes, and RAG pipelines with
-      knowledge bases.
   - name: Image Actions
     description: |-
       Image actions are commands that can be given to a DigitalOcean image. In
@@ -1757,8 +1757,7 @@ tags:
     x-displayName: Introduction
     x-traitTag: true
     description: >
-      The DigitalOcean Gradient™ AI Agentic Cloud provides inference
-      capabilities through
+      DigitalOcean Inference provides inference capabilities through
 
       two API variants:
 
@@ -2140,8 +2139,7 @@ tags:
       ```
   - name: Serverless Inference
     description: >-
-      DigitalOcean Gradient™ AI Agentic Cloud allows access to serverless
-      inference models.
+      DigitalOcean Inference allows access to serverless inference models.
 
       You can access models by providing an inference key.
 
@@ -2153,8 +2151,7 @@ tags:
       (`https://api.digitalocean.com`).
   - name: Agent Inference
     description: >-
-      DigitalOcean Gradient™ AI Agentic Cloud allows you to create multi-agent
-      workflows
+      DigitalOcean Agent Platform allows you to create multi-agent workflows
 
       to power your AI applications. This allows developers to integrate agents
       into your
@@ -2187,6 +2184,7 @@ x-tagGroups:
       - Actions
       - Add-Ons
       - Action Gateway
+      - Agent Platform API
       - Apps
       - Billing
       - Block Storage
@@ -2207,7 +2205,6 @@ x-tagGroups:
       - Floating IP Actions
       - Floating IPs
       - Functions
-      - GradientAI Platform
       - Image Actions
       - Images
       - Kubernetes
@@ -38997,7 +38994,7 @@ paths:
             - genai:read
       summary: List Agents
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39045,7 +39042,7 @@ paths:
             - genai:create
       summary: Create an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39122,7 +39119,7 @@ paths:
             - genai:read
       summary: List Agent API Keys
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39177,7 +39174,7 @@ paths:
             - genai:create
       summary: Create an Agent API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39244,7 +39241,7 @@ paths:
             - genai:update
       summary: Update API Key for an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39306,7 +39303,7 @@ paths:
             - genai:delete
       summary: 'Delete API Key for an Agent '
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39364,7 +39361,7 @@ paths:
             - genai:update
       summary: Regenerate API Key for an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39420,7 +39417,7 @@ paths:
             - genai:create
       summary: Add Function Route to an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39504,7 +39501,7 @@ paths:
             - genai:update
       summary: Update Function Route for an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39568,7 +39565,7 @@ paths:
             - genai:delete
       summary: Delete Function Route for an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39624,7 +39621,7 @@ paths:
             - genai:create
       summary: Attach Guardrails to an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39694,7 +39691,7 @@ paths:
             - genai:delete
       summary: Detach a Guardrail from an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39745,7 +39742,7 @@ paths:
             - genai:create
       summary: Attach Knowledge Bases to an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39811,7 +39808,7 @@ paths:
             - genai:create
       summary: Attach Knowledge Base to an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39874,7 +39871,7 @@ paths:
             - genai:delete
       summary: Detach Knowledge Base from an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -39937,7 +39934,7 @@ paths:
             - genai:create
       summary: Add Agent Route to an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40006,7 +40003,7 @@ paths:
             - genai:update
       summary: Update Agent Route for an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40070,7 +40067,7 @@ paths:
             - genai:delete
       summary: Delete Agent Route for an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40122,7 +40119,7 @@ paths:
             - genai:read
       summary: Retrieve an Existing Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40178,7 +40175,7 @@ paths:
             - genai:update
       summary: Update an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40241,7 +40238,7 @@ paths:
             - genai:delete
       summary: Delete an Agent
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40292,7 +40289,7 @@ paths:
             - genai:read
       summary: View Agent Routes
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40349,7 +40346,7 @@ paths:
             - genai:update
       summary: Update Agent Status
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40419,7 +40416,7 @@ paths:
             - genai:read
       summary: Get Agent Usage
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40482,7 +40479,7 @@ paths:
             - genai:read
       summary: List Agent Versions
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40537,7 +40534,7 @@ paths:
             - genai:update
       summary: Rollback to Agent Version
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40597,7 +40594,7 @@ paths:
             - genai:read
       summary: List Anthropic API Keys
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40644,7 +40641,7 @@ paths:
             - genai:create
       summary: Create Anthropic API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40699,7 +40696,7 @@ paths:
             - genai:read
       summary: Get Anthropic API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40754,7 +40751,7 @@ paths:
             - genai:update
       summary: Update Anthropic API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40808,7 +40805,7 @@ paths:
             - genai:delete
       summary: Delete Anthropic API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40869,7 +40866,7 @@ paths:
             - genai:read
       summary: List agents by Anthropic key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40936,7 +40933,7 @@ paths:
             - genai:read
       summary: List Custom Models
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -40984,7 +40981,7 @@ paths:
             - genai:create
       summary: Import Custom Model
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41049,7 +41046,7 @@ paths:
             - genai:read
       summary: Get Custom Model
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41099,7 +41096,7 @@ paths:
             - genai:delete
       summary: Delete Custom Model
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41154,7 +41151,7 @@ paths:
             - genai:update
       summary: Update Custom Model Metadata
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41220,7 +41217,7 @@ paths:
             - genai:read
       summary: List Evaluation Datasets
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41267,7 +41264,7 @@ paths:
             - genai:create
       summary: Create Evaluation Dataset
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41325,7 +41322,7 @@ paths:
             - genai:create
       summary: Create Presigned URLs for Evaluation Dataset File Upload
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41383,7 +41380,7 @@ paths:
             - genai:delete
       summary: Delete Evaluation Dataset
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41434,7 +41431,7 @@ paths:
             - genai:read
       summary: Get Download URL for Evaluation Dataset
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41477,7 +41474,7 @@ paths:
             - genai:read
       summary: List Evaluation Metrics
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41525,7 +41522,7 @@ paths:
             - genai:create
       summary: Create Custom Evaluation Metric
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41589,7 +41586,7 @@ paths:
             - genai:update
       summary: Update Custom Evaluation Metric
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41648,7 +41645,7 @@ paths:
             - genai:delete
       summary: Delete Custom Evaluation Metric
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41696,7 +41693,7 @@ paths:
             - genai:create
       summary: Run an Evaluation Test Case
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41752,7 +41749,7 @@ paths:
             - genai:read
       summary: Retrieve Information About an Existing Evaluation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41815,7 +41812,7 @@ paths:
             - genai:read
       summary: Retrieve Results of an Evaluation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41873,7 +41870,7 @@ paths:
             - genai:read
       summary: Retrieve Results of an Evaluation Run Prompt
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41916,7 +41913,7 @@ paths:
             - genai:read
       summary: List Evaluation Test Cases
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -41963,7 +41960,7 @@ paths:
             - genai:create
       summary: Create Evaluation Test Case.
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42032,7 +42029,7 @@ paths:
             - genai:read
       summary: List Evaluation Runs by Test Case
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42089,7 +42086,7 @@ paths:
             - genai:read
       summary: Retrieve Information About an Existing Evaluation Test Case
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42144,7 +42141,7 @@ paths:
             - genai:update
       summary: Update an Evaluation Test Case.
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42212,7 +42209,7 @@ paths:
             - genai:read
       summary: List Indexing Jobs for a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42259,7 +42256,7 @@ paths:
             - genai:create
       summary: Start Indexing Job for a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42316,7 +42313,7 @@ paths:
             - genai:read
       summary: List Data Sources for Indexing Job for a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42369,7 +42366,7 @@ paths:
             - genai:read
       summary: Get Signed URL for Indexing Job Details
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: >-
@@ -42423,7 +42420,7 @@ paths:
             - genai:read
       summary: Retrieve Status of Indexing Job for a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42481,7 +42478,7 @@ paths:
             - genai:update
       summary: Cancel Indexing Job for a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42540,7 +42537,7 @@ paths:
             - genai:read
       summary: List Knowledge Bases
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42587,7 +42584,7 @@ paths:
             - genai:create
       summary: Create a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42689,7 +42686,7 @@ paths:
             - genai:create
       summary: Create Presigned URLs for Data Source File Upload
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42758,7 +42755,7 @@ paths:
             - genai:read
       summary: List Data Sources for a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42813,7 +42810,7 @@ paths:
             - genai:create
       summary: Add Data Source to a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42889,7 +42886,7 @@ paths:
             - genai:update
       summary: Update Data Source options
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -42952,7 +42949,7 @@ paths:
             - genai:delete
       summary: Delete a Data Source from a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43003,7 +43000,7 @@ paths:
             - genai:read
       summary: List Indexing Jobs for a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: >-
@@ -43057,7 +43054,7 @@ paths:
             - genai:read
       summary: Retrieve Information About an Existing Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43113,7 +43110,7 @@ paths:
             - genai:update
       summary: Update a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43171,7 +43168,7 @@ paths:
             - genai:delete
       summary: Delete a Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43222,7 +43219,7 @@ paths:
             - genai:create
       summary: Create Presigned URLs for Model Evaluation Dataset File Upload
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43271,7 +43268,7 @@ paths:
             - genai:read
       summary: List Model Evaluation Metrics
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43314,7 +43311,7 @@ paths:
             - genai:read
       summary: List Model Evaluation Presets
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43365,7 +43362,7 @@ paths:
             - genai:read
       summary: Retrieve Model Evaluation Preset
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43415,7 +43412,7 @@ paths:
             - genai:delete
       summary: Delete Model Evaluation Preset
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43562,7 +43559,7 @@ paths:
             - genai:read
       summary: List Model Evaluation Runs
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43609,7 +43606,7 @@ paths:
             - genai:create
       summary: Create Model Evaluation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43681,7 +43678,7 @@ paths:
             - genai:read
       summary: Retrieve Model Evaluation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43745,7 +43742,7 @@ paths:
             - genai:delete
       summary: Delete Model Evaluation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43804,7 +43801,7 @@ paths:
             - genai:update
       summary: Update Model Evaluation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43873,7 +43870,7 @@ paths:
             - genai:update
       summary: Cancel Model Evaluation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -43929,7 +43926,7 @@ paths:
             - genai:read
       summary: Get Download URL for Model Evaluation Run Results
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44015,7 +44012,7 @@ paths:
             - genai:read
       summary: List Available Models
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44071,7 +44068,7 @@ paths:
             - genai:read
       summary: List Model API Keys
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44131,7 +44128,7 @@ paths:
         - bearer_auth:
             - genai:create
       tags:
-        - GradientAI Platform
+        - Agent Platform API
   /v2/gen-ai/models/api_keys/{api_key_uuid}:
     put:
       description: >-
@@ -44180,7 +44177,7 @@ paths:
             - genai:update
       summary: Update API Key for a Model
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44234,7 +44231,7 @@ paths:
             - genai:delete
       summary: Delete API Key for a Model
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44285,7 +44282,7 @@ paths:
             - genai:update
       summary: Regenerate API Key for a Model
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44466,7 +44463,7 @@ paths:
             - genai:read
       summary: List Model Catalog
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44524,7 +44521,7 @@ paths:
             - genai:read
       summary: Get Model Catalog Card
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44579,7 +44576,7 @@ paths:
             - genai:read
       summary: List Model Routers
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44626,7 +44623,7 @@ paths:
             - genai:create
       summary: Create a Model Router
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44697,7 +44694,7 @@ paths:
             - genai:read
       summary: List Model Router Presets
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44753,7 +44750,7 @@ paths:
             - genai:read
       summary: List Model Router Task Presets
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44804,7 +44801,7 @@ paths:
             - genai:read
       summary: Retrieve an Existing Model Router
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44859,7 +44856,7 @@ paths:
             - genai:update
       summary: Update a Model Router
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44924,7 +44921,7 @@ paths:
             - genai:delete
       summary: Delete a Model Router
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -44973,7 +44970,7 @@ paths:
             - genai:create
       summary: Get Oauth2 Dropbox Tokens
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45030,7 +45027,7 @@ paths:
             - genai:read
       summary: Get Oauth2 URL
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45086,7 +45083,7 @@ paths:
             - genai:read
       summary: List OpenAI API Keys
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45133,7 +45130,7 @@ paths:
             - genai:create
       summary: Create OpenAI API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45188,7 +45185,7 @@ paths:
             - genai:read
       summary: Get OpenAI API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45243,7 +45240,7 @@ paths:
             - genai:update
       summary: Update OpenAI API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45297,7 +45294,7 @@ paths:
             - genai:delete
       summary: Delete OpenAI API Key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45358,7 +45355,7 @@ paths:
             - genai:read
       summary: List agents by OpenAI key
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45414,7 +45411,7 @@ paths:
             - genai:read
       summary: List Datacenter Regions
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45510,7 +45507,7 @@ paths:
             - genai:read
       summary: List Common Scenario & Goal Library
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45570,7 +45567,7 @@ paths:
             - genai:create
       summary: Create Scenario Set From Library
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45674,7 +45671,7 @@ paths:
             - genai:read
       summary: List Scenarios In Library Entry
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45811,7 +45808,7 @@ paths:
             - genai:read
       summary: List Scenario Sets
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45859,7 +45856,7 @@ paths:
             - genai:create
       summary: Create Scenario Set
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45923,7 +45920,7 @@ paths:
             - genai:create
       summary: Create Presigned URLs for Scenario Set File Upload
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -45979,7 +45976,7 @@ paths:
             - genai:create
       summary: Generate Scenario Set
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46035,7 +46032,7 @@ paths:
             - genai:read
       summary: Retrieve Scenario Set
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46096,7 +46093,7 @@ paths:
             - genai:update
       summary: Update Scenario Set
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46153,7 +46150,7 @@ paths:
             - genai:delete
       summary: Delete Scenario Set
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46204,7 +46201,7 @@ paths:
             - genai:read
       summary: Retrieve Scenario Set Download URL
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46262,7 +46259,7 @@ paths:
             - genai:create
       summary: Duplicate Scenario Set
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46364,7 +46361,7 @@ paths:
             - genai:read
       summary: List Scenarios
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46412,7 +46409,7 @@ paths:
             - genai:create
       summary: Create scheduled indexing for knowledge base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: >-
@@ -46476,7 +46473,7 @@ paths:
             - genai:read
       summary: Get Scheduled Indexing for Knowledge Base
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: >-
@@ -46530,7 +46527,7 @@ paths:
             - genai:delete
       summary: Delete Scheduled Indexing
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: >-
@@ -46665,7 +46662,7 @@ paths:
             - genai:read
       summary: List Simulation Runs
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46714,7 +46711,7 @@ paths:
             - genai:create
       summary: Create Simulation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46784,7 +46781,7 @@ paths:
             - genai:read
       summary: Retrieve Simulation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46844,7 +46841,7 @@ paths:
             - genai:update
       summary: Update Simulation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46904,7 +46901,7 @@ paths:
             - genai:delete
       summary: Delete Simulation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -46967,7 +46964,7 @@ paths:
             - genai:update
       summary: Cancel Simulation Run
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47117,7 +47114,7 @@ paths:
             - genai:read
       summary: List Simulation Journeys
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47175,7 +47172,7 @@ paths:
             - genai:read
       summary: Retrieve Simulation Journey
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47234,7 +47231,7 @@ paths:
             - genai:read
       summary: Retrieve Journey Trajectory
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47294,7 +47291,7 @@ paths:
             - genai:read
       summary: Retrieve Journey Trajectory Download URL
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47335,7 +47332,7 @@ paths:
             - genai:read
       summary: List Workspaces
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47383,7 +47380,7 @@ paths:
             - genai:create
       summary: Create a Workspace
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47442,7 +47439,7 @@ paths:
             - genai:read
       summary: Retrieve an Existing Workspace
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47498,7 +47495,7 @@ paths:
             - genai:update
       summary: Update a Workspace
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47553,7 +47550,7 @@ paths:
             - genai:delete
       summary: Delete a Workspace
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47622,7 +47619,7 @@ paths:
             - genai:read
       summary: List agents by Workspace
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47677,7 +47674,7 @@ paths:
             - genai:update
       summary: Move Agents to a Workspace
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -47733,7 +47730,7 @@ paths:
             - genai:read
       summary: List Evaluation Test Cases by Workspace
       tags:
-        - GradientAI Platform
+        - Agent Platform API
       x-codeSamples:
         - lang: cURL
           source: |-
@@ -75024,7 +75021,7 @@ components:
             (with chunking strategy and sizes) using [Add a Data Source to a
             Knowledge Base](#operation/create_knowledge_base_data_source). When
             provided, see [Organize Data
-            Sources](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/create-manage-agent-knowledge-bases/#add-data-sources)
+            Sources](https://docs.digitalocean.com/products/inference/how-to/create-manage-agent-knowledge-bases/#add-data-sources)
             for best practices.
           items:
             $ref: '#/components/schemas/apiKBDataSource'
