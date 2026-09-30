@@ -24,6 +24,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DatasetName { get; set; }
 #endif
+        /// <summary>EvaluationDatasetParadigm is the row/content shape of a dataset, orthogonal to thesurface in EvaluationDatasetType (e.g. a model dataset can be single- or multi-turn).</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? DatasetParadigm { get; set; }
         /// <summary>The dataset_type property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType? DatasetType { get; set; }
         /// <summary>UUID of the dataset.</summary>
@@ -73,6 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dataset_name", n => { DatasetName = n.GetStringValue(); } },
+                { "dataset_paradigm", n => { DatasetParadigm = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>(); } },
                 { "dataset_type", n => { DatasetType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>(); } },
                 { "dataset_uuid", n => { DatasetUuid = n.GetStringValue(); } },
                 { "file_size", n => { FileSize = n.GetStringValue(); } },
@@ -89,6 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("dataset_name", DatasetName);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>("dataset_paradigm", DatasetParadigm);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>("dataset_type", DatasetType);
             writer.WriteStringValue("dataset_uuid", DatasetUuid);
             writer.WriteStringValue("file_size", FileSize);

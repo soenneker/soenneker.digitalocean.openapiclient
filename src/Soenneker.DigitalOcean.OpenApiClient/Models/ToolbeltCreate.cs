@@ -7,12 +7,15 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Describes a new toolbelt.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ToolbeltCreate : IParsable
-    #pragma warning restore CS1591
+    public partial class ToolbeltCreate : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The description property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Optional description. At most 255 bytes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -20,7 +23,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The display_name property</summary>
+        /// <summary>Optional human-readable label, separate from name. At most 128 bytes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -28,7 +31,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Toolbelt name, unique among your team&apos;s active toolbelts. Must match `^`[a-z]``[a-z0-9_-]`{0,63}$`; `search` is reserved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -36,7 +39,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The tools property</summary>
+        /// <summary>Optional initial members, as catalog tool slugs (`&lt;provider&gt;_&lt;name&gt;`). Each may be pinned as `&lt;tool_slug&gt;@&lt;version&gt;`; a pin must equal the tool&apos;s current released version, and an unpinned tool is pinned to that version. Every tool must be an active catalog tool. Duplicates are merged; at most 500 tools. Empty creates a toolbelt with no tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tools { get; set; }
@@ -44,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<string> Tools { get; set; }
 #endif
-        /// <summary>The version property</summary>
+        /// <summary>Optional initial version number, a positive integer such as `1`. Defaults to 1.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }
@@ -57,6 +60,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// </summary>
         public ToolbeltCreate()
         {
+            AdditionalData = new Dictionary<string, object>();
             Version = "1";
         }
         /// <summary>
@@ -96,6 +100,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             writer.WriteStringValue("version", Version);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

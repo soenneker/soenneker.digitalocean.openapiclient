@@ -7,19 +7,29 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Returns the created toolbelt.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ToolbeltResponse : IParsable
-    #pragma warning restore CS1591
+    public partial class ToolbeltResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The toolbelt property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The first version of the new toolbelt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Toolbelt? Toolbelt { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponseToolbelt? Toolbelt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Toolbelt Toolbelt { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponseToolbelt Toolbelt { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse"/> and sets the default values.
+        /// </summary>
+        public ToolbeltResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "toolbelt", n => { Toolbelt = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Toolbelt>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Toolbelt.CreateFromDiscriminatorValue); } },
+                { "toolbelt", n => { Toolbelt = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponseToolbelt>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponseToolbelt.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +58,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Toolbelt>("toolbelt", Toolbelt);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponseToolbelt>("toolbelt", Toolbelt);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

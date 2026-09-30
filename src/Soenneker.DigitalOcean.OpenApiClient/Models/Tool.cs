@@ -7,20 +7,23 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Summarizes a released tool.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Tool : IParsable
-    #pragma warning restore CS1591
+    public partial class Tool : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The annotations property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Advisory behavior hints for the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations? Annotations { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotationsComposed? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations Annotations { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotationsComposed Annotations { get; set; }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>What the tool does.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -28,7 +31,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The inputSchema property</summary>
+        /// <summary>JSON Schema the tool&apos;s arguments must satisfy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolInputSchemaProperty? InputSchema { get; set; }
@@ -36,7 +39,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolInputSchemaProperty InputSchema { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Tool name, without the provider prefix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -44,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The outputSchema property</summary>
+        /// <summary>JSON Schema of the tool&apos;s result, when declared.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolOutputSchemaProperty? OutputSchema { get; set; }
@@ -52,11 +55,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolOutputSchemaProperty OutputSchema { get; set; }
 #endif
-        /// <summary>The parallelizable property</summary>
+        /// <summary>Catalog hint that calls to the tool may run in parallel.</summary>
         public bool? Parallelizable { get; set; }
-        /// <summary>The streamingSafe property</summary>
+        /// <summary>Catalog hint that the tool&apos;s result can be streamed.</summary>
         public bool? StreamingSafe { get; set; }
-        /// <summary>The title property</summary>
+        /// <summary>Human-readable tool title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
@@ -64,7 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Title { get; set; }
 #endif
-        /// <summary>The toolkitId property</summary>
+        /// <summary>ID of the provider that offers the tool. For a tool from one of your team&apos;s MCP servers it is that server&apos;s `serverRef`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ToolkitId { get; set; }
@@ -72,7 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ToolkitId { get; set; }
 #endif
-        /// <summary>tool_slug is the provider-qualified, stable tool identifier&quot;&lt;toolkit_id&gt;_&lt;name&gt;&quot;. Pass this value back verbatim to the toolbeltadd/remove endpoints; clients should treat it as opaque rather thanreconstructing it from toolkit_id and name.</summary>
+        /// <summary>The provider-qualified, stable tool identifier `&lt;toolkit_id&gt;_&lt;name&gt;`. Pass this value back verbatim to the toolbelt add/remove endpoints; clients should treat it as opaque rather than reconstructing it from `toolkitId` and name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ToolSlug { get; set; }
@@ -80,7 +83,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ToolSlug { get; set; }
 #endif
-        /// <summary>The version property</summary>
+        /// <summary>Released version, for example `v3`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }
@@ -88,6 +91,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Version { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Tool"/> and sets the default values.
+        /// </summary>
+        public Tool()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -106,7 +116,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotationsComposed>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotationsComposed.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolInputSchemaProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolInputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -126,7 +136,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotationsComposed>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolInputSchemaProperty>("inputSchema", InputSchema);
             writer.WriteStringValue("name", Name);
@@ -137,6 +147,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("toolkitId", ToolkitId);
             writer.WriteStringValue("toolSlug", ToolSlug);
             writer.WriteStringValue("version", Version);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -2,7 +2,10 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Actors;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.McpServers;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools;
@@ -19,10 +22,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionGatewayRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The actors property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Actors.ActorsRequestBuilder Actors
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Actors.ActorsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The connections property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.ConnectionsRequestBuilder Connections
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.ConnectionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mcpServers property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.McpServers.McpServersRequestBuilder McpServers
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.McpServers.McpServersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The outputViews property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews.OutputViewsRequestBuilder OutputViews
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews.OutputViewsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sessions property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.SessionsRequestBuilder Sessions

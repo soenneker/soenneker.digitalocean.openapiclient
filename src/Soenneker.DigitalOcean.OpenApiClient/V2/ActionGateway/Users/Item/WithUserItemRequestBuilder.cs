@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users.Item
         {
         }
         /// <summary>
-        /// Retrieves a derived end-user view containing its sessions and OAuth connections.
+        /// Returns the sessions and non-revoked connections of one user ID. Returns 404 when the user has none you can see and no limit overrides.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a derived end-user view containing its sessions and OAuth connections.
+        /// Returns the sessions and non-revoked connections of one user ID. Returns 404 when the user has none you can see and no limit overrides.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

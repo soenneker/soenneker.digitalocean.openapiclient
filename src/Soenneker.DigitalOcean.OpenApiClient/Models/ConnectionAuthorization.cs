@@ -8,12 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// ConnectionAuthorization is present only while a connection is pending. TheUI sends the user to connect_url and polls GetConnection until the connectionbecomes active or expires. The Secrets Manager poll URL is never exposed.
+    /// Present only while a connection is pending. Send the user to `connect_url`, then read the connection until it becomes active or expired.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ConnectionAuthorization : IParsable
+    public partial class ConnectionAuthorization : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The connect_url property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Browser URL, on a DigitalOcean Cloud origin, where the user authorizes the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConnectUrl { get; set; }
@@ -21,17 +23,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ConnectUrl { get; set; }
 #endif
-        /// <summary>The expires_at property</summary>
+        /// <summary>When the authorization expires. The link can stop working earlier; if the connection becomes expired, create it again for a new link.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
-        /// <summary>The verification_code property</summary>
+        /// <summary>Currently always `requires_authorization`.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RequiresAuthorizationStatus? Status { get; set; }
+        /// <summary>Verification code issued with `connect_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VerificationCode { get; set; }
@@ -40,14 +36,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string VerificationCode { get; set; }
 #endif
         /// <summary>
-        /// Creates a new instance of the appropriate class based on discriminator value
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization"/> and sets the default values.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization"/></returns>
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization CreateFromDiscriminatorValue(IParseNode parseNode)
+        public ConnectionAuthorization()
         {
-            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization();
+            AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "connect_url", n => { ConnectUrl = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RequiresAuthorizationStatus>(); } },
                 { "verification_code", n => { VerificationCode = n.GetStringValue(); } },
             };
         }
@@ -72,8 +65,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connect_url", ConnectUrl);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
-            writer.WriteStringValue("status", Status);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RequiresAuthorizationStatus>("status", Status);
             writer.WriteStringValue("verification_code", VerificationCode);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

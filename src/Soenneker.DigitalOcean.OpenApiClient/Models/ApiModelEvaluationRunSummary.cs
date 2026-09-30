@@ -23,7 +23,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string CandidateModelName { get; set; }
 #endif
-        /// <summary>Whether inference runs against the serverless platform, a dedicated deployment, or a model router.</summary>
+        /// <summary>Whether the candidate is a served model (serverless platform, a dedicateddeployment, or a model router) or an OHS-hosted agent config.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource? CandidateModelSource { get; set; }
         /// <summary>UUID of the candidate model being evaluated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

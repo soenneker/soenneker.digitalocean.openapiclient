@@ -8,12 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// ConnectionParameterSpec describes one non-sensitive value collected whileconfiguring a provider connection. The UI and MCP clients render thesespecifications generically.
+    /// Describes one non-sensitive value collected while configuring a provider connection. Clients can render these specifications generically.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ConnectionParameterSpec : IParsable
+    public partial class ConnectionParameterSpec : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The allowed_host_suffixes property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>For `https_origin` inputs, the host suffixes the origin&apos;s host must match.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? AllowedHostSuffixes { get; set; }
@@ -21,7 +23,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<string> AllowedHostSuffixes { get; set; }
 #endif
-        /// <summary>The allowed_values property</summary>
+        /// <summary>For enum inputs, the accepted values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? AllowedValues { get; set; }
@@ -29,7 +31,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<string> AllowedValues { get; set; }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>Help text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -37,15 +39,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The input_kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? InputKind { get; set; }
-#nullable restore
-#else
-        public string InputKind { get; set; }
-#endif
-        /// <summary>The key property</summary>
+        /// <summary>How the value is entered: string, `https_origin`, or enum.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpecInputKind? InputKind { get; set; }
+        /// <summary>Key of the value in `connection_parameters` or `credential_parameters`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Key { get; set; }
@@ -53,7 +49,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Key { get; set; }
 #endif
-        /// <summary>The label property</summary>
+        /// <summary>Display label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Label { get; set; }
@@ -61,9 +57,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Label { get; set; }
 #endif
-        /// <summary>The max_length property</summary>
+        /// <summary>Maximum length of the value. 0 means the default maximum of 4096.</summary>
         public int? MaxLength { get; set; }
-        /// <summary>The normalization property</summary>
+        /// <summary>How the value is normalized before it is validated and stored: trim, lowercase, uppercase, or `https_origin`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Normalization { get; set; }
@@ -71,8 +67,23 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Normalization { get; set; }
 #endif
-        /// <summary>The required property</summary>
+        /// <summary>Optional RE2 expression matched against the whole normalized value.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Pattern { get; set; }
+#nullable restore
+#else
+        public string Pattern { get; set; }
+#endif
+        /// <summary>Whether the value must be supplied.</summary>
         public bool? Required { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec"/> and sets the default values.
+        /// </summary>
+        public ConnectionParameterSpec()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -94,11 +105,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "allowed_host_suffixes", n => { AllowedHostSuffixes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "allowed_values", n => { AllowedValues = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "input_kind", n => { InputKind = n.GetStringValue(); } },
+                { "input_kind", n => { InputKind = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpecInputKind>(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "max_length", n => { MaxLength = n.GetIntValue(); } },
                 { "normalization", n => { Normalization = n.GetStringValue(); } },
+                { "pattern", n => { Pattern = n.GetStringValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
             };
         }
@@ -112,12 +124,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_host_suffixes", AllowedHostSuffixes);
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_values", AllowedValues);
             writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("input_kind", InputKind);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpecInputKind>("input_kind", InputKind);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("label", Label);
             writer.WriteIntValue("max_length", MaxLength);
             writer.WriteStringValue("normalization", Normalization);
+            writer.WriteStringValue("pattern", Pattern);
             writer.WriteBoolValue("required", Required);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

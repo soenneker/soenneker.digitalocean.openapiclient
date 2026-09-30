@@ -41,7 +41,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_datasets
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Evaluation_datasetsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_datasets{?dataset_type*}", pathParameters)
+        public Evaluation_datasetsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_datasets{?dataset_paradigm*,dataset_type*,has_ground_truth*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_datasets
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Evaluation_datasetsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_datasets{?dataset_type*}", rawUrl)
+        public Evaluation_datasetsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_datasets{?dataset_paradigm*,dataset_type*,has_ground_truth*}", rawUrl)
         {
         }
         /// <summary>
@@ -172,9 +172,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_datasets
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Evaluation_datasetsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter by evaluation dataset paradigm (row/content shape).</summary>
+            [QueryParameter("dataset_paradigm")]
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? DatasetParadigm { get; set; }
             /// <summary>Filter by evaluation dataset type.</summary>
             [QueryParameter("dataset_type")]
             public global::Soenneker.DigitalOcean.OpenApiClient.Models.GenaiListEvaluationDatasetsDatasetTypeParameter? DatasetType { get; set; }
+            /// <summary>Filter by whether the dataset includes ground-truth values.</summary>
+            [QueryParameter("has_ground_truth")]
+            public bool? HasGroundTruth { get; set; }
         }
     }
 }

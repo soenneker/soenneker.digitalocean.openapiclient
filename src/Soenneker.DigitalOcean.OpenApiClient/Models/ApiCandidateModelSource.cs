@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>Whether inference runs against the serverless platform, a dedicated deployment, or a model router.</summary>
+    /// <summary>Whether the candidate is a served model (serverless platform, a dedicateddeployment, or a model router) or an OHS-hosted agent config.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ApiCandidateModelSource
     {
@@ -18,6 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         [EnumMember(Value = "CANDIDATE_MODEL_SOURCE_ROUTER")]
         #pragma warning disable CS1591
         CandidateModelSourceRouter,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "CANDIDATE_MODEL_SOURCE_AGENT")]
+        #pragma warning disable CS1591
+        CandidateModelSourceAgent,
         #pragma warning restore CS1591
     }
 }

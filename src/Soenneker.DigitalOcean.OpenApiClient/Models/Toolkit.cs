@@ -7,12 +7,25 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Provider of tools.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Toolkit : IParsable
-    #pragma warning restore CS1591
+    public partial class Toolkit : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The description property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Distinct categories of the provider&apos;s released tools, sorted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Categories { get; set; }
+#nullable restore
+#else
+        public List<string> Categories { get; set; }
+#endif
+        /// <summary>When the provider was added.</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Provider description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -20,7 +33,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>Provider ID. For one of your team&apos;s MCP servers it is normally the server&apos;s `serverRef`; `provider_kind` tells the two kinds apart.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -28,7 +41,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Human-readable provider name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -36,6 +49,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Classifies the provider, for example `managed_api` or `byo_mcp` (one of your team&apos;s MCP servers). It is the same value as PublicToolDefinition.provider_kind for the provider&apos;s tools.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProviderKind { get; set; }
+#nullable restore
+#else
+        public string ProviderKind { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Toolkit"/> and sets the default values.
+        /// </summary>
+        public Toolkit()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,9 +82,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "provider_kind", n => { ProviderKind = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,9 +97,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("categories", Categories);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("provider_kind", ProviderKind);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

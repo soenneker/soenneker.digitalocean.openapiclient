@@ -15,6 +15,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>EvaluationDatasetParadigm is the row/content shape of a dataset, orthogonal to thesurface in EvaluationDatasetType (e.g. a model dataset can be single- or multi-turn).</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? DatasetParadigm { get; set; }
         /// <summary>The dataset_type property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType? DatasetType { get; set; }
         /// <summary>File to upload as data source for knowledge base.</summary>
@@ -58,6 +60,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "dataset_paradigm", n => { DatasetParadigm = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>(); } },
                 { "dataset_type", n => { DatasetType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>(); } },
                 { "file_upload_dataset", n => { FileUploadDataset = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -70,6 +73,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>("dataset_paradigm", DatasetParadigm);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>("dataset_type", DatasetType);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource>("file_upload_dataset", FileUploadDataset);
             writer.WriteStringValue("name", Name);

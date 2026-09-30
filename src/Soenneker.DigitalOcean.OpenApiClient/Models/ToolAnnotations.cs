@@ -7,20 +7,23 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Advisory hints about a tool&apos;s behavior, with the meaning of MCP tool annotations. Do not rely on them for security decisions.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ToolAnnotations : IParsable
-    #pragma warning restore CS1591
+    public partial class ToolAnnotations : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The destructiveHint property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The tool may perform destructive updates.</summary>
         public bool? DestructiveHint { get; set; }
-        /// <summary>The idempotentHint property</summary>
+        /// <summary>Repeating a call with the same arguments has no additional effect.</summary>
         public bool? IdempotentHint { get; set; }
-        /// <summary>The openWorldHint property</summary>
+        /// <summary>The tool interacts with external systems beyond the provider&apos;s own data.</summary>
         public bool? OpenWorldHint { get; set; }
-        /// <summary>The readOnlyHint property</summary>
+        /// <summary>The tool does not modify anything.</summary>
         public bool? ReadOnlyHint { get; set; }
-        /// <summary>The title property</summary>
+        /// <summary>Human-readable tool title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
@@ -29,14 +32,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string Title { get; set; }
 #endif
         /// <summary>
-        /// Creates a new instance of the appropriate class based on discriminator value
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations"/> and sets the default values.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations"/></returns>
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations CreateFromDiscriminatorValue(IParseNode parseNode)
+        public ToolAnnotations()
         {
-            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations();
+            AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("openWorldHint", OpenWorldHint);
             writer.WriteBoolValue("readOnlyHint", ReadOnlyHint);
             writer.WriteStringValue("title", Title);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

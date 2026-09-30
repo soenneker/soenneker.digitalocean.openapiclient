@@ -7,19 +7,29 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Returns one user.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class GetUserResponse : IParsable
-    #pragma warning restore CS1591
+    public partial class GetUserResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>User is a derived, team-scoped view across sessions and OAuth connections.</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.User? User { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponseUser? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.User User { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponseUser User { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponse"/> and sets the default values.
+        /// </summary>
+        public GetUserResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.User>(global::Soenneker.DigitalOcean.OpenApiClient.Models.User.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponseUser>(global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponseUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +58,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.User>("user", User);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetUserResponseUser>("user", User);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

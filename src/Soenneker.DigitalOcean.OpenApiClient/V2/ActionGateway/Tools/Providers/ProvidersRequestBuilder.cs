@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers.Search;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProvidersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The search property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers.ProvidersRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -34,7 +40,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers
         {
         }
         /// <summary>
-        /// Lists Action Gateway providers and their connection requirements.
+        /// Returns the active catalog providers with at least one released tool, sorted by display name, with the credential kinds each accepts and the parameters a connection or team credential needs. Your team&apos;s MCP servers are listed separately under `/v2/action-gateway/mcp-servers`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListProvidersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListProvidersResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListProvidersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists Action Gateway providers and their connection requirements.
+        /// Returns the active catalog providers with at least one released tool, sorted by display name, with the credential kinds each accepts and the parameters a connection or team credential needs. Your team&apos;s MCP servers are listed separately under `/v2/action-gateway/mcp-servers`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -7,27 +7,37 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// One page of sessions.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ListSessionsResponse : IParsable
-    #pragma warning restore CS1591
+    public partial class ListSessionsResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The pagination property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Paging applied to this response and the total number of sessions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination? Pagination { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponsePagination? Pagination { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination Pagination { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponsePagination Pagination { get; set; }
 #endif
-        /// <summary>The sessions property</summary>
+        /// <summary>Sessions, newest first.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy>? Sessions { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Session>? Sessions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy> Sessions { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Session> Sessions { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponse"/> and sets the default values.
+        /// </summary>
+        public ListSessionsResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -46,8 +56,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination.CreateFromDiscriminatorValue); } },
-                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponsePagination>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponsePagination.CreateFromDiscriminatorValue); } },
+                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Session>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Session.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,8 +67,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination>("pagination", Pagination);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy>("sessions", Sessions);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponsePagination>("pagination", Pagination);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Session>("sessions", Sessions);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

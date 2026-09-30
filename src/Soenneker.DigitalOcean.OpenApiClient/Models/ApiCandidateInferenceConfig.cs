@@ -17,6 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The max_tokens property</summary>
         public long? MaxTokens { get; set; }
+        /// <summary>Reasoning effort for reasoning-capable models (e.g. &quot;low&quot;, &quot;medium&quot;,&quot;high&quot;). Validated against the candidate model&apos;s supported values; a modelthat advertises none rejects this field.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReasoningEffort { get; set; }
+#nullable restore
+#else
+        public string ReasoningEffort { get; set; }
+#endif
         /// <summary>The stop_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,6 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "max_tokens", n => { MaxTokens = n.GetLongValue(); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetStringValue(); } },
                 { "stop_token", n => { StopToken = n.GetStringValue(); } },
                 { "system_prompt", n => { SystemPrompt = n.GetStringValue(); } },
                 { "temperature", n => { Temperature = n.GetFloatValue(); } },
@@ -74,6 +83,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("max_tokens", MaxTokens);
+            writer.WriteStringValue("reasoning_effort", ReasoningEffort);
             writer.WriteStringValue("stop_token", StopToken);
             writer.WriteStringValue("system_prompt", SystemPrompt);
             writer.WriteFloatValue("temperature", Temperature);

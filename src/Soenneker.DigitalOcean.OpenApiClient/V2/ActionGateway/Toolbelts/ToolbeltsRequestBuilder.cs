@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Search;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,8 +19,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolbeltsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The search property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.toolbelts.item collection</summary>
-        /// <param name="position">The natural key identifying the toolbelt.</param>
+        /// <param name="position">Toolbelt name.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.WithNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.WithNameItemRequestBuilder this[string position]
         {
@@ -47,11 +53,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts
         {
         }
         /// <summary>
-        /// Lists the latest version of each toolbelt owned by the authenticated team.
+        /// Returns your team&apos;s toolbelts, one entry per name describing its latest version, sorted by name. Offset-paged with page and `per_page`; pagination reports the total.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
@@ -68,6 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -76,10 +84,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a versioned collection of provider-qualified Action Gateway tool names.
+        /// A toolbelt is a named set of tools, each pinned to a version, that your team can attach to sessions as `toolbelt:&lt;name&gt;@&lt;version&gt;`. The first version is 1 unless version is set. Returns 409 if an active toolbelt with the same name exists. The name of a deleted toolbelt can be reused; its versions start again from the initial version.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Describes a new toolbelt.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -111,7 +119,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the latest version of each toolbelt owned by the authenticated team.
+        /// Returns your team&apos;s toolbelts, one entry per name describing its latest version, sorted by name. Offset-paged with page and `per_page`; pagination reports the total.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,10 +138,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts
             return requestInfo;
         }
         /// <summary>
-        /// Creates a versioned collection of provider-qualified Action Gateway tool names.
+        /// A toolbelt is a named set of tools, each pinned to a version, that your team can attach to sessions as `toolbelt:&lt;name&gt;@&lt;version&gt;`. The first version is 1 unless version is set. Returns 409 if an active toolbelt with the same name exists. The name of a deleted toolbelt can be reused; its versions start again from the initial version.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Describes a new toolbelt.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -161,18 +169,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.ToolbeltsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists the latest version of each toolbelt owned by the authenticated team.
+        /// Returns your team&apos;s toolbelts, one entry per name describing its latest version, sorted by name. Offset-paged with page and `per_page`; pagination reports the total.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ToolbeltsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Which &apos;page&apos; of paginated results to return.</summary>
+            /// <summary>1-based page number. Values below 1 are treated as 1.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
-            /// <summary>Number of items returned per page</summary>
+            /// <summary>Page size. Defaults to 20; values above 100 are capped at 100.</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>Filter toolbelts by status.</summary>
+            /// <summary>active (default), deprecated, or all. Case-insensitive.</summary>
             [QueryParameter("status")]
             public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltStatusEnum? Status { get; set; }
         }

@@ -7,12 +7,15 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Lists the tools to add to or remove from a toolbelt.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ToolbeltTools : IParsable
-    #pragma warning restore CS1591
+    public partial class ToolbeltTools : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The tools property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Tool slugs (`&lt;provider&gt;_&lt;name&gt;`) to add or remove, each optionally pinned as `&lt;tool_slug&gt;@&lt;version&gt;`. At least one is required. When adding, a pin must equal the tool&apos;s current released version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tools { get; set; }
@@ -20,6 +23,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<string> Tools { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltTools"/> and sets the default values.
+        /// </summary>
+        public ToolbeltTools()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -49,6 +59,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

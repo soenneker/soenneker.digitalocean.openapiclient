@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Toolkits
         {
         }
         /// <summary>
-        /// Lists the toolkits that group Action Gateway tools.
+        /// Returns the providers (toolkits) whose tools your team can use: catalog providers with at least one released tool, plus your team&apos;s registered MCP servers.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolkitsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Toolkits
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolkitsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolkitsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the toolkits that group Action Gateway tools.
+        /// Returns the providers (toolkits) whose tools your team can use: catalog providers with at least one released tool, plus your team&apos;s registered MCP servers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

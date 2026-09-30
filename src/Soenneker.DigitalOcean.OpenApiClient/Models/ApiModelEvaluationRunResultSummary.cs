@@ -17,6 +17,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The end_time property</summary>
         public DateTimeOffset? EndTime { get; set; }
+        /// <summary>Number of times each dataset row was evaluated (n-pass/epochs). MirrorsModelEvaluationRunDetail.epochs. 1 for every existing run.</summary>
+        public long? Epochs { get; set; }
+        /// <summary>Aggregation across epochs when a run repeats each dataset row k times.Only populated when epochs &gt; 1; at epochs == 1 every number here wouldequal overall_score_percent, so it is omitted rather than duplicated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary? EpochSummary { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary EpochSummary { get; set; }
+#endif
         /// <summary>Per-metric aggregated pass/fail statistics.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,6 +107,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
+                { "epoch_summary", n => { EpochSummary = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary.CreateFromDiscriminatorValue); } },
+                { "epochs", n => { Epochs = n.GetLongValue(); } },
                 { "metric_summaries", n => { MetricSummaries = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "overall_score_percent", n => { OverallScorePercent = n.GetDoubleValue(); } },
                 { "per_model_summaries", n => { PerModelSummaries = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummaries>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummaries.CreateFromDiscriminatorValue); } },
@@ -116,6 +128,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
+            writer.WriteLongValue("epochs", Epochs);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary>("epoch_summary", EpochSummary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary>("metric_summaries", MetricSummaries);
             writer.WriteDoubleValue("overall_score_percent", OverallScorePercent);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics>("performance_metrics", PerformanceMetrics);

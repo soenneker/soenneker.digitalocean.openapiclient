@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,8 +19,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The search property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.sessions.item collection</summary>
-        /// <param name="position">The URL-encoded managed agents session URN.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder this[string position]
         {
@@ -47,7 +53,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
         {
         }
         /// <summary>
-        /// Lists Action Gateway sessions owned by the authenticated team.
+        /// Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,10 +82,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a session with a tool selection, invocation policy, and optional direct-tool preload configuration.
+        /// Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Describes a session to create.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -89,11 +95,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -109,7 +115,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists Action Gateway sessions owned by the authenticated team.
+        /// Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -128,18 +134,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             return requestInfo;
         }
         /// <summary>
-        /// Creates a session with a tool selection, invocation policy, and optional direct-tool preload configuration.
+        /// Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Describes a session to create.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -159,12 +165,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.SessionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists Action Gateway sessions owned by the authenticated team.
+        /// Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SessionsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter sessions by actor identifier.</summary>
+            /// <summary>Optional `actor_id`, matched exactly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("end_user_id")]
@@ -174,10 +180,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             [QueryParameter("end_user_id")]
             public string EndUserId { get; set; }
 #endif
-            /// <summary>Which &apos;page&apos; of paginated results to return.</summary>
+            /// <summary>1-based page number. Values below 1 are treated as 1.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
-            /// <summary>Number of items returned per page</summary>
+            /// <summary>Page size. Defaults to 20; values above 100 are capped at 100.</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
         }

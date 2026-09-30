@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string CandidateModelName { get; set; }
 #endif
-        /// <summary>Whether inference runs against the serverless platform, a dedicated deployment, or a model router.</summary>
+        /// <summary>Whether the candidate is a served model (serverless platform, a dedicateddeployment, or a model router) or an OHS-hosted agent config.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource? CandidateModelSource { get; set; }
         /// <summary>UUID of the candidate model to evaluate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,6 +48,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DatasetUuid { get; set; }
 #endif
+        /// <summary>Number of times to evaluate each dataset row (n-pass/epochs), so theresult reports avg@k/pass@k/cons@k instead of a single score. Defaultsto 1 when unset. Capped at 3 until throughput/sharding work lands, sinceeach extra epoch roughly multiplies wall-clock run time. Not persistedon presets.</summary>
+        public long? Epochs { get; set; }
         /// <summary>The eval_preset_uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -144,6 +146,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "candidate_model_source", n => { CandidateModelSource = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource>(); } },
                 { "candidate_model_uuid", n => { CandidateModelUuid = n.GetStringValue(); } },
                 { "dataset_uuid", n => { DatasetUuid = n.GetStringValue(); } },
+                { "epochs", n => { Epochs = n.GetLongValue(); } },
                 { "eval_preset_uuid", n => { EvalPresetUuid = n.GetStringValue(); } },
                 { "judge_model_uuid", n => { JudgeModelUuid = n.GetStringValue(); } },
                 { "metric_uuids", n => { MetricUuids = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -167,6 +170,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource>("candidate_model_source", CandidateModelSource);
             writer.WriteStringValue("candidate_model_uuid", CandidateModelUuid);
             writer.WriteStringValue("dataset_uuid", DatasetUuid);
+            writer.WriteLongValue("epochs", Epochs);
             writer.WriteStringValue("eval_preset_uuid", EvalPresetUuid);
             writer.WriteStringValue("judge_model_uuid", JudgeModelUuid);
             writer.WriteCollectionOfPrimitiveValues<string>("metric_uuids", MetricUuids);

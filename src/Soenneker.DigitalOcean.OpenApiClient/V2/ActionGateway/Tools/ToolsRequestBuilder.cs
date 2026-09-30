@@ -4,8 +4,9 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
-using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Item;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Health;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Search;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Toolkits;
 using System.Collections.Generic;
 using System.IO;
@@ -20,27 +21,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The health property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Health.HealthRequestBuilder Health
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Health.HealthRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The providers property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers.ProvidersRequestBuilder Providers
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers.ProvidersRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The search property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The toolkits property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Toolkits.ToolkitsRequestBuilder Toolkits
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Toolkits.ToolkitsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.tools.item collection</summary>
-        /// <param name="position">The provider-qualified tool name.</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Item.WithNameItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Item.WithNameItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("name", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Item.WithNameItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.ToolsRequestBuilder"/> and sets the default values.
@@ -59,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools
         {
         }
         /// <summary>
-        /// Lists active Action Gateway tools visible to the authenticated team.
+        /// Returns one page of the tools your team can use: released catalog tools plus the enabled tools of your team&apos;s MCP servers. definitions[i] describes tools[i]. Offset-paged with page and `per_page`; an unknown `toolkitId` returns an empty page.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -88,7 +87,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists active Action Gateway tools visible to the authenticated team.
+        /// Returns one page of the tools your team can use: released catalog tools plus the enabled tools of your team&apos;s MCP servers. definitions[i] describes tools[i]. Offset-paged with page and `per_page`; an unknown `toolkitId` returns an empty page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,18 +115,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.ToolsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists active Action Gateway tools visible to the authenticated team.
+        /// Returns one page of the tools your team can use: released catalog tools plus the enabled tools of your team&apos;s MCP servers. definitions[i] describes tools[i]. Offset-paged with page and `per_page`; an unknown `toolkitId` returns an empty page.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ToolsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Which &apos;page&apos; of paginated results to return.</summary>
+            /// <summary>1-based page index; values below 1 are treated as 1. A page past the end returns an empty tools list with the real total.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
-            /// <summary>Number of items returned per page</summary>
+            /// <summary>Page size. Defaults to 100 when omitted or 0; values above 100 are capped at 100.</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>Filter tools by toolkit identifier.</summary>
+            /// <summary>Restricts the page to one provider. It accepts the provider ID the catalog returns, including the `serverRef` of one of your team&apos;s MCP servers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("toolkit_id")]

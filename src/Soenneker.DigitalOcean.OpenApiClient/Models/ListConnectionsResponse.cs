@@ -7,27 +7,37 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// One page of connections.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ListConnectionsResponse : IParsable
-    #pragma warning restore CS1591
+    public partial class ListConnectionsResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The connections property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Connections on this page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection>? Connections { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Connection>? Connections { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection> Connections { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Connection> Connections { get; set; }
 #endif
-        /// <summary>The pagination property</summary>
+        /// <summary>Paging applied to this response and the total number of connections.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination? Pagination { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponsePagination? Pagination { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination Pagination { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponsePagination Pagination { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponse"/> and sets the default values.
+        /// </summary>
+        public ListConnectionsResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -46,8 +56,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "connections", n => { Connections = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection>(global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination.CreateFromDiscriminatorValue); } },
+                { "connections", n => { Connections = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Connection>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Connection.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponsePagination>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponsePagination.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,8 +67,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection>("connections", Connections);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination>("pagination", Pagination);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Connection>("connections", Connections);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponsePagination>("pagination", Pagination);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

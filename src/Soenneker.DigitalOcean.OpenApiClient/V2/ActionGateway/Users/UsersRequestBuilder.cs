@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users
     public partial class UsersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.users.item collection</summary>
-        /// <param name="position">The end-user identifier.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users.Item.WithUserItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users.Item.WithUserItemRequestBuilder this[string position]
         {
@@ -35,7 +35,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UsersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/action-gateway/users{?page*,per_page*}", pathParameters)
+        public UsersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/action-gateway/users{?page*,per_page*,sort*,sort_direction*,user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,15 +43,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UsersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/action-gateway/users{?page*,per_page*}", rawUrl)
+        public UsersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/action-gateway/users{?page*,per_page*,sort*,sort_direction*,user_id*}", rawUrl)
         {
         }
         /// <summary>
-        /// Lists end-user identifiers derived from sessions and OAuth connections for the authenticated team.
+        /// Returns the user IDs known for your team: session `actor_id` values, the `user_id` of connections that are not revoked, and actors with limit overrides. Only sessions and connections you can see count. Offset-paged with page and `per_page`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListUsersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
@@ -68,6 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -76,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListUsersResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListUsersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists end-user identifiers derived from sessions and OAuth connections for the authenticated team.
+        /// Returns the user IDs known for your team: session `actor_id` values, the `user_id` of connections that are not revoked, and actors with limit overrides. Only sessions and connections you can see count. Offset-paged with page and `per_page`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,17 +106,33 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users.UsersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists end-user identifiers derived from sessions and OAuth connections for the authenticated team.
+        /// Returns the user IDs known for your team: session `actor_id` values, the `user_id` of connections that are not revoked, and actors with limit overrides. Only sessions and connections you can see count. Offset-paged with page and `per_page`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Which &apos;page&apos; of paginated results to return.</summary>
+            /// <summary>1-based page number. Values below 1 are treated as 1.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
-            /// <summary>Number of items returned per page</summary>
+            /// <summary>Page size. Defaults to 20; values above 100 are capped at 100.</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            /// <summary>`user_id`|`created_at`|`session_count`|`connection_count`. `created_at` is the earliest creation time among the user&apos;s sessions, connections, and limit overrides. Defaults to `created_at`.</summary>
+            [QueryParameter("sort")]
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.UsersSort? Sort { get; set; }
+            /// <summary>asc|desc. Defaults to desc.</summary>
+            [QueryParameter("sort_direction")]
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.SortDirectionUsers? SortDirection { get; set; }
+            /// <summary>User ID prefix to return. An empty value returns all users.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("user_id")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("user_id")]
+            public string UserId { get; set; }
+#endif
         }
     }
 }

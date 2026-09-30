@@ -15,6 +15,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Row-level (not attempt-level) aggregation across epochs for this metric,mirroring EpochResultSummary but scoped to one metric. Only set when therun&apos;s epochs &gt; 1; pass_percent/pass_count/etc. above stay attempt-level(over row x epoch pairs) so they don&apos;t desynchronize from the countssitting next to them.</summary>
+        public double? AvgAtKPercent { get; set; }
+        /// <summary>The cons_at_k_percent property</summary>
+        public double? ConsAtKPercent { get; set; }
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,6 +47,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string MetricUuid { get; set; }
 #endif
+        /// <summary>The pass_at_k_percent property</summary>
+        public double? PassAtKPercent { get; set; }
         /// <summary>Rows where the metric completed and passed the configured threshold.</summary>
         public long? PassCount { get; set; }
         /// <summary>The pass_percent property</summary>
@@ -76,11 +82,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "avg_at_k_percent", n => { AvgAtKPercent = n.GetDoubleValue(); } },
+                { "cons_at_k_percent", n => { ConsAtKPercent = n.GetDoubleValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "fail_count", n => { FailCount = n.GetLongValue(); } },
                 { "fail_percent", n => { FailPercent = n.GetDoubleValue(); } },
                 { "metric_name", n => { MetricName = n.GetStringValue(); } },
                 { "metric_uuid", n => { MetricUuid = n.GetStringValue(); } },
+                { "pass_at_k_percent", n => { PassAtKPercent = n.GetDoubleValue(); } },
                 { "pass_count", n => { PassCount = n.GetLongValue(); } },
                 { "pass_percent", n => { PassPercent = n.GetDoubleValue(); } },
                 { "skip_percent", n => { SkipPercent = n.GetDoubleValue(); } },
@@ -94,11 +103,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDoubleValue("avg_at_k_percent", AvgAtKPercent);
+            writer.WriteDoubleValue("cons_at_k_percent", ConsAtKPercent);
             writer.WriteStringValue("description", Description);
             writer.WriteLongValue("fail_count", FailCount);
             writer.WriteDoubleValue("fail_percent", FailPercent);
             writer.WriteStringValue("metric_name", MetricName);
             writer.WriteStringValue("metric_uuid", MetricUuid);
+            writer.WriteDoubleValue("pass_at_k_percent", PassAtKPercent);
             writer.WriteLongValue("pass_count", PassCount);
             writer.WriteDoubleValue("pass_percent", PassPercent);
             writer.WriteLongValue("skipped_count", SkippedCount);

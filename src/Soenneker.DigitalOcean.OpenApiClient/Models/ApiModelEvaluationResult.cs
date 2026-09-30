@@ -39,6 +39,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string CandidateRoutedTask { get; set; }
 #endif
+        /// <summary>Which pass over this dataset row produced this result, 1-indexed (1 =first pass). Always 0 (and omitted from JSON) when the run&apos;s epochs is 1(the default) — per-attempt epoch numbering doesn&apos;t apply tosingle-pass runs. When epochs &gt; 1, this always reflects epoch 1 (seeepoch_results below).</summary>
+        public long? Epoch { get; set; }
+        /// <summary>Present only when the run&apos;s epochs &gt; 1: every pass over this row —including epoch 1, duplicated here for convenience — keyed by1-indexed &quot;epoch1&quot;/&quot;epoch2&quot;/&quot;epoch3&quot; labels. Mirrors the shape of thedownloadable results file&apos;s epochResults object. The top-level fieldsabove (output, metric_results, candidate_routed_task) always reflectepoch 1, so single-epoch clients reading only those fields see nodifference when epochs &gt; 1.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationResultEpochResultsProperty? EpochResults { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationResultEpochResultsProperty EpochResults { get; set; }
+#endif
         /// <summary>The ground_truth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +81,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Output { get; set; }
 #endif
+        /// <summary>Which dataset row this result came from. Multiple results share arow_number when epochs &gt; 1: one per pass over that row.</summary>
+        public long? RowNumber { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationResult"/> and sets the default values.
         /// </summary>
@@ -99,10 +111,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "candidate_model_name", n => { CandidateModelName = n.GetStringValue(); } },
                 { "candidate_model_uuid", n => { CandidateModelUuid = n.GetStringValue(); } },
                 { "candidate_routed_task", n => { CandidateRoutedTask = n.GetStringValue(); } },
+                { "epoch", n => { Epoch = n.GetLongValue(); } },
+                { "epoch_results", n => { EpochResults = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationResultEpochResultsProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationResultEpochResultsProperty.CreateFromDiscriminatorValue); } },
                 { "ground_truth", n => { GroundTruth = n.GetStringValue(); } },
                 { "input", n => { Input = n.GetStringValue(); } },
                 { "metric_results", n => { MetricResults = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
+                { "row_number", n => { RowNumber = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -115,10 +130,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("candidate_model_name", CandidateModelName);
             writer.WriteStringValue("candidate_model_uuid", CandidateModelUuid);
             writer.WriteStringValue("candidate_routed_task", CandidateRoutedTask);
+            writer.WriteLongValue("epoch", Epoch);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationResultEpochResultsProperty>("epoch_results", EpochResults);
             writer.WriteStringValue("ground_truth", GroundTruth);
             writer.WriteStringValue("input", Input);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult>("metric_results", MetricResults);
             writer.WriteStringValue("output", Output);
+            writer.WriteLongValue("row_number", RowNumber);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

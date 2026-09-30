@@ -31,7 +31,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string CandidateModelName { get; set; }
 #endif
-        /// <summary>Whether inference runs against the serverless platform, a dedicated deployment, or a model router.</summary>
+        /// <summary>Whether the candidate is a served model (serverless platform, a dedicateddeployment, or a model router) or an OHS-hosted agent config.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource? CandidateModelSource { get; set; }
         /// <summary>Candidate model being evaluated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +61,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DatasetUuid { get; set; }
 #endif
+        /// <summary>Number of times each dataset row is evaluated (n-pass/epochs). 1 bydefault. Drives the avg@k/pass@k/cons@k aggregation in result_summary.</summary>
+        public long? Epochs { get; set; }
         /// <summary>Error description if the run failed or partially succeeded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -186,6 +188,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dataset_name", n => { DatasetName = n.GetStringValue(); } },
                 { "dataset_uuid", n => { DatasetUuid = n.GetStringValue(); } },
+                { "epochs", n => { Epochs = n.GetLongValue(); } },
                 { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
                 { "eval_preset_name", n => { EvalPresetName = n.GetStringValue(); } },
                 { "eval_preset_uuid", n => { EvalPresetUuid = n.GetStringValue(); } },
@@ -216,6 +219,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("dataset_name", DatasetName);
             writer.WriteStringValue("dataset_uuid", DatasetUuid);
+            writer.WriteLongValue("epochs", Epochs);
             writer.WriteStringValue("error_description", ErrorDescription);
             writer.WriteStringValue("eval_preset_name", EvalPresetName);
             writer.WriteStringValue("eval_preset_uuid", EvalPresetUuid);

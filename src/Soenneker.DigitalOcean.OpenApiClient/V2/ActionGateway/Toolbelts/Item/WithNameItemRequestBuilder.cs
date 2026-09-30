@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.Providers;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.Tools;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithNameItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The providers property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.Providers.ProvidersRequestBuilder Providers
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.Providers.ProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tools property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.Tools.ToolsRequestBuilder Tools
         {
@@ -28,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/action-gateway/toolbelts/{name}{?version*}", pathParameters)
+        public WithNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/action-gateway/toolbelts/{name}{?page_size*,page_token*,search*,version*}", pathParameters)
         {
         }
         /// <summary>
@@ -36,13 +42,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/action-gateway/toolbelts/{name}{?version*}", rawUrl)
+        public WithNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/action-gateway/toolbelts/{name}{?page_size*,page_token*,search*,version*}", rawUrl)
         {
         }
         /// <summary>
-        /// Deprecates the latest active version of a toolbelt.
+        /// Marks the toolbelt deleted and returns its latest version with status deprecated. Its versions stay readable by explicit version until the name is reused. The name is free to reuse immediately; a new toolbelt with it starts a fresh version history. Returns 404 when the toolbelt does not exist or is already deleted.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -52,11 +58,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -68,14 +74,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the latest active version or a specified immutable version of a toolbelt.
+        /// Returns the latest version of the named toolbelt, or the version requested, with catalog metadata for one page of its members in `tool_details`. A deleted toolbelt returns 404 unless a version is requested.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
@@ -83,26 +90,27 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.WithNameItemRequestBuilder.WithNameItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.WithNameItemRequestBuilder.WithNameItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.WithNameItemRequestBuilder.WithNameItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.WithNameItemRequestBuilder.WithNameItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deprecates the latest active version of a toolbelt.
+        /// Marks the toolbelt deleted and returns its latest version with status deprecated. Its versions stay readable by explicit version until the name is reused. The name is free to reuse immediately; a new toolbelt with it starts a fresh version history. Returns 404 when the toolbelt does not exist or is already deleted.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +129,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves the latest active version or a specified immutable version of a toolbelt.
+        /// Returns the latest version of the named toolbelt, or the version requested, with catalog metadata for one page of its members in `tool_details`. A deleted toolbelt returns 404 unless a version is requested.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,12 +157,35 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.WithNameItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves the latest active version or a specified immutable version of a toolbelt.
+        /// Returns the latest version of the named toolbelt, or the version requested, with catalog metadata for one page of its members in `tool_details`. A deleted toolbelt returns 404 unless a version is requested.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithNameItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>An immutable numeric toolbelt version. Omit to retrieve the latest active version.</summary>
+            /// <summary>Page size for `tool_details` only; toolbelt.tools always lists every member. Defaults to 20; values above 100 are capped at 100.</summary>
+            [QueryParameter("page_size")]
+            public int? PageSize { get; set; }
+            /// <summary>`next_page_token` from the previous response, to continue `tool_details`. Treat it as opaque, and send it only with the same toolbelt, version, and search.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page_token")]
+            public string? PageToken { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page_token")]
+            public string PageToken { get; set; }
+#endif
+            /// <summary>Restricts `tool_details` to members whose tool slug, name, title, description, provider, or category contains this value, case-insensitively. It does not filter toolbelt.tools. This is a substring match, not a filter expression.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("search")]
+            public string? Search { get; set; }
+#nullable restore
+#else
+            [QueryParameter("search")]
+            public string Search { get; set; }
+#endif
+            /// <summary>Version number to read. Empty returns the latest version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("version")]

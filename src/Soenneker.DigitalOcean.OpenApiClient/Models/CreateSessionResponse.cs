@@ -7,12 +7,15 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Returns the created session.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CreateSessionResponse : IParsable
-    #pragma warning restore CS1591
+    public partial class CreateSessionResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Public session-pinned MCP URL.</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>URL of the session&apos;s MCP endpoint, for the agent to connect to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? McpUrl { get; set; }
@@ -20,15 +23,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string McpUrl { get; set; }
 #endif
-        /// <summary>A session and the tool-permission policy bound to it.</summary>
+        /// <summary>The created session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy? Session { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSession? Session { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy Session { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSession Session { get; set; }
 #endif
-        /// <summary>Canonical, version-pinned selected tool references.</summary>
+        /// <summary>Canonical, version-pinned selected tool references. Empty when the session exposes every tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tools { get; set; }
@@ -36,6 +39,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<string> Tools { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse"/> and sets the default values.
+        /// </summary>
+        public CreateSessionResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -55,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "mcpUrl", n => { McpUrl = n.GetStringValue(); } },
-                { "session", n => { Session = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy.CreateFromDiscriminatorValue); } },
+                { "session", n => { Session = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSession>(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSession.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -67,8 +77,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("mcpUrl", McpUrl);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PublicSessionPolicy>("session", Session);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSession>("session", Session);
             writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

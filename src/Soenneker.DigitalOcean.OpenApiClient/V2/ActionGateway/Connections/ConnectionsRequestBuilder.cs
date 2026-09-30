@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
     public partial class ConnectionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.connections.item collection</summary>
-        /// <param name="position">The connection UUID.</param>
+        /// <param name="position">Connection ID.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.Item.ConnectionsItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.Item.ConnectionsItemRequestBuilder this[string position]
         {
@@ -47,11 +47,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
         {
         }
         /// <summary>
-        /// Lists OAuth connections owned by the authenticated team.
+        /// Returns the connections you can see, excluding revoked ones. Offset-paged with page and `per_page`; filter by provider, `user_id`, and status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
@@ -68,6 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -76,10 +78,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConnectionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates or begins authorization for an OAuth connection to an Action Gateway provider.
+        /// Connects one of your users, identified by `user_id`, to a provider so tools can act on theiraccount. An OAuth connection starts pending, and authorization carries the URL to send the user to;read the connection until it is active or expired. A connection through a team API-key credential isactive immediately.There is one connection per provider and `user_id` for each DigitalOcean user who createsconnections. Repeating the request returns the existing connection when its scopes cover therequest, reusing a pending connection&apos;s link, and restarts an expired or revoked connection underthe same ID. Requesting scopes beyond an existing connection&apos;s, or a different credential, returns400 until that connection is deleted.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponse"/></returns>
+        /// <param name="body">Describes a connection to create.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -90,11 +92,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -108,10 +110,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists OAuth connections owned by the authenticated team.
+        /// Returns the connections you can see, excluding revoked ones. Offset-paged with page and `per_page`; filter by provider, `user_id`, and status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,18 +132,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
             return requestInfo;
         }
         /// <summary>
-        /// Creates or begins authorization for an OAuth connection to an Action Gateway provider.
+        /// Connects one of your users, identified by `user_id`, to a provider so tools can act on theiraccount. An OAuth connection starts pending, and authorization carries the URL to send the user to;read the connection until it is active or expired. A connection through a team API-key credential isactive immediately.There is one connection per provider and `user_id` for each DigitalOcean user who createsconnections. Repeating the request returns the existing connection when its scopes cover therequest, reusing a pending connection&apos;s link, and restarts an expired or revoked connection underthe same ID. Requesting scopes beyond an existing connection&apos;s, or a different credential, returns400 until that connection is deleted.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Describes a connection to create.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -161,18 +163,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.ConnectionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists OAuth connections owned by the authenticated team.
+        /// Returns the connections you can see, excluding revoked ones. Offset-paged with page and `per_page`; filter by provider, `user_id`, and status.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConnectionsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Which &apos;page&apos; of paginated results to return.</summary>
+            /// <summary>1-based page number. Values below 1 are treated as 1.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
-            /// <summary>Number of items returned per page</summary>
+            /// <summary>Page size. Defaults to 20; values above 100 are capped at 100.</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>Filter by provider name.</summary>
+            /// <summary>Optional provider slug, matched exactly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("provider")]
@@ -182,37 +184,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections
             [QueryParameter("provider")]
             public string Provider { get; set; }
 #endif
-            /// <summary>Field used to sort results.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            /// <summary>`created_at`, provider, `user_id`, or status. Defaults to provider, then `user_id`.</summary>
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>Sort direction.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionSort? Sort { get; set; }
+            /// <summary>asc (the default) or desc.</summary>
             [QueryParameter("sort_direction")]
-            public string? SortDirection { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort_direction")]
-            public string SortDirection { get; set; }
-#endif
-            /// <summary>Filter by connection status.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.SortDirection? SortDirection { get; set; }
+            /// <summary>pending|active|revoked|expired. List results always omit revoked connections, including when this filter is revoked.</summary>
             [QueryParameter("status")]
-            public string? Status { get; set; }
-#nullable restore
-#else
-            [QueryParameter("status")]
-            public string Status { get; set; }
-#endif
-            /// <summary>Filter by end-user identifier.</summary>
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionStatusEnum? Status { get; set; }
+            /// <summary>Optional substring of `user_id`. It must use the `user_id` alphabet, `[A-Za-z0-9._-]`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("user_id")]

@@ -7,12 +7,15 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// One page of the tool catalog.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ListToolsResponse : IParsable
-    #pragma warning restore CS1591
+    public partial class ListToolsResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The definitions property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>definitions[i] describes tools[i].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinition>? Definitions { get; set; }
@@ -20,15 +23,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinition> Definitions { get; set; }
 #endif
-        /// <summary>The pagination property</summary>
+        /// <summary>page and `per_page` echo the values applied; total is the number of tools matching `toolkitId` across all pages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination? Pagination { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponsePagination? Pagination { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination Pagination { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponsePagination Pagination { get; set; }
 #endif
-        /// <summary>The tools property</summary>
+        /// <summary>Tools on this page, grouped by provider and sorted by name within a provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Tool>? Tools { get; set; }
@@ -36,7 +39,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Tool> Tools { get; set; }
 #endif
-        /// <summary>The version property</summary>
+        /// <summary>Catalog version identifier, for example `v1`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }
@@ -44,6 +47,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Version { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponse"/> and sets the default values.
+        /// </summary>
+        public ListToolsResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -63,7 +73,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinition>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinition.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination.CreateFromDiscriminatorValue); } },
+                { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponsePagination>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponsePagination.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Tool>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Tool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -76,9 +86,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinition>("definitions", Definitions);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Pagination>("pagination", Pagination);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListToolsResponsePagination>("pagination", Pagination);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Tool>("tools", Tools);
             writer.WriteStringValue("version", Version);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

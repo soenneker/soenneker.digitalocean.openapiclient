@@ -32,5 +32,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         #pragma warning disable CS1591
         MetricCategoryModelFit,
         #pragma warning restore CS1591
+        [EnumMember(Value = "METRIC_CATEGORY_CONVERSATIONAL")]
+        #pragma warning disable CS1591
+        MetricCategoryConversational,
+        #pragma warning restore CS1591
     }
 }

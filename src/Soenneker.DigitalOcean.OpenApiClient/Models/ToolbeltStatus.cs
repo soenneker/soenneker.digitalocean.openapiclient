@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>active, or deprecated once the toolbelt is deleted.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum ToolbeltStatus
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "active")]
         #pragma warning disable CS1591

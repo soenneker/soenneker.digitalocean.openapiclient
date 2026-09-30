@@ -7,12 +7,15 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Describes a toolbelt by its latest version, without the member list.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ToolbeltSummary : IParsable
-    #pragma warning restore CS1591
+    public partial class ToolbeltSummary : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The description property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Description of the latest version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -20,7 +23,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The display_name property</summary>
+        /// <summary>Human-readable label of the latest version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -28,7 +31,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The latest_version property</summary>
+        /// <summary>Latest version number, as a string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LatestVersion { get; set; }
@@ -36,7 +39,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string LatestVersion { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Toolbelt name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -44,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The reference_latest property</summary>
+        /// <summary>The toolbelt name, which refers to whichever version is latest.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReferenceLatest { get; set; }
@@ -52,14 +55,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ReferenceLatest { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>active, or deprecated once the toolbelt is deleted.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltSummaryStatus? Status { get; set; }
-        /// <summary>The tool_count property</summary>
+        /// <summary>Number of members in the latest version.</summary>
         public int? ToolCount { get; set; }
-        /// <summary>The updated_at property</summary>
+        /// <summary>When the latest version was last modified, in RFC 3339 format.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The version_count property</summary>
+        /// <summary>Number of versions recorded under this name, including versions from before the toolbelt was deleted and the name reused.</summary>
         public int? VersionCount { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltSummary"/> and sets the default values.
+        /// </summary>
+        public ToolbeltSummary()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -105,6 +115,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("tool_count", ToolCount);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteIntValue("version_count", VersionCount);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

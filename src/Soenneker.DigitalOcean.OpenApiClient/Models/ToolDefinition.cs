@@ -7,36 +7,31 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Describes a tool you can call.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ToolDefinition : IParsable
-    #pragma warning restore CS1591
+    public partial class ToolDefinition : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The annotations property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Advisory behavior hints for the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations? Annotations { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations Annotations { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAnnotations Annotations { get; set; }
 #endif
-        /// <summary>The auth property</summary>
+        /// <summary>Names the provider account the tool acts through and the scopes it requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AuthSpec? Auth { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth? Auth { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AuthSpec Auth { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth Auth { get; set; }
 #endif
-        /// <summary>The classification property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Classification? Classification { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Classification Classification { get; set; }
-#endif
-        /// <summary>The description property</summary>
+        /// <summary>What the tool does.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -44,31 +39,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The execution property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecutionSpec? Execution { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecutionSpec Execution { get; set; }
-#endif
-        /// <summary>The flipperName property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? FlipperName { get; set; }
-#nullable restore
-#else
-        public string FlipperName { get; set; }
-#endif
-        /// <summary>The hooks property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HookSpec? Hooks { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HookSpec Hooks { get; set; }
-#endif
-        /// <summary>The inputSchema property</summary>
+        /// <summary>The JSON Schema the tool&apos;s arguments must satisfy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionInputSchemaProperty? InputSchema { get; set; }
@@ -76,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionInputSchemaProperty InputSchema { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>The tool name without the provider prefix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -84,7 +55,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The outputSchema property</summary>
+        /// <summary>The JSON Schema of the tool&apos;s result, when declared.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionOutputSchemaProperty? OutputSchema { get; set; }
@@ -92,51 +63,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionOutputSchemaProperty OutputSchema { get; set; }
 #endif
-        /// <summary>The parallelizable property</summary>
-        public bool? Parallelizable { get; set; }
-        /// <summary>The policy property</summary>
+        /// <summary>Classifies the provider: native, `managed_api`, `customer_mcp`, sandbox, or `byo_mcp` (one of your team&apos;s MCP servers).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PolicySpec? Policy { get; set; }
+        public string? ProviderKind { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PolicySpec Policy { get; set; }
+        public string ProviderKind { get; set; }
 #endif
-        /// <summary>The reliability property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReliabilitySpec? Reliability { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReliabilitySpec Reliability { get; set; }
-#endif
-        /// <summary>The schemaVersion property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SchemaVersion { get; set; }
-#nullable restore
-#else
-        public string SchemaVersion { get; set; }
-#endif
-        /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
-        /// <summary>The streamingSafe property</summary>
-        public bool? StreamingSafe { get; set; }
-        /// <summary>The tags property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Tags { get; set; }
-#nullable restore
-#else
-        public List<string> Tags { get; set; }
-#endif
-        /// <summary>The title property</summary>
+        /// <summary>Human-readable tool title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
@@ -144,7 +79,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Title { get; set; }
 #endif
-        /// <summary>The toolId property</summary>
+        /// <summary>The opaque identity of this released tool version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ToolId { get; set; }
@@ -152,7 +87,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ToolId { get; set; }
 #endif
-        /// <summary>The toolkitId property</summary>
+        /// <summary>The ID of the provider that offers the tool. For a tool from one of your team&apos;s MCP servers it is that server&apos;s `serverRef`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ToolkitId { get; set; }
@@ -160,7 +95,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ToolkitId { get; set; }
 #endif
-        /// <summary>tool_slug is the provider-qualified, stable tool identifier&quot;&lt;toolkit_id&gt;_&lt;name&gt;&quot;. Pass this value back verbatim to the toolbeltadd/remove endpoints; clients should treat it as opaque.</summary>
+        /// <summary>The provider-qualified tool identifier `&lt;toolkit_id&gt;_&lt;name&gt;`. Treat it as opaque and pass it back verbatim.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ToolSlug { get; set; }
@@ -168,15 +103,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ToolSlug { get; set; }
 #endif
-        /// <summary>The transform property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TransformSpec? Transform { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TransformSpec Transform { get; set; }
-#endif
-        /// <summary>The version property</summary>
+        /// <summary>The released version, for example `v3`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }
@@ -184,6 +111,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Version { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinition"/> and sets the default values.
+        /// </summary>
+        public ToolDefinition()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -202,28 +136,17 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations.CreateFromDiscriminatorValue); } },
-                { "auth", n => { Auth = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AuthSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AuthSpec.CreateFromDiscriminatorValue); } },
-                { "classification", n => { Classification = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Classification>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Classification.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAnnotations>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAnnotations.CreateFromDiscriminatorValue); } },
+                { "auth", n => { Auth = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "execution", n => { Execution = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecutionSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecutionSpec.CreateFromDiscriminatorValue); } },
-                { "flipperName", n => { FlipperName = n.GetStringValue(); } },
-                { "hooks", n => { Hooks = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.HookSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.HookSpec.CreateFromDiscriminatorValue); } },
                 { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionInputSchemaProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionInputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "outputSchema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionOutputSchemaProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionOutputSchemaProperty.CreateFromDiscriminatorValue); } },
-                { "parallelizable", n => { Parallelizable = n.GetBoolValue(); } },
-                { "policy", n => { Policy = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PolicySpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PolicySpec.CreateFromDiscriminatorValue); } },
-                { "reliability", n => { Reliability = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReliabilitySpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ReliabilitySpec.CreateFromDiscriminatorValue); } },
-                { "schemaVersion", n => { SchemaVersion = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
-                { "streamingSafe", n => { StreamingSafe = n.GetBoolValue(); } },
-                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "providerKind", n => { ProviderKind = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "toolId", n => { ToolId = n.GetStringValue(); } },
                 { "toolSlug", n => { ToolSlug = n.GetStringValue(); } },
                 { "toolkitId", n => { ToolkitId = n.GetStringValue(); } },
-                { "transform", n => { Transform = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TransformSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TransformSpec.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -234,29 +157,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations>("annotations", Annotations);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AuthSpec>("auth", Auth);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Classification>("classification", Classification);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth>("auth", Auth);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecutionSpec>("execution", Execution);
-            writer.WriteStringValue("flipperName", FlipperName);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.HookSpec>("hooks", Hooks);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionInputSchemaProperty>("inputSchema", InputSchema);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionOutputSchemaProperty>("outputSchema", OutputSchema);
-            writer.WriteBoolValue("parallelizable", Parallelizable);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PolicySpec>("policy", Policy);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReliabilitySpec>("reliability", Reliability);
-            writer.WriteStringValue("schemaVersion", SchemaVersion);
-            writer.WriteStringValue("status", Status);
-            writer.WriteBoolValue("streamingSafe", StreamingSafe);
-            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteStringValue("providerKind", ProviderKind);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("toolId", ToolId);
             writer.WriteStringValue("toolkitId", ToolkitId);
             writer.WriteStringValue("toolSlug", ToolSlug);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TransformSpec>("transform", Transform);
             writer.WriteStringValue("version", Version);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

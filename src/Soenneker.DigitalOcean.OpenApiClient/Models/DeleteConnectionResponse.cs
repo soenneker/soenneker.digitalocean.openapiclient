@@ -7,19 +7,29 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Returns the revoked connection.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class DeleteConnectionResponse : IParsable
-    #pragma warning restore CS1591
+    public partial class DeleteConnectionResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>-----------------------------------------------------------------------------OAuth connection resources-----------------------------------------------------------------------------OAuthConnection is the public, team-scoped connection metadata returned tothe UI. It deliberately excludes the team ID, Secrets Manager assignment,actor identifiers, poll URL, and authorization handle.</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The resulting revoked connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection? Connection { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponseConnection? Connection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection Connection { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponseConnection Connection { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponse"/> and sets the default values.
+        /// </summary>
+        public DeleteConnectionResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection>(global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection.CreateFromDiscriminatorValue); } },
+                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponseConnection>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponseConnection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +58,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection>("connection", Connection);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponseConnection>("connection", Connection);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.Item
         {
         }
         /// <summary>
-        /// Revokes and deletes an OAuth connection owned by the authenticated team.
+        /// Marks the connection revoked and returns it; for an OAuth connection, its stored tokens are deleted first. Creating a connection for the same provider and `user_id` later reuses the same ID. Only the user who created the connection can delete it; for anyone else it is 404.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.DeleteConnectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves an OAuth connection owned by the authenticated team.
+        /// Returns the connection and, while it is pending, the authorization the user still has to complete. Reading a pending connection picks up a completed authorization, and marks the connection expired once its link has lapsed. Returns 404 for an unknown connection or one you cannot see.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,42 +96,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates non-sensitive connection parameters for an OAuth connection.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersResponse?> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersResponse> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Revokes and deletes an OAuth connection owned by the authenticated team.
+        /// Marks the connection revoked and returns it; for an OAuth connection, its stored tokens are deleted first. Creating a connection for the same provider and `user_id` later reuses the same ID. Only the user who created the connection can delete it; for anyone else it is 404.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -150,7 +115,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves an OAuth connection owned by the authenticated team.
+        /// Returns the connection and, while it is pending, the authorization the user still has to complete. Reading a pending connection picks up a completed authorization, and marks the connection expired once its link has lapsed. Returns 404 for an unknown connection or one you cannot see.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -166,28 +131,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections.Item
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
-            return requestInfo;
-        }
-        /// <summary>
-        /// Updates non-sensitive connection parameters for an OAuth connection.
-        /// </summary>
-        /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
-        {
-#nullable restore
-#else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConnectionParametersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

@@ -34,10 +34,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.T
         {
         }
         /// <summary>
-        /// Adds provider-qualified tool names and creates a new immutable toolbelt version.
+        /// Adds the listed tools and returns the toolbelt. When membership changes, this creates a new version that keeps the display name and description. Tools already in the toolbelt are left as they are, so a request that adds nothing new returns the current version unchanged. Returns 400 when a tool is not an active catalog tool, when a pin differs from the tool&apos;s current released version or from the version the toolbelt already holds, or when the toolbelt would exceed 500 tools. Returns 404 for an unknown or deleted toolbelt.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse"/></returns>
+        /// <param name="body">Lists the tools to add to or remove from a toolbelt.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -48,11 +48,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.T
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltTools body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltTools body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltTools body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltTools body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -66,13 +66,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts.Item.T
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Adds provider-qualified tool names and creates a new immutable toolbelt version.
+        /// Adds the listed tools and returns the toolbelt. When membership changes, this creates a new version that keeps the display name and description. Tools already in the toolbelt are left as they are, so a request that adds nothing new returns the current version unchanged. Returns 400 when a tool is not an active catalog tool, when a pin differs from the tool&apos;s current released version or from the version the toolbelt already holds, or when the toolbelt would exceed 500 tools. Returns 404 for an unknown or deleted toolbelt.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Lists the tools to add to or remove from a toolbelt.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -7,27 +7,37 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Returns the connection and any authorization still needed.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class GetConnectionResponse : IParsable
-    #pragma warning restore CS1591
+    public partial class GetConnectionResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>ConnectionAuthorization is present only while a connection is pending. TheUI sends the user to connect_url and polls GetConnection until the connectionbecomes active or expires. The Secrets Manager poll URL is never exposed.</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Present only while the connection is pending and you created it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization? Authorization { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization? Authorization { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization Authorization { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization Authorization { get; set; }
 #endif
-        /// <summary>-----------------------------------------------------------------------------OAuth connection resources-----------------------------------------------------------------------------OAuthConnection is the public, team-scoped connection metadata returned tothe UI. It deliberately excludes the team ID, Secrets Manager assignment,actor identifiers, poll URL, and authorization handle.</summary>
+        /// <summary>The connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection? Connection { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseConnection? Connection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection Connection { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseConnection Connection { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponse"/> and sets the default values.
+        /// </summary>
+        public GetConnectionResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -46,8 +56,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "authorization", n => { Authorization = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization.CreateFromDiscriminatorValue); } },
-                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection>(global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection.CreateFromDiscriminatorValue); } },
+                { "authorization", n => { Authorization = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization>(global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization.CreateFromDiscriminatorValue); } },
+                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseConnection>(global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseConnection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,8 +67,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization>("authorization", Authorization);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.OAuthConnection>("connection", Connection);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization>("authorization", Authorization);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseConnection>("connection", Connection);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

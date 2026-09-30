@@ -7,12 +7,16 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Describes a catalog provider and how to authenticate to it.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ProviderSummary : IParsable
-    #pragma warning restore CS1591
+    public partial class ProviderSummary : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The auth_type property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Deprecated: read `auth_types`, since a provider may accept more than one credential kind. This is the first entry of `auth_types` other than `none`, or `none` when that is the only entry.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AuthType { get; set; }
@@ -20,7 +24,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string AuthType { get; set; }
 #endif
-        /// <summary>The connection_parameters property</summary>
+        /// <summary>Credential kinds the provider accepts, sorted:none|oauth|`shared_api_key`|unknown|`user_oauth_app`|`user_token`.`none` means the provider needs no credential. `oauth` means users can connect throughDigitalOcean&apos;s shared OAuth application. `user_oauth_app` means users can connect through an OAuthclient your team registers as a provider credential; without `oauth` alongside it, that is the onlyway to connect. `shared_api_key` means DigitalOcean supplies the key. `user_token` means your teamor its users supply a key or token.`unknown` means the provider declares no kind this API recognizes, including an OAuth provider whoseshared application is not available. It is never paired with another kind.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AuthTypes { get; set; }
+#nullable restore
+#else
+        public List<string> AuthTypes { get; set; }
+#endif
+        /// <summary>Non-sensitive values collected when creating a connection. Set only when `auth_types` contains `oauth` or `user_oauth_app`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>? ConnectionParameters { get; set; }
@@ -28,7 +40,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec> ConnectionParameters { get; set; }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>Non-secret values collected when registering an API key provider credential. They are validated against the provider&apos;s declaration and used to derive the credential&apos;s `base_url`; callers cannot supply header names or arbitrary destinations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>? CredentialParameters { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec> CredentialParameters { get; set; }
+#endif
+        /// <summary>Provider description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -36,7 +56,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The display_name property</summary>
+        /// <summary>Human-readable provider name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -44,7 +64,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Provider slug, used as provider when creating a connection or a provider credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -52,7 +72,23 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The scopes property</summary>
+        /// <summary>HTTPS page at the provider where a team creates that OAuth client, such as its developer console or setup guide. Empty unless `auth_types` contains `user_oauth_app` and the provider declares one.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OauthClientSetupUrl { get; set; }
+#nullable restore
+#else
+        public string OauthClientSetupUrl { get; set; }
+#endif
+        /// <summary>Callback URL a team must register with the provider when it creates its own OAuth client. It is the same for every provider and cannot be changed per credential. Empty unless `auth_types` contains `user_oauth_app`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OauthRedirectUrl { get; set; }
+#nullable restore
+#else
+        public string OauthRedirectUrl { get; set; }
+#endif
+        /// <summary>The OAuth scopes a connection may request; a connection that requests none gets all of them. Set only when `auth_types` contains `oauth` or `user_oauth_app`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Scopes { get; set; }
@@ -60,6 +96,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<string> Scopes { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderSummary"/> and sets the default values.
+        /// </summary>
+        public ProviderSummary()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -79,10 +122,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auth_type", n => { AuthType = n.GetStringValue(); } },
+                { "auth_types", n => { AuthTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "connection_parameters", n => { ConnectionParameters = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "credential_parameters", n => { CredentialParameters = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "oauth_client_setup_url", n => { OauthClientSetupUrl = n.GetStringValue(); } },
+                { "oauth_redirect_url", n => { OauthRedirectUrl = n.GetStringValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -94,11 +141,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("auth_type", AuthType);
+            writer.WriteCollectionOfPrimitiveValues<string>("auth_types", AuthTypes);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>("connection_parameters", ConnectionParameters);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>("credential_parameters", CredentialParameters);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("oauth_client_setup_url", OauthClientSetupUrl);
+            writer.WriteStringValue("oauth_redirect_url", OauthRedirectUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }
