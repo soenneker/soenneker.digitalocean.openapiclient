@@ -14,13 +14,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The settings property</summary>
+        /// <summary>User settings that can be updated via the Update a Database User endpoint.Supported for PostgreSQL, Kafka, and OpenSearch clusters. For other engines,the request returns a 422. MongoDB user roles and database access(`mongo_user_settings`) cannot be updated after creation; recreate the userto change them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettings? Settings { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettings Settings { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate Settings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabasesUpdateUserRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettings>(global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate>(global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate>("settings", Settings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

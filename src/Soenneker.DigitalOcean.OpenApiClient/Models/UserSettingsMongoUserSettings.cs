@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// MongoDB-specific settings for the user. This option is not currently supported for other database engines.
+    /// MongoDB-specific settings for the user. Configure these when creating a user. Updating MongoDB roles or database access after creation is not supported; recreate the user to change them. This option is not currently supported for other database engines.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UserSettingsMongoUserSettings : IAdditionalDataHolder, IParsable

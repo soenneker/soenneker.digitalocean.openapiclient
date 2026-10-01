@@ -101,7 +101,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Users.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.UserResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To update an existing database user, send a PUT request to `/v2/databases/$DATABASE_ID/users/$USERNAME`with the desired settings.**Note**: only `settings` can be updated via this type of request. If you wish to change the name of a user,you must recreate a new user.For PostgreSQL clusters, you can update `settings.pg_allow_replication` to enable ordisable replication privileges for the user. When omitted, the value defaults to `false`.For Kafka and OpenSearch clusters, additional options can be configured in the`settings` object (for example, topic or index ACLs).The response will be a JSON object with a key called `user`. The value of this will be anobject that contains the name of the updated database user, along with the `settings` object thathas been updated.
+        /// To update an existing database user, send a PUT request to `/v2/databases/$DATABASE_ID/users/$USERNAME`with the desired settings.**Note**: only `settings` can be updated via this type of request. If you wish to change the name of a user,you must recreate a new user.For PostgreSQL clusters, you can update `settings.pg_allow_replication` to enable ordisable replication privileges for the user. When omitted, the value defaults to `false`.For Kafka and OpenSearch clusters, additional options can be configured in the`settings` object (for example, topic or index ACLs).Updating users is supported for PostgreSQL, Kafka, and OpenSearch clusters. Forother engines, the request returns a 422. MongoDB roles and database access areset with `settings.mongo_user_settings` when creating a user and cannot bechanged afterward; recreate the user to apply different roles or databases.The response will be a JSON object with a key called `user`. The value of this will be anobject that contains the name of the updated database user, along with the `settings` object thathas been updated.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.UserResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -109,6 +109,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Users.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
@@ -127,6 +128,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Users.Item
             {
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -172,7 +174,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Users.Item
             return requestInfo;
         }
         /// <summary>
-        /// To update an existing database user, send a PUT request to `/v2/databases/$DATABASE_ID/users/$USERNAME`with the desired settings.**Note**: only `settings` can be updated via this type of request. If you wish to change the name of a user,you must recreate a new user.For PostgreSQL clusters, you can update `settings.pg_allow_replication` to enable ordisable replication privileges for the user. When omitted, the value defaults to `false`.For Kafka and OpenSearch clusters, additional options can be configured in the`settings` object (for example, topic or index ACLs).The response will be a JSON object with a key called `user`. The value of this will be anobject that contains the name of the updated database user, along with the `settings` object thathas been updated.
+        /// To update an existing database user, send a PUT request to `/v2/databases/$DATABASE_ID/users/$USERNAME`with the desired settings.**Note**: only `settings` can be updated via this type of request. If you wish to change the name of a user,you must recreate a new user.For PostgreSQL clusters, you can update `settings.pg_allow_replication` to enable ordisable replication privileges for the user. When omitted, the value defaults to `false`.For Kafka and OpenSearch clusters, additional options can be configured in the`settings` object (for example, topic or index ACLs).Updating users is supported for PostgreSQL, Kafka, and OpenSearch clusters. Forother engines, the request returns a 422. MongoDB roles and database access areset with `settings.mongo_user_settings` when creating a user and cannot bechanged afterward; recreate the user to apply different roles or databases.The response will be a JSON object with a key called `user`. The value of this will be anobject that contains the name of the updated database user, along with the `settings` object thathas been updated.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

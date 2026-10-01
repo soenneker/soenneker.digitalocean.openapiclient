@@ -21,6 +21,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.Floating_ips;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Functions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Images;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Insights;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Load_balancers;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring;
@@ -152,6 +153,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Images.ImagesRequestBuilder Images
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Images.ImagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The insights property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.InsightsRequestBuilder Insights
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.InsightsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The kubernetes property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.KubernetesRequestBuilder Kubernetes
