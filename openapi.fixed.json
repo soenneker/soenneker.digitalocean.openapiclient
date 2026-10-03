@@ -76655,8 +76655,6 @@
       "ApiEvaluationDatasetType": {
         "enum": [
           "EVALUATION_DATASET_TYPE_UNKNOWN",
-          "EVALUATION_DATASET_TYPE_ADK",
-          "EVALUATION_DATASET_TYPE_NON_ADK",
           "EVALUATION_DATASET_TYPE_MODEL"
         ],
         "type": "string",
@@ -76669,14 +76667,6 @@
             {
               "value": "EVALUATION_DATASET_TYPE_UNKNOWN",
               "name": "EvaluationDatasetTypeUnknown"
-            },
-            {
-              "value": "EVALUATION_DATASET_TYPE_ADK",
-              "name": "EvaluationDatasetTypeAdk"
-            },
-            {
-              "value": "EVALUATION_DATASET_TYPE_NON_ADK",
-              "name": "EvaluationDatasetTypeNonAdk"
             },
             {
               "value": "EVALUATION_DATASET_TYPE_MODEL",
@@ -79145,7 +79135,7 @@
               "type": "string",
               "example": "example string"
             },
-            "description": "Agent deployment names to run the test case against (ADK agent workspaces)."
+            "description": "Agent deployment names to run the test case against."
           },
           "agent_uuids": {
             "type": "array",
@@ -119109,8 +119099,6 @@
       "GenaiListEvaluationDatasetsDatasetTypeParameter": {
         "enum": [
           "EVALUATION_DATASET_TYPE_UNKNOWN",
-          "EVALUATION_DATASET_TYPE_ADK",
-          "EVALUATION_DATASET_TYPE_NON_ADK",
           "EVALUATION_DATASET_TYPE_MODEL"
         ],
         "type": "string",
@@ -119122,14 +119110,6 @@
             {
               "value": "EVALUATION_DATASET_TYPE_UNKNOWN",
               "name": "EvaluationDatasetTypeUnknown"
-            },
-            {
-              "value": "EVALUATION_DATASET_TYPE_ADK",
-              "name": "EvaluationDatasetTypeAdk"
-            },
-            {
-              "value": "EVALUATION_DATASET_TYPE_NON_ADK",
-              "name": "EvaluationDatasetTypeNonAdk"
             },
             {
               "value": "EVALUATION_DATASET_TYPE_MODEL",

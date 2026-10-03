@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Agent deployment names to run the test case against (ADK agent workspaces).</summary>
+        /// <summary>Agent deployment names to run the test case against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? AgentDeploymentNames { get; set; }

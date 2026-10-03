@@ -12,14 +12,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         #pragma warning disable CS1591
         EvaluationDatasetTypeUnknown,
         #pragma warning restore CS1591
-        [EnumMember(Value = "EVALUATION_DATASET_TYPE_ADK")]
-        #pragma warning disable CS1591
-        EvaluationDatasetTypeAdk,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "EVALUATION_DATASET_TYPE_NON_ADK")]
-        #pragma warning disable CS1591
-        EvaluationDatasetTypeNonAdk,
-        #pragma warning restore CS1591
         [EnumMember(Value = "EVALUATION_DATASET_TYPE_MODEL")]
         #pragma warning disable CS1591
         EvaluationDatasetTypeModel,
