@@ -66,7 +66,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels.
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To retrieve a notification channel, send a GET request to`/v2/insights/notification-channels/{id}`. Secret fields are returned maskedas `********`.
+        /// To retrieve a notification channel, send a GET request to`/v2/insights/notification-channels/{id}`. Secret credentials are neverreturned. When a secret is configured, the response includes an optional`*_status` object (for example `webhook_url_status`) with`configured: true`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -97,7 +97,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels.
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To update a notification channel, send a PUT request to`/v2/insights/notification-channels/{id}` with a `name` and exactly one of`email`, `slack`, or `webhook`.Sending a secret field rotates it; omitting the secret field keeps theexisting value.
+        /// To update a notification channel, send a PUT request to`/v2/insights/notification-channels/{id}` with a `name` and exactly one of`email`, `slack`, or `webhook`.Sending a secret field rotates it; omitting the secret field keeps theexisting value. Responses never return secret values; they include optional`*_status` objects when a secret is configured.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelResponseResponse"/></returns>
         /// <param name="body">Create or update body for a notification channel. Provide a `name` andexactly one of `email`, `slack`, or `webhook`.Secret fields are write-only: send the full value to set or rotate; omit thefield on update to keep the existing secret.</param>
@@ -151,7 +151,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels.
             return requestInfo;
         }
         /// <summary>
-        /// To retrieve a notification channel, send a GET request to`/v2/insights/notification-channels/{id}`. Secret fields are returned maskedas `********`.
+        /// To retrieve a notification channel, send a GET request to`/v2/insights/notification-channels/{id}`. Secret credentials are neverreturned. When a secret is configured, the response includes an optional`*_status` object (for example `webhook_url_status`) with`configured: true`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -170,7 +170,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels.
             return requestInfo;
         }
         /// <summary>
-        /// To update a notification channel, send a PUT request to`/v2/insights/notification-channels/{id}` with a `name` and exactly one of`email`, `slack`, or `webhook`.Sending a secret field rotates it; omitting the secret field keeps theexisting value.
+        /// To update a notification channel, send a PUT request to`/v2/insights/notification-channels/{id}` with a `name` and exactly one of`email`, `slack`, or `webhook`.Sending a secret field rotates it; omitting the secret field keeps theexisting value. Responses never return secret values; they include optional`*_status` objects when a secret is configured.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Create or update body for a notification channel. Provide a `name` andexactly one of `email`, `slack`, or `webhook`.Secret fields are write-only: send the full value to set or rotate; omit thefield on update to keep the existing secret.</param>

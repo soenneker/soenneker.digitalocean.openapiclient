@@ -31,7 +31,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Slack notification channel configuration. `webhook_url` is write-only: sendthe full value on create/update; reads return a masked value (`********`).Omit `webhook_url` on update to keep the existing secret.</summary>
+        /// <summary>Slack notification channel configuration for create and update requests.`webhook_url` is write-only: send the full value to set or rotate. Omit`webhook_url` on update to keep the existing secret.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfig? Slack { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfig Slack { get; set; }
 #endif
-        /// <summary>Generic HTTPS webhook notification channel configuration. The URL must useHTTPS and must not include userinfo. Optionally configure either`basic_auth` or `bearer_token` (not both), custom headers, and a signingsecret.`url` is not a secret and is returned in full on read. Credential fields(`basic_auth.password`, `bearer_token.token`, `signature.secret`) arewrite-only: full value on create/update; masked as `********` on read. Omita secret field on update to keep the existing value.</summary>
+        /// <summary>Generic HTTPS webhook notification channel configuration for create andupdate requests. The URL must use HTTPS and must not include userinfo.Optionally configure either `basic_auth` or `bearer_token` (not both),custom headers, and a signing secret.`url` is not a secret and is returned in full on read. Credential fields(`basic_auth.password`, `bearer_token.token`, `signature.secret`) arewrite-only: send the full value to set or rotate. Omit a secret field onupdate to keep the existing value. Responses return nested `*_status`objects instead of secret values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfig? Webhook { get; set; }

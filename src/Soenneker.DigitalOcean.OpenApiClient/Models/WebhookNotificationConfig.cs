@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Generic HTTPS webhook notification channel configuration. The URL must useHTTPS and must not include userinfo. Optionally configure either`basic_auth` or `bearer_token` (not both), custom headers, and a signingsecret.`url` is not a secret and is returned in full on read. Credential fields(`basic_auth.password`, `bearer_token.token`, `signature.secret`) arewrite-only: full value on create/update; masked as `********` on read. Omita secret field on update to keep the existing value.
+    /// Generic HTTPS webhook notification channel configuration for create andupdate requests. The URL must use HTTPS and must not include userinfo.Optionally configure either `basic_auth` or `bearer_token` (not both),custom headers, and a signing secret.`url` is not a secret and is returned in full on read. Credential fields(`basic_auth.password`, `bearer_token.token`, `signature.secret`) arewrite-only: send the full value to set or rotate. Omit a secret field onupdate to keep the existing value. Responses return nested `*_status`objects instead of secret values.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookNotificationConfig : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>HTTP basic authentication credentials for a webhook. `password` iswrite-only: full value on create/update; masked (`********`) on read. Omit onupdate to keep the existing password.</summary>
+        /// <summary>HTTP basic authentication credentials for a webhook create or updaterequest. `password` is write-only: send the full value to set or rotate.Omit `password` on update to keep the existing password.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuth? BasicAuth { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuth BasicAuth { get; set; }
 #endif
-        /// <summary>Bearer token authentication for a webhook. `token` is write-only: full valueon create/update; masked (`********`) on read. Omit on update to keep theexisting token.</summary>
+        /// <summary>Bearer token authentication for a webhook create or update request. `token`is write-only: send the full value to set or rotate. Omit `token` on updateto keep the existing token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken? BearerToken { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfigHeadersProperty Headers { get; set; }
 #endif
-        /// <summary>Optional HMAC signature configuration. `secret` is write-only: full value oncreate/update; masked (`********`) on read. Omit on update to keep theexisting secret.</summary>
+        /// <summary>Optional HMAC signature configuration for a webhook create or updaterequest. `secret` is write-only: send the full value to set or rotate. Omit`secret` on update to keep the existing secret.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfig? Signature { get; set; }

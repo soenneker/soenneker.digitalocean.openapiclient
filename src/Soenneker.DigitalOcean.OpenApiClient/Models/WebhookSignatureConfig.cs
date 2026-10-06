@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional HMAC signature configuration. `secret` is write-only: full value oncreate/update; masked (`********`) on read. Omit on update to keep theexisting secret.
+    /// Optional HMAC signature configuration for a webhook create or updaterequest. `secret` is write-only: send the full value to set or rotate. Omit`secret` on update to keep the existing secret.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookSignatureConfig : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Shared secret used to sign webhook payloads. Write-only secret — fullvalue on create/update; masked as `********` on read.</summary>
+        /// <summary>Shared secret used to sign webhook payloads. Write-only secret — sendthe full value on create or update. Omit on update to retain theexisting value. Never returned in responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Secret { get; set; }

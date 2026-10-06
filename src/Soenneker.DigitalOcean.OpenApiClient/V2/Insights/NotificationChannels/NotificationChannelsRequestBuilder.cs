@@ -76,7 +76,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListNotificationChannelsResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListNotificationChannelsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To create a notification channel, send a POST request to`/v2/insights/notification-channels` with a `name` and exactly one of`email`, `slack`, or `webhook`.Email recipients must be verified team member addresses. Webhook URLs mustuse HTTPS. Secret fields (`slack.webhook_url`, webhook credentials) arewrite-only and returned masked on subsequent reads.
+        /// To create a notification channel, send a POST request to`/v2/insights/notification-channels` with a `name` and exactly one of`email`, `slack`, or `webhook`.Email recipients must be verified team member addresses. Webhook URLs mustuse HTTPS. Secret fields (`slack.webhook_url`, webhook credentials) arewrite-only. Subsequent reads never return secret values; they includeoptional `*_status` objects when a secret is configured.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelResponseResponse"/></returns>
         /// <param name="body">Create or update body for a notification channel. Provide a `name` andexactly one of `email`, `slack`, or `webhook`.Secret fields are write-only: send the full value to set or rotate; omit thefield on update to keep the existing secret.</param>
@@ -128,7 +128,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels
             return requestInfo;
         }
         /// <summary>
-        /// To create a notification channel, send a POST request to`/v2/insights/notification-channels` with a `name` and exactly one of`email`, `slack`, or `webhook`.Email recipients must be verified team member addresses. Webhook URLs mustuse HTTPS. Secret fields (`slack.webhook_url`, webhook credentials) arewrite-only and returned masked on subsequent reads.
+        /// To create a notification channel, send a POST request to`/v2/insights/notification-channels` with a `name` and exactly one of`email`, `slack`, or `webhook`.Email recipients must be verified team member addresses. Webhook URLs mustuse HTTPS. Secret fields (`slack.webhook_url`, webhook credentials) arewrite-only. Subsequent reads never return secret values; they includeoptional `*_status` objects when a secret is configured.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Create or update body for a notification channel. Provide a `name` andexactly one of `email`, `slack`, or `webhook`.Secret fields are write-only: send the full value to set or rotate; omit thefield on update to keep the existing secret.</param>

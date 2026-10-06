@@ -8,37 +8,37 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Bearer token authentication for a webhook create or update request. `token`is write-only: send the full value to set or rotate. Omit `token` on updateto keep the existing token.
+    /// Bearer token authentication as returned in API responses. The token is neverreturned; `token_status` indicates whether it is configured.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebhookBearerToken : IAdditionalDataHolder, IParsable
+    public partial class WebhookBearerTokenResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Bearer token value sent in the Authorization header. Write-only secret —send the full value on create or update. Omit on update to retain theexisting value. Never returned in responses.</summary>
+        /// <summary>Present when a bearer token is configured. Omitted when not configured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponseTokenStatus? TokenStatus { get; set; }
 #nullable restore
 #else
-        public string Token { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponseTokenStatus TokenStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponse"/> and sets the default values.
         /// </summary>
-        public WebhookBearerToken()
+        public WebhookBearerTokenResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "token", n => { Token = n.GetStringValue(); } },
+                { "token_status", n => { TokenStatus = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponseTokenStatus>(global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponseTokenStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("token", Token);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponseTokenStatus>("token_status", TokenStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

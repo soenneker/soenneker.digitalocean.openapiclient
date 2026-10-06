@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// HTTP basic authentication credentials for a webhook. `password` iswrite-only: full value on create/update; masked (`********`) on read. Omit onupdate to keep the existing password.
+    /// HTTP basic authentication credentials for a webhook create or updaterequest. `password` is write-only: send the full value to set or rotate.Omit `password` on update to keep the existing password.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookBasicAuth : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Basic auth password. Write-only secret — full value on create/update;masked as `********` on read.</summary>
+        /// <summary>Basic auth password. Write-only secret — send the full value on createor update. Omit on update to retain the existing value. Never returnedin responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Password { get; set; }

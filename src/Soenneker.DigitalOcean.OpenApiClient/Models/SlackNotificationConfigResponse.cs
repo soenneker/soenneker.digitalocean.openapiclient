@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Slack notification channel configuration for create and update requests.`webhook_url` is write-only: send the full value to set or rotate. Omit`webhook_url` on update to keep the existing secret.
+    /// Slack notification channel configuration as returned in API responses. Thewebhook URL is never returned; `webhook_url_status` indicates whether it isconfigured.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SlackNotificationConfig : IAdditionalDataHolder, IParsable
+    public partial class SlackNotificationConfigResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -23,30 +23,30 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Channel { get; set; }
 #endif
-        /// <summary>Slack incoming webhook URL. Write-only secret — send the full value oncreate or update. Omit on update to retain the existing value. Neverreturned in responses.</summary>
+        /// <summary>Present when a Slack webhook URL is configured. Omitted when notconfigured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponseWebhookUrlStatus? WebhookUrlStatus { get; set; }
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponseWebhookUrlStatus WebhookUrlStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfig"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponse"/> and sets the default values.
         /// </summary>
-        public SlackNotificationConfig()
+        public SlackNotificationConfigResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfig"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfig CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfig();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "channel", n => { Channel = n.GetStringValue(); } },
-                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
+                { "webhook_url_status", n => { WebhookUrlStatus = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponseWebhookUrlStatus>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponseWebhookUrlStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("channel", Channel);
-            writer.WriteStringValue("webhook_url", WebhookUrl);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SlackNotificationConfigResponseWebhookUrlStatus>("webhook_url_status", WebhookUrlStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
