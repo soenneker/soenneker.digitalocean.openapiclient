@@ -21486,6 +21486,74 @@
             "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  --get \u0022https://api.digitalocean.com/v2/insights/query/nyc3/prom/api/v1/query\u0022 \\\n  --data-urlencode \u0022query=do.droplets.cpu_time\u0022"
           }
         ]
+      },
+      "post": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "Execute an instant PromQL query",
+        "description": "To evaluate a PromQL expression at a single point in time, send a POST request to \u0060/v2/insights/query/{region}/prom/api/v1/query\u0060 with \u0060application/x-www-form-urlencoded\u0060 parameters.",
+        "operationId": "InsightsPostPromQuery",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/parameters_region"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightsPostPromQueryXWwwFormUrlencodedRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/prom_query"
+          },
+          "400": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022Content-Type: application/x-www-form-urlencoded\u0022 \\\n  -d \u0022query=do.droplets.cpu_time\u0022 \\\n  \u0022https://api.digitalocean.com/v2/insights/query/nyc3/prom/api/v1/query\u0022"
+          }
+        ]
       }
     },
     "/v2/insights/query/{region}/prom/api/v1/query_range": {
@@ -21561,6 +21629,74 @@
             "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  --get \u0022https://api.digitalocean.com/v2/insights/query/nyc3/prom/api/v1/query_range\u0022 \\\n  --data-urlencode \u0022query=do.droplets.cpu_time\u0022 \\\n  --data-urlencode \u0022start=1620683817\u0022 \\\n  --data-urlencode \u0022end=1620705417\u0022 \\\n  --data-urlencode \u0022step=15s\u0022"
           }
         ]
+      },
+      "post": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "Execute a range PromQL query",
+        "description": "To evaluate a PromQL expression over a time range, send a POST request to \u0060/v2/insights/query/{region}/prom/api/v1/query_range\u0060 with \u0060application/x-www-form-urlencoded\u0060 parameters.",
+        "operationId": "InsightsPostPromQueryRange",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/parameters_region"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightsPostPromQueryRangeXWwwFormUrlencodedRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/prom_query_range"
+          },
+          "400": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022Content-Type: application/x-www-form-urlencoded\u0022 \\\n  -d \u0022query=do.droplets.cpu_time\u0022 \\\n  -d \u0022start=1620683817\u0022 \\\n  -d \u0022end=1620705417\u0022 \\\n  -d \u0022step=15s\u0022 \\\n  \u0022https://api.digitalocean.com/v2/insights/query/nyc3/prom/api/v1/query_range\u0022"
+          }
+        ]
       }
     },
     "/v2/insights/query/{region}/prom/api/v1/labels": {
@@ -21628,6 +21764,73 @@
           {
             "lang": "cURL",
             "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/insights/query/nyc3/prom/api/v1/labels\u0022"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "List label names",
+        "description": "To list label names, send a POST request to \u0060/v2/insights/query/{region}/prom/api/v1/labels\u0060 with \u0060application/x-www-form-urlencoded\u0060 parameters.",
+        "operationId": "InsightsPostPromLabels",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/parameters_region"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightsPostPromLabelsXWwwFormUrlencodedRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/prom_labels"
+          },
+          "400": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022Content-Type: application/x-www-form-urlencoded\u0022 \\\n  --data-urlencode \u0027match[]={__name__=\u0022do.droplets.cpu_time\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/insights/query/nyc3/prom/api/v1/labels\u0022"
           }
         ]
       }
@@ -21769,6 +21972,74 @@
           {
             "lang": "cURL",
             "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  --get \u0022https://api.digitalocean.com/v2/insights/query/nyc3/prom/api/v1/series\u0022 \\\n  --data-urlencode \u0027match[]={__name__=\u0022do.droplets.cpu_time\u0022}\u0027"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "Find series by label selectors",
+        "description": "To find series matching one or more selectors, send a POST request to \u0060/v2/insights/query/{region}/prom/api/v1/series\u0060 with \u0060application/x-www-form-urlencoded\u0060 parameters.",
+        "operationId": "InsightsPostPromSeries",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/parameters_region"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightsPostPromSeriesXWwwFormUrlencodedRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/prom_series"
+          },
+          "400": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/prom_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022Content-Type: application/x-www-form-urlencoded\u0022 \\\n  --data-urlencode \u0027match[]={__name__=\u0022do.droplets.cpu_time\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/insights/query/nyc3/prom/api/v1/series\u0022"
           }
         ]
       }
@@ -107445,6 +107716,112 @@
             "transfer": "#/components/schemas/ImageActionTransfer",
             "ImageActionBase": "#/components/schemas/ImageActionBase",
             "ImageActionTransfer": "#/components/schemas/ImageActionTransfer"
+          }
+        }
+      },
+      "InsightsPostPromQueryXWwwFormUrlencodedRequest": {
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "A PromQL expression to evaluate.",
+            "example": "do.droplets.cpu_time"
+          },
+          "time": {
+            "type": "string",
+            "description": "Evaluation timestamp. RFC3339 or UNIX timestamp.",
+            "example": "1620683817"
+          },
+          "timeout": {
+            "type": "string",
+            "description": "Optional evaluation timeout duration.",
+            "example": "30s"
+          }
+        }
+      },
+      "InsightsPostPromQueryRangeXWwwFormUrlencodedRequest": {
+        "required": [
+          "query",
+          "start",
+          "end",
+          "step"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "A PromQL expression to evaluate.",
+            "example": "do.droplets.cpu_time"
+          },
+          "start": {
+            "type": "string",
+            "description": "Start timestamp. RFC3339 or UNIX timestamp.",
+            "example": "1620683817"
+          },
+          "end": {
+            "type": "string",
+            "description": "End timestamp. RFC3339 or UNIX timestamp.",
+            "example": "1620705417"
+          },
+          "step": {
+            "type": "string",
+            "description": "Query resolution step width.",
+            "example": "15s"
+          },
+          "timeout": {
+            "type": "string",
+            "description": "Optional evaluation timeout duration.",
+            "example": "30s"
+          }
+        }
+      },
+      "InsightsPostPromLabelsXWwwFormUrlencodedRequest": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Optional start timestamp.",
+            "example": "1620683817"
+          },
+          "end": {
+            "type": "string",
+            "description": "Optional end timestamp.",
+            "example": "1620705417"
+          },
+          "match[]": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional series selectors."
+          }
+        }
+      },
+      "InsightsPostPromSeriesXWwwFormUrlencodedRequest": {
+        "required": [
+          "match[]"
+        ],
+        "type": "object",
+        "properties": {
+          "match[]": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "One or more series selectors."
+          },
+          "start": {
+            "type": "string",
+            "description": "Optional start timestamp.",
+            "example": "1620683817"
+          },
+          "end": {
+            "type": "string",
+            "description": "Optional end timestamp.",
+            "example": "1620705417"
           }
         }
       },

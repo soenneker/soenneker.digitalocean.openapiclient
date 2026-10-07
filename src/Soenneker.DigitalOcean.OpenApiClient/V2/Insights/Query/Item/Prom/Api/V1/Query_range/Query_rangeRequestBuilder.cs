@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.Api.V
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Query_rangeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/insights/query/{region}/prom/api/v1/query_range?end={end}&query={query}&start={start}&step={step}{&timeout*}", pathParameters)
+        public Query_rangeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/insights/query/{region}/prom/api/v1/query_range{?timeout*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.Api.V
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Query_rangeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/insights/query/{region}/prom/api/v1/query_range?end={end}&query={query}&start={start}&step={step}{&timeout*}", rawUrl)
+        public Query_rangeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/insights/query/{region}/prom/api/v1/query_range{?timeout*}", rawUrl)
         {
         }
         /// <summary>
@@ -73,6 +73,47 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.Api.V
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryRangeResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryRangeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// To evaluate a PromQL expression over a time range, send a POST request to `/v2/insights/query/{region}/prom/api/v1/query_range` with `application/x-www-form-urlencoded` parameters.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryRangeResponse"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PromError">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PromError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PromError">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PromError">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryRangeResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsPostPromQueryRangeXWwwFormUrlencodedRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryRangeResponse> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsPostPromQueryRangeXWwwFormUrlencodedRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.PromError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.DigitalOcean.OpenApiClient.Models.PromError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.PromError.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.DigitalOcean.OpenApiClient.Models.PromError.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryRangeResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryRangeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// To evaluate a PromQL expression over a time range, send a GET request to `/v2/insights/query/{region}/prom/api/v1/query_range`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -86,9 +127,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.Api.V
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.Api.V1.Query_range.Query_rangeRequestBuilder.Query_rangeRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/v2/insights/query/{region}/prom/api/v1/query_range?end={end}&query={query}&start={start}&step={step}{&timeout*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// To evaluate a PromQL expression over a time range, send a POST request to `/v2/insights/query/{region}/prom/api/v1/query_range` with `application/x-www-form-urlencoded` parameters.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsPostPromQueryRangeXWwwFormUrlencodedRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsPostPromQueryRangeXWwwFormUrlencodedRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/x-www-form-urlencoded", body);
             return requestInfo;
         }
         /// <summary>
