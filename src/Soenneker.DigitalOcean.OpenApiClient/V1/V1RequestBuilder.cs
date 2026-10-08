@@ -5,11 +5,13 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.V1.AsyncInvoke;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Batches;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Chat;
+using Soenneker.DigitalOcean.OpenApiClient.V1.Consent;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Embeddings;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Images;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Messages;
 using Soenneker.DigitalOcean.OpenApiClient.V1.ModelsRequests;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Responses;
+using Soenneker.DigitalOcean.OpenApiClient.V1.Signals;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Systemone;
 using System.Collections.Generic;
 using System.IO;
@@ -38,6 +40,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Chat.ChatRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The consent property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Consent.ConsentRequestBuilder Consent
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Consent.ConsentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The embeddings property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Embeddings.EmbeddingsRequestBuilder Embeddings
         {
@@ -62,6 +69,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Responses.ResponsesRequestBuilder Responses
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Responses.ResponsesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The signals property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.SignalsRequestBuilder Signals
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.SignalsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The systemone property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Systemone.SystemoneRequestBuilder Systemone

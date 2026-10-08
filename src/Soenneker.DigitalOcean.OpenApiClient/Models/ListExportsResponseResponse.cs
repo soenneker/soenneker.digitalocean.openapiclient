@@ -9,43 +9,43 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AppsCreateAppRequest : IAdditionalDataHolder, IParsable
+    public partial class ListExportsResponseResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ID of the project the app should be assigned to. If omitted, it will be assigned to your default project.&lt;br&gt;&lt;br&gt;Requires `project:assign_resource` and `project:update` scopes.</summary>
+        /// <summary>The edges property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProjectId { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem>? Edges { get; set; }
 #nullable restore
 #else
-        public string ProjectId { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem> Edges { get; set; }
 #endif
-        /// <summary>The desired configuration of an application.</summary>
+        /// <summary>The page_info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec? Spec { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo? PageInfo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec Spec { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo PageInfo { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsCreateAppRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponse"/> and sets the default values.
         /// </summary>
-        public AppsCreateAppRequest()
+        public ListExportsResponseResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsCreateAppRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsCreateAppRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsCreateAppRequest();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +55,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "project_id", n => { ProjectId = n.GetStringValue(); } },
-                { "spec", n => { Spec = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec.CreateFromDiscriminatorValue); } },
+                { "edges", n => { Edges = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "page_info", n => { PageInfo = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec>("spec", Spec);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem>("edges", Edges);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo>("page_info", PageInfo);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
