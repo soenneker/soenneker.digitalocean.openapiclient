@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents;
+using Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Deletions;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.AgentsRequestBuilder Agents
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The deletions property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Deletions.DeletionsRequestBuilder Deletions
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Deletions.DeletionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The exports property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports.ExportsRequestBuilder Exports

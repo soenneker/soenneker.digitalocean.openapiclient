@@ -34,11 +34,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
         {
         }
         /// <summary>
-        /// To retrieve the consent record for a specific agent, send a GETrequest to `/v1/consent/{agent_id}`. The response includes an `allowed`field indicating whether the team is permitted to use signals for this agent.
+        /// To retrieve the consent record for a specific agent, send a GETrequest to `/v1/consent/{agent_id}`. The response includes an `enabled`field indicating whether signals collection is on for this agent.This endpoint only serves per-agent (`source: agent`) records. Team-levelinference consent is read from `GET /v1/consent?source=inference`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConsent"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
@@ -56,6 +57,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -65,12 +67,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConsent>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConsent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To enable or disable signals collection for a specific agent, send aPUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in therequest body.
+        /// To enable or disable signals collection for a specific agent, send aPUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in therequest body.This endpoint only manages per-agent (`source: agent`) consent. To manageteam-level consent for Serverless Inference, use`PUT /v1/consent?source=inference` instead.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConsentResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
@@ -89,6 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -98,7 +102,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConsentResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConsentResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To retrieve the consent record for a specific agent, send a GETrequest to `/v1/consent/{agent_id}`. The response includes an `allowed`field indicating whether the team is permitted to use signals for this agent.
+        /// To retrieve the consent record for a specific agent, send a GETrequest to `/v1/consent/{agent_id}`. The response includes an `enabled`field indicating whether signals collection is on for this agent.This endpoint only serves per-agent (`source: agent`) records. Team-levelinference consent is read from `GET /v1/consent?source=inference`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -117,7 +121,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
             return requestInfo;
         }
         /// <summary>
-        /// To enable or disable signals collection for a specific agent, send aPUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in therequest body.
+        /// To enable or disable signals collection for a specific agent, send aPUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in therequest body.This endpoint only manages per-agent (`source: agent`) consent. To manageteam-level consent for Serverless Inference, use`PUT /v1/consent?source=inference` instead.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

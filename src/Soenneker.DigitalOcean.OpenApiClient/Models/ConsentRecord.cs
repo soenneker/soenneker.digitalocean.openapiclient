@@ -8,19 +8,27 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A consent record indicating whether signals collection is enabled for an agent.
+    /// A consent record indicating whether signals collection is enabled for a source. Records with `source: agent` apply to one agent; the record with `source: inference` applies to the whole team.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConsentRecord : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The unique identifier of the agent. For Harness Runtime, this is the Environment Config ID.</summary>
-        public Guid? AgentId { get; set; }
-        /// <summary>Whether signals collection is enabled for this agent.</summary>
+        /// <summary>The unique identifier of the agent. For Harness Runtime, this is the Environment Config ID. Empty for team-level records (`source: inference`), which are not tied to an agent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AgentId { get; set; }
+#nullable restore
+#else
+        public string AgentId { get; set; }
+#endif
+        /// <summary>Whether signals collection is enabled for this source.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The unique numeric identifier for the consent record.</summary>
         public int? Id { get; set; }
+        /// <summary>The source this consent applies to. `agent` is per-agent consent for Harness Runtime; `inference` is team-level consent for Serverless Inference chat completions.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecordSource? Source { get; set; }
         /// <summary>The team ID that owns this consent record.</summary>
         public int? TeamId { get; set; }
         /// <summary>A time value given in ISO8601 combined date and time format.</summary>
@@ -50,9 +58,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_id", n => { AgentId = n.GetGuidValue(); } },
+                { "agent_id", n => { AgentId = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecordSource>(); } },
                 { "team_id", n => { TeamId = n.GetIntValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -64,9 +73,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("agent_id", AgentId);
+            writer.WriteStringValue("agent_id", AgentId);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteIntValue("id", Id);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecordSource>("source", Source);
             writer.WriteIntValue("team_id", TeamId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

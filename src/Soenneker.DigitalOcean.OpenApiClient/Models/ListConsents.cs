@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A list of consent records for the team&apos;s agents.</summary>
+        /// <summary>A list of consent records for the team. Includes per-agent records (`source: agent`) and, when set, the team-level inference record (`source: inference`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord>? Consents { get; set; }
@@ -23,6 +23,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord> Consents { get; set; }
 #endif
+        /// <summary>Echoes the `source` filter when the request was filtered by source. Omitted when the list was not filtered.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsentsSource? Source { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsents"/> and sets the default values.
         /// </summary>
@@ -49,6 +51,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "consents", n => { Consents = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsentsSource>(); } },
             };
         }
         /// <summary>
@@ -59,6 +62,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord>("consents", Consents);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsentsSource>("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

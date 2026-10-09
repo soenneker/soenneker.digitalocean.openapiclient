@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Consent details for a specific agent, including an allowed flag.
+    /// Consent details for a specific agent.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentConsent : IAdditionalDataHolder, IParsable
@@ -17,12 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier of the agent. For Harness Runtime, this is the Environment Config ID.</summary>
         public Guid? AgentId { get; set; }
-        /// <summary>Whether the team is permitted to use signals for this agent. This is determined by the platform and cannot be set by the user.</summary>
-        public bool? Allowed { get; set; }
         /// <summary>Whether signals collection is enabled for this agent.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The unique numeric identifier for the consent record.</summary>
         public int? Id { get; set; }
+        /// <summary>The source this consent applies to. Always `agent` for per-agent records returned by this endpoint.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentSource? Source { get; set; }
         /// <summary>The team ID that owns this consent record.</summary>
         public int? TeamId { get; set; }
         /// <summary>A time value given in ISO8601 combined date and time format.</summary>
@@ -53,9 +53,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "agent_id", n => { AgentId = n.GetGuidValue(); } },
-                { "allowed", n => { Allowed = n.GetBoolValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentSource>(); } },
                 { "team_id", n => { TeamId = n.GetIntValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -68,9 +68,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("agent_id", AgentId);
-            writer.WriteBoolValue("allowed", Allowed);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteIntValue("id", Id);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentSource>("source", Source);
             writer.WriteIntValue("team_id", TeamId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

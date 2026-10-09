@@ -24,6 +24,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.Images;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Load_balancers;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Nfs;
 using Soenneker.DigitalOcean.OpenApiClient.V2.OneClicks;
@@ -168,6 +169,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Load_balancers.Load_balancersRequestBuilder Load_balancers
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Load_balancers.Load_balancersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The microvms property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.MicrovmsRequestBuilder Microvms
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.MicrovmsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The monitoring property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.MonitoringRequestBuilder Monitoring

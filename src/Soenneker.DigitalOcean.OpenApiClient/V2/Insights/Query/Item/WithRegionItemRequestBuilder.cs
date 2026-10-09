@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Logs;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Spans;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Traces;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,6 +27,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.PromRequestBuilder Prom
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.PromRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The spans property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Spans.SpansRequestBuilder Spans
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Spans.SpansRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The traces property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Traces.TracesRequestBuilder Traces
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Traces.TracesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.WithRegionItemRequestBuilder"/> and sets the default values.
