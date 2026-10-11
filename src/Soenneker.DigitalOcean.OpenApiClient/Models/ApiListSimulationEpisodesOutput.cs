@@ -8,20 +8,20 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Output for listing the journeys within a simulation run.
+    /// Output for listing the episodes within a simulation run.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ApiListSimulationJourneysOutput : IAdditionalDataHolder, IParsable
+    public partial class ApiListSimulationEpisodesOutput : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Sort-by values available for this list request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneySortField?>? AvailableSortBy { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField?>? AvailableSortBy { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneySortField?> AvailableSortBy { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField?> AvailableSortBy { get; set; }
 #endif
         /// <summary>Sort-direction values available for this list request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,26 +34,26 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Statuses available for filtering this list request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyStatus?>? AvailableStatuses { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus?>? AvailableStatuses { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyStatus?> AvailableStatuses { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus?> AvailableStatuses { get; set; }
 #endif
         /// <summary>Verdicts available for filtering this list request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict?>? AvailableVerdicts { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict?>? AvailableVerdicts { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict?> AvailableVerdicts { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict?> AvailableVerdicts { get; set; }
 #endif
-        /// <summary>The journeys for the current page.</summary>
+        /// <summary>The episodes for the current page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney>? Journeys { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>? Episodes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney> Journeys { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode> Episodes { get; set; }
 #endif
         /// <summary>Links to other pages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,21 +72,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta Meta { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationJourneysOutput"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationEpisodesOutput"/> and sets the default values.
         /// </summary>
-        public ApiListSimulationJourneysOutput()
+        public ApiListSimulationEpisodesOutput()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationJourneysOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationEpisodesOutput"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationJourneysOutput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationEpisodesOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationJourneysOutput();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationEpisodesOutput();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,11 +96,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "available_sort_by", n => { AvailableSortBy = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneySortField>()?.AsList(); } },
+                { "available_sort_by", n => { AvailableSortBy = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField>()?.AsList(); } },
                 { "available_sort_directions", n => { AvailableSortDirections = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection>()?.AsList(); } },
-                { "available_statuses", n => { AvailableStatuses = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyStatus>()?.AsList(); } },
-                { "available_verdicts", n => { AvailableVerdicts = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict>()?.AsList(); } },
-                { "journeys", n => { Journeys = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "available_statuses", n => { AvailableStatuses = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus>()?.AsList(); } },
+                { "available_verdicts", n => { AvailableVerdicts = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>()?.AsList(); } },
+                { "episodes", n => { Episodes = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta.CreateFromDiscriminatorValue); } },
             };
@@ -112,11 +112,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneySortField>("available_sort_by", AvailableSortBy);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField>("available_sort_by", AvailableSortBy);
             writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection>("available_sort_directions", AvailableSortDirections);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyStatus>("available_statuses", AvailableStatuses);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict>("available_verdicts", AvailableVerdicts);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney>("journeys", Journeys);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus>("available_statuses", AvailableStatuses);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>("available_verdicts", AvailableVerdicts);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>("episodes", Episodes);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks>("links", Links);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);

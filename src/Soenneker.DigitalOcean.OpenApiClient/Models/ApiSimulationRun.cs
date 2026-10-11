@@ -43,6 +43,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>Time deleted at. Unset unless the run has been deleted.</summary>
         public DateTimeOffset? DeletedAt { get; set; }
+        /// <summary>Number of episodes that have finished (successfully or not).</summary>
+        public long? EpisodesFinished { get; set; }
         /// <summary>UUID of the evaluation run reserved for this simulation, when the createrequest included evaluation_config. Empty when no evaluation is attached.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,7 +53,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string EvaluationRunUuid { get; set; }
 #endif
-        /// <summary>Optional run-level journeys-per-scenario override. When set, overrides each scenario&apos;s exploration_budget.</summary>
+        /// <summary>Optional run-level episodes-per-scenario override. When set, overrides each scenario&apos;s exploration_budget.</summary>
         public long? ExplorationBudget { get; set; }
         /// <summary>Human-readable explanation of a terminal FAILED status. Empty otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,8 +63,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string FailureReason { get; set; }
 #endif
-        /// <summary>Number of journeys that have finished (successfully or not).</summary>
-        public long? JourneysFinished { get; set; }
         /// <summary>Display name of the judge model (from the model catalog).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,10 +115,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ScenarioSetUuid { get; set; }
 #endif
-        /// <summary>Lifecycle status of a simulation run. - SIMULATION_RUN_STATUS_PENDING: Accepted and queued, not yet executing. - SIMULATION_RUN_STATUS_RUNNING: Journeys are executing. - SIMULATION_RUN_STATUS_SUCCEEDED: All journeys finished successfully. - SIMULATION_RUN_STATUS_FAILED: The run failed, for example because of a timeout or workflow error. - SIMULATION_RUN_STATUS_CANCELLED: The run was cancelled. - SIMULATION_RUN_STATUS_EVALUATING: Journeys finished and an attached evaluation is running. Only reachablewhen the create request included evaluation_config. When the evaluationreaches a terminal status, its outcome is reflected in the simulation runstatus. - SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL: The simulation or its attached evaluation completed with a mixture ofsuccessful and failed results.</summary>
+        /// <summary>Lifecycle status of a simulation run. - SIMULATION_RUN_STATUS_PENDING: Accepted and queued, not yet executing. - SIMULATION_RUN_STATUS_RUNNING: Episodes are executing. - SIMULATION_RUN_STATUS_SUCCEEDED: All episodes finished successfully. - SIMULATION_RUN_STATUS_FAILED: The run failed, for example because of a timeout or workflow error. - SIMULATION_RUN_STATUS_CANCELLED: The run was cancelled. - SIMULATION_RUN_STATUS_EVALUATING: Episodes finished and an attached evaluation is running. Only reachablewhen the create request included evaluation_config. When the evaluationreaches a terminal status, its outcome is reflected in the simulation runstatus. - SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL: The simulation or its attached evaluation completed with a mixture ofsuccessful and failed results.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRunStatus? Status { get; set; }
-        /// <summary>Total number of journeys (sum of exploration budgets).</summary>
-        public long? TotalJourneys { get; set; }
+        /// <summary>Total number of episodes (sum of exploration budgets).</summary>
+        public long? TotalEpisodes { get; set; }
         /// <summary>Time last updated at.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Optional user simulator model settings such as temperature and max_tokens.</summary>
@@ -183,10 +183,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "created_by_user_email", n => { CreatedByUserEmail = n.GetStringValue(); } },
                 { "created_by_user_id", n => { CreatedByUserId = n.GetStringValue(); } },
                 { "deleted_at", n => { DeletedAt = n.GetDateTimeOffsetValue(); } },
+                { "episodes_finished", n => { EpisodesFinished = n.GetLongValue(); } },
                 { "evaluation_run_uuid", n => { EvaluationRunUuid = n.GetStringValue(); } },
                 { "exploration_budget", n => { ExplorationBudget = n.GetLongValue(); } },
                 { "failure_reason", n => { FailureReason = n.GetStringValue(); } },
-                { "journeys_finished", n => { JourneysFinished = n.GetLongValue(); } },
                 { "judge_model_name", n => { JudgeModelName = n.GetStringValue(); } },
                 { "judge_model_uuid", n => { JudgeModelUuid = n.GetStringValue(); } },
                 { "max_turns", n => { MaxTurns = n.GetLongValue(); } },
@@ -196,7 +196,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "scenario_count", n => { ScenarioCount = n.GetLongValue(); } },
                 { "scenario_set_uuid", n => { ScenarioSetUuid = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRunStatus>(); } },
-                { "total_journeys", n => { TotalJourneys = n.GetLongValue(); } },
+                { "total_episodes", n => { TotalEpisodes = n.GetLongValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_simulator_config", n => { UserSimulatorConfig = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRunUserSimulatorConfigProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRunUserSimulatorConfigProperty.CreateFromDiscriminatorValue); } },
                 { "user_simulator_model_name", n => { UserSimulatorModelName = n.GetStringValue(); } },
@@ -216,10 +216,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("created_by_user_email", CreatedByUserEmail);
             writer.WriteStringValue("created_by_user_id", CreatedByUserId);
             writer.WriteDateTimeOffsetValue("deleted_at", DeletedAt);
+            writer.WriteLongValue("episodes_finished", EpisodesFinished);
             writer.WriteStringValue("evaluation_run_uuid", EvaluationRunUuid);
             writer.WriteLongValue("exploration_budget", ExplorationBudget);
             writer.WriteStringValue("failure_reason", FailureReason);
-            writer.WriteLongValue("journeys_finished", JourneysFinished);
             writer.WriteStringValue("judge_model_name", JudgeModelName);
             writer.WriteStringValue("judge_model_uuid", JudgeModelUuid);
             writer.WriteLongValue("max_turns", MaxTurns);
@@ -229,7 +229,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteLongValue("scenario_count", ScenarioCount);
             writer.WriteStringValue("scenario_set_uuid", ScenarioSetUuid);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRunStatus>("status", Status);
-            writer.WriteLongValue("total_journeys", TotalJourneys);
+            writer.WriteLongValue("total_episodes", TotalEpisodes);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRunUserSimulatorConfigProperty>("user_simulator_config", UserSimulatorConfig);
             writer.WriteStringValue("user_simulator_model_name", UserSimulatorModelName);

@@ -31,8 +31,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Reasoning { get; set; }
 #endif
-        /// <summary>The judge&apos;s verdict for a journey. - SIMULATION_JOURNEY_VERDICT_SUCCESS: The candidate agent satisfied the scenario&apos;s stopping criteria. - SIMULATION_JOURNEY_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria. - SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict? Verdict { get; set; }
+        /// <summary>The judge&apos;s verdict for an episode. - SIMULATION_EPISODE_VERDICT_SUCCESS: The candidate agent satisfied the scenario&apos;s stopping criteria. - SIMULATION_EPISODE_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria. - SIMULATION_EPISODE_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict? Verdict { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryJudgeResult"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "criteria_pass_fail", n => { CriteriaPassFail = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryJudgeCriterion>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryJudgeCriterion.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reasoning", n => { Reasoning = n.GetStringValue(); } },
-                { "verdict", n => { Verdict = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict>(); } },
+                { "verdict", n => { Verdict = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryJudgeCriterion>("criteria_pass_fail", CriteriaPassFail);
             writer.WriteStringValue("reasoning", Reasoning);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict>("verdict", Verdict);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>("verdict", Verdict);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

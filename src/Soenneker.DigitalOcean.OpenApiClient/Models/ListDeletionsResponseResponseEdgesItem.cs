@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Cursor { get; set; }
 #endif
-        /// <summary>A deletion job that permanently removes signals data for an agent or for a team&apos;s Serverless Inference usage.</summary>
+        /// <summary>A deletion job that permanently removes Signals conversations for one Harness Runtime agent, or Serverless Inference Signals conversations for a whole team. Aggregated Insights or metrics summaries may still remain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJob? Node { get; set; }

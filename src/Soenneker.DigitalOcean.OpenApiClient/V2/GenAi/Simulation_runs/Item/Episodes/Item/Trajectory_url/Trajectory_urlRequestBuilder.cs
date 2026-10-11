@@ -9,34 +9,34 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url
+namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\simulation_runs\{runUuid}\journeys\{journeyUuid}\trajectory_url
+    /// Builds and executes requests for operations under \v2\gen-ai\simulation_runs\{runUuid}\episodes\{episodeUuid}\trajectory_url
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Trajectory_urlRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url.Trajectory_urlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url.Trajectory_urlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Trajectory_urlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}/trajectory_url", pathParameters)
+        public Trajectory_urlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/simulation_runs/{runUuid}/episodes/{episodeUuid}/trajectory_url", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url.Trajectory_urlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url.Trajectory_urlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Trajectory_urlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}/trajectory_url", rawUrl)
+        public Trajectory_urlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/simulation_runs/{runUuid}/episodes/{episodeUuid}/trajectory_url", rawUrl)
         {
         }
         /// <summary>
-        /// To retrieve a presigned download URL for a journey&apos;s trajectory, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}/trajectory_url`.
+        /// To retrieve a presigned download URL for an episode&apos;s trajectory, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}/trajectory_url`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Jou
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,10 +62,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Jou
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To retrieve a presigned download URL for a journey&apos;s trajectory, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}/trajectory_url`.
+        /// To retrieve a presigned download URL for an episode&apos;s trajectory, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}/trajectory_url`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -86,11 +86,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Jou
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url.Trajectory_urlRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url.Trajectory_urlRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url.Trajectory_urlRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url.Trajectory_urlRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url.Trajectory_urlRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url.Trajectory_urlRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

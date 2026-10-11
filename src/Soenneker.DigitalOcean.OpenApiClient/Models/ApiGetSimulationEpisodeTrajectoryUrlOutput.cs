@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Output containing a presigned download URL for a journey&apos;s trajectory JSON.
+    /// Output containing a presigned download URL for an episode&apos;s trajectory JSON.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ApiGetSimulationJourneyTrajectoryUrlOutput : IAdditionalDataHolder, IParsable
+    public partial class ApiGetSimulationEpisodeTrajectoryUrlOutput : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -26,21 +26,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The time the URL expires at.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput"/> and sets the default values.
         /// </summary>
-        public ApiGetSimulationJourneyTrajectoryUrlOutput()
+        public ApiGetSimulationEpisodeTrajectoryUrlOutput()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryUrlOutput();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeTrajectoryUrlOutput();
         }
         /// <summary>
         /// The deserialization information for the current model

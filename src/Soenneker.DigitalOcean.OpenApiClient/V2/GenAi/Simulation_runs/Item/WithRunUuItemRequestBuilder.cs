@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Cancel;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -24,10 +24,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Cancel.CancelRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The journeys property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.JourneysRequestBuilder Journeys
+        /// <summary>The episodes property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.EpisodesRequestBuilder Episodes
         {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.JourneysRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.EpisodesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.WithRunUuItemRequestBuilder"/> and sets the default values.

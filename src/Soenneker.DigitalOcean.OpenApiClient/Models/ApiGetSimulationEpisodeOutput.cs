@@ -8,37 +8,37 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Output containing the parsed trajectory JSON.
+    /// Output for getting a single episode.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ApiGetSimulationJourneyTrajectoryOutput : IAdditionalDataHolder, IParsable
+    public partial class ApiGetSimulationEpisodeOutput : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Turn-by-turn trajectory for one journey. Poll this resource while the journey is running to watch live progress.</summary>
+        /// <summary>One independent execution within a simulation run, including its trajectory and verdict.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory? Trajectory { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode? Episode { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory Trajectory { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode Episode { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryOutput"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput"/> and sets the default values.
         /// </summary>
-        public ApiGetSimulationJourneyTrajectoryOutput()
+        public ApiGetSimulationEpisodeOutput()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryOutput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyTrajectoryOutput();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "trajectory", n => { Trajectory = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory.CreateFromDiscriminatorValue); } },
+                { "episode", n => { Episode = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory>("trajectory", Trajectory);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>("episode", Episode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

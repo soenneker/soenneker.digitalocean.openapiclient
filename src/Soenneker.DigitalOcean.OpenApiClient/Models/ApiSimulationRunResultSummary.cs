@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Per-actor token accounting for a run or journey.</summary>
+        /// <summary>Per-actor token accounting for a run or episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? TokenUsage { get; set; }
@@ -31,13 +31,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string TotalDurationSec { get; set; }
 #endif
-        /// <summary>Breakdown of journey outcomes by judge verdict. Reused wherever asuccess / failure / inconclusive tally is reported (run row, result summary,per-scenario rollup).</summary>
+        /// <summary>Breakdown of episode outcomes by judge verdict. Reused wherever asuccess / failure / inconclusive tally is reported (run row, result summary,per-scenario rollup).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts? VerdictCounts { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts? VerdictCounts { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts VerdictCounts { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts VerdictCounts { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRunResultSummary"/> and sets the default values.
@@ -66,7 +66,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "token_usage", n => { TokenUsage = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage.CreateFromDiscriminatorValue); } },
                 { "total_duration_sec", n => { TotalDurationSec = n.GetStringValue(); } },
-                { "verdict_counts", n => { VerdictCounts = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts.CreateFromDiscriminatorValue); } },
+                { "verdict_counts", n => { VerdictCounts = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage>("token_usage", TokenUsage);
             writer.WriteStringValue("total_duration_sec", TotalDurationSec);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts>("verdict_counts", VerdictCounts);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts>("verdict_counts", VerdictCounts);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

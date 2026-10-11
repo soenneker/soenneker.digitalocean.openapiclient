@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Turn-by-turn trajectory for one journey. Poll this resource while the journey is running to watch live progress.
+    /// Turn-by-turn trajectory for one episode. Poll this resource while the episode is running to watch live progress.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiSimulationTrajectory : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Identifier of the candidate agent under test for this journey.</summary>
+        /// <summary>Identifier of the candidate agent under test for this episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AgentId { get; set; }
@@ -39,6 +39,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DurationSec { get; set; }
 #endif
+        /// <summary>The episode_index property</summary>
+        public long? EpisodeIndex { get; set; }
+        /// <summary>The episode_uuid property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EpisodeUuid { get; set; }
+#nullable restore
+#else
+        public string EpisodeUuid { get; set; }
+#endif
         /// <summary>Per-metric scores and judge reasoning for this trajectory. Empty when thesimulation run has no associated evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,16 +65,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string FailureReason { get; set; }
 #endif
-        /// <summary>The journey_index property</summary>
-        public long? JourneyIndex { get; set; }
-        /// <summary>The journey_uuid property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? JourneyUuid { get; set; }
-#nullable restore
-#else
-        public string JourneyUuid { get; set; }
-#endif
         /// <summary>Judge output embedded in the trajectory JSON.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +73,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryJudgeResult Judge { get; set; }
 #endif
-        /// <summary>Turn budget configured for this journey (per-scenario max_turns, afterany run-level override). Compare with turn_count to see how many of thebudgeted turns actually ran.</summary>
+        /// <summary>Turn budget configured for this episode (per-scenario max_turns, afterany run-level override). Compare with turn_count to see how many of thebudgeted turns actually ran.</summary>
         public long? MaxTurns { get; set; }
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -115,9 +115,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string StartedAt { get; set; }
 #endif
-        /// <summary>Lifecycle status of the trajectory. Distinct from journey status: thetrajectory is updated on every turn while the journey is executing. - SIMULATION_TRAJECTORY_STATUS_RUNNING: The journey loop is in progress; messages may grow on each poll. - SIMULATION_TRAJECTORY_STATUS_COMPLETED: The journey reached a stop condition and the trajectory is complete. - SIMULATION_TRAJECTORY_STATUS_FAILED: The journey failed before or during execution. - SIMULATION_TRAJECTORY_STATUS_CANCELLED: The journey was cancelled.</summary>
+        /// <summary>Lifecycle status of the trajectory. Distinct from episode status: thetrajectory is updated on every turn while the episode is executing. - SIMULATION_TRAJECTORY_STATUS_RUNNING: The episode loop is in progress; messages may grow on each poll. - SIMULATION_TRAJECTORY_STATUS_COMPLETED: The episode reached a stop condition and the trajectory is complete. - SIMULATION_TRAJECTORY_STATUS_FAILED: The episode failed before or during execution. - SIMULATION_TRAJECTORY_STATUS_CANCELLED: The episode was cancelled.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryStatus? Status { get; set; }
-        /// <summary>Per-actor token accounting for a run or journey.</summary>
+        /// <summary>Per-actor token accounting for a run or episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? TokenUsage { get; set; }
@@ -127,8 +127,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>The turn_count property</summary>
         public long? TurnCount { get; set; }
-        /// <summary>The judge&apos;s verdict for a journey. - SIMULATION_JOURNEY_VERDICT_SUCCESS: The candidate agent satisfied the scenario&apos;s stopping criteria. - SIMULATION_JOURNEY_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria. - SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict? Verdict { get; set; }
+        /// <summary>The judge&apos;s verdict for an episode. - SIMULATION_EPISODE_VERDICT_SUCCESS: The candidate agent satisfied the scenario&apos;s stopping criteria. - SIMULATION_EPISODE_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria. - SIMULATION_EPISODE_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict? Verdict { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory"/> and sets the default values.
         /// </summary>
@@ -157,10 +157,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "agent_id", n => { AgentId = n.GetStringValue(); } },
                 { "completed_at", n => { CompletedAt = n.GetStringValue(); } },
                 { "duration_sec", n => { DurationSec = n.GetStringValue(); } },
+                { "episode_index", n => { EpisodeIndex = n.GetLongValue(); } },
+                { "episode_uuid", n => { EpisodeUuid = n.GetStringValue(); } },
                 { "evaluation_metrics", n => { EvaluationMetrics = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "failure_reason", n => { FailureReason = n.GetStringValue(); } },
-                { "journey_index", n => { JourneyIndex = n.GetLongValue(); } },
-                { "journey_uuid", n => { JourneyUuid = n.GetStringValue(); } },
                 { "judge", n => { Judge = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryJudgeResult>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryJudgeResult.CreateFromDiscriminatorValue); } },
                 { "max_turns", n => { MaxTurns = n.GetLongValue(); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryMessage>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryMessage.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -171,7 +171,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryStatus>(); } },
                 { "token_usage", n => { TokenUsage = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage.CreateFromDiscriminatorValue); } },
                 { "turn_count", n => { TurnCount = n.GetLongValue(); } },
-                { "verdict", n => { Verdict = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict>(); } },
+                { "verdict", n => { Verdict = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>(); } },
             };
         }
         /// <summary>
@@ -184,10 +184,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("agent_id", AgentId);
             writer.WriteStringValue("completed_at", CompletedAt);
             writer.WriteStringValue("duration_sec", DurationSec);
+            writer.WriteLongValue("episode_index", EpisodeIndex);
+            writer.WriteStringValue("episode_uuid", EpisodeUuid);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult>("evaluation_metrics", EvaluationMetrics);
             writer.WriteStringValue("failure_reason", FailureReason);
-            writer.WriteLongValue("journey_index", JourneyIndex);
-            writer.WriteStringValue("journey_uuid", JourneyUuid);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryJudgeResult>("judge", Judge);
             writer.WriteLongValue("max_turns", MaxTurns);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryMessage>("messages", Messages);
@@ -198,7 +198,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectoryStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage>("token_usage", TokenUsage);
             writer.WriteLongValue("turn_count", TurnCount);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict>("verdict", Verdict);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>("verdict", Verdict);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

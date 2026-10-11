@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>Lifecycle status of the trajectory. Distinct from journey status: thetrajectory is updated on every turn while the journey is executing. - SIMULATION_TRAJECTORY_STATUS_RUNNING: The journey loop is in progress; messages may grow on each poll. - SIMULATION_TRAJECTORY_STATUS_COMPLETED: The journey reached a stop condition and the trajectory is complete. - SIMULATION_TRAJECTORY_STATUS_FAILED: The journey failed before or during execution. - SIMULATION_TRAJECTORY_STATUS_CANCELLED: The journey was cancelled.</summary>
+    /// <summary>Lifecycle status of the trajectory. Distinct from episode status: thetrajectory is updated on every turn while the episode is executing. - SIMULATION_TRAJECTORY_STATUS_RUNNING: The episode loop is in progress; messages may grow on each poll. - SIMULATION_TRAJECTORY_STATUS_COMPLETED: The episode reached a stop condition and the trajectory is complete. - SIMULATION_TRAJECTORY_STATUS_FAILED: The episode failed before or during execution. - SIMULATION_TRAJECTORY_STATUS_CANCELLED: The episode was cancelled.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ApiSimulationTrajectoryStatus
     {

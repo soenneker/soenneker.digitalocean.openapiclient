@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A deletion job that permanently removes signals data for an agent or for a team&apos;s Serverless Inference usage.
+    /// A deletion job that permanently removes Signals conversations for one Harness Runtime agent, or Serverless Inference Signals conversations for a whole team. Aggregated Insights or metrics summaries may still remain.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DeletionJob : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agent whose data is being deleted. For Harness Runtime, this is the Environment Config ID. Only present for `agent` deletions.</summary>
+        /// <summary>The Harness Runtime Environment Config ID (agent UUID) whose conversations are being deleted. Only present for `agent` deletions.</summary>
         public Guid? AgentId { get; set; }
         /// <summary>Unix timestamp when the deletion finished, or null if still in progress.</summary>
         public long? CompletedAt { get; set; }
@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJobStatus? Status { get; set; }
         /// <summary>The team that owns the deletion job.</summary>
         public long? TeamId { get; set; }
-        /// <summary>The scope of the deletion. `agent` deletes data for one agent. `inference` deletes data for the team&apos;s Serverless Inference requests.</summary>
+        /// <summary>The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime agent. `inference` deletes Serverless Inference Signals conversations for the whole team.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJobType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJob"/> and sets the default values.

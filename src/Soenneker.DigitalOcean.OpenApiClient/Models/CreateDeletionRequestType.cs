@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The scope of the deletion. `agent` deletes data for one agent and requires `agent_id`. `inference` deletes data for the team&apos;s Serverless Inference requests.</summary>
+    /// <summary>The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime agent and requires `agent_id`. `inference` deletes Serverless Inference Signals conversations for the whole team (team-wide; omit `agent_id`).</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateDeletionRequestType
     {

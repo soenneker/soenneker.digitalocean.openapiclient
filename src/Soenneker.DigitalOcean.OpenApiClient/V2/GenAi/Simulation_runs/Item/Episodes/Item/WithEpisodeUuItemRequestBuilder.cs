@@ -4,51 +4,51 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item
+namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\simulation_runs\{runUuid}\journeys\{journeyUuid}
+    /// Builds and executes requests for operations under \v2\gen-ai\simulation_runs\{runUuid}\episodes\{episodeUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithJourneyUuItemRequestBuilder : BaseRequestBuilder
+    public partial class WithEpisodeUuItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The trajectory property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory.TrajectoryRequestBuilder Trajectory
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory.TrajectoryRequestBuilder Trajectory
         {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory.TrajectoryRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory.TrajectoryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The trajectory_url property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url.Trajectory_urlRequestBuilder Trajectory_url
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url.Trajectory_urlRequestBuilder Trajectory_url
         {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.Trajectory_url.Trajectory_urlRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.Trajectory_url.Trajectory_urlRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.WithJourneyUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.WithEpisodeUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithJourneyUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}", pathParameters)
+        public WithEpisodeUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/simulation_runs/{runUuid}/episodes/{episodeUuid}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.WithJourneyUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.WithEpisodeUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithJourneyUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/simulation_runs/{runUuid}/journeys/{journeyUuid}", rawUrl)
+        public WithEpisodeUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/simulation_runs/{runUuid}/episodes/{episodeUuid}", rawUrl)
         {
         }
         /// <summary>
-        /// To retrieve a single journey, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}`.
+        /// To retrieve a single episode, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -58,11 +58,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Jou
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -74,10 +74,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Jou
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationJourneyOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetSimulationEpisodeOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To retrieve a single journey, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/journeys/{journey_uuid}`.
+        /// To retrieve a single episode, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,11 +98,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Jou
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.WithJourneyUuItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.WithEpisodeUuItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.WithJourneyUuItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.WithEpisodeUuItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Journeys.Item.WithJourneyUuItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Simulation_runs.Item.Episodes.Item.WithEpisodeUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

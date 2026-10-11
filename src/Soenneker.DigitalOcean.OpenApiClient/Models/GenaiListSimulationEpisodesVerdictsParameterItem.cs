@@ -5,24 +5,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum GenaiListSimulationJourneysVerdictsParameterItem
+    public enum GenaiListSimulationEpisodesVerdictsParameterItem
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "SIMULATION_JOURNEY_VERDICT_UNSPECIFIED")]
+        [EnumMember(Value = "SIMULATION_EPISODE_VERDICT_UNSPECIFIED")]
         #pragma warning disable CS1591
-        SimulationJourneyVerdictUnspecified,
+        SimulationEpisodeVerdictUnspecified,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SIMULATION_JOURNEY_VERDICT_SUCCESS")]
+        [EnumMember(Value = "SIMULATION_EPISODE_VERDICT_SUCCESS")]
         #pragma warning disable CS1591
-        SimulationJourneyVerdictSuccess,
+        SimulationEpisodeVerdictSuccess,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SIMULATION_JOURNEY_VERDICT_FAILURE")]
+        [EnumMember(Value = "SIMULATION_EPISODE_VERDICT_FAILURE")]
         #pragma warning disable CS1591
-        SimulationJourneyVerdictFailure,
+        SimulationEpisodeVerdictFailure,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE")]
+        [EnumMember(Value = "SIMULATION_EPISODE_VERDICT_INCONCLUSIVE")]
         #pragma warning disable CS1591
-        SimulationJourneyVerdictInconclusive,
+        SimulationEpisodeVerdictInconclusive,
         #pragma warning restore CS1591
     }
 }

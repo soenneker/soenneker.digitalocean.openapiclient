@@ -11,19 +11,29 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// One independent execution within a simulation run, including its trajectory and verdict.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ApiSimulationJourney : IAdditionalDataHolder, IParsable
+    public partial class ApiSimulationEpisode : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Time created at.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>Wall-clock time taken for the journey to complete, in seconds.</summary>
+        /// <summary>Wall-clock time taken for the episode to complete, in seconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DurationSec { get; set; }
 #nullable restore
 #else
         public string DurationSec { get; set; }
+#endif
+        /// <summary>Zero-based index of this episode within its scenario&apos;s exploration budget.</summary>
+        public long? EpisodeIndex { get; set; }
+        /// <summary>UUID of the episode.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EpisodeUuid { get; set; }
+#nullable restore
+#else
+        public string EpisodeUuid { get; set; }
 #endif
         /// <summary>Human-readable explanation of a terminal FAILED status. Empty otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,16 +43,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string FailureReason { get; set; }
 #endif
-        /// <summary>Zero-based index of this journey within its scenario&apos;s exploration budget.</summary>
-        public long? JourneyIndex { get; set; }
-        /// <summary>UUID of the journey.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? JourneyUuid { get; set; }
-#nullable restore
-#else
-        public string JourneyUuid { get; set; }
-#endif
         /// <summary>Optional judge reasoning for the verdict.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,7 +51,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string JudgeReasoning { get; set; }
 #endif
-        /// <summary>UUID of the run this journey belongs to.</summary>
+        /// <summary>UUID of the run this episode belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RunUuid { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string RunUuid { get; set; }
 #endif
-        /// <summary>UUID of the scenario this journey executed.</summary>
+        /// <summary>UUID of the scenario this episode executed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ScenarioUuid { get; set; }
@@ -67,7 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ScenarioUuid { get; set; }
 #endif
-        /// <summary>Session identifier for this journey.</summary>
+        /// <summary>Session identifier for this episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SessionId { get; set; }
@@ -75,9 +75,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string SessionId { get; set; }
 #endif
-        /// <summary>Lifecycle status of a single journey. - SIMULATION_JOURNEY_STATUS_RUNNING: The journey is executing and a trajectory is available to retrieve. - SIMULATION_JOURNEY_STATUS_FINISHED: The journey reached a stop condition and produced a verdict. - SIMULATION_JOURNEY_STATUS_FAILED: The journey failed because of a cancel, timeout, or error. - SIMULATION_JOURNEY_STATUS_PREPARING: The journey is allocated but its trajectory is not available yet.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyStatus? Status { get; set; }
-        /// <summary>Per-actor token accounting for a run or journey.</summary>
+        /// <summary>Lifecycle status of a single episode. - SIMULATION_EPISODE_STATUS_RUNNING: The episode is executing and a trajectory is available to retrieve. - SIMULATION_EPISODE_STATUS_FINISHED: The episode reached a stop condition and produced a verdict. - SIMULATION_EPISODE_STATUS_FAILED: The episode failed because of a cancel, timeout, or error. - SIMULATION_EPISODE_STATUS_PREPARING: The episode is allocated but its trajectory is not available yet.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus? Status { get; set; }
+        /// <summary>Per-actor token accounting for a run or episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? TokenUsage { get; set; }
@@ -85,7 +85,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage TokenUsage { get; set; }
 #endif
-        /// <summary>Object storage bucket holding the trajectory JSON. Set when the journey finishes.</summary>
+        /// <summary>Object storage bucket holding the trajectory JSON. Set when the episode finishes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TrajectoryBucketName { get; set; }
@@ -93,7 +93,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string TrajectoryBucketName { get; set; }
 #endif
-        /// <summary>Object storage bucket region for the trajectory JSON. Set when the journey finishes.</summary>
+        /// <summary>Object storage bucket region for the trajectory JSON. Set when the episode finishes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TrajectoryBucketRegion { get; set; }
@@ -101,7 +101,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string TrajectoryBucketRegion { get; set; }
 #endif
-        /// <summary>Object storage key for the trajectory JSON. Set when the journey finishes.</summary>
+        /// <summary>Object storage key for the trajectory JSON. Set when the episode finishes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TrajectorySpacesKey { get; set; }
@@ -111,24 +111,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>Time last updated at.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The judge&apos;s verdict for a journey. - SIMULATION_JOURNEY_VERDICT_SUCCESS: The candidate agent satisfied the scenario&apos;s stopping criteria. - SIMULATION_JOURNEY_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria. - SIMULATION_JOURNEY_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict? Verdict { get; set; }
+        /// <summary>The judge&apos;s verdict for an episode. - SIMULATION_EPISODE_VERDICT_SUCCESS: The candidate agent satisfied the scenario&apos;s stopping criteria. - SIMULATION_EPISODE_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria. - SIMULATION_EPISODE_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict? Verdict { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode"/> and sets the default values.
         /// </summary>
-        public ApiSimulationJourney()
+        public ApiSimulationEpisode()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourney();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -140,20 +140,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "duration_sec", n => { DurationSec = n.GetStringValue(); } },
+                { "episode_index", n => { EpisodeIndex = n.GetLongValue(); } },
+                { "episode_uuid", n => { EpisodeUuid = n.GetStringValue(); } },
                 { "failure_reason", n => { FailureReason = n.GetStringValue(); } },
-                { "journey_index", n => { JourneyIndex = n.GetLongValue(); } },
-                { "journey_uuid", n => { JourneyUuid = n.GetStringValue(); } },
                 { "judge_reasoning", n => { JudgeReasoning = n.GetStringValue(); } },
                 { "run_uuid", n => { RunUuid = n.GetStringValue(); } },
                 { "scenario_uuid", n => { ScenarioUuid = n.GetStringValue(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus>(); } },
                 { "token_usage", n => { TokenUsage = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage.CreateFromDiscriminatorValue); } },
                 { "trajectory_bucket_name", n => { TrajectoryBucketName = n.GetStringValue(); } },
                 { "trajectory_bucket_region", n => { TrajectoryBucketRegion = n.GetStringValue(); } },
                 { "trajectory_spaces_key", n => { TrajectorySpacesKey = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "verdict", n => { Verdict = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict>(); } },
+                { "verdict", n => { Verdict = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>(); } },
             };
         }
         /// <summary>
@@ -165,20 +165,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("duration_sec", DurationSec);
+            writer.WriteLongValue("episode_index", EpisodeIndex);
+            writer.WriteStringValue("episode_uuid", EpisodeUuid);
             writer.WriteStringValue("failure_reason", FailureReason);
-            writer.WriteLongValue("journey_index", JourneyIndex);
-            writer.WriteStringValue("journey_uuid", JourneyUuid);
             writer.WriteStringValue("judge_reasoning", JudgeReasoning);
             writer.WriteStringValue("run_uuid", RunUuid);
             writer.WriteStringValue("scenario_uuid", ScenarioUuid);
             writer.WriteStringValue("session_id", SessionId);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage>("token_usage", TokenUsage);
             writer.WriteStringValue("trajectory_bucket_name", TrajectoryBucketName);
             writer.WriteStringValue("trajectory_bucket_region", TrajectoryBucketRegion);
             writer.WriteStringValue("trajectory_spaces_key", TrajectorySpacesKey);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyVerdict>("verdict", Verdict);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>("verdict", Verdict);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

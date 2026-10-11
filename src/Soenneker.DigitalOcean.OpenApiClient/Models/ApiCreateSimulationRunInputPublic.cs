@@ -31,7 +31,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig EvaluationConfig { get; set; }
 #endif
-        /// <summary>Optional run-level journeys-per-scenario override. When set, overrides each scenario&apos;s exploration_budget.</summary>
+        /// <summary>Optional run-level episodes-per-scenario override. When set, overrides each scenario&apos;s exploration_budget.</summary>
         public long? ExplorationBudget { get; set; }
         /// <summary>Optional model override for the judge. Platform default when unset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -13,11 +13,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateDeletionRequest : IParsable
     {
-        /// <summary>The agent whose data should be deleted. For Harness Runtime, this is the Environment Config ID. Required when `type` is `agent`; must be omitted when `type` is `inference`.</summary>
+        /// <summary>The Harness Runtime Environment Config ID of the agent whose conversations should be deleted. This is the agent UUID (`agent_id`). Required when `type` is `agent`; must be omitted when `type` is `inference`.</summary>
         public Guid? AgentId { get; set; }
         /// <summary>The team whose data should be deleted. Must match the authenticated team.</summary>
         public long? TeamId { get; set; }
-        /// <summary>The scope of the deletion. `agent` deletes data for one agent and requires `agent_id`. `inference` deletes data for the team&apos;s Serverless Inference requests.</summary>
+        /// <summary>The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime agent and requires `agent_id`. `inference` deletes Serverless Inference Signals conversations for the whole team (team-wide; omit `agent_id`).</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateDeletionRequestType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

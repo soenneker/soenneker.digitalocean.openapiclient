@@ -8,15 +8,15 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Per-scenario rollup of journey outcomes within a run, aggregated from therun&apos;s journey rows.
+    /// Per-scenario rollup of episode outcomes within a run, aggregated from therun&apos;s episode rows.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiSimulationScenarioResult : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Journeys that have finished (successfully or not).</summary>
-        public long? JourneysFinished { get; set; }
+        /// <summary>Episodes that have finished (successfully or not).</summary>
+        public long? EpisodesFinished { get; set; }
         /// <summary>UUID of the scenario.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,15 +25,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string ScenarioUuid { get; set; }
 #endif
-        /// <summary>Total journeys for this scenario (its exploration budget).</summary>
-        public long? TotalJourneys { get; set; }
-        /// <summary>Breakdown of journey outcomes by judge verdict. Reused wherever asuccess / failure / inconclusive tally is reported (run row, result summary,per-scenario rollup).</summary>
+        /// <summary>Total episodes for this scenario (its exploration budget).</summary>
+        public long? TotalEpisodes { get; set; }
+        /// <summary>Breakdown of episode outcomes by judge verdict. Reused wherever asuccess / failure / inconclusive tally is reported (run row, result summary,per-scenario rollup).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts? VerdictCounts { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts? VerdictCounts { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts VerdictCounts { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts VerdictCounts { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationScenarioResult"/> and sets the default values.
@@ -60,10 +60,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "journeys_finished", n => { JourneysFinished = n.GetLongValue(); } },
+                { "episodes_finished", n => { EpisodesFinished = n.GetLongValue(); } },
                 { "scenario_uuid", n => { ScenarioUuid = n.GetStringValue(); } },
-                { "total_journeys", n => { TotalJourneys = n.GetLongValue(); } },
-                { "verdict_counts", n => { VerdictCounts = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts.CreateFromDiscriminatorValue); } },
+                { "total_episodes", n => { TotalEpisodes = n.GetLongValue(); } },
+                { "verdict_counts", n => { VerdictCounts = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,10 +73,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteLongValue("journeys_finished", JourneysFinished);
+            writer.WriteLongValue("episodes_finished", EpisodesFinished);
             writer.WriteStringValue("scenario_uuid", ScenarioUuid);
-            writer.WriteLongValue("total_journeys", TotalJourneys);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationJourneyCounts>("verdict_counts", VerdictCounts);
+            writer.WriteLongValue("total_episodes", TotalEpisodes);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts>("verdict_counts", VerdictCounts);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

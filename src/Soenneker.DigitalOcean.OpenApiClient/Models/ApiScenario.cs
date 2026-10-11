@@ -23,7 +23,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Number of journeys to explore for this scenario. Defaults to 1 if unset.</summary>
+        /// <summary>Number of episodes to explore for this scenario. Defaults to 1 if unset.</summary>
         public long? ExplorationBudget { get; set; }
         /// <summary>Turn budget for the scenario. Falls back to the run-level default if unset.</summary>
         public long? MaxTurns { get; set; }

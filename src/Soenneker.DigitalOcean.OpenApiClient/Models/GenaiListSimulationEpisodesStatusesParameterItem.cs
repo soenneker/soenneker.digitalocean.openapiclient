@@ -5,28 +5,28 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum GenaiListSimulationJourneysSortByParameter
+    public enum GenaiListSimulationEpisodesStatusesParameterItem
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "SIMULATION_JOURNEY_SORT_FIELD_UNSPECIFIED")]
+        [EnumMember(Value = "SIMULATION_EPISODE_STATUS_UNSPECIFIED")]
         #pragma warning disable CS1591
-        SimulationJourneySortFieldUnspecified,
+        SimulationEpisodeStatusUnspecified,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SIMULATION_JOURNEY_SORT_FIELD_SCENARIO")]
+        [EnumMember(Value = "SIMULATION_EPISODE_STATUS_RUNNING")]
         #pragma warning disable CS1591
-        SimulationJourneySortFieldScenario,
+        SimulationEpisodeStatusRunning,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SIMULATION_JOURNEY_SORT_FIELD_CREATED_AT")]
+        [EnumMember(Value = "SIMULATION_EPISODE_STATUS_FINISHED")]
         #pragma warning disable CS1591
-        SimulationJourneySortFieldCreatedAt,
+        SimulationEpisodeStatusFinished,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SIMULATION_JOURNEY_SORT_FIELD_STATUS")]
+        [EnumMember(Value = "SIMULATION_EPISODE_STATUS_FAILED")]
         #pragma warning disable CS1591
-        SimulationJourneySortFieldStatus,
+        SimulationEpisodeStatusFailed,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SIMULATION_JOURNEY_SORT_FIELD_VERDICT")]
+        [EnumMember(Value = "SIMULATION_EPISODE_STATUS_PREPARING")]
         #pragma warning disable CS1591
-        SimulationJourneySortFieldVerdict,
+        SimulationEpisodeStatusPreparing,
         #pragma warning restore CS1591
     }
 }
