@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The source this consent applies to. Always `agent` for per-agent records returned by this endpoint.</summary>
+    /// <summary>The source this consent applies to. Always `agent` for per-environment records returned by this endpoint.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AgentSource
     {

@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A list of consent records for the team. Includes per-agent records (`source: agent`) and, when set, the team-level inference record (`source: inference`).</summary>
+        /// <summary>A list of consent records for the team. Includes per-environment records (`source: agent`) and, when set, the team-level inference record (`source: inference`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord>? Consents { get; set; }

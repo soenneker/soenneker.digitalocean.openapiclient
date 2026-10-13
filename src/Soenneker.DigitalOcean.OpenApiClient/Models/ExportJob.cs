@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agent whose data is being exported. For Harness Runtime, this is the Environment Config ID.</summary>
+        /// <summary>The environment whose data is being exported. For Harness Runtime, this is the Environment Config ID. Not meaningful for `inference` exports; use `type` to distinguish the export scope.</summary>
         public Guid? AgentId { get; set; }
         /// <summary>Unix timestamp when the export completed, or null if still in progress.</summary>
         public int? CompletedAt { get; set; }
@@ -43,6 +43,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>The current status of the export job.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobStatus? Status { get; set; }
+        /// <summary>The scope of the export. `agent` covers one Harness Runtime environment; `inference` covers the team&apos;s Serverless Inference Signals conversations.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJob"/> and sets the default values.
         /// </summary>
@@ -76,6 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "export_id", n => { ExportId = n.GetGuidValue(); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobFilters>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobFilters.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobStatus>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobType>(); } },
             };
         }
         /// <summary>
@@ -93,6 +96,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteGuidValue("export_id", ExportId);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobFilters>("filters", Filters);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJobType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

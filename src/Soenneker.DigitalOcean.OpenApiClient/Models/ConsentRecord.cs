@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A consent record indicating whether signals collection is enabled for a source. Records with `source: agent` apply to one agent; the record with `source: inference` applies to the whole team.
+    /// A consent record indicating whether signals collection is enabled for a source. Records with `source: agent` apply to one environment; the record with `source: inference` applies to the whole team.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConsentRecord : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The unique identifier of the agent. For Harness Runtime, this is the Environment Config ID. Empty for team-level records (`source: inference`), which are not tied to an agent.</summary>
+        /// <summary>The unique identifier of the environment. For Harness Runtime, this is the Environment Config ID. Empty for team-level records (`source: inference`), which are not tied to an environment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AgentId { get; set; }
@@ -27,7 +27,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public bool? Enabled { get; set; }
         /// <summary>The unique numeric identifier for the consent record.</summary>
         public int? Id { get; set; }
-        /// <summary>The source this consent applies to. `agent` is per-agent consent for Harness Runtime; `inference` is team-level consent for Serverless Inference chat completions.</summary>
+        /// <summary>The source this consent applies to. `agent` is per-environment consent for Harness Runtime; `inference` is team-level consent for Serverless Inference chat completions.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecordSource? Source { get; set; }
         /// <summary>The team ID that owns this consent record.</summary>
         public int? TeamId { get; set; }

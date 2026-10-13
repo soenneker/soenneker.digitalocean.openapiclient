@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agent whose data should be exported. For Harness Runtime, this is the Environment Config ID.</summary>
+        /// <summary>The environment whose data should be exported. For Harness Runtime, this is the Environment Config ID. Required when `type` is `agent`; must be omitted when `type` is `inference`.</summary>
         public Guid? AgentId { get; set; }
         /// <summary>Include only sessions that started at or before this timestamp.</summary>
         public DateTimeOffset? EndTime { get; set; }
@@ -37,6 +37,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>Include only sessions that started at or after this timestamp.</summary>
         public DateTimeOffset? StartTime { get; set; }
+        /// <summary>The scope of the export. `agent` exports Signals conversations for one Harness Runtime environment and requires `agent_id`. `inference` exports Serverless Inference Signals conversations for the whole team (team-wide; omit `agent_id`). Defaults to `agent` when `agent_id` is provided and to `inference` when it is omitted.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateExportRequestType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateExportRequest"/> and sets the default values.
         /// </summary>
@@ -67,6 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "session_ids", n => { SessionIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "signal_type", n => { SignalType = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateExportRequestType>(); } },
             };
         }
         /// <summary>
@@ -81,6 +84,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<Guid?>("session_ids", SessionIds);
             writer.WriteCollectionOfPrimitiveValues<string>("signal_type", SignalType);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateExportRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

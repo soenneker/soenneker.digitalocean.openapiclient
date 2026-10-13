@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A session represents a conversation monitored by Signals, such as a Harness Runtime agent session or a Serverless Inference chat completion.
+    /// A session represents a conversation monitored by Signals, such as a Harness Runtime environment session or a Serverless Inference chat completion.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Session2 : IAdditionalDataHolder, IParsable

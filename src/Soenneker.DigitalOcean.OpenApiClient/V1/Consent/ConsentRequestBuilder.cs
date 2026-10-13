@@ -47,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent
         {
         }
         /// <summary>
-        /// To list all signals consent records for your team, send a GET request to`/v1/consent`. Each record indicates whether signals collection is enabledfor a source: per-agent records (`source: agent`) for Harness Runtime, andthe team-level record (`source: inference`) for Serverless Inference chatcompletions.Pass `?source=agent` or `?source=inference` to return only that source&apos;srecords. When filtered, the response also echoes the `source`.
+        /// To list all signals consent records for your team, send a GET request to`/v1/consent`. Each record indicates whether signals collection is enabledfor a source: per-environment records (`source: agent`) for Harness Runtime, andthe team-level record (`source: inference`) for Serverless Inference chatcompletions.Pass `?source=agent` or `?source=inference` to return only that source&apos;srecords. When filtered, the response also echoes the `source`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsents"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -78,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsents>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsents.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To enable or disable signals collection for a source that is consented atthe team level, send a PUT request to `/v1/consent?source=inference` withan `enabled` boolean in the request body. Currently the only team-levelsource is `inference`, which covers Serverless Inference chat completionsmade by your team.To revoke consent, send the same request with `enabled` set to `false`.The `source` query parameter is required. Per-agent consent for HarnessRuntime agents is managed with `PUT /v1/consent/{agent_id}` instead.
+        /// To enable or disable signals collection for a source that is consented atthe team level, send a PUT request to `/v1/consent?source=inference` withan `enabled` boolean in the request body. Currently the only team-levelsource is `inference`, which covers Serverless Inference chat completionsmade by your team.To revoke consent, send the same request with `enabled` set to `false`.The `source` query parameter is required. Per-environment consent for HarnessRuntime environments is managed with `PUT /v1/consent/{agent_id}` instead.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateTeamConsentResponseResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateTeamConsentResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateTeamConsentResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To list all signals consent records for your team, send a GET request to`/v1/consent`. Each record indicates whether signals collection is enabledfor a source: per-agent records (`source: agent`) for Harness Runtime, andthe team-level record (`source: inference`) for Serverless Inference chatcompletions.Pass `?source=agent` or `?source=inference` to return only that source&apos;srecords. When filtered, the response also echoes the `source`.
+        /// To list all signals consent records for your team, send a GET request to`/v1/consent`. Each record indicates whether signals collection is enabledfor a source: per-environment records (`source: agent`) for Harness Runtime, andthe team-level record (`source: inference`) for Serverless Inference chatcompletions.Pass `?source=agent` or `?source=inference` to return only that source&apos;srecords. When filtered, the response also echoes the `source`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent
             return requestInfo;
         }
         /// <summary>
-        /// To enable or disable signals collection for a source that is consented atthe team level, send a PUT request to `/v1/consent?source=inference` withan `enabled` boolean in the request body. Currently the only team-levelsource is `inference`, which covers Serverless Inference chat completionsmade by your team.To revoke consent, send the same request with `enabled` set to `false`.The `source` query parameter is required. Per-agent consent for HarnessRuntime agents is managed with `PUT /v1/consent/{agent_id}` instead.
+        /// To enable or disable signals collection for a source that is consented atthe team level, send a PUT request to `/v1/consent?source=inference` withan `enabled` boolean in the request body. Currently the only team-levelsource is `inference`, which covers Serverless Inference chat completionsmade by your team.To revoke consent, send the same request with `enabled` set to `false`.The `source` query parameter is required. Per-environment consent for HarnessRuntime environments is managed with `PUT /v1/consent/{agent_id}` instead.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -161,22 +161,22 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent
             return new global::Soenneker.DigitalOcean.OpenApiClient.V1.Consent.ConsentRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// To list all signals consent records for your team, send a GET request to`/v1/consent`. Each record indicates whether signals collection is enabledfor a source: per-agent records (`source: agent`) for Harness Runtime, andthe team-level record (`source: inference`) for Serverless Inference chatcompletions.Pass `?source=agent` or `?source=inference` to return only that source&apos;srecords. When filtered, the response also echoes the `source`.
+        /// To list all signals consent records for your team, send a GET request to`/v1/consent`. Each record indicates whether signals collection is enabledfor a source: per-environment records (`source: agent`) for Harness Runtime, andthe team-level record (`source: inference`) for Serverless Inference chatcompletions.Pass `?source=agent` or `?source=inference` to return only that source&apos;srecords. When filtered, the response also echoes the `source`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConsentRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter consent records by source. `agent` returns per-agent records (Harness Runtime); `inference` returns the team-level record for Serverless Inference chat completions. When omitted, records for all sources are returned.</summary>
+            /// <summary>Filter consent records by source. `agent` returns per-environment records (Harness Runtime); `inference` returns the team-level record for Serverless Inference chat completions. When omitted, records for all sources are returned.</summary>
             [QueryParameter("source")]
             public global::Soenneker.DigitalOcean.OpenApiClient.Models.Source? Source { get; set; }
         }
         /// <summary>
-        /// To enable or disable signals collection for a source that is consented atthe team level, send a PUT request to `/v1/consent?source=inference` withan `enabled` boolean in the request body. Currently the only team-levelsource is `inference`, which covers Serverless Inference chat completionsmade by your team.To revoke consent, send the same request with `enabled` set to `false`.The `source` query parameter is required. Per-agent consent for HarnessRuntime agents is managed with `PUT /v1/consent/{agent_id}` instead.
+        /// To enable or disable signals collection for a source that is consented atthe team level, send a PUT request to `/v1/consent?source=inference` withan `enabled` boolean in the request body. Currently the only team-levelsource is `inference`, which covers Serverless Inference chat completionsmade by your team.To revoke consent, send the same request with `enabled` set to `false`.The `source` query parameter is required. Per-environment consent for HarnessRuntime environments is managed with `PUT /v1/consent/{agent_id}` instead.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConsentRequestBuilderPutQueryParameters 
         {
-            /// <summary>The consent source to update. Only team-level sources are accepted on this endpoint; currently `inference` (Serverless Inference chat completions). Per-agent consent (`agent`) is managed with `PUT /v1/consent/{agent_id}` instead.</summary>
+            /// <summary>The consent source to update. Only team-level sources are accepted on this endpoint; currently `inference` (Serverless Inference chat completions). Per-environment consent (`agent`) is managed with `PUT /v1/consent/{agent_id}` instead.</summary>
             [QueryParameter("source")]
             public global::Soenneker.DigitalOcean.OpenApiClient.Models.InferenceSource? Source { get; set; }
         }

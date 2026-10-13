@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Cursor { get; set; }
 #endif
-        /// <summary>A session represents a conversation monitored by Signals, such as a Harness Runtime agent session or a Serverless Inference chat completion.</summary>
+        /// <summary>A session represents a conversation monitored by Signals, such as a Harness Runtime environment session or a Serverless Inference chat completion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.Session2? Node { get; set; }

@@ -14,7 +14,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether to enable signals collection for this agent.</summary>
+        /// <summary>Whether to enable signals collection for this environment.</summary>
         public bool? Enabled { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SignalsUpdateConsentRequest"/> and sets the default values.

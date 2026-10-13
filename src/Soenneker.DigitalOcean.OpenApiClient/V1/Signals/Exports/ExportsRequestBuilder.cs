@@ -82,7 +82,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To create a new signals data export, send a POST request to`/v1/signals/exports` with an `agent_id` in the request body. You mayoptionally filter the export by `signal_type`, `session_ids`, `start_time`,and `end_time`. Use the export options endpoint to discover available signaltypes.The export job runs asynchronously. Poll the get export endpoint to checkits status. When complete, use the download endpoint to retrieve apre-signed URL.
+        /// To create a new signals data export, send a POST request to`/v1/signals/exports`. To export one Harness Runtime environment, include its`agent_id` (`type` defaults to `agent`). To export the team&apos;s ServerlessInference Signals conversations, set `type` to `inference` and omit`agent_id`. You may optionally filter the export by `signal_type`,`session_ids`, `start_time`, and `end_time`. Use the export options endpointto discover available signal types.The export job runs asynchronously. Poll the get export endpoint to checkits status. When complete, use the download endpoint to retrieve apre-signed URL.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ExportJob"/></returns>
         /// <param name="body">Request body to create a new signals data export.</param>
@@ -136,7 +136,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports
             return requestInfo;
         }
         /// <summary>
-        /// To create a new signals data export, send a POST request to`/v1/signals/exports` with an `agent_id` in the request body. You mayoptionally filter the export by `signal_type`, `session_ids`, `start_time`,and `end_time`. Use the export options endpoint to discover available signaltypes.The export job runs asynchronously. Poll the get export endpoint to checkits status. When complete, use the download endpoint to retrieve apre-signed URL.
+        /// To create a new signals data export, send a POST request to`/v1/signals/exports`. To export one Harness Runtime environment, include its`agent_id` (`type` defaults to `agent`). To export the team&apos;s ServerlessInference Signals conversations, set `type` to `inference` and omit`agent_id`. You may optionally filter the export by `signal_type`,`session_ids`, `start_time`, and `end_time`. Use the export options endpointto discover available signal types.The export job runs asynchronously. Poll the get export endpoint to checkits status. When complete, use the download endpoint to retrieve apre-signed URL.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request body to create a new signals data export.</param>

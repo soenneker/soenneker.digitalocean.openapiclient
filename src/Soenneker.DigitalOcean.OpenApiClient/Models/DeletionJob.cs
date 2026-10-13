@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A deletion job that permanently removes Signals conversations for one Harness Runtime agent, or Serverless Inference Signals conversations for a whole team. Aggregated Insights or metrics summaries may still remain.
+    /// A deletion job that permanently removes Signals conversations for one Harness Runtime environment, or Serverless Inference Signals conversations for a whole team. Aggregated Insights or metrics summaries may still remain.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DeletionJob : IAdditionalDataHolder, IParsable
@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJobStatus? Status { get; set; }
         /// <summary>The team that owns the deletion job.</summary>
         public long? TeamId { get; set; }
-        /// <summary>The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime agent. `inference` deletes Serverless Inference Signals conversations for the whole team.</summary>
+        /// <summary>The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime environment. `inference` deletes Serverless Inference Signals conversations for the whole team.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJobType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJob"/> and sets the default values.

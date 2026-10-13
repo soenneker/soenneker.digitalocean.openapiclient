@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "3D516E688AAE1172E07BB3ADE91D3025B3CE0798F6CDD9531919849E1CDA05C2C1D47236BF57CD22852CF40A7BB10E9EEAE6A16BB95CC4B2FFD6F4D9116855F7",
+  "descriptionHash": "C6B452FE61B84E621D5DCD429D2F5A43287D8057E9ABF1D022E675F4E6AD3CBD65D60E155DEF7F8619BB30FDEEFCA45B12D495D8E84D80ADAF6297BC031141B3",
   "descriptionLocation": "../../openapi.fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.36.0",
+  "kiotaVersion": "1.36.1",
   "clientClassName": "DigitalOceanOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.DigitalOcean.OpenApiClient",

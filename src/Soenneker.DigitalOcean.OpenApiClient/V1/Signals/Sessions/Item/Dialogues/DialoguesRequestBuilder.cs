@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions.Item.Dialogue
         {
         }
         /// <summary>
-        /// To list the dialogue turns within a specific session, send a GET request to`/v1/signals/sessions/{session_id}/dialogues`. Each dialogue represents asingle turn of conversation between a user and the agent, along withany signals detected. Results are paginated using cursor-based pagination.
+        /// To list the dialogue turns within a specific session, send a GET request to`/v1/signals/sessions/{session_id}/dialogues`. Each dialogue represents asingle turn of conversation between a user and the environment, along withany signals detected. Results are paginated using cursor-based pagination.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListDialoguesResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions.Item.Dialogue
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListDialoguesResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListDialoguesResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To list the dialogue turns within a specific session, send a GET request to`/v1/signals/sessions/{session_id}/dialogues`. Each dialogue represents asingle turn of conversation between a user and the agent, along withany signals detected. Results are paginated using cursor-based pagination.
+        /// To list the dialogue turns within a specific session, send a GET request to`/v1/signals/sessions/{session_id}/dialogues`. Each dialogue represents asingle turn of conversation between a user and the environment, along withany signals detected. Results are paginated using cursor-based pagination.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions.Item.Dialogue
             return new global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions.Item.Dialogues.DialoguesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// To list the dialogue turns within a specific session, send a GET request to`/v1/signals/sessions/{session_id}/dialogues`. Each dialogue represents asingle turn of conversation between a user and the agent, along withany signals detected. Results are paginated using cursor-based pagination.
+        /// To list the dialogue turns within a specific session, send a GET request to`/v1/signals/sessions/{session_id}/dialogues`. Each dialogue represents asingle turn of conversation between a user and the environment, along withany signals detected. Results are paginated using cursor-based pagination.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DialoguesRequestBuilderGetQueryParameters 

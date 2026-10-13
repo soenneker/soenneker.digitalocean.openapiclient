@@ -8,20 +8,20 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Consent details for a specific agent.
+    /// Consent details for a specific environment.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentConsent : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The unique identifier of the agent. For Harness Runtime, this is the Environment Config ID.</summary>
+        /// <summary>The unique identifier of the environment. For Harness Runtime, this is the Environment Config ID.</summary>
         public Guid? AgentId { get; set; }
-        /// <summary>Whether signals collection is enabled for this agent.</summary>
+        /// <summary>Whether signals collection is enabled for this environment.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The unique numeric identifier for the consent record.</summary>
         public int? Id { get; set; }
-        /// <summary>The source this consent applies to. Always `agent` for per-agent records returned by this endpoint.</summary>
+        /// <summary>The source this consent applies to. Always `agent` for per-environment records returned by this endpoint.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentSource? Source { get; set; }
         /// <summary>The team ID that owns this consent record.</summary>
         public int? TeamId { get; set; }

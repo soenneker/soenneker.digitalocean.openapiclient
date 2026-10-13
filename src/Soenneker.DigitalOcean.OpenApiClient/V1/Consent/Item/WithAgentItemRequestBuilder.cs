@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
         {
         }
         /// <summary>
-        /// To retrieve the consent record for a specific agent, send a GETrequest to `/v1/consent/{agent_id}`. The response includes an `enabled`field indicating whether signals collection is on for this agent.This endpoint only serves per-agent (`source: agent`) records. Team-levelinference consent is read from `GET /v1/consent?source=inference`.
+        /// To retrieve the consent record for a specific environment, send a GETrequest to `/v1/consent/{agent_id}`. The response includes an `enabled`field indicating whether signals collection is on for this environment.This endpoint only serves per-environment (`source: agent`) records. Team-levelinference consent is read from `GET /v1/consent?source=inference`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConsent"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -67,7 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConsent>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConsent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To enable or disable signals collection for a specific agent, send aPUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in therequest body.This endpoint only manages per-agent (`source: agent`) consent. To manageteam-level consent for Serverless Inference, use`PUT /v1/consent?source=inference` instead.
+        /// To enable or disable signals collection for a specific environment, send aPUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in therequest body.This endpoint only manages per-environment (`source: agent`) consent. To manageteam-level consent for Serverless Inference, use`PUT /v1/consent?source=inference` instead.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConsentResponseResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -102,7 +102,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConsentResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.UpdateConsentResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To retrieve the consent record for a specific agent, send a GETrequest to `/v1/consent/{agent_id}`. The response includes an `enabled`field indicating whether signals collection is on for this agent.This endpoint only serves per-agent (`source: agent`) records. Team-levelinference consent is read from `GET /v1/consent?source=inference`.
+        /// To retrieve the consent record for a specific environment, send a GETrequest to `/v1/consent/{agent_id}`. The response includes an `enabled`field indicating whether signals collection is on for this environment.This endpoint only serves per-environment (`source: agent`) records. Team-levelinference consent is read from `GET /v1/consent?source=inference`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +121,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item
             return requestInfo;
         }
         /// <summary>
-        /// To enable or disable signals collection for a specific agent, send aPUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in therequest body.This endpoint only manages per-agent (`source: agent`) consent. To manageteam-level consent for Serverless Inference, use`PUT /v1/consent?source=inference` instead.
+        /// To enable or disable signals collection for a specific environment, send aPUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in therequest body.This endpoint only manages per-environment (`source: agent`) consent. To manageteam-level consent for Serverless Inference, use`PUT /v1/consent?source=inference` instead.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The source this consent applies to. `agent` is per-agent consent for Harness Runtime; `inference` is team-level consent for Serverless Inference chat completions.</summary>
+    /// <summary>The source this consent applies to. `agent` is per-environment consent for Harness Runtime; `inference` is team-level consent for Serverless Inference chat completions.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ConsentRecordSource
     {
