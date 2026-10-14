@@ -17,10 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A checkpoint of a MicroVM&apos;s memory and disk. New MicroVMs created from a checkpoint start from that state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint? Checkpoint { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2? Checkpoint { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint Checkpoint { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2 Checkpoint { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CheckpointResponse"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "checkpoint", n => { Checkpoint = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint.CreateFromDiscriminatorValue); } },
+                { "checkpoint", n => { Checkpoint = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint>("checkpoint", Checkpoint);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2>("checkpoint", Checkpoint);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

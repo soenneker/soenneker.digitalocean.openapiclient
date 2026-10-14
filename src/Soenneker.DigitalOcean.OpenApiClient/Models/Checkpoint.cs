@@ -8,57 +8,61 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A checkpoint of a MicroVM&apos;s memory and disk. New MicroVMs created from a checkpoint start from that state.
+    /// Checkpoint is a durable capture of a session&apos;s live sandbox machine state bound to the event-log cursor at the cut. READY checkpoints seed forks (ForkSession) and rollback. Internal fields (team_id, the substrate checkpoint id, event_seq) are never serialized.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Checkpoint : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>When the checkpoint was created, in ISO 8601 format.</summary>
-        public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>The stored size of the checkpoint&apos;s disk, in bytes.</summary>
-        public long? DiskBytes { get; private set; }
-        /// <summary>The unique ID of the checkpoint.</summary>
-        public Guid? Id { get; private set; }
-        /// <summary>The stored size of the checkpoint&apos;s memory, in bytes.</summary>
-        public long? MemoryBytes { get; private set; }
-        /// <summary>The ID of the MicroVM the checkpoint was taken from.</summary>
-        public Guid? MicrovmId { get; private set; }
-        /// <summary>The name of the MicroVM the checkpoint was taken from.</summary>
+        /// <summary>Public checkpoint id, stable for the checkpoint&apos;s lifetime (e.g. cp_9f2c1a4b).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MicrovmName { get; private set; }
+        public string? CheckpointId { get; set; }
 #nullable restore
 #else
-        public string MicrovmName { get; private set; }
+        public string CheckpointId { get; set; }
 #endif
-        /// <summary>The name of the checkpoint. If you do not set one, a name such as `checkpoint-20260929-143559` is generated.</summary>
+        /// <summary>The created_at property</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Client-safe failure detail; set only when status is FAILED.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? ErrorMessage { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string ErrorMessage { get; set; }
 #endif
-        /// <summary>The slug of the checkpoint&apos;s region.</summary>
+        /// <summary>Event-log cursor (ULID) of the last event included in the cut; forks resume event replay from here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get; private set; }
+        public string? EventId { get; set; }
 #nullable restore
 #else
-        public string Region { get; private set; }
+        public string EventId { get; set; }
 #endif
-        /// <summary>The MicroVM&apos;s size. `cpu` and `memory` must be one of the pairs `1`/`2048`, `2`/`4096`, `8`/`16384`, or `16`/`32768`. The size sets the disk, which is returned in responses.</summary>
+        /// <summary>How the checkpoint came to exist: explicit - requested via CreateCheckpoint; implicit - minted automatically by the platform (on run completion, or when ForkSession is called without from_checkpoint_id).</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CheckpointKind? Kind { get; set; }
+        /// <summary>Optional user-supplied label from CreateCheckpoint; empty when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize? Size { get; set; }
+        public string? Label { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize Size { get; set; }
+        public string Label { get; set; }
 #endif
-        /// <summary>The checkpoint&apos;s status. You can create MicroVMs from the checkpoint when it is `CHECKPOINT_AVAILABLE`.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CheckpointStatus? Status { get; private set; }
+        /// <summary>Owning session.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SessionId { get; set; }
+#nullable restore
+#else
+        public string SessionId { get; set; }
+#endif
+        /// <summary>Size of the captured machine state. 0 until the checkpoint reaches READY.</summary>
+        public long? SizeBytes { get; set; }
+        /// <summary>Capture lifecycle: PENDING -&gt; READY | FAILED. Only READY checkpoints are forkable/restorable. CreateCheckpoint blocks until terminal, so PENDING is only ever observable via list/get while a capture is in flight.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CheckpointStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint"/> and sets the default values.
         /// </summary>
@@ -84,15 +88,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "checkpoint_id", n => { CheckpointId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "disk_bytes", n => { DiskBytes = n.GetLongValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "memory_bytes", n => { MemoryBytes = n.GetLongValue(); } },
-                { "microvm_id", n => { MicrovmId = n.GetGuidValue(); } },
-                { "microvm_name", n => { MicrovmName = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize.CreateFromDiscriminatorValue); } },
+                { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
+                { "event_id", n => { EventId = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CheckpointKind>(); } },
+                { "label", n => { Label = n.GetStringValue(); } },
+                { "session_id", n => { SessionId = n.GetStringValue(); } },
+                { "size_bytes", n => { SizeBytes = n.GetLongValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CheckpointStatus>(); } },
             };
         }
@@ -103,8 +106,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize>("size", Size);
+            writer.WriteStringValue("checkpoint_id", CheckpointId);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("error_message", ErrorMessage);
+            writer.WriteStringValue("event_id", EventId);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CheckpointKind>("kind", Kind);
+            writer.WriteStringValue("label", Label);
+            writer.WriteStringValue("session_id", SessionId);
+            writer.WriteLongValue("size_bytes", SizeBytes);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CheckpointStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

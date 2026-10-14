@@ -3,29 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The checkpoint&apos;s status. You can create MicroVMs from the checkpoint when it is `CHECKPOINT_AVAILABLE`.</summary>
+    /// <summary>Capture lifecycle: PENDING -&gt; READY | FAILED. Only READY checkpoints are forkable/restorable. CreateCheckpoint blocks until terminal, so PENDING is only ever observable via list/get while a capture is in flight.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CheckpointStatus
     {
-        [EnumMember(Value = "CHECKPOINT_CREATING")]
+        [EnumMember(Value = "PENDING")]
         #pragma warning disable CS1591
-        CheckpointCreating,
+        Pending,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CHECKPOINT_AVAILABLE")]
+        [EnumMember(Value = "READY")]
         #pragma warning disable CS1591
-        CheckpointAvailable,
+        Ready,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CHECKPOINT_FAILED")]
+        [EnumMember(Value = "FAILED")]
         #pragma warning disable CS1591
-        CheckpointFailed,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "CHECKPOINT_DELETING")]
-        #pragma warning disable CS1591
-        CheckpointDeleting,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "CHECKPOINT_DELETED")]
-        #pragma warning disable CS1591
-        CheckpointDeleted,
+        Failed,
         #pragma warning restore CS1591
     }
 }

@@ -17,10 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The checkpoints property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint>? Checkpoints { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2>? Checkpoints { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint> Checkpoints { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2> Checkpoints { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "checkpoints", n => { Checkpoints = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "checkpoints", n => { Checkpoints = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PageLinks>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PageLinks.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MetaMeta>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MetaMeta.CreateFromDiscriminatorValue); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint>("checkpoints", Checkpoints);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2>("checkpoints", Checkpoints);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PageLinks>("links", Links);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MetaMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);

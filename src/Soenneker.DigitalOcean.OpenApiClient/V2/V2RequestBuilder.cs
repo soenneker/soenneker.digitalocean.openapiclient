@@ -6,6 +6,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.Account;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Actions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.AddOns;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Agents;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Apps;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Billing;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Byoip_prefixes;
@@ -79,6 +80,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.AddOns.AddOnsRequestBuilder AddOns
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.AddOns.AddOnsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The agents property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.AgentsRequestBuilder Agents
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The apps property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.AppsRequestBuilder Apps

@@ -14,13 +14,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Opaque cursor for the next page. Empty when there are no further pages.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NextPageToken { get; set; }
+#nullable restore
+#else
+        public string NextPageToken { get; set; }
+#endif
         /// <summary>The triggers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerInfo>? Triggers { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Trigger>? Triggers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerInfo> Triggers { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Trigger> Triggers { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListTriggersResponse"/> and sets the default values.
@@ -47,7 +55,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "triggers", n => { Triggers = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerInfo>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerInfo.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "next_page_token", n => { NextPageToken = n.GetStringValue(); } },
+                { "triggers", n => { Triggers = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Trigger>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Trigger.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +66,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerInfo>("triggers", Triggers);
+            writer.WriteStringValue("next_page_token", NextPageToken);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.Trigger>("triggers", Triggers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
