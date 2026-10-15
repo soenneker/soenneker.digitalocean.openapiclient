@@ -82,6 +82,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Endpoint { get; private set; }
 #endif
+        /// <summary>A boolean value indicating whether GPU nodes in the cluster are launched with images that do not include pre-installed GPU drivers, allowing GPU drivers to be managed by a GPU operator instead. Mutually exclusive with other GPU-related cluster options, such as `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted on create, the default value is false.</summary>
+        public bool? GpuOperatorReady { get; set; }
         /// <summary>A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled. When omitted on create, the default is version-dependent; for DOKS 1.36.0 and later, the default is true; for earlier versions, the default is false.</summary>
         public bool? Ha { get; set; }
         /// <summary>A unique ID that can be used to identify and reference a Kubernetes cluster.</summary>
@@ -168,7 +170,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Region { get; set; }
 #endif
-        /// <summary>A read-only boolean value indicating if a container registry is integrated with the cluster.</summary>
+        /// <summary>A boolean value indicating whether GPU nodes in the cluster are launched with images that do not include pre-installed GPU drivers, allowing GPU drivers to be managed by a GPU operator instead. Mutually exclusive with other GPU-related cluster options, such as `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted on create, the default value is false.</summary>
         public bool? RegistryEnabled { get; private set; }
         /// <summary>An object specifying whether the routing-agent component should be enabled for the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -233,6 +235,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             AutoUpgrade = false;
+            GpuOperatorReady = false;
             IsolatedWorkers = false;
             SurgeUpgrade = false;
         }
@@ -264,6 +267,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "coredns_autoscaler", n => { CorednsAutoscaler = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler>(global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
+                { "gpu_operator_ready", n => { GpuOperatorReady = n.GetBoolValue(); } },
                 { "ha", n => { Ha = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "ipv4", n => { Ipv4 = n.GetStringValue(); } },
@@ -305,6 +309,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("cluster_subnet", ClusterSubnet);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall>("control_plane_firewall", ControlPlaneFirewall);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler>("coredns_autoscaler", CorednsAutoscaler);
+            writer.WriteBoolValue("gpu_operator_ready", GpuOperatorReady);
             writer.WriteBoolValue("ha", Ha);
             writer.WriteBoolValue("isolated_workers", IsolatedWorkers);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy>("maintenance_policy", MaintenancePolicy);

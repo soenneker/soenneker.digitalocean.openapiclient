@@ -64,6 +64,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler CorednsAutoscaler { get; set; }
 #endif
+        /// <summary>A boolean value indicating whether GPU nodes in the cluster are launched with images that do not include pre-installed GPU drivers, allowing GPU drivers to be managed by a GPU operator instead. Mutually exclusive with other GPU-related cluster options, such as `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted, the current value is left unchanged.</summary>
+        public bool? GpuOperatorReady { get; set; }
         /// <summary>A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled. When omitted on create, the default is version-dependent; for DOKS 1.36.0 and later, the default is true; for earlier versions, the default is false.</summary>
         public bool? Ha { get; set; }
         /// <summary>An object specifying the maintenance window policy for the Kubernetes cluster.</summary>
@@ -182,6 +184,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "cluster_autoscaler_configuration", n => { ClusterAutoscalerConfiguration = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration.CreateFromDiscriminatorValue); } },
                 { "control_plane_firewall", n => { ControlPlaneFirewall = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall.CreateFromDiscriminatorValue); } },
                 { "coredns_autoscaler", n => { CorednsAutoscaler = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler>(global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler.CreateFromDiscriminatorValue); } },
+                { "gpu_operator_ready", n => { GpuOperatorReady = n.GetBoolValue(); } },
                 { "ha", n => { Ha = n.GetBoolValue(); } },
                 { "maintenance_policy", n => { MaintenancePolicy = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -210,6 +213,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration>("cluster_autoscaler_configuration", ClusterAutoscalerConfiguration);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall>("control_plane_firewall", ControlPlaneFirewall);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler>("coredns_autoscaler", CorednsAutoscaler);
+            writer.WriteBoolValue("gpu_operator_ready", GpuOperatorReady);
             writer.WriteBoolValue("ha", Ha);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy>("maintenance_policy", MaintenancePolicy);
             writer.WriteStringValue("name", Name);

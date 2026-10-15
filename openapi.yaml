@@ -31233,7 +31233,7 @@ paths:
             curl -X POST \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
-              -d '{"name": "prod-cluster-01","region": "nyc1","version": "1.14.1-do.4","vpc_uuid": "c33931f2-a26a-4e61-b85c-4e95a2ec431b","worker_subnet_uuid": "cbd79771-23eb-49be-b5ea-59cc56222622","isolated_workers": false,"tags": ["production","web-team"],"node_pools": [{"size": "s-1vcpu-2gb","count": 3,"name": "frontend-pool","tags": ["frontend"],"labels": {"service": "frontend", "priority": "high"}},{"size": "c-4","count": 2,"name": "backend-pool"}]}' \
+              -d '{"name": "prod-cluster-01","region": "nyc1","version": "1.14.1-do.4","vpc_uuid": "c33931f2-a26a-4e61-b85c-4e95a2ec431b","worker_subnet_uuid": "cbd79771-23eb-49be-b5ea-59cc56222622","isolated_workers": false,"gpu_operator_ready": false,"tags": ["production","web-team"],"node_pools": [{"size": "s-1vcpu-2gb","count": 3,"name": "frontend-pool","tags": ["frontend"],"labels": {"service": "frontend", "priority": "high"}},{"size": "c-4","count": 2,"name": "backend-pool"}]}' \
               "https://api.digitalocean.com/v2/kubernetes/clusters"
         - lang: Go
           source: |-
@@ -31255,6 +31255,7 @@ paths:
                     RegionSlug:  "nyc1",
                     VersionSlug: "1.14.1-do.4",
                     IsolatedWorkers: false,
+                    GPUOperatorReady: false,
                     Tags:        []string{"production", "web-team"},
                     NodePools: []*godo.KubernetesNodePoolCreateRequest{
                         &godo.KubernetesNodePoolCreateRequest{
@@ -31285,6 +31286,7 @@ paths:
               region: 'nyc1',
               version: '1.14.1-do.4',
               isolated_workers: false,
+              gpu_operator_ready: false,
               tags: ['production', 'web-team'],
               node_pools: [
                 {
@@ -31315,6 +31317,7 @@ paths:
               "region": "nyc1",
               "version": "1.18.6-do.0",
               "isolated_workers": False,
+              "gpu_operator_ready": False,
               "node_pools": [
                 {
                   "size": "s-1vcpu-2gb",
@@ -58912,6 +58915,36 @@ paths:
             )
 
             print(resp.choices[0].message.content)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                completion, _, err := client.Chat.Completions.New(ctx, &godo.ChatCompletionNewParams{
+                    Model: "llama3.3-70b-instruct",
+                    Messages: []godo.ChatCompletionMessage{
+                        godo.UserMessage("What is the capital of Portugal?"),
+                    },
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                if msg := completion.Choices[0].Message.Content; msg != nil {
+                    fmt.Println(*msg)
+                }
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -59014,6 +59047,45 @@ paths:
             )
 
             print(resp.content[0].text)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "encoding/json"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                content, err := json.Marshal("What is the capital of Portugal?")
+                if err != nil {
+                    panic(err)
+                }
+
+                msg, _, err := client.Messages.New(ctx, &godo.MessageNewParams{
+                    Model:     "claude-opus-4-6",
+                    MaxTokens: 1024,
+                    Messages: []godo.MessageParam{
+                        {Role: "user", Content: content},
+                    },
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                for _, block := range msg.Content {
+                    if block.Type == "text" {
+                        fmt.Println(block.Text)
+                    }
+                }
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -59099,6 +59171,45 @@ paths:
 
             for item in resp.data:
                 print(item.index, item.embedding[:8])
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "encoding/json"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                resp, _, err := client.Embeddings.New(ctx, &godo.EmbeddingNewParams{
+                    Model:          "qwen3-embedding-0.6b",
+                    Input:          []string{"hello world", "goodbye world"},
+                    EncodingFormat: "float",
+                    User:           "user-1234",
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                for _, item := range resp.Data {
+                    var vec []float32
+                    if err := json.Unmarshal(item.Embedding, &vec); err != nil {
+                        panic(err)
+                    }
+                    head := vec
+                    if len(head) > 8 {
+                        head = head[:8]
+                    }
+                    fmt.Println(item.Index, head)
+                }
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -59208,6 +59319,43 @@ paths:
             )
 
             print(resp.choices[0].message.content)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                agent, err := godo.NewAgentInferenceClient(
+                    os.Getenv("AGENT_ENDPOINT"),
+                    os.Getenv("AGENT_ACCESS_KEY"),
+                )
+                if err != nil {
+                    panic(err)
+                }
+
+                ctx := context.Background()
+
+                completion, _, err := agent.Chat.Completions.New(ctx, &godo.ChatCompletionNewParams{
+                    Model: "llama3.3-70b-instruct",
+                    Messages: []godo.ChatCompletionMessage{
+                        godo.UserMessage("What is the capital of Portugal?"),
+                    },
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                if msg := completion.Choices[0].Message.Content; msg != nil {
+                    fmt.Println(*msg)
+                }
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -59298,6 +59446,35 @@ paths:
             )
 
             print(resp.data[0].b64_json)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                resp, _, err := client.ImageGenerations.Generate(ctx, &godo.ImageGenerateParams{
+                    Model:   "openai-gpt-image-1",
+                    Prompt:  "A cute baby sea otter floating on its back in calm blue water",
+                    Size:    godo.PtrTo("auto"),
+                    Quality: godo.PtrTo("auto"),
+                    N:       1,
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                fmt.Println(resp.Data[0].B64JSON)
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -59369,6 +59546,31 @@ paths:
 
             for model in resp.data:
                 print(model.id)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                page, _, err := client.Models.List(ctx)
+                if err != nil {
+                    panic(err)
+                }
+
+                for _, model := range page.Data {
+                    fmt.Println(model.ID)
+                }
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -59631,6 +59833,34 @@ paths:
             )
 
             print(resp.output[0].content[0].text)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                resp, _, err := client.Responses.New(ctx, &godo.ResponseNewParams{
+                    Model:           "openai-gpt-oss-20b",
+                    Input:           "What is the capital of France?",
+                    MaxOutputTokens: godo.PtrTo(50),
+                    Temperature:     godo.PtrTo(0.7),
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                fmt.Println(resp.OutputText())
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -59801,6 +60031,36 @@ paths:
                 model_id="fal-ai/elevenlabs/tts/multilingual-v2",
             )
             print(resp.request_id, resp.status)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                // Async invoke uses model_id + a free-form input map. Shape of input
+                // depends on the model (image, audio, TTS, and so on).
+                invocation, _, err := client.AsyncInvocations.New(ctx, &godo.AsyncInvocationNewParams{
+                    ModelID: "fal-ai/flux/schnell",
+                    Input: map[string]interface{}{
+                        "prompt": "A futuristic city at sunset",
+                    },
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                fmt.Println(invocation.RequestID, invocation.Status)
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -59950,6 +60210,32 @@ paths:
             print("filename:", uploaded.filename)
 
             print("bytes:   ", uploaded.bytes)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                intent, _, err := client.BatchInference.CreatePresignedUploadURL(ctx, &godo.CreateBatchFileRequest{
+                    FileName: "batch_requests.jsonl",
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                fmt.Println("file_id:   ", intent.FileID)
+                fmt.Println("upload_url:", intent.UploadURL)
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -60122,6 +60408,44 @@ paths:
 
 
             print("uploaded file_id:", file_id)
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                // Two-step upload flow:
+                //   1. Reserve a file_id + presigned upload_url via CreatePresignedUploadURL.
+                //   2. PUT the raw JSONL bytes with UploadInputFile.
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                intent, _, err := client.BatchInference.CreatePresignedUploadURL(ctx, &godo.CreateBatchFileRequest{
+                    FileName: "batch_requests.jsonl",
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                fh, err := os.Open("batch_requests.jsonl")
+                if err != nil {
+                    panic(err)
+                }
+                defer fh.Close()
+
+                if _, err := client.BatchInference.UploadInputFile(ctx, intent.UploadURL, fh); err != nil {
+                    panic(err)
+                }
+
+                fmt.Println("uploaded file_id:", intent.FileID)
+            }
         - lang: JavaScript
           source: >-
             // Two-step upload flow:
@@ -60305,6 +60629,43 @@ paths:
 
             print("batch_id:", batch.get("batch_id"))
             print("status:  ", batch.get("status"))
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "crypto/rand"
+                "encoding/hex"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                id := make([]byte, 16)
+                if _, err := rand.Read(id); err != nil {
+                    panic(err)
+                }
+
+                batch, _, err := client.BatchInference.CreateJob(ctx, &godo.CreateBatchRequest{
+                    FileID:           os.Getenv("BATCH_INPUT_FILE_ID"),
+                    Provider:         "openai",
+                    Endpoint:         "/v1/chat/completions",
+                    CompletionWindow: "24h",
+                    RequestID:        hex.EncodeToString(id),
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                fmt.Println("batch_id:", batch.BatchID)
+                fmt.Println("status:  ", batch.Status)
+            }
         - lang: JavaScript
           source: |-
             import { randomUUID } from "node:crypto";
@@ -60423,6 +60784,37 @@ paths:
 
             print("has_more:", resp.get("has_more"))
             print("last_id: ", resp.get("last_id"))
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                resp, _, err := client.BatchInference.ListJobs(ctx, &godo.ListBatchesOptions{
+                    Limit: 20,
+                })
+                if err != nil {
+                    panic(err)
+                }
+
+                for _, edge := range resp.Edges {
+                    b := edge.Node
+                    fmt.Printf("%s\t%s\t%s\n", b.BatchID, b.Status, b.CreatedAt)
+                }
+
+                fmt.Println("has_next_page:", resp.PageInfo.HasNextPage)
+                fmt.Println("end_cursor:   ", resp.PageInfo.EndCursor)
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -60511,6 +60903,34 @@ paths:
             print("status:        ", batch.get("status"))
             print("request_counts:", batch.get("request_counts"))
             print("output_file_id:", batch.get("output_file_id"))
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                batch, _, err := client.BatchInference.GetJob(ctx, os.Getenv("BATCH_ID"))
+                if err != nil {
+                    panic(err)
+                }
+
+                fmt.Println("batch_id:        ", batch.BatchID)
+                fmt.Println("status:          ", batch.Status)
+                fmt.Println("result_available:", batch.ResultAvailable)
+                if batch.RequestCounts != nil {
+                    fmt.Printf("request_counts:   %+v\n", *batch.RequestCounts)
+                }
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -60635,6 +61055,59 @@ paths:
             print("wrote:", out)
             print("----- preview -----")
             print(resp.text[:500])
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "io"
+                "net/http"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                batchID := os.Getenv("BATCH_ID")
+
+                batch, _, err := client.BatchInference.GetJob(ctx, batchID)
+                if err != nil {
+                    panic(err)
+                }
+                if !batch.ResultAvailable {
+                    fmt.Println("results not ready yet; poll batch status and retry")
+                    os.Exit(0)
+                }
+
+                links, _, err := client.BatchInference.GetJobResult(ctx, batchID)
+                if err != nil {
+                    panic(err)
+                }
+
+                resp, err := http.Get(links.Download.PresignedURL)
+                if err != nil {
+                    panic(err)
+                }
+                defer resp.Body.Close()
+
+                out, err := os.Create("batch_output.jsonl")
+                if err != nil {
+                    panic(err)
+                }
+                defer out.Close()
+
+                if _, err := io.Copy(out, resp.Body); err != nil {
+                    panic(err)
+                }
+
+                fmt.Println("wrote: batch_output.jsonl")
+                fmt.Println("output_file_id:", links.OutputFileID)
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -60739,6 +61212,33 @@ paths:
             print("batch_id:    ", result.get("batch_id"))
             print("status:      ", result.get("status"))
             print("cancelled_at:", result.get("cancelled_at"))
+        - lang: Go
+          source: |-
+            package main
+
+            import (
+                "context"
+                "fmt"
+                "os"
+
+                "github.com/digitalocean/godo"
+            )
+
+            func main() {
+                client := godo.NewFromToken(os.Getenv("DIGITALOCEAN_TOKEN"))
+                ctx := context.Background()
+
+                batch, _, err := client.BatchInference.CancelJob(ctx, os.Getenv("BATCH_ID"))
+                if err != nil {
+                    panic(err)
+                }
+
+                fmt.Println("batch_id:", batch.BatchID)
+                fmt.Println("status:  ", batch.Status)
+                if batch.CancelRequestedAt != nil {
+                    fmt.Println("cancel_requested_at:", *batch.CancelRequestedAt)
+                }
+            }
         - lang: JavaScript
           source: |-
             import { InferenceClient } from "@digitalocean/dots";
@@ -83578,6 +84078,17 @@ components:
             not assigned public IP addresses. When omitted on create, the
             default value is false. When enabled, a NAT gateway must exist in
             the VPC where the cluster is created.
+        gpu_operator_ready:
+          type: boolean
+          default: false
+          example: false
+          description: >-
+            A boolean value indicating whether GPU nodes in the cluster are
+            launched with images that do not include pre-installed GPU drivers,
+            allowing GPU drivers to be managed by a GPU operator instead.
+            Mutually exclusive with other GPU-related cluster options, such as
+            `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted on
+            create, the default value is false.
         status:
           type: object
           readOnly: true
@@ -83654,7 +84165,13 @@ components:
           example:
             - registry-a
             - registry-b
-          description: An array of integrated DOCR registries.
+          description: >-
+            A boolean value indicating whether GPU nodes in the cluster are
+            launched with images that do not include pre-installed GPU drivers,
+            allowing GPU drivers to be managed by a GPU operator instead.
+            Mutually exclusive with other GPU-related cluster options, such as
+            `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted on
+            create, the default value is false.
         control_plane_firewall:
           $ref: '#/components/schemas/control_plane_firewall'
         cluster_autoscaler_configuration:
@@ -83806,6 +84323,17 @@ components:
             not assigned public IP addresses. When omitted on create, the
             default value is false. When enabled, a NAT gateway must exist in
             the VPC where the cluster is created.
+        gpu_operator_ready:
+          type: boolean
+          default: false
+          example: false
+          description: >-
+            A boolean value indicating whether GPU nodes in the cluster are
+            launched with images that do not include pre-installed GPU drivers,
+            allowing GPU drivers to be managed by a GPU operator instead.
+            Mutually exclusive with other GPU-related cluster options, such as
+            `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted on
+            create, the default value is false.
         status:
           type: object
           readOnly: true
@@ -83871,8 +84399,12 @@ components:
           readOnly: true
           example: true
           description: >-
-            A read-only boolean value indicating if a container registry is
-            integrated with the cluster.
+            A boolean value indicating whether GPU nodes in the cluster are
+            launched with images that do not include pre-installed GPU drivers,
+            allowing GPU drivers to be managed by a GPU operator instead.
+            Mutually exclusive with other GPU-related cluster options, such as
+            `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted on
+            create, the default value is false.
         control_plane_firewall:
           $ref: '#/components/schemas/control_plane_firewall'
         cluster_autoscaler_configuration:
@@ -83951,6 +84483,16 @@ components:
             When omitted on create, the default is version-dependent; for DOKS
             1.36.0 and later, the default is true; for earlier versions, the
             default is false.
+        gpu_operator_ready:
+          type: boolean
+          example: false
+          description: >-
+            A boolean value indicating whether GPU nodes in the cluster are
+            launched with images that do not include pre-installed GPU drivers,
+            allowing GPU drivers to be managed by a GPU operator instead.
+            Mutually exclusive with other GPU-related cluster options, such as
+            `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted, the
+            current value is left unchanged.
         control_plane_firewall:
           $ref: '#/components/schemas/control_plane_firewall'
         cluster_autoscaler_configuration:
@@ -116093,6 +116635,7 @@ components:
               day: any
             auto_upgrade: false
             isolated_workers: false
+            gpu_operator_ready: false
             status:
               state: provisioning
               message: provisioning
@@ -116148,6 +116691,7 @@ components:
         region: nyc1
         version: 1.18.6-do.0
         isolated_workers: false
+        gpu_operator_ready: false
         node_pools:
           - size: s-1vcpu-2gb
             count: 3
@@ -116165,6 +116709,7 @@ components:
         region: nyc1
         version: 1.18.6-do.0
         isolated_workers: false
+        gpu_operator_ready: false
         tags:
           - production
           - web-team
@@ -116243,6 +116788,7 @@ components:
             day: any
           auto_upgrade: false
           isolated_workers: false
+          gpu_operator_ready: false
           status:
             state: provisioning
             message: provisioning
@@ -116385,6 +116931,7 @@ components:
             day: any
           auto_upgrade: false
           isolated_workers: false
+          gpu_operator_ready: false
           status:
             state: provisioning
             message: provisioning
@@ -116501,6 +117048,7 @@ components:
             day: any
           auto_upgrade: false
           isolated_workers: false
+          gpu_operator_ready: false
           status:
             state: running
           created_at: '2018-11-15T16:00:11Z'
@@ -116640,6 +117188,7 @@ components:
             day: any
           auto_upgrade: true
           isolated_workers: false
+          gpu_operator_ready: false
           status:
             state: running
           created_at: '2018-11-15T16:00:11Z'
