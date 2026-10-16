@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.V1.AsyncInvoke;
+using Soenneker.DigitalOcean.OpenApiClient.V1.Audio;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Batches;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Chat;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Consent;
@@ -13,6 +14,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V1.ModelsRequests;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Responses;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Signals;
 using Soenneker.DigitalOcean.OpenApiClient.V1.Systemone;
+using Soenneker.DigitalOcean.OpenApiClient.V1.Videos;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -29,6 +31,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.AsyncInvoke.AsyncInvokeRequestBuilder AsyncInvoke
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.AsyncInvoke.AsyncInvokeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The audio property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Audio.AudioRequestBuilder Audio
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Audio.AudioRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The batches property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Batches.BatchesRequestBuilder Batches
@@ -79,6 +86,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Systemone.SystemoneRequestBuilder Systemone
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Systemone.SystemoneRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The videos property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Videos.VideosRequestBuilder Videos
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Videos.VideosRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.V1RequestBuilder"/> and sets the default values.

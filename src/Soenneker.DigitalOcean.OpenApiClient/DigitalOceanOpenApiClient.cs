@@ -7,6 +7,9 @@ using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using Soenneker.DigitalOcean.OpenApiClient.Api;
+using Soenneker.DigitalOcean.OpenApiClient.Approvals;
+using Soenneker.DigitalOcean.OpenApiClient.Code;
+using Soenneker.DigitalOcean.OpenApiClient.Tools;
 using Soenneker.DigitalOcean.OpenApiClient.Upload_url;
 using Soenneker.DigitalOcean.OpenApiClient.V1;
 using Soenneker.DigitalOcean.OpenApiClient.V2;
@@ -26,6 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient
         public global::Soenneker.DigitalOcean.OpenApiClient.Api.ApiRequestBuilder Api
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.Api.ApiRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The approvals property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Approvals.ApprovalsRequestBuilder Approvals
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.Approvals.ApprovalsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The code property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Code.CodeRequestBuilder Code
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.Code.CodeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tools property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Tools.ToolsRequestBuilder Tools
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.Tools.ToolsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The Upload_url property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Upload_url.Upload_urlRequestBuilder Upload_url

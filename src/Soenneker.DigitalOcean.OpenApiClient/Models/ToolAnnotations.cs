@@ -39,6 +39,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
+        /// Creates a new instance of the appropriate class based on discriminator value
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations"/></returns>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolAnnotations();
+        }
+        /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>

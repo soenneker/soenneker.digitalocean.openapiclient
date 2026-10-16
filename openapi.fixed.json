@@ -4642,6 +4642,713 @@
         ]
       }
     },
+    "/tools": {
+      "get": {
+        "tags": [
+          "Action Gateway Data Plane"
+        ],
+        "summary": "List Session Tools",
+        "description": "Lists the catalog tools that a session can call, ordered by name. The list applies the session\u0027s \u0060tools\u0060 selection and omits tools that its policy always denies.\n\nEach page includes an \u0060ETag\u0060 header. Send it in \u0060If-None-Match\u0060 to receive \u0060304 Not Modified\u0060 while the page is unchanged.",
+        "operationId": "GatewayToolsList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/session_id_header"
+          },
+          {
+            "$ref": "#/components/parameters/session_tools_page_size"
+          },
+          {
+            "$ref": "#/components/parameters/session_tools_page_token"
+          },
+          {
+            "$ref": "#/components/parameters/if_none_match"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of tools.",
+            "headers": {
+              "ETag": {
+                "description": "An identifier for this page\u0027s contents.",
+                "schema": {
+                  "type": "string"
+                },
+                "example": "\u00223f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c\u0022"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSessionToolsResponse"
+                },
+                "example": {
+                  "version": "v1",
+                  "tools": [
+                    {
+                      "name": "exa_web_search",
+                      "title": "Web Search",
+                      "description": "Search the public web and return ranked results with titles and URLs.",
+                      "inputSchema": {
+                        "type": "object",
+                        "required": [
+                          "query"
+                        ],
+                        "properties": {
+                          "query": {
+                            "type": "string"
+                          },
+                          "max_results": {
+                            "type": "integer"
+                          }
+                        }
+                      },
+                      "annotations": {
+                        "title": "Web Search",
+                        "readOnlyHint": true,
+                        "openWorldHint": true
+                      },
+                      "_meta": {
+                        "version": "1",
+                        "parallelizable": true,
+                        "streaming_safe": false
+                      },
+                      "version": "1",
+                      "parallelizable": true,
+                      "streamingSafe": false
+                    }
+                  ],
+                  "next_page_token": "eyJ2IjoxLCJhZnRlciI6ImV4YV93ZWJfc2VhcmNoIiwiZnAiOiI5YzFlNWI3YTNkMmY0ZTYwIn0"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The page is unchanged since the \u0060ETag\u0060 in \u0060If-None-Match\u0060."
+          },
+          "400": {
+            "$ref": "#/components/responses/data_plane_responses_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/data_plane_responses_unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          },
+          "429": {
+            "$ref": "#/components/responses/data_plane_responses_too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/data_plane_responses_server_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "action_gateway:execute"
+            ]
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://actions.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022X-Session-Id: $SESSION_ID\u0022 \\\n  \u0022https://actions.do-ai.run/tools?page_size=20\u0022"
+          }
+        ]
+      }
+    },
+    "/tools/search": {
+      "post": {
+        "tags": [
+          "Action Gateway Data Plane"
+        ],
+        "summary": "Search Session Tools",
+        "description": "Finds the catalog tools that fit one or more use cases. This is the REST form of the \u0060action_search\u0060 MCP tool. Each query is searched independently and returns its own result group, so you can see which tools serve which goal. Results include each tool\u0027s \u0060inputSchema\u0060, so you can call a tool with \u0060POST /tools/invoke\u0060 without another lookup.\n\nResults include only tools that the session can call. If the session policy requires approval for \u0060action_search\u0060, the response is a failed result with \u0060_meta.status\u0060 set to \u0060requires_approval\u0060.",
+        "operationId": "GatewayToolsListSearch",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/session_id_header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchToolsRequest"
+              },
+              "example": {
+                "queries": [
+                  {
+                    "use_case": "search the public web for current information"
+                  }
+                ],
+                "limit": 3
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The search ran, or it is waiting for approval. Check \u0060status\u0060 before reading \u0060output\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPlaneSearchToolsResponse"
+                },
+                "example": {
+                  "status": "succeeded",
+                  "output": {
+                    "results": [
+                      {
+                        "index": 1,
+                        "use_case": "search the public web for current information",
+                        "results": [
+                          {
+                            "name": "exa_web_search",
+                            "version": "1",
+                            "title": "Web Search",
+                            "description": "Search the public web and return ranked results with titles and URLs.",
+                            "inputSchema": {
+                              "type": "object",
+                              "required": [
+                                "query"
+                              ],
+                              "properties": {
+                                "query": {
+                                  "type": "string"
+                                },
+                                "max_results": {
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "score": 0.92
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/data_plane_responses_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/data_plane_responses_unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          },
+          "413": {
+            "$ref": "#/components/responses/payload_too_large"
+          },
+          "429": {
+            "$ref": "#/components/responses/data_plane_responses_too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/data_plane_responses_server_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "action_gateway:execute"
+            ]
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://actions.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022X-Session-Id: $SESSION_ID\u0022 \\\n  -d \u0027{\u0022queries\u0022:[{\u0022use_case\u0022:\u0022search the public web for current information\u0022}],\u0022limit\u0022:3}\u0027 \\\n  \u0022https://actions.do-ai.run/tools/search\u0022"
+          }
+        ]
+      }
+    },
+    "/tools/invoke": {
+      "post": {
+        "tags": [
+          "Action Gateway Data Plane"
+        ],
+        "summary": "Invoke Session Tools",
+        "description": "Runs 1 to 10 tool calls in parallel and returns one result per call, in request order. This is the REST form of the \u0060action_invoke\u0060 MCP tool.\n\nEach call is checked against the session\u0027s tool selection and policy, uses the session actor\u0027s connections, and applies any output view bound to the tool in the session. A well-formed request returns \u0060200\u0060 even when some calls fail. Check each item\u0027s \u0060result.status\u0060, and use \u0060success_count\u0060 and \u0060error_count\u0060 to branch without scanning every item.\n\nA call whose policy requires approval fails with \u0060_meta.status\u0060 set to \u0060requires_approval\u0060. Have the session\u0027s owner approve it, then repeat the call with the same arguments. A call that needs the end user to connect a provider fails with \u0060_meta.status\u0060 set to \u0060requires_authorization\u0060 or \u0060requires_connection_configuration\u0060.",
+        "operationId": "GatewayToolsRun",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/session_id_header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvokeToolsRequest"
+              },
+              "example": {
+                "rationale": "Find current information about DigitalOcean.",
+                "tools": [
+                  {
+                    "tool": "exa_web_search",
+                    "arguments": {
+                      "query": "DigitalOcean cloud computing",
+                      "max_results": 1
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The calls ran. Each item reports its own success or failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvokeToolsResponse"
+                },
+                "examples": {
+                  "succeeded": {
+                    "summary": "A successful call",
+                    "value": {
+                      "total_count": 1,
+                      "success_count": 1,
+                      "error_count": 0,
+                      "results": [
+                        {
+                          "index": 0,
+                          "tool": "exa_web_search",
+                          "version": "1",
+                          "result": {
+                            "status": "succeeded",
+                            "output": {
+                              "provider": "exa",
+                              "results": [
+                                {
+                                  "title": "DigitalOcean | Cloud Infrastructure for Developers",
+                                  "url": "https://www.digitalocean.com/"
+                                }
+                              ]
+                            },
+                            "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "requires_approval": {
+                    "summary": "A call that needs approval",
+                    "value": {
+                      "total_count": 1,
+                      "success_count": 0,
+                      "error_count": 1,
+                      "results": [
+                        {
+                          "index": 0,
+                          "tool": "exa_web_search",
+                          "version": "1",
+                          "result": {
+                            "status": "failed",
+                            "error": {
+                              "class": "execution_failed",
+                              "message": "Tool \u0022exa_web_search\u0022 requires user approval before it can run. Ask the user to approve approval_id 7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d (expires 2026-10-09T18:30:00Z) using their own credentials, then call the tool again with the same arguments.",
+                              "retriable": true,
+                              "recovery_hint": "retry_later"
+                            },
+                            "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e",
+                            "_meta": {
+                              "status": "requires_approval",
+                              "approval_id": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
+                              "tool_name": "exa_web_search",
+                              "expires_at": "2026-10-09T18:30:00Z",
+                              "decide": {
+                                "method": "POST",
+                                "path": "/approvals/session/2b3c9f0e-1a4d-4e5f-8a7b-6c5d4e3f2a1b/7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
+                                "body": "{\u0022decision\u0022: \u0022approve\u0022}"
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/data_plane_responses_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/data_plane_responses_unauthorized"
+          },
+          "402": {
+            "$ref": "#/components/responses/payment_required"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          },
+          "413": {
+            "$ref": "#/components/responses/payload_too_large"
+          },
+          "429": {
+            "$ref": "#/components/responses/data_plane_responses_too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/data_plane_responses_server_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "action_gateway:execute"
+            ]
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://actions.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022X-Session-Id: $SESSION_ID\u0022 \\\n  -d \u0027{\u0022rationale\u0022:\u0022Find current information about DigitalOcean.\u0022,\u0022tools\u0022:[{\u0022tool\u0022:\u0022exa_web_search\u0022,\u0022arguments\u0022:{\u0022query\u0022:\u0022DigitalOcean cloud computing\u0022,\u0022max_results\u0022:1}}]}\u0027 \\\n  \u0022https://actions.do-ai.run/tools/invoke\u0022"
+          }
+        ]
+      }
+    },
+    "/code/execute": {
+      "post": {
+        "tags": [
+          "Action Gateway Data Plane"
+        ],
+        "summary": "Execute Code",
+        "description": "Runs Python code in an ephemeral sandbox and returns its \u0060stdout\u0060, \u0060stderr\u0060, and \u0060exit_code\u0060. This is the REST form of the \u0060action_code\u0060 MCP tool. Use it for computation, parsing, and data processing, or to chain several catalog tools in one request.\n\nThe sandbox provides \u0060invoke_digitalocean_tool(name, arguments)\u0060, which calls a catalog tool and returns a tool result. Those calls follow the session\u0027s tool selection and policy. Each request runs in a fresh sandbox, so state is not kept between requests. Execution, including tool calls, is time limited. Code that runs too long fails with a \u0060timeout\u0060 error.\n\nA nonzero exit code is still a \u0060succeeded\u0060 result; check \u0060output.exit_code\u0060. If the session policy requires approval for \u0060action_code\u0060, the response is a failed result with \u0060_meta.status\u0060 set to \u0060requires_approval\u0060.",
+        "operationId": "GatewayCodeRun",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/session_id_header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteCodeRequest"
+              },
+              "example": {
+                "code": "print(\u0022hello from Action Gateway\u0022)"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The code ran, or it is waiting for approval. Check \u0060status\u0060 before reading \u0060output\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExecuteCodeResponse"
+                },
+                "example": {
+                  "status": "succeeded",
+                  "output": {
+                    "stdout": "hello from Action Gateway\n",
+                    "exit_code": 0
+                  },
+                  "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/data_plane_responses_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/data_plane_responses_unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          },
+          "413": {
+            "$ref": "#/components/responses/payload_too_large"
+          },
+          "429": {
+            "$ref": "#/components/responses/data_plane_responses_too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/data_plane_responses_server_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          },
+          "504": {
+            "$ref": "#/components/responses/gateway_timeout"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "action_gateway:execute"
+            ]
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://actions.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022X-Session-Id: $SESSION_ID\u0022 \\\n  -d \u0027{\u0022code\u0022:\u0022print(\\\u0022hello from Action Gateway\\\u0022)\u0022}\u0027 \\\n  \u0022https://actions.do-ai.run/code/execute\u0022"
+          }
+        ]
+      }
+    },
+    "/approvals/session/{sessionId}/{approvalId}": {
+      "post": {
+        "tags": [
+          "Action Gateway Data Plane"
+        ],
+        "summary": "Decide a Pending Approval",
+        "description": "Approves or denies a tool call that is waiting for approval. A tool result returns \u0060_meta.status\u0060 set to \u0060requires_approval\u0060 when the session policy sets \u0060ask\u0060 for the call, and its \u0060_meta.decide\u0060 gives this request\u0027s path.\n\nSend the decision with the session owner\u0027s token. Approval is a separate control request, not a tool, so an agent cannot approve its own calls. After approving, repeat the original call with the same arguments before \u0060expires_at\u0060. An approval applies only to that session, tool version, and set of arguments, and is used once. To ask again after a denial or expiry, repeat the tool call.",
+        "operationId": "GatewaySessionApprovalsUpdate",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "approvalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalDecision"
+              },
+              "example": {
+                "decision": "approve"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The decision was recorded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApprovalDecisionResponse"
+                },
+                "example": {
+                  "id": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
+                  "status": "approved",
+                  "expires_at": "2026-10-09T18:30:00Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/data_plane_responses_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/data_plane_responses_unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/data_plane_responses_not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/data_plane_responses_conflict"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          },
+          "429": {
+            "$ref": "#/components/responses/data_plane_responses_too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/data_plane_responses_server_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "action_gateway:execute"
+            ]
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://actions.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022decision\u0022:\u0022approve\u0022}\u0027 \\\n  \u0022https://actions.do-ai.run/approvals/session/$SESSION_ID/$APPROVAL_ID\u0022"
+          }
+        ]
+      }
+    },
+    "/approvals/{approvalId}": {
+      "post": {
+        "tags": [
+          "Action Gateway Data Plane"
+        ],
+        "summary": "Decide a Pending Approval by Session Header",
+        "description": "Approves or denies a tool call that is waiting for approval, identifying the session with the \u0060X-Session-Id\u0060 header. It behaves the same as \u0060POST /approvals/session/{session_id}/{approval_id}\u0060, which is the path returned in a result\u0027s \u0060_meta.decide\u0060.",
+        "operationId": "GatewayApprovalsUpdate",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/session_id_header"
+          },
+          {
+            "name": "approvalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalDecision"
+              },
+              "example": {
+                "decision": "deny"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The decision was recorded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApprovalDecisionResponse"
+                },
+                "example": {
+                  "id": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
+                  "status": "denied",
+                  "expires_at": "2026-10-09T18:30:00Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/data_plane_responses_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/data_plane_responses_unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/data_plane_responses_not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/data_plane_responses_conflict"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          },
+          "429": {
+            "$ref": "#/components/responses/data_plane_responses_too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/data_plane_responses_server_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "action_gateway:execute"
+            ]
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://actions.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022X-Session-Id: $SESSION_ID\u0022 \\\n  -d \u0027{\u0022decision\u0022:\u0022deny\u0022}\u0027 \\\n  \u0022https://actions.do-ai.run/approvals/$APPROVAL_ID\u0022"
+          }
+        ]
+      }
+    },
     "/v2/1-clicks": {
       "get": {
         "tags": [
@@ -29311,7 +30018,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29379,7 +30086,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29454,7 +30161,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29522,7 +30229,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29591,7 +30298,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29658,7 +30365,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29730,7 +30437,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29799,7 +30506,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29867,7 +30574,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -29937,7 +30644,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -30118,7 +30825,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/traces_not_found"
@@ -30189,7 +30896,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/traces_not_found"
@@ -30256,7 +30963,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -31016,7 +31723,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -38959,10 +39666,10 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "412": {
-            "$ref": "#/components/responses/precondition_failed"
+            "$ref": "#/components/responses/precondition_failed-2"
           },
           "429": {
             "$ref": "#/components/responses/too_many_requests"
@@ -39005,10 +39712,10 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "412": {
-            "$ref": "#/components/responses/precondition_failed"
+            "$ref": "#/components/responses/precondition_failed-2"
           },
           "429": {
             "$ref": "#/components/responses/too_many_requests"
@@ -40128,7 +40835,7 @@
             "$ref": "#/components/responses/not_found"
           },
           "412": {
-            "$ref": "#/components/responses/precondition_failed-2"
+            "$ref": "#/components/responses/precondition_failed-3"
           },
           "429": {
             "$ref": "#/components/responses/too_many_requests"
@@ -61523,7 +62230,22 @@
           },
           {
             "lang": "Go",
-            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    completion, _, err := client.Chat.Completions.New(ctx, \u0026godo.ChatCompletionNewParams{\n        Model: \u0022llama3.3-70b-instruct\u0022,\n        Messages: []godo.ChatCompletionMessage{\n            godo.UserMessage(\u0022What is the capital of Portugal?\u0022),\n        },\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    if msg := completion.Choices[0].Message.Content; msg != nil {\n        fmt.Println(*msg)\n    }\n}"
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    completion, _, err := client.Chat.Completions.New(ctx, \u0026godo.ChatCompletionNewParams{\n        Model: \u0022llama3.3-70b-instruct\u0022,\n        Messages: []godo.ChatCompletionMessage{\n            godo.UserMessage(\u0022What is the capital of Portugal?\u0022),\n        },\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    if msg := completion.Choices[0].Message.Content; msg != nil {\n        fmt.Println(msg.Text())\n    }\n}"
+          },
+          {
+            "lang": "Go",
+            "label": "MCP tool",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022encoding/json\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    completion, _, err := client.Chat.Completions.New(ctx, \u0026godo.ChatCompletionNewParams{\n        Model: \u0022openai-gpt-oss-20b\u0022,\n        Messages: []godo.ChatCompletionMessage{\n            godo.UserMessage(\u0022Fetch my DigitalOcean account information and summarize it in 2 bullets.\u0022),\n        },\n        Tools: []godo.ChatCompletionTool{\n            godo.ChatMCPTool(godo.MCPToolParams{\n                ServerLabel:   \u0022digitalocean\u0022,\n                ServerURL:     \u0022https://accounts.mcp.digitalocean.com/mcp\u0022,\n                Authorization: \u0022Bearer \u0022 \u002B os.Getenv(\u0022DIGITALOCEAN_API_TOKEN\u0022),\n                AllowedTools:  []string{\u0022account-get-information\u0022},\n            }),\n        },\n        ToolChoice: json.RawMessage(\u0060\u0022required\u0022\u0060),\n        MaxTokens:  godo.PtrTo(512),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    if msg := completion.Choices[0].Message.Content; msg != nil {\n        fmt.Println(msg.Text())\n    }\n}"
+          },
+          {
+            "lang": "Go",
+            "label": "Vision (VLM)",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    // IMAGE_URL may be an HTTPS URL or a data:image/...;base64,... URI.\n    imageURL := os.Getenv(\u0022IMAGE_URL\u0022)\n    if imageURL == \u0022\u0022 {\n        imageURL = \u0022https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Online_Bicycles.jpg/640px-Online_Bicycles.jpg\u0022\n    }\n\n    completion, _, err := client.Chat.Completions.New(ctx, \u0026godo.ChatCompletionNewParams{\n        Model: \u0022nemotron-nano-12b-v2-vl\u0022,\n        Messages: []godo.ChatCompletionMessage{\n            godo.UserMessageParts(\n                godo.TextPart(\u0022Describe this image.\u0022),\n                godo.ImageURLPart(imageURL),\n            ),\n        },\n        MaxTokens: godo.PtrTo(512),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    if msg := completion.Choices[0].Message.Content; msg != nil {\n        fmt.Println(msg.Text())\n    }\n}"
+          },
+          {
+            "lang": "Go",
+            "label": "Knowledge base",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022encoding/json\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    completion, _, err := client.Chat.Completions.New(ctx, \u0026godo.ChatCompletionNewParams{\n        Model: \u0022openai-gpt-oss-20b\u0022,\n        Messages: []godo.ChatCompletionMessage{\n            godo.UserMessage(\u0022What are some features of DigitalOcean Inference?\u0022),\n        },\n        Tools: []godo.ChatCompletionTool{\n            godo.ChatKnowledgeBaseRetrievalTool(os.Getenv(\u0022KNOWLEDGE_BASE_ID\u0022)),\n        },\n        ToolChoice: json.RawMessage(\u0060\u0022auto\u0022\u0060),\n        MaxTokens:  godo.PtrTo(1024),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    if msg := completion.Choices[0].Message.Content; msg != nil {\n        fmt.Println(msg.Text())\n    }\n}"
           },
           {
             "lang": "JavaScript",
@@ -61827,7 +62549,7 @@
           },
           {
             "lang": "Go",
-            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    agent, err := godo.NewAgentInferenceClient(\n        os.Getenv(\u0022AGENT_ENDPOINT\u0022),\n        os.Getenv(\u0022AGENT_ACCESS_KEY\u0022),\n    )\n    if err != nil {\n        panic(err)\n    }\n\n    ctx := context.Background()\n\n    completion, _, err := agent.Chat.Completions.New(ctx, \u0026godo.ChatCompletionNewParams{\n        Model: \u0022llama3.3-70b-instruct\u0022,\n        Messages: []godo.ChatCompletionMessage{\n            godo.UserMessage(\u0022What is the capital of Portugal?\u0022),\n        },\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    if msg := completion.Choices[0].Message.Content; msg != nil {\n        fmt.Println(*msg)\n    }\n}"
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    agent, err := godo.NewAgentInferenceClient(\n        os.Getenv(\u0022AGENT_ENDPOINT\u0022),\n        os.Getenv(\u0022AGENT_ACCESS_KEY\u0022),\n    )\n    if err != nil {\n        panic(err)\n    }\n\n    ctx := context.Background()\n\n    completion, _, err := agent.Chat.Completions.New(ctx, \u0026godo.ChatCompletionNewParams{\n        Model: \u0022llama3.3-70b-instruct\u0022,\n        Messages: []godo.ChatCompletionMessage{\n            godo.UserMessage(\u0022What is the capital of Portugal?\u0022),\n        },\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    if msg := completion.Choices[0].Message.Content; msg != nil {\n        fmt.Println(msg.Text())\n    }\n}"
           },
           {
             "lang": "JavaScript",
@@ -62046,7 +62768,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "422": {
             "$ref": "#/components/responses/unprocessable_entity"
@@ -62222,6 +62944,26 @@
             "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    resp, _, err := client.Responses.New(ctx, \u0026godo.ResponseNewParams{\n        Model:           \u0022openai-gpt-oss-20b\u0022,\n        Input:           \u0022What is the capital of France?\u0022,\n        MaxOutputTokens: godo.PtrTo(50),\n        Temperature:     godo.PtrTo(0.7),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    fmt.Println(resp.OutputText())\n}"
           },
           {
+            "lang": "Go",
+            "label": "Web search",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    resp, _, err := client.Responses.New(ctx, \u0026godo.ResponseNewParams{\n        Model: \u0022openai-gpt-oss-20b\u0022,\n        Input: \u0022What are the latest pricing changes for DigitalOcean Droplets?\u0022,\n        Tools: []godo.ResponseTool{\n            godo.WebSearchTool(godo.PtrTo(3), godo.PtrTo(5)),\n        },\n        MaxOutputTokens: godo.PtrTo(1024),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    fmt.Println(resp.OutputText())\n}"
+          },
+          {
+            "lang": "Go",
+            "label": "Web fetch",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    resp, _, err := client.Responses.New(ctx, \u0026godo.ResponseNewParams{\n        Model: \u0022openai-gpt-oss-20b\u0022,\n        Input: \u0022Summarize https://www.digitalocean.com/pricing\u0022,\n        Tools: []godo.ResponseTool{\n            godo.WebFetchTool(godo.PtrTo(3)),\n        },\n        MaxOutputTokens: godo.PtrTo(1024),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    fmt.Println(resp.OutputText())\n}"
+          },
+          {
+            "lang": "Go",
+            "label": "Model synthesis",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    resp, _, err := client.Responses.New(ctx, \u0026godo.ResponseNewParams{\n        Model: \u0022openai-gpt-oss-20b\u0022,\n        Input: \u0022Compare approaches for reducing inference latency.\u0022,\n        Tools: []godo.ResponseTool{\n            godo.ModelSynthesisTool(godo.ModelSynthesisToolParams{\n                Preset: \u0022balanced\u0022,\n            }),\n        },\n        MaxOutputTokens: godo.PtrTo(1024),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    fmt.Println(resp.OutputText())\n}"
+          },
+          {
+            "lang": "Go",
+            "label": "Tool search",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    resp, _, err := client.Responses.New(ctx, \u0026godo.ResponseNewParams{\n        Model: \u0022openai-gpt-5.5\u0022,\n        Input: \u0022Compare the current weather in zip code 94107 and 10001.\u0022,\n        Tools: []godo.ResponseTool{\n            godo.FunctionTool(\u0022get_weather\u0022, \u0022Get weather for a zip code\u0022, map[string]interface{}{\n                \u0022type\u0022: \u0022object\u0022,\n                \u0022properties\u0022: map[string]interface{}{\n                    \u0022zip\u0022: map[string]interface{}{\u0022type\u0022: \u0022string\u0022},\n                },\n                \u0022required\u0022: []string{\u0022zip\u0022},\n            }),\n            godo.ToolSearchTool(),\n        },\n        MaxOutputTokens: godo.PtrTo(1024),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    fmt.Println(resp.OutputText())\n}"
+          },
+          {
             "lang": "JavaScript",
             "source": "import { InferenceClient } from \u0022@digitalocean/dots\u0022;\n\nconst client = new InferenceClient({\n    apiKey: process.env.DIGITALOCEAN_TOKEN,\n});\n\nconst resp = await client.responses.create({\n    model: \u0022openai-gpt-oss-20b\u0022,\n    input: \u0022What is the capital of France?\u0022,\n    max_output_tokens: 50,\n    temperature: 0.7,\n});\n\nconsole.log(resp.output_text);"
           }
@@ -62372,6 +63114,371 @@
         ]
       }
     },
+    "/v1/audio/speech": {
+      "post": {
+        "tags": [
+          "Serverless Inference"
+        ],
+        "summary": "Generate speech from text",
+        "description": "Convert text input to speech audio. The response may be raw audio bytes (\u0060audio/mpeg\u0060, \u0060audio/wav\u0060, and similar) or a JSON envelope with base64-encoded audio in \u0060data[].b64_json\u0060.\n",
+        "operationId": "InferenceCreateSpeech",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSpeechRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful speech generation.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeechResponse"
+                }
+              },
+              "audio/mpeg": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceCreateSpeech200MpegResponseSchema"
+                }
+              },
+              "audio/wav": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceCreateSpeech200WavResponseSchema"
+                }
+              },
+              "audio/mp3": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceCreateSpeech200Mp3ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "inference_bearer_auth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://inference.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-inference-base-url": "https://inference.do-ai.run",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -sS https://inference.do-ai.run/v1/audio/speech \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n    \u0022model\u0022: \u0022qwen3-tts-voicedesign\u0022,\n    \u0022input\u0022: \u0022Hello, world!\u0022,\n    \u0022voice\u0022: \u0022alloy\u0022,\n    \u0022response_format\u0022: \u0022mp3\u0022,\n    \u0022instructions\u0022: \u0022Speak naturally.\u0022\n  }\u0027 \\\n  --output output.mp3"
+          },
+          {
+            "lang": "Python",
+            "source": "import base64\nimport os\nfrom pydo.inference import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\nresponse = client.audio.speech.create(\n    model=\u0022qwen3-tts-voicedesign\u0022,\n    input=\u0022Hello, world!\u0022,\n    voice=\u0022alloy\u0022,\n    response_format=\u0022mp3\u0022,\n    instructions=\u0022Speak naturally.\u0022,\n)\n\naudio_bytes = base64.b64decode(response.data[0].b64_json)\nwith open(\u0022output.mp3\u0022, \u0022wb\u0022) as f:\n    f.write(audio_bytes)"
+          },
+          {
+            "lang": "Go",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    speech, _, err := client.Audio.Speech.New(ctx, \u0026godo.SpeechNewParams{\n        Model:          \u0022qwen3-tts-voicedesign\u0022,\n        Input:          \u0022Hello, world!\u0022,\n        Voice:          \u0022alloy\u0022,\n        ResponseFormat: \u0022mp3\u0022,\n        Instructions:   \u0022Speak naturally.\u0022,\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    audioBytes, err := speech.Bytes()\n    if err != nil {\n        panic(err)\n    }\n    if err := os.WriteFile(\u0022output.mp3\u0022, audioBytes, 0644); err != nil {\n        panic(err)\n    }\n    fmt.Println(\u0022Wrote output.mp3\u0022)\n}"
+          },
+          {
+            "lang": "JavaScript",
+            "source": "import { writeFileSync } from \u0022fs\u0022;\nimport { InferenceClient } from \u0022@digitalocean/dots\u0022;\n\nconst client = new InferenceClient({\n    apiKey: process.env.DIGITALOCEAN_TOKEN,\n});\n\nconst response = await client.audio.speech.create({\n    model: \u0022qwen3-tts-voicedesign\u0022,\n    input: \u0022Hello, world!\u0022,\n    voice: \u0022alloy\u0022,\n    response_format: \u0022mp3\u0022,\n    instructions: \u0022Speak naturally.\u0022,\n});\n\nconst audioBytes = Buffer.from(response.data[0].b64_json, \u0022base64\u0022);\nwriteFileSync(\u0022output.mp3\u0022, audioBytes);"
+          }
+        ]
+      }
+    },
+    "/v1/videos": {
+      "post": {
+        "tags": [
+          "Serverless Inference"
+        ],
+        "summary": "Start a video generation job",
+        "description": "Start an asynchronous video generation job from a text prompt. Poll \u0060GET /v1/videos/{video_id}\u0060 until the job reaches a terminal status, then download the MP4 with \u0060GET /v1/videos/{video_id}/content\u0060 or from \u0060output.url\u0060 when present.\n",
+        "operationId": "InferenceCreateVideo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVideoRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Video generation job accepted.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoGeneration"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "inference_bearer_auth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://inference.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-inference-base-url": "https://inference.do-ai.run",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST https://inference.do-ai.run/v1/videos \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n    \u0022model\u0022: \u0022wan2-2-t2v-a14b\u0022,\n    \u0022prompt\u0022: \u0022Two anthropomorphic cats in boxing gear fight intensely on a spotlighted stage\u0022,\n    \u0022size\u0022: \u00221280x720\u0022,\n    \u0022fps\u0022: 16\n  }\u0027"
+          },
+          {
+            "lang": "Python",
+            "source": "import os\nfrom pydo.inference import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\njob = client.video.generations.create(\n    model=\u0022wan2-2-t2v-a14b\u0022,\n    prompt=\u0022Two anthropomorphic cats in boxing gear fight intensely on a spotlighted stage\u0022,\n    size=\u00221280x720\u0022,\n    fps=16,\n)\n\nprint(job.id, job.status)"
+          },
+          {
+            "lang": "Go",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    job, _, err := client.Video.Generations.Create(ctx, \u0026godo.VideoGenerateParams{\n        Model:  \u0022wan2-2-t2v-a14b\u0022,\n        Prompt: \u0022Two anthropomorphic cats in boxing gear fight intensely on a spotlighted stage\u0022,\n        Size:   \u00221280x720\u0022,\n        FPS:    godo.PtrTo(16),\n    })\n    if err != nil {\n        panic(err)\n    }\n\n    fmt.Println(job.ID, job.Status)\n}"
+          },
+          {
+            "lang": "JavaScript",
+            "source": "import { InferenceClient } from \u0022@digitalocean/dots\u0022;\n\nconst client = new InferenceClient({\n    apiKey: process.env.DIGITALOCEAN_TOKEN,\n});\n\nconst job = await client.video.generations.create({\n    model: \u0022wan2-2-t2v-a14b\u0022,\n    prompt: \u0022Two anthropomorphic cats in boxing gear fight intensely on a spotlighted stage\u0022,\n    size: \u00221280x720\u0022,\n    fps: 16,\n});\n\nconsole.log(job.id, job.status);"
+          }
+        ]
+      }
+    },
+    "/v1/videos/{videoId}": {
+      "get": {
+        "tags": [
+          "Serverless Inference"
+        ],
+        "summary": "Retrieve a video generation job",
+        "description": "Returns the current state of a video generation job. Poll until \u0060status\u0060 reaches a terminal value such as \u0060completed\u0060 or \u0060failed\u0060.\n",
+        "operationId": "InferenceGetVideo",
+        "parameters": [
+          {
+            "name": "videoId",
+            "in": "path",
+            "description": "The video generation job identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "video_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDo7dmlkZW9faWQ6ZGExYjFmYzMtYTM3NC00MmM0LTgxMWMtOWE5NmE3ZWY0OTIz"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The video generation job.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoGeneration"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "inference_bearer_auth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://inference.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-inference-base-url": "https://inference.do-ai.run",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl https://inference.do-ai.run/v1/videos/$VIDEO_ID \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022"
+          },
+          {
+            "lang": "Python",
+            "source": "import os\nfrom pydo.inference import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\njob = client.video.generations.retrieve(os.environ[\u0022VIDEO_ID\u0022])\nprint(job.id, job.status)"
+          },
+          {
+            "lang": "Go",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    job, _, err := client.Video.Generations.Get(ctx, os.Getenv(\u0022VIDEO_ID\u0022))\n    if err != nil {\n        panic(err)\n    }\n\n    fmt.Println(job.ID, job.Status)\n}"
+          },
+          {
+            "lang": "JavaScript",
+            "source": "import { InferenceClient } from \u0022@digitalocean/dots\u0022;\n\nconst client = new InferenceClient({\n    apiKey: process.env.DIGITALOCEAN_TOKEN,\n});\n\nconst job = await client.video.generations.retrieve(process.env.VIDEO_ID);\nconsole.log(job.id, job.status);"
+          }
+        ]
+      }
+    },
+    "/v1/videos/{videoId}/content": {
+      "get": {
+        "tags": [
+          "Serverless Inference"
+        ],
+        "summary": "Download generated video content",
+        "description": "Downloads the generated MP4 for a completed video generation job.\n",
+        "operationId": "InferenceGetVideoContent",
+        "parameters": [
+          {
+            "name": "videoId",
+            "in": "path",
+            "description": "The video generation job identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "video_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDo7dmlkZW9faWQ6ZGExYjFmYzMtYTM3NC00MmM0LTgxMWMtOWE5NmE3ZWY0OTIz"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Binary MP4 content.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "video/mp4": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceGetVideoContent200Mp4ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "inference_bearer_auth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://inference.do-ai.run",
+            "description": "production"
+          }
+        ],
+        "x-inference-base-url": "https://inference.do-ai.run",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl https://inference.do-ai.run/v1/videos/$VIDEO_ID/content \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  --output output.mp4"
+          },
+          {
+            "lang": "Python",
+            "source": "import os\nimport requests\n\nheaders = {\u0022Authorization\u0022: f\u0022Bearer {os.environ[\u0027DIGITALOCEAN_TOKEN\u0027]}\u0022}\nurl = f\u0022https://inference.do-ai.run/v1/videos/{os.environ[\u0027VIDEO_ID\u0027]}/content\u0022\nresp = requests.get(url, headers=headers)\nresp.raise_for_status()\nwith open(\u0022output.mp4\u0022, \u0022wb\u0022) as f:\n    f.write(resp.content)"
+          },
+          {
+            "lang": "Go",
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    client := godo.NewFromToken(os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022))\n    ctx := context.Background()\n\n    raw, _, err := client.Video.Generations.Content(ctx, os.Getenv(\u0022VIDEO_ID\u0022))\n    if err != nil {\n        panic(err)\n    }\n    if err := os.WriteFile(\u0022output.mp4\u0022, raw, 0644); err != nil {\n        panic(err)\n    }\n    fmt.Println(\u0022Wrote output.mp4\u0022)\n}"
+          },
+          {
+            "lang": "JavaScript",
+            "source": "import { writeFileSync } from \u0022fs\u0022;\nimport { InferenceClient } from \u0022@digitalocean/dots\u0022;\n\nconst client = new InferenceClient({\n    apiKey: process.env.DIGITALOCEAN_TOKEN,\n});\n\nconst content = await client.video.generations.content(process.env.VIDEO_ID);\nwriteFileSync(\u0022output.mp4\u0022, Buffer.from(await content.arrayBuffer()));"
+          }
+        ]
+      }
+    },
     "/v1/batches/files": {
       "post": {
         "tags": [
@@ -62426,7 +63533,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "422": {
             "$ref": "#/components/responses/unprocessable_entity"
@@ -62640,7 +63747,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -62758,7 +63865,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "429": {
             "$ref": "#/components/responses/too_many_requests"
@@ -62849,7 +63956,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -62943,7 +64050,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -63062,7 +64169,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "$ref": "#/components/responses/forbidden-2"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -65204,6 +66311,442 @@
           }
         },
         "description": "Returns one user."
+      },
+      "SessionTool": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The provider-qualified tool name. Pass it as \u0060tool\u0060 to invoke the tool.",
+            "example": "exa_web_search"
+          },
+          "title": {
+            "type": "string",
+            "example": "Web Search"
+          },
+          "description": {
+            "type": "string",
+            "example": "Search the public web and return ranked results with titles and URLs."
+          },
+          "inputSchema": {
+            "$ref": "#/components/schemas/SessionToolInputSchemaProperty"
+          },
+          "outputSchema": {
+            "$ref": "#/components/schemas/SessionToolOutputSchemaProperty"
+          },
+          "annotations": {
+            "$ref": "#/components/schemas/ToolAnnotations"
+          },
+          "_meta": {
+            "$ref": "#/components/schemas/SessionToolMetaProperty"
+          },
+          "version": {
+            "type": "string",
+            "description": "The immutable tool version.",
+            "example": "1"
+          },
+          "parallelizable": {
+            "type": "boolean",
+            "description": "Whether the tool can run alongside other calls in one invoke request.",
+            "example": true
+          },
+          "streamingSafe": {
+            "type": "boolean",
+            "example": false
+          }
+        },
+        "description": "A catalog tool the session can call, in MCP tool format plus Action Gateway fields."
+      },
+      "ListSessionToolsResponse": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "The catalog version.",
+            "example": "v1"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SessionTool"
+            },
+            "description": "Tools ordered by name."
+          },
+          "next_page_token": {
+            "type": "string",
+            "description": "An opaque cursor for the next page of results. Pass it back verbatim as \u0060page_token\u0060. It is empty on the last page."
+          }
+        }
+      },
+      "ErrorEnvelope": {
+        "type": "object",
+        "properties": {
+          "class": {
+            "$ref": "#/components/schemas/ErrorEnvelopeClass"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable explanation that is safe to show to an agent or end user.",
+            "example": "Request is invalid. Fix request arguments and retry."
+          },
+          "retriable": {
+            "type": "boolean",
+            "description": "Whether retrying the same request later can succeed.",
+            "example": false
+          },
+          "recovery_hint": {
+            "$ref": "#/components/schemas/ErrorEnvelopeRecoveryHint"
+          }
+        },
+        "description": "Describes why a request or tool call failed and whether retrying can help."
+      },
+      "ToolResultError": {
+        "required": [
+          "status",
+          "error",
+          "call_id"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/FailedStatus"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorEnvelope"
+          },
+          "call_id": {
+            "type": "string",
+            "description": "A unique identifier for this request, when one was assigned.",
+            "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+          }
+        },
+        "description": "A failed request. The body has the same shape as a failed tool result."
+      },
+      "SearchQuery": {
+        "required": [
+          "use_case"
+        ],
+        "type": "object",
+        "properties": {
+          "use_case": {
+            "type": "string",
+            "description": "A normalized English description of one complete use case: the action and the intended outcome, including any app the user named. Put personal identifiers in \u0060known_fields\u0060 instead. Up to 512 bytes and 32 search terms, with at least one letter or digit.",
+            "example": "search the public web for current information"
+          },
+          "known_fields": {
+            "type": "string",
+            "description": "Known workflow inputs as one string of comma-separated \u0060key:value\u0060 pairs, such as identifiers or settings. Used as context, not for keyword matching.",
+            "example": "project:checkout"
+          }
+        }
+      },
+      "SearchToolsRequest": {
+        "required": [
+          "queries"
+        ],
+        "type": "object",
+        "properties": {
+          "queries": {
+            "maxItems": 5,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchQuery"
+            },
+            "description": "Independent search queries. Split separate actions into separate queries. Each query is searched on its own and gets its own result group."
+          },
+          "providers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Restricts every query to these providers."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Restricts every query to tools with these tags."
+          },
+          "limit": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The maximum number of tools returned per query. Values above 50 are capped at 50.",
+            "default": 10,
+            "example": 3
+          }
+        }
+      },
+      "ToolResult": {
+        "required": [
+          "status",
+          "call_id"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ToolResultStatus"
+          },
+          "output": {
+            "$ref": "#/components/schemas/ToolResultOutputProperty"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorEnvelope"
+          },
+          "call_id": {
+            "type": "string",
+            "description": "A unique identifier for this call. Include it when contacting support.",
+            "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+          },
+          "_meta": {
+            "$ref": "#/components/schemas/ToolResultMetaProperty"
+          }
+        },
+        "description": "The result of one tool call. Check \u0060status\u0060 before reading \u0060output\u0060. A call that needs approval, authorization, or connection setup fails with a \u0060_meta.status\u0060 that names the step to complete."
+      },
+      "SearchToolsResult": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The provider-qualified tool name. Pass it as \u0060tool\u0060 to invoke the tool.",
+            "example": "exa_web_search"
+          },
+          "version": {
+            "type": "string",
+            "example": "1"
+          },
+          "title": {
+            "type": "string",
+            "example": "Web Search"
+          },
+          "description": {
+            "type": "string",
+            "example": "Search the public web and return ranked results with titles and URLs."
+          },
+          "inputSchema": {
+            "$ref": "#/components/schemas/SearchToolsResultInputSchemaProperty"
+          },
+          "score": {
+            "type": "number",
+            "description": "The relevance score. Higher is more relevant.",
+            "example": 0.92
+          }
+        },
+        "description": "A tool that matched a query."
+      },
+      "SearchToolsGroup": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "The 1-based position of the query in the request.",
+            "example": 1
+          },
+          "use_case": {
+            "type": "string",
+            "description": "The query\u0027s \u0060use_case\u0060.",
+            "example": "search the public web for current information"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchToolsResult"
+            }
+          },
+          "guidance": {
+            "type": "string",
+            "description": "A suggested next step. Present only when no tools matched.",
+            "example": "No catalog tools matched this query. Retry with different terms."
+          }
+        },
+        "description": "The results for one query, in request order."
+      },
+      "DataPlaneSearchToolsResponse": {
+        "required": [
+          "status",
+          "call_id"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ToolResultStatus"
+          },
+          "output": {
+            "$ref": "#/components/schemas/DataPlaneSearchToolsResponseOutput"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorEnvelope"
+          },
+          "call_id": {
+            "type": "string",
+            "description": "A unique identifier for this call. Include it when contacting support.",
+            "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+          },
+          "_meta": {
+            "$ref": "#/components/schemas/DataPlaneSearchToolsResponseMeta"
+          }
+        }
+      },
+      "ToolCall": {
+        "required": [
+          "tool"
+        ],
+        "type": "object",
+        "properties": {
+          "tool": {
+            "type": "string",
+            "description": "The tool name, as returned by \u0060GET /tools\u0060 or \u0060POST /tools/search\u0060. Names are case-insensitive.",
+            "example": "exa_web_search"
+          },
+          "version": {
+            "type": "string",
+            "description": "An immutable tool version. Omit to use the released version.",
+            "example": "1"
+          },
+          "arguments": {
+            "$ref": "#/components/schemas/ToolCallArgumentsProperty"
+          }
+        }
+      },
+      "InvokeToolsRequest": {
+        "required": [
+          "tools"
+        ],
+        "type": "object",
+        "properties": {
+          "rationale": {
+            "type": "string",
+            "description": "One sentence explaining why the tools are being called. Values longer than 512 characters are truncated.",
+            "example": "Find current information about DigitalOcean."
+          },
+          "tools": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolCall"
+            },
+            "description": "The tool calls to run in parallel."
+          }
+        }
+      },
+      "InvokeToolsItem": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "The 0-based position of the call in the request.",
+            "example": 0
+          },
+          "tool": {
+            "type": "string",
+            "description": "The canonical tool name.",
+            "example": "exa_web_search"
+          },
+          "version": {
+            "type": "string",
+            "description": "The tool version that ran.",
+            "example": "1"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ToolResult"
+          }
+        }
+      },
+      "InvokeToolsResponse": {
+        "type": "object",
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "example": 1
+          },
+          "success_count": {
+            "type": "integer",
+            "example": 1
+          },
+          "error_count": {
+            "type": "integer",
+            "example": 0
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvokeToolsItem"
+            },
+            "description": "One result per call, in request order."
+          }
+        }
+      },
+      "ExecuteCodeRequest": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Python source to run. The sandbox provides \u0060invoke_digitalocean_tool(name: str, arguments: dict) -\u003E dict\u0060, which calls a catalog tool under the session\u0027s policy and returns a tool result.",
+            "example": "print(\u0022hello from Action Gateway\u0022)"
+          }
+        }
+      },
+      "ExecuteCodeResponse": {
+        "required": [
+          "status",
+          "call_id"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ToolResultStatus"
+          },
+          "output": {
+            "$ref": "#/components/schemas/ExecuteCodeResponseOutput"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorEnvelope"
+          },
+          "call_id": {
+            "type": "string",
+            "description": "A unique identifier for this call. Include it when contacting support.",
+            "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+          },
+          "_meta": {
+            "$ref": "#/components/schemas/ExecuteCodeResponseMeta"
+          }
+        }
+      },
+      "ApprovalDecision": {
+        "required": [
+          "decision"
+        ],
+        "type": "object",
+        "properties": {
+          "decision": {
+            "$ref": "#/components/schemas/ApprovalDecisionDecision"
+          }
+        }
+      },
+      "ApprovalDecisionResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The approval ID.",
+            "example": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApprovalDecisionResponseStatus"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "Repeat an approved call with the same arguments before this time.",
+            "format": "date-time",
+            "example": "2026-10-09T18:30:00Z"
+          }
+        }
       },
       "OneClicks": {
         "required": [
@@ -101353,6 +102896,168 @@
         },
         "description": "Response returned when an asynchronous invocation request is accepted. The job status is QUEUED initially. Use the request_id to poll for the result.\n"
       },
+      "CreateSpeechRequest": {
+        "required": [
+          "model",
+          "input"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "The text-to-speech model to use.",
+            "example": "qwen3-tts-voicedesign"
+          },
+          "input": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The text to convert to speech.",
+            "example": "Hello, world!"
+          },
+          "voice": {
+            "type": "string",
+            "description": "The voice to use for synthesis.",
+            "example": "alloy"
+          },
+          "response_format": {
+            "type": "string",
+            "description": "The audio format to return. Supported values include \u0060mp3\u0060 and \u0060wav\u0060. The API may return raw audio bytes or a JSON envelope with base64-encoded audio.\n",
+            "example": "mp3"
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Optional style or delivery instructions for the synthesizer.",
+            "example": "Speak naturally."
+          }
+        },
+        "description": "Request body for text-to-speech generation."
+      },
+      "SpeechAudioItem": {
+        "required": [
+          "b64_json"
+        ],
+        "type": "object",
+        "properties": {
+          "b64_json": {
+            "type": "string",
+            "description": "Base64-encoded audio bytes.",
+            "example": "//uQxAAAA..."
+          }
+        },
+        "description": "A single audio payload in a JSON speech response envelope."
+      },
+      "SpeechResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "created": {
+            "type": "integer",
+            "description": "Unix timestamp (in seconds) of when the audio was created.",
+            "example": 1710700000
+          },
+          "data": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpeechAudioItem"
+            },
+            "description": "Generated audio items."
+          }
+        },
+        "description": "JSON envelope for text-to-speech when the endpoint returns \u0060application/json\u0060. The live endpoint may instead return raw audio bytes with an \u0060audio/*\u0060 Content-Type.\n"
+      },
+      "CreateVideoRequest": {
+        "required": [
+          "model",
+          "prompt"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "The video generation model to use.",
+            "example": "wan2-2-t2v-a14b"
+          },
+          "prompt": {
+            "minLength": 1,
+            "type": "string",
+            "description": "A text description of the desired video.",
+            "example": "Two anthropomorphic cats in boxing gear fight intensely on a spotlighted stage"
+          },
+          "size": {
+            "type": "string",
+            "description": "The output resolution, for example \u00601280x720\u0060.",
+            "example": "1280x720"
+          },
+          "fps": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Frames per second for the generated video.",
+            "example": 16
+          }
+        },
+        "description": "Request body to start an asynchronous video generation job."
+      },
+      "VideoGenerationOutput": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Presigned URL for the generated MP4.",
+            "format": "uri",
+            "example": "https://example.com/output.mp4"
+          }
+        },
+        "description": "Download location for a completed video when a presigned URL is available."
+      },
+      "VideoGeneration": {
+        "required": [
+          "id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The video generation job identifier.",
+            "example": "video_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDo7dmlkZW9faWQ6ZGExYjFmYzMtYTM3NC00MmM0LTgxMWMtOWE5NmE3ZWY0OTIz"
+          },
+          "object": {
+            "type": "string",
+            "description": "Object type returned by the API.",
+            "example": "video"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "Unix timestamp (in seconds) of when the job was created.",
+            "example": 1777003604
+          },
+          "model": {
+            "type": "string",
+            "description": "The model used for generation.",
+            "example": "wan2.2-t2v-a14b"
+          },
+          "status": {
+            "type": "string",
+            "description": "Job status. Poll until the value is a terminal state such as \u0060completed\u0060 or \u0060failed\u0060.\n",
+            "example": "processing"
+          },
+          "output": {
+            "$ref": "#/components/schemas/VideoGenerationOutputComposed"
+          },
+          "error": {
+            "$ref": "#/components/schemas/VideoGenerationErrorProperty"
+          },
+          "x_request_id": {
+            "type": "string",
+            "description": "Request correlation identifier when provided by the API.",
+            "nullable": true
+          }
+        },
+        "description": "Status of an asynchronous video generation job."
+      },
       "BatchFileCreateRequest": {
         "title": "BatchFileCreateRequest",
         "required": [
@@ -101631,6 +103336,45 @@
           }
         },
         "description": "Presigned download URLs for a batch job. URLs are short-lived \u2014 download the artifacts soon after fetching them.\n"
+      },
+      "ForbiddenResponse": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ToolResultError"
+          },
+          {
+            "$ref": "#/components/schemas/Error"
+          }
+        ],
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/FailedStatus"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorEnvelope"
+          },
+          "call_id": {
+            "type": "string",
+            "description": "A unique identifier for this request, when one was assigned.",
+            "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+          },
+          "id": {
+            "type": "string",
+            "description": "A short identifier corresponding to the HTTP status code returned. For  example, the ID for a response returning a 404 status code would be \u0022not_found.\u0022",
+            "example": "not_found"
+          },
+          "message": {
+            "type": "string",
+            "description": "A message providing additional information about the error, including  details to help resolve it when possible.",
+            "example": "The resource you were accessing could not be found."
+          },
+          "request_id": {
+            "type": "string",
+            "description": "Optionally, some endpoints may include a request ID that should be  provided when reporting bugs or opening support tickets to help  identify the issue.",
+            "example": "4d9d8375-3c56-4925-a3e7-eb137fed17e9"
+          }
+        }
       },
       "OneClicksAllResponse": {
         "type": "object",
@@ -107724,6 +109468,22 @@
         },
         "description": "The user."
       },
+      "DataPlaneSearchToolsResponseAllOf2": {
+        "type": "object",
+        "properties": {
+          "output": {
+            "$ref": "#/components/schemas/DataPlaneSearchToolsResponseAllOf2Output"
+          }
+        }
+      },
+      "ExecuteCodeResponseAllOf2": {
+        "type": "object",
+        "properties": {
+          "output": {
+            "$ref": "#/components/schemas/ExecuteCodeResponseAllOf2Output"
+          }
+        }
+      },
       "PageLinksPages": {
         "type": "object",
         "anyOf": [
@@ -113592,6 +115352,17 @@
         },
         "description": "An optional field that will only be present when you set \u0060stream_options: {\u0022include_usage\u0022: true}\u0060 in your request. When present, it contains a null value except for the last chunk which contains the token usage statistics for the entire request.\n"
       },
+      "VideoGenerationOutputComposed": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Presigned URL for the generated MP4.",
+            "format": "uri",
+            "example": "https://example.com/output.mp4"
+          }
+        }
+      },
       "SshKeysAllResponseAllOf1": {
         "type": "object",
         "properties": {
@@ -117463,6 +119234,91 @@
           }
         }
       },
+      "SessionToolInputSchema": {
+        "type": "object",
+        "description": "The JSON Schema for the tool\u0027s \u0060arguments\u0060.",
+        "example": {
+          "type": "object",
+          "required": [
+            "query"
+          ],
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "max_results": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "SessionToolOutputSchema": {
+        "type": "object",
+        "description": "The JSON Schema for the tool\u0027s output, or for the output view bound to the tool in the session.",
+        "example": {
+          "type": "object"
+        }
+      },
+      "SessionToolMeta": {
+        "type": "object",
+        "description": "Additional tool metadata.",
+        "example": {
+          "version": "1",
+          "parallelizable": true,
+          "streaming_safe": false
+        }
+      },
+      "ToolResultOutput": {
+        "type": "object",
+        "description": "The tool\u0027s JSON output. Present when \u0060status\u0060 is \u0060succeeded\u0060. Its shape is the tool\u0027s output schema, or the output view bound to the tool in the session.",
+        "example": {
+          "provider": "exa",
+          "results": [
+            {
+              "title": "DigitalOcean",
+              "url": "https://www.digitalocean.com/"
+            }
+          ]
+        }
+      },
+      "ToolResultMeta": {
+        "type": "object",
+        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result.",
+        "example": {
+          "status": "requires_approval",
+          "approval_id": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
+          "tool_name": "exa_web_search",
+          "expires_at": "2026-10-09T18:30:00Z",
+          "decide": {
+            "method": "POST",
+            "path": "/approvals/session/2b3c9f0e-1a4d-4e5f-8a7b-6c5d4e3f2a1b/7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
+            "body": "{\u0022decision\u0022: \u0022approve\u0022}"
+          }
+        }
+      },
+      "SearchToolsResultInputSchema": {
+        "type": "object",
+        "description": "The JSON Schema for the tool\u0027s \u0060arguments\u0060.",
+        "example": {
+          "type": "object",
+          "required": [
+            "query"
+          ],
+          "properties": {
+            "query": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ToolCallArguments": {
+        "type": "object",
+        "description": "The tool\u0027s arguments, matching its \u0060inputSchema\u0060.",
+        "example": {
+          "query": "DigitalOcean cloud computing",
+          "max_results": 1
+        }
+      },
       "AccountTeam": {
         "type": "object",
         "properties": {
@@ -119583,6 +121439,11 @@
         "nullable": true,
         "example": null
       },
+      "VideoGenerationError": {
+        "type": "object",
+        "description": "Error details when status is \u0060failed\u0060.",
+        "nullable": true
+      },
       "BatchRequestCounts": {
         "type": "object",
         "properties": {
@@ -119866,6 +121727,37 @@
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/TierCoverageResponseTierCoverageAdditionalProperties"
+        }
+      },
+      "DataPlaneSearchToolsResponseAllOf2Output": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchToolsGroup"
+            },
+            "description": "One result group per query, in request order."
+          }
+        }
+      },
+      "ExecuteCodeResponseAllOf2Output": {
+        "type": "object",
+        "properties": {
+          "stdout": {
+            "type": "string",
+            "example": "hello from Action Gateway\n"
+          },
+          "stderr": {
+            "type": "string",
+            "description": "Omitted when empty."
+          },
+          "exit_code": {
+            "type": "integer",
+            "description": "The process exit code. A nonzero exit code is still a succeeded result.",
+            "format": "int32",
+            "example": 0
+          }
         }
       },
       "AppAutoscalingSpecServiceAllOf2Metrics": {
@@ -123733,6 +125625,22 @@
           }
         }
       },
+      "InferenceCreateSpeech200MpegResponse": {
+        "type": "string",
+        "format": "binary"
+      },
+      "InferenceCreateSpeech200WavResponse": {
+        "type": "string",
+        "format": "binary"
+      },
+      "InferenceCreateSpeech200Mp3Response": {
+        "type": "string",
+        "format": "binary"
+      },
+      "InferenceGetVideoContent200Mp4Response": {
+        "type": "string",
+        "format": "binary"
+      },
       "InferenceUploadBatchFileOctetStreamRequest": {
         "type": "string",
         "format": "binary"
@@ -124013,6 +125921,22 @@
       "GenaiDeleteModelEvaluationPreset200Response": {
         "type": "object"
       },
+      "InferenceCreateSpeech200MpegResponseSchema": {
+        "type": "string",
+        "format": "binary"
+      },
+      "InferenceCreateSpeech200WavResponseSchema": {
+        "type": "string",
+        "format": "binary"
+      },
+      "InferenceCreateSpeech200Mp3ResponseSchema": {
+        "type": "string",
+        "format": "binary"
+      },
+      "InferenceGetVideoContent200Mp4ResponseSchema": {
+        "type": "string",
+        "format": "binary"
+      },
       "InferenceUploadBatchFileOctetStreamRequestRequestBody": {
         "type": "string",
         "format": "binary"
@@ -124075,6 +125999,50 @@
       "ToolDefinitionOutputSchemaProperty": {
         "type": "object",
         "description": "The JSON Schema of the tool\u0027s result, when declared."
+      },
+      "SessionToolInputSchemaProperty": {
+        "type": "object",
+        "description": "The JSON Schema for the tool\u0027s \u0060arguments\u0060."
+      },
+      "SessionToolOutputSchemaProperty": {
+        "type": "object",
+        "description": "The JSON Schema for the tool\u0027s output, or for the output view bound to the tool in the session."
+      },
+      "SessionToolMetaProperty": {
+        "type": "object",
+        "description": "Additional tool metadata."
+      },
+      "ToolResultOutputProperty": {
+        "type": "object",
+        "description": "The tool\u0027s JSON output. Present when \u0060status\u0060 is \u0060succeeded\u0060. Its shape is the tool\u0027s output schema, or the output view bound to the tool in the session."
+      },
+      "ToolResultMetaProperty": {
+        "type": "object",
+        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result."
+      },
+      "SearchToolsResultInputSchemaProperty": {
+        "type": "object",
+        "description": "The JSON Schema for the tool\u0027s \u0060arguments\u0060."
+      },
+      "DataPlaneSearchToolsResponseOutput": {
+        "type": "object",
+        "description": "The tool\u0027s JSON output. Present when \u0060status\u0060 is \u0060succeeded\u0060. Its shape is the tool\u0027s output schema, or the output view bound to the tool in the session."
+      },
+      "DataPlaneSearchToolsResponseMeta": {
+        "type": "object",
+        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result."
+      },
+      "ToolCallArgumentsProperty": {
+        "type": "object",
+        "description": "The tool\u0027s arguments, matching its \u0060inputSchema\u0060."
+      },
+      "ExecuteCodeResponseOutput": {
+        "type": "object",
+        "description": "The tool\u0027s JSON output. Present when \u0060status\u0060 is \u0060succeeded\u0060. Its shape is the tool\u0027s output schema, or the output view bound to the tool in the session."
+      },
+      "ExecuteCodeResponseMeta": {
+        "type": "object",
+        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result."
       },
       "PermissionRuleMatchProperty": {
         "type": "object",
@@ -124446,6 +126414,10 @@
       "AsyncInvokeResponseOutputProperty": {
         "type": "object",
         "description": "The output of the invocation. Null while the job is queued or in progress. Contains the result once completed.\n"
+      },
+      "VideoGenerationErrorProperty": {
+        "type": "object",
+        "description": "Error details when status is \u0060failed\u0060."
       },
       "BatchMetadataProperty": {
         "type": "object",
@@ -124990,6 +126962,222 @@
             {
               "value": "enum",
               "name": "EnumValue"
+            }
+          ]
+        }
+      },
+      "ErrorEnvelopeClass": {
+        "enum": [
+          "invalid_argument",
+          "unauthorized",
+          "forbidden",
+          "rate_limited",
+          "not_found",
+          "timeout",
+          "upstream_error",
+          "output_too_large",
+          "execution_failed",
+          "unavailable",
+          "canceled",
+          "render_required",
+          "unsupported_media_type",
+          "view_materialization_failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The failure class. Branch on this value rather than on \u0060message\u0060, which may change.",
+        "example": "invalid_argument",
+        "x-ms-enum": {
+          "name": "ErrorEnvelopeClass",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "invalid_argument",
+              "name": "InvalidArgument"
+            },
+            {
+              "value": "unauthorized",
+              "name": "Unauthorized"
+            },
+            {
+              "value": "forbidden",
+              "name": "Forbidden"
+            },
+            {
+              "value": "rate_limited",
+              "name": "RateLimited"
+            },
+            {
+              "value": "not_found",
+              "name": "NotFound"
+            },
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "upstream_error",
+              "name": "UpstreamError"
+            },
+            {
+              "value": "output_too_large",
+              "name": "OutputTooLarge"
+            },
+            {
+              "value": "execution_failed",
+              "name": "ExecutionFailed"
+            },
+            {
+              "value": "unavailable",
+              "name": "Unavailable"
+            },
+            {
+              "value": "canceled",
+              "name": "Canceled"
+            },
+            {
+              "value": "render_required",
+              "name": "RenderRequired"
+            },
+            {
+              "value": "unsupported_media_type",
+              "name": "UnsupportedMediaType"
+            },
+            {
+              "value": "view_materialization_failed",
+              "name": "ViewMaterializationFailed"
+            }
+          ]
+        }
+      },
+      "ErrorEnvelopeRecoveryHint": {
+        "enum": [
+          "fix_args",
+          "refresh_auth",
+          "retry_later",
+          "narrow_output",
+          "contact_support",
+          "verify_provider_state"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The suggested next step.",
+        "example": "fix_args",
+        "x-ms-enum": {
+          "name": "ErrorEnvelopeRecoveryHint",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "fix_args",
+              "name": "FixArgs"
+            },
+            {
+              "value": "refresh_auth",
+              "name": "RefreshAuth"
+            },
+            {
+              "value": "retry_later",
+              "name": "RetryLater"
+            },
+            {
+              "value": "narrow_output",
+              "name": "NarrowOutput"
+            },
+            {
+              "value": "contact_support",
+              "name": "ContactSupport"
+            },
+            {
+              "value": "verify_provider_state",
+              "name": "VerifyProviderState"
+            }
+          ]
+        }
+      },
+      "FailedStatus": {
+        "enum": [
+          "failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "failed",
+        "x-ms-enum": {
+          "name": "FailedStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "ToolResultStatus": {
+        "enum": [
+          "succeeded",
+          "failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "succeeded",
+        "x-ms-enum": {
+          "name": "ToolResultStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "succeeded",
+              "name": "Succeeded"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "ApprovalDecisionDecision": {
+        "enum": [
+          "approve",
+          "deny"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether to let the pending call run.",
+        "example": "approve",
+        "x-ms-enum": {
+          "name": "ApprovalDecisionDecision",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "approve",
+              "name": "Approve"
+            },
+            {
+              "value": "deny",
+              "name": "Deny"
+            }
+          ]
+        }
+      },
+      "ApprovalDecisionResponseStatus": {
+        "enum": [
+          "approved",
+          "denied"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "approved",
+        "x-ms-enum": {
+          "name": "ApprovalDecisionResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "approved",
+              "name": "Approved"
+            },
+            {
+              "value": "denied",
+              "name": "Denied"
             }
           ]
         }
@@ -137968,6 +140156,249 @@
           }
         }
       },
+      "data_plane_responses_bad_request": {
+        "description": "The request is invalid: the body is not valid JSON, a required field is missing, or a value is out of range.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "invalid_argument",
+                "message": "Request is invalid. Fix request arguments and retry.",
+                "retriable": false,
+                "recovery_hint": "fix_args"
+              },
+              "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+            }
+          }
+        }
+      },
+      "data_plane_responses_unauthorized": {
+        "description": "The token is missing, invalid, or expired. This response uses the standard DigitalOcean API error format.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "id": "unauthorized",
+              "message": "Unable to authenticate you."
+            }
+          }
+        }
+      },
+      "forbidden": {
+        "description": "The token or session cannot be used for this request. Tokens without the \u0060action_gateway:execute\u0060 scope, and accounts that are not in good standing, are rejected with the standard DigitalOcean API error format. Session failures return a tool result: the session ID is missing or invalid, the session belongs to another user or team, the session has no policy, or the session policy denies the operation.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ForbiddenResponse"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "forbidden",
+                "message": "A valid session ID is required to invoke tools.",
+                "retriable": false,
+                "recovery_hint": "fix_args"
+              },
+              "call_id": ""
+            }
+          }
+        }
+      },
+      "precondition_failed": {
+        "description": "Your team is not enabled for Action Gateway, or the session or its connection is not set up for this call. For example, the session needs an \u0060actorId\u0060 for OAuth tools, an OAuth connection must be reconnected, or the connection\u0027s private network does not match what the MCP server requires.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "forbidden",
+                "message": "Your team is not enabled for Action Gateway. Contact support to request access.",
+                "retriable": false,
+                "recovery_hint": "contact_support"
+              },
+              "call_id": ""
+            }
+          }
+        }
+      },
+      "data_plane_responses_too_many_requests": {
+        "description": "A rate limit was exceeded. Wait for the number of seconds in \u0060Retry-After\u0060, when present, before retrying.",
+        "headers": {
+          "Retry-After": {
+            "description": "The number of seconds to wait before retrying.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 30
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "rate_limited",
+                "message": "Rate limit exceeded. Retry after the indicated delay.",
+                "retriable": true,
+                "recovery_hint": "retry_later"
+              },
+              "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+            }
+          }
+        }
+      },
+      "data_plane_responses_server_error": {
+        "description": "The gateway failed to process the request. Retry later.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "unavailable",
+                "message": "The server failed to process the request.",
+                "retriable": true,
+                "recovery_hint": "retry_later"
+              },
+              "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+            }
+          }
+        }
+      },
+      "service_unavailable": {
+        "description": "The gateway or a service it depends on is temporarily unavailable. Retry later.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "unavailable",
+                "message": "Gateway is temporarily unavailable. Retry later.",
+                "retriable": true,
+                "recovery_hint": "retry_later"
+              },
+              "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+            }
+          }
+        }
+      },
+      "payload_too_large": {
+        "description": "The request body is larger than 1 MiB.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "invalid_argument",
+                "message": "Request body is too large.",
+                "retriable": false,
+                "recovery_hint": "fix_args"
+              },
+              "call_id": ""
+            }
+          }
+        }
+      },
+      "payment_required": {
+        "description": "Your team must add prepayment before it can make more tool calls.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "forbidden",
+                "message": "Prepayment is required before additional tool calls can be made.",
+                "retriable": false,
+                "recovery_hint": "contact_support"
+              },
+              "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+            }
+          }
+        }
+      },
+      "gateway_timeout": {
+        "description": "The code did not finish within the execution time limit.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "timeout",
+                "message": "Tool execution timed out.",
+                "retriable": true,
+                "recovery_hint": "retry_later"
+              },
+              "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+            }
+          }
+        }
+      },
+      "data_plane_responses_not_found": {
+        "description": "The approval does not exist or belongs to another session. Approvals for other callers are reported as not found.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "invalid_argument",
+                "message": "The requested route is not supported.",
+                "retriable": false,
+                "recovery_hint": "fix_args"
+              },
+              "call_id": ""
+            }
+          }
+        }
+      },
+      "data_plane_responses_conflict": {
+        "description": "The approval was already decided or has expired. Repeat the tool call to request a new approval.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolResultError"
+            },
+            "example": {
+              "status": "failed",
+              "error": {
+                "class": "invalid_argument",
+                "message": "The approval is no longer pending. Re-invoke the tool to request a new approval.",
+                "retriable": false,
+                "recovery_hint": "fix_args"
+              },
+              "call_id": ""
+            }
+          }
+        }
+      },
       "oneClicks_all": {
         "description": "A JSON object with a key of \u00601_clicks\u0060.",
         "headers": {
@@ -144797,7 +147228,7 @@
           }
         }
       },
-      "forbidden": {
+      "forbidden-2": {
         "description": "The authenticated principal does not have permission to perform this action on the requested resource.\n",
         "headers": {
           "ratelimit-limit": {
@@ -147583,7 +150014,7 @@
           }
         }
       },
-      "precondition_failed": {
+      "precondition_failed-2": {
         "description": "The request could not be completed because a required precondition was not met.\n",
         "headers": {
           "ratelimit-limit": {
@@ -147862,7 +150293,7 @@
           }
         }
       },
-      "precondition_failed-2": {
+      "precondition_failed-3": {
         "description": "Only an empty project can be deleted.",
         "headers": {
           "ratelimit-limit": {
@@ -150515,6 +152946,69 @@
         },
         "example": "alice"
       },
+      "session_id_header": {
+        "name": "X-Session-Id",
+        "in": "header",
+        "description": "The session to act in: the UUID at the end of the session\u0027s \u0060sessionUrn\u0060 and \u0060mcpUrl\u0060. The session must belong to the authenticated user and team.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "2b3c9f0e-1a4d-4e5f-8a7b-6c5d4e3f2a1b"
+      },
+      "session_tools_page_size": {
+        "name": "page_size",
+        "in": "query",
+        "description": "The number of tools returned per page, from 1 to 100. Defaults to 20 when omitted. Other values are rejected with 400.",
+        "schema": {
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer",
+          "default": 20
+        },
+        "example": 20
+      },
+      "session_tools_page_token": {
+        "name": "page_token",
+        "in": "query",
+        "description": "The \u0060next_page_token\u0060 from the previous response. A token is only valid for the session that received it.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "eyJ2IjoxLCJhZnRlciI6ImV4YV93ZWJfc2VhcmNoIiwiZnAiOiI5YzFlNWI3YTNkMmY0ZTYwIn0"
+      },
+      "if_none_match": {
+        "name": "If-None-Match",
+        "in": "header",
+        "description": "The \u0060ETag\u0060 from a previous response for the same page. If the page is unchanged, the response is \u0060304 Not Modified\u0060 with no body.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "\u00223f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c\u0022"
+      },
+      "session_id": {
+        "name": "session_id",
+        "in": "path",
+        "description": "The session UUID: the value at the end of the session\u0027s \u0060sessionUrn\u0060 and \u0060mcpUrl\u0060. The session must belong to the authenticated user and team.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "2b3c9f0e-1a4d-4e5f-8a7b-6c5d4e3f2a1b"
+      },
+      "approval_id": {
+        "name": "approval_id",
+        "in": "path",
+        "description": "The \u0060approval_id\u0060 from a tool result whose \u0060_meta.status\u0060 is \u0060requires_approval\u0060.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d"
+      },
       "oneClicks_type": {
         "name": "type",
         "in": "query",
@@ -151522,7 +154016,7 @@
         },
         "example": "DisengagementEscalation"
       },
-      "session_id": {
+      "parameters_session_id": {
         "name": "session_id",
         "in": "path",
         "description": "A unique identifier for a signals session.",
@@ -160076,7 +162570,11 @@
     },
     {
       "name": "Action Gateway",
-      "description": "Action Gateway gives AI agents governed access to tools over the Model\nContext Protocol (MCP). The \u0060/v2/action-gateway\u0060 endpoints manage the\ntool catalog and the resources that control how agents use it:\n\n- **Tools** browse and search the catalog, its providers, and global\n  provider and tool health.\n- **Toolbelts** are versioned, team-owned sets of tools that sessions\n  and policies reference as \u0060toolbelt:\u003Cname\u003E@\u003Cversion\u003E\u0060.\n- **Output views** reshape a tool\u0027s output before it reaches the agent.\n- **MCP servers** register your own remote MCP servers and choose which\n  of their tools to enable.\n- **Connections** authorize one of your end users to use a provider\u0027s\n  tools, for example through OAuth.\n- **Sessions** bind a tool selection and permission policy to an MCP URL\n  that an agent connects to.\n- **Users** and **end user limits** show and limit activity per end\n  user, identified by a session\u0027s \u0060actorId\u0060."
+      "description": "Action Gateway gives AI agents governed access to tools over the Model\nContext Protocol (MCP). The \u0060/v2/action-gateway\u0060 endpoints manage the\ntool catalog and the resources that control how agents use it:\n\n- **Tools** browse and search the catalog, its providers, and global\n  provider and tool health.\n- **Toolbelts** are versioned, team-owned sets of tools that sessions\n  and policies reference as \u0060toolbelt:\u003Cname\u003E@\u003Cversion\u003E\u0060.\n- **Output views** reshape a tool\u0027s output before it reaches the agent.\n- **MCP servers** register your own remote MCP servers and choose which\n  of their tools to enable.\n- **Connections** authorize one of your end users to use a provider\u0027s\n  tools, for example through OAuth.\n- **Sessions** bind a tool selection and permission policy to an MCP URL\n  that an agent connects to.\n- **Users** and **end user limits** show and limit activity per end\n  user, identified by a session\u0027s \u0060actorId\u0060.\n\nTo find and call tools in a session, use the\n[Action Gateway Data Plane](#tag/Action-Gateway-Data-Plane) endpoints or\nconnect an MCP client to the session\u0027s \u0060mcpUrl\u0060."
+    },
+    {
+      "name": "Action Gateway Data Plane",
+      "description": "The Action Gateway data plane finds and runs tools in a session. These\nendpoints are the REST forms of the session\u0027s MCP meta tools:\n\n- \u0060POST /tools/search\u0060 is \u0060action_search\u0060.\n- \u0060POST /tools/invoke\u0060 is \u0060action_invoke\u0060.\n- \u0060POST /code/execute\u0060 is \u0060action_code\u0060.\n\n\u0060GET /tools\u0060 lists the tools that a session can call, and the\n\u0060/approvals\u0060 endpoints approve or deny calls waiting for approval.\n\n**Note:** The data plane uses a separate base URL,\n\u0060https://actions.do-ai.run\u0060, the same host as a session\u0027s \u0060mcpUrl\u0060. It\nis independent of the control-plane API at \u0060https://api.digitalocean.com\u0060.\n\n### Authentication and Sessions\n\nAuthenticate with a DigitalOcean personal access token in the\n\u0060Authorization: Bearer\u0060 header. Custom-scoped tokens need the\n\u0060action_gateway:execute\u0060 scope. Every request also acts in one session.\nCreate the session with the\n[Create a Session](https://docs.digitalocean.com/reference/api/digitalocean/#tag/Action-Gateway/operation/sessions_create)\nendpoint, then send its UUID\nin the \u0060X-Session-Id\u0060 header or in the request path. The UUID is the value\nat the end of the session\u0027s \u0060sessionUrn\u0060 and \u0060mcpUrl\u0060.\n\nThe token must belong to the user who created the session, in the\nsession\u0027s team. The session\u0027s \u0060tools\u0060 selection limits which tools are\navailable, and its \u0060policy\u0060 decides whether each call is allowed, needs\napproval, or is denied. Policy is enforced the same way on these endpoints\nand on the session\u0027s MCP URL. Tools that use connections run with the\nconnections of the session\u0027s \u0060actorId\u0060.\n\n### Results and Errors\n\nSuccessful requests to \u0060/tools/search\u0060 and \u0060/code/execute\u0060 return a tool\nresult. Check \u0060status\u0060 before reading \u0060output\u0060. \u0060/tools/invoke\u0060 returns one\ntool result per call, and a well-formed request returns \u0060200\u0060 even when\nsome calls fail.\n\nFailed requests return the same shape with \u0060status\u0060 set to \u0060failed\u0060 and\nan \u0060error\u0060 object. Branch on \u0060error.class\u0060, \u0060error.retriable\u0060, and\n\u0060error.recovery_hint\u0060 rather than on \u0060error.message\u0060. Request bodies are\nlimited to 1 MiB.\n\n### Approvals\n\nWhen a session policy sets \u0060ask\u0060 for a call, the call does not run.\nInstead, its result fails with \u0060_meta.status\u0060 set to \u0060requires_approval\u0060,\nan \u0060approval_id\u0060, an \u0060expires_at\u0060 time, and a \u0060decide\u0060 object describing\nthe approval request. The session owner sends that request with their own\ntoken. The caller then repeats the call with the same arguments. Over MCP,\nclients that support elicitation can approve the call while it waits."
     },
     {
       "name": "Agent Platform API",
@@ -160327,6 +162825,7 @@
         "Actions",
         "Add-Ons",
         "Action Gateway",
+        "Action Gateway Data Plane",
         "Agent Platform API",
         "Apps",
         "Billing",
