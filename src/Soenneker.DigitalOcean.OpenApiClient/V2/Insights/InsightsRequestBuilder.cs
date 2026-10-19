@@ -6,6 +6,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.AlertInstances;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.AlertRules;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Resources;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -37,6 +38,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.QueryRequestBuilder Query
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.QueryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The resources property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Resources.ResourcesRequestBuilder Resources
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Resources.ResourcesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.InsightsRequestBuilder"/> and sets the default values.
