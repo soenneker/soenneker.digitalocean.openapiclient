@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Spans.Sear
         {
         }
         /// <summary>
-        /// To search spans in a region, send a POST request to `/v2/insights/query/{region}/spans/search` with a JSON body describing the time range, optional filter, ordering, and pagination.The time range must not exceed 7 days. `pagination.limit` defaults to 100 and must be between 1 and 1000. Results are ordered by `startTime` descending by default. Cursor-based pagination is not yet supported; `pagination.hasMore` indicates whether additional spans matched beyond the returned page.
+        /// To search spans in a region, send a POST request to `/v2/insights/query/{region}/spans/search` with a JSON body describing the time range, optional filter, ordering, and pagination.The time range must not exceed 7 days. `pagination.limit` defaults to 100 and must be between 1 and 1000. Results are ordered by `start_time` descending by default. Cursor-based pagination is not yet supported; `pagination.has_more` indicates whether additional spans matched beyond the returned page.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansSearchResponse"/></returns>
         /// <param name="body">Request body for searching spans.</param>
@@ -71,7 +71,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Spans.Sear
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansSearchResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To search spans in a region, send a POST request to `/v2/insights/query/{region}/spans/search` with a JSON body describing the time range, optional filter, ordering, and pagination.The time range must not exceed 7 days. `pagination.limit` defaults to 100 and must be between 1 and 1000. Results are ordered by `startTime` descending by default. Cursor-based pagination is not yet supported; `pagination.hasMore` indicates whether additional spans matched beyond the returned page.
+        /// To search spans in a region, send a POST request to `/v2/insights/query/{region}/spans/search` with a JSON body describing the time range, optional filter, ordering, and pagination.The time range must not exceed 7 days. `pagination.limit` defaults to 100 and must be between 1 and 1000. Results are ordered by `start_time` descending by default. Cursor-based pagination is not yet supported; `pagination.has_more` indicates whether additional spans matched beyond the returned page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request body for searching spans.</param>

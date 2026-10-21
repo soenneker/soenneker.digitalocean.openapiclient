@@ -8,48 +8,52 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A boolean filter tree for spans search. Set `type` to select the node kind: `condition` compares a single field, `and`/`or`/`not` combine child expressions, and `text_search` matches a substring across the span name, service name, and status message.
+    /// A boolean filter tree for spans queries. Exactly one node is set per message. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpansFilterExpression : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Child expressions for `and`, `or`, and `not` nodes.</summary>
+        /// <summary>The and property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression>? Expressions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd? And { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression> Expressions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd And { get; set; }
 #endif
-        /// <summary>A reference to a searchable span field.</summary>
+        /// <summary>A single field comparison in a spans filter expression.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterField? Field { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition? Condition { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterField Field { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition Condition { get; set; }
 #endif
-        /// <summary>The comparison operator for a `condition` node.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOperator? Operator { get; set; }
-        /// <summary>The substring to match for a `text_search` node.</summary>
+        /// <summary>A boolean filter tree for spans queries. Exactly one node is set per message. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Query { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression? Not { get; set; }
 #nullable restore
 #else
-        public string Query { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression Not { get; set; }
 #endif
-        /// <summary>The node kind.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionType? Type { get; set; }
-        /// <summary>A filter comparison value. Provide either a bare JSON scalar or string array, or a typed wrapper of the form `{ &quot;type&quot;: &quot;string&quot;, &quot;value&quot;: &quot;...&quot; }`.</summary>
+        /// <summary>The or property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterValue? Value { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr? Or { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterValue Value { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr Or { get; set; }
+#endif
+        /// <summary>A substring search across the span name, service name, and status message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch? TextSearch { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch TextSearch { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression"/> and sets the default values.
@@ -76,12 +80,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expressions", n => { Expressions = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "field", n => { Field = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterField>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterField.CreateFromDiscriminatorValue); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOperator>(); } },
-                { "query", n => { Query = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionType>(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterValue>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterValue.CreateFromDiscriminatorValue); } },
+                { "and", n => { And = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd.CreateFromDiscriminatorValue); } },
+                { "condition", n => { Condition = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition.CreateFromDiscriminatorValue); } },
+                { "not", n => { Not = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression.CreateFromDiscriminatorValue); } },
+                { "or", n => { Or = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr.CreateFromDiscriminatorValue); } },
+                { "text_search", n => { TextSearch = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -91,12 +94,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression>("expressions", Expressions);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterField>("field", Field);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOperator>("operator", Operator);
-            writer.WriteStringValue("query", Query);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterValue>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd>("and", And);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition>("condition", Condition);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression>("not", Not);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr>("or", Or);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch>("text_search", TextSearch);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

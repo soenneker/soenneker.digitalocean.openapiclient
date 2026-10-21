@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The sort direction. Defaults to `desc` when omitted.</summary>
+    /// <summary>The sort direction, matched case-insensitively. Omit to use the server default.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SpansOrderByDirection
     {

@@ -59,7 +59,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "spans", n => { Spans = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesSpanRecord>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesSpanRecord.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "traceId", n => { TraceId = n.GetStringValue(); } },
+                { "trace_id", n => { TraceId = n.GetStringValue(); } },
                 { "truncated", n => { Truncated = n.GetBoolValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesSpanRecord>("spans", Spans);
-            writer.WriteStringValue("traceId", TraceId);
+            writer.WriteStringValue("trace_id", TraceId);
             writer.WriteBoolValue("truncated", Truncated);
             writer.WriteAdditionalData(AdditionalData);
         }

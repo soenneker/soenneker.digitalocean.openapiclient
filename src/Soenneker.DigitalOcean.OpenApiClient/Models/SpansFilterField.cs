@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The field name. Well-known span fields include `traceId`, `spanId`, `parentSpanId`, `startTime`, `endTime`, `durationNs`, `name`, `serviceName`, `kind`, `statusCode`, and `statusMessage`. Any other value is treated as a span or resource attribute key.</summary>
+        /// <summary>The field name. Well-known span fields include `trace_id`, `span_id`, `parent_span_id`, `start_time`, `end_time`, `duration_ns`, `name`, `service_name`, `kind`, `status_code`, and `status_message`. Any other value is treated as a span or resource attribute key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Optional attribute scope. Use `resource` to match a resource attribute or `attributes` to match a span attribute. Omit for well-known fields or to search both attribute maps.</summary>
+        /// <summary>Optional attribute scope, matched case-insensitively. Use `FIELD_SCOPE_RESOURCE` to match a resource attribute or `FIELD_SCOPE_ATTRIBUTES` to match a span attribute. The aliases `resource` and `resource.attributes` are accepted for resource attributes; `attribute`, `attributes`, and `span.attributes` are accepted for span attributes. Omit for well-known fields or to search both attribute maps.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterFieldScope? Scope { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterField"/> and sets the default values.

@@ -13,7 +13,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TracesSearchRequest : IParsable
     {
-        /// <summary>A node in a traces filter tree. Every node is the same flat object; `type` selects which other properties apply:- `condition` (default when `type` is omitted): compares `field` to `value` using `operator`.- `and` / `or`: combines the nodes in `expressions` (1 to 32 children).- `not`: negates the single node in `expressions` (exactly one child).- `text_search`: case-insensitive substring match of `query` against the span name, service name, and span status message.A trace matches when at least one of its spans in the time range matches the filter. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total. Unknown properties are rejected.</summary>
+        /// <summary>A boolean filter tree for traces queries. Exactly one node is set per message. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression? Filter { get; set; }
@@ -29,7 +29,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesOrderBy> OrderBy { get; set; }
 #endif
-        /// <summary>Limits the size of a traces search result set. There is no cursor; use `pagination.hasMore` in the response to tell whether more traces matched, and narrow the time range or filter to see them.</summary>
+        /// <summary>Limits the size of a traces search result set. There is no cursor; use `pagination.has_more` in the response to tell whether more traces matched, and narrow the time range or filter to see them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesPaginationRequest? Pagination { get; set; }
@@ -64,9 +64,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression.CreateFromDiscriminatorValue); } },
-                { "orderBy", n => { OrderBy = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesOrderBy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesOrderBy.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "order_by", n => { OrderBy = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesOrderBy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesOrderBy.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesPaginationRequest>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesPaginationRequest.CreateFromDiscriminatorValue); } },
-                { "timeRange", n => { TimeRange = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesTimeRange>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesTimeRange.CreateFromDiscriminatorValue); } },
+                { "time_range", n => { TimeRange = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesTimeRange>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesTimeRange.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,9 +77,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>("filter", Filter);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesOrderBy>("orderBy", OrderBy);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesOrderBy>("order_by", OrderBy);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesPaginationRequest>("pagination", Pagination);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesTimeRange>("timeRange", TimeRange);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesTimeRange>("time_range", TimeRange);
         }
     }
 }

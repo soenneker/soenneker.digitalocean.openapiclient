@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Limits the size of a traces search result set. There is no cursor; use `pagination.hasMore` in the response to tell whether more traces matched, and narrow the time range or filter to see them.
+    /// Limits the size of a traces search result set. There is no cursor; use `pagination.has_more` in the response to tell whether more traces matched, and narrow the time range or filter to see them.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TracesPaginationRequest : IParsable

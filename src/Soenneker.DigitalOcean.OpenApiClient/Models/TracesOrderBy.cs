@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A sort clause for traces search results. Supported `field.name` values (case-insensitive) are `started` (aliases `startTime`, `start_time`, `timestamp`), `durationNs` (`duration`), `serviceName` (`service.name`, `service_name`), `traceId` (`trace.id`, `trace_id`), `errorCount` (`error_count`), `spanCount` (`span_count`), and `status`. Any other name returns `400`.Sorting by `started` is exact. For every other field, the server first selects the most recent matching traces by start time (up to the requested limit) and then sorts only those traces, so results are not a global top-N across the whole time range.
+    /// A sort clause for traces search results. Supported `field.name` values are `started`, `duration_ns`, `service_name`, `trace_id`, `error_count`, `span_count`, and `status`. Any other name returns `400`.Sorting by `started` is exact. For every other field, the server first selects the most recent matching traces by start time (up to the requested limit) and then sorts only those traces, so results are not a global top-N across the whole time range.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TracesOrderBy : IParsable
     {
-        /// <summary>The sort direction (case-insensitive). Defaults to `desc`.</summary>
+        /// <summary>The sort direction, matched case-insensitively. Omit to use the server default.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesOrderByDirection? Direction { get; set; }
-        /// <summary>A reference to a span field, used in filters and `orderBy`.</summary>
+        /// <summary>A reference to a span field, used in filters and `order_by`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFieldRef? Field { get; set; }

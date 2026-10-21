@@ -135,19 +135,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpanRecordAttributesProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpanRecordAttributesProperty.CreateFromDiscriminatorValue); } },
-                { "durationNs", n => { DurationNs = n.GetLongValue(); } },
-                { "endTime", n => { EndTime = n.GetDateTimeOffsetValue(); } },
+                { "duration_ns", n => { DurationNs = n.GetLongValue(); } },
+                { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
                 { "kind", n => { Kind = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parentSpanId", n => { ParentSpanId = n.GetStringValue(); } },
+                { "parent_span_id", n => { ParentSpanId = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "resource", n => { Resource = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpanRecordResourceProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpanRecordResourceProperty.CreateFromDiscriminatorValue); } },
-                { "serviceName", n => { ServiceName = n.GetStringValue(); } },
-                { "spanId", n => { SpanId = n.GetStringValue(); } },
-                { "startTime", n => { StartTime = n.GetDateTimeOffsetValue(); } },
-                { "statusCode", n => { StatusCode = n.GetStringValue(); } },
-                { "statusMessage", n => { StatusMessage = n.GetStringValue(); } },
-                { "traceId", n => { TraceId = n.GetStringValue(); } },
+                { "service_name", n => { ServiceName = n.GetStringValue(); } },
+                { "span_id", n => { SpanId = n.GetStringValue(); } },
+                { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
+                { "status_code", n => { StatusCode = n.GetStringValue(); } },
+                { "status_message", n => { StatusMessage = n.GetStringValue(); } },
+                { "trace_id", n => { TraceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -158,19 +158,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpanRecordAttributesProperty>("attributes", Attributes);
-            writer.WriteLongValue("durationNs", DurationNs);
-            writer.WriteDateTimeOffsetValue("endTime", EndTime);
+            writer.WriteLongValue("duration_ns", DurationNs);
+            writer.WriteDateTimeOffsetValue("end_time", EndTime);
             writer.WriteStringValue("kind", Kind);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("parentSpanId", ParentSpanId);
+            writer.WriteStringValue("parent_span_id", ParentSpanId);
             writer.WriteStringValue("region", Region);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpanRecordResourceProperty>("resource", Resource);
-            writer.WriteStringValue("serviceName", ServiceName);
-            writer.WriteStringValue("spanId", SpanId);
-            writer.WriteDateTimeOffsetValue("startTime", StartTime);
-            writer.WriteStringValue("statusCode", StatusCode);
-            writer.WriteStringValue("statusMessage", StatusMessage);
-            writer.WriteStringValue("traceId", TraceId);
+            writer.WriteStringValue("service_name", ServiceName);
+            writer.WriteStringValue("span_id", SpanId);
+            writer.WriteDateTimeOffsetValue("start_time", StartTime);
+            writer.WriteStringValue("status_code", StatusCode);
+            writer.WriteStringValue("status_message", StatusMessage);
+            writer.WriteStringValue("trace_id", TraceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

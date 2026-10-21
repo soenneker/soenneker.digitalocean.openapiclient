@@ -3,29 +3,30 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The node kind.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum SpansFilterExpressionType
+    #pragma warning disable CS1591
+    public enum SpansFilterConditionOneOf2Operator
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "condition")]
+        [EnumMember(Value = "FILTER_OPERATOR_EQ")]
         #pragma warning disable CS1591
-        Condition,
+        FilterOperatorEq,
         #pragma warning restore CS1591
-        [EnumMember(Value = "and")]
+        [EnumMember(Value = "FILTER_OPERATOR_NEQ")]
         #pragma warning disable CS1591
-        And,
+        FilterOperatorNeq,
         #pragma warning restore CS1591
-        [EnumMember(Value = "or")]
+        [EnumMember(Value = "FILTER_OPERATOR_IN")]
         #pragma warning disable CS1591
-        Or,
+        FilterOperatorIn,
         #pragma warning restore CS1591
-        [EnumMember(Value = "not")]
+        [EnumMember(Value = "FILTER_OPERATOR_GTE")]
         #pragma warning disable CS1591
-        Not,
+        FilterOperatorGte,
         #pragma warning restore CS1591
-        [EnumMember(Value = "text_search")]
+        [EnumMember(Value = "FILTER_OPERATOR_LTE")]
         #pragma warning disable CS1591
-        TextSearch,
+        FilterOperatorLte,
         #pragma warning restore CS1591
     }
 }

@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The sort direction. Defaults to `desc` when omitted.</summary>
+        /// <summary>The sort direction, matched case-insensitively. Omit to use the server default.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansOrderByDirection? Direction { get; set; }
         /// <summary>A reference to a searchable span field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

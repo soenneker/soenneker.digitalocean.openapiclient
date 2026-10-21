@@ -3,17 +3,37 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>Optional attribute scope. Use `resource` to match a resource attribute or `attributes` to match a span attribute. Omit for well-known fields or to search both attribute maps.</summary>
+    /// <summary>Optional attribute scope, matched case-insensitively. Use `FIELD_SCOPE_RESOURCE` to match a resource attribute or `FIELD_SCOPE_ATTRIBUTES` to match a span attribute. The aliases `resource` and `resource.attributes` are accepted for resource attributes; `attribute`, `attributes`, and `span.attributes` are accepted for span attributes. Omit for well-known fields or to search both attribute maps.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SpansFilterFieldScope
     {
+        [EnumMember(Value = "FIELD_SCOPE_RESOURCE")]
+        #pragma warning disable CS1591
+        FieldScopeResource,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "FIELD_SCOPE_ATTRIBUTES")]
+        #pragma warning disable CS1591
+        FieldScopeAttributes,
+        #pragma warning restore CS1591
         [EnumMember(Value = "resource")]
         #pragma warning disable CS1591
         Resource,
         #pragma warning restore CS1591
+        [EnumMember(Value = "resource.attributes")]
+        #pragma warning disable CS1591
+        ResourceAttributes,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "attribute")]
+        #pragma warning disable CS1591
+        Attribute,
+        #pragma warning restore CS1591
         [EnumMember(Value = "attributes")]
         #pragma warning disable CS1591
         Attributes,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "span.attributes")]
+        #pragma warning disable CS1591
+        SpanAttributes,
         #pragma warning restore CS1591
     }
 }

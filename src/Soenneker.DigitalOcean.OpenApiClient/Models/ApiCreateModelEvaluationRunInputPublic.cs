@@ -14,7 +14,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Inference configuration for the candidate model during evaluation.</summary>
+        /// <summary>Inference configuration for the candidate model during evaluation.The output token limit is set automatically and cannot be configured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateInferenceConfig? CandidateInferenceConfig { get; set; }

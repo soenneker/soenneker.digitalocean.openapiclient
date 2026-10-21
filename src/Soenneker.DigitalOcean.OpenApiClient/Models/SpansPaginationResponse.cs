@@ -42,7 +42,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "hasMore", n => { HasMore = n.GetBoolValue(); } },
+                { "has_more", n => { HasMore = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("hasMore", HasMore);
+            writer.WriteBoolValue("has_more", HasMore);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

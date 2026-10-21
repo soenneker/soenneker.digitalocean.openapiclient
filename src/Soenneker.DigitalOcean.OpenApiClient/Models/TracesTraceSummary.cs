@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A single trace returned by a traces search. One row per trace, aggregated from its spans. Every field except `traceId` is omitted when it holds its zero value (for example, `errorCount` is absent when no spans errored).
+    /// A single trace returned by a traces search. One row per trace, aggregated from its spans. Every field except `trace_id` is omitted when it holds its zero value (for example, `error_count` is absent when no spans errored).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TracesTraceSummary : IAdditionalDataHolder, IParsable
@@ -74,14 +74,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "durationNs", n => { DurationNs = n.GetLongValue(); } },
-                { "errorCount", n => { ErrorCount = n.GetIntValue(); } },
-                { "serviceName", n => { ServiceName = n.GetStringValue(); } },
-                { "spanCount", n => { SpanCount = n.GetIntValue(); } },
-                { "spanNames", n => { SpanNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "duration_ns", n => { DurationNs = n.GetLongValue(); } },
+                { "error_count", n => { ErrorCount = n.GetIntValue(); } },
+                { "service_name", n => { ServiceName = n.GetStringValue(); } },
+                { "span_count", n => { SpanCount = n.GetIntValue(); } },
+                { "span_names", n => { SpanNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "started", n => { Started = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesTraceSummaryStatus>(); } },
-                { "traceId", n => { TraceId = n.GetStringValue(); } },
+                { "trace_id", n => { TraceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -91,14 +91,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteLongValue("durationNs", DurationNs);
-            writer.WriteIntValue("errorCount", ErrorCount);
-            writer.WriteStringValue("serviceName", ServiceName);
-            writer.WriteIntValue("spanCount", SpanCount);
-            writer.WriteCollectionOfPrimitiveValues<string>("spanNames", SpanNames);
+            writer.WriteLongValue("duration_ns", DurationNs);
+            writer.WriteIntValue("error_count", ErrorCount);
+            writer.WriteStringValue("service_name", ServiceName);
+            writer.WriteIntValue("span_count", SpanCount);
+            writer.WriteCollectionOfPrimitiveValues<string>("span_names", SpanNames);
             writer.WriteDateTimeOffsetValue("started", Started);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesTraceSummaryStatus>("status", Status);
-            writer.WriteStringValue("traceId", TraceId);
+            writer.WriteStringValue("trace_id", TraceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

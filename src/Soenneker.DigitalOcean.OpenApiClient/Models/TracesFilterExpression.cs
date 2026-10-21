@@ -8,47 +8,60 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// A node in a traces filter tree. Every node is the same flat object; `type` selects which other properties apply:- `condition` (default when `type` is omitted): compares `field` to `value` using `operator`.- `and` / `or`: combines the nodes in `expressions` (1 to 32 children).- `not`: negates the single node in `expressions` (exactly one child).- `text_search`: case-insensitive substring match of `query` against the span name, service name, and span status message.A trace matches when at least one of its spans in the time range matches the filter. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total. Unknown properties are rejected.
+    /// A boolean filter tree for traces queries. Exactly one node is set per message. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TracesFilterExpression : IParsable
+    public partial class TracesFilterExpression : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Child nodes for `and`, `or`, and `not`. `and` and `or` accept 1 to 32 children; `not` requires exactly one.</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The and property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>? Expressions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd? And { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression> Expressions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd And { get; set; }
 #endif
-        /// <summary>A reference to a span field, used in filters and `orderBy`.</summary>
+        /// <summary>A single field comparison in a traces filter expression.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFieldRef? Field { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition? Condition { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFieldRef Field { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition Condition { get; set; }
 #endif
-        /// <summary>The comparison operator for a `condition` node. Matching is case-insensitive, and the symbol forms `=`, `!=`, `&gt;`, `&gt;=`, `&lt;`, and `&lt;=` are accepted as aliases for `eq`, `neq`, `gt`, `gte`, `lt`, and `lte`. `exists` matches spans where the field is present and non-empty and ignores `value`. `in` requires an array `value` with 1 to 100 entries. `neq` on string fields also matches spans where the field is absent.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOperator? Operator { get; set; }
-        /// <summary>The search string for a `text_search` node. Leading and trailing whitespace is trimmed; the trimmed string must be non-empty.</summary>
+        /// <summary>A boolean filter tree for traces queries. Exactly one node is set per message. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Query { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression? Not { get; set; }
 #nullable restore
 #else
-        public string Query { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression Not { get; set; }
 #endif
-        /// <summary>The node type. Matching is case-insensitive.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionType? Type { get; set; }
-        /// <summary>The comparison value for a filter `condition`. Pass either a bare JSON literal (string, number, boolean, or array for `in`) or a typed object `{&quot;type&quot;: &quot;...&quot;, &quot;value&quot;: ...}`. String values are coerced to the field&apos;s type: numeric fields such as `durationNs` parse the string as a number, and time fields such as `startTime` accept the same absolute formats as `timeRange` (RFC3339 or Unix seconds/milliseconds/microseconds/nanoseconds).</summary>
+        /// <summary>The or property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterValue? Value { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr? Or { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterValue Value { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr Or { get; set; }
 #endif
+        /// <summary>A substring search across span names, service names, and status messages.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch? TextSearch { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch TextSearch { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression"/> and sets the default values.
+        /// </summary>
+        public TracesFilterExpression()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,12 +80,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expressions", n => { Expressions = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "field", n => { Field = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFieldRef>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFieldRef.CreateFromDiscriminatorValue); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOperator>(); } },
-                { "query", n => { Query = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionType>(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterValue>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterValue.CreateFromDiscriminatorValue); } },
+                { "and", n => { And = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd.CreateFromDiscriminatorValue); } },
+                { "condition", n => { Condition = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition.CreateFromDiscriminatorValue); } },
+                { "not", n => { Not = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression.CreateFromDiscriminatorValue); } },
+                { "or", n => { Or = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr.CreateFromDiscriminatorValue); } },
+                { "text_search", n => { TextSearch = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -82,12 +94,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>("expressions", Expressions);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFieldRef>("field", Field);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOperator>("operator", Operator);
-            writer.WriteStringValue("query", Query);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterValue>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd>("and", And);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition>("condition", Condition);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>("not", Not);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr>("or", Or);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch>("text_search", TextSearch);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

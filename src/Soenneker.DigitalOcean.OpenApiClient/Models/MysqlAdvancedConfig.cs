@@ -42,6 +42,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? GroupConcatMaxLen { get; set; }
         /// <summary>The time, in seconds, before cached statistics expire.</summary>
         public int? InformationSchemaStatsExpiry { get; set; }
+        /// <summary>When enabled, InnoDB uses an adaptive hash index to speed up equality lookups. The optimal setting is workload-dependent: it can improve performance for some workloads, but under high concurrency the associated latch can become a contention point, in which case disabling it may improve throughput. Default is true.</summary>
+        public bool? InnodbAdaptiveHashIndex { get; set; }
         /// <summary>Specifies the maximum size of the InnoDB change buffer as a percentage of the buffer pool.</summary>
         public int? InnodbChangeBufferMaxSize { get; set; }
         /// <summary>Specifies whether flushing a page from the InnoDB buffer pool also flushes other dirty pages in the same extent.  - 0 &amp;mdash; disables this functionality, dirty pages in the same extent are not flushed.  - 1 &amp;mdash; flushes contiguous dirty pages in the same extent.  - 2 &amp;mdash; flushes dirty pages in the same extent.</summary>
@@ -188,6 +190,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "eq_range_index_dive_limit", n => { EqRangeIndexDiveLimit = n.GetIntValue(); } },
                 { "group_concat_max_len", n => { GroupConcatMaxLen = n.GetIntValue(); } },
                 { "information_schema_stats_expiry", n => { InformationSchemaStatsExpiry = n.GetIntValue(); } },
+                { "innodb_adaptive_hash_index", n => { InnodbAdaptiveHashIndex = n.GetBoolValue(); } },
                 { "innodb_change_buffer_max_size", n => { InnodbChangeBufferMaxSize = n.GetIntValue(); } },
                 { "innodb_flush_neighbors", n => { InnodbFlushNeighbors = n.GetIntValue(); } },
                 { "innodb_ft_enable_stopword", n => { InnodbFtEnableStopword = n.GetBoolValue(); } },
@@ -248,6 +251,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("eq_range_index_dive_limit", EqRangeIndexDiveLimit);
             writer.WriteIntValue("group_concat_max_len", GroupConcatMaxLen);
             writer.WriteIntValue("information_schema_stats_expiry", InformationSchemaStatsExpiry);
+            writer.WriteBoolValue("innodb_adaptive_hash_index", InnodbAdaptiveHashIndex);
             writer.WriteIntValue("innodb_change_buffer_max_size", InnodbChangeBufferMaxSize);
             writer.WriteIntValue("innodb_flush_neighbors", InnodbFlushNeighbors);
             writer.WriteBoolValue("innodb_ft_enable_stopword", InnodbFtEnableStopword);

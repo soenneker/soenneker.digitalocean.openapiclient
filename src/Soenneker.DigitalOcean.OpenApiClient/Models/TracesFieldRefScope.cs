@@ -3,10 +3,18 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>Restricts the lookup to one attribute map (case-insensitive). `resource` (or `resource.attributes`) reads resource attributes; `attribute` (or `attributes`, `span.attributes`) reads span attributes. Omit to use the built-in column mapping described for `name`. Ignored in traces `orderBy`.</summary>
+    /// <summary>Restricts the lookup to one attribute map and is matched case-insensitively. `FIELD_SCOPE_RESOURCE` reads resource attributes and accepts `resource` or `resource.attributes` as aliases. `FIELD_SCOPE_ATTRIBUTES` reads span attributes and accepts `attribute`, `attributes`, or `span.attributes` as aliases. Omit to use the built-in column mapping described for `name`. Ignored in traces `order_by`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TracesFieldRefScope
     {
+        [EnumMember(Value = "FIELD_SCOPE_RESOURCE")]
+        #pragma warning disable CS1591
+        FieldScopeResource,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "FIELD_SCOPE_ATTRIBUTES")]
+        #pragma warning disable CS1591
+        FieldScopeAttributes,
+        #pragma warning restore CS1591
         [EnumMember(Value = "resource")]
         #pragma warning disable CS1591
         Resource,

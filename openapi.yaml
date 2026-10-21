@@ -30746,10 +30746,10 @@ paths:
         `filter`. The time range must not exceed 7 days (`168h`).
         `pagination.limit` defaults to 100 (also used when `limit` is `0`) and
         must be between 0 and 1000. Results are ordered by `started` descending
-        unless `orderBy` is set.
+        unless `order_by` is set.
 
-        JSON field names are camelCase (`timeRange`, `orderBy`, `hasMore`,
-        `traceId`). Unknown request properties, invalid filters, and
+        JSON field names use snake_case (`time_range`, `order_by`, `has_more`,
+        `trace_id`). Unknown request properties, invalid filters, and
         out-of-range values are rejected with `400`.
 
         Each request searches a single region; there is no multi-region search.
@@ -30779,7 +30779,7 @@ paths:
               recent:
                 summary: Most recent traces in the last 15 minutes
                 value:
-                  timeRange:
+                  time_range:
                     from:
                       relative: 15m
                     to:
@@ -30789,56 +30789,62 @@ paths:
               filtered:
                 summary: Traces from one service whose spans mention "timeout"
                 value:
-                  timeRange:
+                  time_range:
                     from:
                       relative: 24h
                     to:
                       relative: now
                   filter:
-                    type: and
-                    expressions:
-                      - type: condition
-                        field:
-                          name: service.name
-                        operator: eq
-                        value: checkout-api
-                      - type: text_search
-                        query: timeout
+                    and:
+                      expressions:
+                        - condition:
+                            field:
+                              name: service.name
+                            operator: FILTER_OPERATOR_EQ
+                            value:
+                              string_value: checkout-api
+                        - text_search:
+                            query: timeout
                   pagination:
                     limit: 100
               attributeIn:
                 summary: Traces with error spans from either of two hosts
                 value:
-                  timeRange:
+                  time_range:
                     from:
                       absolute: '2026-10-09T00:00:00Z'
                     to:
                       absolute: '2026-10-09T06:00:00Z'
                   filter:
-                    type: and
-                    expressions:
-                      - field:
-                          name: statusCode
-                        operator: eq
-                        value: Error
-                      - field:
-                          name: host.name
-                          scope: resource
-                        operator: in
-                        value:
-                          - web-01
-                          - web-02
+                    and:
+                      expressions:
+                        - condition:
+                            field:
+                              name: status_code
+                            operator: FILTER_OPERATOR_EQ
+                            value:
+                              string_value: Error
+                        - condition:
+                            field:
+                              name: host.name
+                              scope: FIELD_SCOPE_RESOURCE
+                            operator: FILTER_OPERATOR_IN
+                            value:
+                              string_array_value:
+                                values:
+                                  - web-01
+                                  - web-02
               ordered:
                 summary: Slowest traces first, ties broken by oldest start
                 value:
-                  timeRange:
+                  time_range:
                     from:
                       relative: 1h
                     to:
                       relative: now
-                  orderBy:
+                  order_by:
                     - field:
-                        name: durationNs
+                        name: duration_ns
                       direction: desc
                     - field:
                         name: started
@@ -30871,18 +30877,19 @@ paths:
               -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
               -H "Content-Type: application/json" \
               -d '{
-                "timeRange": {
+                "time_range": {
                   "from": {"relative": "24h"},
                   "to": {"relative": "now"}
                 },
                 "filter": {
-                  "type": "and",
-                  "expressions": [
-                    {"type": "condition", "field": {"name": "service.name"}, "operator": "eq", "value": "checkout-api"},
-                    {"type": "text_search", "query": "timeout"}
-                  ]
+                  "and": {
+                    "expressions": [
+                      {"condition": {"field": {"name": "service.name"}, "operator": "FILTER_OPERATOR_EQ", "value": {"string_value": "checkout-api"}}},
+                      {"text_search": {"query": "timeout"}}
+                    ]
+                  }
                 },
-                "orderBy": [{"field": {"name": "durationNs"}, "direction": "desc"}],
+                "order_by": [{"field": {"name": "duration_ns"}, "direction": "desc"}],
                 "pagination": {"limit": 50}
               }' \
               "https://api.digitalocean.com/v2/insights/query/nyc3/traces/search"
@@ -30921,8 +30928,9 @@ paths:
         trial or not in good standing. If the regional traces backend cannot be
         reached, the response is `502` with a `text/plain` body.
 
-        JSON field names are camelCase (`traceId`, `spanId`, `startTime`,
-        `endTime`, `durationNs`, `serviceName`, `statusCode`, `parentSpanId`).
+        JSON field names use snake_case (`trace_id`, `span_id`, `start_time`,
+        `end_time`, `duration_ns`, `service_name`, `status_code`,
+        `parent_span_id`).
       tags:
         - Insights
       parameters:
@@ -30968,9 +30976,9 @@ paths:
         the time range, optional filter, ordering, and pagination.
 
         The time range must not exceed 7 days. `pagination.limit` defaults to
-        100 and must be between 1 and 1000. Results are ordered by `startTime`
+        100 and must be between 1 and 1000. Results are ordered by `start_time`
         descending by default. Cursor-based pagination is not yet supported;
-        `pagination.hasMore` indicates whether additional spans matched beyond
+        `pagination.has_more` indicates whether additional spans matched beyond
         the returned page.
       tags:
         - Insights
@@ -31006,29 +31014,28 @@ paths:
               -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
               -H "Content-Type: application/json" \
               -d '{
-                "timeRange": {
+                "time_range": {
                   "from": {"relative": "1h"},
                   "to": {"relative": "now"}
                 },
                 "filter": {
-                  "type": "and",
-                  "expressions": [
-                    {
-                      "type": "condition",
-                      "field": {"name": "service.name"},
-                      "operator": "eq",
-                      "value": {"type": "string", "value": "api-gateway"}
-                    },
-                    {
-                      "type": "condition",
-                      "field": {"name": "statusCode"},
-                      "operator": "eq",
-                      "value": {"type": "string", "value": "Error"}
-                    }
-                  ]
+                  "and": {
+                    "expressions": [
+                      {"condition": {
+                        "field": {"name": "service.name"},
+                        "operator": "FILTER_OPERATOR_EQ",
+                        "value": {"string_value": "api-gateway"}
+                      }},
+                      {"condition": {
+                        "field": {"name": "status_code"},
+                        "operator": "FILTER_OPERATOR_EQ",
+                        "value": {"string_value": "Error"}
+                      }}
+                    ]
+                  }
                 },
-                "orderBy": [
-                  {"field": {"name": "startTime"}, "direction": "desc"}
+                "order_by": [
+                  {"field": {"name": "start_time"}, "direction": "desc"}
                 ],
                 "pagination": {"limit": 100}
               }' \
@@ -76701,6 +76708,15 @@ components:
           minimum: 900
           maximum: 31536000
           example: 86400
+        innodb_adaptive_hash_index:
+          description: >-
+            When enabled, InnoDB uses an adaptive hash index to speed up
+            equality lookups. The optimal setting is workload-dependent: it can
+            improve performance for some workloads, but under high concurrency
+            the associated latch can become a contention point, in which case
+            disabling it may improve throughput. Default is true.
+          type: boolean
+          example: true
         innodb_ft_enable_stopword:
           description: >-
             When enabled, the InnoDB FULLTEXT index stopword list is used.
@@ -84247,92 +84263,9 @@ components:
           $ref: '#/components/schemas/traces_time_instant'
         to:
           $ref: '#/components/schemas/traces_time_instant'
-    traces_filter_expression:
-      type: object
-      description: >-
-        A node in a traces filter tree. Every node is the same flat object;
-        `type` selects which other properties apply:
-
-        - `condition` (default when `type` is omitted): compares `field` to
-        `value` using `operator`.
-
-        - `and` / `or`: combines the nodes in `expressions` (1 to 32 children).
-
-        - `not`: negates the single node in `expressions` (exactly one child).
-
-        - `text_search`: case-insensitive substring match of `query` against the
-        span name, service name, and span status message.
-
-
-        A trace matches when at least one of its spans in the time range matches
-        the filter. Trees may be nested at most 16 levels deep and contain at
-        most 256 nodes in total. Unknown properties are rejected.
-      additionalProperties: false
-      properties:
-        type:
-          type: string
-          description: The node type. Matching is case-insensitive.
-          enum:
-            - condition
-            - and
-            - or
-            - not
-            - text_search
-          default: condition
-          example: condition
-        expressions:
-          type: array
-          description: >-
-            Child nodes for `and`, `or`, and `not`. `and` and `or` accept 1 to
-            32 children; `not` requires exactly one.
-          minItems: 1
-          maxItems: 32
-          items:
-            $ref: '#/components/schemas/traces_filter_expression'
-        field:
-          $ref: '#/components/schemas/traces_field_ref'
-        operator:
-          type: string
-          description: >-
-            The comparison operator for a `condition` node. Matching is
-            case-insensitive, and the symbol forms `=`, `!=`, `>`, `>=`, `<`,
-            and `<=` are accepted as aliases for `eq`, `neq`, `gt`, `gte`, `lt`,
-            and `lte`. `exists` matches spans where the field is present and
-            non-empty and ignores `value`. `in` requires an array `value` with 1
-            to 100 entries. `neq` on string fields also matches spans where the
-            field is absent.
-          enum:
-            - eq
-            - neq
-            - in
-            - exists
-            - gt
-            - gte
-            - lt
-            - lte
-          example: eq
-        value:
-          $ref: '#/components/schemas/traces_filter_value'
-        query:
-          type: string
-          description: >-
-            The search string for a `text_search` node. Leading and trailing
-            whitespace is trimmed; the trimmed string must be non-empty.
-          maxLength: 256
-          example: checkout
-      example:
-        type: and
-        expressions:
-          - type: condition
-            field:
-              name: service.name
-            operator: eq
-            value: checkout-api
-          - type: text_search
-            query: timeout
     traces_field_ref:
       type: object
-      description: A reference to a span field, used in filters and `orderBy`.
+      description: A reference to a span field, used in filters and `order_by`.
       additionalProperties: false
       required:
         - name
@@ -84341,105 +84274,65 @@ components:
           type: string
           description: >-
             The field name. Without `scope`, these names (case-insensitive)
-            resolve to built-in span columns: `traceId` (`trace.id`,
-            `trace_id`), `spanId` (`span.id`, `span_id`), `parentSpanId`
-            (`parent.span.id`, `parent_span_id`), `startTime` (`start_time`,
-            `timestamp`), `endTime` (`end_time`), `durationNs` (`duration`, in
-            nanoseconds), `name` (`span.name`), `kind` (`span.kind`),
-            `statusCode` (`status.code`, `status_code`), `statusMessage`
-            (`status.message`, `status_message`), and `serviceName`
-            (`service.name`, `service_name`). Any other name is looked up as a
-            span attribute, falling back to a resource attribute. With `scope`
-            set, `name` is always treated as an attribute key. Attribute keys
-            may contain only letters, digits, and `.`, `_`, `-`, `/`, `:`, `@`.
+            resolve to built-in span columns: `trace_id`, `span_id`,
+            `parent_span_id`, `start_time`, `end_time`, `duration_ns`, `name`
+            (`span.name`), `kind` (`span.kind`), `status_code` (`status.code`,
+            `status_code`), `status_message`, and `service_name`
+            (`service.name`). Any other name is looked up as a span attribute,
+            falling back to a resource attribute. With `scope` set, `name` is
+            always treated as an attribute key. Attribute keys may contain only
+            letters, digits, and `.`, `_`, `-`, `/`, `:`, `@`.
 
 
-            In traces `orderBy`, `name` must be a trace-level sort field
-            instead; see the `orderBy` field description.
+            In traces `order_by`, `name` must be a trace-level sort field
+            instead; see the `order_by` field description.
           example: service.name
         scope:
           type: string
           description: >-
-            Restricts the lookup to one attribute map (case-insensitive).
-            `resource` (or `resource.attributes`) reads resource attributes;
-            `attribute` (or `attributes`, `span.attributes`) reads span
-            attributes. Omit to use the built-in column mapping described for
-            `name`. Ignored in traces `orderBy`.
+            Restricts the lookup to one attribute map and is matched
+            case-insensitively. `FIELD_SCOPE_RESOURCE` reads resource attributes
+            and accepts `resource` or `resource.attributes` as aliases.
+            `FIELD_SCOPE_ATTRIBUTES` reads span attributes and accepts
+            `attribute`, `attributes`, or `span.attributes` as aliases. Omit to
+            use the built-in column mapping described for `name`. Ignored in
+            traces `order_by`.
           enum:
+            - FIELD_SCOPE_RESOURCE
+            - FIELD_SCOPE_ATTRIBUTES
             - resource
             - resource.attributes
             - attribute
             - attributes
             - span.attributes
-          example: resource
+          example: FIELD_SCOPE_RESOURCE
     traces_filter_value:
+      type: object
       description: >-
-        The comparison value for a filter `condition`. Pass either a bare JSON
-        literal (string, number, boolean, or array for `in`) or a typed object
-        `{"type": "...", "value": ...}`. String values are coerced to the
-        field's type: numeric fields such as `durationNs` parse the string as a
-        number, and time fields such as `startTime` accept the same absolute
-        formats as `timeRange` (RFC3339 or Unix
-        seconds/milliseconds/microseconds/nanoseconds).
-      example: checkout-api
+        A typed literal or list value for a traces filter condition. Exactly one
+        kind is set per message.
       oneOf:
-        - type: string
-          description: A bare string literal.
+        - required:
+            - string_value
+        - required:
+            - number_value
+        - required:
+            - string_array_value
+        - required:
+            - number_array_value
+      properties:
+        string_value:
+          type: string
           example: checkout-api
-        - type: number
-          description: A bare number literal.
+        number_value:
+          type: number
           example: 500000000
-        - type: boolean
-          description: A bare boolean literal.
-          example: true
-        - type: array
-          description: A bare array of values, used with the `in` operator.
-          minItems: 1
-          maxItems: 100
-          items:
-            oneOf:
-              - type: string
-              - type: number
-              - type: boolean
-          example:
-            - checkout-api
-            - payments-api
-        - type: object
-          description: >-
-            A typed scalar value. `type` is case-insensitive; `int`, `integer`,
-            and `float` are accepted as aliases for `number`, and `boolean` for
-            `bool`.
-          additionalProperties: false
+        string_array_value:
+          type: object
           required:
-            - type
-            - value
+            - values
           properties:
-            type:
-              type: string
-              enum:
-                - string
-                - number
-                - bool
-              example: number
-            value:
-              oneOf:
-                - type: string
-                - type: number
-                - type: boolean
-              example: 500000000
-        - type: object
-          description: A typed string list, used with the `in` operator.
-          additionalProperties: false
-          required:
-            - type
-            - value
-          properties:
-            type:
-              type: string
-              enum:
-                - string_array
-              example: string_array
-            value:
+            values:
               type: array
               minItems: 1
               maxItems: 100
@@ -84448,15 +84341,128 @@ components:
               example:
                 - checkout-api
                 - payments-api
+        number_array_value:
+          type: object
+          required:
+            - values
+          properties:
+            values:
+              type: array
+              minItems: 1
+              maxItems: 100
+              items:
+                type: number
+              example:
+                - 42
+                - 84
+    traces_filter_condition:
+      type: object
+      description: A single field comparison in a traces filter expression.
+      required:
+        - field
+        - operator
+      oneOf:
+        - properties:
+            operator:
+              type: string
+              enum:
+                - FILTER_OPERATOR_EXISTS
+              example: FILTER_OPERATOR_EXISTS
+        - required:
+            - value
+          properties:
+            operator:
+              type: string
+              enum:
+                - FILTER_OPERATOR_EQ
+                - FILTER_OPERATOR_NEQ
+                - FILTER_OPERATOR_IN
+                - FILTER_OPERATOR_GTE
+                - FILTER_OPERATOR_LTE
+              example: FILTER_OPERATOR_EQ
+      properties:
+        field:
+          $ref: '#/components/schemas/traces_field_ref'
+        operator:
+          type: string
+          description: The comparison operator.
+          enum:
+            - FILTER_OPERATOR_EQ
+            - FILTER_OPERATOR_NEQ
+            - FILTER_OPERATOR_IN
+            - FILTER_OPERATOR_EXISTS
+            - FILTER_OPERATOR_GTE
+            - FILTER_OPERATOR_LTE
+          example: FILTER_OPERATOR_EQ
+        value:
+          $ref: '#/components/schemas/traces_filter_value'
+    traces_filter_expression:
+      type: object
+      description: >-
+        A boolean filter tree for traces queries. Exactly one node is set per
+        message. Trees may be nested at most 16 levels deep and contain at most
+        256 nodes in total.
+      oneOf:
+        - required:
+            - condition
+        - required:
+            - and
+        - required:
+            - or
+        - required:
+            - not
+        - required:
+            - text_search
+      properties:
+        condition:
+          $ref: '#/components/schemas/traces_filter_condition'
+        and:
+          type: object
+          required:
+            - expressions
+          properties:
+            expressions:
+              type: array
+              minItems: 1
+              maxItems: 32
+              items:
+                $ref: '#/components/schemas/traces_filter_expression'
+        or:
+          type: object
+          required:
+            - expressions
+          properties:
+            expressions:
+              type: array
+              minItems: 1
+              maxItems: 32
+              items:
+                $ref: '#/components/schemas/traces_filter_expression'
+        not:
+          $ref: '#/components/schemas/traces_filter_expression'
+        text_search:
+          type: object
+          description: >-
+            A substring search across span names, service names, and status
+            messages.
+          required:
+            - query
+          properties:
+            query:
+              type: string
+              minLength: 1
+              maxLength: 256
+              pattern: \S
+              description: >-
+                The search string. Leading and trailing whitespace is trimmed,
+                and the remaining string must not be empty.
+              example: timeout
     traces_order_by:
       type: object
       description: >-
         A sort clause for traces search results. Supported `field.name` values
-        (case-insensitive) are `started` (aliases `startTime`, `start_time`,
-        `timestamp`), `durationNs` (`duration`), `serviceName` (`service.name`,
-        `service_name`), `traceId` (`trace.id`, `trace_id`), `errorCount`
-        (`error_count`), `spanCount` (`span_count`), and `status`. Any other
-        name returns `400`.
+        are `started`, `duration_ns`, `service_name`, `trace_id`, `error_count`,
+        `span_count`, and `status`. Any other name returns `400`.
 
 
         Sorting by `started` is exact. For every other field, the server first
@@ -84471,17 +84477,18 @@ components:
           $ref: '#/components/schemas/traces_field_ref'
         direction:
           type: string
-          description: The sort direction (case-insensitive). Defaults to `desc`.
+          description: >-
+            The sort direction, matched case-insensitively. Omit to use the
+            server default.
           enum:
             - asc
             - desc
-          default: desc
           example: desc
     traces_pagination_request:
       type: object
       description: >-
         Limits the size of a traces search result set. There is no cursor; use
-        `pagination.hasMore` in the response to tell whether more traces
+        `pagination.has_more` in the response to tell whether more traces
         matched, and narrow the time range or filter to see them.
       additionalProperties: false
       properties:
@@ -84501,13 +84508,13 @@ components:
       description: Request body for searching traces. Unknown properties are rejected.
       additionalProperties: false
       required:
-        - timeRange
+        - time_range
       properties:
-        timeRange:
+        time_range:
           $ref: '#/components/schemas/traces_time_range'
         filter:
           $ref: '#/components/schemas/traces_filter_expression'
-        orderBy:
+        order_by:
           type: array
           description: Sort clauses applied in order. Defaults to `started` descending.
           items:
@@ -84518,13 +84525,13 @@ components:
       type: object
       description: >-
         A single trace returned by a traces search. One row per trace,
-        aggregated from its spans. Every field except `traceId` is omitted when
-        it holds its zero value (for example, `errorCount` is absent when no
+        aggregated from its spans. Every field except `trace_id` is omitted when
+        it holds its zero value (for example, `error_count` is absent when no
         spans errored).
       required:
-        - traceId
+        - trace_id
       properties:
-        traceId:
+        trace_id:
           type: string
           description: The trace identifier.
           example: bef35030c4024f42fb88041fea062e97
@@ -84535,23 +84542,23 @@ components:
             The start time of the earliest span in the trace, in RFC 3339
             format.
           example: '2026-10-09T09:21:39.99Z'
-        serviceName:
+        service_name:
           type: string
           description: >-
             The service that emitted the root span. Omitted when the root span
             has no service.name resource attribute.
           example: checkout-api
-        durationNs:
+        duration_ns:
           type: integer
           format: int64
           description: Wall-clock duration of the trace in nanoseconds.
           example: 10000000
-        spanCount:
+        span_count:
           type: integer
           format: int32
           description: The number of spans in the trace.
           example: 1
-        errorCount:
+        error_count:
           type: integer
           format: int32
           description: >-
@@ -84567,7 +84574,7 @@ components:
             - Ok
             - Error
           example: Ok
-        spanNames:
+        span_names:
           type: array
           description: The distinct span names present in the trace.
           items:
@@ -84578,9 +84585,9 @@ components:
       type: object
       description: Pagination response.
       required:
-        - hasMore
+        - has_more
       properties:
-        hasMore:
+        has_more:
           type: boolean
           description: Whether more results matched the query than were returned.
           example: false
@@ -84602,32 +84609,32 @@ components:
       type: object
       description: A single span belonging to a trace.
       required:
-        - traceId
-        - spanId
+        - trace_id
+        - span_id
       properties:
-        traceId:
+        trace_id:
           type: string
           description: The trace this span belongs to.
           example: 7b0b4e56abab38362b24e5498eb9ec64
-        spanId:
+        span_id:
           type: string
           description: The span identifier.
           example: e7867486e45cda47
-        parentSpanId:
+        parent_span_id:
           type: string
           description: The parent span identifier. Omitted for the root span.
           example: a2fb4a1d1a96d312
-        startTime:
+        start_time:
           type: string
           format: date-time
           description: The span start time.
           example: '2026-10-09T06:44:37Z'
-        endTime:
+        end_time:
           type: string
           format: date-time
           description: The span end time.
           example: '2026-10-09T06:44:39Z'
-        durationNs:
+        duration_ns:
           type: integer
           format: int64
           description: Span duration in nanoseconds.
@@ -84642,17 +84649,17 @@ components:
             The OpenTelemetry span kind as a string, for example `Server`,
             `Client`, or `Internal`.
           example: Server
-        statusCode:
+        status_code:
           type: string
           description: >-
             The OpenTelemetry span status code as a string: `Unset`, `Ok`, or
             `Error`.
           example: Error
-        statusMessage:
+        status_message:
           type: string
           description: The status description. Omitted when empty.
           example: upstream timeout
-        serviceName:
+        service_name:
           type: string
           description: >-
             The service that emitted the span. Omitted when the span has no
@@ -84676,7 +84683,7 @@ components:
       type: object
       description: A single trace and all of its spans.
       properties:
-        traceId:
+        trace_id:
           type: string
           description: The trace identifier.
           example: 7b0b4e56abab38362b24e5498eb9ec64
@@ -84732,106 +84739,182 @@ components:
         name:
           type: string
           description: >-
-            The field name. Well-known span fields include `traceId`, `spanId`,
-            `parentSpanId`, `startTime`, `endTime`, `durationNs`, `name`,
-            `serviceName`, `kind`, `statusCode`, and `statusMessage`. Any other
-            value is treated as a span or resource attribute key.
+            The field name. Well-known span fields include `trace_id`,
+            `span_id`, `parent_span_id`, `start_time`, `end_time`,
+            `duration_ns`, `name`, `service_name`, `kind`, `status_code`, and
+            `status_message`. Any other value is treated as a span or resource
+            attribute key.
           example: service.name
         scope:
           type: string
           description: >-
-            Optional attribute scope. Use `resource` to match a resource
-            attribute or `attributes` to match a span attribute. Omit for
-            well-known fields or to search both attribute maps.
+            Optional attribute scope, matched case-insensitively. Use
+            `FIELD_SCOPE_RESOURCE` to match a resource attribute or
+            `FIELD_SCOPE_ATTRIBUTES` to match a span attribute. The aliases
+            `resource` and `resource.attributes` are accepted for resource
+            attributes; `attribute`, `attributes`, and `span.attributes` are
+            accepted for span attributes. Omit for well-known fields or to
+            search both attribute maps.
           enum:
+            - FIELD_SCOPE_RESOURCE
+            - FIELD_SCOPE_ATTRIBUTES
             - resource
+            - resource.attributes
+            - attribute
             - attributes
-          example: attributes
+            - span.attributes
+          example: FIELD_SCOPE_ATTRIBUTES
     spans_filter_value:
-      description: >-
-        A filter comparison value. Provide either a bare JSON scalar or string
-        array, or a typed wrapper of the form `{ "type": "string", "value":
-        "..." }`.
-      example:
-        type: string
-        value: api-gateway
-      oneOf:
-        - type: string
-        - type: number
-        - type: boolean
-        - type: array
-          items:
-            type: string
-        - type: object
-          description: A typed value wrapper.
-          required:
-            - value
-          properties:
-            type:
-              type: string
-              description: The value type.
-              enum:
-                - string
-                - number
-                - bool
-                - string_array
-              example: string
-            value:
-              description: The scalar or array value, matching `type`.
-              example: api-gateway
-              oneOf:
-                - type: string
-                - type: number
-                - type: boolean
-                - type: array
-                  items:
-                    type: string
-    spans_filter_expression:
       type: object
       description: >-
-        A boolean filter tree for spans search. Set `type` to select the node
-        kind: `condition` compares a single field, `and`/`or`/`not` combine
-        child expressions, and `text_search` matches a substring across the span
-        name, service name, and status message.
-      required:
-        - type
+        A typed literal or list value for a spans filter condition. Exactly one
+        kind is set per message.
+      oneOf:
+        - required:
+            - string_value
+        - required:
+            - number_value
+        - required:
+            - string_array_value
+        - required:
+            - number_array_value
       properties:
-        type:
+        string_value:
           type: string
-          description: The node kind.
-          enum:
-            - condition
-            - and
-            - or
-            - not
-            - text_search
-          example: condition
+          example: api-gateway
+        number_value:
+          type: number
+          example: 42
+        string_array_value:
+          type: object
+          required:
+            - values
+          properties:
+            values:
+              type: array
+              minItems: 1
+              maxItems: 100
+              items:
+                type: string
+              example:
+                - api-gateway
+                - checkout
+        number_array_value:
+          type: object
+          required:
+            - values
+          properties:
+            values:
+              type: array
+              minItems: 1
+              maxItems: 100
+              items:
+                type: number
+              example:
+                - 42
+                - 84
+    spans_filter_condition:
+      type: object
+      description: A single field comparison in a spans filter expression.
+      required:
+        - field
+        - operator
+      oneOf:
+        - properties:
+            operator:
+              type: string
+              enum:
+                - FILTER_OPERATOR_EXISTS
+              example: FILTER_OPERATOR_EXISTS
+        - required:
+            - value
+          properties:
+            operator:
+              type: string
+              enum:
+                - FILTER_OPERATOR_EQ
+                - FILTER_OPERATOR_NEQ
+                - FILTER_OPERATOR_IN
+                - FILTER_OPERATOR_GTE
+                - FILTER_OPERATOR_LTE
+              example: FILTER_OPERATOR_EQ
+      properties:
         field:
           $ref: '#/components/schemas/spans_filter_field'
         operator:
           type: string
-          description: The comparison operator for a `condition` node.
+          description: The comparison operator.
           enum:
-            - eq
-            - neq
-            - gt
-            - gte
-            - lt
-            - lte
-            - in
-            - exists
-          example: eq
+            - FILTER_OPERATOR_EQ
+            - FILTER_OPERATOR_NEQ
+            - FILTER_OPERATOR_IN
+            - FILTER_OPERATOR_EXISTS
+            - FILTER_OPERATOR_GTE
+            - FILTER_OPERATOR_LTE
+          example: FILTER_OPERATOR_EQ
         value:
           $ref: '#/components/schemas/spans_filter_value'
-        expressions:
-          type: array
-          description: Child expressions for `and`, `or`, and `not` nodes.
-          items:
-            $ref: '#/components/schemas/spans_filter_expression'
-        query:
-          type: string
-          description: The substring to match for a `text_search` node.
-          example: timeout
+    spans_filter_expression:
+      type: object
+      description: >-
+        A boolean filter tree for spans queries. Exactly one node is set per
+        message. Trees may be nested at most 16 levels deep and contain at most
+        256 nodes in total.
+      oneOf:
+        - required:
+            - condition
+        - required:
+            - and
+        - required:
+            - or
+        - required:
+            - not
+        - required:
+            - text_search
+      properties:
+        condition:
+          $ref: '#/components/schemas/spans_filter_condition'
+        and:
+          type: object
+          required:
+            - expressions
+          properties:
+            expressions:
+              type: array
+              minItems: 1
+              maxItems: 32
+              items:
+                $ref: '#/components/schemas/spans_filter_expression'
+        or:
+          type: object
+          required:
+            - expressions
+          properties:
+            expressions:
+              type: array
+              minItems: 1
+              maxItems: 32
+              items:
+                $ref: '#/components/schemas/spans_filter_expression'
+        not:
+          $ref: '#/components/schemas/spans_filter_expression'
+        text_search:
+          type: object
+          description: >-
+            A substring search across the span name, service name, and status
+            message.
+          required:
+            - query
+          properties:
+            query:
+              type: string
+              minLength: 1
+              maxLength: 256
+              pattern: \S
+              description: >-
+                The search string. Leading and trailing whitespace is trimmed,
+                and the remaining string must not be empty.
+              example: timeout
     spans_order_by:
       type: object
       description: A sort clause for spans search results.
@@ -84842,7 +84925,9 @@ components:
           $ref: '#/components/schemas/spans_filter_field'
         direction:
           type: string
-          description: The sort direction. Defaults to `desc` when omitted.
+          description: >-
+            The sort direction, matched case-insensitively. Omit to use the
+            server default.
           enum:
             - asc
             - desc
@@ -84865,16 +84950,16 @@ components:
       type: object
       description: Request body for searching spans.
       required:
-        - timeRange
+        - time_range
       properties:
-        timeRange:
+        time_range:
           $ref: '#/components/schemas/spans_time_range'
         filter:
           $ref: '#/components/schemas/spans_filter_expression'
-        orderBy:
+        order_by:
           type: array
           description: >-
-            Sort clauses applied to the result set. Defaults to `startTime`
+            Sort clauses applied to the result set. Defaults to `start_time`
             descending when omitted.
           items:
             $ref: '#/components/schemas/spans_order_by'
@@ -84884,29 +84969,29 @@ components:
       type: object
       description: A single span returned by a spans search.
       properties:
-        traceId:
+        trace_id:
           type: string
           description: The trace identifier the span belongs to.
           example: 4bf92f3577b34da6a3ce929d0e0e4736
-        spanId:
+        span_id:
           type: string
           description: The span identifier.
           example: 00f067aa0ba902b7
-        parentSpanId:
+        parent_span_id:
           type: string
           description: The parent span identifier. Omitted for root spans.
           example: 00f067aa0ba902b6
-        startTime:
+        start_time:
           type: string
           format: date-time
           description: The span start time.
           example: '2026-09-30T00:00:00Z'
-        endTime:
+        end_time:
           type: string
           format: date-time
           description: The span end time.
           example: '2026-09-30T00:00:01Z'
-        durationNs:
+        duration_ns:
           type: integer
           format: int64
           description: The span duration in nanoseconds.
@@ -84919,15 +85004,15 @@ components:
           type: string
           description: The span kind.
           example: Server
-        statusCode:
+        status_code:
           type: string
           description: The span status code.
           example: Ok
-        statusMessage:
+        status_message:
           type: string
           description: The span status message. Omitted when empty.
           example: connection reset by peer
-        serviceName:
+        service_name:
           type: string
           description: The name of the service that emitted the span.
           example: api-gateway
@@ -84955,7 +85040,7 @@ components:
       type: object
       description: Pagination metadata for a spans search response.
       properties:
-        hasMore:
+        has_more:
           type: boolean
           description: >-
             Whether more spans matched than were returned in this page.
@@ -97186,12 +97271,10 @@ components:
           type: array
       type: object
     apiCandidateInferenceConfig:
-      description: Inference configuration for the candidate model during evaluation.
+      description: |-
+        Inference configuration for the candidate model during evaluation.
+        The output token limit is set automatically and cannot be configured.
       properties:
-        max_tokens:
-          example: 123
-          format: int64
-          type: integer
         reasoning_effort:
           description: >-
             Reasoning effort for reasoning-capable models (e.g. "low", "medium",
@@ -97243,7 +97326,7 @@ components:
          - PRESET_SAVE_SECTION_CANDIDATE: Candidate model identity (`candidate_model_uuid`, `candidate_model_source`,
         `candidate_model_name`) and the non-prompt inference params
 
-        (`max_tokens`, `temperature`, `stop_token`).
+        (`temperature`, `stop_token`, `reasoning_effort`).
          - PRESET_SAVE_SECTION_METRICS: The selected `metric_uuids` and the optional `star_metric`.
          - PRESET_SAVE_SECTION_JUDGE: The `judge_model_uuid`.
          - PRESET_SAVE_SECTION_DATASET: The `dataset_uuid`.
@@ -110396,16 +110479,16 @@ components:
             $ref: '#/components/schemas/traces_search_response'
           example:
             data:
-              - traceId: bef35030c4024f42fb88041fea062e97
+              - trace_id: bef35030c4024f42fb88041fea062e97
                 started: '2026-10-09T09:21:39.99Z'
-                serviceName: checkout-api
-                durationNs: 10000000
+                service_name: checkout-api
+                duration_ns: 10000000
                 status: Ok
-                spanCount: 1
-                spanNames:
+                span_count: 1
+                span_names:
                   - checkout-api-root
             pagination:
-              hasMore: false
+              has_more: false
     traces_bad_request:
       description: >-
         The request was rejected by the traces service, for example because the
@@ -110428,16 +110511,16 @@ components:
               value: pagination.limit exceeds maximum of 1000
             search_time_range_too_long:
               summary: Search time range longer than 7 days
-              value: timeRange exceeds maximum of 168h0m0s
+              value: time_range exceeds maximum of 168h0m0s
             trace_window_too_long:
               summary: Trace lookup window longer than 7 days
               value: time range exceeds maximum of 168h0m0s
             invalid_order_direction:
-              summary: Unsupported orderBy direction
-              value: invalid orderBy direction "SORT_DIRECTION_ASC"
+              summary: Unsupported order_by direction
+              value: invalid order_by direction "sideways"
             from_after_to:
               summary: Time range start after end
-              value: timeRange.from must be before or equal to timeRange.to
+              value: time_range.from must be before or equal to time_range.to
             unknown_property:
               summary: Unknown or malformed request body property
               value: invalid request body

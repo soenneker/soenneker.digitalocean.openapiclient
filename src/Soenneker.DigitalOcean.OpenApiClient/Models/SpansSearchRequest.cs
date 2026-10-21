@@ -15,7 +15,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A boolean filter tree for spans search. Set `type` to select the node kind: `condition` compares a single field, `and`/`or`/`not` combine child expressions, and `text_search` matches a substring across the span name, service name, and status message.</summary>
+        /// <summary>A boolean filter tree for spans queries. Exactly one node is set per message. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression? Filter { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression Filter { get; set; }
 #endif
-        /// <summary>Sort clauses applied to the result set. Defaults to `startTime` descending when omitted.</summary>
+        /// <summary>Sort clauses applied to the result set. Defaults to `start_time` descending when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansOrderBy>? OrderBy { get; set; }
@@ -73,9 +73,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression.CreateFromDiscriminatorValue); } },
-                { "orderBy", n => { OrderBy = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansOrderBy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansOrderBy.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "order_by", n => { OrderBy = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansOrderBy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansOrderBy.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansPaginationRequest>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansPaginationRequest.CreateFromDiscriminatorValue); } },
-                { "timeRange", n => { TimeRange = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansTimeRange>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansTimeRange.CreateFromDiscriminatorValue); } },
+                { "time_range", n => { TimeRange = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansTimeRange>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansTimeRange.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,9 +86,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression>("filter", Filter);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansOrderBy>("orderBy", OrderBy);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansOrderBy>("order_by", OrderBy);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansPaginationRequest>("pagination", Pagination);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansTimeRange>("timeRange", TimeRange);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansTimeRange>("time_range", TimeRange);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
