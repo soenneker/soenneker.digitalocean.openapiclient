@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Logsink
     public partial class LogsinkRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.databases.item.logsink.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a logsink of a database cluster</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Logsink.Item.WithLogsinkItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Logsink.Item.WithLogsinkItemRequestBuilder this[string position]
         {

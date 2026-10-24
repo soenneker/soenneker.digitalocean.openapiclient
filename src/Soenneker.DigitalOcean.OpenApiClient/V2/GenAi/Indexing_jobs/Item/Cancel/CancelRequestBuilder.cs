@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Cancel
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\indexing_jobs\{indexingJobUu-id}\cancel
+    /// Builds and executes requests for operations under \v2\gen-ai\indexing_jobs\{indexingJobUuid}\cancel
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CancelRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Cance
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CancelRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUu%2Did}/cancel", pathParameters)
+        public CancelRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUuid}/cancel", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Cance
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CancelRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUu%2Did}/cancel", rawUrl)
+        public CancelRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUuid}/cancel", rawUrl)
         {
         }
         /// <summary>

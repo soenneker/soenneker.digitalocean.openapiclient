@@ -31,9 +31,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Options.OptionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.databases.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a database cluster.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.WithDatabaseClusterUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.WithDatabaseClusterUuItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.WithDatabaseClusterUuItemRequestBuilder this[Guid position]
         {
             get
             {

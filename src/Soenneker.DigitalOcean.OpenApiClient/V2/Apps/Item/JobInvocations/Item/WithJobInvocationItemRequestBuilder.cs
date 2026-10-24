@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.JobInvocations.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\job-invocations\{jobInvocationId}
+    /// Builds and executes requests for operations under \v2\apps\{id}\job-invocations\{jobInvocationId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithJobInvocationItemRequestBuilder : BaseRequestBuilder
@@ -28,7 +28,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.JobInvocations.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithJobInvocationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/job-invocations/{jobInvocationId}{?job_name*}", pathParameters)
+        public WithJobInvocationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/job-invocations/{jobInvocationId}{?job_name*}", pathParameters)
         {
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.JobInvocations.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithJobInvocationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/job-invocations/{jobInvocationId}{?job_name*}", rawUrl)
+        public WithJobInvocationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/job-invocations/{jobInvocationId}{?job_name*}", rawUrl)
         {
         }
         /// <summary>

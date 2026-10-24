@@ -10,13 +10,13 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Deployments.Item.Components
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\deployments\{deploymentId}\components
+    /// Builds and executes requests for operations under \v2\apps\{id}\deployments\{deploymentId}\components
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ComponentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.apps.item.deployments.item.components.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">An optional component name. If set, logs will be limited to this component only.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Deployments.Item.Components.Item.WithComponentNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Deployments.Item.Components.Item.WithComponentNameItemRequestBuilder this[string position]
         {
@@ -32,7 +32,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Deployments.Item.Com
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ComponentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/deployments/{deploymentId}/components", pathParameters)
+        public ComponentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/deployments/{deploymentId}/components", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Deployments.Item.Com
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ComponentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/deployments/{deploymentId}/components", rawUrl)
+        public ComponentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/deployments/{deploymentId}/components", rawUrl)
         {
         }
     }

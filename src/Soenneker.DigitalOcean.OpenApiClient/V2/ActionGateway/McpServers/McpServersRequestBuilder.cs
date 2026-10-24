@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.McpServers
     public partial class McpServersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.mcpServers.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Server identifier (`serverRef`) of one of your team&apos;s MCP servers.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.McpServers.Item.WithServerRefItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.McpServers.Item.WithServerRefItemRequestBuilder this[string position]
         {

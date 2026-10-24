@@ -47,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Registry
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.ValidateName.ValidateNameRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.registry.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of a container registry.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.WithRegistryNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.WithRegistryNameItemRequestBuilder this[string position]
         {

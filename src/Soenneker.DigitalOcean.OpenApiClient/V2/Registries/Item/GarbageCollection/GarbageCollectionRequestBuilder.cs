@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.GarbageCollect
     public partial class GarbageCollectionRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.registries.item.garbageCollection.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The UUID of a garbage collection run.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.GarbageCollection.Item.WithGarbageCollectionUuItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.GarbageCollection.Item.WithGarbageCollectionUuItemRequestBuilder this[string position]
         {

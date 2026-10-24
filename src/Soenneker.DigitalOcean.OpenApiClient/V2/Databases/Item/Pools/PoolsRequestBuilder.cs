@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Pools
     public partial class PoolsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.databases.item.pools.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name used to identify the connection pool.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Pools.Item.WithPoolNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Pools.Item.WithPoolNameItemRequestBuilder this[string position]
         {

@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Domains
     public partial class DomainsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.domains.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the domain itself.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Domains.Item.WithDomainNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Domains.Item.WithDomainNameItemRequestBuilder this[string position]
         {

@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Resources
     public partial class ResourcesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.insights.resources.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The uniform resource name (URN) of the resource, for example `do:droplet:12345`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Resources.Item.WithResourceUrnItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Resources.Item.WithResourceUrnItemRequestBuilder this[string position]
         {

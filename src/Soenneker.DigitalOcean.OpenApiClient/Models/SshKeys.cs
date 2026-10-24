@@ -17,13 +17,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Fingerprint { get; set; }
+        public string? Fingerprint { get; private set; }
 #nullable restore
 #else
-        public string Fingerprint { get; set; }
+        public string Fingerprint { get; private set; }
 #endif
         /// <summary>A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet.</summary>
-        public int? Id { get; set; }
+        public int? Id { get; private set; }
         /// <summary>A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,8 +78,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("fingerprint", Fingerprint);
-            writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("public_key", PublicKey);
             writer.WriteAdditionalData(AdditionalData);

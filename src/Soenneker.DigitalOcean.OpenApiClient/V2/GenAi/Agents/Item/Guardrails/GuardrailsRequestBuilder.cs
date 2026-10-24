@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\agents\{agentUu-id}\guardrails
+    /// Builds and executes requests for operations under \v2\gen-ai\agents\{agentUuid}\guardrails
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GuardrailsRequestBuilder : BaseRequestBuilder
@@ -35,7 +35,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GuardrailsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUu%2Did}/guardrails", pathParameters)
+        public GuardrailsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUuid}/guardrails", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GuardrailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUu%2Did}/guardrails", rawUrl)
+        public GuardrailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUuid}/guardrails", rawUrl)
         {
         }
         /// <summary>

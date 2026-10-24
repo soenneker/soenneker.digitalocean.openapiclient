@@ -26,14 +26,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.genAi.knowledge_bases.item collection</summary>
         /// <param name="position">Knowledge base id</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.KnowledgeBaseUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.KnowledgeBaseUuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.WithKnowledgeBaseUuItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.WithKnowledgeBaseUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("knowledgeBaseUu%2Did", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.KnowledgeBaseUuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("knowledgeBaseUuid", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.WithKnowledgeBaseUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

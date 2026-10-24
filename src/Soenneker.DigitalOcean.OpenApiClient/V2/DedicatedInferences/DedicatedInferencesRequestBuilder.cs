@@ -31,9 +31,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Sizes.SizesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.dedicatedInferences.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a Dedicated Inference instance.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.WithDedicatedInferenceItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.WithDedicatedInferenceItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.WithDedicatedInferenceItemRequestBuilder this[Guid position]
         {
             get
             {

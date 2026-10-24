@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.Ite
     public partial class DigestsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.registry.item.repositories.item.digests.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The manifest digest of a container registry repository tag.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.Item.Digests.Item.WithManifestDigestItemRequestBuilder"/></returns>
         [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.Item.Digests.Item.WithManifestDigestItemRequestBuilder this[string position]

@@ -16,9 +16,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Approvals.Session
     public partial class SessionRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.approvals.session.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The session UUID: the value at the end of the session&apos;s `sessionUrn` and `mcpUrl`. The session must belong to the authenticated user and team.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item.WithSessionItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item.WithSessionItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item.WithSessionItemRequestBuilder this[Guid position]
         {
             get
             {

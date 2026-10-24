@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\subnets\{subnetUuid}\routes\{routeUuid}
+    /// Builds and executes requests for operations under \v2\vpcs\{vpcId}\subnets\{subnetUuid}\routes\{routeUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithRouteUuItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithRouteUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}/routes/{routeUuid}", pathParameters)
+        public WithRouteUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/subnets/{subnetUuid}/routes/{routeUuid}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithRouteUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}/routes/{routeUuid}", rawUrl)
+        public WithRouteUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/subnets/{subnetUuid}/routes/{routeUuid}", rawUrl)
         {
         }
         /// <summary>

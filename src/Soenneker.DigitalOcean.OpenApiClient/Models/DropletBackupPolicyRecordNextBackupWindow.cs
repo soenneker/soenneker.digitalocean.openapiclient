@@ -11,14 +11,27 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// An object containing keys with the start and end times of the window during which the backup will occur.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DropletBackupPolicyRecordNextBackupWindow : global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletNextBackupWindow, IParsable
+    public partial class DropletBackupPolicyRecordNextBackupWindow : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>A time value given in ISO8601 combined date and time format specifying the end of the Droplet&apos;s backup window.</summary>
+        public DateTimeOffset? End { get; set; }
+        /// <summary>A time value given in ISO8601 combined date and time format specifying the start of the Droplet&apos;s backup window.</summary>
+        public DateTimeOffset? Start { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow"/> and sets the default values.
+        /// </summary>
+        public DropletBackupPolicyRecordNextBackupWindow()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow();
@@ -27,20 +40,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "end", n => { End = n.GetDateTimeOffsetValue(); } },
+                { "start", n => { Start = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("end", End);
+            writer.WriteDateTimeOffsetValue("start", Start);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

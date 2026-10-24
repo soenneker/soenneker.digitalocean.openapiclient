@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Rollback.Revert
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\rollback\revert
+    /// Builds and executes requests for operations under \v2\apps\{id}\rollback\revert
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RevertRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Rollback.Revert
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RevertRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/rollback/revert", pathParameters)
+        public RevertRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/rollback/revert", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Rollback.Revert
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RevertRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/rollback/revert", rawUrl)
+        public RevertRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/rollback/revert", rawUrl)
         {
         }
         /// <summary>

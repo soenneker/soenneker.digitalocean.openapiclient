@@ -14,7 +14,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\subnets\{subnetUuid}
+    /// Builds and executes requests for operations under \v2\vpcs\{vpcId}\subnets\{subnetUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSubnetUuItemRequestBuilder : BaseRequestBuilder
@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSubnetUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}", pathParameters)
+        public WithSubnetUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/subnets/{subnetUuid}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSubnetUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}", rawUrl)
+        public WithSubnetUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/subnets/{subnetUuid}", rawUrl)
         {
         }
         /// <summary>

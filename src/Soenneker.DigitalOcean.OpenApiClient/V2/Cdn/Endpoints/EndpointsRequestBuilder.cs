@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Cdn.Endpoints
     public partial class EndpointsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.cdn.endpoints.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a CDN endpoint.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Cdn.Endpoints.Item.WithCdnItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Cdn.Endpoints.Item.WithCdnItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Cdn.Endpoints.Item.WithCdnItemRequestBuilder this[Guid position]
         {
             get
             {

@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Replicas
     public partial class ReplicasRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.databases.item.replicas.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the database replica.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Replicas.Item.WithReplicaNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Replicas.Item.WithReplicaNameItemRequestBuilder this[string position]
         {

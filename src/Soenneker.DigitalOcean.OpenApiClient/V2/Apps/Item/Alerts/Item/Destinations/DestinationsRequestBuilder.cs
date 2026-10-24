@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts.Item.Destinations
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\alerts\{alertId}\destinations
+    /// Builds and executes requests for operations under \v2\apps\{id}\alerts\{alertId}\destinations
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DestinationsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts.Item.Destinat
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DestinationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/alerts/{alertId}/destinations", pathParameters)
+        public DestinationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/alerts/{alertId}/destinations", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts.Item.Destinat
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DestinationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/alerts/{alertId}/destinations", rawUrl)
+        public DestinationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/alerts/{alertId}/destinations", rawUrl)
         {
         }
         /// <summary>

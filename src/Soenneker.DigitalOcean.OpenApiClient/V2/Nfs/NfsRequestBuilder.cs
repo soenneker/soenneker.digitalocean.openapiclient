@@ -37,7 +37,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Nfs
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Snapshots.SnapshotsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.nfs.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique ID of the NFS share</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Item.WithNfsItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Item.WithNfsItemRequestBuilder this[string position]
         {

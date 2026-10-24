@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ipv6
     public partial class Reserved_ipv6RequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.reserved_ipv6.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A reserved IPv6 address.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ipv6.Item.WithReservedIpv6ItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ipv6.Item.WithReservedIpv6ItemRequestBuilder this[string position]
         {

@@ -15,10 +15,10 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\indexing_jobs\{indexingJobUu-id}
+    /// Builds and executes requests for operations under \v2\gen-ai\indexing_jobs\{indexingJobUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class IndexingJobUuItemRequestBuilder : BaseRequestBuilder
+    public partial class WithIndexingJobUuItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The cancel property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Cancel.CancelRequestBuilder Cancel
@@ -36,19 +36,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Details_signed_url.Details_signed_urlRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.IndexingJobUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.WithIndexingJobUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IndexingJobUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUu%2Did}", pathParameters)
+        public WithIndexingJobUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUuid}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.IndexingJobUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.WithIndexingJobUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IndexingJobUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUu%2Did}", rawUrl)
+        public WithIndexingJobUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUuid}", rawUrl)
         {
         }
         /// <summary>
@@ -104,11 +104,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.IndexingJobUuItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.WithIndexingJobUuItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.IndexingJobUuItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.WithIndexingJobUuItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.IndexingJobUuItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.WithIndexingJobUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

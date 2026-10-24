@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Snapshots
     public partial class SnapshotsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.nfs.snapshots.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique ID of the NFS snapshot</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Snapshots.Item.WithNfsSnapshotItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Snapshots.Item.WithNfsSnapshotItemRequestBuilder this[string position]
         {

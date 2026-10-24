@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Health
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\health
+    /// Builds and executes requests for operations under \v2\apps\{id}\health
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HealthRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Health
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HealthRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/health", pathParameters)
+        public HealthRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/health", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Health
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HealthRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/health", rawUrl)
+        public HealthRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/health", rawUrl)
         {
         }
         /// <summary>

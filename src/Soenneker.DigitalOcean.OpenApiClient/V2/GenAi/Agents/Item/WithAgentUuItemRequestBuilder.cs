@@ -4,45 +4,87 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.Agents;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Api_keys;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Deployment_visibility;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Functions;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Knowledge_bases;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Usage;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Versions;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
+namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\anthropic\keys\{apiKeyUu-id}
+    /// Builds and executes requests for operations under \v2\gen-ai\agents\{agentUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ApiKeyUuItemRequestBuilder : BaseRequestBuilder
+    public partial class WithAgentUuItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The agents property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.Agents.AgentsRequestBuilder Agents
+        /// <summary>The api_keys property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Api_keys.Api_keysRequestBuilder Api_keys
         {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Api_keys.Api_keysRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The child_agents property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents.Child_agentsRequestBuilder Child_agents
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents.Child_agentsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The deployment_visibility property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Deployment_visibility.Deployment_visibilityRequestBuilder Deployment_visibility
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Deployment_visibility.Deployment_visibilityRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The functions property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Functions.FunctionsRequestBuilder Functions
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Functions.FunctionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The guardrails property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails.GuardrailsRequestBuilder Guardrails
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails.GuardrailsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The knowledge_bases property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Knowledge_bases.Knowledge_basesRequestBuilder Knowledge_bases
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Knowledge_bases.Knowledge_basesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The usage property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Usage.UsageRequestBuilder Usage
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Usage.UsageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The versions property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Versions.VersionsRequestBuilder Versions
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Versions.VersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.ApiKeyUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.WithAgentUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ApiKeyUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/anthropic/keys/{apiKeyUu%2Did}", pathParameters)
+        public WithAgentUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUuid}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.ApiKeyUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.WithAgentUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ApiKeyUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/anthropic/keys/{apiKeyUu%2Did}", rawUrl)
+        public WithAgentUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUuid}", rawUrl)
         {
         }
         /// <summary>
-        /// To delete an Anthropic API key, send a DELETE request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
+        /// To delete an agent, send a DELETE request to `/v2/gen-ai/agents/{uuid}`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAnthropicApiKeyOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -52,11 +94,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAnthropicApiKeyOutput?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAnthropicApiKeyOutput> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -68,12 +110,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAnthropicApiKeyOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAnthropicApiKeyOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To retrieve details of an Anthropic API key, send a GET request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
+        /// To retrieve details of an agent, GET request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAnthropicApiKeyOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -83,11 +125,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAnthropicApiKeyOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAnthropicApiKeyOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -99,13 +141,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAnthropicApiKeyOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAnthropicApiKeyOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To update an Anthropic API key, send a PUT request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
+        /// To update an agent, send a PUT request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyOutput"/></returns>
-        /// <param name="body">UpdateAnthropicAPIKeyInputPublic is used to update an existing Anthropic API key for a specific agent.</param>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput"/></returns>
+        /// <param name="body">Data to modify an existing Agent</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -115,11 +157,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyOutput?> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput?> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyOutput> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -132,10 +174,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To delete an Anthropic API key, send a DELETE request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
+        /// To delete an agent, send a DELETE request to `/v2/gen-ai/agents/{uuid}`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -154,7 +196,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
             return requestInfo;
         }
         /// <summary>
-        /// To retrieve details of an Anthropic API key, send a GET request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
+        /// To retrieve details of an agent, GET request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -173,18 +215,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
             return requestInfo;
         }
         /// <summary>
-        /// To update an Anthropic API key, send a PUT request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
+        /// To update an agent, send a PUT request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">UpdateAnthropicAPIKeyInputPublic is used to update an existing Anthropic API key for a specific agent.</param>
+        /// <param name="body">Data to modify an existing Agent</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAnthropicApiKeyInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -197,11 +239,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.ApiKeyUuItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.WithAgentUuItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.ApiKeyUuItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.WithAgentUuItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.ApiKeyUuItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.WithAgentUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

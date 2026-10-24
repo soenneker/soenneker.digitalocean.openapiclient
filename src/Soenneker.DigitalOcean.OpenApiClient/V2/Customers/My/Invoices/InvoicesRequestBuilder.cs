@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Invoices
     public partial class InvoicesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.customers.my.invoices.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">UUID of the invoice</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Invoices.Item.WithInvoiceUuItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Customers.My.Invoices.Item.WithInvoiceUuItemRequestBuilder this[string position]
         {

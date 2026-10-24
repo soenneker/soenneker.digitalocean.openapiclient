@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Partner_network_connect.Attach
     public partial class AttachmentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.partner_network_connect.attachments.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a partner attachment.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Partner_network_connect.Attachments.Item.WithPaItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Partner_network_connect.Attachments.Item.WithPaItemRequestBuilder this[string position]
         {

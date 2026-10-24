@@ -25,9 +25,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports.Options.OptionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v1.signals.exports.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for an export job.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports.Item.WithExportItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports.Item.WithExportItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Exports.Item.WithExportItemRequestBuilder this[Guid position]
         {
             get
             {

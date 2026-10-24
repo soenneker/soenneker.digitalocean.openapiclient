@@ -16,13 +16,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum amount of instances for this component. Maximum 250. Consider using a larger instance size if your application requires more than 250 instances.</summary>
         public int? MaxInstanceCount { get; set; }
-        /// <summary>The metrics that the component is scaled on.</summary>
+        /// <summary>The metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics? Metrics { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceMetrics? Metrics { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics Metrics { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceMetrics Metrics { get; set; }
 #endif
         /// <summary>The minimum amount of instances for this component.</summary>
         public int? MinInstanceCount { get; set; }
@@ -52,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "max_instance_count", n => { MaxInstanceCount = n.GetIntValue(); } },
-                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics.CreateFromDiscriminatorValue); } },
+                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceMetrics>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceMetrics.CreateFromDiscriminatorValue); } },
                 { "min_instance_count", n => { MinInstanceCount = n.GetIntValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("max_instance_count", MaxInstanceCount);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics>("metrics", Metrics);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceMetrics>("metrics", Metrics);
             writer.WriteIntValue("min_instance_count", MinInstanceCount);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -13,15 +13,15 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\subnets\{subnetUuid}\routes
+    /// Builds and executes requests for operations under \v2\vpcs\{vpcId}\subnets\{subnetUuid}\routes
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RoutesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.vpcs.item.subnets.item.routes.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the route.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.Item.WithRouteUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.Item.WithRouteUuItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes.Item.WithRouteUuItemRequestBuilder this[Guid position]
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoutesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}/routes{?page*,per_page*}", pathParameters)
+        public RoutesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/subnets/{subnetUuid}/routes{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.Item.Routes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoutesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/subnets/{subnetUuid}/routes{?page*,per_page*}", rawUrl)
+        public RoutesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/subnets/{subnetUuid}/routes{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>

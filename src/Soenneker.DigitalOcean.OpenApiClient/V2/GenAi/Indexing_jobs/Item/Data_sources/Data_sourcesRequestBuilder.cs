@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Data_sources
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\indexing_jobs\{indexingJobUu-id}\data_sources
+    /// Builds and executes requests for operations under \v2\gen-ai\indexing_jobs\{indexingJobUuid}\data_sources
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Data_sourcesRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Data_
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Data_sourcesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUu%2Did}/data_sources", pathParameters)
+        public Data_sourcesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUuid}/data_sources", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Data_
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Data_sourcesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUu%2Did}/data_sources", rawUrl)
+        public Data_sourcesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUuid}/data_sources", rawUrl)
         {
         }
         /// <summary>

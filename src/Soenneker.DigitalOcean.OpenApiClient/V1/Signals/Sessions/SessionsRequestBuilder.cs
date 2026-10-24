@@ -16,9 +16,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions
     public partial class SessionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v1.signals.sessions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a signals session.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions.Item.WithSessionItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions.Item.WithSessionItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Sessions.Item.WithSessionItemRequestBuilder this[Guid position]
         {
             get
             {

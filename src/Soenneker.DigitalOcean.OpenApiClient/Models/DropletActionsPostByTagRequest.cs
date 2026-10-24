@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 result.DropletAction = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletAction();
             }
-            else if("DropletActionSnapshot".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("snapshot".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.DropletActionSnapshot = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionSnapshot();
             }

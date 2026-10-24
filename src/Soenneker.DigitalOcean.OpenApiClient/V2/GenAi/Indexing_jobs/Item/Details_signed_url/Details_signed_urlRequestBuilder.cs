@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Details_signed_url
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\indexing_jobs\{indexingJobUu-id}\details_signed_url
+    /// Builds and executes requests for operations under \v2\gen-ai\indexing_jobs\{indexingJobUuid}\details_signed_url
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Details_signed_urlRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Detai
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Details_signed_urlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUu%2Did}/details_signed_url", pathParameters)
+        public Details_signed_urlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUuid}/details_signed_url", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.Detai
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Details_signed_urlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUu%2Did}/details_signed_url", rawUrl)
+        public Details_signed_urlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/indexing_jobs/{indexingJobUuid}/details_signed_url", rawUrl)
         {
         }
         /// <summary>

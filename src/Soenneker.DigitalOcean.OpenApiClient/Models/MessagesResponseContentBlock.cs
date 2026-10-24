@@ -37,13 +37,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesResponseContentBlock CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesResponseContentBlock();
-            if("MessagesResponseTextBlock".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessagesResponseTextBlock = new global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesResponseTextBlock();
             }
-            else if("MessagesResponseToolUseBlock".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("tool_use".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessagesResponseToolUseBlock = new global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesResponseToolUseBlock();
             }

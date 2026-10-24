@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpc_peerings
     public partial class Vpc_peeringsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.vpc_peerings.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a VPC peering.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpc_peerings.Item.WithVpcPeeringItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpc_peerings.Item.WithVpcPeeringItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpc_peerings.Item.WithVpcPeeringItemRequestBuilder this[Guid position]
         {
             get
             {

@@ -16,7 +16,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Health.Too
     public partial class ToolsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.tools.health.tools.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Catalog tool slug, for example `exa_search`. Required.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Health.Tools.Item.WithToolSlugItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Health.Tools.Item.WithToolSlugItemRequestBuilder this[string position]
         {

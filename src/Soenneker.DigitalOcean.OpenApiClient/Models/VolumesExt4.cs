@@ -38,7 +38,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<int?> DropletIds { get; private set; }
 #endif
-        /// <summary>The label applied to the filesystem. Labels for ext4 type filesystems may contain 16 characters while labels for xfs type filesystems are limited to 12 characters. May only be used in conjunction with filesystem_type.</summary>
+        /// <summary>The filesystem_label property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FilesystemLabel { get; set; }

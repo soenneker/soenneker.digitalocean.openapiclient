@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Security.Settings.Suppressions
     public partial class SuppressionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.security.settings.suppressions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The suppression UUID to remove.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Settings.Suppressions.Item.WithSuppressionUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Settings.Suppressions.Item.WithSuppressionUuItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Settings.Suppressions.Item.WithSuppressionUuItemRequestBuilder this[Guid position]
         {
             get
             {

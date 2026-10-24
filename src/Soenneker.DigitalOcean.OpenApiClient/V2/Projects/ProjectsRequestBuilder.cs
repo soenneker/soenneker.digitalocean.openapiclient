@@ -25,9 +25,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Projects
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Projects.Default.DefaultRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.projects.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a project.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Projects.Item.WithProjectItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Projects.Item.WithProjectItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Projects.Item.WithProjectItemRequestBuilder this[Guid position]
         {
             get
             {

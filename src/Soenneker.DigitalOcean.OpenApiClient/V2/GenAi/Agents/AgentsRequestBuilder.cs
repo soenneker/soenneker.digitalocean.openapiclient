@@ -20,14 +20,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.genAi.agents.item collection</summary>
         /// <param name="position">Unique agent id</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.AgentUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.AgentUuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.WithAgentUuItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.WithAgentUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("agentUu%2Did", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.AgentUuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("agentUuid", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.WithAgentUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

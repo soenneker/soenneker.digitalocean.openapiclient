@@ -20,14 +20,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.genAi.openai.keys.item collection</summary>
         /// <param name="position">API key ID</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.ApiKeyUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.ApiKeyUuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.WithApiKeyUuItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.WithApiKeyUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("apiKeyUu%2Did", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.ApiKeyUuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("apiKeyUuid", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.WithApiKeyUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

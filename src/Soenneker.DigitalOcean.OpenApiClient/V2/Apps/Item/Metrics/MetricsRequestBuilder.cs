@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Metrics
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\metrics
+    /// Builds and executes requests for operations under \v2\apps\{id}\metrics
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MetricsRequestBuilder : BaseRequestBuilder
@@ -25,7 +25,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Metrics
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MetricsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/metrics", pathParameters)
+        public MetricsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/metrics", pathParameters)
         {
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Metrics
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MetricsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/metrics", rawUrl)
+        public MetricsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/metrics", rawUrl)
         {
         }
     }

@@ -14,13 +14,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Spec for an Insights alert rule. On create, `name`, `query`, `thresholds`,and at least one `notification_channels` binding are required. On update,omit `notification_channels` to keep existing bindings; an explicit emptylist is rejected.</summary>
+        /// <summary>The spec property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpec? Spec { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleCreateRequestSpec? Spec { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpec Spec { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleCreateRequestSpec Spec { get; set; }
 #endif
         /// <summary>Desired alert rule status. Allowed values:- `ALERT_RULE_STATUS_ACTIVE` = active- `ALERT_RULE_STATUS_PAUSED` = paused</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleRequestStatus? Status { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "spec", n => { Spec = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpec.CreateFromDiscriminatorValue); } },
+                { "spec", n => { Spec = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleCreateRequestSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleCreateRequestSpec.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleRequestStatus>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpec>("spec", Spec);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleCreateRequestSpec>("spec", Spec);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleRequestStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

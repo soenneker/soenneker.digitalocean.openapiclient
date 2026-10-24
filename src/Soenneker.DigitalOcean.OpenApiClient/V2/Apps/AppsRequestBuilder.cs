@@ -44,14 +44,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.apps.item collection</summary>
         /// <param name="position">The ID of the app</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("app%2Did", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

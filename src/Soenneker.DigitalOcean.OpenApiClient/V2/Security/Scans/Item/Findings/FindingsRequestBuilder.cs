@@ -16,9 +16,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.Item.Findings
     public partial class FindingsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.security.scans.item.findings.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The finding UUID.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.Item.Findings.Item.WithFindingUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.Item.Findings.Item.WithFindingUuItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.Item.Findings.Item.WithFindingUuItemRequestBuilder this[Guid position]
         {
             get
             {

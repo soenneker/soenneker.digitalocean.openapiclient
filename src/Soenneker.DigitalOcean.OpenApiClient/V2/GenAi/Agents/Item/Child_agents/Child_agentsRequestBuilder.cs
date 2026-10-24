@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\agents\{agentUu-id}\child_agents
+    /// Builds and executes requests for operations under \v2\gen-ai\agents\{agentUuid}\child_agents
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Child_agentsRequestBuilder : BaseRequestBuilder
@@ -35,7 +35,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Child_agentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUu%2Did}/child_agents", pathParameters)
+        public Child_agentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUuid}/child_agents", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Child_agentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUu%2Did}/child_agents", rawUrl)
+        public Child_agentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUuid}/child_agents", rawUrl)
         {
         }
         /// <summary>

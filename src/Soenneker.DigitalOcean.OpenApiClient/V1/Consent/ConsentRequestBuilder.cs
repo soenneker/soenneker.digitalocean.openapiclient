@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Consent
     public partial class ConsentRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v1.consent.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for an environment. For Harness Runtime, this is the Environment Config ID.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item.WithAgentItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item.WithAgentItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Consent.Item.WithAgentItemRequestBuilder this[Guid position]
         {
             get
             {

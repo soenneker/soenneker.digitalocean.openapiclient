@@ -25,7 +25,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.SchemaRegistry
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.SchemaRegistry.Config.ConfigRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.databases.item.schemaRegistry.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the Kafka schema subject.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.SchemaRegistry.Item.WithSubjectNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.SchemaRegistry.Item.WithSubjectNameItemRequestBuilder this[string position]
         {

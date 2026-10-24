@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique numeric ID that can be used to identify and reference an action.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Actions.Item.WithActionItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Actions.Item.WithActionItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Actions.Item.WithActionItemRequestBuilder this[int position]
         {
             get
             {

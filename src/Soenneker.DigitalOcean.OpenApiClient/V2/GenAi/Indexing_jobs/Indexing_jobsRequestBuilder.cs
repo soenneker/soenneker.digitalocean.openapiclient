@@ -20,14 +20,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.genAi.indexing_jobs.item collection</summary>
         /// <param name="position">Indexing job id</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.IndexingJobUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.IndexingJobUuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.WithIndexingJobUuItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.WithIndexingJobUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("indexingJobUu%2Did", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.IndexingJobUuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("indexingJobUuid", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Indexing_jobs.Item.WithIndexingJobUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Routes
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\routes
+    /// Builds and executes requests for operations under \v2\vpcs\{vpcId}\routes
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RoutesRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Routes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoutesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/routes{?page*,per_page*}", pathParameters)
+        public RoutesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/routes{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Routes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoutesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/routes{?page*,per_page*}", rawUrl)
+        public RoutesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/routes{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>

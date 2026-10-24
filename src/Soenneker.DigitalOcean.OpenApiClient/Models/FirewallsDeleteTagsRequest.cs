@@ -14,13 +14,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>An array containing the names of the Tags to be removed from the firewall.</summary>
+        /// <summary>A flat array of tag names as strings to be applied to the resource. Tag names must exist in order to be referenced in a request. &lt;br&gt;&lt;br&gt;Requires `tag:create` and `tag:read` scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsDeleteTagsRequestTags? Tags { get; set; }
+        public List<string>? Tags { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsDeleteTagsRequestTags Tags { get; set; }
+        public List<string> Tags { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsDeleteTagsRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsDeleteTagsRequestTags>(global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsDeleteTagsRequestTags.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsDeleteTagsRequestTags>("tags", Tags);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

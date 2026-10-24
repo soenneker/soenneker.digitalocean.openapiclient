@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces.Item.Trig
     public partial class TriggersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.functions.namespaces.item.triggers.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the trigger to be managed.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces.Item.Triggers.Item.WithTriggerNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces.Item.Triggers.Item.WithTriggerNameItemRequestBuilder this[string position]
         {

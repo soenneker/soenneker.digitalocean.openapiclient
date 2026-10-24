@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.Repositories.I
     public partial class TagsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.registries.item.repositories.item.tags.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of a container registry repository tag.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.Repositories.Item.Tags.Item.WithRepositoryTagItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.Repositories.Item.Tags.Item.WithRepositoryTagItemRequestBuilder this[string position]
         {

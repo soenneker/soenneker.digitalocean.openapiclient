@@ -11,14 +11,43 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// Present only while the connection is pending and you created it.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetConnectionResponseAuthorization : global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionAuthorization, IParsable
+    public partial class GetConnectionResponseAuthorization : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Browser URL, on a DigitalOcean Cloud origin, where the user authorizes the connection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConnectUrl { get; set; }
+#nullable restore
+#else
+        public string ConnectUrl { get; set; }
+#endif
+        /// <summary>When the authorization expires. The link can stop working earlier; if the connection becomes expired, create it again for a new link.</summary>
+        public DateTimeOffset? ExpiresAt { get; set; }
+        /// <summary>Currently always `requires_authorization`.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RequiresAuthorizationStatus? Status { get; set; }
+        /// <summary>Verification code issued with `connect_url`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VerificationCode { get; set; }
+#nullable restore
+#else
+        public string VerificationCode { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization"/> and sets the default values.
+        /// </summary>
+        public GetConnectionResponseAuthorization()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.DigitalOcean.OpenApiClient.Models.GetConnectionResponseAuthorization();
@@ -27,20 +56,28 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "connect_url", n => { ConnectUrl = n.GetStringValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RequiresAuthorizationStatus>(); } },
+                { "verification_code", n => { VerificationCode = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteStringValue("connect_url", ConnectUrl);
+            writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RequiresAuthorizationStatus>("status", Status);
+            writer.WriteStringValue("verification_code", VerificationCode);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

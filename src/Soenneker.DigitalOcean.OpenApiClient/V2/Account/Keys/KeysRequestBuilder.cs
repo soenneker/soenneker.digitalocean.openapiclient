@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Account.Keys
     public partial class KeysRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.account.keys.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Either the ID or the fingerprint of an existing SSH key.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Account.Keys.Item.WithSshKeyIdentifierItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Account.Keys.Item.WithSshKeyIdentifierItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Account.Keys.Item.WithSshKeyIdentifierItemRequestBuilder this[int position]
         {
             get
             {

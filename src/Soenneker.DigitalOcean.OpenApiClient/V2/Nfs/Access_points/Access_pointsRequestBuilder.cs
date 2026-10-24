@@ -16,9 +16,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Access_points
     public partial class Access_pointsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.nfs.access_points.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the NFS access point.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Access_points.Item.WithAccessPointItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Access_points.Item.WithAccessPointItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Nfs.Access_points.Item.WithAccessPointItemRequestBuilder this[Guid position]
         {
             get
             {

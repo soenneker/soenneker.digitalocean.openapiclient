@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocations.Item.Logs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\jobs\{jobName}\invocations\{jobInvocationId}\logs
+    /// Builds and executes requests for operations under \v2\apps\{id}\jobs\{jobName}\invocations\{jobInvocationId}\logs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LogsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocation
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LogsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/jobs/{jobName}/invocations/{jobInvocationId}/logs?type={type}{&deployment_id*,follow*,pod_connection_timeout*,tail_lines*}", pathParameters)
+        public LogsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/jobs/{jobName}/invocations/{jobInvocationId}/logs?type={type}{&deployment_id*,follow*,pod_connection_timeout*,tail_lines*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocation
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LogsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/jobs/{jobName}/invocations/{jobInvocationId}/logs?type={type}{&deployment_id*,follow*,pod_connection_timeout*,tail_lines*}", rawUrl)
+        public LogsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/jobs/{jobName}/invocations/{jobInvocationId}/logs?type={type}{&deployment_id*,follow*,pod_connection_timeout*,tail_lines*}", rawUrl)
         {
         }
         /// <summary>

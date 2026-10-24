@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Node_
     public partial class Node_poolsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.kubernetes.clusters.item.node_pools.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique ID that can be used to reference a Kubernetes node pool.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Node_pools.Item.WithNodePoolItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Node_pools.Item.WithNodePoolItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Node_pools.Item.WithNodePoolItemRequestBuilder this[Guid position]
         {
             get
             {

@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Traces
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Traces.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.insights.query.item.traces.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The OpenTelemetry trace ID to retrieve, as 32 lowercase hexadecimal characters. IDs are matched exactly; an ID with no spans in the lookup window returns `404`. Malformed or uppercase IDs are not rejected with `400`; they also return `404`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Traces.Item.WithTraceItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Traces.Item.WithTraceItemRequestBuilder this[string position]
         {

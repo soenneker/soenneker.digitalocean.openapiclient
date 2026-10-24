@@ -13,10 +13,10 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\evaluation_test_cases\{evaluationTestCaseUu-id}
+    /// Builds and executes requests for operations under \v2\gen-ai\evaluation_test_cases\{evaluationTestCaseUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EvaluationTestCaseUuItemRequestBuilder : BaseRequestBuilder
+    public partial class WithEvaluationTestCaseUuItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The evaluation_runs property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.Evaluation_runs.Evaluation_runsRequestBuilder Evaluation_runs
@@ -24,19 +24,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.It
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.Evaluation_runs.Evaluation_runsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EvaluationTestCaseUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUu%2Did}{?evaluation_test_case_version*}", pathParameters)
+        public WithEvaluationTestCaseUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUuid}{?evaluation_test_case_version*}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EvaluationTestCaseUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUu%2Did}{?evaluation_test_case_version*}", rawUrl)
+        public WithEvaluationTestCaseUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUuid}{?evaluation_test_case_version*}", rawUrl)
         {
         }
         /// <summary>
@@ -52,11 +52,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.It
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetEvaluationTestCaseOutput?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder.EvaluationTestCaseUuItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetEvaluationTestCaseOutput?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder.WithEvaluationTestCaseUuItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetEvaluationTestCaseOutput> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder.EvaluationTestCaseUuItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetEvaluationTestCaseOutput> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder.WithEvaluationTestCaseUuItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -110,11 +110,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.It
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder.EvaluationTestCaseUuItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder.WithEvaluationTestCaseUuItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder.EvaluationTestCaseUuItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder.WithEvaluationTestCaseUuItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -147,17 +147,17 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.It
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// To retrive information about an existing evaluation test case, send a GET request to `/v2/gen-ai/evaluation_test_case/{test_case_uuid}`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EvaluationTestCaseUuItemRequestBuilderGetQueryParameters 
+        public partial class WithEvaluationTestCaseUuItemRequestBuilderGetQueryParameters 
         {
             /// <summary>Version of the test case.</summary>
             [QueryParameter("evaluation_test_case_version")]

@@ -13,13 +13,13 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\alerts
+    /// Builds and executes requests for operations under \v2\apps\{id}\alerts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AlertsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.apps.item.alerts.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The alert ID</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts.Item.WithAlertItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts.Item.WithAlertItemRequestBuilder this[string position]
         {
@@ -35,7 +35,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/alerts", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/alerts", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/alerts", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/alerts", rawUrl)
         {
         }
         /// <summary>

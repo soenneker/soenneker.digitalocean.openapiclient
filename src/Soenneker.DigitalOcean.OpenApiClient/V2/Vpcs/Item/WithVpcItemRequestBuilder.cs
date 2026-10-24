@@ -16,10 +16,10 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}
+    /// Builds and executes requests for operations under \v2\vpcs\{vpcId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class VpcItemRequestBuilder : BaseRequestBuilder
+    public partial class WithVpcItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The members property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Members.MembersRequestBuilder Members
@@ -42,19 +42,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Subnets.SubnetsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.VpcItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VpcItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}", pathParameters)
+        public WithVpcItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.VpcItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VpcItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}", rawUrl)
+        public WithVpcItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}", rawUrl)
         {
         }
         /// <summary>
@@ -269,11 +269,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.VpcItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.VpcItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.VpcItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.WithVpcItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

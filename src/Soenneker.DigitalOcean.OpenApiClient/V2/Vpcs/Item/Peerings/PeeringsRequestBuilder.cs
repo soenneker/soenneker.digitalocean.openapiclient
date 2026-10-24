@@ -13,15 +13,15 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\vpcs\{vpc-id}\peerings
+    /// Builds and executes requests for operations under \v2\vpcs\{vpcId}\peerings
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PeeringsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.vpcs.item.peerings.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a VPC peering.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.Item.WithVpcPeeringItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.Item.WithVpcPeeringItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings.Item.WithVpcPeeringItemRequestBuilder this[Guid position]
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PeeringsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/peerings{?page*,per_page*}", pathParameters)
+        public PeeringsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/peerings{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Vpcs.Item.Peerings
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PeeringsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpc%2Did}/peerings{?page*,per_page*}", rawUrl)
+        public PeeringsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/vpcs/{vpcId}/peerings{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>

@@ -7,26 +7,18 @@ using System.IO;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>
+    /// Optional per-signal Insights telemetry opt-in. Travels beside manifest_yaml, never inside it: the manifest is immutable and content-hashed, while this value can be changed later from the Insights settings page. When omitted, no choice is recorded and the product default applies.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class AgentConfigCreateRequestInsights : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class AgentConfigCreateRequestInsights : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the agent&apos;s logs are sent to Insights.</summary>
         public bool? Logs { get; set; }
         /// <summary>Accepted and stored for parity with the Insights schema, but metrics are always collected: unregistered metrics are dropped at ingest rather than opted out of here.</summary>
         public bool? Metrics { get; set; }
         /// <summary>Whether the agent&apos;s traces are sent to Insights.</summary>
         public bool? Traces { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCreateRequestInsights"/> and sets the default values.
-        /// </summary>
-        public AgentConfigCreateRequestInsights()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -60,7 +52,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("logs", Logs);
             writer.WriteBoolValue("metrics", Metrics);
             writer.WriteBoolValue("traces", Traces);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

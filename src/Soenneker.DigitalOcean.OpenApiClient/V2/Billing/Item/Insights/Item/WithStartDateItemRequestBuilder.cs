@@ -16,9 +16,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.Insights.Item
     public partial class WithStartDateItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.billing.item.insights.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">End date for billing insights in YYYY-MM-DD format. Must be within 31 days of start_date</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.Insights.Item.Item.WithEndDateItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.Insights.Item.Item.WithEndDateItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.Insights.Item.Item.WithEndDateItemRequestBuilder this[Date position]
         {
             get
             {

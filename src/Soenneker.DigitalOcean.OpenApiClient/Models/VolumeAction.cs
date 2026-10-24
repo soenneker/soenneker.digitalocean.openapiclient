@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string RegionSlug { get; set; }
 #endif
-        /// <summary>The resource_id property</summary>
+        /// <summary>A unique identifier for the resource that the action is associated with.</summary>
         public int? ResourceId { get; set; }
         /// <summary>The type of resource that the action is associated with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

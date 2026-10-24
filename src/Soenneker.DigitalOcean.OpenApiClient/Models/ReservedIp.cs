@@ -17,10 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.&lt;br&gt;&lt;br&gt;Requires `droplet:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpDroplet? Droplet { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet? Droplet { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpDroplet Droplet { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet Droplet { get; set; }
 #endif
         /// <summary>The public IP address of the reserved IP. It also serves as its identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "droplet", n => { Droplet = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpDroplet>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpDroplet.CreateFromDiscriminatorValue); } },
+                { "droplet", n => { Droplet = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet.CreateFromDiscriminatorValue); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "project_id", n => { ProjectId = n.GetGuidValue(); } },
@@ -81,7 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpDroplet>("droplet", Droplet);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet>("droplet", Droplet);
             writer.WriteStringValue("ip", Ip);
             writer.WriteBoolValue("locked", Locked);
             writer.WriteGuidValue("project_id", ProjectId);

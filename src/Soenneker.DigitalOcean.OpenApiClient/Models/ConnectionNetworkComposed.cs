@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Routes a connection&apos;s calls through a private network instead of the public internet.
+    /// Private network the connection&apos;s calls use, when configured.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionNetworkComposed : IAdditionalDataHolder, IParsable

@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Floating_ips
     public partial class Floating_ipsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.floating_ips.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A floating IP address.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Floating_ips.Item.WithFloatingIpItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Floating_ips.Item.WithFloatingIpItemRequestBuilder this[string position]
         {

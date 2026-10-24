@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Indexing_jobs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\knowledge_bases\{knowledgeBaseUu-id}\indexing_jobs
+    /// Builds and executes requests for operations under \v2\gen-ai\knowledge_bases\{knowledgeBaseUuid}\indexing_jobs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Indexing_jobsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Ind
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Indexing_jobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUu%2Did}/indexing_jobs", pathParameters)
+        public Indexing_jobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}/indexing_jobs", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Ind
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Indexing_jobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUu%2Did}/indexing_jobs", rawUrl)
+        public Indexing_jobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}/indexing_jobs", rawUrl)
         {
         }
         /// <summary>

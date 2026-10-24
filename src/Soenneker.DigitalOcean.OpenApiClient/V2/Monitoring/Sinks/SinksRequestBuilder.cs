@@ -25,7 +25,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Sinks
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Sinks.Destinations.DestinationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.monitoring.sinks.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a sink.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Sinks.Item.WithSinkUuItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Sinks.Item.WithSinkUuItemRequestBuilder this[string position]
         {

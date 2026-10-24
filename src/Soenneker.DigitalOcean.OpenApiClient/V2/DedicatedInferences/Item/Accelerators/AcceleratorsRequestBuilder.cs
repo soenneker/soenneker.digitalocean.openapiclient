@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.Accel
     public partial class AcceleratorsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.dedicatedInferences.item.accelerators.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a Dedicated Inference accelerator.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.Accelerators.Item.WithAcceleratorItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.Accelerators.Item.WithAcceleratorItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.Accelerators.Item.WithAcceleratorItemRequestBuilder this[Guid position]
         {
             get
             {

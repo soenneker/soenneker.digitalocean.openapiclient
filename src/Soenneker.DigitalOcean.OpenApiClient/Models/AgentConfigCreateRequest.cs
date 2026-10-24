@@ -13,7 +13,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentConfigCreateRequest : IParsable
     {
-        /// <summary>The insights property</summary>
+        /// <summary>Optional per-signal Insights telemetry opt-in. Travels beside manifest_yaml, never inside it: the manifest is immutable and content-hashed, while this value can be changed later from the Insights settings page. When omitted, no choice is recorded and the product default applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCreateRequestInsights? Insights { get; set; }

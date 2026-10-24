@@ -16,7 +16,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Billing
     public partial class BillingRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.billing.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">URN of the customer account, can be a team (do:team:uuid) or an organization (do:teamgroup:uuid)</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.WithAccountUrnItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.WithAccountUrnItemRequestBuilder this[string position]
         {

@@ -97,13 +97,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The amount of instances that this component should be scaled to. Default: 1. Must not be set if autoscaling is used.</summary>
         public long? InstanceCount { get; set; }
         /// <summary>The instance size to use for this component. Default: `apps-s-1vcpu-0.5gb`</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentInstanceBaseInstanceSizeSlug? InstanceSizeSlug { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentInstanceBaseInstanceSizeSlug InstanceSizeSlug { get; set; }
-#endif
         /// <summary>The liveness_health_check property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -189,7 +183,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "gitlab", n => { Gitlab = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec.CreateFromDiscriminatorValue); } },
                 { "image", n => { Image = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec.CreateFromDiscriminatorValue); } },
                 { "instance_count", n => { InstanceCount = n.GetLongValue(); } },
-                { "instance_size_slug", n => { InstanceSizeSlug = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentInstanceBaseInstanceSizeSlug>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentInstanceBaseInstanceSizeSlug.CreateFromDiscriminatorValue); } },
+                { "instance_size_slug", n => { InstanceSizeSlug = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentInstanceBaseInstanceSizeSlug>(); } },
                 { "liveness_health_check", n => { LivenessHealthCheck = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealthCheckSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealthCheckSpec.CreateFromDiscriminatorValue); } },
                 { "log_destinations", n => { LogDestinations = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -216,7 +210,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec>("gitlab", Gitlab);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec>("image", Image);
             writer.WriteLongValue("instance_count", InstanceCount);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentInstanceBaseInstanceSizeSlug>("instance_size_slug", InstanceSizeSlug);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentInstanceBaseInstanceSizeSlug>("instance_size_slug", InstanceSizeSlug);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealthCheckSpec>("liveness_health_check", LivenessHealthCheck);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition>("log_destinations", LogDestinations);
             writer.WriteStringValue("name", Name);

@@ -25,7 +25,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.sessions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">URN of the session, for example `do:managed_agent_session:&lt;uuid&gt;`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder this[string position]
         {

@@ -17,10 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Requires `droplet:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet? Droplet { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet? Droplet { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet Droplet { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet Droplet { get; set; }
 #endif
         /// <summary>The public IP address of the reserved IPv6. It also serves as its identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "droplet", n => { Droplet = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet.CreateFromDiscriminatorValue); } },
+                { "droplet", n => { Droplet = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet.CreateFromDiscriminatorValue); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
                 { "region_slug", n => { RegionSlug = n.GetStringValue(); } },
                 { "reserved_at", n => { ReservedAt = n.GetDateTimeOffsetValue(); } },
@@ -78,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet>("droplet", Droplet);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet>("droplet", Droplet);
             writer.WriteStringValue("ip", Ip);
             writer.WriteStringValue("region_slug", RegionSlug);
             writer.WriteDateTimeOffsetValue("reserved_at", ReservedAt);

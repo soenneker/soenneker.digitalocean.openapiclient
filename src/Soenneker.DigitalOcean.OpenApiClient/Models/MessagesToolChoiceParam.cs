@@ -8,19 +8,11 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamBranch1"/>, <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamOneOf2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamOneOf2"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagesToolChoiceParam : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamBranch1? MessagesToolChoiceParamBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamBranch1 MessagesToolChoiceParamBranch1 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,6 +20,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamOneOf2 MessagesToolChoiceParamOneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? String { get; set; }
+#nullable restore
+#else
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParam();
-            if("MessagesToolChoiceParamBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MessagesToolChoiceParamBranch1 = new global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamBranch1();
-            }
-            else if("MessagesToolChoiceParamOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("MessagesToolChoiceParamOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessagesToolChoiceParamOneOf2 = new global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamOneOf2();
+            }
+            else if(parseNode.GetStringValue() is string stringValue)
+            {
+                result.String = stringValue;
             }
             return result;
         }
@@ -55,11 +55,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(MessagesToolChoiceParamBranch1 != null)
-            {
-                return MessagesToolChoiceParamBranch1.GetFieldDeserializers();
-            }
-            else if(MessagesToolChoiceParamOneOf2 != null)
+            if(MessagesToolChoiceParamOneOf2 != null)
             {
                 return MessagesToolChoiceParamOneOf2.GetFieldDeserializers();
             }
@@ -72,13 +68,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(MessagesToolChoiceParamBranch1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamBranch1>(null, MessagesToolChoiceParamBranch1);
-            }
-            else if(MessagesToolChoiceParamOneOf2 != null)
+            if(MessagesToolChoiceParamOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesToolChoiceParamOneOf2>(null, MessagesToolChoiceParamOneOf2);
+            }
+            else if(String != null)
+            {
+                writer.WriteStringValue(null, String);
             }
         }
     }

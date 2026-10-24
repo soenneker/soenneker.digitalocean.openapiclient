@@ -8,37 +8,31 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// An array containing the names of the Tags to be assigned to the firewall.
+    /// Settings for scaling the component based on requests per second.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class FirewallsAddTagsRequestTags : IAdditionalDataHolder, IParsable
+    public partial class AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A flat array of tag names as strings to be applied to the resource. Tag names must exist in order to be referenced in a request. &lt;br&gt;&lt;br&gt;Requires `tag:create` and `tag:read` scopes.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Value { get; set; }
-#nullable restore
-#else
-        public List<string> Value { get; set; }
-#endif
+        /// <summary>The target number of requests per second per instance for the component.</summary>
+        public int? PerInstance { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsAddTagsRequestTags"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond"/> and sets the default values.
         /// </summary>
-        public FirewallsAddTagsRequestTags()
+        public AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsAddTagsRequestTags"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsAddTagsRequestTags CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsAddTagsRequestTags();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +42,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "per_instance", n => { PerInstance = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("value", Value);
+            writer.WriteIntValue("per_instance", PerInstance);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

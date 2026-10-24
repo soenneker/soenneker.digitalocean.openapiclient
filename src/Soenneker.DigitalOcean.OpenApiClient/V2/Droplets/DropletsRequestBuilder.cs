@@ -37,9 +37,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Droplets
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Droplets.Backups.BackupsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.droplets.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a Droplet instance.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Droplets.Item.WithDropletItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Droplets.Item.WithDropletItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Droplets.Item.WithDropletItemRequestBuilder this[int position]
         {
             get
             {

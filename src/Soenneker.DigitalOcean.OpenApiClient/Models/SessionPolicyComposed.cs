@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Tool-permission policy of a session.
+    /// The session&apos;s tool-permission policy.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionPolicyComposed : IAdditionalDataHolder, IParsable

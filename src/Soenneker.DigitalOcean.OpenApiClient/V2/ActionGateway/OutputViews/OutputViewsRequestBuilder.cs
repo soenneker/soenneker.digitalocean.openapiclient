@@ -25,7 +25,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews.Preview.PreviewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.outputViews.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Output view ID.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews.Item.WithViewItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews.Item.WithViewItemRequestBuilder this[string position]
         {

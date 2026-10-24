@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots
     public partial class SnapshotsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.snapshots.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Either the ID of an existing snapshot. This will be an integer for a Droplet snapshot or a string for a volume snapshot.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots.Item.WithSnapshotItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots.Item.WithSnapshotItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots.Item.WithSnapshotItemRequestBuilder this[int position]
         {
             get
             {

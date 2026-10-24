@@ -24,10 +24,10 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}
+    /// Builds and executes requests for operations under \v2\apps\{id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AppItemRequestBuilder : BaseRequestBuilder
+    public partial class AppsItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The alerts property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Alerts.AlertsRequestBuilder Alerts
@@ -90,19 +90,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Rollback.RollbackRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AppItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}{?name*}", pathParameters)
+        public AppsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}{?name*}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AppItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}{?name*}", rawUrl)
+        public AppsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}{?name*}", rawUrl)
         {
         }
         /// <summary>
@@ -149,11 +149,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder.AppItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder.AppsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder.AppItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder.AppsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -226,11 +226,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder.AppItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder.AppsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder.AppItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder.AppsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -263,17 +263,17 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.AppsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Retrieve details about an existing app by either its ID or name. To retrieve an app by its name, do not include an ID in the request path. Information about the current active deployment as well as any in progress ones will also be included in the response.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppItemRequestBuilderGetQueryParameters 
+        public partial class AppsItemRequestBuilderGetQueryParameters 
         {
             /// <summary>The name of the app to retrieve.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

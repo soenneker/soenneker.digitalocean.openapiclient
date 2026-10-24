@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocations.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\jobs\{jobName}\invocations\{jobInvocationId}
+    /// Builds and executes requests for operations under \v2\apps\{id}\jobs\{jobName}\invocations\{jobInvocationId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithJobInvocationItemRequestBuilder : BaseRequestBuilder
@@ -25,7 +25,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocation
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithJobInvocationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/jobs/{jobName}/invocations/{jobInvocationId}", pathParameters)
+        public WithJobInvocationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/jobs/{jobName}/invocations/{jobInvocationId}", pathParameters)
         {
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocation
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithJobInvocationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/jobs/{jobName}/invocations/{jobInvocationId}", rawUrl)
+        public WithJobInvocationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/jobs/{jobName}/invocations/{jobInvocationId}", rawUrl)
         {
         }
     }

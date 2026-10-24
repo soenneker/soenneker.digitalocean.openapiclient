@@ -31,9 +31,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Volumes
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Volumes.Snapshots.SnapshotsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.volumes.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID of the block storage volume.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Volumes.Item.WithVolumeItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Volumes.Item.WithVolumeItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Volumes.Item.WithVolumeItemRequestBuilder this[Guid position]
         {
             get
             {

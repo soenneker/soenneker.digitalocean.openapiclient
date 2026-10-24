@@ -20,14 +20,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.genAi.evaluation_test_cases.item collection</summary>
         /// <param name="position">The test case uuid to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("evaluationTestCaseUu%2Did", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.EvaluationTestCaseUuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("evaluationTestCaseUuid", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.WithEvaluationTestCaseUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

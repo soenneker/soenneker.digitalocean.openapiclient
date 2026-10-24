@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.Agents
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\anthropic\keys\{apiKeyUu-id}\agents
+    /// Builds and executes requests for operations under \v2\gen-ai\anthropic\keys\{apiKeyUuid}\agents
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.Agen
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AgentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/anthropic/keys/{apiKeyUu%2Did}/agents{?page*,per_page*}", pathParameters)
+        public AgentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/anthropic/keys/{apiKeyUuid}/agents{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Anthropic.Keys.Item.Agen
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AgentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/anthropic/keys/{apiKeyUu%2Did}/agents{?page*,per_page*}", rawUrl)
+        public AgentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/anthropic/keys/{apiKeyUuid}/agents{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>

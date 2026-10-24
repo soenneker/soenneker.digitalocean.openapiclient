@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Sinks.Destinations
     public partial class DestinationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.monitoring.sinks.destinations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a destination.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Sinks.Destinations.Item.WithDestinationUuItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Sinks.Destinations.Item.WithDestinationUuItemRequestBuilder this[string position]
         {

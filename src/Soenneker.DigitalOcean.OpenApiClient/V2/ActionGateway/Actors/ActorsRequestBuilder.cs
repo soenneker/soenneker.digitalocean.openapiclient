@@ -16,7 +16,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Actors
     public partial class ActorsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.actors.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Actor ID: a session `actor_id` or a connection `user_id`, 1 to 64 characters from `[A-Za-z0-9._-]`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Actors.Item.WithActorItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Actors.Item.WithActorItemRequestBuilder this[string position]
         {

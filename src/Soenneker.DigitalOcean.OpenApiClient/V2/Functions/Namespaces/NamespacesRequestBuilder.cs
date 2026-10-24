@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces
     public partial class NamespacesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.functions.namespaces.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID of the namespace to be managed.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces.Item.WithNamespaceItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces.Item.WithNamespaceItemRequestBuilder this[string position]
         {

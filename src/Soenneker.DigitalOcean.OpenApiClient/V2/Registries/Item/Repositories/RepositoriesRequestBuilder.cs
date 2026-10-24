@@ -16,7 +16,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.Repositories
     public partial class RepositoriesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.registries.item.repositories.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of a container registry repository. If the name contains `/` characters, they must be URL-encoded, e.g. `%2F`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.Repositories.Item.WithRepositoryNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registries.Item.Repositories.Item.WithRepositoryNameItemRequestBuilder this[string position]
         {

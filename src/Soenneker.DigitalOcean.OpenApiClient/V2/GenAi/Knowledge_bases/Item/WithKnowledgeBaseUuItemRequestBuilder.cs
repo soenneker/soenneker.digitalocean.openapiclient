@@ -4,87 +4,51 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Api_keys;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Deployment_visibility;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Functions;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Knowledge_bases;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Usage;
-using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Versions;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Data_sources;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Indexing_jobs;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
+namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\agents\{agentUu-id}
+    /// Builds and executes requests for operations under \v2\gen-ai\knowledge_bases\{knowledgeBaseUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AgentUuItemRequestBuilder : BaseRequestBuilder
+    public partial class WithKnowledgeBaseUuItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The api_keys property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Api_keys.Api_keysRequestBuilder Api_keys
+        /// <summary>The data_sources property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Data_sources.Data_sourcesRequestBuilder Data_sources
         {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Api_keys.Api_keysRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Data_sources.Data_sourcesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The child_agents property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents.Child_agentsRequestBuilder Child_agents
+        /// <summary>The indexing_jobs property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Indexing_jobs.Indexing_jobsRequestBuilder Indexing_jobs
         {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Child_agents.Child_agentsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The deployment_visibility property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Deployment_visibility.Deployment_visibilityRequestBuilder Deployment_visibility
-        {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Deployment_visibility.Deployment_visibilityRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The functions property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Functions.FunctionsRequestBuilder Functions
-        {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Functions.FunctionsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The guardrails property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails.GuardrailsRequestBuilder Guardrails
-        {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Guardrails.GuardrailsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The knowledge_bases property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Knowledge_bases.Knowledge_basesRequestBuilder Knowledge_bases
-        {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Knowledge_bases.Knowledge_basesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The usage property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Usage.UsageRequestBuilder Usage
-        {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Usage.UsageRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The versions property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Versions.VersionsRequestBuilder Versions
-        {
-            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.Versions.VersionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Indexing_jobs.Indexing_jobsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.AgentUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.WithKnowledgeBaseUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AgentUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUu%2Did}", pathParameters)
+        public WithKnowledgeBaseUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.AgentUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.WithKnowledgeBaseUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AgentUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/agents/{agentUu%2Did}", rawUrl)
+        public WithKnowledgeBaseUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}", rawUrl)
         {
         }
         /// <summary>
-        /// To delete an agent, send a DELETE request to `/v2/gen-ai/agents/{uuid}`.
+        /// To delete a knowledge base, send a DELETE request to `/v2/gen-ai/knowledge_bases/{uuid}`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteKnowledgeBaseOutput"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -94,11 +58,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteKnowledgeBaseOutput?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteKnowledgeBaseOutput> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -110,12 +74,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteAgentOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteKnowledgeBaseOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiDeleteKnowledgeBaseOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To retrieve details of an agent, GET request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
+        /// To retrive information about an existing knowledge base, send a GET request to `/v2/gen-ai/knowledge_bases/{uuid}`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetKnowledgeBaseOutput"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -125,11 +89,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetKnowledgeBaseOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetKnowledgeBaseOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -141,13 +105,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetAgentOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetKnowledgeBaseOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGetKnowledgeBaseOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To update an agent, send a PUT request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
+        /// To update a knowledge base, send a PUT request to `/v2/gen-ai/knowledge_bases/{uuid}`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput"/></returns>
-        /// <param name="body">Data to modify an existing Agent</param>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseOutput"/></returns>
+        /// <param name="body">Information about updating a knowledge base</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -157,11 +121,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput?> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseOutput?> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseOutput> PutAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -174,10 +138,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseOutput>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To delete an agent, send a DELETE request to `/v2/gen-ai/agents/{uuid}`.
+        /// To delete a knowledge base, send a DELETE request to `/v2/gen-ai/knowledge_bases/{uuid}`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -196,7 +160,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
             return requestInfo;
         }
         /// <summary>
-        /// To retrieve details of an agent, GET request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
+        /// To retrive information about an existing knowledge base, send a GET request to `/v2/gen-ai/knowledge_bases/{uuid}`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -215,18 +179,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
             return requestInfo;
         }
         /// <summary>
-        /// To update an agent, send a PUT request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
+        /// To update a knowledge base, send a PUT request to `/v2/gen-ai/knowledge_bases/{uuid}`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Data to modify an existing Agent</param>
+        /// <param name="body">Information about updating a knowledge base</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateAgentInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseInputPublic body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -239,11 +203,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.AgentUuItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.WithKnowledgeBaseUuItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.AgentUuItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.WithKnowledgeBaseUuItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Agents.Item.AgentUuItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.WithKnowledgeBaseUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

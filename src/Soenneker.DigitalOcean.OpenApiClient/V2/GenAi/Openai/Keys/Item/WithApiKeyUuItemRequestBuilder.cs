@@ -13,10 +13,10 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\openai\keys\{apiKeyUu-id}
+    /// Builds and executes requests for operations under \v2\gen-ai\openai\keys\{apiKeyUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ApiKeyUuItemRequestBuilder : BaseRequestBuilder
+    public partial class WithApiKeyUuItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The agents property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.Agents.AgentsRequestBuilder Agents
@@ -24,19 +24,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.ApiKeyUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.WithApiKeyUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ApiKeyUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/openai/keys/{apiKeyUu%2Did}", pathParameters)
+        public WithApiKeyUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/openai/keys/{apiKeyUuid}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.ApiKeyUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.WithApiKeyUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ApiKeyUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/openai/keys/{apiKeyUu%2Did}", rawUrl)
+        public WithApiKeyUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/openai/keys/{apiKeyUuid}", rawUrl)
         {
         }
         /// <summary>
@@ -197,11 +197,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.ApiKeyUuItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.WithApiKeyUuItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.ApiKeyUuItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.WithApiKeyUuItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.ApiKeyUuItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Openai.Keys.Item.WithApiKeyUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

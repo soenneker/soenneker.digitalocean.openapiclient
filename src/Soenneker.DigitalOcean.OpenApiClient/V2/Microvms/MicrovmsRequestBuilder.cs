@@ -31,9 +31,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Options.OptionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.microvms.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique ID of the MicroVM.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.WithMicrovmItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.WithMicrovmItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.WithMicrovmItemRequestBuilder this[Guid position]
         {
             get
             {

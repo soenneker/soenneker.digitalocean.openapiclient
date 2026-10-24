@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ips
     public partial class Reserved_ipsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.reserved_ips.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A reserved IP address.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ips.Item.WithReservedIpItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ips.Item.WithReservedIpItemRequestBuilder this[string position]
         {

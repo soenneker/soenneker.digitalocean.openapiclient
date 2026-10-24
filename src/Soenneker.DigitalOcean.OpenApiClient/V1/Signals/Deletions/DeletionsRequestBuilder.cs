@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Deletions
     public partial class DeletionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v1.signals.deletions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a data deletion job.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Deletions.Item.WithDeletionItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Deletions.Item.WithDeletionItemRequestBuilder this[string position]
         {

@@ -51,7 +51,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
-        /// <summary>The insights property</summary>
+        /// <summary>The per-signal telemetry opt-in recorded at create time. Absent when the customer expressed no choice. This echoes the create-time request only: a customer who later re-toggles a signal from the Insights settings page changes their enablement there, not here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigInsights? Insights { get; set; }

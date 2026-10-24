@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Topics
     public partial class TopicsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.databases.item.topics.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name used to identify the Kafka topic.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Topics.Item.WithTopicNameItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Databases.Item.Topics.Item.WithTopicNameItemRequestBuilder this[string position]
         {

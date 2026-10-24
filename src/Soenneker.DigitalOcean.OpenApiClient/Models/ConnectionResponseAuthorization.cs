@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Present only while a connection is pending. Send the user to `connect_url`, then read the connection until it becomes active or expired.
+    /// Present only while the connection is pending.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionResponseAuthorization : IAdditionalDataHolder, IParsable

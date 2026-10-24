@@ -16,9 +16,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents
     public partial class AgentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v1.signals.agents.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for an environment. For Harness Runtime, this is the Environment Config ID.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.WithAgentItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.WithAgentItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.WithAgentItemRequestBuilder this[Guid position]
         {
             get
             {

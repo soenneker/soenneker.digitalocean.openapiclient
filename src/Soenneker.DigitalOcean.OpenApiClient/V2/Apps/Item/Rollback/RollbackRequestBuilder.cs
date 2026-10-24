@@ -15,7 +15,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Rollback
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\rollback
+    /// Builds and executes requests for operations under \v2\apps\{id}\rollback
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RollbackRequestBuilder : BaseRequestBuilder
@@ -40,7 +40,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Rollback
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RollbackRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/rollback", pathParameters)
+        public RollbackRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/rollback", pathParameters)
         {
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Rollback
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RollbackRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/rollback", rawUrl)
+        public RollbackRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/rollback", rawUrl)
         {
         }
         /// <summary>

@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces.Item.Keys
     public partial class KeysRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.functions.namespaces.item.keys.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID of the access key to be managed.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces.Item.Keys.Item.WithKeyItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Functions.Namespaces.Item.Keys.Item.WithKeyItemRequestBuilder this[string position]
         {

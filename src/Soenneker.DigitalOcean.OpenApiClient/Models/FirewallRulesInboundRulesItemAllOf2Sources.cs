@@ -47,13 +47,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public List<string> LoadBalancerUids { get; set; }
 #endif
-        /// <summary>An array containing the names of Tags corresponding to groups of Droplets to which the firewall will allow traffic.</summary>
+        /// <summary>A flat array of tag names as strings to be applied to the resource. Tag names must exist in order to be referenced in a request. &lt;br&gt;&lt;br&gt;Requires `tag:create` and `tag:read` scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleTargetTags? Tags { get; set; }
+        public List<string>? Tags { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleTargetTags Tags { get; set; }
+        public List<string> Tags { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItemAllOf2Sources"/> and sets the default values.
@@ -84,7 +84,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "droplet_ids", n => { DropletIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "kubernetes_ids", n => { KubernetesIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "load_balancer_uids", n => { LoadBalancerUids = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleTargetTags>(global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleTargetTags.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -98,7 +98,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("droplet_ids", DropletIds);
             writer.WriteCollectionOfPrimitiveValues<string>("kubernetes_ids", KubernetesIds);
             writer.WriteCollectionOfPrimitiveValues<string>("load_balancer_uids", LoadBalancerUids);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRuleTargetTags>("tags", Tags);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

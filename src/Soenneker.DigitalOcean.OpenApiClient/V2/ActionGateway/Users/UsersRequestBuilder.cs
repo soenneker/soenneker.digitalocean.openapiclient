@@ -19,7 +19,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users
     public partial class UsersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.users.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">User ID.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users.Item.WithUserItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Users.Item.WithUserItemRequestBuilder this[string position]
         {

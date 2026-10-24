@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Uptime.Checks.Item.Alerts
     public partial class AlertsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.uptime.checks.item.alerts.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for an alert.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Uptime.Checks.Item.Alerts.Item.WithAlertItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Uptime.Checks.Item.Alerts.Item.WithAlertItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Uptime.Checks.Item.Alerts.Item.WithAlertItemRequestBuilder this[Guid position]
         {
             get
             {

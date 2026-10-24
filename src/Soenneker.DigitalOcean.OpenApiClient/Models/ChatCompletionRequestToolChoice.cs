@@ -8,11 +8,13 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf2"/>, <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf1"/>, <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionRequestToolChoice : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf1"/></summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf1? ChatCompletionRequestToolChoiceOneOf1 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,14 +22,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf2 ChatCompletionRequestToolChoiceOneOf2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceWrapper? ChatCompletionRequestToolChoiceWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceWrapper ChatCompletionRequestToolChoiceWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +33,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoice();
-            if("ChatCompletionRequestToolChoiceOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf1>() is global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf1 chatCompletionRequestToolChoiceOneOf1Value)
+            {
+                result.ChatCompletionRequestToolChoiceOneOf1 = chatCompletionRequestToolChoiceOneOf1Value;
+            }
+            else if("ChatCompletionRequestToolChoiceOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ChatCompletionRequestToolChoiceOneOf2 = new global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf2();
-            }
-            else if("ChatCompletionRequestToolChoiceWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ChatCompletionRequestToolChoiceWrapper = new global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceWrapper();
             }
             return result;
         }
@@ -59,10 +53,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 return ChatCompletionRequestToolChoiceOneOf2.GetFieldDeserializers();
             }
-            else if(ChatCompletionRequestToolChoiceWrapper != null)
-            {
-                return ChatCompletionRequestToolChoiceWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +62,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ChatCompletionRequestToolChoiceOneOf2 != null)
+            if(ChatCompletionRequestToolChoiceOneOf1 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf1>(null, ChatCompletionRequestToolChoiceOneOf1);
+            }
+            else if(ChatCompletionRequestToolChoiceOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceOneOf2>(null, ChatCompletionRequestToolChoiceOneOf2);
-            }
-            else if(ChatCompletionRequestToolChoiceWrapper != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestToolChoiceWrapper>(null, ChatCompletionRequestToolChoiceWrapper);
             }
         }
     }

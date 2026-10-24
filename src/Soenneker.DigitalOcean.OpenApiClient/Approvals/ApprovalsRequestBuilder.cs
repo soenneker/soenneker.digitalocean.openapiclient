@@ -22,9 +22,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Approvals
             get => new global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.SessionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.approvals.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The `approval_id` from a tool result whose `_meta.status` is `requires_approval`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Item.WithApprovalItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Item.WithApprovalItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Item.WithApprovalItemRequestBuilder this[Guid position]
         {
             get
             {

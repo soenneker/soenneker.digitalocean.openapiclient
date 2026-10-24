@@ -15,6 +15,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>One result group per query, in request order.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchToolsGroup>? Results { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchToolsGroup> Results { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DataPlaneSearchToolsResponseOutput"/> and sets the default values.
         /// </summary>
@@ -40,6 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchToolsGroup>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchToolsGroup.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchToolsGroup>("results", Results);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

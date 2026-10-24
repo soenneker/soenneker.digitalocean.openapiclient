@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.Item.Evaluation_runs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\evaluation_test_cases\{evaluationTestCaseUu-id}\evaluation_runs
+    /// Builds and executes requests for operations under \v2\gen-ai\evaluation_test_cases\{evaluationTestCaseUuid}\evaluation_runs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Evaluation_runsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.It
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Evaluation_runsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUu%2Did}/evaluation_runs{?evaluation_test_case_version*}", pathParameters)
+        public Evaluation_runsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUuid}/evaluation_runs{?evaluation_test_case_version*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Evaluation_test_cases.It
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Evaluation_runsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUu%2Did}/evaluation_runs{?evaluation_test_case_version*}", rawUrl)
+        public Evaluation_runsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/evaluation_test_cases/{evaluationTestCaseUuid}/evaluation_runs{?evaluation_test_case_version*}", rawUrl)
         {
         }
         /// <summary>

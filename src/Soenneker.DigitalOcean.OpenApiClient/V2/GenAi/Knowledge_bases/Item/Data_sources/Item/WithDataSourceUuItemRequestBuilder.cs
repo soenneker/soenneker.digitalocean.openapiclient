@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Data_sources.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\gen-ai\knowledge_bases\{knowledgeBaseUu-id}\data_sources\{dataSourceUuid}
+    /// Builds and executes requests for operations under \v2\gen-ai\knowledge_bases\{knowledgeBaseUuid}\data_sources\{dataSourceUuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithDataSourceUuItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Dat
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithDataSourceUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUu%2Did}/data_sources/{dataSourceUuid}", pathParameters)
+        public WithDataSourceUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}/data_sources/{dataSourceUuid}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Knowledge_bases.Item.Dat
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithDataSourceUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUu%2Did}/data_sources/{dataSourceUuid}", rawUrl)
+        public WithDataSourceUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/knowledge_bases/{knowledgeBaseUuid}/data_sources/{dataSourceUuid}", rawUrl)
         {
         }
         /// <summary>

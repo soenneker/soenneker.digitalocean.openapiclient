@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Checkpoints
     public partial class CheckpointsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.microvms.checkpoints.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique ID of the checkpoint.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Checkpoints.Item.WithCheckpointItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Checkpoints.Item.WithCheckpointItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Checkpoints.Item.WithCheckpointItemRequestBuilder this[Guid position]
         {
             get
             {

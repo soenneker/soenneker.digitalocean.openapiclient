@@ -19,9 +19,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.Token
     public partial class TokensRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.dedicatedInferences.item.tokens.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A unique identifier for a Dedicated Inference access token.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.Tokens.Item.WithTokenItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.Tokens.Item.WithTokenItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.DedicatedInferences.Item.Tokens.Item.WithTokenItemRequestBuilder this[Guid position]
         {
             get
             {

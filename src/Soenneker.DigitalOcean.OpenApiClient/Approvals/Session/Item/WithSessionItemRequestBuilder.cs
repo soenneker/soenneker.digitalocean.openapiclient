@@ -16,9 +16,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item
     public partial class WithSessionItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.approvals.session.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The `approval_id` from a tool result whose `_meta.status` is `requires_approval`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item.Item.WithApprovalItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item.Item.WithApprovalItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item.Item.WithApprovalItemRequestBuilder this[Guid position]
         {
             get
             {

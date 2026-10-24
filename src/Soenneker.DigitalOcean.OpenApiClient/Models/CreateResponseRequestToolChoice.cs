@@ -8,11 +8,13 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2"/>, <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1"/>, <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateResponseRequestToolChoice : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1"/></summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1? CreateResponseRequestToolChoiceOneOf1 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,14 +22,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2 CreateResponseRequestToolChoiceOneOf2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceWrapper? CreateResponseRequestToolChoiceWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceWrapper CreateResponseRequestToolChoiceWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +33,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoice();
-            if("CreateResponseRequestToolChoiceOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1>() is global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1 createResponseRequestToolChoiceOneOf1Value)
+            {
+                result.CreateResponseRequestToolChoiceOneOf1 = createResponseRequestToolChoiceOneOf1Value;
+            }
+            else if("CreateResponseRequestToolChoiceOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateResponseRequestToolChoiceOneOf2 = new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2();
-            }
-            else if("CreateResponseRequestToolChoiceWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateResponseRequestToolChoiceWrapper = new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceWrapper();
             }
             return result;
         }
@@ -59,10 +53,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 return CreateResponseRequestToolChoiceOneOf2.GetFieldDeserializers();
             }
-            else if(CreateResponseRequestToolChoiceWrapper != null)
-            {
-                return CreateResponseRequestToolChoiceWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +62,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateResponseRequestToolChoiceOneOf2 != null)
+            if(CreateResponseRequestToolChoiceOneOf1 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1>(null, CreateResponseRequestToolChoiceOneOf1);
+            }
+            else if(CreateResponseRequestToolChoiceOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2>(null, CreateResponseRequestToolChoiceOneOf2);
-            }
-            else if(CreateResponseRequestToolChoiceWrapper != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceWrapper>(null, CreateResponseRequestToolChoiceWrapper);
             }
         }
     }

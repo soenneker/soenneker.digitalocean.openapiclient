@@ -16,9 +16,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.Insights
     public partial class InsightsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.billing.item.insights.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Start date for billing insights in YYYY-MM-DD format</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.Insights.Item.WithStartDateItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.Insights.Item.WithStartDateItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Billing.Item.Insights.Item.WithStartDateItemRequestBuilder this[Date position]
         {
             get
             {

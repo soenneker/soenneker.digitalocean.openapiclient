@@ -31,9 +31,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.Rules.RulesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.security.scans.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The scan UUID.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.Item.WithScanItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.Item.WithScanItemRequestBuilder this[string position]
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.Item.WithScanItemRequestBuilder this[Guid position]
         {
             get
             {

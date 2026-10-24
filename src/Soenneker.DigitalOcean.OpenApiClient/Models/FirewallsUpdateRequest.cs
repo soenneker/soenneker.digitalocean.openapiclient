@@ -66,13 +66,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>A status string indicating the current state of the firewall. This can be &quot;waiting&quot;, &quot;succeeded&quot;, or &quot;failed&quot;.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallStatus? Status { get; private set; }
-        /// <summary>An array containing the names of the Tags assigned to the firewall. &lt;br&gt;&lt;br&gt;Requires `tag:read` scope.</summary>
+        /// <summary>A flat array of tag names as strings to be applied to the resource. Tag names must exist in order to be referenced in a request. &lt;br&gt;&lt;br&gt;Requires `tag:create` and `tag:read` scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallAllOf1Tags? Tags { get; set; }
+        public List<string>? Tags { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallAllOf1Tags Tags { get; set; }
+        public List<string> Tags { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsUpdateRequest"/> and sets the default values.
@@ -107,7 +107,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "outbound_rules", n => { OutboundRules = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>(global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pending_changes", n => { PendingChanges = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallAllOf1PendingChangesItem>(global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallAllOf1PendingChangesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallStatus>(); } },
-                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallAllOf1Tags>(global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallAllOf1Tags.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -121,7 +121,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem>("inbound_rules", InboundRules);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>("outbound_rules", OutboundRules);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallAllOf1Tags>("tags", Tags);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -10,13 +10,13 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocations
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\apps\{app-id}\jobs\{jobName}\invocations
+    /// Builds and executes requests for operations under \v2\apps\{id}\jobs\{jobName}\invocations
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InvocationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.apps.item.jobs.item.invocations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID of the job invocation to retrieve.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocations.Item.WithJobInvocationItemRequestBuilder"/></returns>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocations.Item.WithJobInvocationItemRequestBuilder this[string position]
         {
@@ -32,7 +32,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocation
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvocationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/jobs/{jobName}/invocations", pathParameters)
+        public InvocationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/jobs/{jobName}/invocations", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Apps.Item.Jobs.Item.Invocation
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvocationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{app%2Did}/jobs/{jobName}/invocations", rawUrl)
+        public InvocationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/apps/{id}/jobs/{jobName}/invocations", rawUrl)
         {
         }
     }
