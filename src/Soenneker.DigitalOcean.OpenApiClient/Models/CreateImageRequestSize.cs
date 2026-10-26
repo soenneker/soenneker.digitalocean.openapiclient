@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The size of the generated images. GPT-IMAGE-1 supports: auto (automatically select best size), 1536x1024 (landscape), 1024x1536 (portrait).</summary>
+    /// <summary>The size of the generated images. GPT-IMAGE-2 supports: auto (automatically select best size), 1536x1024 (landscape), 1024x1536 (portrait).</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateImageRequestSize
     {

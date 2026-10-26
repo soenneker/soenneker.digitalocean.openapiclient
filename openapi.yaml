@@ -60204,7 +60204,7 @@ paths:
       operationId: inference_create_image
       summary: Generate images from text prompts
       description: >-
-        Creates a high-quality image from a text prompt using GPT-IMAGE-1, the
+        Creates a high-quality image from a text prompt using GPT-IMAGE-2, the
         latest image generation model with automatic prompt optimization and
         enhanced visual capabilities.
       tags:
@@ -60252,7 +60252,7 @@ paths:
             curl -X POST \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
-              -d '{"prompt": "A cute baby sea otter floating on its back in calm blue water", "model": "openai-gpt-image-1", "size": "auto", "quality": "auto"}' \
+              -d '{"prompt": "A cute baby sea otter floating on its back in calm blue water", "model": "openai-gpt-image-2", "size": "auto", "quality": "auto"}' \
               "https://inference.do-ai.run/v1/images/generations"
         - lang: Python
           source: |-
@@ -60262,7 +60262,7 @@ paths:
             client = Client(token=os.environ.get("DIGITALOCEAN_TOKEN"))
 
             resp = client.images.generate(
-                model="openai-gpt-image-1",
+                model="openai-gpt-image-2",
                 prompt="A cute baby sea otter floating on its back in calm blue water",
                 size="auto",
                 quality="auto",
@@ -60287,7 +60287,7 @@ paths:
                 ctx := context.Background()
 
                 resp, _, err := client.ImageGenerations.Generate(ctx, &godo.ImageGenerateParams{
-                    Model:   "openai-gpt-image-1",
+                    Model:   "openai-gpt-image-2",
                     Prompt:  "A cute baby sea otter floating on its back in calm blue water",
                     Size:    godo.PtrTo("auto"),
                     Quality: godo.PtrTo("auto"),
@@ -60308,7 +60308,7 @@ paths:
             });
 
             const resp = await client.images.generate({
-                model: "openai-gpt-image-1",
+                model: "openai-gpt-image-2",
                 prompt: "A cute baby sea otter floating on its back in calm blue water",
                 size: "auto",
                 quality: "auto",
@@ -102458,7 +102458,7 @@ components:
           type: string
           description: |
             The model to use for image generation.
-          example: openai-gpt-image-1
+          example: openai-gpt-image-2
         moderation:
           type: string
           nullable: true
@@ -102504,7 +102504,7 @@ components:
         size:
           type: string
           description: >
-            The size of the generated images. GPT-IMAGE-1 supports: auto
+            The size of the generated images. GPT-IMAGE-2 supports: auto
             (automatically select best size), 1536x1024 (landscape), 1024x1536
             (portrait).
           enum:

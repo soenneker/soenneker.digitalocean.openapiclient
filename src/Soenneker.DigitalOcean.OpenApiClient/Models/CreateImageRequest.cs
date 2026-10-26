@@ -69,7 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string Quality { get; set; }
 #endif
-        /// <summary>The size of the generated images. GPT-IMAGE-1 supports: auto (automatically select best size), 1536x1024 (landscape), 1024x1536 (portrait).</summary>
+        /// <summary>The size of the generated images. GPT-IMAGE-2 supports: auto (automatically select best size), 1536x1024 (landscape), 1024x1536 (portrait).</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateImageRequestSize? Size { get; set; }
         /// <summary>If set to true, partial image data will be streamed as the image is being generated. The response will be sent as server-sent events with partial image chunks. When stream is true, partial_images must be greater than 0.</summary>
         public bool? Stream { get; set; }

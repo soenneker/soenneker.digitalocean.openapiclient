@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Images.Generations
         {
         }
         /// <summary>
-        /// Creates a high-quality image from a text prompt using GPT-IMAGE-1, the latest image generation model with automatic prompt optimization and enhanced visual capabilities.
+        /// Creates a high-quality image from a text prompt using GPT-IMAGE-2, the latest image generation model with automatic prompt optimization and enhanced visual capabilities.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ImagesResponse"/></returns>
         /// <param name="body">Request body for image generation.</param>
@@ -65,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Images.Generations
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ImagesResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ImagesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a high-quality image from a text prompt using GPT-IMAGE-1, the latest image generation model with automatic prompt optimization and enhanced visual capabilities.
+        /// Creates a high-quality image from a text prompt using GPT-IMAGE-2, the latest image generation model with automatic prompt optimization and enhanced visual capabilities.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request body for image generation.</param>
