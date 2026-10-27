@@ -31289,7 +31289,7 @@ paths:
         The `source` query parameter is required. Per-environment consent for
         Harness
 
-        Runtime environments is managed with `PUT /v1/consent/{agent_id}`
+        Runtime environments is managed with `PUT /v1/consent/{environment_id}`
         instead.
       tags:
         - Signals
@@ -31333,14 +31333,15 @@ paths:
       security:
         - bearer_auth:
             - signals:update
-  /v1/consent/{agent_id}:
+  /v1/consent/{environment_id}:
     get:
       operationId: signals_get_consent
       summary: Retrieve Consent for an Environment
       description: >
         To retrieve the consent record for a specific environment, send a GET
 
-        request to `/v1/consent/{agent_id}`. The response includes an `enabled`
+        request to `/v1/consent/{environment_id}`. The response includes an
+        `enabled`
 
         field indicating whether signals collection is on for this environment.
 
@@ -31352,7 +31353,7 @@ paths:
       tags:
         - Signals
       parameters:
-        - $ref: '#/components/parameters/agent_id'
+        - $ref: '#/components/parameters/environment_id'
       responses:
         '200':
           $ref: '#/components/responses/agent_consent_response'
@@ -31384,7 +31385,8 @@ paths:
         To enable or disable signals collection for a specific environment, send
         a
 
-        PUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in the
+        PUT request to `/v1/consent/{environment_id}` with an `enabled` boolean
+        in the
 
         request body.
 
@@ -31398,7 +31400,7 @@ paths:
       tags:
         - Signals
       parameters:
-        - $ref: '#/components/parameters/agent_id'
+        - $ref: '#/components/parameters/environment_id'
       requestBody:
         required: true
         content:
@@ -31439,7 +31441,7 @@ paths:
       security:
         - bearer_auth:
             - signals:update
-  /v1/signals/agents/{agent_id}/sessions:
+  /v1/signals/agents/{environment_id}/sessions:
     get:
       operationId: signals_list_agent_sessions
       summary: List Sessions for an Environment
@@ -31447,14 +31449,14 @@ paths:
         To list signals sessions for a specific environment, send a GET request
         to
 
-        `/v1/signals/agents/{agent_id}/sessions`. Results are paginated using
-        cursor-based
+        `/v1/signals/agents/{environment_id}/sessions`. Results are paginated
+        using cursor-based
 
         pagination with `limit` and `after` parameters.
       tags:
         - Signals
       parameters:
-        - $ref: '#/components/parameters/agent_id'
+        - $ref: '#/components/parameters/environment_id'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/after'
         - $ref: '#/components/parameters/start_time'
@@ -31543,6 +31545,8 @@ paths:
       tags:
         - Signals
       parameters:
+        - $ref: '#/components/parameters/environment_id_query'
+        - $ref: '#/components/parameters/agent_id'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/after'
       responses:
@@ -31574,11 +31578,15 @@ paths:
         `/v1/signals/exports`. To export one Harness Runtime environment,
         include its
 
-        `agent_id` (`type` defaults to `agent`). To export the team's Serverless
+        `environment_id` (`type` defaults to `agent`). Deprecated `agent_id` is
+        still
 
-        Inference Signals conversations, set `type` to `inference` and omit
+        accepted. To export the team's Serverless Inference Signals
+        conversations, set
 
-        `agent_id`. You may optionally filter the export by `signal_type`,
+        `type` to `inference` and omit `environment_id` and `agent_id`. You may
+
+        optionally filter the export by `signal_type`,
 
         `session_ids`, `start_time`, and `end_time`. Use the export options
         endpoint
@@ -31604,7 +31612,7 @@ paths:
               agent:
                 summary: Export one Harness Runtime environment
                 value:
-                  agent_id: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
+                  environment_id: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
                   signal_type:
                     - ExecutionFailureToolNotFound
               inference:
@@ -31635,10 +31643,10 @@ paths:
             curl -X POST \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
-              -d '{"agent_id":"01a0f3d5-b58d-7c99-a743-7ca0397b7f5d","signal_type":["ExecutionFailureToolNotFound"]}' \
+              -d '{"environment_id":"01a0f3d5-b58d-7c99-a743-7ca0397b7f5d","signal_type":["ExecutionFailureToolNotFound"]}' \
               "https://api.digitalocean.com/v1/signals/exports"
 
-            # Export the team's Serverless Inference Signals (no agent_id)
+            # Export the team's Serverless Inference Signals (no environment_id)
             curl -X POST \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
@@ -31804,16 +31812,17 @@ paths:
 
         - `agent` — deletes Signals conversations for one Harness Runtime
         environment and
-          turns off collection for that environment. Requires `agent_id`, which is the
-          environment's Environment Config ID (the environment's `agent_id`). On create, matching
-          conversations are hidden from Signals reads immediately. Wait until the
+          turns off collection for that environment. Requires `environment_id` (the
+          environment's Environment Config ID). Deprecated `agent_id` is still accepted;
+          both set and equal is accepted, both set and different returns 400. On create,
+          matching conversations are hidden from Signals reads immediately. Wait until the
           job is `complete` before enabling Signals for the environment again.
         - `inference` — deletes Serverless Inference Signals conversations for
         your
           whole team (team-wide; not limited to one endpoint or model) that were
           collected at or before the deletion request, and turns off team inference
-          collection (`source=inference`). Do not send `agent_id`. On create,
-          matching conversations are hidden from Signals reads immediately.
+          collection (`source=inference`). Do not send `environment_id` or `agent_id`.
+          On create, matching conversations are hidden from Signals reads immediately.
 
         The job runs asynchronously; poll the get endpoint until `status` is
 
@@ -31861,7 +31870,7 @@ paths:
                 value:
                   type: agent
                   team_id: 12345678
-                  agent_id: 01a10d3f-2c09-764f-99f8-458e521627f3
+                  environment_id: 01a10d3f-2c09-764f-99f8-458e521627f3
               Inference:
                 value:
                   type: inference
@@ -31891,7 +31900,7 @@ paths:
             curl -X POST \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
-              -d '{"type":"agent","team_id":12345678,"agent_id":"01a10d3f-2c09-764f-99f8-458e521627f3"}' \
+              -d '{"type":"agent","team_id":12345678,"environment_id":"01a10d3f-2c09-764f-99f8-458e521627f3"}' \
               "https://api.digitalocean.com/v1/signals/deletions"
       security:
         - bearer_auth:
@@ -64379,19 +64388,19 @@ components:
         The consent source to update. Only team-level sources are accepted on
         this endpoint; currently `inference` (Serverless Inference chat
         completions). Per-environment consent (`agent`) is managed with `PUT
-        /v1/consent/{agent_id}` instead.
+        /v1/consent/{environment_id}` instead.
       required: true
       schema:
         type: string
         enum:
           - inference
       example: inference
-    agent_id:
+    environment_id:
       in: path
-      name: agent_id
+      name: environment_id
       description: >-
         A unique identifier for an environment. For Harness Runtime, this is the
-        Environment Config ID.
+        Environment Config ID. Formerly named agent_id.
       required: true
       schema:
         type: string
@@ -64457,6 +64466,28 @@ components:
         type: string
         format: uuid
       example: 01a0f3d5-d5f1-798a-9352-2cd8f8b81e78
+    environment_id_query:
+      in: query
+      name: environment_id
+      description: Optional filter by environment ID.
+      required: false
+      schema:
+        type: string
+        format: uuid
+      example: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
+    agent_id:
+      in: query
+      name: agent_id
+      deprecated: true
+      description: >-
+        Deprecated alias for environment_id. Accepted for backward
+        compatibility; must equal environment_id when both are set. Both set and
+        different returns 400.
+      required: false
+      schema:
+        type: string
+        format: uuid
+      example: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
     export_id:
       in: path
       name: export_id
@@ -80849,6 +80880,10 @@ components:
           type: integer
           description: The number of GPUs allocated to the Droplet.
           example: 1
+        fabric:
+          type: boolean
+          description: If GPU fabric networking is enabled.
+          example: true
         model:
           type: string
           description: The model of the GPU.
@@ -85201,6 +85236,12 @@ components:
             is the Environment Config ID. Empty for team-level records (`source:
             inference`), which are not tied to an environment.
           example: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
+        environment_id:
+          type: string
+          description: >-
+            Same as agent_id when present. Dual-emitted during the rename;
+            omitted when agent_id is empty.
+          example: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
         enabled:
           type: boolean
           description: Whether signals collection is enabled for this source.
@@ -85267,6 +85308,11 @@ components:
             The unique identifier of the environment. For Harness Runtime, this
             is the Environment Config ID.
           example: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
+        environment_id:
+          type: string
+          format: uuid
+          description: Same as agent_id. Dual-emitted during the rename.
+          example: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
         enabled:
           type: boolean
           description: Whether signals collection is enabled for this environment.
@@ -85280,6 +85326,7 @@ components:
         - team_id
         - source
         - agent_id
+        - environment_id
         - enabled
     session-2:
       type: object
@@ -85370,6 +85417,11 @@ components:
             this is the Environment Config ID. Not meaningful for `inference`
             exports; use `type` to distinguish the export scope.
           example: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
+        environment_id:
+          type: string
+          format: uuid
+          description: Same as agent_id. Dual-emitted during the rename.
+          example: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
         status:
           type: string
           description: The current status of the export job.
@@ -85420,9 +85472,9 @@ components:
           example: null
       required:
         - export_id
-        - agent_id
         - status
         - created_at
+        - filters
     create_export_request:
       type: object
       description: Request body to create a new signals data export.
@@ -85431,21 +85483,35 @@ components:
           type: string
           description: >-
             The scope of the export. `agent` exports Signals conversations for
-            one Harness Runtime environment and requires `agent_id`. `inference`
-            exports Serverless Inference Signals conversations for the whole
-            team (team-wide; omit `agent_id`). Defaults to `agent` when
-            `agent_id` is provided and to `inference` when it is omitted.
+            one Harness Runtime environment and requires `environment_id` (or
+            deprecated `agent_id`). `inference` exports Serverless Inference
+            Signals conversations for the whole team (team-wide; omit
+            `environment_id` and `agent_id`). Defaults to `agent` when
+            `environment_id` or `agent_id` is provided and to `inference` when
+            both are omitted.
           enum:
             - agent
             - inference
           example: agent
-        agent_id:
+        environment_id:
           type: string
           format: uuid
           description: >-
             The environment whose data should be exported. For Harness Runtime,
-            this is the Environment Config ID. Required when `type` is `agent`;
-            must be omitted when `type` is `inference`.
+            this is the Environment Config ID. Required when `type` is `agent`
+            if `agent_id` is omitted; must be omitted when `type` is
+            `inference`. Prefer this over `agent_id`.
+          example: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
+        agent_id:
+          type: string
+          format: uuid
+          deprecated: true
+          description: >-
+            Deprecated alias for `environment_id`. Accepted for backward
+            compatibility; must equal `environment_id` when both are set. Both
+            set and different returns 400. Required when `type` is `agent` if
+            `environment_id` is omitted; must be omitted when `type` is
+            `inference`.
           example: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
         signal_type:
           type: array
@@ -85558,6 +85624,13 @@ components:
             The Harness Runtime Environment Config ID (agent UUID) whose
             conversations are being deleted. Only present for `agent` deletions.
           example: 01a10d3f-2c09-764f-99f8-458e521627f3
+        environment_id:
+          type: string
+          format: uuid
+          description: >-
+            Same as agent_id when present. Dual-emitted during the rename;
+            omitted when agent_id is omitted.
+          example: 01a10d3f-2c09-764f-99f8-458e521627f3
         status:
           type: string
           description: The current status of the deletion job.
@@ -85605,9 +85678,10 @@ components:
           type: string
           description: >-
             The scope of the deletion. `agent` deletes Signals conversations for
-            one Harness Runtime environment and requires `agent_id`. `inference`
-            deletes Serverless Inference Signals conversations for the whole
-            team (team-wide; omit `agent_id`).
+            one Harness Runtime environment and requires `environment_id` (or
+            deprecated `agent_id`). `inference` deletes Serverless Inference
+            Signals conversations for the whole team (team-wide; omit
+            `environment_id` and `agent_id`).
           enum:
             - agent
             - inference
@@ -85619,14 +85693,25 @@ components:
             The team whose data should be deleted. Must match the authenticated
             team.
           example: 12345678
-        agent_id:
+        environment_id:
           type: string
           format: uuid
           description: >-
             The Harness Runtime Environment Config ID of the environment whose
-            conversations should be deleted. This is the environment's
-            `agent_id`. Required when `type` is `agent`; must be omitted when
-            `type` is `inference`.
+            conversations should be deleted. Required when `type` is `agent` if
+            `agent_id` is omitted; must be omitted when `type` is `inference`.
+            Prefer this over `agent_id`.
+          example: 01a10d3f-2c09-764f-99f8-458e521627f3
+        agent_id:
+          type: string
+          format: uuid
+          deprecated: true
+          description: >-
+            Deprecated alias for `environment_id`. Accepted for backward
+            compatibility; must equal `environment_id` when both are set. Both
+            set and different returns 400. Required when `type` is `agent` if
+            `environment_id` is omitted; must be omitted when `type` is
+            `inference`.
           example: 01a10d3f-2c09-764f-99f8-458e521627f3
       required:
         - type
@@ -110674,12 +110759,14 @@ components:
                 team_id: 39449946
                 source: agent
                 agent_id: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
+                environment_id: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
                 enabled: true
                 updated_at: '2026-08-10T10:09:25.738533Z'
               - id: 6
                 team_id: 39449946
                 source: agent
                 agent_id: 019fb6b1-aad4-7d54-a74e-c5570d768148
+                environment_id: 019fb6b1-aad4-7d54-a74e-c5570d768148
                 enabled: true
                 updated_at: '2026-08-07T10:10:16.385447Z'
               - id: 21
@@ -110732,6 +110819,7 @@ components:
             team_id: 39449946
             source: agent
             agent_id: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
+            environment_id: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
             enabled: true
             updated_at: '2026-08-10T10:09:25.738533Z'
     update_consent_response:
@@ -110758,6 +110846,7 @@ components:
               team_id: 39449946
               source: agent
               agent_id: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
+              environment_id: 019fb3d2-8a56-72cc-8bf9-9d21510b2a99
               enabled: true
               updated_at: '2026-10-07T11:06:32.280572Z'
     list_sessions_response:
@@ -110883,6 +110972,7 @@ components:
                   export_id: 9f13c09c-c877-436b-9863-dcc39c9dd737
                   type: agent
                   agent_id: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
+                  environment_id: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
                   status: complete
                   filters:
                     signal_type:
@@ -110912,6 +111002,7 @@ components:
             export_id: 9f13c09c-c877-436b-9863-dcc39c9dd737
             type: agent
             agent_id: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
+            environment_id: 01a0f3d5-b58d-7c99-a743-7ca0397b7f5d
             status: complete
             filters:
               signal_type:
@@ -111011,6 +111102,7 @@ components:
                   deletion_id: 01J9ZX0N5Q7M2K3R4S5T6V7W8X
                   type: agent
                   agent_id: 01a10d3f-2c09-764f-99f8-458e521627f3
+                  environment_id: 01a10d3f-2c09-764f-99f8-458e521627f3
                   status: running
                   error_message: null
                   created_at: 1791036405
@@ -111046,6 +111138,7 @@ components:
             deletion_id: 01J9ZX0N5Q7M2K3R4S5T6V7W8X
             type: agent
             agent_id: 01a10d3f-2c09-764f-99f8-458e521627f3
+            environment_id: 01a10d3f-2c09-764f-99f8-458e521627f3
             status: running
             error_message: null
             created_at: 1791036405
@@ -111069,6 +111162,7 @@ components:
             deletion_id: 01J9ZX0N5Q7M2K3R4S5T6V7W8X
             type: agent
             agent_id: 01a10d3f-2c09-764f-99f8-458e521627f3
+            environment_id: 01a10d3f-2c09-764f-99f8-458e521627f3
             status: queued
             error_message: null
             created_at: 1791036405

@@ -46,15 +46,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryDataResult();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample> promMatrixSampleValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample> promMatrixSampleValue)
             {
                 result.PromMatrixSample = promMatrixSampleValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryDataResultMember1>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryDataResultMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryDataResultMember1> promQueryDataResultMember1Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryDataResultMember1>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryDataResultMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromQueryDataResultMember1> promQueryDataResultMember1Value)
             {
                 result.PromQueryDataResultMember1 = promQueryDataResultMember1Value;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromVectorSample>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PromVectorSample.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromVectorSample> promVectorSampleValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromVectorSample>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PromVectorSample.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromVectorSample> promVectorSampleValue)
             {
                 result.PromVectorSample = promVectorSampleValue;
             }

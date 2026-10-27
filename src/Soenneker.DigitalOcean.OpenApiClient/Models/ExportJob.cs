@@ -21,6 +21,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? CompletedAt { get; set; }
         /// <summary>Unix timestamp when the export was created.</summary>
         public int? CreatedAt { get; set; }
+        /// <summary>Same as agent_id. Dual-emitted during the rename.</summary>
+        public Guid? EnvironmentId { get; set; }
         /// <summary>Error message if the export failed, or null on success.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "agent_id", n => { AgentId = n.GetGuidValue(); } },
                 { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "environment_id", n => { EnvironmentId = n.GetGuidValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "export_id", n => { ExportId = n.GetGuidValue(); } },
@@ -91,6 +94,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteGuidValue("agent_id", AgentId);
             writer.WriteIntValue("completed_at", CompletedAt);
             writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteGuidValue("environment_id", EnvironmentId);
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteGuidValue("export_id", ExportId);

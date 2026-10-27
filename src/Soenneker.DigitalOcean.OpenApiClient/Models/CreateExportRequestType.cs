@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The scope of the export. `agent` exports Signals conversations for one Harness Runtime environment and requires `agent_id`. `inference` exports Serverless Inference Signals conversations for the whole team (team-wide; omit `agent_id`). Defaults to `agent` when `agent_id` is provided and to `inference` when it is omitted.</summary>
+    /// <summary>The scope of the export. `agent` exports Signals conversations for one Harness Runtime environment and requires `environment_id` (or deprecated `agent_id`). `inference` exports Serverless Inference Signals conversations for the whole team (team-wide; omit `environment_id` and `agent_id`). Defaults to `agent` when `environment_id` or `agent_id` is provided and to `inference` when both are omitted.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateExportRequestType
     {

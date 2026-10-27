@@ -13,11 +13,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateDeletionRequest : IParsable
     {
-        /// <summary>The Harness Runtime Environment Config ID of the environment whose conversations should be deleted. This is the environment&apos;s `agent_id`. Required when `type` is `agent`; must be omitted when `type` is `inference`.</summary>
+        /// <summary>Deprecated alias for `environment_id`. Accepted for backward compatibility; must equal `environment_id` when both are set. Both set and different returns 400. Required when `type` is `agent` if `environment_id` is omitted; must be omitted when `type` is `inference`.</summary>
+        [Obsolete("")]
         public Guid? AgentId { get; set; }
+        /// <summary>The Harness Runtime Environment Config ID of the environment whose conversations should be deleted. Required when `type` is `agent` if `agent_id` is omitted; must be omitted when `type` is `inference`. Prefer this over `agent_id`.</summary>
+        public Guid? EnvironmentId { get; set; }
         /// <summary>The team whose data should be deleted. Must match the authenticated team.</summary>
         public long? TeamId { get; set; }
-        /// <summary>The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime environment and requires `agent_id`. `inference` deletes Serverless Inference Signals conversations for the whole team (team-wide; omit `agent_id`).</summary>
+        /// <summary>The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime environment and requires `environment_id` (or deprecated `agent_id`). `inference` deletes Serverless Inference Signals conversations for the whole team (team-wide; omit `environment_id` and `agent_id`).</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateDeletionRequestType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,6 +41,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "agent_id", n => { AgentId = n.GetGuidValue(); } },
+                { "environment_id", n => { EnvironmentId = n.GetGuidValue(); } },
                 { "team_id", n => { TeamId = n.GetLongValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateDeletionRequestType>(); } },
             };
@@ -50,6 +54,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("agent_id", AgentId);
+            writer.WriteGuidValue("environment_id", EnvironmentId);
             writer.WriteLongValue("team_id", TeamId);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateDeletionRequestType>("type", Type);
         }

@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesRequestTextBlockParam>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesRequestTextBlockParam.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesRequestTextBlockParam> messagesRequestTextBlockParamValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesRequestTextBlockParam>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesRequestTextBlockParam.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MessagesRequestTextBlockParam> messagesRequestTextBlockParamValue)
             {
                 result.MessagesRequestTextBlockParam = messagesRequestTextBlockParamValue;
             }

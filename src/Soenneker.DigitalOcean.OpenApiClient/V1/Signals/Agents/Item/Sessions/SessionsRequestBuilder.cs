@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.Sessions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v1\signals\agents\{agentId}\sessions
+    /// Builds and executes requests for operations under \v1\signals\agents\{environmentId}\sessions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.Sessions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SessionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/signals/agents/{agentId}/sessions{?after*,end_time*,limit*,signal_type*,start_time*}", pathParameters)
+        public SessionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/signals/agents/{environmentId}/sessions{?after*,end_time*,limit*,signal_type*,start_time*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.Sessions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SessionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/signals/agents/{agentId}/sessions{?after*,end_time*,limit*,signal_type*,start_time*}", rawUrl)
+        public SessionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/signals/agents/{environmentId}/sessions{?after*,end_time*,limit*,signal_type*,start_time*}", rawUrl)
         {
         }
         /// <summary>
-        /// To list signals sessions for a specific environment, send a GET request to`/v1/signals/agents/{agent_id}/sessions`. Results are paginated using cursor-basedpagination with `limit` and `after` parameters.
+        /// To list signals sessions for a specific environment, send a GET request to`/v1/signals/agents/{environment_id}/sessions`. Results are paginated using cursor-basedpagination with `limit` and `after` parameters.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.Sessions
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponseResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To list signals sessions for a specific environment, send a GET request to`/v1/signals/agents/{agent_id}/sessions`. Results are paginated using cursor-basedpagination with `limit` and `after` parameters.
+        /// To list signals sessions for a specific environment, send a GET request to`/v1/signals/agents/{environment_id}/sessions`. Results are paginated using cursor-basedpagination with `limit` and `after` parameters.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.Sessions
             return new global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.Sessions.SessionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// To list signals sessions for a specific environment, send a GET request to`/v1/signals/agents/{agent_id}/sessions`. Results are paginated using cursor-basedpagination with `limit` and `after` parameters.
+        /// To list signals sessions for a specific environment, send a GET request to`/v1/signals/agents/{environment_id}/sessions`. Results are paginated using cursor-basedpagination with `limit` and `after` parameters.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SessionsRequestBuilderGetQueryParameters 

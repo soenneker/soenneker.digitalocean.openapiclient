@@ -29,6 +29,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DeletionId { get; set; }
 #endif
+        /// <summary>Same as agent_id when present. Dual-emitted during the rename; omitted when agent_id is omitted.</summary>
+        public Guid? EnvironmentId { get; set; }
         /// <summary>Error message if the deletion failed, or null otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,6 +76,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "completed_at", n => { CompletedAt = n.GetLongValue(); } },
                 { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "deletion_id", n => { DeletionId = n.GetStringValue(); } },
+                { "environment_id", n => { EnvironmentId = n.GetGuidValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
                 { "started_at", n => { StartedAt = n.GetLongValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJobStatus>(); } },
@@ -92,6 +95,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteLongValue("completed_at", CompletedAt);
             writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("deletion_id", DeletionId);
+            writer.WriteGuidValue("environment_id", EnvironmentId);
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteLongValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DeletionJobStatus>("status", Status);

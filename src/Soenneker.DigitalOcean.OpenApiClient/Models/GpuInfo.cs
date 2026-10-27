@@ -17,6 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of GPUs allocated to the Droplet.</summary>
         public int? Count { get; set; }
+        /// <summary>If GPU fabric networking is enabled.</summary>
+        public bool? Fabric { get; set; }
         /// <summary>The model of the GPU.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,6 +61,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "count", n => { Count = n.GetIntValue(); } },
+                { "fabric", n => { Fabric = n.GetBoolValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "vram", n => { Vram = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GpuInfoVram>(global::Soenneker.DigitalOcean.OpenApiClient.Models.GpuInfoVram.CreateFromDiscriminatorValue); } },
             };
@@ -71,6 +74,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("count", Count);
+            writer.WriteBoolValue("fabric", Fabric);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GpuInfoVram>("vram", Vram);
             writer.WriteAdditionalData(AdditionalData);

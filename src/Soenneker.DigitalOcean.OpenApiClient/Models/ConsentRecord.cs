@@ -25,6 +25,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>Whether signals collection is enabled for this source.</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Same as agent_id when present. Dual-emitted during the rename; omitted when agent_id is empty.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EnvironmentId { get; set; }
+#nullable restore
+#else
+        public string EnvironmentId { get; set; }
+#endif
         /// <summary>The unique numeric identifier for the consent record.</summary>
         public int? Id { get; set; }
         /// <summary>The source this consent applies to. `agent` is per-environment consent for Harness Runtime; `inference` is team-level consent for Serverless Inference chat completions.</summary>
@@ -60,6 +68,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "agent_id", n => { AgentId = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "environment_id", n => { EnvironmentId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecordSource>(); } },
                 { "team_id", n => { TeamId = n.GetIntValue(); } },
@@ -75,6 +84,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("agent_id", AgentId);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteStringValue("environment_id", EnvironmentId);
             writer.WriteIntValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecordSource>("source", Source);
             writer.WriteIntValue("team_id", TeamId);

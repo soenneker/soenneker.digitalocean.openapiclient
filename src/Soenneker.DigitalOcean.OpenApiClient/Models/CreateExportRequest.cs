@@ -15,10 +15,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The environment whose data should be exported. For Harness Runtime, this is the Environment Config ID. Required when `type` is `agent`; must be omitted when `type` is `inference`.</summary>
+        /// <summary>Deprecated alias for `environment_id`. Accepted for backward compatibility; must equal `environment_id` when both are set. Both set and different returns 400. Required when `type` is `agent` if `environment_id` is omitted; must be omitted when `type` is `inference`.</summary>
+        [Obsolete("")]
         public Guid? AgentId { get; set; }
         /// <summary>Include only sessions that started at or before this timestamp.</summary>
         public DateTimeOffset? EndTime { get; set; }
+        /// <summary>The environment whose data should be exported. For Harness Runtime, this is the Environment Config ID. Required when `type` is `agent` if `agent_id` is omitted; must be omitted when `type` is `inference`. Prefer this over `agent_id`.</summary>
+        public Guid? EnvironmentId { get; set; }
         /// <summary>Optional list of specific session IDs to include in the export.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,7 +40,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>Include only sessions that started at or after this timestamp.</summary>
         public DateTimeOffset? StartTime { get; set; }
-        /// <summary>The scope of the export. `agent` exports Signals conversations for one Harness Runtime environment and requires `agent_id`. `inference` exports Serverless Inference Signals conversations for the whole team (team-wide; omit `agent_id`). Defaults to `agent` when `agent_id` is provided and to `inference` when it is omitted.</summary>
+        /// <summary>The scope of the export. `agent` exports Signals conversations for one Harness Runtime environment and requires `environment_id` (or deprecated `agent_id`). `inference` exports Serverless Inference Signals conversations for the whole team (team-wide; omit `environment_id` and `agent_id`). Defaults to `agent` when `environment_id` or `agent_id` is provided and to `inference` when both are omitted.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateExportRequestType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateExportRequest"/> and sets the default values.
@@ -66,6 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "agent_id", n => { AgentId = n.GetGuidValue(); } },
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
+                { "environment_id", n => { EnvironmentId = n.GetGuidValue(); } },
                 { "session_ids", n => { SessionIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "signal_type", n => { SignalType = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
@@ -81,6 +85,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("agent_id", AgentId);
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
+            writer.WriteGuidValue("environment_id", EnvironmentId);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("session_ids", SessionIds);
             writer.WriteCollectionOfPrimitiveValues<string>("signal_type", SignalType);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);

@@ -10,10 +10,10 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v1\signals\agents\{agentId}
+    /// Builds and executes requests for operations under \v1\signals\agents\{environmentId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithAgentItemRequestBuilder : BaseRequestBuilder
+    public partial class WithEnvironmentItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The sessions property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.Sessions.SessionsRequestBuilder Sessions
@@ -21,19 +21,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.Sessions.SessionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.WithAgentItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.WithEnvironmentItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAgentItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/signals/agents/{agentId}", pathParameters)
+        public WithEnvironmentItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/signals/agents/{environmentId}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.WithAgentItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V1.Signals.Agents.Item.WithEnvironmentItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAgentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/signals/agents/{agentId}", rawUrl)
+        public WithEnvironmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/signals/agents/{environmentId}", rawUrl)
         {
         }
     }

@@ -19,6 +19,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public Guid? AgentId { get; set; }
         /// <summary>Whether signals collection is enabled for this environment.</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Same as agent_id. Dual-emitted during the rename.</summary>
+        public Guid? EnvironmentId { get; set; }
         /// <summary>The unique numeric identifier for the consent record.</summary>
         public int? Id { get; set; }
         /// <summary>The source this consent applies to. Always `agent` for per-environment records returned by this endpoint.</summary>
@@ -54,6 +56,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "agent_id", n => { AgentId = n.GetGuidValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "environment_id", n => { EnvironmentId = n.GetGuidValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentSource>(); } },
                 { "team_id", n => { TeamId = n.GetIntValue(); } },
@@ -69,6 +72,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("agent_id", AgentId);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteGuidValue("environment_id", EnvironmentId);
             writer.WriteIntValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentSource>("source", Source);
             writer.WriteIntValue("team_id", TeamId);
