@@ -48,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public string DatasetUuid { get; set; }
 #endif
-        /// <summary>Number of times to evaluate each dataset row (n-pass/epochs), so theresult reports avg@k/pass@k/cons@k instead of a single score. Defaultsto 1 when unset. Capped at 3 until throughput/sharding work lands, sinceeach extra epoch roughly multiplies wall-clock run time. Not persistedon presets.</summary>
+        /// <summary>How many times each dataset row is evaluated. Defaults to 1, maximum 10.When more than 1, the results show how consistent the model is acrossattempts (avg@k, pass@k, cons@k). Each extra attempt makes the run takelonger. Not saved in presets.</summary>
         public long? Epochs { get; set; }
         /// <summary>The eval_preset_uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
