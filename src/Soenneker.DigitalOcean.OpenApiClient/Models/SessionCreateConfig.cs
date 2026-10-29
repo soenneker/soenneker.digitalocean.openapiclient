@@ -8,29 +8,37 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Session options as supplied at creation. Omitted when none were supplied.
+    /// Optional session options. config.preloadTools may contain concrete tool names (optionally version-pinned) and version-pinned toolbelt references. config.customInstructions is a string of at most 1000 characters. config.outputViews maps up to 100 tool slugs to the name of an output view to apply to that tool&apos;s results. config.cache opts eligible tools into result caching for this session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SessionConfigProperty : IAdditionalDataHolder, IParsable
+    public partial class SessionCreateConfig : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Opts the session into result caching. Omit config.cache to leave caching off. Set exactly one of tools or allEligible. Caching must also be enabled for the team. Tool selection and permission rules still apply to every call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCache? Cache { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCache Cache { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig"/> and sets the default values.
         /// </summary>
-        public SessionConfigProperty()
+        public SessionCreateConfig()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cache", n => { Cache = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCache>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCache.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCache>("cache", Cache);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -2175,7 +2175,7 @@
           "Action Gateway"
         ],
         "summary": "Create a Session",
-        "description": "Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.",
+        "description": "Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.\n\nSet config.cache to opt into result caching for all eligible tools or a specific list. Caching is off by default and must be enabled for the team.",
         "operationId": "SessionsCreate",
         "requestBody": {
           "content": {
@@ -4997,7 +4997,7 @@
           "Action Gateway Data Plane"
         ],
         "summary": "Invoke Session Tools",
-        "description": "Runs 1 to 10 tool calls in parallel and returns one result per call, in request order. This is the REST form of the \u0060action_invoke\u0060 MCP tool.\n\nEach call is checked against the session\u0027s tool selection and policy, uses the session actor\u0027s connections, and applies any output view bound to the tool in the session. A well-formed request returns \u0060200\u0060 even when some calls fail. Check each item\u0027s \u0060result.status\u0060, and use \u0060success_count\u0060 and \u0060error_count\u0060 to branch without scanning every item.\n\nA call whose policy requires approval fails with \u0060_meta.status\u0060 set to \u0060requires_approval\u0060. Have the session\u0027s owner approve it, then repeat the call with the same arguments. A call that needs the end user to connect a provider fails with \u0060_meta.status\u0060 set to \u0060requires_authorization\u0060 or \u0060requires_connection_configuration\u0060.",
+        "description": "Runs 1 to 10 tool calls in parallel and returns one result per call, in request order. This is the REST form of the \u0060action_invoke\u0060 MCP tool.\n\nEach call is checked against the session\u0027s tool selection and policy, uses the session actor\u0027s connections, and applies any output view bound to the tool in the session. A well-formed request returns \u0060200\u0060 even when some calls fail. Check each item\u0027s \u0060result.status\u0060, and use \u0060success_count\u0060 and \u0060error_count\u0060 to branch without scanning every item.\n\nA call whose policy requires approval fails with \u0060_meta.status\u0060 set to \u0060requires_approval\u0060. Have the session\u0027s owner approve it, then repeat the call with the same arguments. A call that needs the end user to connect a provider fails with \u0060_meta.status\u0060 set to \u0060requires_authorization\u0060 or \u0060requires_connection_configuration\u0060.\n\nTools opted into result caching use the session\u0027s settings automatically. Set cache on an individual tools entry to bypass caching or require a fresher result. The result\u0027s _meta.cache reports cache hits. Hits still incur the standard gateway invocation charge but no additional provider charge, because the provider is not called.",
         "operationId": "GatewayToolsRun",
         "parameters": [
           {
@@ -5058,6 +5058,40 @@
                               ]
                             },
                             "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "cache_hit": {
+                    "summary": "A cached result from a session opted into caching",
+                    "value": {
+                      "total_count": 1,
+                      "success_count": 1,
+                      "error_count": 0,
+                      "results": [
+                        {
+                          "index": 0,
+                          "tool": "exa_web_search",
+                          "version": "1",
+                          "result": {
+                            "status": "succeeded",
+                            "output": {
+                              "provider": "exa",
+                              "results": [
+                                {
+                                  "title": "DigitalOcean",
+                                  "url": "https://www.digitalocean.com/"
+                                }
+                              ]
+                            },
+                            "call_id": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e",
+                            "_meta": {
+                              "cache": {
+                                "status": "HIT",
+                                "age_seconds": 12
+                              }
+                            }
                           }
                         }
                       ]
@@ -66936,6 +66970,50 @@
         "description": "Tool-permission policy of a session.",
         "nullable": true
       },
+      "SessionCache": {
+        "type": "object",
+        "oneOf": [
+          {
+            "required": [
+              "tools"
+            ]
+          },
+          {
+            "required": [
+              "allEligible"
+            ]
+          }
+        ],
+        "properties": {
+          "tools": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Provider-qualified tool slugs to cache. Every listed tool must resolve for the team and have a catalog cache policy, or session creation fails. Use slugs without version suffixes or toolbelt references. An empty array enables no tools.",
+            "example": [
+              "exa_web_search"
+            ]
+          },
+          "allEligible": {
+            "$ref": "#/components/schemas/SessionCacheAllEligible"
+          },
+          "maxAgeSeconds": {
+            "maximum": 300,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum cache lifetime in seconds for this session. Omit to use each tool\u0027s lifetime, up to 300 seconds. A smaller tool lifetime or provider response cache header can shorten it. Per-call max_age_seconds can require a fresher result but cannot increase this limit.",
+            "example": 60
+          }
+        },
+        "additionalProperties": false,
+        "description": "Opts the session into result caching. Omit config.cache to leave caching off. Set exactly one of tools or allEligible. Caching must also be enabled for the team. Tool selection and permission rules still apply to every call.",
+        "example": {
+          "allEligible": true,
+          "maxAgeSeconds": 60
+        }
+      },
       "SessionNetwork": {
         "type": "object",
         "properties": {
@@ -66997,7 +67075,7 @@
             "$ref": "#/components/schemas/SessionTools"
           },
           "config": {
-            "$ref": "#/components/schemas/SessionConfigProperty"
+            "$ref": "#/components/schemas/SessionConfig"
           },
           "network": {
             "$ref": "#/components/schemas/SessionNetworkComposed"
@@ -67085,7 +67163,7 @@
             ]
           },
           "config": {
-            "$ref": "#/components/schemas/SessionCreateConfigProperty"
+            "$ref": "#/components/schemas/SessionCreateConfig"
           },
           "network": {
             "$ref": "#/components/schemas/SessionCreateNetwork"
@@ -67618,6 +67696,22 @@
         },
         "description": "Summarizes a released tool."
       },
+      "ToolCache": {
+        "required": [
+          "ttlSeconds"
+        ],
+        "type": "object",
+        "properties": {
+          "ttlSeconds": {
+            "maximum": 300,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum cache lifetime in seconds for this tool version.",
+            "example": 120
+          }
+        },
+        "description": "Catalog cache policy for an eligible read-only, non-destructive tool. Omitted when the tool is not eligible. This does not enable caching for a session; opt in through config.cache at session creation."
+      },
       "ToolDefinition": {
         "type": "object",
         "properties": {
@@ -67625,6 +67719,9 @@
             "type": "string",
             "description": "The opaque identity of this released tool version.",
             "example": "tul_exa_web_search"
+          },
+          "cache": {
+            "$ref": "#/components/schemas/ToolCache"
           },
           "name": {
             "type": "string",
@@ -68356,6 +68453,24 @@
           }
         }
       },
+      "CacheStatus": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CacheStatusStatus"
+          },
+          "age_seconds": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "Age of the cached result in seconds. Present only on a hit.",
+            "example": 12
+          }
+        },
+        "description": "Cache outcome. Hits always include this metadata. MISS and BYPASS appear only when the call includes cache controls. Cache hits still incur the gateway invocation charge but not an additional provider charge."
+      },
       "ToolResult": {
         "required": [
           "status",
@@ -68378,14 +68493,33 @@
             "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
           },
           "_meta": {
-            "$ref": "#/components/schemas/ToolResultMetaProperty"
+            "$ref": "#/components/schemas/ToolResultMeta"
           }
         },
         "description": "The result of one tool call. Check \u0060status\u0060 before reading \u0060output\u0060. A call that needs approval, authorization, or connection setup fails with a \u0060_meta.status\u0060 that names the step to complete."
       },
+      "CacheAdvertisement": {
+        "required": [
+          "maxAgeSeconds"
+        ],
+        "type": "object",
+        "properties": {
+          "maxAgeSeconds": {
+            "maximum": 300,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum result age the session allows, or 300 if the session sets no limit. The tool\u0027s own cache lifetime can be shorter. Invoke controls use max_age_seconds, not this field\u0027s camelCase spelling.",
+            "example": 60
+          }
+        },
+        "description": "Present when this tool accepts cache controls in the session. Unlike the catalog\u0027s cache.ttlSeconds, this describes the session\u0027s caching opt-in."
+      },
       "SearchToolsResult": {
         "type": "object",
         "properties": {
+          "cache": {
+            "$ref": "#/components/schemas/CacheAdvertisement"
+          },
           "name": {
             "type": "string",
             "description": "The provider-qualified tool name. Pass it as \u0060tool\u0060 to invoke the tool.",
@@ -68463,9 +68597,25 @@
             "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
           },
           "_meta": {
-            "$ref": "#/components/schemas/DataPlaneSearchToolsResponseMeta"
+            "$ref": "#/components/schemas/ToolResultMeta"
           }
         }
+      },
+      "CacheControls": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/CacheControlsMode"
+          },
+          "max_age_seconds": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "Oldest cached result this call accepts, in seconds. Zero bypasses caching. Values above 300 are clamped to 300; larger values cannot increase the session or tool lifetime. This controls accepted result age, not the lifetime of a newly stored entry.",
+            "example": 30
+          }
+        },
+        "additionalProperties": false,
+        "description": "Optional per-call caching controls. Send beside arguments, not inside them. Accepted only for tools opted into caching in this session; tool search advertises these tools with a cache field. Omitting controls uses the session\u0027s settings. Direct MCP tools/call requests use session settings without overrides; use action_invoke for per-call controls."
       },
       "ToolCall": {
         "required": [
@@ -68473,6 +68623,9 @@
         ],
         "type": "object",
         "properties": {
+          "cache": {
+            "$ref": "#/components/schemas/CacheControls"
+          },
           "tool": {
             "type": "string",
             "description": "The tool name, as returned by \u0060GET /tools\u0060 or \u0060POST /tools/search\u0060. Names are case-insensitive.",
@@ -68592,7 +68745,7 @@
             "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
           },
           "_meta": {
-            "$ref": "#/components/schemas/ExecuteCodeResponseMeta"
+            "$ref": "#/components/schemas/ToolResultMeta"
           }
         }
       },
@@ -70000,7 +70153,7 @@
           },
           "last_event_at": {
             "type": "string",
-            "description": "Timestamp of the most recent event in this session\u0027s canonical stream. Drives the inactivity policy that destroys idle sessions.",
+            "description": "Timestamp of the most recent event in this session\u0027s canonical stream. Drives the inactivity policy that pauses idle sessions.",
             "format": "date-time",
             "example": "2026-08-01T12:00:00Z"
           },
@@ -111277,7 +111430,7 @@
             "$ref": "#/components/schemas/SessionTools"
           },
           "config": {
-            "$ref": "#/components/schemas/CreateSessionResponseSessionConfig"
+            "$ref": "#/components/schemas/SessionConfig"
           },
           "network": {
             "$ref": "#/components/schemas/SessionNetworkComposed"
@@ -118360,6 +118513,11 @@
       },
       "SessionConfig": {
         "type": "object",
+        "properties": {
+          "cache": {
+            "$ref": "#/components/schemas/SessionCache"
+          }
+        },
         "description": "Session options as supplied at creation. Omitted when none were supplied.",
         "example": {
           "preloadTools": [
@@ -118372,7 +118530,12 @@
       },
       "SessionCreateConfig": {
         "type": "object",
-        "description": "Optional session options. config.preloadTools may contain concrete tool names (optionally version-pinned) and version-pinned toolbelt references. config.customInstructions is a string of at most 1000 characters. config.outputViews maps up to 100 tool slugs to the name of an output view to apply to that tool\u0027s results.",
+        "properties": {
+          "cache": {
+            "$ref": "#/components/schemas/SessionCache"
+          }
+        },
+        "description": "Optional session options. config.preloadTools may contain concrete tool names (optionally version-pinned) and version-pinned toolbelt references. config.customInstructions is a string of at most 1000 characters. config.outputViews maps up to 100 tool slugs to the name of an output view to apply to that tool\u0027s results. config.cache opts eligible tools into result caching for this session.",
         "example": {
           "preloadTools": [
             "exa_web_search"
@@ -118690,7 +118853,12 @@
       },
       "ToolResultMeta": {
         "type": "object",
-        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result.",
+        "properties": {
+          "cache": {
+            "$ref": "#/components/schemas/CacheStatus"
+          }
+        },
+        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result.\n- \u0060cache\u0060: whether the result came from cache, with its age on a hit.",
         "example": {
           "status": "requires_approval",
           "approval_id": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
@@ -125871,31 +126039,6 @@
           }
         }
       },
-      "SessionConfigProperty": {
-        "type": "object",
-        "description": "Session options as supplied at creation. Omitted when none were supplied.",
-        "example": {
-          "preloadTools": [
-            "exa_web_search"
-          ],
-          "outputViews": {
-            "exa_web_search": "titles-and-urls"
-          }
-        }
-      },
-      "SessionCreateConfigProperty": {
-        "type": "object",
-        "description": "Optional session options. config.preloadTools may contain concrete tool names (optionally version-pinned) and version-pinned toolbelt references. config.customInstructions is a string of at most 1000 characters. config.outputViews maps up to 100 tool slugs to the name of an output view to apply to that tool\u0027s results.",
-        "example": {
-          "preloadTools": [
-            "exa_web_search"
-          ],
-          "outputViews": {
-            "exa_web_search": "titles-and-urls"
-          },
-          "customInstructions": "Prefer primary sources and cite URLs."
-        }
-      },
       "ToolInputSchemaProperty": {
         "type": "object",
         "description": "JSON Schema the tool\u0027s arguments must satisfy.",
@@ -126032,21 +126175,6 @@
           ]
         }
       },
-      "ToolResultMetaProperty": {
-        "type": "object",
-        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result.",
-        "example": {
-          "status": "requires_approval",
-          "approval_id": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
-          "tool_name": "exa_web_search",
-          "expires_at": "2026-10-09T18:30:00Z",
-          "decide": {
-            "method": "POST",
-            "path": "/approvals/session/2b3c9f0e-1a4d-4e5f-8a7b-6c5d4e3f2a1b/7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
-            "body": "{\u0022decision\u0022: \u0022approve\u0022}"
-          }
-        }
-      },
       "SearchToolsResultInputSchemaProperty": {
         "type": "object",
         "description": "The JSON Schema for the tool\u0027s \u0060arguments\u0060.",
@@ -126062,42 +126190,12 @@
           }
         }
       },
-      "DataPlaneSearchToolsResponseMeta": {
-        "type": "object",
-        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result.",
-        "example": {
-          "status": "requires_approval",
-          "approval_id": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
-          "tool_name": "exa_web_search",
-          "expires_at": "2026-10-09T18:30:00Z",
-          "decide": {
-            "method": "POST",
-            "path": "/approvals/session/2b3c9f0e-1a4d-4e5f-8a7b-6c5d4e3f2a1b/7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
-            "body": "{\u0022decision\u0022: \u0022approve\u0022}"
-          }
-        }
-      },
       "ToolCallArgumentsProperty": {
         "type": "object",
         "description": "The tool\u0027s arguments, matching its \u0060inputSchema\u0060.",
         "example": {
           "query": "DigitalOcean cloud computing",
           "max_results": 1
-        }
-      },
-      "ExecuteCodeResponseMeta": {
-        "type": "object",
-        "description": "Additional result metadata. Keys include:\n\n- \u0060status\u0060: \u0060requires_approval\u0060, \u0060requires_authorization\u0060, or\n  \u0060requires_connection_configuration\u0060 when the call stopped before\n  running.\n\n- \u0060approval_id\u0060, \u0060tool_name\u0060, \u0060expires_at\u0060, and \u0060decide\u0060: present with\n  \u0060requires_approval\u0060. \u0060decide\u0060 gives the \u0060method\u0060, \u0060path\u0060, and \u0060body\u0060\n  of the approval request to send. Approve the call, then repeat it\n  with the same arguments before \u0060expires_at\u0060.\n\n- \u0060retry\u0060: \u0060{\u0022attempt_count\u0022: N, \u0022exhausted\u0022: bool}\u0060 when the gateway\n  retried the call.\n\n- \u0060output_view\u0060: the output view applied to the result.",
-        "example": {
-          "status": "requires_approval",
-          "approval_id": "7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
-          "tool_name": "exa_web_search",
-          "expires_at": "2026-10-09T18:30:00Z",
-          "decide": {
-            "method": "POST",
-            "path": "/approvals/session/2b3c9f0e-1a4d-4e5f-8a7b-6c5d4e3f2a1b/7d3c2b1a-9e8f-4a6b-8c5d-4e3f2a1b0c9d",
-            "body": "{\u0022decision\u0022: \u0022approve\u0022}"
-          }
         }
       },
       "PermissionRuleMatchProperty": {
@@ -126679,18 +126777,6 @@
           }
         }
       },
-      "CreateSessionResponseSessionConfig": {
-        "type": "object",
-        "description": "Session options as supplied at creation. Omitted when none were supplied.",
-        "example": {
-          "preloadTools": [
-            "exa_web_search"
-          ],
-          "outputViews": {
-            "exa_web_search": "titles-and-urls"
-          }
-        }
-      },
       "AllDropletBackupPoliciesResponseAllOf1PoliciesProperty": {
         "type": "object",
         "additionalProperties": {
@@ -127048,6 +127134,14 @@
           ]
         }
       },
+      "SessionCacheAllEligible": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "description": "Enables caching for every called tool version with a catalog cache policy, including tools that become eligible after session creation. Do not combine with tools.",
+        "example": true
+      },
       "ToolbeltSummaryStatus": {
         "enum": [
           "active",
@@ -127288,6 +127382,34 @@
           ]
         }
       },
+      "CacheStatusStatus": {
+        "enum": [
+          "HIT",
+          "MISS",
+          "BYPASS"
+        ],
+        "type": "string",
+        "description": "HIT returned a cached result without calling the provider. MISS found no usable result and called the provider. BYPASS skipped caching.",
+        "example": "HIT",
+        "x-ms-enum": {
+          "name": "CacheStatusStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "HIT",
+              "name": "Hit"
+            },
+            {
+              "value": "MISS",
+              "name": "Miss"
+            },
+            {
+              "value": "BYPASS",
+              "name": "Bypass"
+            }
+          ]
+        }
+      },
       "ToolResultStatus": {
         "enum": [
           "succeeded",
@@ -127306,6 +127428,29 @@
             {
               "value": "failed",
               "name": "Failed"
+            }
+          ]
+        }
+      },
+      "CacheControlsMode": {
+        "enum": [
+          "auto",
+          "bypass"
+        ],
+        "type": "string",
+        "description": "auto uses a sufficiently recent cached result or calls the provider and can store a successful result. bypass skips lookup and storage without clearing or refreshing existing entries.",
+        "example": "auto",
+        "x-ms-enum": {
+          "name": "CacheControlsMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "bypass",
+              "name": "Bypass"
             }
           ]
         }

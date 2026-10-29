@@ -31,6 +31,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth Auth { get; set; }
 #endif
+        /// <summary>Catalog cache policy for an eligible read-only, non-destructive tool. Omitted when the tool is not eligible. This does not enable caching for a session; opt in through config.cache at session creation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache? Cache { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache Cache { get; set; }
+#endif
         /// <summary>What the tool does.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -138,6 +146,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAnnotations>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAnnotations.CreateFromDiscriminatorValue); } },
                 { "auth", n => { Auth = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth.CreateFromDiscriminatorValue); } },
+                { "cache", n => { Cache = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionInputSchemaProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionInputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -159,6 +168,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAnnotations>("annotations", Annotations);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionAuth>("auth", Auth);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache>("cache", Cache);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolDefinitionInputSchemaProperty>("inputSchema", InputSchema);
             writer.WriteStringValue("name", Name);

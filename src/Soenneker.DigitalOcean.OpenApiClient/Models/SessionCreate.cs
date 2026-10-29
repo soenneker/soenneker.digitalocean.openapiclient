@@ -23,13 +23,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Optional session options. config.preloadTools may contain concrete tool names (optionally version-pinned) and version-pinned toolbelt references. config.customInstructions is a string of at most 1000 characters. config.outputViews maps up to 100 tool slugs to the name of an output view to apply to that tool&apos;s results.</summary>
+        /// <summary>Optional session options. config.preloadTools may contain concrete tool names (optionally version-pinned) and version-pinned toolbelt references. config.customInstructions is a string of at most 1000 characters. config.outputViews maps up to 100 tool slugs to the name of an output view to apply to that tool&apos;s results. config.cache opts eligible tools into result caching for this session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty? Config { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig? Config { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty Config { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig Config { get; set; }
 #endif
         /// <summary>Omitted when the request omitted insights or explicitly sent null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,7 +97,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actorId", n => { ActorId = n.GetStringValue(); } },
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig.CreateFromDiscriminatorValue); } },
                 { "insights", n => { Insights = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateInsights>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateInsights.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateNetwork>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateNetwork.CreateFromDiscriminatorValue); } },
@@ -113,7 +113,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("actorId", ActorId);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfig>("config", Config);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateInsights>("insights", Insights);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateNetwork>("network", Network);

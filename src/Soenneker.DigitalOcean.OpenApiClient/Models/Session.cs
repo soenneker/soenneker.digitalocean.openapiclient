@@ -42,10 +42,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Session options as supplied at creation. Omitted when none were supplied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty? Config { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfig? Config { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty Config { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfig Config { get; set; }
 #endif
         /// <summary>When the session was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -135,7 +135,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "actorId", n => { ActorId = n.GetStringValue(); } },
                 { "agentName", n => { AgentName = n.GetStringValue(); } },
                 { "agentUrn", n => { AgentUrn = n.GetStringValue(); } },
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfig.CreateFromDiscriminatorValue); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "insights", n => { Insights = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionInsightsComposed>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionInsightsComposed.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -157,7 +157,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("actorId", ActorId);
             writer.WriteStringValue("agentName", AgentName);
             writer.WriteStringValue("agentUrn", AgentUrn);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigProperty>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfig>("config", Config);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionInsightsComposed>("insights", Insights);
             writer.WriteStringValue("name", Name);

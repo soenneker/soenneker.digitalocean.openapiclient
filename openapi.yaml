@@ -4021,6 +4021,11 @@ paths:
         returns the MCP URL an agent connects to. tools selects the tools and
         toolbelts the session exposes, and policy decides which calls run, need
         approval, or are refused.
+
+
+        Set config.cache to opt into result caching for all eligible tools or a
+        specific list. Caching is off by default and must be enabled for the
+        team.
       tags:
         - Action Gateway
       requestBody:
@@ -5958,6 +5963,13 @@ paths:
         the call with the same arguments. A call that needs the end user to
         connect a provider fails with `_meta.status` set to
         `requires_authorization` or `requires_connection_configuration`.
+
+
+        Tools opted into result caching use the session's settings
+        automatically. Set cache on an individual tools entry to bypass caching
+        or require a fresher result. The result's _meta.cache reports cache
+        hits. Hits still incur the standard gateway invocation charge but no
+        additional provider charge, because the provider is not called.
       tags:
         - Action Gateway Data Plane
       servers:
@@ -6006,6 +6018,28 @@ paths:
                                   Developers
                                 url: https://www.digitalocean.com/
                           call_id: call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e
+                cache_hit:
+                  summary: A cached result from a session opted into caching
+                  value:
+                    total_count: 1
+                    success_count: 1
+                    error_count: 0
+                    results:
+                      - index: 0
+                        tool: exa_web_search
+                        version: '1'
+                        result:
+                          status: succeeded
+                          output:
+                            provider: exa
+                            results:
+                              - title: DigitalOcean
+                                url: https://www.digitalocean.com/
+                          call_id: call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e
+                          _meta:
+                            cache:
+                              status: HIT
+                              age_seconds: 12
                 requires_approval:
                   summary: A call that needs approval
                   value:
@@ -66594,6 +66628,55 @@ components:
                 example: allow
                 description: 'Required: allow, ask, or deny.'
           description: Rules for specific tools or toolbelts.
+    session_cache:
+      type: object
+      additionalProperties: false
+      description: >-
+        Opts the session into result caching. Omit config.cache to leave caching
+        off. Set exactly one of tools or allEligible. Caching must also be
+        enabled for the team. Tool selection and permission rules still apply to
+        every call.
+      properties:
+        tools:
+          type: array
+          maxItems: 100
+          description: >-
+            Provider-qualified tool slugs to cache. Every listed tool must
+            resolve for the team and have a catalog cache policy, or session
+            creation fails. Use slugs without version suffixes or toolbelt
+            references. An empty array enables no tools.
+          items:
+            type: string
+          example:
+            - exa_web_search
+        allEligible:
+          type: boolean
+          enum:
+            - true
+          description: >-
+            Enables caching for every called tool version with a catalog cache
+            policy, including tools that become eligible after session creation.
+            Do not combine with tools.
+          example: true
+        maxAgeSeconds:
+          type: integer
+          minimum: 1
+          maximum: 300
+          description: >-
+            Maximum cache lifetime in seconds for this session. Omit to use each
+            tool's lifetime, up to 300 seconds. A smaller tool lifetime or
+            provider response cache header can shorten it. Per-call
+            max_age_seconds can require a fresher result but cannot increase
+            this limit.
+          example: 60
+      example:
+        allEligible: true
+        maxAgeSeconds: 60
+      oneOf:
+        - required:
+            - tools
+        - required:
+            - allEligible
     session_network:
       type: object
       description: Attaches a session to a VPC.
@@ -66675,9 +66758,13 @@ components:
                 tools.
         config:
           type: object
+          additionalProperties: true
           description: >-
             Session options as supplied at creation. Omitted when none were
             supplied.
+          properties:
+            cache:
+              $ref: '#/components/schemas/session_cache'
           example:
             preloadTools:
               - exa_web_search
@@ -66774,12 +66861,17 @@ components:
             - jira_create_issue
         config:
           type: object
+          additionalProperties: true
           description: >-
             Optional session options. config.preloadTools may contain concrete
             tool names (optionally version-pinned) and version-pinned toolbelt
             references. config.customInstructions is a string of at most 1000
             characters. config.outputViews maps up to 100 tool slugs to the name
-            of an output view to apply to that tool's results.
+            of an output view to apply to that tool's results. config.cache opts
+            eligible tools into result caching for this session.
+          properties:
+            cache:
+              $ref: '#/components/schemas/session_cache'
           example:
             preloadTools:
               - exa_web_search
@@ -67330,6 +67422,21 @@ components:
           type: boolean
           example: true
           description: Catalog hint that the tool's result can be streamed.
+    tool_cache:
+      type: object
+      description: >-
+        Catalog cache policy for an eligible read-only, non-destructive tool.
+        Omitted when the tool is not eligible. This does not enable caching for
+        a session; opt in through config.cache at session creation.
+      properties:
+        ttlSeconds:
+          type: integer
+          minimum: 1
+          maximum: 300
+          description: Maximum cache lifetime in seconds for this tool version.
+          example: 120
+      required:
+        - ttlSeconds
     tool_definition:
       type: object
       description: Describes a tool you can call.
@@ -67338,6 +67445,8 @@ components:
           type: string
           description: The opaque identity of this released tool version.
           example: tul_exa_web_search
+        cache:
+          $ref: '#/components/schemas/tool_cache'
         name:
           type: string
           example: web_search
@@ -68272,6 +68381,31 @@ components:
           example: 3
       required:
         - queries
+    cache_status:
+      type: object
+      description: >-
+        Cache outcome. Hits always include this metadata. MISS and BYPASS appear
+        only when the call includes cache controls. Cache hits still incur the
+        gateway invocation charge but not an additional provider charge.
+      properties:
+        status:
+          type: string
+          enum:
+            - HIT
+            - MISS
+            - BYPASS
+          description: >-
+            HIT returned a cached result without calling the provider. MISS
+            found no usable result and called the provider. BYPASS skipped
+            caching.
+          example: HIT
+        age_seconds:
+          type: integer
+          minimum: 0
+          description: Age of the cached result in seconds. Present only on a hit.
+          example: 12
+      required:
+        - status
     tool_result:
       type: object
       description: >-
@@ -68326,6 +68460,12 @@ components:
               retried the call.
 
             - `output_view`: the output view applied to the result.
+
+            - `cache`: whether the result came from cache, with its age on a
+            hit.
+          properties:
+            cache:
+              $ref: '#/components/schemas/cache_status'
           additionalProperties: true
           example:
             status: requires_approval
@@ -68340,10 +68480,29 @@ components:
       required:
         - status
         - call_id
+    cache_advertisement:
+      type: object
+      description: >-
+        Present when this tool accepts cache controls in the session. Unlike the
+        catalog's cache.ttlSeconds, this describes the session's caching opt-in.
+      properties:
+        maxAgeSeconds:
+          type: integer
+          minimum: 1
+          maximum: 300
+          description: >-
+            Maximum result age the session allows, or 300 if the session sets no
+            limit. The tool's own cache lifetime can be shorter. Invoke controls
+            use max_age_seconds, not this field's camelCase spelling.
+          example: 60
+      required:
+        - maxAgeSeconds
     search_tools_result:
       type: object
       description: A tool that matched a query.
       properties:
+        cache:
+          $ref: '#/components/schemas/cache_advertisement'
         name:
           type: string
           description: >-
@@ -68409,9 +68568,41 @@ components:
                   description: One result group per query, in request order.
                   items:
                     $ref: '#/components/schemas/search_tools_group'
+    cache_controls:
+      type: object
+      additionalProperties: false
+      description: >-
+        Optional per-call caching controls. Send beside arguments, not inside
+        them. Accepted only for tools opted into caching in this session; tool
+        search advertises these tools with a cache field. Omitting controls uses
+        the session's settings. Direct MCP tools/call requests use session
+        settings without overrides; use action_invoke for per-call controls.
+      properties:
+        mode:
+          type: string
+          enum:
+            - auto
+            - bypass
+          default: auto
+          description: >-
+            auto uses a sufficiently recent cached result or calls the provider
+            and can store a successful result. bypass skips lookup and storage
+            without clearing or refreshing existing entries.
+          example: auto
+        max_age_seconds:
+          type: integer
+          minimum: 0
+          description: >-
+            Oldest cached result this call accepts, in seconds. Zero bypasses
+            caching. Values above 300 are clamped to 300; larger values cannot
+            increase the session or tool lifetime. This controls accepted result
+            age, not the lifetime of a newly stored entry.
+          example: 30
     tool_call:
       type: object
       properties:
+        cache:
+          $ref: '#/components/schemas/cache_controls'
         tool:
           type: string
           description: >-
@@ -70446,7 +70637,7 @@ components:
           format: date-time
           description: >-
             Timestamp of the most recent event in this session's canonical
-            stream. Drives the inactivity policy that destroys idle sessions.
+            stream. Drives the inactivity policy that pauses idle sessions.
           example: '2026-08-01T12:00:00Z'
         keep_warm:
           type: boolean

@@ -22,6 +22,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCallArgumentsProperty Arguments { get; set; }
 #endif
+        /// <summary>Optional per-call caching controls. Send beside arguments, not inside them. Accepted only for tools opted into caching in this session; tool search advertises these tools with a cache field. Omitting controls uses the session&apos;s settings. Direct MCP tools/call requests use session settings without overrides; use action_invoke for per-call controls.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControls? Cache { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControls Cache { get; set; }
+#endif
         /// <summary>The tool name, as returned by `GET /tools` or `POST /tools/search`. Names are case-insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +72,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCallArgumentsProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCallArgumentsProperty.CreateFromDiscriminatorValue); } },
+                { "cache", n => { Cache = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControls>(global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControls.CreateFromDiscriminatorValue); } },
                 { "tool", n => { Tool = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -76,6 +85,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCallArgumentsProperty>("arguments", Arguments);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControls>("cache", Cache);
             writer.WriteStringValue("tool", Tool);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

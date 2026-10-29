@@ -8,29 +8,31 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Additional result metadata. Keys include:- `status`: `requires_approval`, `requires_authorization`, or  `requires_connection_configuration` when the call stopped before  running.- `approval_id`, `tool_name`, `expires_at`, and `decide`: present with  `requires_approval`. `decide` gives the `method`, `path`, and `body`  of the approval request to send. Approve the call, then repeat it  with the same arguments before `expires_at`.- `retry`: `{&quot;attempt_count&quot;: N, &quot;exhausted&quot;: bool}` when the gateway  retried the call.- `output_view`: the output view applied to the result.
+    /// Present when this tool accepts cache controls in the session. Unlike the catalog&apos;s cache.ttlSeconds, this describes the session&apos;s caching opt-in.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DataPlaneSearchToolsResponseMeta : IAdditionalDataHolder, IParsable
+    public partial class CacheAdvertisement : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Maximum result age the session allows, or 300 if the session sets no limit. The tool&apos;s own cache lifetime can be shorter. Invoke controls use max_age_seconds, not this field&apos;s camelCase spelling.</summary>
+        public int? MaxAgeSeconds { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DataPlaneSearchToolsResponseMeta"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement"/> and sets the default values.
         /// </summary>
-        public DataPlaneSearchToolsResponseMeta()
+        public CacheAdvertisement()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DataPlaneSearchToolsResponseMeta"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DataPlaneSearchToolsResponseMeta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DataPlaneSearchToolsResponseMeta();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +42,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "maxAgeSeconds", n => { MaxAgeSeconds = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("maxAgeSeconds", MaxAgeSeconds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -35,7 +35,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public long? IdleTimeoutSeconds { get; set; }
         /// <summary>Session is exempt from idle auto-pause (manifest keep_warm, or the agent-kind default: hermes sessions keep warm). Pause requests against such a session are rejected with 409. Omitted when false.</summary>
         public bool? KeepWarm { get; set; }
-        /// <summary>Timestamp of the most recent event in this session&apos;s canonical stream. Drives the inactivity policy that destroys idle sessions.</summary>
+        /// <summary>Timestamp of the most recent event in this session&apos;s canonical stream. Drives the inactivity policy that pauses idle sessions.</summary>
         public DateTimeOffset? LastEventAt { get; set; }
         /// <summary>User-assignable display name, unique per team among non-terminal sessions. Usable in place of session_id by clients (doctl / Console resolve it to the id via the ListSessions ?name= filter; the {session_id} path stays UUID-only). Supplied via the environment-spec metadata.name, or auto-generated (&quot;session-&lt;agent-type&gt;-&lt;date-time&gt;&quot;) when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

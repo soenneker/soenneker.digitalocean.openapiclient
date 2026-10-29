@@ -8,29 +8,31 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional session options. config.preloadTools may contain concrete tool names (optionally version-pinned) and version-pinned toolbelt references. config.customInstructions is a string of at most 1000 characters. config.outputViews maps up to 100 tool slugs to the name of an output view to apply to that tool&apos;s results.
+    /// Catalog cache policy for an eligible read-only, non-destructive tool. Omitted when the tool is not eligible. This does not enable caching for a session; opt in through config.cache at session creation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SessionCreateConfigProperty : IAdditionalDataHolder, IParsable
+    public partial class ToolCache : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Maximum cache lifetime in seconds for this tool version.</summary>
+        public int? TtlSeconds { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache"/> and sets the default values.
         /// </summary>
-        public SessionCreateConfigProperty()
+        public ToolCache()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreateConfigProperty();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolCache();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +42,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ttlSeconds", n => { TtlSeconds = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("ttlSeconds", TtlSeconds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

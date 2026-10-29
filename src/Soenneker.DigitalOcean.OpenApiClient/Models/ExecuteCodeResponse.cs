@@ -30,13 +30,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelope Error { get; set; }
 #endif
-        /// <summary>Additional result metadata. Keys include:- `status`: `requires_approval`, `requires_authorization`, or  `requires_connection_configuration` when the call stopped before  running.- `approval_id`, `tool_name`, `expires_at`, and `decide`: present with  `requires_approval`. `decide` gives the `method`, `path`, and `body`  of the approval request to send. Approve the call, then repeat it  with the same arguments before `expires_at`.- `retry`: `{&quot;attempt_count&quot;: N, &quot;exhausted&quot;: bool}` when the gateway  retried the call.- `output_view`: the output view applied to the result.</summary>
+        /// <summary>Additional result metadata. Keys include:- `status`: `requires_approval`, `requires_authorization`, or  `requires_connection_configuration` when the call stopped before  running.- `approval_id`, `tool_name`, `expires_at`, and `decide`: present with  `requires_approval`. `decide` gives the `method`, `path`, and `body`  of the approval request to send. Approve the call, then repeat it  with the same arguments before `expires_at`.- `retry`: `{&quot;attempt_count&quot;: N, &quot;exhausted&quot;: bool}` when the gateway  retried the call.- `output_view`: the output view applied to the result.- `cache`: whether the result came from cache, with its age on a hit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecuteCodeResponseMeta? Meta { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultMeta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecuteCodeResponseMeta Meta { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultMeta Meta { get; set; }
 #endif
         /// <summary>The tool&apos;s JSON output. Present when `status` is `succeeded`. Its shape is the tool&apos;s output schema, or the output view bound to the tool in the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,7 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelope>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelope.CreateFromDiscriminatorValue); } },
-                { "_meta", n => { Meta = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecuteCodeResponseMeta>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecuteCodeResponseMeta.CreateFromDiscriminatorValue); } },
+                { "_meta", n => { Meta = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultMeta>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultMeta.CreateFromDiscriminatorValue); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecuteCodeResponseOutput>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecuteCodeResponseOutput.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultStatus>(); } },
             };
@@ -89,7 +89,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("call_id", CallId);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelope>("error", Error);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecuteCodeResponseMeta>("_meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultMeta>("_meta", Meta);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecuteCodeResponseOutput>("output", Output);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);

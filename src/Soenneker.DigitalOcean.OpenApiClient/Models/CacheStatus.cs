@@ -8,29 +8,33 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Session options as supplied at creation. Omitted when none were supplied.
+    /// Cache outcome. Hits always include this metadata. MISS and BYPASS appear only when the call includes cache controls. Cache hits still incur the gateway invocation charge but not an additional provider charge.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateSessionResponseSessionConfig : IAdditionalDataHolder, IParsable
+    public partial class CacheStatus : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Age of the cached result in seconds. Present only on a hit.</summary>
+        public int? AgeSeconds { get; set; }
+        /// <summary>HIT returned a cached result without calling the provider. MISS found no usable result and called the provider. BYPASS skipped caching.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheStatusStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSessionConfig"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheStatus"/> and sets the default values.
         /// </summary>
-        public CreateSessionResponseSessionConfig()
+        public CacheStatus()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSessionConfig"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSessionConfig CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSessionConfig();
+            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +44,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "age_seconds", n => { AgeSeconds = n.GetIntValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheStatusStatus>(); } },
             };
         }
         /// <summary>
@@ -49,6 +55,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("age_seconds", AgeSeconds);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheStatusStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

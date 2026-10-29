@@ -15,6 +15,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Present when this tool accepts cache controls in the session. Unlike the catalog&apos;s cache.ttlSeconds, this describes the session&apos;s caching opt-in.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement? Cache { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement Cache { get; set; }
+#endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +90,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cache", n => { Cache = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement>(global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchToolsResultInputSchemaProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchToolsResultInputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -97,6 +106,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement>("cache", Cache);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchToolsResultInputSchemaProperty>("inputSchema", InputSchema);
             writer.WriteStringValue("name", Name);
