@@ -12,7 +12,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateResponseRequestToolChoice : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1"/></summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1? CreateResponseRequestToolChoiceOneOf1 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2"/></summary>
@@ -33,15 +38,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoice();
-            if(parseNode.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1>() is global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1 createResponseRequestToolChoiceOneOf1Value)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString unionEnumValue0 && ("none".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "auto".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "required".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase)) && parseNode.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1>() is global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf1 createResponseRequestToolChoiceOneOf1Value)
             {
                 result.CreateResponseRequestToolChoiceOneOf1 = createResponseRequestToolChoiceOneOf1Value;
             }
             else if("CreateResponseRequestToolChoiceOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateResponseRequestToolChoiceOneOf2 = new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("function".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("function") != null))();
+            if (result.CreateResponseRequestToolChoiceOneOf1 == null && result.CreateResponseRequestToolChoiceOneOf2 == null && matchesUnionBranch0) result.CreateResponseRequestToolChoiceOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2(), parseNode);
+            if (result.CreateResponseRequestToolChoiceOneOf1 == null && result.CreateResponseRequestToolChoiceOneOf2 == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.CreateResponseRequestToolChoiceOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2(), parseNode);
+            if (result.CreateResponseRequestToolChoiceOneOf1 == null && result.CreateResponseRequestToolChoiceOneOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +72,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (CreateResponseRequestToolChoiceOneOf1 == null && CreateResponseRequestToolChoiceOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (CreateResponseRequestToolChoiceOneOf2 != null && CreateResponseRequestToolChoiceOneOf1 == null) { if (CreateResponseRequestToolChoiceOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateResponseRequestToolChoiceOneOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(CreateResponseRequestToolChoiceOneOf1 != null)
             {
@@ -68,6 +83,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             }
             else if(CreateResponseRequestToolChoiceOneOf2 != null)
             {
+                if (CreateResponseRequestToolChoiceOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateResponseRequestToolChoiceOneOf2>(null, CreateResponseRequestToolChoiceOneOf2);
             }
         }

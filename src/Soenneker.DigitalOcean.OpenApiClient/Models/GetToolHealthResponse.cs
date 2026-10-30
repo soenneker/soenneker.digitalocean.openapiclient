@@ -12,32 +12,48 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetToolHealthResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("history") is { } nullNodeHistory && nullNodeHistory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) History = null;
+            if (parseNode.GetChildNode("snapshot") is { } nullNodeSnapshot && nullNodeSnapshot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Snapshot = null;
+            if (parseNode.GetChildNode("tool") is { } nullNodeTool && nullNodeTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tool = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Present only when the request set `include_history`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistory? History { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistory? History { get => _explicitNullValueHistory; set { _explicitNullValueHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history"); else _explicitNullProperties?.Remove("history"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistory? _explicitNullValueHistory = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistory History { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistory History { get => _explicitNullValueHistory; set { _explicitNullValueHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history"); else _explicitNullProperties?.Remove("history"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistory _explicitNullValueHistory = default!;
 #endif
         /// <summary>When the metrics were computed and the window they cover.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseSnapshot? Snapshot { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseSnapshot? Snapshot { get => _explicitNullValueSnapshot; set { _explicitNullValueSnapshot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshot"); else _explicitNullProperties?.Remove("snapshot"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseSnapshot? _explicitNullValueSnapshot = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseSnapshot Snapshot { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseSnapshot Snapshot { get => _explicitNullValueSnapshot; set { _explicitNullValueSnapshot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshot"); else _explicitNullProperties?.Remove("snapshot"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseSnapshot _explicitNullValueSnapshot = default!;
 #endif
         /// <summary>The tool&apos;s metrics over the window.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseTool? Tool { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseTool? Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseTool? _explicitNullValueTool = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseTool Tool { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseTool Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseTool _explicitNullValueTool = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponse"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistory>("history", History);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseSnapshot>("snapshot", Snapshot);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseTool>("tool", Tool);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

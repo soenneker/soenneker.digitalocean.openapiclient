@@ -12,40 +12,59 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiModelRouterTaskPolicy : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("custom_task") is { } nullNodeCustomTask && nullNodeCustomTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomTask = null;
+            if (parseNode.GetChildNode("models") is { } nullNodeModels && nullNodeModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Models = null;
+            if (parseNode.GetChildNode("selection_policy") is { } nullNodeSelectionPolicy && nullNodeSelectionPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectionPolicy = null;
+            if (parseNode.GetChildNode("task_slug") is { } nullNodeTaskSlug && nullNodeTaskSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskSlug = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Task definition embedded in a model router config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails? CustomTask { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails? CustomTask { get => _explicitNullValueCustomTask; set { _explicitNullValueCustomTask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_task"); else _explicitNullProperties?.Remove("custom_task"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails? _explicitNullValueCustomTask = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails CustomTask { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails CustomTask { get => _explicitNullValueCustomTask; set { _explicitNullValueCustomTask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_task"); else _explicitNullProperties?.Remove("custom_task"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails _explicitNullValueCustomTask = default!;
 #endif
         /// <summary>Models assigned to the task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Models { get; set; }
+        public List<string>? Models { get => _explicitNullValueModels; set { _explicitNullValueModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("models"); else _explicitNullProperties?.Remove("models"); } }
+        private List<string>? _explicitNullValueModels = default!;
 #nullable restore
 #else
-        public List<string> Models { get; set; }
+        public List<string> Models { get => _explicitNullValueModels; set { _explicitNullValueModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("models"); else _explicitNullProperties?.Remove("models"); } }
+        private List<string> _explicitNullValueModels = default!;
 #endif
         /// <summary>Selection policy preference for choosing among assigned models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy? SelectionPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy? SelectionPolicy { get => _explicitNullValueSelectionPolicy; set { _explicitNullValueSelectionPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selection_policy"); else _explicitNullProperties?.Remove("selection_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy? _explicitNullValueSelectionPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy SelectionPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy SelectionPolicy { get => _explicitNullValueSelectionPolicy; set { _explicitNullValueSelectionPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selection_policy"); else _explicitNullProperties?.Remove("selection_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy _explicitNullValueSelectionPolicy = default!;
 #endif
         /// <summary>Task slug</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TaskSlug { get; set; }
+        public string? TaskSlug { get => _explicitNullValueTaskSlug; set { _explicitNullValueTaskSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_slug"); else _explicitNullProperties?.Remove("task_slug"); } }
+        private string? _explicitNullValueTaskSlug = default!;
 #nullable restore
 #else
-        public string TaskSlug { get; set; }
+        public string TaskSlug { get => _explicitNullValueTaskSlug; set { _explicitNullValueTaskSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_slug"); else _explicitNullProperties?.Remove("task_slug"); } }
+        private string _explicitNullValueTaskSlug = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskPolicy"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskPolicy();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskPolicy(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("models", Models);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy>("selection_policy", SelectionPolicy);
             writer.WriteStringValue("task_slug", TaskSlug);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

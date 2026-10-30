@@ -12,26 +12,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LogsTimeInstant : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("absolute") is { } nullNodeAbsolute && nullNodeAbsolute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Absolute = null;
+            if (parseNode.GetChildNode("relative") is { } nullNodeRelative && nullNodeRelative.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relative = null;
+            if (parseNode.GetChildNode("unix_nano") is { } nullNodeUnixNano && nullNodeUnixNano.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnixNano = null;
+        }
+
         /// <summary>An absolute timestamp. Accepts RFC3339/RFC3339Nano strings or Unix seconds/nanoseconds as decimal strings.</summary>
-        public DateTimeOffset? Absolute { get; set; }
+        public DateTimeOffset? Absolute { get => _explicitNullValueAbsolute; set { _explicitNullValueAbsolute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("absolute"); else _explicitNullProperties?.Remove("absolute"); } }
+        private DateTimeOffset? _explicitNullValueAbsolute = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A relative time. Use `now` for the current time, a bare duration such as `1h` or `7d` to look back from now, or an offset such as `now-1h` or `now+30m`. Supported units are `s`, `m`, `h`, `d`, and `w`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Relative { get; set; }
+        public string? Relative { get => _explicitNullValueRelative; set { _explicitNullValueRelative = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relative"); else _explicitNullProperties?.Remove("relative"); } }
+        private string? _explicitNullValueRelative = default!;
 #nullable restore
 #else
-        public string Relative { get; set; }
+        public string Relative { get => _explicitNullValueRelative; set { _explicitNullValueRelative = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relative"); else _explicitNullProperties?.Remove("relative"); } }
+        private string _explicitNullValueRelative = default!;
 #endif
         /// <summary>A Unix nanosecond timestamp, encoded as a string to preserve 64-bit precision.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UnixNano { get; set; }
+        public string? UnixNano { get => _explicitNullValueUnixNano; set { _explicitNullValueUnixNano = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unix_nano"); else _explicitNullProperties?.Remove("unix_nano"); } }
+        private string? _explicitNullValueUnixNano = default!;
 #nullable restore
 #else
-        public string UnixNano { get; set; }
+        public string UnixNano { get => _explicitNullValueUnixNano; set { _explicitNullValueUnixNano = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unix_nano"); else _explicitNullProperties?.Remove("unix_nano"); } }
+        private string _explicitNullValueUnixNano = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsTimeInstant"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsTimeInstant CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsTimeInstant();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsTimeInstant(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("absolute", Absolute);
             writer.WriteStringValue("relative", Relative);
             writer.WriteStringValue("unix_nano", UnixNano);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

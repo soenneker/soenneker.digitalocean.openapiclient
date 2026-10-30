@@ -12,42 +12,63 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentManifestSpecSandboxEgress : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow") is { } nullNodeAllow && nullNodeAllow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Allow = null;
+            if (parseNode.GetChildNode("allowIps") is { } nullNodeAllowIps && nullNodeAllowIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowIps = null;
+            if (parseNode.GetChildNode("subnetUuid") is { } nullNodeSubnetUuid && nullNodeSubnetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubnetUuid = null;
+            if (parseNode.GetChildNode("unrestricted") is { } nullNodeUnrestricted && nullNodeUnrestricted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Unrestricted = null;
+            if (parseNode.GetChildNode("vpcUuid") is { } nullNodeVpcUuid && nullNodeVpcUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcUuid = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The allow property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem>? Allow { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem>? Allow { get => _explicitNullValueAllow; set { _explicitNullValueAllow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow"); else _explicitNullProperties?.Remove("allow"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem>? _explicitNullValueAllow = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem> Allow { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem> Allow { get => _explicitNullValueAllow; set { _explicitNullValueAllow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow"); else _explicitNullProperties?.Remove("allow"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem> _explicitNullValueAllow = default!;
 #endif
         /// <summary>Exact IPv4/IPv6 literals (not CIDRs).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowIps { get; set; }
+        public List<string>? AllowIps { get => _explicitNullValueAllowIps; set { _explicitNullValueAllowIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowIps"); else _explicitNullProperties?.Remove("allowIps"); } }
+        private List<string>? _explicitNullValueAllowIps = default!;
 #nullable restore
 #else
-        public List<string> AllowIps { get; set; }
+        public List<string> AllowIps { get => _explicitNullValueAllowIps; set { _explicitNullValueAllowIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowIps"); else _explicitNullProperties?.Remove("allowIps"); } }
+        private List<string> _explicitNullValueAllowIps = default!;
 #endif
         /// <summary>Optional subnet within vpcUuid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubnetUuid { get; set; }
+        public string? SubnetUuid { get => _explicitNullValueSubnetUuid; set { _explicitNullValueSubnetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subnetUuid"); else _explicitNullProperties?.Remove("subnetUuid"); } }
+        private string? _explicitNullValueSubnetUuid = default!;
 #nullable restore
 #else
-        public string SubnetUuid { get; set; }
+        public string SubnetUuid { get => _explicitNullValueSubnetUuid; set { _explicitNullValueSubnetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subnetUuid"); else _explicitNullProperties?.Remove("subnetUuid"); } }
+        private string _explicitNullValueSubnetUuid = default!;
 #endif
         /// <summary>When true, opts out of the platform-default host allowlist union. Mutually exclusive with allow / allowIps / vpcUuid / subnetUuid.</summary>
-        public bool? Unrestricted { get; set; }
+        public bool? Unrestricted { get => _explicitNullValueUnrestricted; set { _explicitNullValueUnrestricted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unrestricted"); else _explicitNullProperties?.Remove("unrestricted"); } }
+        private bool? _explicitNullValueUnrestricted = default!;
         /// <summary>Customer VPC UUID. Create-time immutable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VpcUuid { get; set; }
+        public string? VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpcUuid"); else _explicitNullProperties?.Remove("vpcUuid"); } }
+        private string? _explicitNullValueVpcUuid = default!;
 #nullable restore
 #else
-        public string VpcUuid { get; set; }
+        public string VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpcUuid"); else _explicitNullProperties?.Remove("vpcUuid"); } }
+        private string _explicitNullValueVpcUuid = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgress"/> and sets the default values.
@@ -64,7 +85,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgress();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgress(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +114,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("subnetUuid", SubnetUuid);
             writer.WriteBoolValue("unrestricted", Unrestricted);
             writer.WriteStringValue("vpcUuid", VpcUuid);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

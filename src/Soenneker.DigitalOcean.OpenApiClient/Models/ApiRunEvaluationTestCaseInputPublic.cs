@@ -12,40 +12,59 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiRunEvaluationTestCaseInputPublic : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_deployment_names") is { } nullNodeAgentDeploymentNames && nullNodeAgentDeploymentNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentDeploymentNames = null;
+            if (parseNode.GetChildNode("agent_uuids") is { } nullNodeAgentUuids && nullNodeAgentUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUuids = null;
+            if (parseNode.GetChildNode("run_name") is { } nullNodeRunName && nullNodeRunName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunName = null;
+            if (parseNode.GetChildNode("test_case_uuid") is { } nullNodeTestCaseUuid && nullNodeTestCaseUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestCaseUuid = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Agent deployment names to run the test case against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AgentDeploymentNames { get; set; }
+        public List<string>? AgentDeploymentNames { get => _explicitNullValueAgentDeploymentNames; set { _explicitNullValueAgentDeploymentNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_names"); else _explicitNullProperties?.Remove("agent_deployment_names"); } }
+        private List<string>? _explicitNullValueAgentDeploymentNames = default!;
 #nullable restore
 #else
-        public List<string> AgentDeploymentNames { get; set; }
+        public List<string> AgentDeploymentNames { get => _explicitNullValueAgentDeploymentNames; set { _explicitNullValueAgentDeploymentNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_names"); else _explicitNullProperties?.Remove("agent_deployment_names"); } }
+        private List<string> _explicitNullValueAgentDeploymentNames = default!;
 #endif
         /// <summary>Agent UUIDs to run the test case against (legacy agents).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AgentUuids { get; set; }
+        public List<string>? AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
+        private List<string>? _explicitNullValueAgentUuids = default!;
 #nullable restore
 #else
-        public List<string> AgentUuids { get; set; }
+        public List<string> AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
+        private List<string> _explicitNullValueAgentUuids = default!;
 #endif
         /// <summary>The name of the run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunName { get; set; }
+        public string? RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
+        private string? _explicitNullValueRunName = default!;
 #nullable restore
 #else
-        public string RunName { get; set; }
+        public string RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
+        private string _explicitNullValueRunName = default!;
 #endif
         /// <summary>Test-case UUID to run</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TestCaseUuid { get; set; }
+        public string? TestCaseUuid { get => _explicitNullValueTestCaseUuid; set { _explicitNullValueTestCaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_case_uuid"); else _explicitNullProperties?.Remove("test_case_uuid"); } }
+        private string? _explicitNullValueTestCaseUuid = default!;
 #nullable restore
 #else
-        public string TestCaseUuid { get; set; }
+        public string TestCaseUuid { get => _explicitNullValueTestCaseUuid; set { _explicitNullValueTestCaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_case_uuid"); else _explicitNullProperties?.Remove("test_case_uuid"); } }
+        private string _explicitNullValueTestCaseUuid = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiRunEvaluationTestCaseInputPublic"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiRunEvaluationTestCaseInputPublic CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiRunEvaluationTestCaseInputPublic();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiRunEvaluationTestCaseInputPublic(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("agent_uuids", AgentUuids);
             writer.WriteStringValue("run_name", RunName);
             writer.WriteStringValue("test_case_uuid", TestCaseUuid);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

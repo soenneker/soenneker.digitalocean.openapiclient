@@ -12,27 +12,42 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UserSettingsUpdate : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acl") is { } nullNodeAcl && nullNodeAcl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Acl = null;
+            if (parseNode.GetChildNode("opensearch_acl") is { } nullNodeOpensearchAcl && nullNodeOpensearchAcl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpensearchAcl = null;
+            if (parseNode.GetChildNode("pg_allow_replication") is { } nullNodePgAllowReplication && nullNodePgAllowReplication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgAllowReplication = null;
+        }
+
         /// <summary>ACLs (Access Control Lists) specifying permissions on topics within a Kafka cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateAclItem>? Acl { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateAclItem>? Acl { get => _explicitNullValueAcl; set { _explicitNullValueAcl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl"); else _explicitNullProperties?.Remove("acl"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateAclItem>? _explicitNullValueAcl = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateAclItem> Acl { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateAclItem> Acl { get => _explicitNullValueAcl; set { _explicitNullValueAcl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl"); else _explicitNullProperties?.Remove("acl"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateAclItem> _explicitNullValueAcl = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ACLs (Access Control Lists) specifying permissions on index within a OpenSearch cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateOpensearchAclItem>? OpensearchAcl { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateOpensearchAclItem>? OpensearchAcl { get => _explicitNullValueOpensearchAcl; set { _explicitNullValueOpensearchAcl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch_acl"); else _explicitNullProperties?.Remove("opensearch_acl"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateOpensearchAclItem>? _explicitNullValueOpensearchAcl = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateOpensearchAclItem> OpensearchAcl { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateOpensearchAclItem> OpensearchAcl { get => _explicitNullValueOpensearchAcl; set { _explicitNullValueOpensearchAcl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch_acl"); else _explicitNullProperties?.Remove("opensearch_acl"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateOpensearchAclItem> _explicitNullValueOpensearchAcl = default!;
 #endif
         /// <summary>For PostgreSQL clusters, set to `true` to grant the user replicationprivileges. When omitted on create or update, the value defaults to`false` and replication privileges are not granted. This option is notcurrently supported for other database engines.</summary>
-        public bool? PgAllowReplication { get; set; }
+        public bool? PgAllowReplication { get => _explicitNullValuePgAllowReplication; set { _explicitNullValuePgAllowReplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_allow_replication"); else _explicitNullProperties?.Remove("pg_allow_replication"); } }
+        private bool? _explicitNullValuePgAllowReplication = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateAclItem>("acl", Acl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsUpdateOpensearchAclItem>("opensearch_acl", OpensearchAcl);
             writer.WriteBoolValue("pg_allow_replication", PgAllowReplication);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

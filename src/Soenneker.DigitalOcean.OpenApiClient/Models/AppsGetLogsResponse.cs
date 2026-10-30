@@ -11,24 +11,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AppsGetLogsResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("historic_urls") is { } nullNodeHistoricUrls && nullNodeHistoricUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoricUrls = null;
+            if (parseNode.GetChildNode("live_url") is { } nullNodeLiveUrl && nullNodeLiveUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiveUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The historic_urls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? HistoricUrls { get; set; }
+        public List<string>? HistoricUrls { get => _explicitNullValueHistoricUrls; set { _explicitNullValueHistoricUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("historic_urls"); else _explicitNullProperties?.Remove("historic_urls"); } }
+        private List<string>? _explicitNullValueHistoricUrls = default!;
 #nullable restore
 #else
-        public List<string> HistoricUrls { get; set; }
+        public List<string> HistoricUrls { get => _explicitNullValueHistoricUrls; set { _explicitNullValueHistoricUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("historic_urls"); else _explicitNullProperties?.Remove("historic_urls"); } }
+        private List<string> _explicitNullValueHistoricUrls = default!;
 #endif
         /// <summary>A URL of the real-time live logs. This URL may use either the `https://` or `wss://` protocols and will keep pushing live logs as they become available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LiveUrl { get; set; }
+        public string? LiveUrl { get => _explicitNullValueLiveUrl; set { _explicitNullValueLiveUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("live_url"); else _explicitNullProperties?.Remove("live_url"); } }
+        private string? _explicitNullValueLiveUrl = default!;
 #nullable restore
 #else
-        public string LiveUrl { get; set; }
+        public string LiveUrl { get => _explicitNullValueLiveUrl; set { _explicitNullValueLiveUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("live_url"); else _explicitNullProperties?.Remove("live_url"); } }
+        private string _explicitNullValueLiveUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGetLogsResponse"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGetLogsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGetLogsResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGetLogsResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("historic_urls", HistoricUrls);
             writer.WriteStringValue("live_url", LiveUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

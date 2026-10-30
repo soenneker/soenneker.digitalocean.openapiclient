@@ -11,7 +11,17 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Certificate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dns_names") is { } nullNodeDnsNames && nullNodeDnsNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DnsNames = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A time value given in ISO8601 combined date and time format that represents when the certificate was created.</summary>
@@ -19,20 +29,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array of fully qualified domain names (FQDNs) for which the certificate was issued.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DnsNames { get; set; }
+        public List<string>? DnsNames { get => _explicitNullValueDnsNames; set { _explicitNullValueDnsNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_names"); else _explicitNullProperties?.Remove("dns_names"); } }
+        private List<string>? _explicitNullValueDnsNames = default!;
 #nullable restore
 #else
-        public List<string> DnsNames { get; set; }
+        public List<string> DnsNames { get => _explicitNullValueDnsNames; set { _explicitNullValueDnsNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_names"); else _explicitNullProperties?.Remove("dns_names"); } }
+        private List<string> _explicitNullValueDnsNames = default!;
 #endif
         /// <summary>A unique ID that can be used to identify and reference a certificate.</summary>
         public Guid? Id { get; private set; }
         /// <summary>A unique human-readable name referring to a certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>A time value given in ISO8601 combined date and time format that represents the certificate&apos;s expiration date.</summary>
         public DateTimeOffset? NotAfter { get; private set; }
@@ -47,7 +61,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.CertificateState? State { get; private set; }
         /// <summary>A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let&apos;s Encrypt.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CertificateType? Type { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CertificateType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CertificateType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Certificate"/> and sets the default values.
         /// </summary>
@@ -63,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.Certificate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.Certificate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.Certificate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +108,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("dns_names", DnsNames);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CertificateType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

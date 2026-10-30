@@ -12,7 +12,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VolumesCreateRequest : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VolumesExt4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,9 +43,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.VolumesCreateRequest();
-            result.VolumesExt4 = new global::Soenneker.DigitalOcean.OpenApiClient.Models.VolumesExt4();
-            result.VolumesXfs = new global::Soenneker.DigitalOcean.OpenApiClient.Models.VolumesXfs();
-            return result;
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("size_gigabytes") != null && parseNode.GetChildNode("region") != null && (parseNode.GetChildNode("region")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("ams1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "ams2".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "ams3".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "blr1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "fra1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "lon1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "nyc1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "nyc2".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "nyc3".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "sfo1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "sfo2".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "sfo3".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "sgp1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "tor1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "syd1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("size_gigabytes") != null && parseNode.GetChildNode("region") != null && (parseNode.GetChildNode("region")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("ams1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "ams2".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "ams3".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "blr1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "fra1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "lon1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "nyc1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "nyc2".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "nyc3".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "sfo1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "sfo2".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "sfo3".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "sgp1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "tor1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "syd1".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.VolumesExt4 == null && result.VolumesXfs == null && matchesUnionBranch0 && !matchesUnionBranch1) result.VolumesExt4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.VolumesExt4(), parseNode);
+            if (result.VolumesExt4 == null && result.VolumesXfs == null && matchesUnionBranch1 && !matchesUnionBranch0) result.VolumesXfs = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.VolumesXfs(), parseNode);
+            if (result.VolumesExt4 == null && result.VolumesXfs == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +72,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (VolumesExt4 == null && VolumesXfs == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (VolumesExt4 != null && VolumesXfs == null) { if (VolumesExt4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VolumesExt4); return; }
+            if (VolumesXfs != null && VolumesExt4 == null) { if (VolumesXfs is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VolumesXfs); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.VolumesExt4>(null, VolumesExt4, VolumesXfs);
         }

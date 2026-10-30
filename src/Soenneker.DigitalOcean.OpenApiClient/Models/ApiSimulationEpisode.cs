@@ -12,107 +12,157 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiSimulationEpisode : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("duration_sec") is { } nullNodeDurationSec && nullNodeDurationSec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DurationSec = null;
+            if (parseNode.GetChildNode("episode_index") is { } nullNodeEpisodeIndex && nullNodeEpisodeIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EpisodeIndex = null;
+            if (parseNode.GetChildNode("episode_uuid") is { } nullNodeEpisodeUuid && nullNodeEpisodeUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EpisodeUuid = null;
+            if (parseNode.GetChildNode("failure_reason") is { } nullNodeFailureReason && nullNodeFailureReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureReason = null;
+            if (parseNode.GetChildNode("judge_reasoning") is { } nullNodeJudgeReasoning && nullNodeJudgeReasoning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeReasoning = null;
+            if (parseNode.GetChildNode("run_uuid") is { } nullNodeRunUuid && nullNodeRunUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunUuid = null;
+            if (parseNode.GetChildNode("scenario_uuid") is { } nullNodeScenarioUuid && nullNodeScenarioUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioUuid = null;
+            if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("token_usage") is { } nullNodeTokenUsage && nullNodeTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUsage = null;
+            if (parseNode.GetChildNode("trajectory_bucket_name") is { } nullNodeTrajectoryBucketName && nullNodeTrajectoryBucketName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrajectoryBucketName = null;
+            if (parseNode.GetChildNode("trajectory_bucket_region") is { } nullNodeTrajectoryBucketRegion && nullNodeTrajectoryBucketRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrajectoryBucketRegion = null;
+            if (parseNode.GetChildNode("trajectory_spaces_key") is { } nullNodeTrajectorySpacesKey && nullNodeTrajectorySpacesKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrajectorySpacesKey = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("verdict") is { } nullNodeVerdict && nullNodeVerdict.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verdict = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Time created at.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Wall-clock time taken for the episode to complete, in seconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DurationSec { get; set; }
+        public string? DurationSec { get => _explicitNullValueDurationSec; set { _explicitNullValueDurationSec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_sec"); else _explicitNullProperties?.Remove("duration_sec"); } }
+        private string? _explicitNullValueDurationSec = default!;
 #nullable restore
 #else
-        public string DurationSec { get; set; }
+        public string DurationSec { get => _explicitNullValueDurationSec; set { _explicitNullValueDurationSec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_sec"); else _explicitNullProperties?.Remove("duration_sec"); } }
+        private string _explicitNullValueDurationSec = default!;
 #endif
         /// <summary>Zero-based index of this episode within its scenario&apos;s exploration budget.</summary>
-        public long? EpisodeIndex { get; set; }
+        public long? EpisodeIndex { get => _explicitNullValueEpisodeIndex; set { _explicitNullValueEpisodeIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("episode_index"); else _explicitNullProperties?.Remove("episode_index"); } }
+        private long? _explicitNullValueEpisodeIndex = default!;
         /// <summary>UUID of the episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EpisodeUuid { get; set; }
+        public string? EpisodeUuid { get => _explicitNullValueEpisodeUuid; set { _explicitNullValueEpisodeUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("episode_uuid"); else _explicitNullProperties?.Remove("episode_uuid"); } }
+        private string? _explicitNullValueEpisodeUuid = default!;
 #nullable restore
 #else
-        public string EpisodeUuid { get; set; }
+        public string EpisodeUuid { get => _explicitNullValueEpisodeUuid; set { _explicitNullValueEpisodeUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("episode_uuid"); else _explicitNullProperties?.Remove("episode_uuid"); } }
+        private string _explicitNullValueEpisodeUuid = default!;
 #endif
         /// <summary>Human-readable explanation of a terminal FAILED status. Empty otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FailureReason { get; set; }
+        public string? FailureReason { get => _explicitNullValueFailureReason; set { _explicitNullValueFailureReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_reason"); else _explicitNullProperties?.Remove("failure_reason"); } }
+        private string? _explicitNullValueFailureReason = default!;
 #nullable restore
 #else
-        public string FailureReason { get; set; }
+        public string FailureReason { get => _explicitNullValueFailureReason; set { _explicitNullValueFailureReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_reason"); else _explicitNullProperties?.Remove("failure_reason"); } }
+        private string _explicitNullValueFailureReason = default!;
 #endif
         /// <summary>Optional judge reasoning for the verdict.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JudgeReasoning { get; set; }
+        public string? JudgeReasoning { get => _explicitNullValueJudgeReasoning; set { _explicitNullValueJudgeReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_reasoning"); else _explicitNullProperties?.Remove("judge_reasoning"); } }
+        private string? _explicitNullValueJudgeReasoning = default!;
 #nullable restore
 #else
-        public string JudgeReasoning { get; set; }
+        public string JudgeReasoning { get => _explicitNullValueJudgeReasoning; set { _explicitNullValueJudgeReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_reasoning"); else _explicitNullProperties?.Remove("judge_reasoning"); } }
+        private string _explicitNullValueJudgeReasoning = default!;
 #endif
         /// <summary>UUID of the run this episode belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunUuid { get; set; }
+        public string? RunUuid { get => _explicitNullValueRunUuid; set { _explicitNullValueRunUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_uuid"); else _explicitNullProperties?.Remove("run_uuid"); } }
+        private string? _explicitNullValueRunUuid = default!;
 #nullable restore
 #else
-        public string RunUuid { get; set; }
+        public string RunUuid { get => _explicitNullValueRunUuid; set { _explicitNullValueRunUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_uuid"); else _explicitNullProperties?.Remove("run_uuid"); } }
+        private string _explicitNullValueRunUuid = default!;
 #endif
         /// <summary>UUID of the scenario this episode executed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScenarioUuid { get; set; }
+        public string? ScenarioUuid { get => _explicitNullValueScenarioUuid; set { _explicitNullValueScenarioUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_uuid"); else _explicitNullProperties?.Remove("scenario_uuid"); } }
+        private string? _explicitNullValueScenarioUuid = default!;
 #nullable restore
 #else
-        public string ScenarioUuid { get; set; }
+        public string ScenarioUuid { get => _explicitNullValueScenarioUuid; set { _explicitNullValueScenarioUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_uuid"); else _explicitNullProperties?.Remove("scenario_uuid"); } }
+        private string _explicitNullValueScenarioUuid = default!;
 #endif
         /// <summary>Session identifier for this episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionId { get; set; }
+        public string? SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private string? _explicitNullValueSessionId = default!;
 #nullable restore
 #else
-        public string SessionId { get; set; }
+        public string SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private string _explicitNullValueSessionId = default!;
 #endif
         /// <summary>Lifecycle status of a single episode. - SIMULATION_EPISODE_STATUS_RUNNING: The episode is executing and a trajectory is available to retrieve. - SIMULATION_EPISODE_STATUS_FINISHED: The episode reached a stop condition and produced a verdict. - SIMULATION_EPISODE_STATUS_FAILED: The episode failed because of a cancel, timeout, or error. - SIMULATION_EPISODE_STATUS_PREPARING: The episode is allocated but its trajectory is not available yet.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus? Status { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus? _explicitNullValueStatus = default!;
         /// <summary>Per-actor token accounting for a run or episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? TokenUsage { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? _explicitNullValueTokenUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage TokenUsage { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage _explicitNullValueTokenUsage = default!;
 #endif
         /// <summary>Object storage bucket holding the trajectory JSON. Set when the episode finishes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TrajectoryBucketName { get; set; }
+        public string? TrajectoryBucketName { get => _explicitNullValueTrajectoryBucketName; set { _explicitNullValueTrajectoryBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory_bucket_name"); else _explicitNullProperties?.Remove("trajectory_bucket_name"); } }
+        private string? _explicitNullValueTrajectoryBucketName = default!;
 #nullable restore
 #else
-        public string TrajectoryBucketName { get; set; }
+        public string TrajectoryBucketName { get => _explicitNullValueTrajectoryBucketName; set { _explicitNullValueTrajectoryBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory_bucket_name"); else _explicitNullProperties?.Remove("trajectory_bucket_name"); } }
+        private string _explicitNullValueTrajectoryBucketName = default!;
 #endif
         /// <summary>Object storage bucket region for the trajectory JSON. Set when the episode finishes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TrajectoryBucketRegion { get; set; }
+        public string? TrajectoryBucketRegion { get => _explicitNullValueTrajectoryBucketRegion; set { _explicitNullValueTrajectoryBucketRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory_bucket_region"); else _explicitNullProperties?.Remove("trajectory_bucket_region"); } }
+        private string? _explicitNullValueTrajectoryBucketRegion = default!;
 #nullable restore
 #else
-        public string TrajectoryBucketRegion { get; set; }
+        public string TrajectoryBucketRegion { get => _explicitNullValueTrajectoryBucketRegion; set { _explicitNullValueTrajectoryBucketRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory_bucket_region"); else _explicitNullProperties?.Remove("trajectory_bucket_region"); } }
+        private string _explicitNullValueTrajectoryBucketRegion = default!;
 #endif
         /// <summary>Object storage key for the trajectory JSON. Set when the episode finishes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TrajectorySpacesKey { get; set; }
+        public string? TrajectorySpacesKey { get => _explicitNullValueTrajectorySpacesKey; set { _explicitNullValueTrajectorySpacesKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory_spaces_key"); else _explicitNullProperties?.Remove("trajectory_spaces_key"); } }
+        private string? _explicitNullValueTrajectorySpacesKey = default!;
 #nullable restore
 #else
-        public string TrajectorySpacesKey { get; set; }
+        public string TrajectorySpacesKey { get => _explicitNullValueTrajectorySpacesKey; set { _explicitNullValueTrajectorySpacesKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory_spaces_key"); else _explicitNullProperties?.Remove("trajectory_spaces_key"); } }
+        private string _explicitNullValueTrajectorySpacesKey = default!;
 #endif
         /// <summary>Time last updated at.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>The judge&apos;s verdict for an episode. - SIMULATION_EPISODE_VERDICT_SUCCESS: The candidate agent satisfied the scenario&apos;s stopping criteria. - SIMULATION_EPISODE_VERDICT_FAILURE: The candidate agent did not satisfy the stopping criteria. - SIMULATION_EPISODE_VERDICT_INCONCLUSIVE: No conclusive verdict (e.g. max_turns reached without the judge finishing).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict? Verdict { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict? Verdict { get => _explicitNullValueVerdict; set { _explicitNullValueVerdict = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict"); else _explicitNullProperties?.Remove("verdict"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict? _explicitNullValueVerdict = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode"/> and sets the default values.
         /// </summary>
@@ -128,7 +178,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -179,6 +229,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("trajectory_spaces_key", TrajectorySpacesKey);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict>("verdict", Verdict);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

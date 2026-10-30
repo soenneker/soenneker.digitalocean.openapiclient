@@ -12,26 +12,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VectordbVectorDbConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("default_quantization") is { } nullNodeDefaultQuantization && nullNodeDefaultQuantization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultQuantization = null;
+            if (parseNode.GetChildNode("enable_auto_schema") is { } nullNodeEnableAutoSchema && nullNodeEnableAutoSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableAutoSchema = null;
+            if (parseNode.GetChildNode("weaviate_version") is { } nullNodeWeaviateVersion && nullNodeWeaviateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WeaviateVersion = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Default vector compression for new collections: rq, pq, bq, or sq. Empty means platform default (rq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultQuantization { get; set; }
+        public string? DefaultQuantization { get => _explicitNullValueDefaultQuantization; set { _explicitNullValueDefaultQuantization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_quantization"); else _explicitNullProperties?.Remove("default_quantization"); } }
+        private string? _explicitNullValueDefaultQuantization = default!;
 #nullable restore
 #else
-        public string DefaultQuantization { get; set; }
+        public string DefaultQuantization { get => _explicitNullValueDefaultQuantization; set { _explicitNullValueDefaultQuantization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_quantization"); else _explicitNullProperties?.Remove("default_quantization"); } }
+        private string _explicitNullValueDefaultQuantization = default!;
 #endif
         /// <summary>The enable_auto_schema property</summary>
-        public bool? EnableAutoSchema { get; set; }
+        public bool? EnableAutoSchema { get => _explicitNullValueEnableAutoSchema; set { _explicitNullValueEnableAutoSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_auto_schema"); else _explicitNullProperties?.Remove("enable_auto_schema"); } }
+        private bool? _explicitNullValueEnableAutoSchema = default!;
         /// <summary>The Vector Database version running on the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WeaviateVersion { get; set; }
+        public string? WeaviateVersion { get => _explicitNullValueWeaviateVersion; set { _explicitNullValueWeaviateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weaviate_version"); else _explicitNullProperties?.Remove("weaviate_version"); } }
+        private string? _explicitNullValueWeaviateVersion = default!;
 #nullable restore
 #else
-        public string WeaviateVersion { get; set; }
+        public string WeaviateVersion { get => _explicitNullValueWeaviateVersion; set { _explicitNullValueWeaviateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weaviate_version"); else _explicitNullProperties?.Remove("weaviate_version"); } }
+        private string _explicitNullValueWeaviateVersion = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDbConfig"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDbConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDbConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDbConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("default_quantization", DefaultQuantization);
             writer.WriteBoolValue("enable_auto_schema", EnableAutoSchema);
             writer.WriteStringValue("weaviate_version", WeaviateVersion);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

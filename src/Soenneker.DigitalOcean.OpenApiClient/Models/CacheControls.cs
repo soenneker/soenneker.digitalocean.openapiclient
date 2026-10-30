@@ -12,11 +12,22 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CacheControls : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("max_age_seconds") is { } nullNodeMaxAgeSeconds && nullNodeMaxAgeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAgeSeconds = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+        }
+
         /// <summary>Oldest cached result this call accepts, in seconds. Zero bypasses caching. Values above 300 are clamped to 300; larger values cannot increase the session or tool lifetime. This controls accepted result age, not the lifetime of a newly stored entry.</summary>
-        public int? MaxAgeSeconds { get; set; }
+        public int? MaxAgeSeconds { get => _explicitNullValueMaxAgeSeconds; set { _explicitNullValueMaxAgeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_age_seconds"); else _explicitNullProperties?.Remove("max_age_seconds"); } }
+        private int? _explicitNullValueMaxAgeSeconds = default!;
         /// <summary>auto uses a sufficiently recent cached result or calls the provider and can store a successful result. bypass skips lookup and storage without clearing or refreshing existing entries.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControlsMode? Mode { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControlsMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControlsMode? _explicitNullValueMode = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -25,7 +36,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControls CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControls();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControls(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +58,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("max_age_seconds", MaxAgeSeconds);
-            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControlsMode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheControlsMode>("mode", Mode);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

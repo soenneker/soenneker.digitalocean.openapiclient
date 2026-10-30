@@ -11,16 +11,26 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class VpcNatGatewayCreateResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("vpc_nat_gateway") is { } nullNodeVpcNatGateway && nullNodeVpcNatGateway.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcNatGateway = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The vpc_nat_gateway property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreate? VpcNatGateway { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreate? VpcNatGateway { get => _explicitNullValueVpcNatGateway; set { _explicitNullValueVpcNatGateway = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_nat_gateway"); else _explicitNullProperties?.Remove("vpc_nat_gateway"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreate? _explicitNullValueVpcNatGateway = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreate VpcNatGateway { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreate VpcNatGateway { get => _explicitNullValueVpcNatGateway; set { _explicitNullValueVpcNatGateway = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_nat_gateway"); else _explicitNullProperties?.Remove("vpc_nat_gateway"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreate _explicitNullValueVpcNatGateway = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateResponse"/> and sets the default values.
@@ -37,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreateResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +68,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayCreate>("vpc_nat_gateway", VpcNatGateway);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

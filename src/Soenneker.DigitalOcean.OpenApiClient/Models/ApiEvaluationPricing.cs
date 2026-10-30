@@ -12,35 +12,53 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiEvaluationPricing : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("judge_model_pricing") is { } nullNodeJudgeModelPricing && nullNodeJudgeModelPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelPricing = null;
+            if (parseNode.GetChildNode("per_candidate_model_pricing") is { } nullNodePerCandidateModelPricing && nullNodePerCandidateModelPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerCandidateModelPricing = null;
+            if (parseNode.GetChildNode("total_cost") is { } nullNodeTotalCost && nullNodeTotalCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCost = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Currency code (e.g., &quot;USD&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Currency { get; set; }
+        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string? _explicitNullValueCurrency = default!;
 #nullable restore
 #else
-        public string Currency { get; set; }
+        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string _explicitNullValueCurrency = default!;
 #endif
         /// <summary>Token pricing breakdown for a single model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing? JudgeModelPricing { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing? JudgeModelPricing { get => _explicitNullValueJudgeModelPricing; set { _explicitNullValueJudgeModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_pricing"); else _explicitNullProperties?.Remove("judge_model_pricing"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing? _explicitNullValueJudgeModelPricing = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing JudgeModelPricing { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing JudgeModelPricing { get => _explicitNullValueJudgeModelPricing; set { _explicitNullValueJudgeModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_pricing"); else _explicitNullProperties?.Remove("judge_model_pricing"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing _explicitNullValueJudgeModelPricing = default!;
 #endif
         /// <summary>Pricing per candidate model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry>? PerCandidateModelPricing { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry>? PerCandidateModelPricing { get => _explicitNullValuePerCandidateModelPricing; set { _explicitNullValuePerCandidateModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_candidate_model_pricing"); else _explicitNullProperties?.Remove("per_candidate_model_pricing"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry>? _explicitNullValuePerCandidateModelPricing = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry> PerCandidateModelPricing { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry> PerCandidateModelPricing { get => _explicitNullValuePerCandidateModelPricing; set { _explicitNullValuePerCandidateModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_candidate_model_pricing"); else _explicitNullProperties?.Remove("per_candidate_model_pricing"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry> _explicitNullValuePerCandidateModelPricing = default!;
 #endif
         /// <summary>Total cost of the evaluation run (all candidates + judge).</summary>
-        public double? TotalCost { get; set; }
+        public double? TotalCost { get => _explicitNullValueTotalCost; set { _explicitNullValueTotalCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cost"); else _explicitNullProperties?.Remove("total_cost"); } }
+        private double? _explicitNullValueTotalCost = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing"/> and sets the default values.
         /// </summary>
@@ -56,7 +74,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing>("judge_model_pricing", JudgeModelPricing);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry>("per_candidate_model_pricing", PerCandidateModelPricing);
             writer.WriteDoubleValue("total_cost", TotalCost);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

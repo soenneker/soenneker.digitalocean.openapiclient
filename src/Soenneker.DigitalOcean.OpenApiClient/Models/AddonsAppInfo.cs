@@ -11,40 +11,59 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AddonsAppInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("app_slug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
+            if (parseNode.GetChildNode("eula") is { } nullNodeEula && nullNodeEula.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eula = null;
+            if (parseNode.GetChildNode("plans") is { } nullNodePlans && nullNodePlans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plans = null;
+            if (parseNode.GetChildNode("tos") is { } nullNodeTos && nullNodeTos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tos = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The slug identifier for the application associated with the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppSlug { get; set; }
+        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
+        private string? _explicitNullValueAppSlug = default!;
 #nullable restore
 #else
-        public string AppSlug { get; set; }
+        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
+        private string _explicitNullValueAppSlug = default!;
 #endif
         /// <summary>The End User License Agreement URL for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Eula { get; set; }
+        public string? Eula { get => _explicitNullValueEula; set { _explicitNullValueEula = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eula"); else _explicitNullProperties?.Remove("eula"); } }
+        private string? _explicitNullValueEula = default!;
 #nullable restore
 #else
-        public string Eula { get; set; }
+        public string Eula { get => _explicitNullValueEula; set { _explicitNullValueEula = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eula"); else _explicitNullProperties?.Remove("eula"); } }
+        private string _explicitNullValueEula = default!;
 #endif
         /// <summary>A list of plans available for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan>? Plans { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan>? Plans { get => _explicitNullValuePlans; set { _explicitNullValuePlans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plans"); else _explicitNullProperties?.Remove("plans"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan>? _explicitNullValuePlans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan> Plans { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan> Plans { get => _explicitNullValuePlans; set { _explicitNullValuePlans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plans"); else _explicitNullProperties?.Remove("plans"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan> _explicitNullValuePlans = default!;
 #endif
         /// <summary>The Terms of Service URL for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tos { get; set; }
+        public string? Tos { get => _explicitNullValueTos; set { _explicitNullValueTos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tos"); else _explicitNullProperties?.Remove("tos"); } }
+        private string? _explicitNullValueTos = default!;
 #nullable restore
 #else
-        public string Tos { get; set; }
+        public string Tos { get => _explicitNullValueTos; set { _explicitNullValueTos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tos"); else _explicitNullProperties?.Remove("tos"); } }
+        private string _explicitNullValueTos = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsAppInfo"/> and sets the default values.
@@ -61,7 +80,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsAppInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsAppInfo();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsAppInfo(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +107,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("eula", Eula);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan>("plans", Plans);
             writer.WriteStringValue("tos", Tos);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

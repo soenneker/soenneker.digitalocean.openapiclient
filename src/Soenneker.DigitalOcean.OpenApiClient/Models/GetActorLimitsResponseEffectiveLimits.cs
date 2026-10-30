@@ -12,40 +12,59 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetActorLimitsResponseEffectiveLimits : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("native_tool_calls_requests_per_minute") is { } nullNodeNativeToolCallsRequestsPerMinute && nullNodeNativeToolCallsRequestsPerMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NativeToolCallsRequestsPerMinute = null;
+            if (parseNode.GetChildNode("non_native_tool_calls_requests_per_minute") is { } nullNodeNonNativeToolCallsRequestsPerMinute && nullNodeNonNativeToolCallsRequestsPerMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NonNativeToolCallsRequestsPerMinute = null;
+            if (parseNode.GetChildNode("web_fetch_requests_per_minute") is { } nullNodeWebFetchRequestsPerMinute && nullNodeWebFetchRequestsPerMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebFetchRequestsPerMinute = null;
+            if (parseNode.GetChildNode("web_search_requests_per_minute") is { } nullNodeWebSearchRequestsPerMinute && nullNodeWebSearchRequestsPerMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebSearchRequestsPerMinute = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Calls per minute to DigitalOcean tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NativeToolCallsRequestsPerMinute { get; set; }
+        public string? NativeToolCallsRequestsPerMinute { get => _explicitNullValueNativeToolCallsRequestsPerMinute; set { _explicitNullValueNativeToolCallsRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("native_tool_calls_requests_per_minute"); else _explicitNullProperties?.Remove("native_tool_calls_requests_per_minute"); } }
+        private string? _explicitNullValueNativeToolCallsRequestsPerMinute = default!;
 #nullable restore
 #else
-        public string NativeToolCallsRequestsPerMinute { get; set; }
+        public string NativeToolCallsRequestsPerMinute { get => _explicitNullValueNativeToolCallsRequestsPerMinute; set { _explicitNullValueNativeToolCallsRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("native_tool_calls_requests_per_minute"); else _explicitNullProperties?.Remove("native_tool_calls_requests_per_minute"); } }
+        private string _explicitNullValueNativeToolCallsRequestsPerMinute = default!;
 #endif
         /// <summary>Calls per minute to all other tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NonNativeToolCallsRequestsPerMinute { get; set; }
+        public string? NonNativeToolCallsRequestsPerMinute { get => _explicitNullValueNonNativeToolCallsRequestsPerMinute; set { _explicitNullValueNonNativeToolCallsRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("non_native_tool_calls_requests_per_minute"); else _explicitNullProperties?.Remove("non_native_tool_calls_requests_per_minute"); } }
+        private string? _explicitNullValueNonNativeToolCallsRequestsPerMinute = default!;
 #nullable restore
 #else
-        public string NonNativeToolCallsRequestsPerMinute { get; set; }
+        public string NonNativeToolCallsRequestsPerMinute { get => _explicitNullValueNonNativeToolCallsRequestsPerMinute; set { _explicitNullValueNonNativeToolCallsRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("non_native_tool_calls_requests_per_minute"); else _explicitNullProperties?.Remove("non_native_tool_calls_requests_per_minute"); } }
+        private string _explicitNullValueNonNativeToolCallsRequestsPerMinute = default!;
 #endif
         /// <summary>Calls per minute to the `exa_web_fetch` tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebFetchRequestsPerMinute { get; set; }
+        public string? WebFetchRequestsPerMinute { get => _explicitNullValueWebFetchRequestsPerMinute; set { _explicitNullValueWebFetchRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_fetch_requests_per_minute"); else _explicitNullProperties?.Remove("web_fetch_requests_per_minute"); } }
+        private string? _explicitNullValueWebFetchRequestsPerMinute = default!;
 #nullable restore
 #else
-        public string WebFetchRequestsPerMinute { get; set; }
+        public string WebFetchRequestsPerMinute { get => _explicitNullValueWebFetchRequestsPerMinute; set { _explicitNullValueWebFetchRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_fetch_requests_per_minute"); else _explicitNullProperties?.Remove("web_fetch_requests_per_minute"); } }
+        private string _explicitNullValueWebFetchRequestsPerMinute = default!;
 #endif
         /// <summary>Calls per minute to the `exa_web_search` tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebSearchRequestsPerMinute { get; set; }
+        public string? WebSearchRequestsPerMinute { get => _explicitNullValueWebSearchRequestsPerMinute; set { _explicitNullValueWebSearchRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search_requests_per_minute"); else _explicitNullProperties?.Remove("web_search_requests_per_minute"); } }
+        private string? _explicitNullValueWebSearchRequestsPerMinute = default!;
 #nullable restore
 #else
-        public string WebSearchRequestsPerMinute { get; set; }
+        public string WebSearchRequestsPerMinute { get => _explicitNullValueWebSearchRequestsPerMinute; set { _explicitNullValueWebSearchRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search_requests_per_minute"); else _explicitNullProperties?.Remove("web_search_requests_per_minute"); } }
+        private string _explicitNullValueWebSearchRequestsPerMinute = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("non_native_tool_calls_requests_per_minute", NonNativeToolCallsRequestsPerMinute);
             writer.WriteStringValue("web_fetch_requests_per_minute", WebFetchRequestsPerMinute);
             writer.WriteStringValue("web_search_requests_per_minute", WebSearchRequestsPerMinute);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

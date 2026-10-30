@@ -12,101 +12,145 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class McpServerCreate : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("api_key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
+            if (parseNode.GetChildNode("credentialRef") is { } nullNodeCredentialRef && nullNodeCredentialRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialRef = null;
+            if (parseNode.GetChildNode("credentialRefSource") is { } nullNodeCredentialRefSource && nullNodeCredentialRefSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialRefSource = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("endpoint") is { } nullNodeEndpoint && nullNodeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Endpoint = null;
+            if (parseNode.GetChildNode("oauth_authorization_ttl_seconds") is { } nullNodeOauthAuthorizationTtlSeconds && nullNodeOauthAuthorizationTtlSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthAuthorizationTtlSeconds = null;
+            if (parseNode.GetChildNode("oauth_authorize_url") is { } nullNodeOauthAuthorizeUrl && nullNodeOauthAuthorizeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthAuthorizeUrl = null;
+            if (parseNode.GetChildNode("oauth_client_id") is { } nullNodeOauthClientId && nullNodeOauthClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthClientId = null;
+            if (parseNode.GetChildNode("oauth_client_secret") is { } nullNodeOauthClientSecret && nullNodeOauthClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthClientSecret = null;
+            if (parseNode.GetChildNode("oauth_scopes") is { } nullNodeOauthScopes && nullNodeOauthScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthScopes = null;
+            if (parseNode.GetChildNode("oauth_token_url") is { } nullNodeOauthTokenUrl && nullNodeOauthTokenUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthTokenUrl = null;
+            if (parseNode.GetChildNode("serverRef") is { } nullNodeServerRef && nullNodeServerRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerRef = null;
+            if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>For `credentialRefSource` secret: the key or token itself. DigitalOcean stores it; it is write-only and no response returns it. Set exactly one of `credentialRef` and `api_key`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKey { get; set; }
+        public string? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private string? _explicitNullValueApiKey = default!;
 #nullable restore
 #else
-        public string ApiKey { get; set; }
+        public string ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private string _explicitNullValueApiKey = default!;
 #endif
         /// <summary>For `credentialRefSource` secret: a reference to a secret your team stores with DigitalOcean. Must match `^`[A-Za-z0-9]``[A-Za-z0-9:/_.-]`{0,254}$`. Set exactly one of `credentialRef` and `api_key`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CredentialRef { get; set; }
+        public string? CredentialRef { get => _explicitNullValueCredentialRef; set { _explicitNullValueCredentialRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialRef"); else _explicitNullProperties?.Remove("credentialRef"); } }
+        private string? _explicitNullValueCredentialRef = default!;
 #nullable restore
 #else
-        public string CredentialRef { get; set; }
+        public string CredentialRef { get => _explicitNullValueCredentialRef; set { _explicitNullValueCredentialRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialRef"); else _explicitNullProperties?.Remove("credentialRef"); } }
+        private string _explicitNullValueCredentialRef = default!;
 #endif
         /// <summary>How requests to the server authenticate: none (the default), secret, or connection. With secret, the value from `credentialRef` or `api_key` is sent in the Authorization header, prefixed with &quot;Bearer &quot; unless it already contains a space.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerCreateCredentialRefSource? CredentialRefSource { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerCreateCredentialRefSource? CredentialRefSource { get => _explicitNullValueCredentialRefSource; set { _explicitNullValueCredentialRefSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialRefSource"); else _explicitNullProperties?.Remove("credentialRefSource"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerCreateCredentialRefSource? _explicitNullValueCredentialRefSource = default!;
         /// <summary>Optional description shown on the server&apos;s catalog card. At most 1024 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>HTTPS URL of the server&apos;s MCP endpoint. Its host must resolve only to public IP addresses. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Endpoint { get; set; }
+        public string? Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        private string? _explicitNullValueEndpoint = default!;
 #nullable restore
 #else
-        public string Endpoint { get; set; }
+        public string Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        private string _explicitNullValueEndpoint = default!;
 #endif
         /// <summary>How long, in seconds, a user&apos;s authorization may be reused before they must consent again. Optional;0 means 30 days, and the maximum is 100 years.Authorizations are not refreshed automatically, so this window, not the provider&apos;s token lifetime,decides how often a user is sent back through consent. Set it no longer than the provider&apos;s owntoken lifetime, so the prompt arrives before a tool call fails against an expired token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthAuthorizationTtlSeconds { get; set; }
+        public string? OauthAuthorizationTtlSeconds { get => _explicitNullValueOauthAuthorizationTtlSeconds; set { _explicitNullValueOauthAuthorizationTtlSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_authorization_ttl_seconds"); else _explicitNullProperties?.Remove("oauth_authorization_ttl_seconds"); } }
+        private string? _explicitNullValueOauthAuthorizationTtlSeconds = default!;
 #nullable restore
 #else
-        public string OauthAuthorizationTtlSeconds { get; set; }
+        public string OauthAuthorizationTtlSeconds { get => _explicitNullValueOauthAuthorizationTtlSeconds; set { _explicitNullValueOauthAuthorizationTtlSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_authorization_ttl_seconds"); else _explicitNullProperties?.Remove("oauth_authorization_ttl_seconds"); } }
+        private string _explicitNullValueOauthAuthorizationTtlSeconds = default!;
 #endif
         /// <summary>Required for `credentialRefSource` connection: the OAuth authorization endpoint. It must use the endpoint&apos;s scheme and port, on the endpoint&apos;s host or another host under the same registrable domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthAuthorizeUrl { get; set; }
+        public string? OauthAuthorizeUrl { get => _explicitNullValueOauthAuthorizeUrl; set { _explicitNullValueOauthAuthorizeUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_authorize_url"); else _explicitNullProperties?.Remove("oauth_authorize_url"); } }
+        private string? _explicitNullValueOauthAuthorizeUrl = default!;
 #nullable restore
 #else
-        public string OauthAuthorizeUrl { get; set; }
+        public string OauthAuthorizeUrl { get => _explicitNullValueOauthAuthorizeUrl; set { _explicitNullValueOauthAuthorizeUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_authorize_url"); else _explicitNullProperties?.Remove("oauth_authorize_url"); } }
+        private string _explicitNullValueOauthAuthorizeUrl = default!;
 #endif
         /// <summary>Required for `credentialRefSource` connection: the client ID of your team&apos;s OAuth client for the server. Each user of the server then authorizes individually.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthClientId { get; set; }
+        public string? OauthClientId { get => _explicitNullValueOauthClientId; set { _explicitNullValueOauthClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_client_id"); else _explicitNullProperties?.Remove("oauth_client_id"); } }
+        private string? _explicitNullValueOauthClientId = default!;
 #nullable restore
 #else
-        public string OauthClientId { get; set; }
+        public string OauthClientId { get => _explicitNullValueOauthClientId; set { _explicitNullValueOauthClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_client_id"); else _explicitNullProperties?.Remove("oauth_client_id"); } }
+        private string _explicitNullValueOauthClientId = default!;
 #endif
         /// <summary>Required for `credentialRefSource` connection. Write-only; no response returns it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthClientSecret { get; set; }
+        public string? OauthClientSecret { get => _explicitNullValueOauthClientSecret; set { _explicitNullValueOauthClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_client_secret"); else _explicitNullProperties?.Remove("oauth_client_secret"); } }
+        private string? _explicitNullValueOauthClientSecret = default!;
 #nullable restore
 #else
-        public string OauthClientSecret { get; set; }
+        public string OauthClientSecret { get => _explicitNullValueOauthClientSecret; set { _explicitNullValueOauthClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_client_secret"); else _explicitNullProperties?.Remove("oauth_client_secret"); } }
+        private string _explicitNullValueOauthClientSecret = default!;
 #endif
         /// <summary>Required for `credentialRefSource` connection: the scopes to request from each user, 1 to 64 of them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? OauthScopes { get; set; }
+        public List<string>? OauthScopes { get => _explicitNullValueOauthScopes; set { _explicitNullValueOauthScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_scopes"); else _explicitNullProperties?.Remove("oauth_scopes"); } }
+        private List<string>? _explicitNullValueOauthScopes = default!;
 #nullable restore
 #else
-        public List<string> OauthScopes { get; set; }
+        public List<string> OauthScopes { get => _explicitNullValueOauthScopes; set { _explicitNullValueOauthScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_scopes"); else _explicitNullProperties?.Remove("oauth_scopes"); } }
+        private List<string> _explicitNullValueOauthScopes = default!;
 #endif
         /// <summary>Required for `credentialRefSource` connection: the OAuth token endpoint, under the same rules as `oauth_authorize_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthTokenUrl { get; set; }
+        public string? OauthTokenUrl { get => _explicitNullValueOauthTokenUrl; set { _explicitNullValueOauthTokenUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_token_url"); else _explicitNullProperties?.Remove("oauth_token_url"); } }
+        private string? _explicitNullValueOauthTokenUrl = default!;
 #nullable restore
 #else
-        public string OauthTokenUrl { get; set; }
+        public string OauthTokenUrl { get => _explicitNullValueOauthTokenUrl; set { _explicitNullValueOauthTokenUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_token_url"); else _explicitNullProperties?.Remove("oauth_token_url"); } }
+        private string _explicitNullValueOauthTokenUrl = default!;
 #endif
         /// <summary>Identifier for the server, unique within your team. Must match `^`[a-z]``[a-z0-9-]`{0,63}$`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerRef { get; set; }
+        public string? ServerRef { get => _explicitNullValueServerRef; set { _explicitNullValueServerRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serverRef"); else _explicitNullProperties?.Remove("serverRef"); } }
+        private string? _explicitNullValueServerRef = default!;
 #nullable restore
 #else
-        public string ServerRef { get; set; }
+        public string ServerRef { get => _explicitNullValueServerRef; set { _explicitNullValueServerRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serverRef"); else _explicitNullProperties?.Remove("serverRef"); } }
+        private string _explicitNullValueServerRef = default!;
 #endif
         /// <summary>Always `streamable_http`.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.StreamableHttpTransport? Transport { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.StreamableHttpTransport? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.StreamableHttpTransport? _explicitNullValueTransport = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerCreate"/> and sets the default values.
         /// </summary>
@@ -122,7 +166,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -167,6 +211,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("oauth_token_url", OauthTokenUrl);
             writer.WriteStringValue("serverRef", ServerRef);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.StreamableHttpTransport>("transport", Transport);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

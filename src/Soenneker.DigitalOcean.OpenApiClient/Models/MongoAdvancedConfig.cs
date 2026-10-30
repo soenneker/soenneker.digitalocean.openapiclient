@@ -11,25 +11,43 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MongoAdvancedConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("default_read_concern") is { } nullNodeDefaultReadConcern && nullNodeDefaultReadConcern.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultReadConcern = null;
+            if (parseNode.GetChildNode("default_write_concern") is { } nullNodeDefaultWriteConcern && nullNodeDefaultWriteConcern.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultWriteConcern = null;
+            if (parseNode.GetChildNode("slow_op_threshold_ms") is { } nullNodeSlowOpThresholdMs && nullNodeSlowOpThresholdMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlowOpThresholdMs = null;
+            if (parseNode.GetChildNode("transaction_lifetime_limit_seconds") is { } nullNodeTransactionLifetimeLimitSeconds && nullNodeTransactionLifetimeLimitSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionLifetimeLimitSeconds = null;
+            if (parseNode.GetChildNode("verbosity") is { } nullNodeVerbosity && nullNodeVerbosity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verbosity = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the default consistency behavior of reads from the database. Data that is returned from the query with may or may not have been acknowledged by all nodes in the replicaset depending on this value.  Learn more [here](https://www.mongodb.com/docs/manual/reference/read-concern/).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MongoAdvancedConfigDefaultReadConcern? DefaultReadConcern { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MongoAdvancedConfigDefaultReadConcern? DefaultReadConcern { get => _explicitNullValueDefaultReadConcern; set { _explicitNullValueDefaultReadConcern = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_read_concern"); else _explicitNullProperties?.Remove("default_read_concern"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MongoAdvancedConfigDefaultReadConcern? _explicitNullValueDefaultReadConcern = default!;
         /// <summary>Describes the level of acknowledgment requested from MongoDB for write operations clusters. This field can set to either `majority` or a number `0...n` which will describe the number of nodes that must acknowledge the write operation before it is fully accepted. Setting to `0` will request no acknowledgement of the write operation.  Learn more [here](https://www.mongodb.com/docs/manual/reference/write-concern/).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultWriteConcern { get; set; }
+        public string? DefaultWriteConcern { get => _explicitNullValueDefaultWriteConcern; set { _explicitNullValueDefaultWriteConcern = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_write_concern"); else _explicitNullProperties?.Remove("default_write_concern"); } }
+        private string? _explicitNullValueDefaultWriteConcern = default!;
 #nullable restore
 #else
-        public string DefaultWriteConcern { get; set; }
+        public string DefaultWriteConcern { get => _explicitNullValueDefaultWriteConcern; set { _explicitNullValueDefaultWriteConcern = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_write_concern"); else _explicitNullProperties?.Remove("default_write_concern"); } }
+        private string _explicitNullValueDefaultWriteConcern = default!;
 #endif
         /// <summary>Operations that run for longer than this threshold are considered slow which are then recorded to the diagnostic logs.  Higher log levels (verbosity) will record all operations regardless of this threshold on the primary node.  *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).</summary>
-        public int? SlowOpThresholdMs { get; set; }
+        public int? SlowOpThresholdMs { get => _explicitNullValueSlowOpThresholdMs; set { _explicitNullValueSlowOpThresholdMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slow_op_threshold_ms"); else _explicitNullProperties?.Remove("slow_op_threshold_ms"); } }
+        private int? _explicitNullValueSlowOpThresholdMs = default!;
         /// <summary>Specifies the lifetime of multi-document transactions. Transactions that exceed this limit are considered expired and will be  aborted by a periodic cleanup process. The cleanup process runs every `transactionLifetimeLimitSeconds/2 seconds` or at least  once every 60 seconds. *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds).</summary>
-        public int? TransactionLifetimeLimitSeconds { get; set; }
+        public int? TransactionLifetimeLimitSeconds { get => _explicitNullValueTransactionLifetimeLimitSeconds; set { _explicitNullValueTransactionLifetimeLimitSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_lifetime_limit_seconds"); else _explicitNullProperties?.Remove("transaction_lifetime_limit_seconds"); } }
+        private int? _explicitNullValueTransactionLifetimeLimitSeconds = default!;
         /// <summary>The log message verbosity level. The verbosity level determines the amount of Informational and Debug messages MongoDB outputs. 0 includes informational messages while 1...5 increases the level to include debug messages. *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-systemLog.verbosity).</summary>
-        public int? Verbosity { get; set; }
+        public int? Verbosity { get => _explicitNullValueVerbosity; set { _explicitNullValueVerbosity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verbosity"); else _explicitNullProperties?.Remove("verbosity"); } }
+        private int? _explicitNullValueVerbosity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MongoAdvancedConfig"/> and sets the default values.
         /// </summary>
@@ -49,7 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.MongoAdvancedConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.MongoAdvancedConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.MongoAdvancedConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +96,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("slow_op_threshold_ms", SlowOpThresholdMs);
             writer.WriteIntValue("transaction_lifetime_limit_seconds", TransactionLifetimeLimitSeconds);
             writer.WriteIntValue("verbosity", Verbosity);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

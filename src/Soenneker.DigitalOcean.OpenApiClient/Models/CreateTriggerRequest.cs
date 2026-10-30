@@ -12,62 +12,93 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateTriggerRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bound_session_id") is { } nullNodeBoundSessionId && nullNodeBoundSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BoundSessionId = null;
+            if (parseNode.GetChildNode("cron") is { } nullNodeCron && nullNodeCron.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cron = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
+            if (parseNode.GetChildNode("prompt_template") is { } nullNodePromptTemplate && nullNodePromptTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptTemplate = null;
+            if (parseNode.GetChildNode("session_mode") is { } nullNodeSessionMode && nullNodeSessionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionMode = null;
+            if (parseNode.GetChildNode("session_template") is { } nullNodeSessionTemplate && nullNodeSessionTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionTemplate = null;
+            if (parseNode.GetChildNode("webhook") is { } nullNodeWebhook && nullNodeWebhook.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Webhook = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>reuse only. UUID of an existing session owned by the team.</summary>
-        public Guid? BoundSessionId { get; set; }
+        public Guid? BoundSessionId { get => _explicitNullValueBoundSessionId; set { _explicitNullValueBoundSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bound_session_id"); else _explicitNullProperties?.Remove("bound_session_id"); } }
+        private Guid? _explicitNullValueBoundSessionId = default!;
         /// <summary>cron block on create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig? Cron { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig? Cron { get => _explicitNullValueCron; set { _explicitNullValueCron = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron"); else _explicitNullProperties?.Remove("cron"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig? _explicitNullValueCron = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig Cron { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig Cron { get => _explicitNullValueCron; set { _explicitNullValueCron = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron"); else _explicitNullProperties?.Remove("cron"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig _explicitNullValueCron = default!;
 #endif
         /// <summary>How the trigger fires - on an event (webhook) or on a schedule (cron). Immutable after create.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerKind? Kind { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerKind? _explicitNullValueKind = default!;
         /// <summary>Team-unique (among non-deleted triggers) trigger name. Same rules as session names; not UUID-form.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Output-delivery configuration on create/update. Exactly one of email / slack is required for the matching mode and forbidden otherwise; destinations are stored encrypted and never returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite? Output { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite? _explicitNullValueOutput = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite Output { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite _explicitNullValueOutput = default!;
 #endif
         /// <summary>The prompt sent on each fire. For cron it must not contain payload-interpolation placeholders.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PromptTemplate { get; set; }
+        public string? PromptTemplate { get => _explicitNullValuePromptTemplate; set { _explicitNullValuePromptTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_template"); else _explicitNullProperties?.Remove("prompt_template"); } }
+        private string? _explicitNullValuePromptTemplate = default!;
 #nullable restore
 #else
-        public string PromptTemplate { get; set; }
+        public string PromptTemplate { get => _explicitNullValuePromptTemplate; set { _explicitNullValuePromptTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_template"); else _explicitNullProperties?.Remove("prompt_template"); } }
+        private string _explicitNullValuePromptTemplate = default!;
 #endif
         /// <summary>fresh = a new session is created from the trigger&apos;s spec on every firing and destroyed after. reuse = the trigger binds an existing PAUSED session, resumed on each firing and paused after; multiple triggers may bind one session.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode? SessionMode { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode? SessionMode { get => _explicitNullValueSessionMode; set { _explicitNullValueSessionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_mode"); else _explicitNullProperties?.Remove("session_mode"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode? _explicitNullValueSessionMode = default!;
         /// <summary>fresh only. Full agents.yaml Agent manifest (YAML or JSON). Any embedded env values are split out and encrypted server-side.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionTemplate { get; set; }
+        public string? SessionTemplate { get => _explicitNullValueSessionTemplate; set { _explicitNullValueSessionTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_template"); else _explicitNullProperties?.Remove("session_template"); } }
+        private string? _explicitNullValueSessionTemplate = default!;
 #nullable restore
 #else
-        public string SessionTemplate { get; set; }
+        public string SessionTemplate { get => _explicitNullValueSessionTemplate; set { _explicitNullValueSessionTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_template"); else _explicitNullProperties?.Remove("session_template"); } }
+        private string _explicitNullValueSessionTemplate = default!;
 #endif
         /// <summary>webhook block on create. Omitting provider defaults to custom.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig? Webhook { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig? Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig? _explicitNullValueWebhook = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig Webhook { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig _explicitNullValueWebhook = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTriggerRequest"/> and sets the default values.
@@ -84,7 +115,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTriggerRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTriggerRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTriggerRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,6 +152,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode>("session_mode", SessionMode);
             writer.WriteStringValue("session_template", SessionTemplate);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig>("webhook", Webhook);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

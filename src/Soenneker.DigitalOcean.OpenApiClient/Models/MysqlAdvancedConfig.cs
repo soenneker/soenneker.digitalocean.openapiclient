@@ -11,149 +11,266 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MysqlAdvancedConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("automatic_sp_privileges") is { } nullNodeAutomaticSpPrivileges && nullNodeAutomaticSpPrivileges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutomaticSpPrivileges = null;
+            if (parseNode.GetChildNode("backup_hour") is { } nullNodeBackupHour && nullNodeBackupHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupHour = null;
+            if (parseNode.GetChildNode("backup_minute") is { } nullNodeBackupMinute && nullNodeBackupMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupMinute = null;
+            if (parseNode.GetChildNode("binlog_retention_period") is { } nullNodeBinlogRetentionPeriod && nullNodeBinlogRetentionPeriod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BinlogRetentionPeriod = null;
+            if (parseNode.GetChildNode("connect_timeout") is { } nullNodeConnectTimeout && nullNodeConnectTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectTimeout = null;
+            if (parseNode.GetChildNode("default_time_zone") is { } nullNodeDefaultTimeZone && nullNodeDefaultTimeZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultTimeZone = null;
+            if (parseNode.GetChildNode("div_precision_increment") is { } nullNodeDivPrecisionIncrement && nullNodeDivPrecisionIncrement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DivPrecisionIncrement = null;
+            if (parseNode.GetChildNode("end_markers_in_json") is { } nullNodeEndMarkersInJson && nullNodeEndMarkersInJson.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndMarkersInJson = null;
+            if (parseNode.GetChildNode("eq_range_index_dive_limit") is { } nullNodeEqRangeIndexDiveLimit && nullNodeEqRangeIndexDiveLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EqRangeIndexDiveLimit = null;
+            if (parseNode.GetChildNode("group_concat_max_len") is { } nullNodeGroupConcatMaxLen && nullNodeGroupConcatMaxLen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupConcatMaxLen = null;
+            if (parseNode.GetChildNode("information_schema_stats_expiry") is { } nullNodeInformationSchemaStatsExpiry && nullNodeInformationSchemaStatsExpiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InformationSchemaStatsExpiry = null;
+            if (parseNode.GetChildNode("innodb_adaptive_hash_index") is { } nullNodeInnodbAdaptiveHashIndex && nullNodeInnodbAdaptiveHashIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbAdaptiveHashIndex = null;
+            if (parseNode.GetChildNode("innodb_change_buffer_max_size") is { } nullNodeInnodbChangeBufferMaxSize && nullNodeInnodbChangeBufferMaxSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbChangeBufferMaxSize = null;
+            if (parseNode.GetChildNode("innodb_flush_neighbors") is { } nullNodeInnodbFlushNeighbors && nullNodeInnodbFlushNeighbors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbFlushNeighbors = null;
+            if (parseNode.GetChildNode("innodb_ft_enable_stopword") is { } nullNodeInnodbFtEnableStopword && nullNodeInnodbFtEnableStopword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbFtEnableStopword = null;
+            if (parseNode.GetChildNode("innodb_ft_max_token_size") is { } nullNodeInnodbFtMaxTokenSize && nullNodeInnodbFtMaxTokenSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbFtMaxTokenSize = null;
+            if (parseNode.GetChildNode("innodb_ft_min_token_size") is { } nullNodeInnodbFtMinTokenSize && nullNodeInnodbFtMinTokenSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbFtMinTokenSize = null;
+            if (parseNode.GetChildNode("innodb_ft_num_word_optimize") is { } nullNodeInnodbFtNumWordOptimize && nullNodeInnodbFtNumWordOptimize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbFtNumWordOptimize = null;
+            if (parseNode.GetChildNode("innodb_ft_result_cache_limit") is { } nullNodeInnodbFtResultCacheLimit && nullNodeInnodbFtResultCacheLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbFtResultCacheLimit = null;
+            if (parseNode.GetChildNode("innodb_ft_server_stopword_table") is { } nullNodeInnodbFtServerStopwordTable && nullNodeInnodbFtServerStopwordTable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbFtServerStopwordTable = null;
+            if (parseNode.GetChildNode("innodb_ft_user_stopword_table") is { } nullNodeInnodbFtUserStopwordTable && nullNodeInnodbFtUserStopwordTable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbFtUserStopwordTable = null;
+            if (parseNode.GetChildNode("innodb_lock_wait_timeout") is { } nullNodeInnodbLockWaitTimeout && nullNodeInnodbLockWaitTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbLockWaitTimeout = null;
+            if (parseNode.GetChildNode("innodb_log_buffer_size") is { } nullNodeInnodbLogBufferSize && nullNodeInnodbLogBufferSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbLogBufferSize = null;
+            if (parseNode.GetChildNode("innodb_online_alter_log_max_size") is { } nullNodeInnodbOnlineAlterLogMaxSize && nullNodeInnodbOnlineAlterLogMaxSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbOnlineAlterLogMaxSize = null;
+            if (parseNode.GetChildNode("innodb_optimize_fulltext_only") is { } nullNodeInnodbOptimizeFulltextOnly && nullNodeInnodbOptimizeFulltextOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbOptimizeFulltextOnly = null;
+            if (parseNode.GetChildNode("innodb_print_all_deadlocks") is { } nullNodeInnodbPrintAllDeadlocks && nullNodeInnodbPrintAllDeadlocks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbPrintAllDeadlocks = null;
+            if (parseNode.GetChildNode("innodb_read_io_threads") is { } nullNodeInnodbReadIoThreads && nullNodeInnodbReadIoThreads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbReadIoThreads = null;
+            if (parseNode.GetChildNode("innodb_rollback_on_timeout") is { } nullNodeInnodbRollbackOnTimeout && nullNodeInnodbRollbackOnTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbRollbackOnTimeout = null;
+            if (parseNode.GetChildNode("innodb_thread_concurrency") is { } nullNodeInnodbThreadConcurrency && nullNodeInnodbThreadConcurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbThreadConcurrency = null;
+            if (parseNode.GetChildNode("innodb_write_io_threads") is { } nullNodeInnodbWriteIoThreads && nullNodeInnodbWriteIoThreads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InnodbWriteIoThreads = null;
+            if (parseNode.GetChildNode("interactive_timeout") is { } nullNodeInteractiveTimeout && nullNodeInteractiveTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InteractiveTimeout = null;
+            if (parseNode.GetChildNode("internal_tmp_mem_storage_engine") is { } nullNodeInternalTmpMemStorageEngine && nullNodeInternalTmpMemStorageEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InternalTmpMemStorageEngine = null;
+            if (parseNode.GetChildNode("log_output") is { } nullNodeLogOutput && nullNodeLogOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogOutput = null;
+            if (parseNode.GetChildNode("long_query_time") is { } nullNodeLongQueryTime && nullNodeLongQueryTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LongQueryTime = null;
+            if (parseNode.GetChildNode("max_allowed_packet") is { } nullNodeMaxAllowedPacket && nullNodeMaxAllowedPacket.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAllowedPacket = null;
+            if (parseNode.GetChildNode("max_execution_time") is { } nullNodeMaxExecutionTime && nullNodeMaxExecutionTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxExecutionTime = null;
+            if (parseNode.GetChildNode("max_heap_table_size") is { } nullNodeMaxHeapTableSize && nullNodeMaxHeapTableSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxHeapTableSize = null;
+            if (parseNode.GetChildNode("max_seeks_for_key") is { } nullNodeMaxSeeksForKey && nullNodeMaxSeeksForKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSeeksForKey = null;
+            if (parseNode.GetChildNode("mysql_incremental_backup") is { } nullNodeMysqlIncrementalBackup && nullNodeMysqlIncrementalBackup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MysqlIncrementalBackup = null;
+            if (parseNode.GetChildNode("net_buffer_length") is { } nullNodeNetBufferLength && nullNodeNetBufferLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetBufferLength = null;
+            if (parseNode.GetChildNode("net_read_timeout") is { } nullNodeNetReadTimeout && nullNodeNetReadTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetReadTimeout = null;
+            if (parseNode.GetChildNode("net_write_timeout") is { } nullNodeNetWriteTimeout && nullNodeNetWriteTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetWriteTimeout = null;
+            if (parseNode.GetChildNode("optimizer_prune_level") is { } nullNodeOptimizerPruneLevel && nullNodeOptimizerPruneLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptimizerPruneLevel = null;
+            if (parseNode.GetChildNode("optimizer_search_depth") is { } nullNodeOptimizerSearchDepth && nullNodeOptimizerSearchDepth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptimizerSearchDepth = null;
+            if (parseNode.GetChildNode("optimizer_switch") is { } nullNodeOptimizerSwitch && nullNodeOptimizerSwitch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptimizerSwitch = null;
+            if (parseNode.GetChildNode("slow_query_log") is { } nullNodeSlowQueryLog && nullNodeSlowQueryLog.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlowQueryLog = null;
+            if (parseNode.GetChildNode("sort_buffer_size") is { } nullNodeSortBufferSize && nullNodeSortBufferSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SortBufferSize = null;
+            if (parseNode.GetChildNode("sql_mode") is { } nullNodeSqlMode && nullNodeSqlMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SqlMode = null;
+            if (parseNode.GetChildNode("sql_require_primary_key") is { } nullNodeSqlRequirePrimaryKey && nullNodeSqlRequirePrimaryKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SqlRequirePrimaryKey = null;
+            if (parseNode.GetChildNode("tmp_table_size") is { } nullNodeTmpTableSize && nullNodeTmpTableSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TmpTableSize = null;
+            if (parseNode.GetChildNode("wait_timeout") is { } nullNodeWaitTimeout && nullNodeWaitTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitTimeout = null;
+            if (parseNode.GetChildNode("windowing_use_high_precision") is { } nullNodeWindowingUseHighPrecision && nullNodeWindowingUseHighPrecision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowingUseHighPrecision = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When enabled, grants `EXECUTE` and `ALTER ROUTINE` privileges to the creator of a stored routine. When disabled, these privileges are not granted automatically.</summary>
-        public bool? AutomaticSpPrivileges { get; set; }
+        public bool? AutomaticSpPrivileges { get => _explicitNullValueAutomaticSpPrivileges; set { _explicitNullValueAutomaticSpPrivileges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automatic_sp_privileges"); else _explicitNullProperties?.Remove("automatic_sp_privileges"); } }
+        private bool? _explicitNullValueAutomaticSpPrivileges = default!;
         /// <summary>The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.</summary>
-        public int? BackupHour { get; set; }
+        public int? BackupHour { get => _explicitNullValueBackupHour; set { _explicitNullValueBackupHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_hour"); else _explicitNullProperties?.Remove("backup_hour"); } }
+        private int? _explicitNullValueBackupHour = default!;
         /// <summary>The minute of the backup hour when backup for the service starts. New backup  only starts if previous backup has already completed.</summary>
-        public int? BackupMinute { get; set; }
+        public int? BackupMinute { get => _explicitNullValueBackupMinute; set { _explicitNullValueBackupMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_minute"); else _explicitNullProperties?.Remove("backup_minute"); } }
+        private int? _explicitNullValueBackupMinute = default!;
         /// <summary>The minimum amount of time, in seconds, to keep binlog entries before deletion.  This may be extended for services that require binlog entries for longer than the default, for example if using the MySQL Debezium Kafka connector.</summary>
-        public double? BinlogRetentionPeriod { get; set; }
+        public double? BinlogRetentionPeriod { get => _explicitNullValueBinlogRetentionPeriod; set { _explicitNullValueBinlogRetentionPeriod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binlog_retention_period"); else _explicitNullProperties?.Remove("binlog_retention_period"); } }
+        private double? _explicitNullValueBinlogRetentionPeriod = default!;
         /// <summary>The number of seconds that the mysqld server waits for a connect packet before responding with bad handshake.</summary>
-        public int? ConnectTimeout { get; set; }
+        public int? ConnectTimeout { get => _explicitNullValueConnectTimeout; set { _explicitNullValueConnectTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connect_timeout"); else _explicitNullProperties?.Remove("connect_timeout"); } }
+        private int? _explicitNullValueConnectTimeout = default!;
         /// <summary>Default server time zone, in the form of an offset from UTC (from -12:00 to +12:00), a time zone name (EST), or &apos;SYSTEM&apos; to use the MySQL server default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultTimeZone { get; set; }
+        public string? DefaultTimeZone { get => _explicitNullValueDefaultTimeZone; set { _explicitNullValueDefaultTimeZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_time_zone"); else _explicitNullProperties?.Remove("default_time_zone"); } }
+        private string? _explicitNullValueDefaultTimeZone = default!;
 #nullable restore
 #else
-        public string DefaultTimeZone { get; set; }
+        public string DefaultTimeZone { get => _explicitNullValueDefaultTimeZone; set { _explicitNullValueDefaultTimeZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_time_zone"); else _explicitNullProperties?.Remove("default_time_zone"); } }
+        private string _explicitNullValueDefaultTimeZone = default!;
 #endif
         /// <summary>The number of digits by which to increase the scale of the result of division operations performed with the `/` operator.</summary>
-        public int? DivPrecisionIncrement { get; set; }
+        public int? DivPrecisionIncrement { get => _explicitNullValueDivPrecisionIncrement; set { _explicitNullValueDivPrecisionIncrement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("div_precision_increment"); else _explicitNullProperties?.Remove("div_precision_increment"); } }
+        private int? _explicitNullValueDivPrecisionIncrement = default!;
         /// <summary>When enabled, the JSON output of `EXPLAIN FORMAT=JSON` includes end markers for nested structures.</summary>
-        public bool? EndMarkersInJson { get; set; }
+        public bool? EndMarkersInJson { get => _explicitNullValueEndMarkersInJson; set { _explicitNullValueEndMarkersInJson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_markers_in_json"); else _explicitNullProperties?.Remove("end_markers_in_json"); } }
+        private bool? _explicitNullValueEndMarkersInJson = default!;
         /// <summary>The number of equality ranges in an equality comparison condition when the optimizer should switch from using index dives to index statistics.</summary>
-        public int? EqRangeIndexDiveLimit { get; set; }
+        public int? EqRangeIndexDiveLimit { get => _explicitNullValueEqRangeIndexDiveLimit; set { _explicitNullValueEqRangeIndexDiveLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eq_range_index_dive_limit"); else _explicitNullProperties?.Remove("eq_range_index_dive_limit"); } }
+        private int? _explicitNullValueEqRangeIndexDiveLimit = default!;
         /// <summary>The maximum permitted result length, in bytes, for the GROUP_CONCAT() function.</summary>
-        public int? GroupConcatMaxLen { get; set; }
+        public int? GroupConcatMaxLen { get => _explicitNullValueGroupConcatMaxLen; set { _explicitNullValueGroupConcatMaxLen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_concat_max_len"); else _explicitNullProperties?.Remove("group_concat_max_len"); } }
+        private int? _explicitNullValueGroupConcatMaxLen = default!;
         /// <summary>The time, in seconds, before cached statistics expire.</summary>
-        public int? InformationSchemaStatsExpiry { get; set; }
+        public int? InformationSchemaStatsExpiry { get => _explicitNullValueInformationSchemaStatsExpiry; set { _explicitNullValueInformationSchemaStatsExpiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("information_schema_stats_expiry"); else _explicitNullProperties?.Remove("information_schema_stats_expiry"); } }
+        private int? _explicitNullValueInformationSchemaStatsExpiry = default!;
         /// <summary>When enabled, InnoDB uses an adaptive hash index to speed up equality lookups. The optimal setting is workload-dependent: it can improve performance for some workloads, but under high concurrency the associated latch can become a contention point, in which case disabling it may improve throughput. Default is true.</summary>
-        public bool? InnodbAdaptiveHashIndex { get; set; }
+        public bool? InnodbAdaptiveHashIndex { get => _explicitNullValueInnodbAdaptiveHashIndex; set { _explicitNullValueInnodbAdaptiveHashIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_adaptive_hash_index"); else _explicitNullProperties?.Remove("innodb_adaptive_hash_index"); } }
+        private bool? _explicitNullValueInnodbAdaptiveHashIndex = default!;
         /// <summary>Specifies the maximum size of the InnoDB change buffer as a percentage of the buffer pool.</summary>
-        public int? InnodbChangeBufferMaxSize { get; set; }
+        public int? InnodbChangeBufferMaxSize { get => _explicitNullValueInnodbChangeBufferMaxSize; set { _explicitNullValueInnodbChangeBufferMaxSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_change_buffer_max_size"); else _explicitNullProperties?.Remove("innodb_change_buffer_max_size"); } }
+        private int? _explicitNullValueInnodbChangeBufferMaxSize = default!;
         /// <summary>Specifies whether flushing a page from the InnoDB buffer pool also flushes other dirty pages in the same extent.  - 0 &amp;mdash; disables this functionality, dirty pages in the same extent are not flushed.  - 1 &amp;mdash; flushes contiguous dirty pages in the same extent.  - 2 &amp;mdash; flushes dirty pages in the same extent.</summary>
-        public int? InnodbFlushNeighbors { get; set; }
+        public int? InnodbFlushNeighbors { get => _explicitNullValueInnodbFlushNeighbors; set { _explicitNullValueInnodbFlushNeighbors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_flush_neighbors"); else _explicitNullProperties?.Remove("innodb_flush_neighbors"); } }
+        private int? _explicitNullValueInnodbFlushNeighbors = default!;
         /// <summary>When enabled, the InnoDB FULLTEXT index stopword list is used. Disabled by default when a custom stopword table is configured.</summary>
-        public bool? InnodbFtEnableStopword { get; set; }
+        public bool? InnodbFtEnableStopword { get => _explicitNullValueInnodbFtEnableStopword; set { _explicitNullValueInnodbFtEnableStopword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_enable_stopword"); else _explicitNullProperties?.Remove("innodb_ft_enable_stopword"); } }
+        private bool? _explicitNullValueInnodbFtEnableStopword = default!;
         /// <summary>The maximum length of words that an InnoDB FULLTEXT index stores. Changing this parameter will lead to a restart of the MySQL service.</summary>
-        public int? InnodbFtMaxTokenSize { get; set; }
+        public int? InnodbFtMaxTokenSize { get => _explicitNullValueInnodbFtMaxTokenSize; set { _explicitNullValueInnodbFtMaxTokenSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_max_token_size"); else _explicitNullProperties?.Remove("innodb_ft_max_token_size"); } }
+        private int? _explicitNullValueInnodbFtMaxTokenSize = default!;
         /// <summary>The minimum length of words that an InnoDB FULLTEXT index stores.</summary>
-        public int? InnodbFtMinTokenSize { get; set; }
+        public int? InnodbFtMinTokenSize { get => _explicitNullValueInnodbFtMinTokenSize; set { _explicitNullValueInnodbFtMinTokenSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_min_token_size"); else _explicitNullProperties?.Remove("innodb_ft_min_token_size"); } }
+        private int? _explicitNullValueInnodbFtMinTokenSize = default!;
         /// <summary>The number of words to process during each OPTIMIZE TABLE operation on an InnoDB FULLTEXT index.</summary>
-        public int? InnodbFtNumWordOptimize { get; set; }
+        public int? InnodbFtNumWordOptimize { get => _explicitNullValueInnodbFtNumWordOptimize; set { _explicitNullValueInnodbFtNumWordOptimize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_num_word_optimize"); else _explicitNullProperties?.Remove("innodb_ft_num_word_optimize"); } }
+        private int? _explicitNullValueInnodbFtNumWordOptimize = default!;
         /// <summary>The InnoDB FULLTEXT index query result cache size limit, in bytes.</summary>
-        public int? InnodbFtResultCacheLimit { get; set; }
+        public int? InnodbFtResultCacheLimit { get => _explicitNullValueInnodbFtResultCacheLimit; set { _explicitNullValueInnodbFtResultCacheLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_result_cache_limit"); else _explicitNullProperties?.Remove("innodb_ft_result_cache_limit"); } }
+        private int? _explicitNullValueInnodbFtResultCacheLimit = default!;
         /// <summary>The InnoDB FULLTEXT index stopword list for all InnoDB tables.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InnodbFtServerStopwordTable { get; set; }
+        public string? InnodbFtServerStopwordTable { get => _explicitNullValueInnodbFtServerStopwordTable; set { _explicitNullValueInnodbFtServerStopwordTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_server_stopword_table"); else _explicitNullProperties?.Remove("innodb_ft_server_stopword_table"); } }
+        private string? _explicitNullValueInnodbFtServerStopwordTable = default!;
 #nullable restore
 #else
-        public string InnodbFtServerStopwordTable { get; set; }
+        public string InnodbFtServerStopwordTable { get => _explicitNullValueInnodbFtServerStopwordTable; set { _explicitNullValueInnodbFtServerStopwordTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_server_stopword_table"); else _explicitNullProperties?.Remove("innodb_ft_server_stopword_table"); } }
+        private string _explicitNullValueInnodbFtServerStopwordTable = default!;
 #endif
         /// <summary>The InnoDB FULLTEXT index stopword list for user-created FULLTEXT indexes. Must be in the form `db_name/table_name`. Set to `null` to clear a previously configured value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InnodbFtUserStopwordTable { get; set; }
+        public string? InnodbFtUserStopwordTable { get => _explicitNullValueInnodbFtUserStopwordTable; set { _explicitNullValueInnodbFtUserStopwordTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_user_stopword_table"); else _explicitNullProperties?.Remove("innodb_ft_user_stopword_table"); } }
+        private string? _explicitNullValueInnodbFtUserStopwordTable = default!;
 #nullable restore
 #else
-        public string InnodbFtUserStopwordTable { get; set; }
+        public string InnodbFtUserStopwordTable { get => _explicitNullValueInnodbFtUserStopwordTable; set { _explicitNullValueInnodbFtUserStopwordTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_user_stopword_table"); else _explicitNullProperties?.Remove("innodb_ft_user_stopword_table"); } }
+        private string _explicitNullValueInnodbFtUserStopwordTable = default!;
 #endif
         /// <summary>The time, in seconds, that an InnoDB transaction waits for a row lock. before giving up.</summary>
-        public int? InnodbLockWaitTimeout { get; set; }
+        public int? InnodbLockWaitTimeout { get => _explicitNullValueInnodbLockWaitTimeout; set { _explicitNullValueInnodbLockWaitTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_lock_wait_timeout"); else _explicitNullProperties?.Remove("innodb_lock_wait_timeout"); } }
+        private int? _explicitNullValueInnodbLockWaitTimeout = default!;
         /// <summary>The size of the buffer, in bytes, that InnoDB uses to write to the log files. on disk.</summary>
-        public int? InnodbLogBufferSize { get; set; }
+        public int? InnodbLogBufferSize { get => _explicitNullValueInnodbLogBufferSize; set { _explicitNullValueInnodbLogBufferSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_log_buffer_size"); else _explicitNullProperties?.Remove("innodb_log_buffer_size"); } }
+        private int? _explicitNullValueInnodbLogBufferSize = default!;
         /// <summary>The upper limit, in bytes, of the size of the temporary log files used during online DDL operations for InnoDB tables.</summary>
-        public int? InnodbOnlineAlterLogMaxSize { get; set; }
+        public int? InnodbOnlineAlterLogMaxSize { get => _explicitNullValueInnodbOnlineAlterLogMaxSize; set { _explicitNullValueInnodbOnlineAlterLogMaxSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_online_alter_log_max_size"); else _explicitNullProperties?.Remove("innodb_online_alter_log_max_size"); } }
+        private int? _explicitNullValueInnodbOnlineAlterLogMaxSize = default!;
         /// <summary>When enabled, OPTIMIZE TABLE rebuilds only the InnoDB FULLTEXT index, not the table itself.</summary>
-        public bool? InnodbOptimizeFulltextOnly { get; set; }
+        public bool? InnodbOptimizeFulltextOnly { get => _explicitNullValueInnodbOptimizeFulltextOnly; set { _explicitNullValueInnodbOptimizeFulltextOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_optimize_fulltext_only"); else _explicitNullProperties?.Remove("innodb_optimize_fulltext_only"); } }
+        private bool? _explicitNullValueInnodbOptimizeFulltextOnly = default!;
         /// <summary>When enabled, records information about all deadlocks in InnoDB user transactions  in the error log. Disabled by default.</summary>
-        public bool? InnodbPrintAllDeadlocks { get; set; }
+        public bool? InnodbPrintAllDeadlocks { get => _explicitNullValueInnodbPrintAllDeadlocks; set { _explicitNullValueInnodbPrintAllDeadlocks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_print_all_deadlocks"); else _explicitNullProperties?.Remove("innodb_print_all_deadlocks"); } }
+        private bool? _explicitNullValueInnodbPrintAllDeadlocks = default!;
         /// <summary>The number of I/O threads for read operations in InnoDB. Changing this parameter will lead to a restart of the MySQL service.</summary>
-        public int? InnodbReadIoThreads { get; set; }
+        public int? InnodbReadIoThreads { get => _explicitNullValueInnodbReadIoThreads; set { _explicitNullValueInnodbReadIoThreads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_read_io_threads"); else _explicitNullProperties?.Remove("innodb_read_io_threads"); } }
+        private int? _explicitNullValueInnodbReadIoThreads = default!;
         /// <summary>When enabled, transaction timeouts cause InnoDB to abort and roll back the entire transaction.</summary>
-        public bool? InnodbRollbackOnTimeout { get; set; }
+        public bool? InnodbRollbackOnTimeout { get => _explicitNullValueInnodbRollbackOnTimeout; set { _explicitNullValueInnodbRollbackOnTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_rollback_on_timeout"); else _explicitNullProperties?.Remove("innodb_rollback_on_timeout"); } }
+        private bool? _explicitNullValueInnodbRollbackOnTimeout = default!;
         /// <summary>Defines the maximum number of threads permitted inside of InnoDB. A value of 0 (the default) is interpreted as infinite concurrency (no limit). This variable is intended for performance  tuning on high concurrency systems.</summary>
-        public int? InnodbThreadConcurrency { get; set; }
+        public int? InnodbThreadConcurrency { get => _explicitNullValueInnodbThreadConcurrency; set { _explicitNullValueInnodbThreadConcurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_thread_concurrency"); else _explicitNullProperties?.Remove("innodb_thread_concurrency"); } }
+        private int? _explicitNullValueInnodbThreadConcurrency = default!;
         /// <summary>The number of I/O threads for write operations in InnoDB. Changing this parameter will lead to a restart of the MySQL service.</summary>
-        public int? InnodbWriteIoThreads { get; set; }
+        public int? InnodbWriteIoThreads { get => _explicitNullValueInnodbWriteIoThreads; set { _explicitNullValueInnodbWriteIoThreads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_write_io_threads"); else _explicitNullProperties?.Remove("innodb_write_io_threads"); } }
+        private int? _explicitNullValueInnodbWriteIoThreads = default!;
         /// <summary>The time, in seconds, the server waits for activity on an interactive. connection before closing it.</summary>
-        public int? InteractiveTimeout { get; set; }
+        public int? InteractiveTimeout { get => _explicitNullValueInteractiveTimeout; set { _explicitNullValueInteractiveTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interactive_timeout"); else _explicitNullProperties?.Remove("interactive_timeout"); } }
+        private int? _explicitNullValueInteractiveTimeout = default!;
         /// <summary>The storage engine for in-memory internal temporary tables.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfigInternalTmpMemStorageEngine? InternalTmpMemStorageEngine { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfigInternalTmpMemStorageEngine? InternalTmpMemStorageEngine { get => _explicitNullValueInternalTmpMemStorageEngine; set { _explicitNullValueInternalTmpMemStorageEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("internal_tmp_mem_storage_engine"); else _explicitNullProperties?.Remove("internal_tmp_mem_storage_engine"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfigInternalTmpMemStorageEngine? _explicitNullValueInternalTmpMemStorageEngine = default!;
         /// <summary>Defines the destination for logs. Can be `INSIGHTS`, `TABLE`, or both (`INSIGHTS,TABLE`), or `NONE` to disable logs. To specify both destinations, use `INSIGHTS,TABLE` (order matters). Default is NONE.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfigLogOutput? LogOutput { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfigLogOutput? LogOutput { get => _explicitNullValueLogOutput; set { _explicitNullValueLogOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_output"); else _explicitNullProperties?.Remove("log_output"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfigLogOutput? _explicitNullValueLogOutput = default!;
         /// <summary>The time, in seconds, for a query to take to execute before  being captured by slow_query_logs. Default is 10 seconds.</summary>
-        public double? LongQueryTime { get; set; }
+        public double? LongQueryTime { get => _explicitNullValueLongQueryTime; set { _explicitNullValueLongQueryTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("long_query_time"); else _explicitNullProperties?.Remove("long_query_time"); } }
+        private double? _explicitNullValueLongQueryTime = default!;
         /// <summary>The size of the largest message, in bytes, that can be received by the server. Default is 67108864 (64M).</summary>
-        public int? MaxAllowedPacket { get; set; }
+        public int? MaxAllowedPacket { get => _explicitNullValueMaxAllowedPacket; set { _explicitNullValueMaxAllowedPacket = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_allowed_packet"); else _explicitNullProperties?.Remove("max_allowed_packet"); } }
+        private int? _explicitNullValueMaxAllowedPacket = default!;
         /// <summary>The execution timeout for `SELECT` statements, in milliseconds. A value of `0` disables the timeout (no limit).</summary>
-        public int? MaxExecutionTime { get; set; }
+        public int? MaxExecutionTime { get => _explicitNullValueMaxExecutionTime; set { _explicitNullValueMaxExecutionTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_execution_time"); else _explicitNullProperties?.Remove("max_execution_time"); } }
+        private int? _explicitNullValueMaxExecutionTime = default!;
         /// <summary>The maximum size, in bytes, of internal in-memory tables. Also set tmp_table_size. Default is 16777216 (16M)</summary>
-        public int? MaxHeapTableSize { get; set; }
+        public int? MaxHeapTableSize { get => _explicitNullValueMaxHeapTableSize; set { _explicitNullValueMaxHeapTableSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_heap_table_size"); else _explicitNullProperties?.Remove("max_heap_table_size"); } }
+        private int? _explicitNullValueMaxHeapTableSize = default!;
         /// <summary>Limits the assumed maximum number of seeks when looking up rows based on a key. Lower values cause the query optimizer to prefer indexes over table scans for non-covering indexes.</summary>
-        public int? MaxSeeksForKey { get; set; }
+        public int? MaxSeeksForKey { get => _explicitNullValueMaxSeeksForKey; set { _explicitNullValueMaxSeeksForKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_seeks_for_key"); else _explicitNullProperties?.Remove("max_seeks_for_key"); } }
+        private int? _explicitNullValueMaxSeeksForKey = default!;
         /// <summary>MySQL Incremental Backup configuration settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup? MysqlIncrementalBackup { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup? MysqlIncrementalBackup { get => _explicitNullValueMysqlIncrementalBackup; set { _explicitNullValueMysqlIncrementalBackup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql_incremental_backup"); else _explicitNullProperties?.Remove("mysql_incremental_backup"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup? _explicitNullValueMysqlIncrementalBackup = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup MysqlIncrementalBackup { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup MysqlIncrementalBackup { get => _explicitNullValueMysqlIncrementalBackup; set { _explicitNullValueMysqlIncrementalBackup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql_incremental_backup"); else _explicitNullProperties?.Remove("mysql_incremental_backup"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup _explicitNullValueMysqlIncrementalBackup = default!;
 #endif
         /// <summary>Start sizes of connection buffer and result buffer, must be multiple of 1024. Changing this parameter will lead to a restart of the MySQL service.</summary>
-        public int? NetBufferLength { get; set; }
+        public int? NetBufferLength { get => _explicitNullValueNetBufferLength; set { _explicitNullValueNetBufferLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("net_buffer_length"); else _explicitNullProperties?.Remove("net_buffer_length"); } }
+        private int? _explicitNullValueNetBufferLength = default!;
         /// <summary>The time, in seconds, to wait for more data from an existing connection. aborting the read.</summary>
-        public int? NetReadTimeout { get; set; }
+        public int? NetReadTimeout { get => _explicitNullValueNetReadTimeout; set { _explicitNullValueNetReadTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("net_read_timeout"); else _explicitNullProperties?.Remove("net_read_timeout"); } }
+        private int? _explicitNullValueNetReadTimeout = default!;
         /// <summary>The number of seconds to wait for a block to be written to a connection before aborting the write.</summary>
-        public int? NetWriteTimeout { get; set; }
+        public int? NetWriteTimeout { get => _explicitNullValueNetWriteTimeout; set { _explicitNullValueNetWriteTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("net_write_timeout"); else _explicitNullProperties?.Remove("net_write_timeout"); } }
+        private int? _explicitNullValueNetWriteTimeout = default!;
         /// <summary>Controls the heuristics applied during query optimization to prune less promising partial plans from the optimizer search space. `0` disables pruning and `1` enables it.</summary>
-        public int? OptimizerPruneLevel { get; set; }
+        public int? OptimizerPruneLevel { get => _explicitNullValueOptimizerPruneLevel; set { _explicitNullValueOptimizerPruneLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optimizer_prune_level"); else _explicitNullProperties?.Remove("optimizer_prune_level"); } }
+        private int? _explicitNullValueOptimizerPruneLevel = default!;
         /// <summary>The maximum depth of search performed by the query optimizer. Smaller values can reduce compilation time for large joins; a value of `0` lets the server automatically pick a reasonable value.</summary>
-        public int? OptimizerSearchDepth { get; set; }
+        public int? OptimizerSearchDepth { get => _explicitNullValueOptimizerSearchDepth; set { _explicitNullValueOptimizerSearchDepth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optimizer_search_depth"); else _explicitNullProperties?.Remove("optimizer_search_depth"); } }
+        private int? _explicitNullValueOptimizerSearchDepth = default!;
         /// <summary>Controls query optimizer behavior as a comma-separated list of `option=value` pairs, or `default` to restore server defaults. Each value must be `on`, `off`, or `default`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OptimizerSwitch { get; set; }
+        public string? OptimizerSwitch { get => _explicitNullValueOptimizerSwitch; set { _explicitNullValueOptimizerSwitch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optimizer_switch"); else _explicitNullProperties?.Remove("optimizer_switch"); } }
+        private string? _explicitNullValueOptimizerSwitch = default!;
 #nullable restore
 #else
-        public string OptimizerSwitch { get; set; }
+        public string OptimizerSwitch { get => _explicitNullValueOptimizerSwitch; set { _explicitNullValueOptimizerSwitch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optimizer_switch"); else _explicitNullProperties?.Remove("optimizer_switch"); } }
+        private string _explicitNullValueOptimizerSwitch = default!;
 #endif
         /// <summary>When enabled, captures slow queries. When disabled, also truncates the mysql.slow_log table. Default is false.</summary>
-        public bool? SlowQueryLog { get; set; }
+        public bool? SlowQueryLog { get => _explicitNullValueSlowQueryLog; set { _explicitNullValueSlowQueryLog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slow_query_log"); else _explicitNullProperties?.Remove("slow_query_log"); } }
+        private bool? _explicitNullValueSlowQueryLog = default!;
         /// <summary>The sort buffer size, in bytes, for ORDER BY optimization. Default is 262144. (256K).</summary>
-        public int? SortBufferSize { get; set; }
+        public int? SortBufferSize { get => _explicitNullValueSortBufferSize; set { _explicitNullValueSortBufferSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_buffer_size"); else _explicitNullProperties?.Remove("sort_buffer_size"); } }
+        private int? _explicitNullValueSortBufferSize = default!;
         /// <summary>Global SQL mode. If empty, uses MySQL server defaults. Must only include uppercase alphabetic characters, underscores, and commas.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SqlMode { get; set; }
+        public string? SqlMode { get => _explicitNullValueSqlMode; set { _explicitNullValueSqlMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql_mode"); else _explicitNullProperties?.Remove("sql_mode"); } }
+        private string? _explicitNullValueSqlMode = default!;
 #nullable restore
 #else
-        public string SqlMode { get; set; }
+        public string SqlMode { get => _explicitNullValueSqlMode; set { _explicitNullValueSqlMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql_mode"); else _explicitNullProperties?.Remove("sql_mode"); } }
+        private string _explicitNullValueSqlMode = default!;
 #endif
         /// <summary>Require primary key to be defined for new tables or old tables modified with ALTER TABLE and fail if missing. It is recommended to always have primary keys because various functionality may break if any large table is missing them.</summary>
-        public bool? SqlRequirePrimaryKey { get; set; }
+        public bool? SqlRequirePrimaryKey { get => _explicitNullValueSqlRequirePrimaryKey; set { _explicitNullValueSqlRequirePrimaryKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql_require_primary_key"); else _explicitNullProperties?.Remove("sql_require_primary_key"); } }
+        private bool? _explicitNullValueSqlRequirePrimaryKey = default!;
         /// <summary>The maximum size, in bytes, of internal in-memory tables. Also set max_heap_table_size. Default is 16777216 (16M).</summary>
-        public int? TmpTableSize { get; set; }
+        public int? TmpTableSize { get => _explicitNullValueTmpTableSize; set { _explicitNullValueTmpTableSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tmp_table_size"); else _explicitNullProperties?.Remove("tmp_table_size"); } }
+        private int? _explicitNullValueTmpTableSize = default!;
         /// <summary>The number of seconds the server waits for activity on a noninteractive connection before closing it.</summary>
-        public int? WaitTimeout { get; set; }
+        public int? WaitTimeout { get => _explicitNullValueWaitTimeout; set { _explicitNullValueWaitTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wait_timeout"); else _explicitNullProperties?.Remove("wait_timeout"); } }
+        private int? _explicitNullValueWaitTimeout = default!;
         /// <summary>When enabled, window functions use a higher precision for internal calculations, which can be more accurate but slower.</summary>
-        public bool? WindowingUseHighPrecision { get; set; }
+        public bool? WindowingUseHighPrecision { get => _explicitNullValueWindowingUseHighPrecision; set { _explicitNullValueWindowingUseHighPrecision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windowing_use_high_precision"); else _explicitNullProperties?.Remove("windowing_use_high_precision"); } }
+        private bool? _explicitNullValueWindowingUseHighPrecision = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfig"/> and sets the default values.
         /// </summary>
@@ -169,7 +286,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -292,6 +409,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("tmp_table_size", TmpTableSize);
             writer.WriteIntValue("wait_timeout", WaitTimeout);
             writer.WriteBoolValue("windowing_use_high_precision", WindowingUseHighPrecision);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

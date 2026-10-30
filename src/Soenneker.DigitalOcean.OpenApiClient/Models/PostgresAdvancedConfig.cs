@@ -11,153 +11,279 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PostgresAdvancedConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autovacuum_analyze_scale_factor") is { } nullNodeAutovacuumAnalyzeScaleFactor && nullNodeAutovacuumAnalyzeScaleFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumAnalyzeScaleFactor = null;
+            if (parseNode.GetChildNode("autovacuum_analyze_threshold") is { } nullNodeAutovacuumAnalyzeThreshold && nullNodeAutovacuumAnalyzeThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumAnalyzeThreshold = null;
+            if (parseNode.GetChildNode("autovacuum_freeze_max_age") is { } nullNodeAutovacuumFreezeMaxAge && nullNodeAutovacuumFreezeMaxAge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumFreezeMaxAge = null;
+            if (parseNode.GetChildNode("autovacuum_max_workers") is { } nullNodeAutovacuumMaxWorkers && nullNodeAutovacuumMaxWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumMaxWorkers = null;
+            if (parseNode.GetChildNode("autovacuum_naptime") is { } nullNodeAutovacuumNaptime && nullNodeAutovacuumNaptime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumNaptime = null;
+            if (parseNode.GetChildNode("autovacuum_vacuum_cost_delay") is { } nullNodeAutovacuumVacuumCostDelay && nullNodeAutovacuumVacuumCostDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumVacuumCostDelay = null;
+            if (parseNode.GetChildNode("autovacuum_vacuum_cost_limit") is { } nullNodeAutovacuumVacuumCostLimit && nullNodeAutovacuumVacuumCostLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumVacuumCostLimit = null;
+            if (parseNode.GetChildNode("autovacuum_vacuum_scale_factor") is { } nullNodeAutovacuumVacuumScaleFactor && nullNodeAutovacuumVacuumScaleFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumVacuumScaleFactor = null;
+            if (parseNode.GetChildNode("autovacuum_vacuum_threshold") is { } nullNodeAutovacuumVacuumThreshold && nullNodeAutovacuumVacuumThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutovacuumVacuumThreshold = null;
+            if (parseNode.GetChildNode("backup_hour") is { } nullNodeBackupHour && nullNodeBackupHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupHour = null;
+            if (parseNode.GetChildNode("backup_minute") is { } nullNodeBackupMinute && nullNodeBackupMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupMinute = null;
+            if (parseNode.GetChildNode("bgwriter_delay") is { } nullNodeBgwriterDelay && nullNodeBgwriterDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BgwriterDelay = null;
+            if (parseNode.GetChildNode("bgwriter_flush_after") is { } nullNodeBgwriterFlushAfter && nullNodeBgwriterFlushAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BgwriterFlushAfter = null;
+            if (parseNode.GetChildNode("bgwriter_lru_maxpages") is { } nullNodeBgwriterLruMaxpages && nullNodeBgwriterLruMaxpages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BgwriterLruMaxpages = null;
+            if (parseNode.GetChildNode("bgwriter_lru_multiplier") is { } nullNodeBgwriterLruMultiplier && nullNodeBgwriterLruMultiplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BgwriterLruMultiplier = null;
+            if (parseNode.GetChildNode("deadlock_timeout") is { } nullNodeDeadlockTimeout && nullNodeDeadlockTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeadlockTimeout = null;
+            if (parseNode.GetChildNode("default_toast_compression") is { } nullNodeDefaultToastCompression && nullNodeDefaultToastCompression.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultToastCompression = null;
+            if (parseNode.GetChildNode("idle_in_transaction_session_timeout") is { } nullNodeIdleInTransactionSessionTimeout && nullNodeIdleInTransactionSessionTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleInTransactionSessionTimeout = null;
+            if (parseNode.GetChildNode("jit") is { } nullNodeJit && nullNodeJit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jit = null;
+            if (parseNode.GetChildNode("log_autovacuum_min_duration") is { } nullNodeLogAutovacuumMinDuration && nullNodeLogAutovacuumMinDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogAutovacuumMinDuration = null;
+            if (parseNode.GetChildNode("log_error_verbosity") is { } nullNodeLogErrorVerbosity && nullNodeLogErrorVerbosity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogErrorVerbosity = null;
+            if (parseNode.GetChildNode("log_line_prefix") is { } nullNodeLogLinePrefix && nullNodeLogLinePrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogLinePrefix = null;
+            if (parseNode.GetChildNode("log_min_duration_statement") is { } nullNodeLogMinDurationStatement && nullNodeLogMinDurationStatement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogMinDurationStatement = null;
+            if (parseNode.GetChildNode("max_connections") is { } nullNodeMaxConnections && nullNodeMaxConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxConnections = null;
+            if (parseNode.GetChildNode("max_failover_replication_time_lag") is { } nullNodeMaxFailoverReplicationTimeLag && nullNodeMaxFailoverReplicationTimeLag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFailoverReplicationTimeLag = null;
+            if (parseNode.GetChildNode("max_files_per_process") is { } nullNodeMaxFilesPerProcess && nullNodeMaxFilesPerProcess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFilesPerProcess = null;
+            if (parseNode.GetChildNode("max_locks_per_transaction") is { } nullNodeMaxLocksPerTransaction && nullNodeMaxLocksPerTransaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxLocksPerTransaction = null;
+            if (parseNode.GetChildNode("max_logical_replication_workers") is { } nullNodeMaxLogicalReplicationWorkers && nullNodeMaxLogicalReplicationWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxLogicalReplicationWorkers = null;
+            if (parseNode.GetChildNode("max_parallel_workers") is { } nullNodeMaxParallelWorkers && nullNodeMaxParallelWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxParallelWorkers = null;
+            if (parseNode.GetChildNode("max_parallel_workers_per_gather") is { } nullNodeMaxParallelWorkersPerGather && nullNodeMaxParallelWorkersPerGather.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxParallelWorkersPerGather = null;
+            if (parseNode.GetChildNode("max_pred_locks_per_transaction") is { } nullNodeMaxPredLocksPerTransaction && nullNodeMaxPredLocksPerTransaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPredLocksPerTransaction = null;
+            if (parseNode.GetChildNode("max_prepared_transactions") is { } nullNodeMaxPreparedTransactions && nullNodeMaxPreparedTransactions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPreparedTransactions = null;
+            if (parseNode.GetChildNode("max_replication_slots") is { } nullNodeMaxReplicationSlots && nullNodeMaxReplicationSlots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxReplicationSlots = null;
+            if (parseNode.GetChildNode("max_slot_wal_keep_size") is { } nullNodeMaxSlotWalKeepSize && nullNodeMaxSlotWalKeepSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSlotWalKeepSize = null;
+            if (parseNode.GetChildNode("max_stack_depth") is { } nullNodeMaxStackDepth && nullNodeMaxStackDepth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxStackDepth = null;
+            if (parseNode.GetChildNode("max_standby_archive_delay") is { } nullNodeMaxStandbyArchiveDelay && nullNodeMaxStandbyArchiveDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxStandbyArchiveDelay = null;
+            if (parseNode.GetChildNode("max_standby_streaming_delay") is { } nullNodeMaxStandbyStreamingDelay && nullNodeMaxStandbyStreamingDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxStandbyStreamingDelay = null;
+            if (parseNode.GetChildNode("max_wal_senders") is { } nullNodeMaxWalSenders && nullNodeMaxWalSenders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxWalSenders = null;
+            if (parseNode.GetChildNode("max_worker_processes") is { } nullNodeMaxWorkerProcesses && nullNodeMaxWorkerProcesses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxWorkerProcesses = null;
+            if (parseNode.GetChildNode("pgaudit") is { } nullNodePgaudit && nullNodePgaudit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pgaudit = null;
+            if (parseNode.GetChildNode("pgbouncer") is { } nullNodePgbouncer && nullNodePgbouncer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pgbouncer = null;
+            if (parseNode.GetChildNode("pg_partman_bgw.interval") is { } nullNodePgPartmanBgwInterval && nullNodePgPartmanBgwInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgPartmanBgwInterval = null;
+            if (parseNode.GetChildNode("pg_partman_bgw.role") is { } nullNodePgPartmanBgwRole && nullNodePgPartmanBgwRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgPartmanBgwRole = null;
+            if (parseNode.GetChildNode("pg_stat_statements.track") is { } nullNodePgStatStatementsTrack && nullNodePgStatStatementsTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgStatStatementsTrack = null;
+            if (parseNode.GetChildNode("shared_buffers_percentage") is { } nullNodeSharedBuffersPercentage && nullNodeSharedBuffersPercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedBuffersPercentage = null;
+            if (parseNode.GetChildNode("stat_monitor_enable") is { } nullNodeStatMonitorEnable && nullNodeStatMonitorEnable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatMonitorEnable = null;
+            if (parseNode.GetChildNode("synchronous_replication") is { } nullNodeSynchronousReplication && nullNodeSynchronousReplication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SynchronousReplication = null;
+            if (parseNode.GetChildNode("temp_file_limit") is { } nullNodeTempFileLimit && nullNodeTempFileLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TempFileLimit = null;
+            if (parseNode.GetChildNode("timescaledb") is { } nullNodeTimescaledb && nullNodeTimescaledb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timescaledb = null;
+            if (parseNode.GetChildNode("timezone") is { } nullNodeTimezone && nullNodeTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timezone = null;
+            if (parseNode.GetChildNode("track_activity_query_size") is { } nullNodeTrackActivityQuerySize && nullNodeTrackActivityQuerySize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackActivityQuerySize = null;
+            if (parseNode.GetChildNode("track_commit_timestamp") is { } nullNodeTrackCommitTimestamp && nullNodeTrackCommitTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackCommitTimestamp = null;
+            if (parseNode.GetChildNode("track_functions") is { } nullNodeTrackFunctions && nullNodeTrackFunctions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackFunctions = null;
+            if (parseNode.GetChildNode("track_io_timing") is { } nullNodeTrackIoTiming && nullNodeTrackIoTiming.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackIoTiming = null;
+            if (parseNode.GetChildNode("wal_sender_timeout") is { } nullNodeWalSenderTimeout && nullNodeWalSenderTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WalSenderTimeout = null;
+            if (parseNode.GetChildNode("wal_writer_delay") is { } nullNodeWalWriterDelay && nullNodeWalWriterDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WalWriterDelay = null;
+            if (parseNode.GetChildNode("work_mem") is { } nullNodeWorkMem && nullNodeWorkMem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkMem = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).</summary>
-        public double? AutovacuumAnalyzeScaleFactor { get; set; }
+        public double? AutovacuumAnalyzeScaleFactor { get => _explicitNullValueAutovacuumAnalyzeScaleFactor; set { _explicitNullValueAutovacuumAnalyzeScaleFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_analyze_scale_factor"); else _explicitNullProperties?.Remove("autovacuum_analyze_scale_factor"); } }
+        private double? _explicitNullValueAutovacuumAnalyzeScaleFactor = default!;
         /// <summary>Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.</summary>
-        public int? AutovacuumAnalyzeThreshold { get; set; }
+        public int? AutovacuumAnalyzeThreshold { get => _explicitNullValueAutovacuumAnalyzeThreshold; set { _explicitNullValueAutovacuumAnalyzeThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_analyze_threshold"); else _explicitNullProperties?.Remove("autovacuum_analyze_threshold"); } }
+        private int? _explicitNullValueAutovacuumAnalyzeThreshold = default!;
         /// <summary>Specifies the maximum age (in transactions) that a table&apos;s pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.</summary>
-        public int? AutovacuumFreezeMaxAge { get; set; }
+        public int? AutovacuumFreezeMaxAge { get => _explicitNullValueAutovacuumFreezeMaxAge; set { _explicitNullValueAutovacuumFreezeMaxAge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_freeze_max_age"); else _explicitNullProperties?.Remove("autovacuum_freeze_max_age"); } }
+        private int? _explicitNullValueAutovacuumFreezeMaxAge = default!;
         /// <summary>Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.</summary>
-        public int? AutovacuumMaxWorkers { get; set; }
+        public int? AutovacuumMaxWorkers { get => _explicitNullValueAutovacuumMaxWorkers; set { _explicitNullValueAutovacuumMaxWorkers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_max_workers"); else _explicitNullProperties?.Remove("autovacuum_max_workers"); } }
+        private int? _explicitNullValueAutovacuumMaxWorkers = default!;
         /// <summary>Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.</summary>
-        public int? AutovacuumNaptime { get; set; }
+        public int? AutovacuumNaptime { get => _explicitNullValueAutovacuumNaptime; set { _explicitNullValueAutovacuumNaptime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_naptime"); else _explicitNullProperties?.Remove("autovacuum_naptime"); } }
+        private int? _explicitNullValueAutovacuumNaptime = default!;
         /// <summary>Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.</summary>
-        public int? AutovacuumVacuumCostDelay { get; set; }
+        public int? AutovacuumVacuumCostDelay { get => _explicitNullValueAutovacuumVacuumCostDelay; set { _explicitNullValueAutovacuumVacuumCostDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_vacuum_cost_delay"); else _explicitNullProperties?.Remove("autovacuum_vacuum_cost_delay"); } }
+        private int? _explicitNullValueAutovacuumVacuumCostDelay = default!;
         /// <summary>Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.</summary>
-        public int? AutovacuumVacuumCostLimit { get; set; }
+        public int? AutovacuumVacuumCostLimit { get => _explicitNullValueAutovacuumVacuumCostLimit; set { _explicitNullValueAutovacuumVacuumCostLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_vacuum_cost_limit"); else _explicitNullProperties?.Remove("autovacuum_vacuum_cost_limit"); } }
+        private int? _explicitNullValueAutovacuumVacuumCostLimit = default!;
         /// <summary>Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).</summary>
-        public double? AutovacuumVacuumScaleFactor { get; set; }
+        public double? AutovacuumVacuumScaleFactor { get => _explicitNullValueAutovacuumVacuumScaleFactor; set { _explicitNullValueAutovacuumVacuumScaleFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_vacuum_scale_factor"); else _explicitNullProperties?.Remove("autovacuum_vacuum_scale_factor"); } }
+        private double? _explicitNullValueAutovacuumVacuumScaleFactor = default!;
         /// <summary>Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.</summary>
-        public int? AutovacuumVacuumThreshold { get; set; }
+        public int? AutovacuumVacuumThreshold { get => _explicitNullValueAutovacuumVacuumThreshold; set { _explicitNullValueAutovacuumVacuumThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autovacuum_vacuum_threshold"); else _explicitNullProperties?.Remove("autovacuum_vacuum_threshold"); } }
+        private int? _explicitNullValueAutovacuumVacuumThreshold = default!;
         /// <summary>The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.</summary>
-        public int? BackupHour { get; set; }
+        public int? BackupHour { get => _explicitNullValueBackupHour; set { _explicitNullValueBackupHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_hour"); else _explicitNullProperties?.Remove("backup_hour"); } }
+        private int? _explicitNullValueBackupHour = default!;
         /// <summary>The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.</summary>
-        public int? BackupMinute { get; set; }
+        public int? BackupMinute { get => _explicitNullValueBackupMinute; set { _explicitNullValueBackupMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_minute"); else _explicitNullProperties?.Remove("backup_minute"); } }
+        private int? _explicitNullValueBackupMinute = default!;
         /// <summary>Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.</summary>
-        public int? BgwriterDelay { get; set; }
+        public int? BgwriterDelay { get => _explicitNullValueBgwriterDelay; set { _explicitNullValueBgwriterDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgwriter_delay"); else _explicitNullProperties?.Remove("bgwriter_delay"); } }
+        private int? _explicitNullValueBgwriterDelay = default!;
         /// <summary>The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.</summary>
-        public int? BgwriterFlushAfter { get; set; }
+        public int? BgwriterFlushAfter { get => _explicitNullValueBgwriterFlushAfter; set { _explicitNullValueBgwriterFlushAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgwriter_flush_after"); else _explicitNullProperties?.Remove("bgwriter_flush_after"); } }
+        private int? _explicitNullValueBgwriterFlushAfter = default!;
         /// <summary>The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.</summary>
-        public int? BgwriterLruMaxpages { get; set; }
+        public int? BgwriterLruMaxpages { get => _explicitNullValueBgwriterLruMaxpages; set { _explicitNullValueBgwriterLruMaxpages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgwriter_lru_maxpages"); else _explicitNullProperties?.Remove("bgwriter_lru_maxpages"); } }
+        private int? _explicitNullValueBgwriterLruMaxpages = default!;
         /// <summary>The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.</summary>
-        public double? BgwriterLruMultiplier { get; set; }
+        public double? BgwriterLruMultiplier { get => _explicitNullValueBgwriterLruMultiplier; set { _explicitNullValueBgwriterLruMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgwriter_lru_multiplier"); else _explicitNullProperties?.Remove("bgwriter_lru_multiplier"); } }
+        private double? _explicitNullValueBgwriterLruMultiplier = default!;
         /// <summary>The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.</summary>
-        public int? DeadlockTimeout { get; set; }
+        public int? DeadlockTimeout { get => _explicitNullValueDeadlockTimeout; set { _explicitNullValueDeadlockTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deadlock_timeout"); else _explicitNullProperties?.Remove("deadlock_timeout"); } }
+        private int? _explicitNullValueDeadlockTimeout = default!;
         /// <summary>Specifies the default TOAST compression method for values of compressible columns (the default is lz4).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigDefaultToastCompression? DefaultToastCompression { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigDefaultToastCompression? DefaultToastCompression { get => _explicitNullValueDefaultToastCompression; set { _explicitNullValueDefaultToastCompression = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_toast_compression"); else _explicitNullProperties?.Remove("default_toast_compression"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigDefaultToastCompression? _explicitNullValueDefaultToastCompression = default!;
         /// <summary>Time out sessions with open transactions after this number of milliseconds</summary>
-        public int? IdleInTransactionSessionTimeout { get; set; }
+        public int? IdleInTransactionSessionTimeout { get => _explicitNullValueIdleInTransactionSessionTimeout; set { _explicitNullValueIdleInTransactionSessionTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_in_transaction_session_timeout"); else _explicitNullProperties?.Remove("idle_in_transaction_session_timeout"); } }
+        private int? _explicitNullValueIdleInTransactionSessionTimeout = default!;
         /// <summary>Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).</summary>
-        public bool? Jit { get; set; }
+        public bool? Jit { get => _explicitNullValueJit; set { _explicitNullValueJit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jit"); else _explicitNullProperties?.Remove("jit"); } }
+        private bool? _explicitNullValueJit = default!;
         /// <summary>Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.</summary>
-        public int? LogAutovacuumMinDuration { get; set; }
+        public int? LogAutovacuumMinDuration { get => _explicitNullValueLogAutovacuumMinDuration; set { _explicitNullValueLogAutovacuumMinDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_autovacuum_min_duration"); else _explicitNullProperties?.Remove("log_autovacuum_min_duration"); } }
+        private int? _explicitNullValueLogAutovacuumMinDuration = default!;
         /// <summary>Controls the amount of detail written in the server log for each message that is logged.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigLogErrorVerbosity? LogErrorVerbosity { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigLogErrorVerbosity? LogErrorVerbosity { get => _explicitNullValueLogErrorVerbosity; set { _explicitNullValueLogErrorVerbosity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_error_verbosity"); else _explicitNullProperties?.Remove("log_error_verbosity"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigLogErrorVerbosity? _explicitNullValueLogErrorVerbosity = default!;
         /// <summary>Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigLogLinePrefix? LogLinePrefix { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigLogLinePrefix? LogLinePrefix { get => _explicitNullValueLogLinePrefix; set { _explicitNullValueLogLinePrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_line_prefix"); else _explicitNullProperties?.Remove("log_line_prefix"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigLogLinePrefix? _explicitNullValueLogLinePrefix = default!;
         /// <summary>Log statements that take more than this number of milliseconds to run. If -1, disables.</summary>
-        public int? LogMinDurationStatement { get; set; }
+        public int? LogMinDurationStatement { get => _explicitNullValueLogMinDurationStatement; set { _explicitNullValueLogMinDurationStatement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_min_duration_statement"); else _explicitNullProperties?.Remove("log_min_duration_statement"); } }
+        private int? _explicitNullValueLogMinDurationStatement = default!;
         /// <summary>Sets the PostgreSQL maximum number of concurrent connections to the database server. This is a limited-release parameter. Contact your account team to confirm your eligibility. You cannot decrease this parameter value when set. For services with a read replica, first increase the read replica&apos;s value. After the change is applied to the replica, you can increase the primary service&apos;s value. Changing this parameter causes a service restart.</summary>
-        public int? MaxConnections { get; set; }
+        public int? MaxConnections { get => _explicitNullValueMaxConnections; set { _explicitNullValueMaxConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_connections"); else _explicitNullProperties?.Remove("max_connections"); } }
+        private int? _explicitNullValueMaxConnections = default!;
         /// <summary>Number of seconds of master unavailability before triggering database failover to standby. The default value is 60.</summary>
-        public int? MaxFailoverReplicationTimeLag { get; set; }
+        public int? MaxFailoverReplicationTimeLag { get => _explicitNullValueMaxFailoverReplicationTimeLag; set { _explicitNullValueMaxFailoverReplicationTimeLag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_failover_replication_time_lag"); else _explicitNullProperties?.Remove("max_failover_replication_time_lag"); } }
+        private int? _explicitNullValueMaxFailoverReplicationTimeLag = default!;
         /// <summary>PostgreSQL maximum number of files that can be open per process.</summary>
-        public int? MaxFilesPerProcess { get; set; }
+        public int? MaxFilesPerProcess { get => _explicitNullValueMaxFilesPerProcess; set { _explicitNullValueMaxFilesPerProcess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_files_per_process"); else _explicitNullProperties?.Remove("max_files_per_process"); } }
+        private int? _explicitNullValueMaxFilesPerProcess = default!;
         /// <summary>PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.</summary>
-        public int? MaxLocksPerTransaction { get; set; }
+        public int? MaxLocksPerTransaction { get => _explicitNullValueMaxLocksPerTransaction; set { _explicitNullValueMaxLocksPerTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_locks_per_transaction"); else _explicitNullProperties?.Remove("max_locks_per_transaction"); } }
+        private int? _explicitNullValueMaxLocksPerTransaction = default!;
         /// <summary>PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).</summary>
-        public int? MaxLogicalReplicationWorkers { get; set; }
+        public int? MaxLogicalReplicationWorkers { get => _explicitNullValueMaxLogicalReplicationWorkers; set { _explicitNullValueMaxLogicalReplicationWorkers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_logical_replication_workers"); else _explicitNullProperties?.Remove("max_logical_replication_workers"); } }
+        private int? _explicitNullValueMaxLogicalReplicationWorkers = default!;
         /// <summary>Sets the maximum number of workers that the system can support for parallel queries.</summary>
-        public int? MaxParallelWorkers { get; set; }
+        public int? MaxParallelWorkers { get => _explicitNullValueMaxParallelWorkers; set { _explicitNullValueMaxParallelWorkers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_parallel_workers"); else _explicitNullProperties?.Remove("max_parallel_workers"); } }
+        private int? _explicitNullValueMaxParallelWorkers = default!;
         /// <summary>Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.</summary>
-        public int? MaxParallelWorkersPerGather { get; set; }
+        public int? MaxParallelWorkersPerGather { get => _explicitNullValueMaxParallelWorkersPerGather; set { _explicitNullValueMaxParallelWorkersPerGather = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_parallel_workers_per_gather"); else _explicitNullProperties?.Remove("max_parallel_workers_per_gather"); } }
+        private int? _explicitNullValueMaxParallelWorkersPerGather = default!;
         /// <summary>PostgreSQL maximum predicate locks per transaction.</summary>
-        public int? MaxPredLocksPerTransaction { get; set; }
+        public int? MaxPredLocksPerTransaction { get => _explicitNullValueMaxPredLocksPerTransaction; set { _explicitNullValueMaxPredLocksPerTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_pred_locks_per_transaction"); else _explicitNullProperties?.Remove("max_pred_locks_per_transaction"); } }
+        private int? _explicitNullValueMaxPredLocksPerTransaction = default!;
         /// <summary>PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.</summary>
-        public int? MaxPreparedTransactions { get; set; }
+        public int? MaxPreparedTransactions { get => _explicitNullValueMaxPreparedTransactions; set { _explicitNullValueMaxPreparedTransactions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_prepared_transactions"); else _explicitNullProperties?.Remove("max_prepared_transactions"); } }
+        private int? _explicitNullValueMaxPreparedTransactions = default!;
         /// <summary>PostgreSQL maximum replication slots.</summary>
-        public int? MaxReplicationSlots { get; set; }
+        public int? MaxReplicationSlots { get => _explicitNullValueMaxReplicationSlots; set { _explicitNullValueMaxReplicationSlots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_replication_slots"); else _explicitNullProperties?.Remove("max_replication_slots"); } }
+        private int? _explicitNullValueMaxReplicationSlots = default!;
         /// <summary>PostgreSQL maximum WAL size (MB) reserved for replication slots. If -1 is specified, replication slots may retain an unlimited amount of WAL files. The default is -1 (upstream default). wal_keep_size minimum WAL size setting takes precedence over this.</summary>
-        public int? MaxSlotWalKeepSize { get; set; }
+        public int? MaxSlotWalKeepSize { get => _explicitNullValueMaxSlotWalKeepSize; set { _explicitNullValueMaxSlotWalKeepSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_slot_wal_keep_size"); else _explicitNullProperties?.Remove("max_slot_wal_keep_size"); } }
+        private int? _explicitNullValueMaxSlotWalKeepSize = default!;
         /// <summary>Maximum depth of the stack in bytes.</summary>
-        public int? MaxStackDepth { get; set; }
+        public int? MaxStackDepth { get => _explicitNullValueMaxStackDepth; set { _explicitNullValueMaxStackDepth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_stack_depth"); else _explicitNullProperties?.Remove("max_stack_depth"); } }
+        private int? _explicitNullValueMaxStackDepth = default!;
         /// <summary>Max standby archive delay in milliseconds.</summary>
-        public int? MaxStandbyArchiveDelay { get; set; }
+        public int? MaxStandbyArchiveDelay { get => _explicitNullValueMaxStandbyArchiveDelay; set { _explicitNullValueMaxStandbyArchiveDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_standby_archive_delay"); else _explicitNullProperties?.Remove("max_standby_archive_delay"); } }
+        private int? _explicitNullValueMaxStandbyArchiveDelay = default!;
         /// <summary>Max standby streaming delay in milliseconds.</summary>
-        public int? MaxStandbyStreamingDelay { get; set; }
+        public int? MaxStandbyStreamingDelay { get => _explicitNullValueMaxStandbyStreamingDelay; set { _explicitNullValueMaxStandbyStreamingDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_standby_streaming_delay"); else _explicitNullProperties?.Remove("max_standby_streaming_delay"); } }
+        private int? _explicitNullValueMaxStandbyStreamingDelay = default!;
         /// <summary>PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.</summary>
-        public int? MaxWalSenders { get; set; }
+        public int? MaxWalSenders { get => _explicitNullValueMaxWalSenders; set { _explicitNullValueMaxWalSenders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_wal_senders"); else _explicitNullProperties?.Remove("max_wal_senders"); } }
+        private int? _explicitNullValueMaxWalSenders = default!;
         /// <summary>Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.</summary>
-        public int? MaxWorkerProcesses { get; set; }
+        public int? MaxWorkerProcesses { get => _explicitNullValueMaxWorkerProcesses; set { _explicitNullValueMaxWorkerProcesses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_worker_processes"); else _explicitNullProperties?.Remove("max_worker_processes"); } }
+        private int? _explicitNullValueMaxWorkerProcesses = default!;
         /// <summary>System-wide settings for the pgaudit extension. When `feature_enabled` is true, the pgaudit extension is automatically installed. When false, the extension is uninstalled but auditing configurations (such as `log`) are preserved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit? Pgaudit { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit? Pgaudit { get => _explicitNullValuePgaudit; set { _explicitNullValuePgaudit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pgaudit"); else _explicitNullProperties?.Remove("pgaudit"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit? _explicitNullValuePgaudit = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit Pgaudit { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit Pgaudit { get => _explicitNullValuePgaudit; set { _explicitNullValuePgaudit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pgaudit"); else _explicitNullProperties?.Remove("pgaudit"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit _explicitNullValuePgaudit = default!;
 #endif
         /// <summary>PGBouncer connection pooling settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig? Pgbouncer { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig? Pgbouncer { get => _explicitNullValuePgbouncer; set { _explicitNullValuePgbouncer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pgbouncer"); else _explicitNullProperties?.Remove("pgbouncer"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig? _explicitNullValuePgbouncer = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig Pgbouncer { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig Pgbouncer { get => _explicitNullValuePgbouncer; set { _explicitNullValuePgbouncer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pgbouncer"); else _explicitNullProperties?.Remove("pgbouncer"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig _explicitNullValuePgbouncer = default!;
 #endif
         /// <summary>Sets the time interval to run pg_partman&apos;s scheduled tasks.</summary>
-        public int? PgPartmanBgwInterval { get; set; }
+        public int? PgPartmanBgwInterval { get => _explicitNullValuePgPartmanBgwInterval; set { _explicitNullValuePgPartmanBgwInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_partman_bgw.interval"); else _explicitNullProperties?.Remove("pg_partman_bgw.interval"); } }
+        private int? _explicitNullValuePgPartmanBgwInterval = default!;
         /// <summary>Controls which role to use for pg_partman&apos;s scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PgPartmanBgwRole { get; set; }
+        public string? PgPartmanBgwRole { get => _explicitNullValuePgPartmanBgwRole; set { _explicitNullValuePgPartmanBgwRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_partman_bgw.role"); else _explicitNullProperties?.Remove("pg_partman_bgw.role"); } }
+        private string? _explicitNullValuePgPartmanBgwRole = default!;
 #nullable restore
 #else
-        public string PgPartmanBgwRole { get; set; }
+        public string PgPartmanBgwRole { get => _explicitNullValuePgPartmanBgwRole; set { _explicitNullValuePgPartmanBgwRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_partman_bgw.role"); else _explicitNullProperties?.Remove("pg_partman_bgw.role"); } }
+        private string _explicitNullValuePgPartmanBgwRole = default!;
 #endif
         /// <summary>Controls which statements are counted. Specify &apos;top&apos; to track top-level statements (those issued directly by clients), &apos;all&apos; to also track nested statements (such as statements invoked within functions), or &apos;none&apos; to disable statement statistics collection. The default value is top.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgStatStatementsTrack? PgStatStatementsTrack { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgStatStatementsTrack? PgStatStatementsTrack { get => _explicitNullValuePgStatStatementsTrack; set { _explicitNullValuePgStatStatementsTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_stat_statements.track"); else _explicitNullProperties?.Remove("pg_stat_statements.track"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgStatStatementsTrack? _explicitNullValuePgStatStatementsTrack = default!;
         /// <summary>Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.</summary>
-        public double? SharedBuffersPercentage { get; set; }
+        public double? SharedBuffersPercentage { get => _explicitNullValueSharedBuffersPercentage; set { _explicitNullValueSharedBuffersPercentage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_buffers_percentage"); else _explicitNullProperties?.Remove("shared_buffers_percentage"); } }
+        private double? _explicitNullValueSharedBuffersPercentage = default!;
         /// <summary>Enable the pg_stat_monitor extension. &lt;b&gt;Enabling this extension will cause the cluster to be restarted.&lt;/b&gt; When this extension is enabled, pg_stat_statements results for utility commands are unreliable.</summary>
-        public bool? StatMonitorEnable { get; set; }
+        public bool? StatMonitorEnable { get => _explicitNullValueStatMonitorEnable; set { _explicitNullValueStatMonitorEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stat_monitor_enable"); else _explicitNullProperties?.Remove("stat_monitor_enable"); } }
+        private bool? _explicitNullValueStatMonitorEnable = default!;
         /// <summary>Synchronous replication type. Note that the service plan also needs to support synchronous replication.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigSynchronousReplication? SynchronousReplication { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigSynchronousReplication? SynchronousReplication { get => _explicitNullValueSynchronousReplication; set { _explicitNullValueSynchronousReplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("synchronous_replication"); else _explicitNullProperties?.Remove("synchronous_replication"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigSynchronousReplication? _explicitNullValueSynchronousReplication = default!;
         /// <summary>PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.</summary>
-        public int? TempFileLimit { get; set; }
+        public int? TempFileLimit { get => _explicitNullValueTempFileLimit; set { _explicitNullValueTempFileLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_file_limit"); else _explicitNullProperties?.Remove("temp_file_limit"); } }
+        private int? _explicitNullValueTempFileLimit = default!;
         /// <summary>TimescaleDB extension configuration values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TimescaledbAdvancedConfig? Timescaledb { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TimescaledbAdvancedConfig? Timescaledb { get => _explicitNullValueTimescaledb; set { _explicitNullValueTimescaledb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timescaledb"); else _explicitNullProperties?.Remove("timescaledb"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TimescaledbAdvancedConfig? _explicitNullValueTimescaledb = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TimescaledbAdvancedConfig Timescaledb { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TimescaledbAdvancedConfig Timescaledb { get => _explicitNullValueTimescaledb; set { _explicitNullValueTimescaledb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timescaledb"); else _explicitNullProperties?.Remove("timescaledb"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TimescaledbAdvancedConfig _explicitNullValueTimescaledb = default!;
 #endif
         /// <summary>PostgreSQL service timezone</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Timezone { get; set; }
+        public string? Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
+        private string? _explicitNullValueTimezone = default!;
 #nullable restore
 #else
-        public string Timezone { get; set; }
+        public string Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
+        private string _explicitNullValueTimezone = default!;
 #endif
         /// <summary>Specifies the number of bytes reserved to track the currently executing command for each active session.</summary>
-        public int? TrackActivityQuerySize { get; set; }
+        public int? TrackActivityQuerySize { get => _explicitNullValueTrackActivityQuerySize; set { _explicitNullValueTrackActivityQuerySize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track_activity_query_size"); else _explicitNullProperties?.Remove("track_activity_query_size"); } }
+        private int? _explicitNullValueTrackActivityQuerySize = default!;
         /// <summary>Record commit time of transactions.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackCommitTimestamp? TrackCommitTimestamp { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackCommitTimestamp? TrackCommitTimestamp { get => _explicitNullValueTrackCommitTimestamp; set { _explicitNullValueTrackCommitTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track_commit_timestamp"); else _explicitNullProperties?.Remove("track_commit_timestamp"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackCommitTimestamp? _explicitNullValueTrackCommitTimestamp = default!;
         /// <summary>Enables tracking of function call counts and time used.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackFunctions? TrackFunctions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackFunctions? TrackFunctions { get => _explicitNullValueTrackFunctions; set { _explicitNullValueTrackFunctions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track_functions"); else _explicitNullProperties?.Remove("track_functions"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackFunctions? _explicitNullValueTrackFunctions = default!;
         /// <summary>Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackIoTiming? TrackIoTiming { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackIoTiming? TrackIoTiming { get => _explicitNullValueTrackIoTiming; set { _explicitNullValueTrackIoTiming = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track_io_timing"); else _explicitNullProperties?.Remove("track_io_timing"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigTrackIoTiming? _explicitNullValueTrackIoTiming = default!;
         /// <summary>Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.</summary>
-        public int? WalSenderTimeout { get; set; }
+        public int? WalSenderTimeout { get => _explicitNullValueWalSenderTimeout; set { _explicitNullValueWalSenderTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wal_sender_timeout"); else _explicitNullProperties?.Remove("wal_sender_timeout"); } }
+        private int? _explicitNullValueWalSenderTimeout = default!;
         /// <summary>WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance</summary>
-        public int? WalWriterDelay { get; set; }
+        public int? WalWriterDelay { get => _explicitNullValueWalWriterDelay; set { _explicitNullValueWalWriterDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wal_writer_delay"); else _explicitNullProperties?.Remove("wal_writer_delay"); } }
+        private int? _explicitNullValueWalWriterDelay = default!;
         /// <summary>The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).</summary>
-        public int? WorkMem { get; set; }
+        public int? WorkMem { get => _explicitNullValueWorkMem; set { _explicitNullValueWorkMem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("work_mem"); else _explicitNullProperties?.Remove("work_mem"); } }
+        private int? _explicitNullValueWorkMem = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfig"/> and sets the default values.
         /// </summary>
@@ -173,7 +299,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -306,6 +432,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("wal_sender_timeout", WalSenderTimeout);
             writer.WriteIntValue("wal_writer_delay", WalWriterDelay);
             writer.WriteIntValue("work_mem", WorkMem);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

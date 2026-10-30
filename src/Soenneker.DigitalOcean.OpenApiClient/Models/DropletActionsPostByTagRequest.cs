@@ -12,7 +12,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DropletActionsPostByTagRequest : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletAction"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,17 +42,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionsPostByTagRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionsPostByTagRequest();
-            if("disable_backups".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("DropletAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DropletAction = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletAction();
+                
             }
-            else if("snapshot".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("DropletActionSnapshot".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DropletActionSnapshot = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionSnapshot();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("enable_backups".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "disable_backups".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "reboot".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "power_cycle".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "shutdown".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "power_off".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "power_on".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "restore".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "password_reset".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "resize".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "rebuild".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "rename".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "change_kernel".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "enable_ipv6".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "snapshot".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("enable_backups".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "disable_backups".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "reboot".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "power_cycle".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "shutdown".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "power_off".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "power_on".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "restore".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "password_reset".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "resize".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "rebuild".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "rename".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "change_kernel".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "enable_ipv6".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "snapshot".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.DropletAction == null && result.DropletActionSnapshot == null && matchesUnionBranch0 && !matchesUnionBranch1) result.DropletAction = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletAction(), parseNode);
+            if (result.DropletAction == null && result.DropletActionSnapshot == null && matchesUnionBranch1 && !matchesUnionBranch0) result.DropletActionSnapshot = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionSnapshot(), parseNode);
+            if (result.DropletAction == null && result.DropletActionSnapshot == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (DropletAction == null && DropletActionSnapshot == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (DropletAction != null && DropletActionSnapshot == null) { if (DropletAction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DropletAction); return; }
+            if (DropletActionSnapshot != null && DropletAction == null) { if (DropletActionSnapshot is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DropletActionSnapshot); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(DropletAction != null)
             {
+                if (DropletAction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletAction>(null, DropletAction);
             }
             else if(DropletActionSnapshot != null)
             {
+                if (DropletActionSnapshot is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionSnapshot>(null, DropletActionSnapshot);
             }
         }

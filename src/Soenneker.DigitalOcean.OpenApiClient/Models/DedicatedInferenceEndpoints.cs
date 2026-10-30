@@ -11,24 +11,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DedicatedInferenceEndpoints : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("private_endpoint_fqdn") is { } nullNodePrivateEndpointFqdn && nullNodePrivateEndpointFqdn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateEndpointFqdn = null;
+            if (parseNode.GetChildNode("public_endpoint_fqdn") is { } nullNodePublicEndpointFqdn && nullNodePublicEndpointFqdn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicEndpointFqdn = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Private VPC FQDN of the Dedicated Inference instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrivateEndpointFqdn { get; set; }
+        public string? PrivateEndpointFqdn { get => _explicitNullValuePrivateEndpointFqdn; set { _explicitNullValuePrivateEndpointFqdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_endpoint_fqdn"); else _explicitNullProperties?.Remove("private_endpoint_fqdn"); } }
+        private string? _explicitNullValuePrivateEndpointFqdn = default!;
 #nullable restore
 #else
-        public string PrivateEndpointFqdn { get; set; }
+        public string PrivateEndpointFqdn { get => _explicitNullValuePrivateEndpointFqdn; set { _explicitNullValuePrivateEndpointFqdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_endpoint_fqdn"); else _explicitNullProperties?.Remove("private_endpoint_fqdn"); } }
+        private string _explicitNullValuePrivateEndpointFqdn = default!;
 #endif
         /// <summary>Public FQDN of the Dedicated Inference instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PublicEndpointFqdn { get; set; }
+        public string? PublicEndpointFqdn { get => _explicitNullValuePublicEndpointFqdn; set { _explicitNullValuePublicEndpointFqdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_endpoint_fqdn"); else _explicitNullProperties?.Remove("public_endpoint_fqdn"); } }
+        private string? _explicitNullValuePublicEndpointFqdn = default!;
 #nullable restore
 #else
-        public string PublicEndpointFqdn { get; set; }
+        public string PublicEndpointFqdn { get => _explicitNullValuePublicEndpointFqdn; set { _explicitNullValuePublicEndpointFqdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_endpoint_fqdn"); else _explicitNullProperties?.Remove("public_endpoint_fqdn"); } }
+        private string _explicitNullValuePublicEndpointFqdn = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceEndpoints"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceEndpoints CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceEndpoints();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceEndpoints(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("private_endpoint_fqdn", PrivateEndpointFqdn);
             writer.WriteStringValue("public_endpoint_fqdn", PublicEndpointFqdn);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

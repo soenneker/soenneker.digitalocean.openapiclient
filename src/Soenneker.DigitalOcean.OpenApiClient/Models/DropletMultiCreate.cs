@@ -11,110 +11,162 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DropletMultiCreate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("backup_policy") is { } nullNodeBackupPolicy && nullNodeBackupPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupPolicy = null;
+            if (parseNode.GetChildNode("backups") is { } nullNodeBackups && nullNodeBackups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Backups = null;
+            if (parseNode.GetChildNode("image") is { } nullNodeImage && nullNodeImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Image = null;
+            if (parseNode.GetChildNode("ipv6") is { } nullNodeIpv6 && nullNodeIpv6.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ipv6 = null;
+            if (parseNode.GetChildNode("monitoring") is { } nullNodeMonitoring && nullNodeMonitoring.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Monitoring = null;
+            if (parseNode.GetChildNode("names") is { } nullNodeNames && nullNodeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Names = null;
+            if (parseNode.GetChildNode("private_networking") is { } nullNodePrivateNetworking && nullNodePrivateNetworking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateNetworking = null;
+            if (parseNode.GetChildNode("public_networking") is { } nullNodePublicNetworking && nullNodePublicNetworking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicNetworking = null;
+            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("ssh_keys") is { } nullNodeSshKeys && nullNodeSshKeys.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SshKeys = null;
+            if (parseNode.GetChildNode("subnet_uuid") is { } nullNodeSubnetUuid && nullNodeSubnetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubnetUuid = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("user_data") is { } nullNodeUserData && nullNodeUserData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserData = null;
+            if (parseNode.GetChildNode("volumes") is { } nullNodeVolumes && nullNodeVolumes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volumes = null;
+            if (parseNode.GetChildNode("vpc_uuid") is { } nullNodeVpcUuid && nullNodeVpcUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcUuid = null;
+            if (parseNode.GetChildNode("with_droplet_agent") is { } nullNodeWithDropletAgent && nullNodeWithDropletAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WithDropletAgent = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An object specifying the backup policy for the Droplet. If omitted and `backups` is `true`, the backup plan will default to daily.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy? BackupPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy? BackupPolicy { get => _explicitNullValueBackupPolicy; set { _explicitNullValueBackupPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_policy"); else _explicitNullProperties?.Remove("backup_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy? _explicitNullValueBackupPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy BackupPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy BackupPolicy { get => _explicitNullValueBackupPolicy; set { _explicitNullValueBackupPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_policy"); else _explicitNullProperties?.Remove("backup_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy _explicitNullValueBackupPolicy = default!;
 #endif
         /// <summary>A boolean indicating whether automated backups should be enabled for the Droplet.</summary>
-        public bool? Backups { get; set; }
+        public bool? Backups { get => _explicitNullValueBackups; set { _explicitNullValueBackups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backups"); else _explicitNullProperties?.Remove("backups"); } }
+        private bool? _explicitNullValueBackups = default!;
         /// <summary>The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.&lt;br&gt;Requires `image:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_image? Image { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueImage = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_image Image { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueImage = default!;
 #endif
         /// <summary>A boolean indicating whether to enable IPv6 on the Droplet.</summary>
-        public bool? Ipv6 { get; set; }
+        public bool? Ipv6 { get => _explicitNullValueIpv6; set { _explicitNullValueIpv6 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ipv6"); else _explicitNullProperties?.Remove("ipv6"); } }
+        private bool? _explicitNullValueIpv6 = default!;
         /// <summary>A boolean indicating whether to install the DigitalOcean agent for monitoring.</summary>
-        public bool? Monitoring { get; set; }
+        public bool? Monitoring { get => _explicitNullValueMonitoring; set { _explicitNullValueMonitoring = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monitoring"); else _explicitNullProperties?.Remove("monitoring"); } }
+        private bool? _explicitNullValueMonitoring = default!;
         /// <summary>An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Names { get; set; }
+        public List<string>? Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        private List<string>? _explicitNullValueNames = default!;
 #nullable restore
 #else
-        public List<string> Names { get; set; }
+        public List<string> Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        private List<string> _explicitNullValueNames = default!;
 #endif
         /// <summary>This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account&apos;s default VPC for the region.</summary>
         [Obsolete("")]
-        public bool? PrivateNetworking { get; set; }
+        public bool? PrivateNetworking { get => _explicitNullValuePrivateNetworking; set { _explicitNullValuePrivateNetworking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_networking"); else _explicitNullProperties?.Remove("private_networking"); } }
+        private bool? _explicitNullValuePrivateNetworking = default!;
         /// <summary>An optional boolean indicating whether this Droplet should be created with public networking or not. By default, all Droplets are created with public networking available. If explicitly set to `false`, only private networking will be enabled, and public networking will be disabled; currently this means that it will not have any public static or Reserved IPv4 or IPv6 address, nor can one be assigned later. If explicitly set to `false`, `ipv6` must also be `false`.</summary>
-        public bool? PublicNetworking { get; set; }
+        public bool? PublicNetworking { get => _explicitNullValuePublicNetworking; set { _explicitNullValuePublicNetworking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_networking"); else _explicitNullProperties?.Remove("public_networking"); } }
+        private bool? _explicitNullValuePublicNetworking = default!;
         /// <summary>The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region&apos;s locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get; set; }
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public string Region { get; set; }
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>The slug identifier for the size that you wish to select for this Droplet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Size { get; set; }
+        public string? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private string? _explicitNullValueSize = default!;
 #nullable restore
 #else
-        public string Size { get; set; }
+        public string Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private string _explicitNullValueSize = default!;
 #endif
         /// <summary>An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet&apos;s root account upon creation. You must add the keys to your team before they can be embedded on a Droplet.&lt;br&gt;Requires `ssh_key:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys>? SshKeys { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys>? SshKeys { get => _explicitNullValueSshKeys; set { _explicitNullValueSshKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ssh_keys"); else _explicitNullProperties?.Remove("ssh_keys"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys>? _explicitNullValueSshKeys = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys> SshKeys { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys> SshKeys { get => _explicitNullValueSshKeys; set { _explicitNullValueSshKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ssh_keys"); else _explicitNullProperties?.Remove("ssh_keys"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys> _explicitNullValueSshKeys = default!;
 #endif
         /// <summary>An optional string specifying the UUID of the VPC subnet to which the Droplet will be assigned. If excluded, the Droplet will be assigned to a default subnet of the VPC.&lt;br&gt;Requires `vpc:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubnetUuid { get; set; }
+        public string? SubnetUuid { get => _explicitNullValueSubnetUuid; set { _explicitNullValueSubnetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subnet_uuid"); else _explicitNullProperties?.Remove("subnet_uuid"); } }
+        private string? _explicitNullValueSubnetUuid = default!;
 #nullable restore
 #else
-        public string SubnetUuid { get; set; }
+        public string SubnetUuid { get => _explicitNullValueSubnetUuid; set { _explicitNullValueSubnetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subnet_uuid"); else _explicitNullProperties?.Remove("subnet_uuid"); } }
+        private string _explicitNullValueSubnetUuid = default!;
 #endif
         /// <summary>A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.&lt;br&gt;Requires `tag:create` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>A string containing &apos;user data&apos; which may be used to configure the Droplet on first boot, often a &apos;cloud-config&apos; file or Bash script. It must be plain text and may not exceed 64 KiB in size.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserData { get; set; }
+        public string? UserData { get => _explicitNullValueUserData; set { _explicitNullValueUserData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_data"); else _explicitNullProperties?.Remove("user_data"); } }
+        private string? _explicitNullValueUserData = default!;
 #nullable restore
 #else
-        public string UserData { get; set; }
+        public string UserData { get => _explicitNullValueUserData; set { _explicitNullValueUserData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_data"); else _explicitNullProperties?.Remove("user_data"); } }
+        private string _explicitNullValueUserData = default!;
 #endif
         /// <summary>An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.&lt;br&gt;Requires `block_storage:read` scpoe.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Volumes { get; set; }
+        public List<string>? Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        private List<string>? _explicitNullValueVolumes = default!;
 #nullable restore
 #else
-        public List<string> Volumes { get; set; }
+        public List<string> Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        private List<string> _explicitNullValueVolumes = default!;
 #endif
         /// <summary>A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account&apos;s default VPC for the region.&lt;br&gt;Requires `vpc:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VpcUuid { get; set; }
+        public string? VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_uuid"); else _explicitNullProperties?.Remove("vpc_uuid"); } }
+        private string? _explicitNullValueVpcUuid = default!;
 #nullable restore
 #else
-        public string VpcUuid { get; set; }
+        public string VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_uuid"); else _explicitNullProperties?.Remove("vpc_uuid"); } }
+        private string _explicitNullValueVpcUuid = default!;
 #endif
         /// <summary>A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.</summary>
-        public bool? WithDropletAgent { get; set; }
+        public bool? WithDropletAgent { get => _explicitNullValueWithDropletAgent; set { _explicitNullValueWithDropletAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("with_droplet_agent"); else _explicitNullProperties?.Remove("with_droplet_agent"); } }
+        private bool? _explicitNullValueWithDropletAgent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate"/> and sets the default values.
         /// </summary>
@@ -135,7 +187,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -147,7 +199,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "backup_policy", n => { BackupPolicy = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy.CreateFromDiscriminatorValue); } },
                 { "backups", n => { Backups = n.GetBoolValue(); } },
-                { "image", n => { Image = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_image>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_image.CreateFromDiscriminatorValue); } },
+                { "image", n => { Image = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "ipv6", n => { Ipv6 = n.GetBoolValue(); } },
                 { "monitoring", n => { Monitoring = n.GetBoolValue(); } },
                 { "names", n => { Names = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -173,7 +225,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateBackupPolicy>("backup_policy", BackupPolicy);
             writer.WriteBoolValue("backups", Backups);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_image>("image", Image);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("image", Image);
             writer.WriteBoolValue("ipv6", Ipv6);
             writer.WriteBoolValue("monitoring", Monitoring);
             writer.WriteCollectionOfPrimitiveValues<string>("names", Names);
@@ -188,6 +240,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("volumes", Volumes);
             writer.WriteStringValue("vpc_uuid", VpcUuid);
             writer.WriteBoolValue("with_droplet_agent", WithDropletAgent);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -213,14 +266,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_image CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_image();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_image();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -240,6 +297,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {
@@ -274,14 +335,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletMultiCreate.DropletMultiCreate_ssh_keys();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -301,6 +366,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {

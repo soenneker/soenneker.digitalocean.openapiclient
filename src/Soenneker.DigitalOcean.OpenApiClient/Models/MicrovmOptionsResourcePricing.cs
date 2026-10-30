@@ -12,17 +12,32 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MicrovmOptionsResourcePricing : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("price_per_gib_bandwidth") is { } nullNodePricePerGibBandwidth && nullNodePricePerGibBandwidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerGibBandwidth = null;
+            if (parseNode.GetChildNode("price_per_gib_memory_hour") is { } nullNodePricePerGibMemoryHour && nullNodePricePerGibMemoryHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerGibMemoryHour = null;
+            if (parseNode.GetChildNode("price_per_gib_storage_month") is { } nullNodePricePerGibStorageMonth && nullNodePricePerGibStorageMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerGibStorageMonth = null;
+            if (parseNode.GetChildNode("price_per_vcpu_hour") is { } nullNodePricePerVcpuHour && nullNodePricePerVcpuHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerVcpuHour = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The price per GiB of outbound data transfer.</summary>
-        public double? PricePerGibBandwidth { get; set; }
+        public double? PricePerGibBandwidth { get => _explicitNullValuePricePerGibBandwidth; set { _explicitNullValuePricePerGibBandwidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_gib_bandwidth"); else _explicitNullProperties?.Remove("price_per_gib_bandwidth"); } }
+        private double? _explicitNullValuePricePerGibBandwidth = default!;
         /// <summary>The price per GiB of memory per hour of running time.</summary>
-        public double? PricePerGibMemoryHour { get; set; }
+        public double? PricePerGibMemoryHour { get => _explicitNullValuePricePerGibMemoryHour; set { _explicitNullValuePricePerGibMemoryHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_gib_memory_hour"); else _explicitNullProperties?.Remove("price_per_gib_memory_hour"); } }
+        private double? _explicitNullValuePricePerGibMemoryHour = default!;
         /// <summary>The price per GiB-month of disk and checkpoint storage.</summary>
-        public double? PricePerGibStorageMonth { get; set; }
+        public double? PricePerGibStorageMonth { get => _explicitNullValuePricePerGibStorageMonth; set { _explicitNullValuePricePerGibStorageMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_gib_storage_month"); else _explicitNullProperties?.Remove("price_per_gib_storage_month"); } }
+        private double? _explicitNullValuePricePerGibStorageMonth = default!;
         /// <summary>The price per vCPU per hour of running time.</summary>
-        public double? PricePerVcpuHour { get; set; }
+        public double? PricePerVcpuHour { get => _explicitNullValuePricePerVcpuHour; set { _explicitNullValuePricePerVcpuHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_vcpu_hour"); else _explicitNullProperties?.Remove("price_per_vcpu_hour"); } }
+        private double? _explicitNullValuePricePerVcpuHour = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDoubleValue("price_per_gib_memory_hour", PricePerGibMemoryHour);
             writer.WriteDoubleValue("price_per_gib_storage_month", PricePerGibStorageMonth);
             writer.WriteDoubleValue("price_per_vcpu_hour", PricePerVcpuHour);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

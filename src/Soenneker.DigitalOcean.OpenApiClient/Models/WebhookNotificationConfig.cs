@@ -12,48 +12,70 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookNotificationConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("basic_auth") is { } nullNodeBasicAuth && nullNodeBasicAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BasicAuth = null;
+            if (parseNode.GetChildNode("bearer_token") is { } nullNodeBearerToken && nullNodeBearerToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BearerToken = null;
+            if (parseNode.GetChildNode("headers") is { } nullNodeHeaders && nullNodeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headers = null;
+            if (parseNode.GetChildNode("signature") is { } nullNodeSignature && nullNodeSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signature = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>HTTP basic authentication credentials for a webhook create or updaterequest. `password` is write-only: send the full value to set or rotate.Omit `password` on update to keep the existing password.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuth? BasicAuth { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuth? BasicAuth { get => _explicitNullValueBasicAuth; set { _explicitNullValueBasicAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth"); else _explicitNullProperties?.Remove("basic_auth"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuth? _explicitNullValueBasicAuth = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuth BasicAuth { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuth BasicAuth { get => _explicitNullValueBasicAuth; set { _explicitNullValueBasicAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth"); else _explicitNullProperties?.Remove("basic_auth"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuth _explicitNullValueBasicAuth = default!;
 #endif
         /// <summary>Bearer token authentication for a webhook create or update request. `token`is write-only: send the full value to set or rotate. Omit `token` on updateto keep the existing token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken? BearerToken { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken? BearerToken { get => _explicitNullValueBearerToken; set { _explicitNullValueBearerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bearer_token"); else _explicitNullProperties?.Remove("bearer_token"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken? _explicitNullValueBearerToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken BearerToken { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken BearerToken { get => _explicitNullValueBearerToken; set { _explicitNullValueBearerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bearer_token"); else _explicitNullProperties?.Remove("bearer_token"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerToken _explicitNullValueBearerToken = default!;
 #endif
         /// <summary>Optional custom HTTP headers to include on webhook deliveries. At most20 headers are allowed. Reserved header names such as `host`,`content-type`, and `proxy-*` are rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfigHeadersProperty? Headers { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfigHeadersProperty? Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfigHeadersProperty? _explicitNullValueHeaders = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfigHeadersProperty Headers { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfigHeadersProperty Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfigHeadersProperty _explicitNullValueHeaders = default!;
 #endif
         /// <summary>Optional HMAC signature configuration for a webhook create or updaterequest. `secret` is write-only: send the full value to set or rotate. Omit`secret` on update to keep the existing secret.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfig? Signature { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfig? Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfig? _explicitNullValueSignature = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfig Signature { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfig Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfig _explicitNullValueSignature = default!;
 #endif
         /// <summary>HTTPS URL that receives webhook deliveries. Returned in full on read.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfig"/> and sets the default values.
@@ -70,7 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +121,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookNotificationConfigHeadersProperty>("headers", Headers);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfig>("signature", Signature);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

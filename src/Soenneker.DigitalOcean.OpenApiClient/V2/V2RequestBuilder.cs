@@ -222,6 +222,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registries.RegistriesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The registry property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.RegistryRequestBuilder Registry
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.RegistryRequestBuilder(PathParameters, RequestAdapter);

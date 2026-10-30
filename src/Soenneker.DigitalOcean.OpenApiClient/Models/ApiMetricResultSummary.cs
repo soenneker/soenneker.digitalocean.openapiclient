@@ -12,51 +12,85 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiMetricResultSummary : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("avg_at_k_percent") is { } nullNodeAvgAtKPercent && nullNodeAvgAtKPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvgAtKPercent = null;
+            if (parseNode.GetChildNode("cons_at_k_percent") is { } nullNodeConsAtKPercent && nullNodeConsAtKPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsAtKPercent = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("fail_count") is { } nullNodeFailCount && nullNodeFailCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailCount = null;
+            if (parseNode.GetChildNode("fail_percent") is { } nullNodeFailPercent && nullNodeFailPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailPercent = null;
+            if (parseNode.GetChildNode("metric_name") is { } nullNodeMetricName && nullNodeMetricName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricName = null;
+            if (parseNode.GetChildNode("metric_uuid") is { } nullNodeMetricUuid && nullNodeMetricUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricUuid = null;
+            if (parseNode.GetChildNode("pass_at_k_percent") is { } nullNodePassAtKPercent && nullNodePassAtKPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassAtKPercent = null;
+            if (parseNode.GetChildNode("pass_count") is { } nullNodePassCount && nullNodePassCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassCount = null;
+            if (parseNode.GetChildNode("pass_percent") is { } nullNodePassPercent && nullNodePassPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassPercent = null;
+            if (parseNode.GetChildNode("skipped_count") is { } nullNodeSkippedCount && nullNodeSkippedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedCount = null;
+            if (parseNode.GetChildNode("skip_percent") is { } nullNodeSkipPercent && nullNodeSkipPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipPercent = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Row-level (not attempt-level) aggregation across epochs for this metric,mirroring EpochResultSummary but scoped to one metric. Only set when therun&apos;s epochs &gt; 1; pass_percent/pass_count/etc. above stay attempt-level(over row x epoch pairs) so they don&apos;t desynchronize from the countssitting next to them.</summary>
-        public double? AvgAtKPercent { get; set; }
+        public double? AvgAtKPercent { get => _explicitNullValueAvgAtKPercent; set { _explicitNullValueAvgAtKPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avg_at_k_percent"); else _explicitNullProperties?.Remove("avg_at_k_percent"); } }
+        private double? _explicitNullValueAvgAtKPercent = default!;
         /// <summary>The cons_at_k_percent property</summary>
-        public double? ConsAtKPercent { get; set; }
+        public double? ConsAtKPercent { get => _explicitNullValueConsAtKPercent; set { _explicitNullValueConsAtKPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cons_at_k_percent"); else _explicitNullProperties?.Remove("cons_at_k_percent"); } }
+        private double? _explicitNullValueConsAtKPercent = default!;
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Rows where the metric failed to score or completed below the threshold.</summary>
-        public long? FailCount { get; set; }
+        public long? FailCount { get => _explicitNullValueFailCount; set { _explicitNullValueFailCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fail_count"); else _explicitNullProperties?.Remove("fail_count"); } }
+        private long? _explicitNullValueFailCount = default!;
         /// <summary>The fail_percent property</summary>
-        public double? FailPercent { get; set; }
+        public double? FailPercent { get => _explicitNullValueFailPercent; set { _explicitNullValueFailPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fail_percent"); else _explicitNullProperties?.Remove("fail_percent"); } }
+        private double? _explicitNullValueFailPercent = default!;
         /// <summary>The metric_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricName { get; set; }
+        public string? MetricName { get => _explicitNullValueMetricName; set { _explicitNullValueMetricName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_name"); else _explicitNullProperties?.Remove("metric_name"); } }
+        private string? _explicitNullValueMetricName = default!;
 #nullable restore
 #else
-        public string MetricName { get; set; }
+        public string MetricName { get => _explicitNullValueMetricName; set { _explicitNullValueMetricName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_name"); else _explicitNullProperties?.Remove("metric_name"); } }
+        private string _explicitNullValueMetricName = default!;
 #endif
         /// <summary>The metric_uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricUuid { get; set; }
+        public string? MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
+        private string? _explicitNullValueMetricUuid = default!;
 #nullable restore
 #else
-        public string MetricUuid { get; set; }
+        public string MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
+        private string _explicitNullValueMetricUuid = default!;
 #endif
         /// <summary>The pass_at_k_percent property</summary>
-        public double? PassAtKPercent { get; set; }
+        public double? PassAtKPercent { get => _explicitNullValuePassAtKPercent; set { _explicitNullValuePassAtKPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pass_at_k_percent"); else _explicitNullProperties?.Remove("pass_at_k_percent"); } }
+        private double? _explicitNullValuePassAtKPercent = default!;
         /// <summary>Rows where the metric completed and passed the configured threshold.</summary>
-        public long? PassCount { get; set; }
+        public long? PassCount { get => _explicitNullValuePassCount; set { _explicitNullValuePassCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pass_count"); else _explicitNullProperties?.Remove("pass_count"); } }
+        private long? _explicitNullValuePassCount = default!;
         /// <summary>The pass_percent property</summary>
-        public double? PassPercent { get; set; }
+        public double? PassPercent { get => _explicitNullValuePassPercent; set { _explicitNullValuePassPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pass_percent"); else _explicitNullProperties?.Remove("pass_percent"); } }
+        private double? _explicitNullValuePassPercent = default!;
         /// <summary>Rows where the metric was not evaluated for this prompt.</summary>
-        public long? SkippedCount { get; set; }
+        public long? SkippedCount { get => _explicitNullValueSkippedCount; set { _explicitNullValueSkippedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_count"); else _explicitNullProperties?.Remove("skipped_count"); } }
+        private long? _explicitNullValueSkippedCount = default!;
         /// <summary>Percentage of rows that were skipped for this metric, computed asskipped_count divided by the total rows the metric saw(pass_count + fail_count + skipped_count).</summary>
-        public double? SkipPercent { get; set; }
+        public double? SkipPercent { get => _explicitNullValueSkipPercent; set { _explicitNullValueSkipPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_percent"); else _explicitNullProperties?.Remove("skip_percent"); } }
+        private double? _explicitNullValueSkipPercent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary"/> and sets the default values.
         /// </summary>
@@ -72,7 +106,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -115,6 +149,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDoubleValue("pass_percent", PassPercent);
             writer.WriteLongValue("skipped_count", SkippedCount);
             writer.WriteDoubleValue("skip_percent", SkipPercent);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

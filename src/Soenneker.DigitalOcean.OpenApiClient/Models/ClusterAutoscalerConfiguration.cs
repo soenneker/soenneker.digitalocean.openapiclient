@@ -12,27 +12,42 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ClusterAutoscalerConfiguration : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expanders") is { } nullNodeExpanders && nullNodeExpanders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expanders = null;
+            if (parseNode.GetChildNode("scale_down_unneeded_time") is { } nullNodeScaleDownUnneededTime && nullNodeScaleDownUnneededTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScaleDownUnneededTime = null;
+            if (parseNode.GetChildNode("scale_down_utilization_threshold") is { } nullNodeScaleDownUtilizationThreshold && nullNodeScaleDownUtilizationThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScaleDownUtilizationThreshold = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Customizes expanders used by cluster-autoscaler.The autoscaler will apply each expander from the provided list to narrow down the selection of node types created to scale up,until either a single node type is left, or the list of expanders is exhausted.If this flag is unset, autoscaler will use its default expander `random`.Passing an empty list (_not_ `null`) will unset any previous expander customizations.Available expanders:- `random`: Randomly selects a node group to scale.- `priority`: Selects the node group with the highest priority as per [user-provided configuration](https://docs.digitalocean.com/products/kubernetes/how-to/autoscale/#configuring-priority-expander)- `least_waste`: Selects the node group that will result in the least amount of idle resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfigurationExpandersItem?>? Expanders { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfigurationExpandersItem?>? Expanders { get => _explicitNullValueExpanders; set { _explicitNullValueExpanders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expanders"); else _explicitNullProperties?.Remove("expanders"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfigurationExpandersItem?>? _explicitNullValueExpanders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfigurationExpandersItem?> Expanders { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfigurationExpandersItem?> Expanders { get => _explicitNullValueExpanders; set { _explicitNullValueExpanders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expanders"); else _explicitNullProperties?.Remove("expanders"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfigurationExpandersItem?> _explicitNullValueExpanders = default!;
 #endif
         /// <summary>Used to customize how long a node is unneeded before being scaled down.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScaleDownUnneededTime { get; set; }
+        public string? ScaleDownUnneededTime { get => _explicitNullValueScaleDownUnneededTime; set { _explicitNullValueScaleDownUnneededTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scale_down_unneeded_time"); else _explicitNullProperties?.Remove("scale_down_unneeded_time"); } }
+        private string? _explicitNullValueScaleDownUnneededTime = default!;
 #nullable restore
 #else
-        public string ScaleDownUnneededTime { get; set; }
+        public string ScaleDownUnneededTime { get => _explicitNullValueScaleDownUnneededTime; set { _explicitNullValueScaleDownUnneededTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scale_down_unneeded_time"); else _explicitNullProperties?.Remove("scale_down_unneeded_time"); } }
+        private string _explicitNullValueScaleDownUnneededTime = default!;
 #endif
         /// <summary>Used to customize when cluster autoscaler scales down non-empty nodes by setting the node utilization threshold.</summary>
-        public double? ScaleDownUtilizationThreshold { get; set; }
+        public double? ScaleDownUtilizationThreshold { get => _explicitNullValueScaleDownUtilizationThreshold; set { _explicitNullValueScaleDownUtilizationThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scale_down_utilization_threshold"); else _explicitNullProperties?.Remove("scale_down_utilization_threshold"); } }
+        private double? _explicitNullValueScaleDownUtilizationThreshold = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +90,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfigurationExpandersItem>("expanders", Expanders);
             writer.WriteStringValue("scale_down_unneeded_time", ScaleDownUnneededTime);
             writer.WriteDoubleValue("scale_down_utilization_threshold", ScaleDownUtilizationThreshold);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

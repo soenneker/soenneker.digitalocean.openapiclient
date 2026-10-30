@@ -11,27 +11,47 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AppComponentHealth : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cpu_usage_percent") is { } nullNodeCpuUsagePercent && nullNodeCpuUsagePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CpuUsagePercent = null;
+            if (parseNode.GetChildNode("memory_usage_percent") is { } nullNodeMemoryUsagePercent && nullNodeMemoryUsagePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryUsagePercent = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("replicas_desired") is { } nullNodeReplicasDesired && nullNodeReplicasDesired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplicasDesired = null;
+            if (parseNode.GetChildNode("replicas_ready") is { } nullNodeReplicasReady && nullNodeReplicasReady.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplicasReady = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cpu_usage_percent property</summary>
-        public double? CpuUsagePercent { get; set; }
+        public double? CpuUsagePercent { get => _explicitNullValueCpuUsagePercent; set { _explicitNullValueCpuUsagePercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu_usage_percent"); else _explicitNullProperties?.Remove("cpu_usage_percent"); } }
+        private double? _explicitNullValueCpuUsagePercent = default!;
         /// <summary>The memory_usage_percent property</summary>
-        public double? MemoryUsagePercent { get; set; }
+        public double? MemoryUsagePercent { get => _explicitNullValueMemoryUsagePercent; set { _explicitNullValueMemoryUsagePercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_usage_percent"); else _explicitNullProperties?.Remove("memory_usage_percent"); } }
+        private double? _explicitNullValueMemoryUsagePercent = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The replicas_desired property</summary>
-        public long? ReplicasDesired { get; set; }
+        public long? ReplicasDesired { get => _explicitNullValueReplicasDesired; set { _explicitNullValueReplicasDesired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replicas_desired"); else _explicitNullProperties?.Remove("replicas_desired"); } }
+        private long? _explicitNullValueReplicasDesired = default!;
         /// <summary>The replicas_ready property</summary>
-        public long? ReplicasReady { get; set; }
+        public long? ReplicasReady { get => _explicitNullValueReplicasReady; set { _explicitNullValueReplicasReady = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replicas_ready"); else _explicitNullProperties?.Remove("replicas_ready"); } }
+        private long? _explicitNullValueReplicasReady = default!;
         /// <summary>The state property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentHealthState? State { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentHealthState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentHealthState? _explicitNullValueState = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentHealth"/> and sets the default values.
         /// </summary>
@@ -47,7 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentHealth CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentHealth();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentHealth(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +98,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteLongValue("replicas_desired", ReplicasDesired);
             writer.WriteLongValue("replicas_ready", ReplicasReady);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppComponentHealthState>("state", State);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

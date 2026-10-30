@@ -12,54 +12,82 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiImportCustomModelInputPublic : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accept_hf_token_storage") is { } nullNodeAcceptHfTokenStorage && nullNodeAcceptHfTokenStorage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptHfTokenStorage = null;
+            if (parseNode.GetChildNode("accept_terms_and_conditions") is { } nullNodeAcceptTermsAndConditions && nullNodeAcceptTermsAndConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptTermsAndConditions = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("preferred_gpu_region") is { } nullNodePreferredGpuRegion && nullNodePreferredGpuRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredGpuRegion = null;
+            if (parseNode.GetChildNode("source_ref") is { } nullNodeSourceRef && nullNodeSourceRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceRef = null;
+            if (parseNode.GetChildNode("source_type") is { } nullNodeSourceType && nullNodeSourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceType = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+        }
+
         /// <summary>Whether the caller accepts storage of their HuggingFace token for gated model access</summary>
-        public bool? AcceptHfTokenStorage { get; set; }
+        public bool? AcceptHfTokenStorage { get => _explicitNullValueAcceptHfTokenStorage; set { _explicitNullValueAcceptHfTokenStorage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accept_hf_token_storage"); else _explicitNullProperties?.Remove("accept_hf_token_storage"); } }
+        private bool? _explicitNullValueAcceptHfTokenStorage = default!;
         /// <summary>Whether the caller accepts the terms and conditions for importing this model</summary>
-        public bool? AcceptTermsAndConditions { get; set; }
+        public bool? AcceptTermsAndConditions { get => _explicitNullValueAcceptTermsAndConditions; set { _explicitNullValueAcceptTermsAndConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accept_terms_and_conditions"); else _explicitNullProperties?.Remove("accept_terms_and_conditions"); } }
+        private bool? _explicitNullValueAcceptTermsAndConditions = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Description of the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Name for the imported model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Preferred GPU region for deployment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreferredGpuRegion { get; set; }
+        public string? PreferredGpuRegion { get => _explicitNullValuePreferredGpuRegion; set { _explicitNullValuePreferredGpuRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred_gpu_region"); else _explicitNullProperties?.Remove("preferred_gpu_region"); } }
+        private string? _explicitNullValuePreferredGpuRegion = default!;
 #nullable restore
 #else
-        public string PreferredGpuRegion { get; set; }
+        public string PreferredGpuRegion { get => _explicitNullValuePreferredGpuRegion; set { _explicitNullValuePreferredGpuRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred_gpu_region"); else _explicitNullProperties?.Remove("preferred_gpu_region"); } }
+        private string _explicitNullValuePreferredGpuRegion = default!;
 #endif
         /// <summary>Reference to the original source of the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceRef? SourceRef { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceRef? SourceRef { get => _explicitNullValueSourceRef; set { _explicitNullValueSourceRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_ref"); else _explicitNullProperties?.Remove("source_ref"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceRef? _explicitNullValueSourceRef = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceRef SourceRef { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceRef SourceRef { get => _explicitNullValueSourceRef; set { _explicitNullValueSourceRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_ref"); else _explicitNullProperties?.Remove("source_ref"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceRef _explicitNullValueSourceRef = default!;
 #endif
         /// <summary>Source from which the model was imported</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceType? SourceType { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceType? SourceType { get => _explicitNullValueSourceType; set { _explicitNullValueSourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_type"); else _explicitNullProperties?.Remove("source_type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceType? _explicitNullValueSourceType = default!;
         /// <summary>User-defined tags for organizing models</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelTags? Tags { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelTags? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelTags? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelTags Tags { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelTags Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelTags _explicitNullValueTags = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportCustomModelInputPublic"/> and sets the default values.
@@ -76,7 +104,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportCustomModelInputPublic CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportCustomModelInputPublic();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportCustomModelInputPublic(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,6 +139,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceRef>("source_ref", SourceRef);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelSourceType>("source_type", SourceType);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelTags>("tags", Tags);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

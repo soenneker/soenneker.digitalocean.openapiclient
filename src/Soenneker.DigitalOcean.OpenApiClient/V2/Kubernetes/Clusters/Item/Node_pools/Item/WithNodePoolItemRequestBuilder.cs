@@ -25,6 +25,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Node_
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Node_pools.Item.Nodes.NodesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The recycle property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Node_pools.Item.Recycle.RecycleRequestBuilder Recycle
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Node_pools.Item.Recycle.RecycleRequestBuilder(PathParameters, RequestAdapter);

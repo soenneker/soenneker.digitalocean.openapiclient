@@ -12,17 +12,32 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MicrovmOptionsAccountLimits : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("max_disk_bytes") is { } nullNodeMaxDiskBytes && nullNodeMaxDiskBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxDiskBytes = null;
+            if (parseNode.GetChildNode("max_idle_timeout_seconds") is { } nullNodeMaxIdleTimeoutSeconds && nullNodeMaxIdleTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIdleTimeoutSeconds = null;
+            if (parseNode.GetChildNode("max_memory_bytes") is { } nullNodeMaxMemoryBytes && nullNodeMaxMemoryBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxMemoryBytes = null;
+            if (parseNode.GetChildNode("max_total_count") is { } nullNodeMaxTotalCount && nullNodeMaxTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTotalCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum disk per MicroVM, in bytes.</summary>
-        public long? MaxDiskBytes { get; set; }
+        public long? MaxDiskBytes { get => _explicitNullValueMaxDiskBytes; set { _explicitNullValueMaxDiskBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_disk_bytes"); else _explicitNullProperties?.Remove("max_disk_bytes"); } }
+        private long? _explicitNullValueMaxDiskBytes = default!;
         /// <summary>The maximum auto-pause idle timeout, in seconds.</summary>
-        public int? MaxIdleTimeoutSeconds { get; set; }
+        public int? MaxIdleTimeoutSeconds { get => _explicitNullValueMaxIdleTimeoutSeconds; set { _explicitNullValueMaxIdleTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_idle_timeout_seconds"); else _explicitNullProperties?.Remove("max_idle_timeout_seconds"); } }
+        private int? _explicitNullValueMaxIdleTimeoutSeconds = default!;
         /// <summary>The maximum memory per MicroVM, in bytes.</summary>
-        public long? MaxMemoryBytes { get; set; }
+        public long? MaxMemoryBytes { get => _explicitNullValueMaxMemoryBytes; set { _explicitNullValueMaxMemoryBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_memory_bytes"); else _explicitNullProperties?.Remove("max_memory_bytes"); } }
+        private long? _explicitNullValueMaxMemoryBytes = default!;
         /// <summary>The maximum number of MicroVMs, counting both running and paused MicroVMs.</summary>
-        public int? MaxTotalCount { get; set; }
+        public int? MaxTotalCount { get => _explicitNullValueMaxTotalCount; set { _explicitNullValueMaxTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_total_count"); else _explicitNullProperties?.Remove("max_total_count"); } }
+        private int? _explicitNullValueMaxTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("max_idle_timeout_seconds", MaxIdleTimeoutSeconds);
             writer.WriteLongValue("max_memory_bytes", MaxMemoryBytes);
             writer.WriteIntValue("max_total_count", MaxTotalCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

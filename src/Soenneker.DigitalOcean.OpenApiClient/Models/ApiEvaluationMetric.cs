@@ -11,69 +11,111 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiEvaluationMetric : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("associated_presets") is { } nullNodeAssociatedPresets && nullNodeAssociatedPresets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssociatedPresets = null;
+            if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
+            if (parseNode.GetChildNode("custom_eval_config") is { } nullNodeCustomEvalConfig && nullNodeCustomEvalConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomEvalConfig = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("evaluation_scope") is { } nullNodeEvaluationScope && nullNodeEvaluationScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationScope = null;
+            if (parseNode.GetChildNode("inverted") is { } nullNodeInverted && nullNodeInverted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inverted = null;
+            if (parseNode.GetChildNode("is_metric_goal") is { } nullNodeIsMetricGoal && nullNodeIsMetricGoal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsMetricGoal = null;
+            if (parseNode.GetChildNode("metric_name") is { } nullNodeMetricName && nullNodeMetricName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricName = null;
+            if (parseNode.GetChildNode("metric_rank") is { } nullNodeMetricRank && nullNodeMetricRank.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricRank = null;
+            if (parseNode.GetChildNode("metric_type") is { } nullNodeMetricType && nullNodeMetricType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricType = null;
+            if (parseNode.GetChildNode("metric_uuid") is { } nullNodeMetricUuid && nullNodeMetricUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricUuid = null;
+            if (parseNode.GetChildNode("metric_value_type") is { } nullNodeMetricValueType && nullNodeMetricValueType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricValueType = null;
+            if (parseNode.GetChildNode("range_max") is { } nullNodeRangeMax && nullNodeRangeMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RangeMax = null;
+            if (parseNode.GetChildNode("range_min") is { } nullNodeRangeMin && nullNodeRangeMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RangeMin = null;
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Saved model evaluation presets that reference this metric. Populated forcustom metrics when listing metrics so the dashboard can warn that deletingthe metric will also delete these presets. Empty for built-in metrics.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAssociatedModelEvaluationPreset>? AssociatedPresets { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAssociatedModelEvaluationPreset>? AssociatedPresets { get => _explicitNullValueAssociatedPresets; set { _explicitNullValueAssociatedPresets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("associated_presets"); else _explicitNullProperties?.Remove("associated_presets"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAssociatedModelEvaluationPreset>? _explicitNullValueAssociatedPresets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAssociatedModelEvaluationPreset> AssociatedPresets { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAssociatedModelEvaluationPreset> AssociatedPresets { get => _explicitNullValueAssociatedPresets; set { _explicitNullValueAssociatedPresets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("associated_presets"); else _explicitNullProperties?.Remove("associated_presets"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAssociatedModelEvaluationPreset> _explicitNullValueAssociatedPresets = default!;
 #endif
         /// <summary>The category property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricCategory? Category { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricCategory? Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricCategory? _explicitNullValueCategory = default!;
         /// <summary>Configuration for a custom model-evaluation metric scored by an LLM judge.Prompt and model response are always included in the judge context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomEvaluationMetricConfig? CustomEvalConfig { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomEvaluationMetricConfig? CustomEvalConfig { get => _explicitNullValueCustomEvalConfig; set { _explicitNullValueCustomEvalConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_eval_config"); else _explicitNullProperties?.Remove("custom_eval_config"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomEvaluationMetricConfig? _explicitNullValueCustomEvalConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomEvaluationMetricConfig CustomEvalConfig { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomEvaluationMetricConfig CustomEvalConfig { get => _explicitNullValueCustomEvalConfig; set { _explicitNullValueCustomEvalConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_eval_config"); else _explicitNullProperties?.Remove("custom_eval_config"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomEvaluationMetricConfig _explicitNullValueCustomEvalConfig = default!;
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Scope that determines whether a metric belongs to agent evaluation or model evaluation.For backwards compatibility, UNSPECIFIED defaults to agent metrics only in list operations.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationScope? EvaluationScope { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationScope? EvaluationScope { get => _explicitNullValueEvaluationScope; set { _explicitNullValueEvaluationScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_scope"); else _explicitNullProperties?.Remove("evaluation_scope"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationScope? _explicitNullValueEvaluationScope = default!;
         /// <summary>If true, the metric is inverted, meaning that a lower value is better.</summary>
-        public bool? Inverted { get; set; }
+        public bool? Inverted { get => _explicitNullValueInverted; set { _explicitNullValueInverted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inverted"); else _explicitNullProperties?.Remove("inverted"); } }
+        private bool? _explicitNullValueInverted = default!;
         /// <summary>The is_metric_goal property</summary>
-        public bool? IsMetricGoal { get; set; }
+        public bool? IsMetricGoal { get => _explicitNullValueIsMetricGoal; set { _explicitNullValueIsMetricGoal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_metric_goal"); else _explicitNullProperties?.Remove("is_metric_goal"); } }
+        private bool? _explicitNullValueIsMetricGoal = default!;
         /// <summary>The metric_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricName { get; set; }
+        public string? MetricName { get => _explicitNullValueMetricName; set { _explicitNullValueMetricName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_name"); else _explicitNullProperties?.Remove("metric_name"); } }
+        private string? _explicitNullValueMetricName = default!;
 #nullable restore
 #else
-        public string MetricName { get; set; }
+        public string MetricName { get => _explicitNullValueMetricName; set { _explicitNullValueMetricName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_name"); else _explicitNullProperties?.Remove("metric_name"); } }
+        private string _explicitNullValueMetricName = default!;
 #endif
         /// <summary>The metric_rank property</summary>
-        public long? MetricRank { get; set; }
+        public long? MetricRank { get => _explicitNullValueMetricRank; set { _explicitNullValueMetricRank = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_rank"); else _explicitNullProperties?.Remove("metric_rank"); } }
+        private long? _explicitNullValueMetricRank = default!;
         /// <summary>The metric_type property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricType? MetricType { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricType? MetricType { get => _explicitNullValueMetricType; set { _explicitNullValueMetricType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_type"); else _explicitNullProperties?.Remove("metric_type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricType? _explicitNullValueMetricType = default!;
         /// <summary>The metric_uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricUuid { get; set; }
+        public string? MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
+        private string? _explicitNullValueMetricUuid = default!;
 #nullable restore
 #else
-        public string MetricUuid { get; set; }
+        public string MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
+        private string _explicitNullValueMetricUuid = default!;
 #endif
         /// <summary>The metric_value_type property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType? MetricValueType { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType? MetricValueType { get => _explicitNullValueMetricValueType; set { _explicitNullValueMetricValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_value_type"); else _explicitNullProperties?.Remove("metric_value_type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType? _explicitNullValueMetricValueType = default!;
         /// <summary>The maximum value for the metric.</summary>
-        public float? RangeMax { get; set; }
+        public float? RangeMax { get => _explicitNullValueRangeMax; set { _explicitNullValueRangeMax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("range_max"); else _explicitNullProperties?.Remove("range_max"); } }
+        private float? _explicitNullValueRangeMax = default!;
         /// <summary>The minimum value for the metric.</summary>
-        public float? RangeMin { get; set; }
+        public float? RangeMin { get => _explicitNullValueRangeMin; set { _explicitNullValueRangeMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("range_min"); else _explicitNullProperties?.Remove("range_min"); } }
+        private float? _explicitNullValueRangeMin = default!;
         /// <summary>Distinguishes platform catalog metrics from user-defined LLM-as-judge metrics.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricSource? Source { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricSource? _explicitNullValueSource = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetric"/> and sets the default values.
         /// </summary>
@@ -89,7 +131,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetric();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetric(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -138,6 +180,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteFloatValue("range_max", RangeMax);
             writer.WriteFloatValue("range_min", RangeMin);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricSource>("source", Source);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

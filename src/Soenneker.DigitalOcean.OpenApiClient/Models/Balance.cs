@@ -11,34 +11,52 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Balance : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account_balance") is { } nullNodeAccountBalance && nullNodeAccountBalance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountBalance = null;
+            if (parseNode.GetChildNode("generated_at") is { } nullNodeGeneratedAt && nullNodeGeneratedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneratedAt = null;
+            if (parseNode.GetChildNode("month_to_date_balance") is { } nullNodeMonthToDateBalance && nullNodeMonthToDateBalance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthToDateBalance = null;
+            if (parseNode.GetChildNode("month_to_date_usage") is { } nullNodeMonthToDateUsage && nullNodeMonthToDateUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthToDateUsage = null;
+        }
+
         /// <summary>Current balance of the customer&apos;s most recent billing activity.  Does not reflect `month_to_date_usage`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountBalance { get; set; }
+        public string? AccountBalance { get => _explicitNullValueAccountBalance; set { _explicitNullValueAccountBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_balance"); else _explicitNullProperties?.Remove("account_balance"); } }
+        private string? _explicitNullValueAccountBalance = default!;
 #nullable restore
 #else
-        public string AccountBalance { get; set; }
+        public string AccountBalance { get => _explicitNullValueAccountBalance; set { _explicitNullValueAccountBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_balance"); else _explicitNullProperties?.Remove("account_balance"); } }
+        private string _explicitNullValueAccountBalance = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time at which balances were most recently generated.</summary>
-        public DateTimeOffset? GeneratedAt { get; set; }
+        public DateTimeOffset? GeneratedAt { get => _explicitNullValueGeneratedAt; set { _explicitNullValueGeneratedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generated_at"); else _explicitNullProperties?.Remove("generated_at"); } }
+        private DateTimeOffset? _explicitNullValueGeneratedAt = default!;
         /// <summary>Balance as of the `generated_at` time.  This value includes the `account_balance` and `month_to_date_usage`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MonthToDateBalance { get; set; }
+        public string? MonthToDateBalance { get => _explicitNullValueMonthToDateBalance; set { _explicitNullValueMonthToDateBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_to_date_balance"); else _explicitNullProperties?.Remove("month_to_date_balance"); } }
+        private string? _explicitNullValueMonthToDateBalance = default!;
 #nullable restore
 #else
-        public string MonthToDateBalance { get; set; }
+        public string MonthToDateBalance { get => _explicitNullValueMonthToDateBalance; set { _explicitNullValueMonthToDateBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_to_date_balance"); else _explicitNullProperties?.Remove("month_to_date_balance"); } }
+        private string _explicitNullValueMonthToDateBalance = default!;
 #endif
         /// <summary>Amount used in the current billing period as of the `generated_at` time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MonthToDateUsage { get; set; }
+        public string? MonthToDateUsage { get => _explicitNullValueMonthToDateUsage; set { _explicitNullValueMonthToDateUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_to_date_usage"); else _explicitNullProperties?.Remove("month_to_date_usage"); } }
+        private string? _explicitNullValueMonthToDateUsage = default!;
 #nullable restore
 #else
-        public string MonthToDateUsage { get; set; }
+        public string MonthToDateUsage { get => _explicitNullValueMonthToDateUsage; set { _explicitNullValueMonthToDateUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_to_date_usage"); else _explicitNullProperties?.Remove("month_to_date_usage"); } }
+        private string _explicitNullValueMonthToDateUsage = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Balance"/> and sets the default values.
@@ -55,7 +73,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.Balance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.Balance();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.Balance(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("generated_at", GeneratedAt);
             writer.WriteStringValue("month_to_date_balance", MonthToDateBalance);
             writer.WriteStringValue("month_to_date_usage", MonthToDateUsage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

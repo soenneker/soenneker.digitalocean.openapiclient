@@ -11,24 +11,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OneClicksCreate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("addon_slugs") is { } nullNodeAddonSlugs && nullNodeAddonSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddonSlugs = null;
+            if (parseNode.GetChildNode("cluster_uuid") is { } nullNodeClusterUuid && nullNodeClusterUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterUuid = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An array of 1-Click Application slugs to be installed to the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AddonSlugs { get; set; }
+        public List<string>? AddonSlugs { get => _explicitNullValueAddonSlugs; set { _explicitNullValueAddonSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addon_slugs"); else _explicitNullProperties?.Remove("addon_slugs"); } }
+        private List<string>? _explicitNullValueAddonSlugs = default!;
 #nullable restore
 #else
-        public List<string> AddonSlugs { get; set; }
+        public List<string> AddonSlugs { get => _explicitNullValueAddonSlugs; set { _explicitNullValueAddonSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addon_slugs"); else _explicitNullProperties?.Remove("addon_slugs"); } }
+        private List<string> _explicitNullValueAddonSlugs = default!;
 #endif
         /// <summary>A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClusterUuid { get; set; }
+        public string? ClusterUuid { get => _explicitNullValueClusterUuid; set { _explicitNullValueClusterUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuid"); else _explicitNullProperties?.Remove("cluster_uuid"); } }
+        private string? _explicitNullValueClusterUuid = default!;
 #nullable restore
 #else
-        public string ClusterUuid { get; set; }
+        public string ClusterUuid { get => _explicitNullValueClusterUuid; set { _explicitNullValueClusterUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuid"); else _explicitNullProperties?.Remove("cluster_uuid"); } }
+        private string _explicitNullValueClusterUuid = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicksCreate"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicksCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicksCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicksCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("addon_slugs", AddonSlugs);
             writer.WriteStringValue("cluster_uuid", ClusterUuid);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

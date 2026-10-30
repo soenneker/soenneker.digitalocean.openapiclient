@@ -12,7 +12,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LogsinkUpdateConfig : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DatadogLogsink"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,11 +59,22 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkUpdateConfig();
-            result.DatadogLogsink = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DatadogLogsink();
-            result.ElasticsearchLogsink = new global::Soenneker.DigitalOcean.OpenApiClient.Models.ElasticsearchLogsink();
-            result.OpensearchLogsink = new global::Soenneker.DigitalOcean.OpenApiClient.Models.OpensearchLogsink();
-            result.RsyslogLogsink = new global::Soenneker.DigitalOcean.OpenApiClient.Models.RsyslogLogsink();
-            return result;
+            
+            
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("server") != null && parseNode.GetChildNode("port") != null && parseNode.GetChildNode("tls") != null && parseNode.GetChildNode("format") != null && (parseNode.GetChildNode("format")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag4 && ("rfc5424".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal) || "rfc3164".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal) || "custom".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("url") != null && parseNode.GetChildNode("index_prefix") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("url") != null && parseNode.GetChildNode("index_prefix") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("site") != null && parseNode.GetChildNode("datadog_api_key") != null))();
+            if (result.DatadogLogsink == null && result.ElasticsearchLogsink == null && result.OpensearchLogsink == null && result.RsyslogLogsink == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.RsyslogLogsink = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.RsyslogLogsink(), parseNode);
+            if (result.DatadogLogsink == null && result.ElasticsearchLogsink == null && result.OpensearchLogsink == null && result.RsyslogLogsink == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.ElasticsearchLogsink = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ElasticsearchLogsink(), parseNode);
+            if (result.DatadogLogsink == null && result.ElasticsearchLogsink == null && result.OpensearchLogsink == null && result.RsyslogLogsink == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.OpensearchLogsink = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.OpensearchLogsink(), parseNode);
+            if (result.DatadogLogsink == null && result.ElasticsearchLogsink == null && result.OpensearchLogsink == null && result.RsyslogLogsink == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.DatadogLogsink = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DatadogLogsink(), parseNode);
+            if (result.DatadogLogsink == null && result.ElasticsearchLogsink == null && result.OpensearchLogsink == null && result.RsyslogLogsink == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (DatadogLogsink == null && ElasticsearchLogsink == null && OpensearchLogsink == null && RsyslogLogsink == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (DatadogLogsink != null && ElasticsearchLogsink == null && OpensearchLogsink == null && RsyslogLogsink == null) { if (DatadogLogsink is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DatadogLogsink); return; }
+            if (ElasticsearchLogsink != null && DatadogLogsink == null && OpensearchLogsink == null && RsyslogLogsink == null) { if (ElasticsearchLogsink is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ElasticsearchLogsink); return; }
+            if (OpensearchLogsink != null && DatadogLogsink == null && ElasticsearchLogsink == null && RsyslogLogsink == null) { if (OpensearchLogsink is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OpensearchLogsink); return; }
+            if (RsyslogLogsink != null && DatadogLogsink == null && ElasticsearchLogsink == null && OpensearchLogsink == null) { if (RsyslogLogsink is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RsyslogLogsink); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatadogLogsink>(null, DatadogLogsink, ElasticsearchLogsink, OpensearchLogsink, RsyslogLogsink);
         }

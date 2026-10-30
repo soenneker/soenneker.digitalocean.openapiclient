@@ -12,18 +12,30 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostgresAdvancedConfigPgaudit : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("feature_enabled") is { } nullNodeFeatureEnabled && nullNodeFeatureEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeatureEnabled = null;
+            if (parseNode.GetChildNode("log") is { } nullNodeLog && nullNodeLog.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Log = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable pgaudit extension. When enabled, pgaudit extension will be automatically installed. Otherwise, extension will be uninstalled but auditing configurations will be preserved.</summary>
-        public bool? FeatureEnabled { get; set; }
+        public bool? FeatureEnabled { get => _explicitNullValueFeatureEnabled; set { _explicitNullValueFeatureEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feature_enabled"); else _explicitNullProperties?.Remove("feature_enabled"); } }
+        private bool? _explicitNullValueFeatureEnabled = default!;
         /// <summary>Specifies which classes of statements will be logged by session audit logging. Available values are `read` (SELECT and COPY when the source is a relation or query), `write` (INSERT, UPDATE, DELETE, TRUNCATE, and COPY when the destination is a relation), `function` (function calls and DO blocks), `role` (statements related to roles and privileges: GRANT, REVOKE, CREATE/ALTER/DROP ROLE), `ddl` (all DDL that is not included in the role class), `misc` (miscellaneous commands, e.g. DISCARD, FETCH, CHECKPOINT, VACUUM, SET), `misc_set` (miscellaneous SET commands, e.g. SET ROLE), and `all` (include all of the above).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgauditLogItem?>? Log { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgauditLogItem?>? Log { get => _explicitNullValueLog; set { _explicitNullValueLog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log"); else _explicitNullProperties?.Remove("log"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgauditLogItem?>? _explicitNullValueLog = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgauditLogItem?> Log { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgauditLogItem?> Log { get => _explicitNullValueLog; set { _explicitNullValueLog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log"); else _explicitNullProperties?.Remove("log"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgauditLogItem?> _explicitNullValueLog = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgaudit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("feature_enabled", FeatureEnabled);
             writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigPgauditLogItem>("log", Log);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

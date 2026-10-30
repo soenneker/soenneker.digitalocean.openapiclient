@@ -12,7 +12,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DatabaseConfigConfig : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfig"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,14 +83,17 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseConfigConfig();
-            result.KafkaAdvancedConfig = new global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfig();
-            result.MongoAdvancedConfig = new global::Soenneker.DigitalOcean.OpenApiClient.Models.MongoAdvancedConfig();
-            result.MysqlAdvancedConfig = new global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfig();
-            result.OpensearchAdvancedConfig = new global::Soenneker.DigitalOcean.OpenApiClient.Models.OpensearchAdvancedConfig();
-            result.PostgresAdvancedConfig = new global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfig();
-            result.RedisAdvancedConfig = new global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfig();
-            result.ValkeyAdvancedConfig = new global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfig();
-            return result;
+            
+            
+            
+            
+            
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.KafkaAdvancedConfig == null && result.MongoAdvancedConfig == null && result.MysqlAdvancedConfig == null && result.OpensearchAdvancedConfig == null && result.PostgresAdvancedConfig == null && result.RedisAdvancedConfig == null && result.ValkeyAdvancedConfig == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,6 +113,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (KafkaAdvancedConfig == null && MongoAdvancedConfig == null && MysqlAdvancedConfig == null && OpensearchAdvancedConfig == null && PostgresAdvancedConfig == null && RedisAdvancedConfig == null && ValkeyAdvancedConfig == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (KafkaAdvancedConfig != null && MongoAdvancedConfig == null && MysqlAdvancedConfig == null && OpensearchAdvancedConfig == null && PostgresAdvancedConfig == null && RedisAdvancedConfig == null && ValkeyAdvancedConfig == null) { if (KafkaAdvancedConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, KafkaAdvancedConfig); return; }
+            if (MongoAdvancedConfig != null && KafkaAdvancedConfig == null && MysqlAdvancedConfig == null && OpensearchAdvancedConfig == null && PostgresAdvancedConfig == null && RedisAdvancedConfig == null && ValkeyAdvancedConfig == null) { if (MongoAdvancedConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MongoAdvancedConfig); return; }
+            if (MysqlAdvancedConfig != null && KafkaAdvancedConfig == null && MongoAdvancedConfig == null && OpensearchAdvancedConfig == null && PostgresAdvancedConfig == null && RedisAdvancedConfig == null && ValkeyAdvancedConfig == null) { if (MysqlAdvancedConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MysqlAdvancedConfig); return; }
+            if (OpensearchAdvancedConfig != null && KafkaAdvancedConfig == null && MongoAdvancedConfig == null && MysqlAdvancedConfig == null && PostgresAdvancedConfig == null && RedisAdvancedConfig == null && ValkeyAdvancedConfig == null) { if (OpensearchAdvancedConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OpensearchAdvancedConfig); return; }
+            if (PostgresAdvancedConfig != null && KafkaAdvancedConfig == null && MongoAdvancedConfig == null && MysqlAdvancedConfig == null && OpensearchAdvancedConfig == null && RedisAdvancedConfig == null && ValkeyAdvancedConfig == null) { if (PostgresAdvancedConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PostgresAdvancedConfig); return; }
+            if (RedisAdvancedConfig != null && KafkaAdvancedConfig == null && MongoAdvancedConfig == null && MysqlAdvancedConfig == null && OpensearchAdvancedConfig == null && PostgresAdvancedConfig == null && ValkeyAdvancedConfig == null) { if (RedisAdvancedConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RedisAdvancedConfig); return; }
+            if (ValkeyAdvancedConfig != null && KafkaAdvancedConfig == null && MongoAdvancedConfig == null && MysqlAdvancedConfig == null && OpensearchAdvancedConfig == null && PostgresAdvancedConfig == null && RedisAdvancedConfig == null) { if (ValkeyAdvancedConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ValkeyAdvancedConfig); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfig>(null, KafkaAdvancedConfig, MongoAdvancedConfig, MysqlAdvancedConfig, OpensearchAdvancedConfig, PostgresAdvancedConfig, RedisAdvancedConfig, ValkeyAdvancedConfig);
         }

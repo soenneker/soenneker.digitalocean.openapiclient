@@ -12,36 +12,56 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GenaiapiRegion : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("inference_url") is { } nullNodeInferenceUrl && nullNodeInferenceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InferenceUrl = null;
+            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("serves_batch") is { } nullNodeServesBatch && nullNodeServesBatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServesBatch = null;
+            if (parseNode.GetChildNode("serves_inference") is { } nullNodeServesInference && nullNodeServesInference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServesInference = null;
+            if (parseNode.GetChildNode("stream_inference_url") is { } nullNodeStreamInferenceUrl && nullNodeStreamInferenceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamInferenceUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Url for inference server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InferenceUrl { get; set; }
+        public string? InferenceUrl { get => _explicitNullValueInferenceUrl; set { _explicitNullValueInferenceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inference_url"); else _explicitNullProperties?.Remove("inference_url"); } }
+        private string? _explicitNullValueInferenceUrl = default!;
 #nullable restore
 #else
-        public string InferenceUrl { get; set; }
+        public string InferenceUrl { get => _explicitNullValueInferenceUrl; set { _explicitNullValueInferenceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inference_url"); else _explicitNullProperties?.Remove("inference_url"); } }
+        private string _explicitNullValueInferenceUrl = default!;
 #endif
         /// <summary>Region code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get; set; }
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public string Region { get; set; }
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>This datacenter is capable of running batch jobs</summary>
-        public bool? ServesBatch { get; set; }
+        public bool? ServesBatch { get => _explicitNullValueServesBatch; set { _explicitNullValueServesBatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serves_batch"); else _explicitNullProperties?.Remove("serves_batch"); } }
+        private bool? _explicitNullValueServesBatch = default!;
         /// <summary>This datacenter is capable of serving inference</summary>
-        public bool? ServesInference { get; set; }
+        public bool? ServesInference { get => _explicitNullValueServesInference; set { _explicitNullValueServesInference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serves_inference"); else _explicitNullProperties?.Remove("serves_inference"); } }
+        private bool? _explicitNullValueServesInference = default!;
         /// <summary>The url for the inference streaming server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamInferenceUrl { get; set; }
+        public string? StreamInferenceUrl { get => _explicitNullValueStreamInferenceUrl; set { _explicitNullValueStreamInferenceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_inference_url"); else _explicitNullProperties?.Remove("stream_inference_url"); } }
+        private string? _explicitNullValueStreamInferenceUrl = default!;
 #nullable restore
 #else
-        public string StreamInferenceUrl { get; set; }
+        public string StreamInferenceUrl { get => _explicitNullValueStreamInferenceUrl; set { _explicitNullValueStreamInferenceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_inference_url"); else _explicitNullProperties?.Remove("stream_inference_url"); } }
+        private string _explicitNullValueStreamInferenceUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GenaiapiRegion"/> and sets the default values.
@@ -58,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.GenaiapiRegion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.GenaiapiRegion();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.GenaiapiRegion(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,6 +107,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("serves_batch", ServesBatch);
             writer.WriteBoolValue("serves_inference", ServesInference);
             writer.WriteStringValue("stream_inference_url", StreamInferenceUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

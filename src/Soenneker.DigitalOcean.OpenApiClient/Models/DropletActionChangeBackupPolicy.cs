@@ -11,19 +11,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DropletActionChangeBackupPolicy : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("backup_policy") is { } nullNodeBackupPolicy && nullNodeBackupPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupPolicy = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An object specifying the backup policy for the Droplet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicyAllOf2BackupPolicy? BackupPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicyAllOf2BackupPolicy? BackupPolicy { get => _explicitNullValueBackupPolicy; set { _explicitNullValueBackupPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_policy"); else _explicitNullProperties?.Remove("backup_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicyAllOf2BackupPolicy? _explicitNullValueBackupPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicyAllOf2BackupPolicy BackupPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicyAllOf2BackupPolicy BackupPolicy { get => _explicitNullValueBackupPolicy; set { _explicitNullValueBackupPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_policy"); else _explicitNullProperties?.Remove("backup_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicyAllOf2BackupPolicy _explicitNullValueBackupPolicy = default!;
 #endif
         /// <summary>The type of action to initiate for the Droplet.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionType? Type { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicy"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicy();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicy(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionChangeBackupPolicyAllOf2BackupPolicy>("backup_policy", BackupPolicy);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletActionType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

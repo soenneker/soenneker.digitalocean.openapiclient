@@ -12,21 +12,40 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiLatencyMetrics : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("avg_e2e_latency_ms") is { } nullNodeAvgE2eLatencyMs && nullNodeAvgE2eLatencyMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvgE2eLatencyMs = null;
+            if (parseNode.GetChildNode("max_e2e_latency_ms") is { } nullNodeMaxE2eLatencyMs && nullNodeMaxE2eLatencyMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxE2eLatencyMs = null;
+            if (parseNode.GetChildNode("min_e2e_latency_ms") is { } nullNodeMinE2eLatencyMs && nullNodeMinE2eLatencyMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinE2eLatencyMs = null;
+            if (parseNode.GetChildNode("p50_latency_ms") is { } nullNodeP50LatencyMs && nullNodeP50LatencyMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P50LatencyMs = null;
+            if (parseNode.GetChildNode("p90_latency_ms") is { } nullNodeP90LatencyMs && nullNodeP90LatencyMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P90LatencyMs = null;
+            if (parseNode.GetChildNode("p95_latency_ms") is { } nullNodeP95LatencyMs && nullNodeP95LatencyMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P95LatencyMs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Average end-to-end latency across all invocations.</summary>
-        public double? AvgE2eLatencyMs { get; set; }
+        public double? AvgE2eLatencyMs { get => _explicitNullValueAvgE2eLatencyMs; set { _explicitNullValueAvgE2eLatencyMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avg_e2e_latency_ms"); else _explicitNullProperties?.Remove("avg_e2e_latency_ms"); } }
+        private double? _explicitNullValueAvgE2eLatencyMs = default!;
         /// <summary>Maximum end-to-end latency observed.</summary>
-        public double? MaxE2eLatencyMs { get; set; }
+        public double? MaxE2eLatencyMs { get => _explicitNullValueMaxE2eLatencyMs; set { _explicitNullValueMaxE2eLatencyMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_e2e_latency_ms"); else _explicitNullProperties?.Remove("max_e2e_latency_ms"); } }
+        private double? _explicitNullValueMaxE2eLatencyMs = default!;
         /// <summary>Minimum end-to-end latency observed.</summary>
-        public double? MinE2eLatencyMs { get; set; }
+        public double? MinE2eLatencyMs { get => _explicitNullValueMinE2eLatencyMs; set { _explicitNullValueMinE2eLatencyMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_e2e_latency_ms"); else _explicitNullProperties?.Remove("min_e2e_latency_ms"); } }
+        private double? _explicitNullValueMinE2eLatencyMs = default!;
         /// <summary>P50 (median) latency.</summary>
-        public double? P50LatencyMs { get; set; }
+        public double? P50LatencyMs { get => _explicitNullValueP50LatencyMs; set { _explicitNullValueP50LatencyMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p50_latency_ms"); else _explicitNullProperties?.Remove("p50_latency_ms"); } }
+        private double? _explicitNullValueP50LatencyMs = default!;
         /// <summary>P90 latency.</summary>
-        public double? P90LatencyMs { get; set; }
+        public double? P90LatencyMs { get => _explicitNullValueP90LatencyMs; set { _explicitNullValueP90LatencyMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p90_latency_ms"); else _explicitNullProperties?.Remove("p90_latency_ms"); } }
+        private double? _explicitNullValueP90LatencyMs = default!;
         /// <summary>P95 latency.</summary>
-        public double? P95LatencyMs { get; set; }
+        public double? P95LatencyMs { get => _explicitNullValueP95LatencyMs; set { _explicitNullValueP95LatencyMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p95_latency_ms"); else _explicitNullProperties?.Remove("p95_latency_ms"); } }
+        private double? _explicitNullValueP95LatencyMs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics"/> and sets the default values.
         /// </summary>
@@ -42,7 +61,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDoubleValue("p50_latency_ms", P50LatencyMs);
             writer.WriteDoubleValue("p90_latency_ms", P90LatencyMs);
             writer.WriteDoubleValue("p95_latency_ms", P95LatencyMs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

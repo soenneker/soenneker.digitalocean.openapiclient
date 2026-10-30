@@ -11,56 +11,81 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiTokenUsage : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("total_candidate_input_tokens") is { } nullNodeTotalCandidateInputTokens && nullNodeTotalCandidateInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCandidateInputTokens = null;
+            if (parseNode.GetChildNode("total_candidate_output_tokens") is { } nullNodeTotalCandidateOutputTokens && nullNodeTotalCandidateOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCandidateOutputTokens = null;
+            if (parseNode.GetChildNode("total_candidate_tokens") is { } nullNodeTotalCandidateTokens && nullNodeTotalCandidateTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCandidateTokens = null;
+            if (parseNode.GetChildNode("total_judge_input_tokens") is { } nullNodeTotalJudgeInputTokens && nullNodeTotalJudgeInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalJudgeInputTokens = null;
+            if (parseNode.GetChildNode("total_judge_output_tokens") is { } nullNodeTotalJudgeOutputTokens && nullNodeTotalJudgeOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalJudgeOutputTokens = null;
+            if (parseNode.GetChildNode("total_judge_tokens") is { } nullNodeTotalJudgeTokens && nullNodeTotalJudgeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalJudgeTokens = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total_candidate_input_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalCandidateInputTokens { get; set; }
+        public string? TotalCandidateInputTokens { get => _explicitNullValueTotalCandidateInputTokens; set { _explicitNullValueTotalCandidateInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_candidate_input_tokens"); else _explicitNullProperties?.Remove("total_candidate_input_tokens"); } }
+        private string? _explicitNullValueTotalCandidateInputTokens = default!;
 #nullable restore
 #else
-        public string TotalCandidateInputTokens { get; set; }
+        public string TotalCandidateInputTokens { get => _explicitNullValueTotalCandidateInputTokens; set { _explicitNullValueTotalCandidateInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_candidate_input_tokens"); else _explicitNullProperties?.Remove("total_candidate_input_tokens"); } }
+        private string _explicitNullValueTotalCandidateInputTokens = default!;
 #endif
         /// <summary>The total_candidate_output_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalCandidateOutputTokens { get; set; }
+        public string? TotalCandidateOutputTokens { get => _explicitNullValueTotalCandidateOutputTokens; set { _explicitNullValueTotalCandidateOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_candidate_output_tokens"); else _explicitNullProperties?.Remove("total_candidate_output_tokens"); } }
+        private string? _explicitNullValueTotalCandidateOutputTokens = default!;
 #nullable restore
 #else
-        public string TotalCandidateOutputTokens { get; set; }
+        public string TotalCandidateOutputTokens { get => _explicitNullValueTotalCandidateOutputTokens; set { _explicitNullValueTotalCandidateOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_candidate_output_tokens"); else _explicitNullProperties?.Remove("total_candidate_output_tokens"); } }
+        private string _explicitNullValueTotalCandidateOutputTokens = default!;
 #endif
         /// <summary>The total_candidate_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalCandidateTokens { get; set; }
+        public string? TotalCandidateTokens { get => _explicitNullValueTotalCandidateTokens; set { _explicitNullValueTotalCandidateTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_candidate_tokens"); else _explicitNullProperties?.Remove("total_candidate_tokens"); } }
+        private string? _explicitNullValueTotalCandidateTokens = default!;
 #nullable restore
 #else
-        public string TotalCandidateTokens { get; set; }
+        public string TotalCandidateTokens { get => _explicitNullValueTotalCandidateTokens; set { _explicitNullValueTotalCandidateTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_candidate_tokens"); else _explicitNullProperties?.Remove("total_candidate_tokens"); } }
+        private string _explicitNullValueTotalCandidateTokens = default!;
 #endif
         /// <summary>The total_judge_input_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalJudgeInputTokens { get; set; }
+        public string? TotalJudgeInputTokens { get => _explicitNullValueTotalJudgeInputTokens; set { _explicitNullValueTotalJudgeInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_judge_input_tokens"); else _explicitNullProperties?.Remove("total_judge_input_tokens"); } }
+        private string? _explicitNullValueTotalJudgeInputTokens = default!;
 #nullable restore
 #else
-        public string TotalJudgeInputTokens { get; set; }
+        public string TotalJudgeInputTokens { get => _explicitNullValueTotalJudgeInputTokens; set { _explicitNullValueTotalJudgeInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_judge_input_tokens"); else _explicitNullProperties?.Remove("total_judge_input_tokens"); } }
+        private string _explicitNullValueTotalJudgeInputTokens = default!;
 #endif
         /// <summary>The total_judge_output_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalJudgeOutputTokens { get; set; }
+        public string? TotalJudgeOutputTokens { get => _explicitNullValueTotalJudgeOutputTokens; set { _explicitNullValueTotalJudgeOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_judge_output_tokens"); else _explicitNullProperties?.Remove("total_judge_output_tokens"); } }
+        private string? _explicitNullValueTotalJudgeOutputTokens = default!;
 #nullable restore
 #else
-        public string TotalJudgeOutputTokens { get; set; }
+        public string TotalJudgeOutputTokens { get => _explicitNullValueTotalJudgeOutputTokens; set { _explicitNullValueTotalJudgeOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_judge_output_tokens"); else _explicitNullProperties?.Remove("total_judge_output_tokens"); } }
+        private string _explicitNullValueTotalJudgeOutputTokens = default!;
 #endif
         /// <summary>The total_judge_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalJudgeTokens { get; set; }
+        public string? TotalJudgeTokens { get => _explicitNullValueTotalJudgeTokens; set { _explicitNullValueTotalJudgeTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_judge_tokens"); else _explicitNullProperties?.Remove("total_judge_tokens"); } }
+        private string? _explicitNullValueTotalJudgeTokens = default!;
 #nullable restore
 #else
-        public string TotalJudgeTokens { get; set; }
+        public string TotalJudgeTokens { get => _explicitNullValueTotalJudgeTokens; set { _explicitNullValueTotalJudgeTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_judge_tokens"); else _explicitNullProperties?.Remove("total_judge_tokens"); } }
+        private string _explicitNullValueTotalJudgeTokens = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage"/> and sets the default values.
@@ -77,7 +102,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,6 +133,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("total_judge_input_tokens", TotalJudgeInputTokens);
             writer.WriteStringValue("total_judge_output_tokens", TotalJudgeOutputTokens);
             writer.WriteStringValue("total_judge_tokens", TotalJudgeTokens);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

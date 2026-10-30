@@ -12,48 +12,70 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssociatedResourceStatusResources : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("floating_ips") is { } nullNodeFloatingIps && nullNodeFloatingIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FloatingIps = null;
+            if (parseNode.GetChildNode("reserved_ips") is { } nullNodeReservedIps && nullNodeReservedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedIps = null;
+            if (parseNode.GetChildNode("snapshots") is { } nullNodeSnapshots && nullNodeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Snapshots = null;
+            if (parseNode.GetChildNode("volumes") is { } nullNodeVolumes && nullNodeVolumes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volumes = null;
+            if (parseNode.GetChildNode("volume_snapshots") is { } nullNodeVolumeSnapshots && nullNodeVolumeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VolumeSnapshots = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The floating_ips property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? FloatingIps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? FloatingIps { get => _explicitNullValueFloatingIps; set { _explicitNullValueFloatingIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ips"); else _explicitNullProperties?.Remove("floating_ips"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? _explicitNullValueFloatingIps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> FloatingIps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> FloatingIps { get => _explicitNullValueFloatingIps; set { _explicitNullValueFloatingIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ips"); else _explicitNullProperties?.Remove("floating_ips"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> _explicitNullValueFloatingIps = default!;
 #endif
         /// <summary>The reserved_ips property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? ReservedIps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? ReservedIps { get => _explicitNullValueReservedIps; set { _explicitNullValueReservedIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ips"); else _explicitNullProperties?.Remove("reserved_ips"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? _explicitNullValueReservedIps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> ReservedIps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> ReservedIps { get => _explicitNullValueReservedIps; set { _explicitNullValueReservedIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ips"); else _explicitNullProperties?.Remove("reserved_ips"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> _explicitNullValueReservedIps = default!;
 #endif
         /// <summary>The snapshots property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? Snapshots { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? Snapshots { get => _explicitNullValueSnapshots; set { _explicitNullValueSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshots"); else _explicitNullProperties?.Remove("snapshots"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? _explicitNullValueSnapshots = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> Snapshots { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> Snapshots { get => _explicitNullValueSnapshots; set { _explicitNullValueSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshots"); else _explicitNullProperties?.Remove("snapshots"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> _explicitNullValueSnapshots = default!;
 #endif
         /// <summary>The volumes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? Volumes { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? _explicitNullValueVolumes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> Volumes { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> _explicitNullValueVolumes = default!;
 #endif
         /// <summary>The volume_snapshots property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? VolumeSnapshots { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>? _explicitNullValueVolumeSnapshots = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> VolumeSnapshots { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource> _explicitNullValueVolumeSnapshots = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedResourceStatusResources"/> and sets the default values.
@@ -70,7 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedResourceStatusResources CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedResourceStatusResources();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedResourceStatusResources(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +121,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>("snapshots", Snapshots);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>("volumes", Volumes);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DestroyedAssociatedResource>("volume_snapshots", VolumeSnapshots);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

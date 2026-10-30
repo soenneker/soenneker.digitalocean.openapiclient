@@ -11,24 +11,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class FirewallsAddRulesRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("inbound_rules") is { } nullNodeInboundRules && nullNodeInboundRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundRules = null;
+            if (parseNode.GetChildNode("outbound_rules") is { } nullNodeOutboundRules && nullNodeOutboundRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundRules = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The inbound_rules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem>? InboundRules { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem>? InboundRules { get => _explicitNullValueInboundRules; set { _explicitNullValueInboundRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_rules"); else _explicitNullProperties?.Remove("inbound_rules"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem>? _explicitNullValueInboundRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem> InboundRules { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem> InboundRules { get => _explicitNullValueInboundRules; set { _explicitNullValueInboundRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_rules"); else _explicitNullProperties?.Remove("inbound_rules"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem> _explicitNullValueInboundRules = default!;
 #endif
         /// <summary>The outbound_rules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>? OutboundRules { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>? OutboundRules { get => _explicitNullValueOutboundRules; set { _explicitNullValueOutboundRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_rules"); else _explicitNullProperties?.Remove("outbound_rules"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>? _explicitNullValueOutboundRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem> OutboundRules { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem> OutboundRules { get => _explicitNullValueOutboundRules; set { _explicitNullValueOutboundRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_rules"); else _explicitNullProperties?.Remove("outbound_rules"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem> _explicitNullValueOutboundRules = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsAddRulesRequest"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsAddRulesRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsAddRulesRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallsAddRulesRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem>("inbound_rules", InboundRules);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>("outbound_rules", OutboundRules);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

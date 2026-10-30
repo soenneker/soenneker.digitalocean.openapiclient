@@ -12,34 +12,52 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PartnerAttachmentUpdatableBgpBgp : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auth_key") is { } nullNodeAuthKey && nullNodeAuthKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthKey = null;
+            if (parseNode.GetChildNode("local_router_ip") is { } nullNodeLocalRouterIp && nullNodeLocalRouterIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalRouterIp = null;
+            if (parseNode.GetChildNode("peer_router_asn") is { } nullNodePeerRouterAsn && nullNodePeerRouterAsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeerRouterAsn = null;
+            if (parseNode.GetChildNode("peer_router_ip") is { } nullNodePeerRouterIp && nullNodePeerRouterIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeerRouterIp = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>BGP Auth Key</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthKey { get; set; }
+        public string? AuthKey { get => _explicitNullValueAuthKey; set { _explicitNullValueAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_key"); else _explicitNullProperties?.Remove("auth_key"); } }
+        private string? _explicitNullValueAuthKey = default!;
 #nullable restore
 #else
-        public string AuthKey { get; set; }
+        public string AuthKey { get => _explicitNullValueAuthKey; set { _explicitNullValueAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_key"); else _explicitNullProperties?.Remove("auth_key"); } }
+        private string _explicitNullValueAuthKey = default!;
 #endif
         /// <summary>IP of the DO router</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocalRouterIp { get; set; }
+        public string? LocalRouterIp { get => _explicitNullValueLocalRouterIp; set { _explicitNullValueLocalRouterIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_router_ip"); else _explicitNullProperties?.Remove("local_router_ip"); } }
+        private string? _explicitNullValueLocalRouterIp = default!;
 #nullable restore
 #else
-        public string LocalRouterIp { get; set; }
+        public string LocalRouterIp { get => _explicitNullValueLocalRouterIp; set { _explicitNullValueLocalRouterIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_router_ip"); else _explicitNullProperties?.Remove("local_router_ip"); } }
+        private string _explicitNullValueLocalRouterIp = default!;
 #endif
         /// <summary>ASN of the peer router</summary>
-        public int? PeerRouterAsn { get; set; }
+        public int? PeerRouterAsn { get => _explicitNullValuePeerRouterAsn; set { _explicitNullValuePeerRouterAsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_asn"); else _explicitNullProperties?.Remove("peer_router_asn"); } }
+        private int? _explicitNullValuePeerRouterAsn = default!;
         /// <summary>IP of the NaaS provider router</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PeerRouterIp { get; set; }
+        public string? PeerRouterIp { get => _explicitNullValuePeerRouterIp; set { _explicitNullValuePeerRouterIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_ip"); else _explicitNullProperties?.Remove("peer_router_ip"); } }
+        private string? _explicitNullValuePeerRouterIp = default!;
 #nullable restore
 #else
-        public string PeerRouterIp { get; set; }
+        public string PeerRouterIp { get => _explicitNullValuePeerRouterIp; set { _explicitNullValuePeerRouterIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_ip"); else _explicitNullProperties?.Remove("peer_router_ip"); } }
+        private string _explicitNullValuePeerRouterIp = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentUpdatableBgpBgp"/> and sets the default values.
@@ -56,7 +74,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentUpdatableBgpBgp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentUpdatableBgpBgp();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentUpdatableBgpBgp(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("local_router_ip", LocalRouterIp);
             writer.WriteIntValue("peer_router_asn", PeerRouterAsn);
             writer.WriteStringValue("peer_router_ip", PeerRouterIp);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

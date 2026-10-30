@@ -12,23 +12,39 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentManifestSpecServing : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("maxReplicas") is { } nullNodeMaxReplicas && nullNodeMaxReplicas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxReplicas = null;
+            if (parseNode.GetChildNode("minReplicas") is { } nullNodeMinReplicas && nullNodeMinReplicas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinReplicas = null;
+            if (parseNode.GetChildNode("scaleToZero") is { } nullNodeScaleToZero && nullNodeScaleToZero.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScaleToZero = null;
+            if (parseNode.GetChildNode("targetConcurrency") is { } nullNodeTargetConcurrency && nullNodeTargetConcurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetConcurrency = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maxReplicas property</summary>
-        public int? MaxReplicas { get; set; }
+        public int? MaxReplicas { get => _explicitNullValueMaxReplicas; set { _explicitNullValueMaxReplicas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxReplicas"); else _explicitNullProperties?.Remove("maxReplicas"); } }
+        private int? _explicitNullValueMaxReplicas = default!;
         /// <summary>The minReplicas property</summary>
-        public int? MinReplicas { get; set; }
+        public int? MinReplicas { get => _explicitNullValueMinReplicas; set { _explicitNullValueMinReplicas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minReplicas"); else _explicitNullProperties?.Remove("minReplicas"); } }
+        private int? _explicitNullValueMinReplicas = default!;
         /// <summary>The scaleToZero property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero? ScaleToZero { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero? ScaleToZero { get => _explicitNullValueScaleToZero; set { _explicitNullValueScaleToZero = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scaleToZero"); else _explicitNullProperties?.Remove("scaleToZero"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero? _explicitNullValueScaleToZero = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero ScaleToZero { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero ScaleToZero { get => _explicitNullValueScaleToZero; set { _explicitNullValueScaleToZero = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scaleToZero"); else _explicitNullProperties?.Remove("scaleToZero"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero _explicitNullValueScaleToZero = default!;
 #endif
         /// <summary>The targetConcurrency property</summary>
-        public int? TargetConcurrency { get; set; }
+        public int? TargetConcurrency { get => _explicitNullValueTargetConcurrency; set { _explicitNullValueTargetConcurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetConcurrency"); else _explicitNullProperties?.Remove("targetConcurrency"); } }
+        private int? _explicitNullValueTargetConcurrency = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServing"/> and sets the default values.
         /// </summary>
@@ -44,7 +60,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServing();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServing(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +87,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("minReplicas", MinReplicas);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero>("scaleToZero", ScaleToZero);
             writer.WriteIntValue("targetConcurrency", TargetConcurrency);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,24 +11,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NfsActionReassignAllOf2Params : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("new_vpc_id") is { } nullNodeNewVpcId && nullNodeNewVpcId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewVpcId = null;
+            if (parseNode.GetChildNode("old_vpc_id") is { } nullNodeOldVpcId && nullNodeOldVpcId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OldVpcId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the VPC to which the NFS share will be reassigned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewVpcId { get; set; }
+        public string? NewVpcId { get => _explicitNullValueNewVpcId; set { _explicitNullValueNewVpcId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_vpc_id"); else _explicitNullProperties?.Remove("new_vpc_id"); } }
+        private string? _explicitNullValueNewVpcId = default!;
 #nullable restore
 #else
-        public string NewVpcId { get; set; }
+        public string NewVpcId { get => _explicitNullValueNewVpcId; set { _explicitNullValueNewVpcId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_vpc_id"); else _explicitNullProperties?.Remove("new_vpc_id"); } }
+        private string _explicitNullValueNewVpcId = default!;
 #endif
         /// <summary>The ID of the VPC from which the NFS share will be reassigned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OldVpcId { get; set; }
+        public string? OldVpcId { get => _explicitNullValueOldVpcId; set { _explicitNullValueOldVpcId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("old_vpc_id"); else _explicitNullProperties?.Remove("old_vpc_id"); } }
+        private string? _explicitNullValueOldVpcId = default!;
 #nullable restore
 #else
-        public string OldVpcId { get; set; }
+        public string OldVpcId { get => _explicitNullValueOldVpcId; set { _explicitNullValueOldVpcId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("old_vpc_id"); else _explicitNullProperties?.Remove("old_vpc_id"); } }
+        private string _explicitNullValueOldVpcId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsActionReassignAllOf2Params"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsActionReassignAllOf2Params CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsActionReassignAllOf2Params();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsActionReassignAllOf2Params(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("new_vpc_id", NewVpcId);
             writer.WriteStringValue("old_vpc_id", OldVpcId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

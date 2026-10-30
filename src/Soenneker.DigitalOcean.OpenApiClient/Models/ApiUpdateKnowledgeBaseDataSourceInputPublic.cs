@@ -12,34 +12,52 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiUpdateKnowledgeBaseDataSourceInputPublic : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("chunking_algorithm") is { } nullNodeChunkingAlgorithm && nullNodeChunkingAlgorithm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkingAlgorithm = null;
+            if (parseNode.GetChildNode("chunking_options") is { } nullNodeChunkingOptions && nullNodeChunkingOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkingOptions = null;
+            if (parseNode.GetChildNode("data_source_uuid") is { } nullNodeDataSourceUuid && nullNodeDataSourceUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataSourceUuid = null;
+            if (parseNode.GetChildNode("knowledge_base_uuid") is { } nullNodeKnowledgeBaseUuid && nullNodeKnowledgeBaseUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnowledgeBaseUuid = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The chunking_algorithm property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingAlgorithm? ChunkingAlgorithm { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingAlgorithm? ChunkingAlgorithm { get => _explicitNullValueChunkingAlgorithm; set { _explicitNullValueChunkingAlgorithm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_algorithm"); else _explicitNullProperties?.Remove("chunking_algorithm"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingAlgorithm? _explicitNullValueChunkingAlgorithm = default!;
         /// <summary>The chunking_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions? ChunkingOptions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions? ChunkingOptions { get => _explicitNullValueChunkingOptions; set { _explicitNullValueChunkingOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_options"); else _explicitNullProperties?.Remove("chunking_options"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions? _explicitNullValueChunkingOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions ChunkingOptions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions ChunkingOptions { get => _explicitNullValueChunkingOptions; set { _explicitNullValueChunkingOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_options"); else _explicitNullProperties?.Remove("chunking_options"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions _explicitNullValueChunkingOptions = default!;
 #endif
         /// <summary>Data Source ID (Path Parameter)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DataSourceUuid { get; set; }
+        public string? DataSourceUuid { get => _explicitNullValueDataSourceUuid; set { _explicitNullValueDataSourceUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuid"); else _explicitNullProperties?.Remove("data_source_uuid"); } }
+        private string? _explicitNullValueDataSourceUuid = default!;
 #nullable restore
 #else
-        public string DataSourceUuid { get; set; }
+        public string DataSourceUuid { get => _explicitNullValueDataSourceUuid; set { _explicitNullValueDataSourceUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuid"); else _explicitNullProperties?.Remove("data_source_uuid"); } }
+        private string _explicitNullValueDataSourceUuid = default!;
 #endif
         /// <summary>Knowledge Base ID (Path Parameter)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KnowledgeBaseUuid { get; set; }
+        public string? KnowledgeBaseUuid { get => _explicitNullValueKnowledgeBaseUuid; set { _explicitNullValueKnowledgeBaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_uuid"); else _explicitNullProperties?.Remove("knowledge_base_uuid"); } }
+        private string? _explicitNullValueKnowledgeBaseUuid = default!;
 #nullable restore
 #else
-        public string KnowledgeBaseUuid { get; set; }
+        public string KnowledgeBaseUuid { get => _explicitNullValueKnowledgeBaseUuid; set { _explicitNullValueKnowledgeBaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_uuid"); else _explicitNullProperties?.Remove("knowledge_base_uuid"); } }
+        private string _explicitNullValueKnowledgeBaseUuid = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseDataSourceInputPublic"/> and sets the default values.
@@ -56,7 +74,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseDataSourceInputPublic CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseDataSourceInputPublic();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUpdateKnowledgeBaseDataSourceInputPublic(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions>("chunking_options", ChunkingOptions);
             writer.WriteStringValue("data_source_uuid", DataSourceUuid);
             writer.WriteStringValue("knowledge_base_uuid", KnowledgeBaseUuid);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

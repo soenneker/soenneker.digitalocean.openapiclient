@@ -11,34 +11,52 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ExecInSandboxRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("argv") is { } nullNodeArgv && nullNodeArgv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Argv = null;
+            if (parseNode.GetChildNode("stdin") is { } nullNodeStdin && nullNodeStdin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stdin = null;
+            if (parseNode.GetChildNode("timeout_seconds") is { } nullNodeTimeoutSeconds && nullNodeTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutSeconds = null;
+            if (parseNode.GetChildNode("workdir") is { } nullNodeWorkdir && nullNodeWorkdir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workdir = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Program and arguments. Required and non-empty; run directly, with no shell interpretation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Argv { get; set; }
+        public List<string>? Argv { get => _explicitNullValueArgv; set { _explicitNullValueArgv = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("argv"); else _explicitNullProperties?.Remove("argv"); } }
+        private List<string>? _explicitNullValueArgv = default!;
 #nullable restore
 #else
-        public List<string> Argv { get; set; }
+        public List<string> Argv { get => _explicitNullValueArgv; set { _explicitNullValueArgv = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("argv"); else _explicitNullProperties?.Remove("argv"); } }
+        private List<string> _explicitNullValueArgv = default!;
 #endif
         /// <summary>Optional base64 stdin payload, delivered in full and then closed so the process sees EOF. One-shot only — there is no streaming stdin on this endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? Stdin { get; set; }
+        public byte[]? Stdin { get => _explicitNullValueStdin; set { _explicitNullValueStdin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdin"); else _explicitNullProperties?.Remove("stdin"); } }
+        private byte[]? _explicitNullValueStdin = default!;
 #nullable restore
 #else
-        public byte[] Stdin { get; set; }
+        public byte[] Stdin { get => _explicitNullValueStdin; set { _explicitNullValueStdin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdin"); else _explicitNullProperties?.Remove("stdin"); } }
+        private byte[] _explicitNullValueStdin = default!;
 #endif
         /// <summary>Optional timeout. Clamped server-side (default 60, maximum 240) regardless of the value sent.</summary>
-        public long? TimeoutSeconds { get; set; }
+        public long? TimeoutSeconds { get => _explicitNullValueTimeoutSeconds; set { _explicitNullValueTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_seconds"); else _explicitNullProperties?.Remove("timeout_seconds"); } }
+        private long? _explicitNullValueTimeoutSeconds = default!;
         /// <summary>Working directory inside the sandbox. Empty uses the sandbox default (/workspace); not restricted to the workspace root.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Workdir { get; set; }
+        public string? Workdir { get => _explicitNullValueWorkdir; set { _explicitNullValueWorkdir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workdir"); else _explicitNullProperties?.Remove("workdir"); } }
+        private string? _explicitNullValueWorkdir = default!;
 #nullable restore
 #else
-        public string Workdir { get; set; }
+        public string Workdir { get => _explicitNullValueWorkdir; set { _explicitNullValueWorkdir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workdir"); else _explicitNullProperties?.Remove("workdir"); } }
+        private string _explicitNullValueWorkdir = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequest"/> and sets the default values.
@@ -55,7 +73,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteByteArrayValue("stdin", Stdin);
             writer.WriteLongValue("timeout_seconds", TimeoutSeconds);
             writer.WriteStringValue("workdir", Workdir);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

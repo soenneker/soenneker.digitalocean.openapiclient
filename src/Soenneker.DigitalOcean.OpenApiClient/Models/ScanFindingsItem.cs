@@ -12,62 +12,93 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ScanFindingsItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("affected_resources_count") is { } nullNodeAffectedResourcesCount && nullNodeAffectedResourcesCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AffectedResourcesCount = null;
+            if (parseNode.GetChildNode("business_impact") is { } nullNodeBusinessImpact && nullNodeBusinessImpact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessImpact = null;
+            if (parseNode.GetChildNode("details") is { } nullNodeDetails && nullNodeDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Details = null;
+            if (parseNode.GetChildNode("found_at") is { } nullNodeFoundAt && nullNodeFoundAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FoundAt = null;
+            if (parseNode.GetChildNode("mitigation_steps") is { } nullNodeMitigationSteps && nullNodeMitigationSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MitigationSteps = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("rule_uuid") is { } nullNodeRuleUuid && nullNodeRuleUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleUuid = null;
+            if (parseNode.GetChildNode("severity") is { } nullNodeSeverity && nullNodeSeverity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Severity = null;
+            if (parseNode.GetChildNode("technical_details") is { } nullNodeTechnicalDetails && nullNodeTechnicalDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TechnicalDetails = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of affected resources for the finding.</summary>
-        public int? AffectedResourcesCount { get; set; }
+        public int? AffectedResourcesCount { get => _explicitNullValueAffectedResourcesCount; set { _explicitNullValueAffectedResourcesCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("affected_resources_count"); else _explicitNullProperties?.Remove("affected_resources_count"); } }
+        private int? _explicitNullValueAffectedResourcesCount = default!;
         /// <summary>A description of the business impact of the finding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BusinessImpact { get; set; }
+        public string? BusinessImpact { get => _explicitNullValueBusinessImpact; set { _explicitNullValueBusinessImpact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_impact"); else _explicitNullProperties?.Remove("business_impact"); } }
+        private string? _explicitNullValueBusinessImpact = default!;
 #nullable restore
 #else
-        public string BusinessImpact { get; set; }
+        public string BusinessImpact { get => _explicitNullValueBusinessImpact; set { _explicitNullValueBusinessImpact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_impact"); else _explicitNullProperties?.Remove("business_impact"); } }
+        private string _explicitNullValueBusinessImpact = default!;
 #endif
         /// <summary>A description of the risk associated with the finding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Details { get; set; }
+        public string? Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
+        private string? _explicitNullValueDetails = default!;
 #nullable restore
 #else
-        public string Details { get; set; }
+        public string Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
+        private string _explicitNullValueDetails = default!;
 #endif
         /// <summary>When the finding was discovered.</summary>
-        public DateTimeOffset? FoundAt { get; set; }
+        public DateTimeOffset? FoundAt { get => _explicitNullValueFoundAt; set { _explicitNullValueFoundAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("found_at"); else _explicitNullProperties?.Remove("found_at"); } }
+        private DateTimeOffset? _explicitNullValueFoundAt = default!;
         /// <summary>The mitigation steps to resolve the finding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemMitigationStepsItem>? MitigationSteps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemMitigationStepsItem>? MitigationSteps { get => _explicitNullValueMitigationSteps; set { _explicitNullValueMitigationSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mitigation_steps"); else _explicitNullProperties?.Remove("mitigation_steps"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemMitigationStepsItem>? _explicitNullValueMitigationSteps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemMitigationStepsItem> MitigationSteps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemMitigationStepsItem> MitigationSteps { get => _explicitNullValueMitigationSteps; set { _explicitNullValueMitigationSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mitigation_steps"); else _explicitNullProperties?.Remove("mitigation_steps"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemMitigationStepsItem> _explicitNullValueMitigationSteps = default!;
 #endif
         /// <summary>The name of the rule that triggered the finding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The unique identifier for the rule that triggered the finding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RuleUuid { get; set; }
+        public string? RuleUuid { get => _explicitNullValueRuleUuid; set { _explicitNullValueRuleUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_uuid"); else _explicitNullProperties?.Remove("rule_uuid"); } }
+        private string? _explicitNullValueRuleUuid = default!;
 #nullable restore
 #else
-        public string RuleUuid { get; set; }
+        public string RuleUuid { get => _explicitNullValueRuleUuid; set { _explicitNullValueRuleUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_uuid"); else _explicitNullProperties?.Remove("rule_uuid"); } }
+        private string _explicitNullValueRuleUuid = default!;
 #endif
         /// <summary>The severity of the finding.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemSeverity? Severity { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemSeverity? Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemSeverity? _explicitNullValueSeverity = default!;
         /// <summary>A description of the technical details related to the finding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TechnicalDetails { get; set; }
+        public string? TechnicalDetails { get => _explicitNullValueTechnicalDetails; set { _explicitNullValueTechnicalDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technical_details"); else _explicitNullProperties?.Remove("technical_details"); } }
+        private string? _explicitNullValueTechnicalDetails = default!;
 #nullable restore
 #else
-        public string TechnicalDetails { get; set; }
+        public string TechnicalDetails { get => _explicitNullValueTechnicalDetails; set { _explicitNullValueTechnicalDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technical_details"); else _explicitNullProperties?.Remove("technical_details"); } }
+        private string _explicitNullValueTechnicalDetails = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItem"/> and sets the default values.
@@ -84,7 +115,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,6 +152,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("rule_uuid", RuleUuid);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ScanFindingsItemSeverity>("severity", Severity);
             writer.WriteStringValue("technical_details", TechnicalDetails);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

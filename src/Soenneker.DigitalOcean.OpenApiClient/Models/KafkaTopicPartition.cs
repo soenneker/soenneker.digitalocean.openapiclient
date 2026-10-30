@@ -11,25 +11,43 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class KafkaTopicPartition : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("consumer_groups") is { } nullNodeConsumerGroups && nullNodeConsumerGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumerGroups = null;
+            if (parseNode.GetChildNode("earliest_offset") is { } nullNodeEarliestOffset && nullNodeEarliestOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EarliestOffset = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("in_sync_replicas") is { } nullNodeInSyncReplicas && nullNodeInSyncReplicas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InSyncReplicas = null;
+            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The consumer_groups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartitionConsumerGroupsItem>? ConsumerGroups { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartitionConsumerGroupsItem>? ConsumerGroups { get => _explicitNullValueConsumerGroups; set { _explicitNullValueConsumerGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_groups"); else _explicitNullProperties?.Remove("consumer_groups"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartitionConsumerGroupsItem>? _explicitNullValueConsumerGroups = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartitionConsumerGroupsItem> ConsumerGroups { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartitionConsumerGroupsItem> ConsumerGroups { get => _explicitNullValueConsumerGroups; set { _explicitNullValueConsumerGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_groups"); else _explicitNullProperties?.Remove("consumer_groups"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartitionConsumerGroupsItem> _explicitNullValueConsumerGroups = default!;
 #endif
         /// <summary>The earliest consumer offset amongst consumer groups.</summary>
-        public int? EarliestOffset { get; set; }
+        public int? EarliestOffset { get => _explicitNullValueEarliestOffset; set { _explicitNullValueEarliestOffset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("earliest_offset"); else _explicitNullProperties?.Remove("earliest_offset"); } }
+        private int? _explicitNullValueEarliestOffset = default!;
         /// <summary>An identifier for the partition.</summary>
-        public int? Id { get; set; }
+        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private int? _explicitNullValueId = default!;
         /// <summary>The number of nodes that are in-sync (have the latest data) for the given partition</summary>
-        public int? InSyncReplicas { get; set; }
+        public int? InSyncReplicas { get => _explicitNullValueInSyncReplicas; set { _explicitNullValueInSyncReplicas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_sync_replicas"); else _explicitNullProperties?.Remove("in_sync_replicas"); } }
+        private int? _explicitNullValueInSyncReplicas = default!;
         /// <summary>Size of the topic partition in bytes.</summary>
-        public int? Size { get; set; }
+        public int? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private int? _explicitNullValueSize = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartition"/> and sets the default values.
         /// </summary>
@@ -45,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartition();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaTopicPartition(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,6 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("id", Id);
             writer.WriteIntValue("in_sync_replicas", InSyncReplicas);
             writer.WriteIntValue("size", Size);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

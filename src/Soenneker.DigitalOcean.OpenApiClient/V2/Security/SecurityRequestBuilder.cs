@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Security.Settings;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Security
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.ScansRequestBuilder Scans
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Scans.ScansRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The secrets property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.SecretsRequestBuilder Secrets
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.SecretsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The settings property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Settings.SettingsRequestBuilder Settings

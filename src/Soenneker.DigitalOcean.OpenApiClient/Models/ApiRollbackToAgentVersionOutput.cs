@@ -11,24 +11,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiRollbackToAgentVersionOutput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("audit_header") is { } nullNodeAuditHeader && nullNodeAuditHeader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuditHeader = null;
+            if (parseNode.GetChildNode("version_hash") is { } nullNodeVersionHash && nullNodeVersionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionHash = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An alternative way to provide auth information. for internal use only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAuditHeader? AuditHeader { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAuditHeader? AuditHeader { get => _explicitNullValueAuditHeader; set { _explicitNullValueAuditHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audit_header"); else _explicitNullProperties?.Remove("audit_header"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAuditHeader? _explicitNullValueAuditHeader = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAuditHeader AuditHeader { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAuditHeader AuditHeader { get => _explicitNullValueAuditHeader; set { _explicitNullValueAuditHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audit_header"); else _explicitNullProperties?.Remove("audit_header"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAuditHeader _explicitNullValueAuditHeader = default!;
 #endif
         /// <summary>Unique identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VersionHash { get; set; }
+        public string? VersionHash { get => _explicitNullValueVersionHash; set { _explicitNullValueVersionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_hash"); else _explicitNullProperties?.Remove("version_hash"); } }
+        private string? _explicitNullValueVersionHash = default!;
 #nullable restore
 #else
-        public string VersionHash { get; set; }
+        public string VersionHash { get => _explicitNullValueVersionHash; set { _explicitNullValueVersionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_hash"); else _explicitNullProperties?.Remove("version_hash"); } }
+        private string _explicitNullValueVersionHash = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiRollbackToAgentVersionOutput"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiRollbackToAgentVersionOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiRollbackToAgentVersionOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiRollbackToAgentVersionOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAuditHeader>("audit_header", AuditHeader);
             writer.WriteStringValue("version_hash", VersionHash);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

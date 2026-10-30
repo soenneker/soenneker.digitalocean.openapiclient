@@ -12,50 +12,74 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiCreateKnowledgeBaseDataSourceInputPublic : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("aws_data_source") is { } nullNodeAwsDataSource && nullNodeAwsDataSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsDataSource = null;
+            if (parseNode.GetChildNode("chunking_algorithm") is { } nullNodeChunkingAlgorithm && nullNodeChunkingAlgorithm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkingAlgorithm = null;
+            if (parseNode.GetChildNode("chunking_options") is { } nullNodeChunkingOptions && nullNodeChunkingOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkingOptions = null;
+            if (parseNode.GetChildNode("knowledge_base_uuid") is { } nullNodeKnowledgeBaseUuid && nullNodeKnowledgeBaseUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnowledgeBaseUuid = null;
+            if (parseNode.GetChildNode("spaces_data_source") is { } nullNodeSpacesDataSource && nullNodeSpacesDataSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpacesDataSource = null;
+            if (parseNode.GetChildNode("web_crawler_data_source") is { } nullNodeWebCrawlerDataSource && nullNodeWebCrawlerDataSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebCrawlerDataSource = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>AWS S3 Data Source</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAwsDataSource? AwsDataSource { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAwsDataSource? AwsDataSource { get => _explicitNullValueAwsDataSource; set { _explicitNullValueAwsDataSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_data_source"); else _explicitNullProperties?.Remove("aws_data_source"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAwsDataSource? _explicitNullValueAwsDataSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAwsDataSource AwsDataSource { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAwsDataSource AwsDataSource { get => _explicitNullValueAwsDataSource; set { _explicitNullValueAwsDataSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_data_source"); else _explicitNullProperties?.Remove("aws_data_source"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAwsDataSource _explicitNullValueAwsDataSource = default!;
 #endif
         /// <summary>The chunking_algorithm property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingAlgorithm? ChunkingAlgorithm { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingAlgorithm? ChunkingAlgorithm { get => _explicitNullValueChunkingAlgorithm; set { _explicitNullValueChunkingAlgorithm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_algorithm"); else _explicitNullProperties?.Remove("chunking_algorithm"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingAlgorithm? _explicitNullValueChunkingAlgorithm = default!;
         /// <summary>The chunking_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions? ChunkingOptions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions? ChunkingOptions { get => _explicitNullValueChunkingOptions; set { _explicitNullValueChunkingOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_options"); else _explicitNullProperties?.Remove("chunking_options"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions? _explicitNullValueChunkingOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions ChunkingOptions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions ChunkingOptions { get => _explicitNullValueChunkingOptions; set { _explicitNullValueChunkingOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_options"); else _explicitNullProperties?.Remove("chunking_options"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions _explicitNullValueChunkingOptions = default!;
 #endif
         /// <summary>Knowledge base id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KnowledgeBaseUuid { get; set; }
+        public string? KnowledgeBaseUuid { get => _explicitNullValueKnowledgeBaseUuid; set { _explicitNullValueKnowledgeBaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_uuid"); else _explicitNullProperties?.Remove("knowledge_base_uuid"); } }
+        private string? _explicitNullValueKnowledgeBaseUuid = default!;
 #nullable restore
 #else
-        public string KnowledgeBaseUuid { get; set; }
+        public string KnowledgeBaseUuid { get => _explicitNullValueKnowledgeBaseUuid; set { _explicitNullValueKnowledgeBaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_uuid"); else _explicitNullProperties?.Remove("knowledge_base_uuid"); } }
+        private string _explicitNullValueKnowledgeBaseUuid = default!;
 #endif
         /// <summary>Spaces Bucket Data Source</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpacesDataSource? SpacesDataSource { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpacesDataSource? SpacesDataSource { get => _explicitNullValueSpacesDataSource; set { _explicitNullValueSpacesDataSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaces_data_source"); else _explicitNullProperties?.Remove("spaces_data_source"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpacesDataSource? _explicitNullValueSpacesDataSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpacesDataSource SpacesDataSource { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpacesDataSource SpacesDataSource { get => _explicitNullValueSpacesDataSource; set { _explicitNullValueSpacesDataSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaces_data_source"); else _explicitNullProperties?.Remove("spaces_data_source"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpacesDataSource _explicitNullValueSpacesDataSource = default!;
 #endif
         /// <summary>WebCrawlerDataSource</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiWebCrawlerDataSource? WebCrawlerDataSource { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiWebCrawlerDataSource? WebCrawlerDataSource { get => _explicitNullValueWebCrawlerDataSource; set { _explicitNullValueWebCrawlerDataSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_crawler_data_source"); else _explicitNullProperties?.Remove("web_crawler_data_source"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiWebCrawlerDataSource? _explicitNullValueWebCrawlerDataSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiWebCrawlerDataSource WebCrawlerDataSource { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiWebCrawlerDataSource WebCrawlerDataSource { get => _explicitNullValueWebCrawlerDataSource; set { _explicitNullValueWebCrawlerDataSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_crawler_data_source"); else _explicitNullProperties?.Remove("web_crawler_data_source"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiWebCrawlerDataSource _explicitNullValueWebCrawlerDataSource = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateKnowledgeBaseDataSourceInputPublic"/> and sets the default values.
@@ -72,7 +96,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateKnowledgeBaseDataSourceInputPublic CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateKnowledgeBaseDataSourceInputPublic();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateKnowledgeBaseDataSourceInputPublic(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,6 +127,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("knowledge_base_uuid", KnowledgeBaseUuid);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpacesDataSource>("spaces_data_source", SpacesDataSource);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiWebCrawlerDataSource>("web_crawler_data_source", WebCrawlerDataSource);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

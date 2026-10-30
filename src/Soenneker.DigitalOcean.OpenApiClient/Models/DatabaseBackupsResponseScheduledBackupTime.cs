@@ -11,15 +11,28 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DatabaseBackupsResponseScheduledBackupTime : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("backup_hour") is { } nullNodeBackupHour && nullNodeBackupHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupHour = null;
+            if (parseNode.GetChildNode("backup_interval_hours") is { } nullNodeBackupIntervalHours && nullNodeBackupIntervalHours.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupIntervalHours = null;
+            if (parseNode.GetChildNode("backup_minute") is { } nullNodeBackupMinute && nullNodeBackupMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupMinute = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The hour of the day when the backup is scheduled (in UTC).</summary>
-        public int? BackupHour { get; set; }
+        public int? BackupHour { get => _explicitNullValueBackupHour; set { _explicitNullValueBackupHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_hour"); else _explicitNullProperties?.Remove("backup_hour"); } }
+        private int? _explicitNullValueBackupHour = default!;
         /// <summary>The frequency, in hours, at which backups are taken.</summary>
-        public int? BackupIntervalHours { get; set; }
+        public int? BackupIntervalHours { get => _explicitNullValueBackupIntervalHours; set { _explicitNullValueBackupIntervalHours = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_interval_hours"); else _explicitNullProperties?.Remove("backup_interval_hours"); } }
+        private int? _explicitNullValueBackupIntervalHours = default!;
         /// <summary>The minute of the hour when the backup is scheduled.</summary>
-        public int? BackupMinute { get; set; }
+        public int? BackupMinute { get => _explicitNullValueBackupMinute; set { _explicitNullValueBackupMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_minute"); else _explicitNullProperties?.Remove("backup_minute"); } }
+        private int? _explicitNullValueBackupMinute = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime"/> and sets the default values.
         /// </summary>
@@ -35,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +73,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("backup_hour", BackupHour);
             writer.WriteIntValue("backup_interval_hours", BackupIntervalHours);
             writer.WriteIntValue("backup_minute", BackupMinute);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

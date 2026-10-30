@@ -12,89 +12,126 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProviderSummary : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auth_type") is { } nullNodeAuthType && nullNodeAuthType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthType = null;
+            if (parseNode.GetChildNode("auth_types") is { } nullNodeAuthTypes && nullNodeAuthTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthTypes = null;
+            if (parseNode.GetChildNode("connection_parameters") is { } nullNodeConnectionParameters && nullNodeConnectionParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionParameters = null;
+            if (parseNode.GetChildNode("credential_parameters") is { } nullNodeCredentialParameters && nullNodeCredentialParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialParameters = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("oauth_client_setup_url") is { } nullNodeOauthClientSetupUrl && nullNodeOauthClientSetupUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthClientSetupUrl = null;
+            if (parseNode.GetChildNode("oauth_redirect_url") is { } nullNodeOauthRedirectUrl && nullNodeOauthRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthRedirectUrl = null;
+            if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Deprecated: read `auth_types`, since a provider may accept more than one credential kind. This is the first entry of `auth_types` other than `none`, or `none` when that is the only entry.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthType { get; set; }
+        public string? AuthType { get => _explicitNullValueAuthType; set { _explicitNullValueAuthType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_type"); else _explicitNullProperties?.Remove("auth_type"); } }
+        private string? _explicitNullValueAuthType = default!;
 #nullable restore
 #else
-        public string AuthType { get; set; }
+        public string AuthType { get => _explicitNullValueAuthType; set { _explicitNullValueAuthType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_type"); else _explicitNullProperties?.Remove("auth_type"); } }
+        private string _explicitNullValueAuthType = default!;
 #endif
         /// <summary>Credential kinds the provider accepts, sorted:none|oauth|`shared_api_key`|unknown|`user_oauth_app`|`user_token`.`none` means the provider needs no credential. `oauth` means users can connect throughDigitalOcean&apos;s shared OAuth application. `user_oauth_app` means users can connect through an OAuthclient your team registers as a provider credential; without `oauth` alongside it, that is the onlyway to connect. `shared_api_key` means DigitalOcean supplies the key. `user_token` means your teamor its users supply a key or token.`unknown` means the provider declares no kind this API recognizes, including an OAuth provider whoseshared application is not available. It is never paired with another kind.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AuthTypes { get; set; }
+        public List<string>? AuthTypes { get => _explicitNullValueAuthTypes; set { _explicitNullValueAuthTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_types"); else _explicitNullProperties?.Remove("auth_types"); } }
+        private List<string>? _explicitNullValueAuthTypes = default!;
 #nullable restore
 #else
-        public List<string> AuthTypes { get; set; }
+        public List<string> AuthTypes { get => _explicitNullValueAuthTypes; set { _explicitNullValueAuthTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_types"); else _explicitNullProperties?.Remove("auth_types"); } }
+        private List<string> _explicitNullValueAuthTypes = default!;
 #endif
         /// <summary>Non-sensitive values collected when creating a connection. Set only when `auth_types` contains `oauth` or `user_oauth_app`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>? ConnectionParameters { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>? ConnectionParameters { get => _explicitNullValueConnectionParameters; set { _explicitNullValueConnectionParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_parameters"); else _explicitNullProperties?.Remove("connection_parameters"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>? _explicitNullValueConnectionParameters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec> ConnectionParameters { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec> ConnectionParameters { get => _explicitNullValueConnectionParameters; set { _explicitNullValueConnectionParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_parameters"); else _explicitNullProperties?.Remove("connection_parameters"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec> _explicitNullValueConnectionParameters = default!;
 #endif
         /// <summary>Non-secret values collected when registering an API key provider credential. They are validated against the provider&apos;s declaration and used to derive the credential&apos;s `base_url`; callers cannot supply header names or arbitrary destinations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>? CredentialParameters { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>? CredentialParameters { get => _explicitNullValueCredentialParameters; set { _explicitNullValueCredentialParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_parameters"); else _explicitNullProperties?.Remove("credential_parameters"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec>? _explicitNullValueCredentialParameters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec> CredentialParameters { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec> CredentialParameters { get => _explicitNullValueCredentialParameters; set { _explicitNullValueCredentialParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_parameters"); else _explicitNullProperties?.Remove("credential_parameters"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionParameterSpec> _explicitNullValueCredentialParameters = default!;
 #endif
         /// <summary>Provider description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Human-readable provider name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>Provider slug, used as provider when creating a connection or a provider credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>HTTPS page at the provider where a team creates that OAuth client, such as its developer console or setup guide. Empty unless `auth_types` contains `user_oauth_app` and the provider declares one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthClientSetupUrl { get; set; }
+        public string? OauthClientSetupUrl { get => _explicitNullValueOauthClientSetupUrl; set { _explicitNullValueOauthClientSetupUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_client_setup_url"); else _explicitNullProperties?.Remove("oauth_client_setup_url"); } }
+        private string? _explicitNullValueOauthClientSetupUrl = default!;
 #nullable restore
 #else
-        public string OauthClientSetupUrl { get; set; }
+        public string OauthClientSetupUrl { get => _explicitNullValueOauthClientSetupUrl; set { _explicitNullValueOauthClientSetupUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_client_setup_url"); else _explicitNullProperties?.Remove("oauth_client_setup_url"); } }
+        private string _explicitNullValueOauthClientSetupUrl = default!;
 #endif
         /// <summary>Callback URL a team must register with the provider when it creates its own OAuth client. It is the same for every provider and cannot be changed per credential. Empty unless `auth_types` contains `user_oauth_app`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthRedirectUrl { get; set; }
+        public string? OauthRedirectUrl { get => _explicitNullValueOauthRedirectUrl; set { _explicitNullValueOauthRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_redirect_url"); else _explicitNullProperties?.Remove("oauth_redirect_url"); } }
+        private string? _explicitNullValueOauthRedirectUrl = default!;
 #nullable restore
 #else
-        public string OauthRedirectUrl { get; set; }
+        public string OauthRedirectUrl { get => _explicitNullValueOauthRedirectUrl; set { _explicitNullValueOauthRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_redirect_url"); else _explicitNullProperties?.Remove("oauth_redirect_url"); } }
+        private string _explicitNullValueOauthRedirectUrl = default!;
 #endif
         /// <summary>The OAuth scopes a connection may request; a connection that requests none gets all of them. Set only when `auth_types` contains `oauth` or `user_oauth_app`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Scopes { get; set; }
+        public List<string>? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        private List<string>? _explicitNullValueScopes = default!;
 #nullable restore
 #else
-        public List<string> Scopes { get; set; }
+        public List<string> Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        private List<string> _explicitNullValueScopes = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderSummary"/> and sets the default values.
@@ -111,7 +148,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderSummary();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderSummary(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -150,6 +187,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("oauth_client_setup_url", OauthClientSetupUrl);
             writer.WriteStringValue("oauth_redirect_url", OauthRedirectUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

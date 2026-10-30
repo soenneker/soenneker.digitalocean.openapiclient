@@ -12,17 +12,32 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentManifestSpecDefaultsBudget : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("maxCostUSD") is { } nullNodeMaxCostUSD && nullNodeMaxCostUSD.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCostUSD = null;
+            if (parseNode.GetChildNode("maxSteps") is { } nullNodeMaxSteps && nullNodeMaxSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSteps = null;
+            if (parseNode.GetChildNode("maxWallClockSeconds") is { } nullNodeMaxWallClockSeconds && nullNodeMaxWallClockSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxWallClockSeconds = null;
+            if (parseNode.GetChildNode("onBreach") is { } nullNodeOnBreach && nullNodeOnBreach.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnBreach = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maxCostUSD property</summary>
-        public double? MaxCostUSD { get; set; }
+        public double? MaxCostUSD { get => _explicitNullValueMaxCostUSD; set { _explicitNullValueMaxCostUSD = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxCostUSD"); else _explicitNullProperties?.Remove("maxCostUSD"); } }
+        private double? _explicitNullValueMaxCostUSD = default!;
         /// <summary>The maxSteps property</summary>
-        public int? MaxSteps { get; set; }
+        public int? MaxSteps { get => _explicitNullValueMaxSteps; set { _explicitNullValueMaxSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxSteps"); else _explicitNullProperties?.Remove("maxSteps"); } }
+        private int? _explicitNullValueMaxSteps = default!;
         /// <summary>The maxWallClockSeconds property</summary>
-        public long? MaxWallClockSeconds { get; set; }
+        public long? MaxWallClockSeconds { get => _explicitNullValueMaxWallClockSeconds; set { _explicitNullValueMaxWallClockSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxWallClockSeconds"); else _explicitNullProperties?.Remove("maxWallClockSeconds"); } }
+        private long? _explicitNullValueMaxWallClockSeconds = default!;
         /// <summary>The onBreach property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecDefaultsBudgetOnBreach? OnBreach { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecDefaultsBudgetOnBreach? OnBreach { get => _explicitNullValueOnBreach; set { _explicitNullValueOnBreach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onBreach"); else _explicitNullProperties?.Remove("onBreach"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecDefaultsBudgetOnBreach? _explicitNullValueOnBreach = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecDefaultsBudget"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecDefaultsBudget CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecDefaultsBudget();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecDefaultsBudget(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("maxSteps", MaxSteps);
             writer.WriteLongValue("maxWallClockSeconds", MaxWallClockSeconds);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecDefaultsBudgetOnBreach>("onBreach", OnBreach);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

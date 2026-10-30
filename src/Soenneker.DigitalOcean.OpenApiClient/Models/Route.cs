@@ -11,7 +11,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Route : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("destination_cidr") is { } nullNodeDestinationCidr && nullNodeDestinationCidr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationCidr = null;
+            if (parseNode.GetChildNode("target_urns") is { } nullNodeTargetUrns && nullNodeTargetUrns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetUrns = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time when the route was created.</summary>
@@ -19,10 +28,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The destination IPv4 network for the route in CIDR notation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationCidr { get; set; }
+        public string? DestinationCidr { get => _explicitNullValueDestinationCidr; set { _explicitNullValueDestinationCidr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_cidr"); else _explicitNullProperties?.Remove("destination_cidr"); } }
+        private string? _explicitNullValueDestinationCidr = default!;
 #nullable restore
 #else
-        public string DestinationCidr { get; set; }
+        public string DestinationCidr { get => _explicitNullValueDestinationCidr; set { _explicitNullValueDestinationCidr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_cidr"); else _explicitNullProperties?.Remove("destination_cidr"); } }
+        private string _explicitNullValueDestinationCidr = default!;
 #endif
         /// <summary>The unique identifier of the route.</summary>
         public Guid? Id { get; private set; }
@@ -31,10 +42,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The URNs of resources that act as next hops for the route. Supportednext hops are Droplets, using a numeric ID in the format`do:droplet:&lt;id&gt;`, and VPC NAT Gateways, using a UUID in the format`do:nat_gateway:&lt;uuid&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TargetUrns { get; set; }
+        public List<string>? TargetUrns { get => _explicitNullValueTargetUrns; set { _explicitNullValueTargetUrns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_urns"); else _explicitNullProperties?.Remove("target_urns"); } }
+        private List<string>? _explicitNullValueTargetUrns = default!;
 #nullable restore
 #else
-        public List<string> TargetUrns { get; set; }
+        public List<string> TargetUrns { get => _explicitNullValueTargetUrns; set { _explicitNullValueTargetUrns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_urns"); else _explicitNullProperties?.Remove("target_urns"); } }
+        private List<string> _explicitNullValueTargetUrns = default!;
 #endif
         /// <summary>The route type inferred from how the route is sourced.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.RouteType? Type { get; private set; }
@@ -53,7 +66,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.Route CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.Route();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.Route(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,6 +93,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("destination_cidr", DestinationCidr);
             writer.WriteCollectionOfPrimitiveValues<string>("target_urns", TargetUrns);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

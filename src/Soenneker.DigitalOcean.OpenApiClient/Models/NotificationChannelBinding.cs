@@ -12,18 +12,30 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NotificationChannelBinding : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("notification_channel_id") is { } nullNodeNotificationChannelId && nullNodeNotificationChannelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationChannelId = null;
+            if (parseNode.GetChildNode("notify_on") is { } nullNodeNotifyOn && nullNodeNotifyOn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotifyOn = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ID of an existing notification channel owned by the account.</summary>
-        public Guid? NotificationChannelId { get; set; }
+        public Guid? NotificationChannelId { get => _explicitNullValueNotificationChannelId; set { _explicitNullValueNotificationChannelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channel_id"); else _explicitNullProperties?.Remove("notification_channel_id"); } }
+        private Guid? _explicitNullValueNotificationChannelId = default!;
         /// <summary>Severities that trigger this channel. Allowed values:- `SEVERITY_WARNING` = warning- `SEVERITY_CRITICAL` = critical</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBindingNotifyOnItem?>? NotifyOn { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBindingNotifyOnItem?>? NotifyOn { get => _explicitNullValueNotifyOn; set { _explicitNullValueNotifyOn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notify_on"); else _explicitNullProperties?.Remove("notify_on"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBindingNotifyOnItem?>? _explicitNullValueNotifyOn = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBindingNotifyOnItem?> NotifyOn { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBindingNotifyOnItem?> NotifyOn { get => _explicitNullValueNotifyOn; set { _explicitNullValueNotifyOn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notify_on"); else _explicitNullProperties?.Remove("notify_on"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBindingNotifyOnItem?> _explicitNullValueNotifyOn = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("notification_channel_id", NotificationChannelId);
             writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBindingNotifyOnItem>("notify_on", NotifyOn);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,103 +11,194 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OpensearchAdvancedConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action_auto_create_index_enabled") is { } nullNodeActionAutoCreateIndexEnabled && nullNodeActionAutoCreateIndexEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionAutoCreateIndexEnabled = null;
+            if (parseNode.GetChildNode("action_destructive_requires_name") is { } nullNodeActionDestructiveRequiresName && nullNodeActionDestructiveRequiresName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionDestructiveRequiresName = null;
+            if (parseNode.GetChildNode("cluster_max_shards_per_node") is { } nullNodeClusterMaxShardsPerNode && nullNodeClusterMaxShardsPerNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterMaxShardsPerNode = null;
+            if (parseNode.GetChildNode("cluster_routing_allocation_node_concurrent_recoveries") is { } nullNodeClusterRoutingAllocationNodeConcurrentRecoveries && nullNodeClusterRoutingAllocationNodeConcurrentRecoveries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterRoutingAllocationNodeConcurrentRecoveries = null;
+            if (parseNode.GetChildNode("enable_security_audit") is { } nullNodeEnableSecurityAudit && nullNodeEnableSecurityAudit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSecurityAudit = null;
+            if (parseNode.GetChildNode("http_max_content_length_bytes") is { } nullNodeHttpMaxContentLengthBytes && nullNodeHttpMaxContentLengthBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpMaxContentLengthBytes = null;
+            if (parseNode.GetChildNode("http_max_header_size_bytes") is { } nullNodeHttpMaxHeaderSizeBytes && nullNodeHttpMaxHeaderSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpMaxHeaderSizeBytes = null;
+            if (parseNode.GetChildNode("http_max_initial_line_length_bytes") is { } nullNodeHttpMaxInitialLineLengthBytes && nullNodeHttpMaxInitialLineLengthBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpMaxInitialLineLengthBytes = null;
+            if (parseNode.GetChildNode("indices_fielddata_cache_size_percentage") is { } nullNodeIndicesFielddataCacheSizePercentage && nullNodeIndicesFielddataCacheSizePercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndicesFielddataCacheSizePercentage = null;
+            if (parseNode.GetChildNode("indices_memory_index_buffer_size_percentage") is { } nullNodeIndicesMemoryIndexBufferSizePercentage && nullNodeIndicesMemoryIndexBufferSizePercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndicesMemoryIndexBufferSizePercentage = null;
+            if (parseNode.GetChildNode("indices_memory_max_index_buffer_size_mb") is { } nullNodeIndicesMemoryMaxIndexBufferSizeMb && nullNodeIndicesMemoryMaxIndexBufferSizeMb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndicesMemoryMaxIndexBufferSizeMb = null;
+            if (parseNode.GetChildNode("indices_memory_min_index_buffer_size_mb") is { } nullNodeIndicesMemoryMinIndexBufferSizeMb && nullNodeIndicesMemoryMinIndexBufferSizeMb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndicesMemoryMinIndexBufferSizeMb = null;
+            if (parseNode.GetChildNode("indices_queries_cache_size_percentage") is { } nullNodeIndicesQueriesCacheSizePercentage && nullNodeIndicesQueriesCacheSizePercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndicesQueriesCacheSizePercentage = null;
+            if (parseNode.GetChildNode("indices_query_bool_max_clause_count") is { } nullNodeIndicesQueryBoolMaxClauseCount && nullNodeIndicesQueryBoolMaxClauseCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndicesQueryBoolMaxClauseCount = null;
+            if (parseNode.GetChildNode("indices_recovery_max_concurrent_file_chunks") is { } nullNodeIndicesRecoveryMaxConcurrentFileChunks && nullNodeIndicesRecoveryMaxConcurrentFileChunks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndicesRecoveryMaxConcurrentFileChunks = null;
+            if (parseNode.GetChildNode("indices_recovery_max_mb_per_sec") is { } nullNodeIndicesRecoveryMaxMbPerSec && nullNodeIndicesRecoveryMaxMbPerSec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndicesRecoveryMaxMbPerSec = null;
+            if (parseNode.GetChildNode("ism_enabled") is { } nullNodeIsmEnabled && nullNodeIsmEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsmEnabled = null;
+            if (parseNode.GetChildNode("ism_history_enabled") is { } nullNodeIsmHistoryEnabled && nullNodeIsmHistoryEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsmHistoryEnabled = null;
+            if (parseNode.GetChildNode("ism_history_max_age_hours") is { } nullNodeIsmHistoryMaxAgeHours && nullNodeIsmHistoryMaxAgeHours.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsmHistoryMaxAgeHours = null;
+            if (parseNode.GetChildNode("ism_history_max_docs") is { } nullNodeIsmHistoryMaxDocs && nullNodeIsmHistoryMaxDocs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsmHistoryMaxDocs = null;
+            if (parseNode.GetChildNode("ism_history_rollover_check_period_hours") is { } nullNodeIsmHistoryRolloverCheckPeriodHours && nullNodeIsmHistoryRolloverCheckPeriodHours.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsmHistoryRolloverCheckPeriodHours = null;
+            if (parseNode.GetChildNode("ism_history_rollover_retention_period_days") is { } nullNodeIsmHistoryRolloverRetentionPeriodDays && nullNodeIsmHistoryRolloverRetentionPeriodDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsmHistoryRolloverRetentionPeriodDays = null;
+            if (parseNode.GetChildNode("keep_index_refresh_interval") is { } nullNodeKeepIndexRefreshInterval && nullNodeKeepIndexRefreshInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeepIndexRefreshInterval = null;
+            if (parseNode.GetChildNode("knn_memory_circuit_breaker_enabled") is { } nullNodeKnnMemoryCircuitBreakerEnabled && nullNodeKnnMemoryCircuitBreakerEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnnMemoryCircuitBreakerEnabled = null;
+            if (parseNode.GetChildNode("knn_memory_circuit_breaker_limit") is { } nullNodeKnnMemoryCircuitBreakerLimit && nullNodeKnnMemoryCircuitBreakerLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnnMemoryCircuitBreakerLimit = null;
+            if (parseNode.GetChildNode("override_main_response_version") is { } nullNodeOverrideMainResponseVersion && nullNodeOverrideMainResponseVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverrideMainResponseVersion = null;
+            if (parseNode.GetChildNode("plugins_alerting_filter_by_backend_roles_enabled") is { } nullNodePluginsAlertingFilterByBackendRolesEnabled && nullNodePluginsAlertingFilterByBackendRolesEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PluginsAlertingFilterByBackendRolesEnabled = null;
+            if (parseNode.GetChildNode("reindex_remote_whitelist") is { } nullNodeReindexRemoteWhitelist && nullNodeReindexRemoteWhitelist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReindexRemoteWhitelist = null;
+            if (parseNode.GetChildNode("script_max_compilations_rate") is { } nullNodeScriptMaxCompilationsRate && nullNodeScriptMaxCompilationsRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptMaxCompilationsRate = null;
+            if (parseNode.GetChildNode("search_max_buckets") is { } nullNodeSearchMaxBuckets && nullNodeSearchMaxBuckets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchMaxBuckets = null;
+            if (parseNode.GetChildNode("thread_pool_analyze_queue_size") is { } nullNodeThreadPoolAnalyzeQueueSize && nullNodeThreadPoolAnalyzeQueueSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolAnalyzeQueueSize = null;
+            if (parseNode.GetChildNode("thread_pool_analyze_size") is { } nullNodeThreadPoolAnalyzeSize && nullNodeThreadPoolAnalyzeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolAnalyzeSize = null;
+            if (parseNode.GetChildNode("thread_pool_force_merge_size") is { } nullNodeThreadPoolForceMergeSize && nullNodeThreadPoolForceMergeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolForceMergeSize = null;
+            if (parseNode.GetChildNode("thread_pool_get_queue_size") is { } nullNodeThreadPoolGetQueueSize && nullNodeThreadPoolGetQueueSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolGetQueueSize = null;
+            if (parseNode.GetChildNode("thread_pool_get_size") is { } nullNodeThreadPoolGetSize && nullNodeThreadPoolGetSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolGetSize = null;
+            if (parseNode.GetChildNode("thread_pool_search_queue_size") is { } nullNodeThreadPoolSearchQueueSize && nullNodeThreadPoolSearchQueueSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolSearchQueueSize = null;
+            if (parseNode.GetChildNode("thread_pool_search_size") is { } nullNodeThreadPoolSearchSize && nullNodeThreadPoolSearchSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolSearchSize = null;
+            if (parseNode.GetChildNode("thread_pool_search_throttled_queue_size") is { } nullNodeThreadPoolSearchThrottledQueueSize && nullNodeThreadPoolSearchThrottledQueueSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolSearchThrottledQueueSize = null;
+            if (parseNode.GetChildNode("thread_pool_search_throttled_size") is { } nullNodeThreadPoolSearchThrottledSize && nullNodeThreadPoolSearchThrottledSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolSearchThrottledSize = null;
+            if (parseNode.GetChildNode("thread_pool_write_queue_size") is { } nullNodeThreadPoolWriteQueueSize && nullNodeThreadPoolWriteQueueSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolWriteQueueSize = null;
+            if (parseNode.GetChildNode("thread_pool_write_size") is { } nullNodeThreadPoolWriteSize && nullNodeThreadPoolWriteSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadPoolWriteSize = null;
+        }
+
         /// <summary>Specifices whether to allow automatic creation of indices.</summary>
-        public bool? ActionAutoCreateIndexEnabled { get; set; }
+        public bool? ActionAutoCreateIndexEnabled { get => _explicitNullValueActionAutoCreateIndexEnabled; set { _explicitNullValueActionAutoCreateIndexEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_auto_create_index_enabled"); else _explicitNullProperties?.Remove("action_auto_create_index_enabled"); } }
+        private bool? _explicitNullValueActionAutoCreateIndexEnabled = default!;
         /// <summary>Specifies whether to require explicit index names when deleting indices.</summary>
-        public bool? ActionDestructiveRequiresName { get; set; }
+        public bool? ActionDestructiveRequiresName { get => _explicitNullValueActionDestructiveRequiresName; set { _explicitNullValueActionDestructiveRequiresName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_destructive_requires_name"); else _explicitNullProperties?.Remove("action_destructive_requires_name"); } }
+        private bool? _explicitNullValueActionDestructiveRequiresName = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum number of shards allowed per data node.</summary>
-        public int? ClusterMaxShardsPerNode { get; set; }
+        public int? ClusterMaxShardsPerNode { get => _explicitNullValueClusterMaxShardsPerNode; set { _explicitNullValueClusterMaxShardsPerNode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_max_shards_per_node"); else _explicitNullProperties?.Remove("cluster_max_shards_per_node"); } }
+        private int? _explicitNullValueClusterMaxShardsPerNode = default!;
         /// <summary>Maximum concurrent incoming/outgoing shard recoveries (normally replicas) are allowed to happen per node .</summary>
-        public int? ClusterRoutingAllocationNodeConcurrentRecoveries { get; set; }
+        public int? ClusterRoutingAllocationNodeConcurrentRecoveries { get => _explicitNullValueClusterRoutingAllocationNodeConcurrentRecoveries; set { _explicitNullValueClusterRoutingAllocationNodeConcurrentRecoveries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_routing_allocation_node_concurrent_recoveries"); else _explicitNullProperties?.Remove("cluster_routing_allocation_node_concurrent_recoveries"); } }
+        private int? _explicitNullValueClusterRoutingAllocationNodeConcurrentRecoveries = default!;
         /// <summary>Specifies whether to allow security audit logging.</summary>
-        public bool? EnableSecurityAudit { get; set; }
+        public bool? EnableSecurityAudit { get => _explicitNullValueEnableSecurityAudit; set { _explicitNullValueEnableSecurityAudit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_security_audit"); else _explicitNullProperties?.Remove("enable_security_audit"); } }
+        private bool? _explicitNullValueEnableSecurityAudit = default!;
         /// <summary>Maximum content length for HTTP requests to the OpenSearch HTTP API, in bytes.</summary>
-        public int? HttpMaxContentLengthBytes { get; set; }
+        public int? HttpMaxContentLengthBytes { get => _explicitNullValueHttpMaxContentLengthBytes; set { _explicitNullValueHttpMaxContentLengthBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_max_content_length_bytes"); else _explicitNullProperties?.Remove("http_max_content_length_bytes"); } }
+        private int? _explicitNullValueHttpMaxContentLengthBytes = default!;
         /// <summary>Maximum size of allowed headers, in bytes.</summary>
-        public int? HttpMaxHeaderSizeBytes { get; set; }
+        public int? HttpMaxHeaderSizeBytes { get => _explicitNullValueHttpMaxHeaderSizeBytes; set { _explicitNullValueHttpMaxHeaderSizeBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_max_header_size_bytes"); else _explicitNullProperties?.Remove("http_max_header_size_bytes"); } }
+        private int? _explicitNullValueHttpMaxHeaderSizeBytes = default!;
         /// <summary>Maximum length of an HTTP URL, in bytes.</summary>
-        public int? HttpMaxInitialLineLengthBytes { get; set; }
+        public int? HttpMaxInitialLineLengthBytes { get => _explicitNullValueHttpMaxInitialLineLengthBytes; set { _explicitNullValueHttpMaxInitialLineLengthBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_max_initial_line_length_bytes"); else _explicitNullProperties?.Remove("http_max_initial_line_length_bytes"); } }
+        private int? _explicitNullValueHttpMaxInitialLineLengthBytes = default!;
         /// <summary>Maximum amount of heap memory used for field data cache, expressed as a percentage. Decreasing the value too much will increase overhead of loading field data. Increasing the value too much will decrease amount of heap available for other operations.</summary>
-        public int? IndicesFielddataCacheSizePercentage { get; set; }
+        public int? IndicesFielddataCacheSizePercentage { get => _explicitNullValueIndicesFielddataCacheSizePercentage; set { _explicitNullValueIndicesFielddataCacheSizePercentage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indices_fielddata_cache_size_percentage"); else _explicitNullProperties?.Remove("indices_fielddata_cache_size_percentage"); } }
+        private int? _explicitNullValueIndicesFielddataCacheSizePercentage = default!;
         /// <summary>Total amount of heap used for indexing buffer before writing segments to disk, expressed as a percentage. Too low value will slow down indexing; too high value will increase indexing performance but causes performance issues for query performance.</summary>
-        public int? IndicesMemoryIndexBufferSizePercentage { get; set; }
+        public int? IndicesMemoryIndexBufferSizePercentage { get => _explicitNullValueIndicesMemoryIndexBufferSizePercentage; set { _explicitNullValueIndicesMemoryIndexBufferSizePercentage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indices_memory_index_buffer_size_percentage"); else _explicitNullProperties?.Remove("indices_memory_index_buffer_size_percentage"); } }
+        private int? _explicitNullValueIndicesMemoryIndexBufferSizePercentage = default!;
         /// <summary>Maximum amount of heap used for indexing buffer before writing segments to disk, in mb. Works in conjunction with indices_memory_index_buffer_size_percentage, each being enforced. The default is unbounded.</summary>
-        public int? IndicesMemoryMaxIndexBufferSizeMb { get; set; }
+        public int? IndicesMemoryMaxIndexBufferSizeMb { get => _explicitNullValueIndicesMemoryMaxIndexBufferSizeMb; set { _explicitNullValueIndicesMemoryMaxIndexBufferSizeMb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indices_memory_max_index_buffer_size_mb"); else _explicitNullProperties?.Remove("indices_memory_max_index_buffer_size_mb"); } }
+        private int? _explicitNullValueIndicesMemoryMaxIndexBufferSizeMb = default!;
         /// <summary>Minimum amount of heap used for indexing buffer before writing segments to disk, in mb. Works in conjunction with indices_memory_index_buffer_size_percentage, each being enforced.</summary>
-        public int? IndicesMemoryMinIndexBufferSizeMb { get; set; }
+        public int? IndicesMemoryMinIndexBufferSizeMb { get => _explicitNullValueIndicesMemoryMinIndexBufferSizeMb; set { _explicitNullValueIndicesMemoryMinIndexBufferSizeMb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indices_memory_min_index_buffer_size_mb"); else _explicitNullProperties?.Remove("indices_memory_min_index_buffer_size_mb"); } }
+        private int? _explicitNullValueIndicesMemoryMinIndexBufferSizeMb = default!;
         /// <summary>Maximum amount of heap used for query cache.  Too low value will decrease query performance and increase performance for other operations; too high value will cause issues with other functionality.</summary>
-        public int? IndicesQueriesCacheSizePercentage { get; set; }
+        public int? IndicesQueriesCacheSizePercentage { get => _explicitNullValueIndicesQueriesCacheSizePercentage; set { _explicitNullValueIndicesQueriesCacheSizePercentage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indices_queries_cache_size_percentage"); else _explicitNullProperties?.Remove("indices_queries_cache_size_percentage"); } }
+        private int? _explicitNullValueIndicesQueriesCacheSizePercentage = default!;
         /// <summary>Maximum number of clauses Lucene BooleanQuery can have.  Only increase it if necessary, as it may cause performance issues.</summary>
-        public int? IndicesQueryBoolMaxClauseCount { get; set; }
+        public int? IndicesQueryBoolMaxClauseCount { get => _explicitNullValueIndicesQueryBoolMaxClauseCount; set { _explicitNullValueIndicesQueryBoolMaxClauseCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indices_query_bool_max_clause_count"); else _explicitNullProperties?.Remove("indices_query_bool_max_clause_count"); } }
+        private int? _explicitNullValueIndicesQueryBoolMaxClauseCount = default!;
         /// <summary>Maximum number of file chunks sent in parallel for each recovery.</summary>
-        public int? IndicesRecoveryMaxConcurrentFileChunks { get; set; }
+        public int? IndicesRecoveryMaxConcurrentFileChunks { get => _explicitNullValueIndicesRecoveryMaxConcurrentFileChunks; set { _explicitNullValueIndicesRecoveryMaxConcurrentFileChunks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indices_recovery_max_concurrent_file_chunks"); else _explicitNullProperties?.Remove("indices_recovery_max_concurrent_file_chunks"); } }
+        private int? _explicitNullValueIndicesRecoveryMaxConcurrentFileChunks = default!;
         /// <summary>Limits total inbound and outbound recovery traffic for each node, expressed in mb per second. Applies to both peer recoveries as well as snapshot recoveries (i.e., restores from a snapshot).</summary>
-        public int? IndicesRecoveryMaxMbPerSec { get; set; }
+        public int? IndicesRecoveryMaxMbPerSec { get => _explicitNullValueIndicesRecoveryMaxMbPerSec; set { _explicitNullValueIndicesRecoveryMaxMbPerSec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indices_recovery_max_mb_per_sec"); else _explicitNullProperties?.Remove("indices_recovery_max_mb_per_sec"); } }
+        private int? _explicitNullValueIndicesRecoveryMaxMbPerSec = default!;
         /// <summary>Specifies whether ISM is enabled or not.</summary>
-        public bool? IsmEnabled { get; set; }
+        public bool? IsmEnabled { get => _explicitNullValueIsmEnabled; set { _explicitNullValueIsmEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_enabled"); else _explicitNullProperties?.Remove("ism_enabled"); } }
+        private bool? _explicitNullValueIsmEnabled = default!;
         /// <summary>Specifies whether audit history is enabled or not. The logs from ISM are automatically indexed to a logs document.</summary>
-        public bool? IsmHistoryEnabled { get; set; }
+        public bool? IsmHistoryEnabled { get => _explicitNullValueIsmHistoryEnabled; set { _explicitNullValueIsmHistoryEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_enabled"); else _explicitNullProperties?.Remove("ism_history_enabled"); } }
+        private bool? _explicitNullValueIsmHistoryEnabled = default!;
         /// <summary>Maximum age before rolling over the audit history index, in hours.</summary>
-        public int? IsmHistoryMaxAgeHours { get; set; }
+        public int? IsmHistoryMaxAgeHours { get => _explicitNullValueIsmHistoryMaxAgeHours; set { _explicitNullValueIsmHistoryMaxAgeHours = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_max_age_hours"); else _explicitNullProperties?.Remove("ism_history_max_age_hours"); } }
+        private int? _explicitNullValueIsmHistoryMaxAgeHours = default!;
         /// <summary>Maximum number of documents before rolling over the audit history index.</summary>
-        public int? IsmHistoryMaxDocs { get; set; }
+        public int? IsmHistoryMaxDocs { get => _explicitNullValueIsmHistoryMaxDocs; set { _explicitNullValueIsmHistoryMaxDocs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_max_docs"); else _explicitNullProperties?.Remove("ism_history_max_docs"); } }
+        private int? _explicitNullValueIsmHistoryMaxDocs = default!;
         /// <summary>The time between rollover checks for the audit history index, in hours.</summary>
-        public int? IsmHistoryRolloverCheckPeriodHours { get; set; }
+        public int? IsmHistoryRolloverCheckPeriodHours { get => _explicitNullValueIsmHistoryRolloverCheckPeriodHours; set { _explicitNullValueIsmHistoryRolloverCheckPeriodHours = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_rollover_check_period_hours"); else _explicitNullProperties?.Remove("ism_history_rollover_check_period_hours"); } }
+        private int? _explicitNullValueIsmHistoryRolloverCheckPeriodHours = default!;
         /// <summary>Length of time long audit history indices are kept, in days.</summary>
-        public int? IsmHistoryRolloverRetentionPeriodDays { get; set; }
+        public int? IsmHistoryRolloverRetentionPeriodDays { get => _explicitNullValueIsmHistoryRolloverRetentionPeriodDays; set { _explicitNullValueIsmHistoryRolloverRetentionPeriodDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_rollover_retention_period_days"); else _explicitNullProperties?.Remove("ism_history_rollover_retention_period_days"); } }
+        private int? _explicitNullValueIsmHistoryRolloverRetentionPeriodDays = default!;
         /// <summary>DigitalOcean automatically resets the `index.refresh_interval` to the default value (once per second) to  ensure that new documents are quickly available for search queries. If you are setting your own refresh intervals,  you can disable this by setting this field to true.</summary>
-        public bool? KeepIndexRefreshInterval { get; set; }
+        public bool? KeepIndexRefreshInterval { get => _explicitNullValueKeepIndexRefreshInterval; set { _explicitNullValueKeepIndexRefreshInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keep_index_refresh_interval"); else _explicitNullProperties?.Remove("keep_index_refresh_interval"); } }
+        private bool? _explicitNullValueKeepIndexRefreshInterval = default!;
         /// <summary>Enable or disable KNN memory circuit breaker.</summary>
-        public bool? KnnMemoryCircuitBreakerEnabled { get; set; }
+        public bool? KnnMemoryCircuitBreakerEnabled { get => _explicitNullValueKnnMemoryCircuitBreakerEnabled; set { _explicitNullValueKnnMemoryCircuitBreakerEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knn_memory_circuit_breaker_enabled"); else _explicitNullProperties?.Remove("knn_memory_circuit_breaker_enabled"); } }
+        private bool? _explicitNullValueKnnMemoryCircuitBreakerEnabled = default!;
         /// <summary>Maximum amount of memory in percentage that can be used for the KNN index. Defaults to 50% of the JVM heap size.  0 is used to set it to null which can be used to invalidate caches.</summary>
-        public int? KnnMemoryCircuitBreakerLimit { get; set; }
+        public int? KnnMemoryCircuitBreakerLimit { get => _explicitNullValueKnnMemoryCircuitBreakerLimit; set { _explicitNullValueKnnMemoryCircuitBreakerLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knn_memory_circuit_breaker_limit"); else _explicitNullProperties?.Remove("knn_memory_circuit_breaker_limit"); } }
+        private int? _explicitNullValueKnnMemoryCircuitBreakerLimit = default!;
         /// <summary>Compatibility mode sets OpenSearch to report its version as 7.10 so clients continue to work.</summary>
-        public bool? OverrideMainResponseVersion { get; set; }
+        public bool? OverrideMainResponseVersion { get => _explicitNullValueOverrideMainResponseVersion; set { _explicitNullValueOverrideMainResponseVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("override_main_response_version"); else _explicitNullProperties?.Remove("override_main_response_version"); } }
+        private bool? _explicitNullValueOverrideMainResponseVersion = default!;
         /// <summary>Enable or disable filtering of alerting by backend roles.</summary>
-        public bool? PluginsAlertingFilterByBackendRolesEnabled { get; set; }
+        public bool? PluginsAlertingFilterByBackendRolesEnabled { get => _explicitNullValuePluginsAlertingFilterByBackendRolesEnabled; set { _explicitNullValuePluginsAlertingFilterByBackendRolesEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugins_alerting_filter_by_backend_roles_enabled"); else _explicitNullProperties?.Remove("plugins_alerting_filter_by_backend_roles_enabled"); } }
+        private bool? _explicitNullValuePluginsAlertingFilterByBackendRolesEnabled = default!;
         /// <summary>Allowlist of remote IP addresses for reindexing. Changing this value will cause all OpenSearch instances to restart.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ReindexRemoteWhitelist { get; set; }
+        public List<string>? ReindexRemoteWhitelist { get => _explicitNullValueReindexRemoteWhitelist; set { _explicitNullValueReindexRemoteWhitelist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reindex_remote_whitelist"); else _explicitNullProperties?.Remove("reindex_remote_whitelist"); } }
+        private List<string>? _explicitNullValueReindexRemoteWhitelist = default!;
 #nullable restore
 #else
-        public List<string> ReindexRemoteWhitelist { get; set; }
+        public List<string> ReindexRemoteWhitelist { get => _explicitNullValueReindexRemoteWhitelist; set { _explicitNullValueReindexRemoteWhitelist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reindex_remote_whitelist"); else _explicitNullProperties?.Remove("reindex_remote_whitelist"); } }
+        private List<string> _explicitNullValueReindexRemoteWhitelist = default!;
 #endif
         /// <summary>Limits the number of inline script compilations within a period of time. Default is use-context</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScriptMaxCompilationsRate { get; set; }
+        public string? ScriptMaxCompilationsRate { get => _explicitNullValueScriptMaxCompilationsRate; set { _explicitNullValueScriptMaxCompilationsRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_max_compilations_rate"); else _explicitNullProperties?.Remove("script_max_compilations_rate"); } }
+        private string? _explicitNullValueScriptMaxCompilationsRate = default!;
 #nullable restore
 #else
-        public string ScriptMaxCompilationsRate { get; set; }
+        public string ScriptMaxCompilationsRate { get => _explicitNullValueScriptMaxCompilationsRate; set { _explicitNullValueScriptMaxCompilationsRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_max_compilations_rate"); else _explicitNullProperties?.Remove("script_max_compilations_rate"); } }
+        private string _explicitNullValueScriptMaxCompilationsRate = default!;
 #endif
         /// <summary>Maximum number of aggregation buckets allowed in a single response.</summary>
-        public int? SearchMaxBuckets { get; set; }
+        public int? SearchMaxBuckets { get => _explicitNullValueSearchMaxBuckets; set { _explicitNullValueSearchMaxBuckets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_max_buckets"); else _explicitNullProperties?.Remove("search_max_buckets"); } }
+        private int? _explicitNullValueSearchMaxBuckets = default!;
         /// <summary>Size of queue for operations in the analyze thread pool.</summary>
-        public int? ThreadPoolAnalyzeQueueSize { get; set; }
+        public int? ThreadPoolAnalyzeQueueSize { get => _explicitNullValueThreadPoolAnalyzeQueueSize; set { _explicitNullValueThreadPoolAnalyzeQueueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_analyze_queue_size"); else _explicitNullProperties?.Remove("thread_pool_analyze_queue_size"); } }
+        private int? _explicitNullValueThreadPoolAnalyzeQueueSize = default!;
         /// <summary>Number of workers in the analyze operation thread pool.  Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</summary>
-        public int? ThreadPoolAnalyzeSize { get; set; }
+        public int? ThreadPoolAnalyzeSize { get => _explicitNullValueThreadPoolAnalyzeSize; set { _explicitNullValueThreadPoolAnalyzeSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_analyze_size"); else _explicitNullProperties?.Remove("thread_pool_analyze_size"); } }
+        private int? _explicitNullValueThreadPoolAnalyzeSize = default!;
         /// <summary>Number of workers in the force merge operation thread pool. This pool is used for forcing a merge between shards of one or more indices. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</summary>
-        public int? ThreadPoolForceMergeSize { get; set; }
+        public int? ThreadPoolForceMergeSize { get => _explicitNullValueThreadPoolForceMergeSize; set { _explicitNullValueThreadPoolForceMergeSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_force_merge_size"); else _explicitNullProperties?.Remove("thread_pool_force_merge_size"); } }
+        private int? _explicitNullValueThreadPoolForceMergeSize = default!;
         /// <summary>Size of queue for operations in the get thread pool.</summary>
-        public int? ThreadPoolGetQueueSize { get; set; }
+        public int? ThreadPoolGetQueueSize { get => _explicitNullValueThreadPoolGetQueueSize; set { _explicitNullValueThreadPoolGetQueueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_get_queue_size"); else _explicitNullProperties?.Remove("thread_pool_get_queue_size"); } }
+        private int? _explicitNullValueThreadPoolGetQueueSize = default!;
         /// <summary>Number of workers in the get operation thread pool.  Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</summary>
-        public int? ThreadPoolGetSize { get; set; }
+        public int? ThreadPoolGetSize { get => _explicitNullValueThreadPoolGetSize; set { _explicitNullValueThreadPoolGetSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_get_size"); else _explicitNullProperties?.Remove("thread_pool_get_size"); } }
+        private int? _explicitNullValueThreadPoolGetSize = default!;
         /// <summary>Size of queue for operations in the search thread pool.</summary>
-        public int? ThreadPoolSearchQueueSize { get; set; }
+        public int? ThreadPoolSearchQueueSize { get => _explicitNullValueThreadPoolSearchQueueSize; set { _explicitNullValueThreadPoolSearchQueueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_search_queue_size"); else _explicitNullProperties?.Remove("thread_pool_search_queue_size"); } }
+        private int? _explicitNullValueThreadPoolSearchQueueSize = default!;
         /// <summary>Number of workers in the search operation thread pool.  Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</summary>
-        public int? ThreadPoolSearchSize { get; set; }
+        public int? ThreadPoolSearchSize { get => _explicitNullValueThreadPoolSearchSize; set { _explicitNullValueThreadPoolSearchSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_search_size"); else _explicitNullProperties?.Remove("thread_pool_search_size"); } }
+        private int? _explicitNullValueThreadPoolSearchSize = default!;
         /// <summary>Size of queue for operations in the search throttled thread pool.</summary>
-        public int? ThreadPoolSearchThrottledQueueSize { get; set; }
+        public int? ThreadPoolSearchThrottledQueueSize { get => _explicitNullValueThreadPoolSearchThrottledQueueSize; set { _explicitNullValueThreadPoolSearchThrottledQueueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_search_throttled_queue_size"); else _explicitNullProperties?.Remove("thread_pool_search_throttled_queue_size"); } }
+        private int? _explicitNullValueThreadPoolSearchThrottledQueueSize = default!;
         /// <summary>Number of workers in the search throttled operation thread pool. This pool is used for searching frozen indices. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</summary>
-        public int? ThreadPoolSearchThrottledSize { get; set; }
+        public int? ThreadPoolSearchThrottledSize { get => _explicitNullValueThreadPoolSearchThrottledSize; set { _explicitNullValueThreadPoolSearchThrottledSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_search_throttled_size"); else _explicitNullProperties?.Remove("thread_pool_search_throttled_size"); } }
+        private int? _explicitNullValueThreadPoolSearchThrottledSize = default!;
         /// <summary>Size of queue for operations in the write thread pool.</summary>
-        public int? ThreadPoolWriteQueueSize { get; set; }
+        public int? ThreadPoolWriteQueueSize { get => _explicitNullValueThreadPoolWriteQueueSize; set { _explicitNullValueThreadPoolWriteQueueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_write_queue_size"); else _explicitNullProperties?.Remove("thread_pool_write_queue_size"); } }
+        private int? _explicitNullValueThreadPoolWriteQueueSize = default!;
         /// <summary>Number of workers in the write operation thread pool.  Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</summary>
-        public int? ThreadPoolWriteSize { get; set; }
+        public int? ThreadPoolWriteSize { get => _explicitNullValueThreadPoolWriteSize; set { _explicitNullValueThreadPoolWriteSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_pool_write_size"); else _explicitNullProperties?.Remove("thread_pool_write_size"); } }
+        private int? _explicitNullValueThreadPoolWriteSize = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.OpensearchAdvancedConfig"/> and sets the default values.
         /// </summary>
@@ -148,7 +239,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.OpensearchAdvancedConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.OpensearchAdvancedConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.OpensearchAdvancedConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -249,6 +340,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("thread_pool_search_throttled_size", ThreadPoolSearchThrottledSize);
             writer.WriteIntValue("thread_pool_write_queue_size", ThreadPoolWriteQueueSize);
             writer.WriteIntValue("thread_pool_write_size", ThreadPoolWriteSize);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

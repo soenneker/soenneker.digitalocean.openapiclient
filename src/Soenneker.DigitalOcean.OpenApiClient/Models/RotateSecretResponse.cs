@@ -11,20 +11,34 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RotateSecretResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("previous_secret_expires_at") is { } nullNodePreviousSecretExpiresAt && nullNodePreviousSecretExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousSecretExpiresAt = null;
+            if (parseNode.GetChildNode("previous_secret_revoked") is { } nullNodePreviousSecretRevoked && nullNodePreviousSecretRevoked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousSecretRevoked = null;
+            if (parseNode.GetChildNode("webhook_secret") is { } nullNodeWebhookSecret && nullNodeWebhookSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookSecret = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The instant the outgoing secret stops verifying deliveries. Omitted when grace_period_seconds=0.</summary>
-        public DateTimeOffset? PreviousSecretExpiresAt { get; set; }
+        public DateTimeOffset? PreviousSecretExpiresAt { get => _explicitNullValuePreviousSecretExpiresAt; set { _explicitNullValuePreviousSecretExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_secret_expires_at"); else _explicitNullProperties?.Remove("previous_secret_expires_at"); } }
+        private DateTimeOffset? _explicitNullValuePreviousSecretExpiresAt = default!;
         /// <summary>True when grace_period_seconds=0 retired the old secret on this call. Exactly one of this and previous_secret_expires_at is present.</summary>
-        public bool? PreviousSecretRevoked { get; set; }
+        public bool? PreviousSecretRevoked { get => _explicitNullValuePreviousSecretRevoked; set { _explicitNullValuePreviousSecretRevoked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_secret_revoked"); else _explicitNullProperties?.Remove("previous_secret_revoked"); } }
+        private bool? _explicitNullValuePreviousSecretRevoked = default!;
         /// <summary>The new webhook secret, shown once.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookSecret { get; set; }
+        public string? WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
+        private string? _explicitNullValueWebhookSecret = default!;
 #nullable restore
 #else
-        public string WebhookSecret { get; set; }
+        public string WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
+        private string _explicitNullValueWebhookSecret = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.RotateSecretResponse"/> and sets the default values.
@@ -41,7 +55,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.RotateSecretResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.RotateSecretResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.RotateSecretResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("previous_secret_expires_at", PreviousSecretExpiresAt);
             writer.WriteBoolValue("previous_secret_revoked", PreviousSecretRevoked);
             writer.WriteStringValue("webhook_secret", WebhookSecret);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

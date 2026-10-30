@@ -11,80 +11,114 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OptionsVersionAvailability : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("advanced_mysql") is { } nullNodeAdvancedMysql && nullNodeAdvancedMysql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedMysql = null;
+            if (parseNode.GetChildNode("advanced_pg") is { } nullNodeAdvancedPg && nullNodeAdvancedPg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedPg = null;
+            if (parseNode.GetChildNode("kafka") is { } nullNodeKafka && nullNodeKafka.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kafka = null;
+            if (parseNode.GetChildNode("mongodb") is { } nullNodeMongodb && nullNodeMongodb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mongodb = null;
+            if (parseNode.GetChildNode("mysql") is { } nullNodeMysql && nullNodeMysql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mysql = null;
+            if (parseNode.GetChildNode("opensearch") is { } nullNodeOpensearch && nullNodeOpensearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Opensearch = null;
+            if (parseNode.GetChildNode("pg") is { } nullNodePg && nullNodePg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pg = null;
+            if (parseNode.GetChildNode("redis") is { } nullNodeRedis && nullNodeRedis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Redis = null;
+            if (parseNode.GetChildNode("valkey") is { } nullNodeValkey && nullNodeValkey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Valkey = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? AdvancedMysql { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? AdvancedMysql { get => _explicitNullValueAdvancedMysql; set { _explicitNullValueAdvancedMysql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_mysql"); else _explicitNullProperties?.Remove("advanced_mysql"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValueAdvancedMysql = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> AdvancedMysql { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> AdvancedMysql { get => _explicitNullValueAdvancedMysql; set { _explicitNullValueAdvancedMysql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_mysql"); else _explicitNullProperties?.Remove("advanced_mysql"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValueAdvancedMysql = default!;
 #endif
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? AdvancedPg { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? AdvancedPg { get => _explicitNullValueAdvancedPg; set { _explicitNullValueAdvancedPg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_pg"); else _explicitNullProperties?.Remove("advanced_pg"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValueAdvancedPg = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> AdvancedPg { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> AdvancedPg { get => _explicitNullValueAdvancedPg; set { _explicitNullValueAdvancedPg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_pg"); else _explicitNullProperties?.Remove("advanced_pg"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValueAdvancedPg = default!;
 #endif
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Kafka { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Kafka { get => _explicitNullValueKafka; set { _explicitNullValueKafka = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kafka"); else _explicitNullProperties?.Remove("kafka"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValueKafka = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Kafka { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Kafka { get => _explicitNullValueKafka; set { _explicitNullValueKafka = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kafka"); else _explicitNullProperties?.Remove("kafka"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValueKafka = default!;
 #endif
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Mongodb { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Mongodb { get => _explicitNullValueMongodb; set { _explicitNullValueMongodb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongodb"); else _explicitNullProperties?.Remove("mongodb"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValueMongodb = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Mongodb { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Mongodb { get => _explicitNullValueMongodb; set { _explicitNullValueMongodb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongodb"); else _explicitNullProperties?.Remove("mongodb"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValueMongodb = default!;
 #endif
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Mysql { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Mysql { get => _explicitNullValueMysql; set { _explicitNullValueMysql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql"); else _explicitNullProperties?.Remove("mysql"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValueMysql = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Mysql { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Mysql { get => _explicitNullValueMysql; set { _explicitNullValueMysql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql"); else _explicitNullProperties?.Remove("mysql"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValueMysql = default!;
 #endif
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Opensearch { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Opensearch { get => _explicitNullValueOpensearch; set { _explicitNullValueOpensearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch"); else _explicitNullProperties?.Remove("opensearch"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValueOpensearch = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Opensearch { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Opensearch { get => _explicitNullValueOpensearch; set { _explicitNullValueOpensearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch"); else _explicitNullProperties?.Remove("opensearch"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValueOpensearch = default!;
 #endif
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Pg { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Pg { get => _explicitNullValuePg; set { _explicitNullValuePg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg"); else _explicitNullProperties?.Remove("pg"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValuePg = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Pg { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Pg { get => _explicitNullValuePg; set { _explicitNullValuePg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg"); else _explicitNullProperties?.Remove("pg"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValuePg = default!;
 #endif
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Redis { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Redis { get => _explicitNullValueRedis; set { _explicitNullValueRedis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis"); else _explicitNullProperties?.Remove("redis"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValueRedis = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Redis { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Redis { get => _explicitNullValueRedis; set { _explicitNullValueRedis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis"); else _explicitNullProperties?.Remove("redis"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValueRedis = default!;
 #endif
         /// <summary>An array of objects, each indicating the version end-of-life, end-of-availability for various database engines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Valkey { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? Valkey { get => _explicitNullValueValkey; set { _explicitNullValueValkey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey"); else _explicitNullProperties?.Remove("valkey"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>? _explicitNullValueValkey = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Valkey { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> Valkey { get => _explicitNullValueValkey; set { _explicitNullValueValkey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey"); else _explicitNullProperties?.Remove("valkey"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability> _explicitNullValueValkey = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability"/> and sets the default values.
@@ -101,7 +135,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -138,6 +172,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>("pg", Pg);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>("redis", Redis);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseVersionAvailability>("valkey", Valkey);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

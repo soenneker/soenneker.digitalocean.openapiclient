@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Sizes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SizesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/sizes{?page*,per_page*}", pathParameters)
+        public SizesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/sizes{?cpu_maximum*,cpu_minimum*,gpu_fabric*,gpu_maximum*,gpu_minimum*,memory_maximum*,memory_minimum*,page*,per_page*,price_hourly_maximum*,price_hourly_minimum*,price_monthly_maximum*,price_monthly_minimum*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Sizes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SizesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/sizes{?page*,per_page*}", rawUrl)
+        public SizesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/sizes{?cpu_maximum*,cpu_minimum*,gpu_fabric*,gpu_maximum*,gpu_minimum*,memory_maximum*,memory_minimum*,page*,per_page*,price_hourly_maximum*,price_hourly_minimum*,price_monthly_maximum*,price_monthly_minimum*}", rawUrl)
         {
         }
         /// <summary>
@@ -96,12 +96,73 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Sizes
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SizesRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter sizes with an inclusive maximum CPU count</summary>
+            [QueryParameter("cpu_maximum")]
+            public int? CpuMaximum { get; set; }
+            /// <summary>Filter sizes with an inclusive minimum CPU count</summary>
+            [QueryParameter("cpu_minimum")]
+            public int? CpuMinimum { get; set; }
+            /// <summary>Filter sizes to those with a given GPU fabric setting</summary>
+            [QueryParameter("gpu_fabric")]
+            public bool? GpuFabric { get; set; }
+            /// <summary>Filter sizes with an inclusive maximum GPU count. Zero is allowed to filter to sizes without GPUs.</summary>
+            [QueryParameter("gpu_maximum")]
+            public int? GpuMaximum { get; set; }
+            /// <summary>Filter sizes with an inclusive minimum GPU count</summary>
+            [QueryParameter("gpu_minimum")]
+            public int? GpuMinimum { get; set; }
+            /// <summary>Filter sizes with an inclusive maximum memory amount (in megabytes)</summary>
+            [QueryParameter("memory_maximum")]
+            public int? MemoryMaximum { get; set; }
+            /// <summary>Filter sizes with an inclusive minimum memory amount (in megabytes)</summary>
+            [QueryParameter("memory_minimum")]
+            public int? MemoryMinimum { get; set; }
             /// <summary>Which &apos;page&apos; of paginated results to return.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
             /// <summary>Number of items returned per page</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            /// <summary>Filter sizes with an inclusive maximum hourly price (in USD)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("price_hourly_maximum")]
+            public string? PriceHourlyMaximum { get; set; }
+#nullable restore
+#else
+            [QueryParameter("price_hourly_maximum")]
+            public string PriceHourlyMaximum { get; set; }
+#endif
+            /// <summary>Filter sizes with an inclusive minimum hourly price (in USD)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("price_hourly_minimum")]
+            public string? PriceHourlyMinimum { get; set; }
+#nullable restore
+#else
+            [QueryParameter("price_hourly_minimum")]
+            public string PriceHourlyMinimum { get; set; }
+#endif
+            /// <summary>Filter sizes with an inclusive maximum monthly price (in USD)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("price_monthly_maximum")]
+            public string? PriceMonthlyMaximum { get; set; }
+#nullable restore
+#else
+            [QueryParameter("price_monthly_maximum")]
+            public string PriceMonthlyMaximum { get; set; }
+#endif
+            /// <summary>Filter sizes with an inclusive minimum monthly price (in USD)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("price_monthly_minimum")]
+            public string? PriceMonthlyMinimum { get; set; }
+#nullable restore
+#else
+            [QueryParameter("price_monthly_minimum")]
+            public string PriceMonthlyMinimum { get; set; }
+#endif
         }
     }
 }

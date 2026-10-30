@@ -11,35 +11,58 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AppsDeploymentProgress : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("error_steps") is { } nullNodeErrorSteps && nullNodeErrorSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorSteps = null;
+            if (parseNode.GetChildNode("pending_steps") is { } nullNodePendingSteps && nullNodePendingSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingSteps = null;
+            if (parseNode.GetChildNode("running_steps") is { } nullNodeRunningSteps && nullNodeRunningSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunningSteps = null;
+            if (parseNode.GetChildNode("steps") is { } nullNodeSteps && nullNodeSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Steps = null;
+            if (parseNode.GetChildNode("success_steps") is { } nullNodeSuccessSteps && nullNodeSuccessSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessSteps = null;
+            if (parseNode.GetChildNode("summary_steps") is { } nullNodeSummarySteps && nullNodeSummarySteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SummarySteps = null;
+            if (parseNode.GetChildNode("total_steps") is { } nullNodeTotalSteps && nullNodeTotalSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSteps = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The error_steps property</summary>
-        public int? ErrorSteps { get; set; }
+        public int? ErrorSteps { get => _explicitNullValueErrorSteps; set { _explicitNullValueErrorSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_steps"); else _explicitNullProperties?.Remove("error_steps"); } }
+        private int? _explicitNullValueErrorSteps = default!;
         /// <summary>The pending_steps property</summary>
-        public int? PendingSteps { get; set; }
+        public int? PendingSteps { get => _explicitNullValuePendingSteps; set { _explicitNullValuePendingSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_steps"); else _explicitNullProperties?.Remove("pending_steps"); } }
+        private int? _explicitNullValuePendingSteps = default!;
         /// <summary>The running_steps property</summary>
-        public int? RunningSteps { get; set; }
+        public int? RunningSteps { get => _explicitNullValueRunningSteps; set { _explicitNullValueRunningSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("running_steps"); else _explicitNullProperties?.Remove("running_steps"); } }
+        private int? _explicitNullValueRunningSteps = default!;
         /// <summary>The steps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep>? Steps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep>? Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep>? _explicitNullValueSteps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep> Steps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep> Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep> _explicitNullValueSteps = default!;
 #endif
         /// <summary>The success_steps property</summary>
-        public int? SuccessSteps { get; set; }
+        public int? SuccessSteps { get => _explicitNullValueSuccessSteps; set { _explicitNullValueSuccessSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_steps"); else _explicitNullProperties?.Remove("success_steps"); } }
+        private int? _explicitNullValueSuccessSteps = default!;
         /// <summary>The summary_steps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep>? SummarySteps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep>? SummarySteps { get => _explicitNullValueSummarySteps; set { _explicitNullValueSummarySteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_steps"); else _explicitNullProperties?.Remove("summary_steps"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep>? _explicitNullValueSummarySteps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep> SummarySteps { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep> SummarySteps { get => _explicitNullValueSummarySteps; set { _explicitNullValueSummarySteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_steps"); else _explicitNullProperties?.Remove("summary_steps"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep> _explicitNullValueSummarySteps = default!;
 #endif
         /// <summary>The total_steps property</summary>
-        public int? TotalSteps { get; set; }
+        public int? TotalSteps { get => _explicitNullValueTotalSteps; set { _explicitNullValueTotalSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_steps"); else _explicitNullProperties?.Remove("total_steps"); } }
+        private int? _explicitNullValueTotalSteps = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgress"/> and sets the default values.
         /// </summary>
@@ -55,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgress();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgress(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +111,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("success_steps", SuccessSteps);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeploymentProgressStep>("summary_steps", SummarySteps);
             writer.WriteIntValue("total_steps", TotalSteps);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

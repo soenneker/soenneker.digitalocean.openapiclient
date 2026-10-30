@@ -11,72 +11,103 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiListModelCatalogOutput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("available_availability") is { } nullNodeAvailableAvailability && nullNodeAvailableAvailability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableAvailability = null;
+            if (parseNode.GetChildNode("available_badges") is { } nullNodeAvailableBadges && nullNodeAvailableBadges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableBadges = null;
+            if (parseNode.GetChildNode("available_model_types") is { } nullNodeAvailableModelTypes && nullNodeAvailableModelTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableModelTypes = null;
+            if (parseNode.GetChildNode("available_providers") is { } nullNodeAvailableProviders && nullNodeAvailableProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableProviders = null;
+            if (parseNode.GetChildNode("available_sort_by") is { } nullNodeAvailableSortBy && nullNodeAvailableSortBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableSortBy = null;
+            if (parseNode.GetChildNode("available_sort_directions") is { } nullNodeAvailableSortDirections && nullNodeAvailableSortDirections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableSortDirections = null;
+            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+            if (parseNode.GetChildNode("meta") is { } nullNodeMeta && nullNodeMeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Meta = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>All deployment availability values the client can offer in the availability filter UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AvailableAvailability { get; set; }
+        public List<string>? AvailableAvailability { get => _explicitNullValueAvailableAvailability; set { _explicitNullValueAvailableAvailability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_availability"); else _explicitNullProperties?.Remove("available_availability"); } }
+        private List<string>? _explicitNullValueAvailableAvailability = default!;
 #nullable restore
 #else
-        public List<string> AvailableAvailability { get; set; }
+        public List<string> AvailableAvailability { get => _explicitNullValueAvailableAvailability; set { _explicitNullValueAvailableAvailability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_availability"); else _explicitNullProperties?.Remove("available_availability"); } }
+        private List<string> _explicitNullValueAvailableAvailability = default!;
 #endif
         /// <summary>All badge values the client can offer in the badges filter UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AvailableBadges { get; set; }
+        public List<string>? AvailableBadges { get => _explicitNullValueAvailableBadges; set { _explicitNullValueAvailableBadges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_badges"); else _explicitNullProperties?.Remove("available_badges"); } }
+        private List<string>? _explicitNullValueAvailableBadges = default!;
 #nullable restore
 #else
-        public List<string> AvailableBadges { get; set; }
+        public List<string> AvailableBadges { get => _explicitNullValueAvailableBadges; set { _explicitNullValueAvailableBadges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_badges"); else _explicitNullProperties?.Remove("available_badges"); } }
+        private List<string> _explicitNullValueAvailableBadges = default!;
 #endif
         /// <summary>All model type values the client can offer in the type filter UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AvailableModelTypes { get; set; }
+        public List<string>? AvailableModelTypes { get => _explicitNullValueAvailableModelTypes; set { _explicitNullValueAvailableModelTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_model_types"); else _explicitNullProperties?.Remove("available_model_types"); } }
+        private List<string>? _explicitNullValueAvailableModelTypes = default!;
 #nullable restore
 #else
-        public List<string> AvailableModelTypes { get; set; }
+        public List<string> AvailableModelTypes { get => _explicitNullValueAvailableModelTypes; set { _explicitNullValueAvailableModelTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_model_types"); else _explicitNullProperties?.Remove("available_model_types"); } }
+        private List<string> _explicitNullValueAvailableModelTypes = default!;
 #endif
         /// <summary>All provider values the client can offer in the provider filter UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AvailableProviders { get; set; }
+        public List<string>? AvailableProviders { get => _explicitNullValueAvailableProviders; set { _explicitNullValueAvailableProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_providers"); else _explicitNullProperties?.Remove("available_providers"); } }
+        private List<string>? _explicitNullValueAvailableProviders = default!;
 #nullable restore
 #else
-        public List<string> AvailableProviders { get; set; }
+        public List<string> AvailableProviders { get => _explicitNullValueAvailableProviders; set { _explicitNullValueAvailableProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_providers"); else _explicitNullProperties?.Remove("available_providers"); } }
+        private List<string> _explicitNullValueAvailableProviders = default!;
 #endif
         /// <summary>All sort-by field values the client can offer in the sort UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogSortBy?>? AvailableSortBy { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogSortBy?>? AvailableSortBy { get => _explicitNullValueAvailableSortBy; set { _explicitNullValueAvailableSortBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_sort_by"); else _explicitNullProperties?.Remove("available_sort_by"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogSortBy?>? _explicitNullValueAvailableSortBy = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogSortBy?> AvailableSortBy { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogSortBy?> AvailableSortBy { get => _explicitNullValueAvailableSortBy; set { _explicitNullValueAvailableSortBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_sort_by"); else _explicitNullProperties?.Remove("available_sort_by"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogSortBy?> _explicitNullValueAvailableSortBy = default!;
 #endif
         /// <summary>All sort-direction values the client can offer in the sort UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?>? AvailableSortDirections { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?>? AvailableSortDirections { get => _explicitNullValueAvailableSortDirections; set { _explicitNullValueAvailableSortDirections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_sort_directions"); else _explicitNullProperties?.Remove("available_sort_directions"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?>? _explicitNullValueAvailableSortDirections = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?> AvailableSortDirections { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?> AvailableSortDirections { get => _explicitNullValueAvailableSortDirections; set { _explicitNullValueAvailableSortDirections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_sort_directions"); else _explicitNullProperties?.Remove("available_sort_directions"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?> _explicitNullValueAvailableSortDirections = default!;
 #endif
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogEntry>? Data { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogEntry>? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogEntry>? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogEntry> Data { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogEntry> Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogEntry> _explicitNullValueData = default!;
 #endif
         /// <summary>Meta information about the data set</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? Meta { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? _explicitNullValueMeta = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta Meta { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta _explicitNullValueMeta = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListModelCatalogOutput"/> and sets the default values.
@@ -93,7 +124,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListModelCatalogOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListModelCatalogOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListModelCatalogOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,6 +159,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection>("available_sort_directions", AvailableSortDirections);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelCatalogEntry>("data", Data);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta>("meta", Meta);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

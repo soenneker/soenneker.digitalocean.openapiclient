@@ -11,19 +11,36 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AutoscalePoolDynamicConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cooldown_minutes") is { } nullNodeCooldownMinutes && nullNodeCooldownMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CooldownMinutes = null;
+            if (parseNode.GetChildNode("max_instances") is { } nullNodeMaxInstances && nullNodeMaxInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxInstances = null;
+            if (parseNode.GetChildNode("min_instances") is { } nullNodeMinInstances && nullNodeMinInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinInstances = null;
+            if (parseNode.GetChildNode("target_cpu_utilization") is { } nullNodeTargetCpuUtilization && nullNodeTargetCpuUtilization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetCpuUtilization = null;
+            if (parseNode.GetChildNode("target_memory_utilization") is { } nullNodeTargetMemoryUtilization && nullNodeTargetMemoryUtilization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetMemoryUtilization = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of minutes to wait between scaling events in an autoscale pool. Defaults to 10 minutes.</summary>
-        public int? CooldownMinutes { get; set; }
+        public int? CooldownMinutes { get => _explicitNullValueCooldownMinutes; set { _explicitNullValueCooldownMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cooldown_minutes"); else _explicitNullProperties?.Remove("cooldown_minutes"); } }
+        private int? _explicitNullValueCooldownMinutes = default!;
         /// <summary>The maximum number of Droplets in an autoscale pool.</summary>
-        public int? MaxInstances { get; set; }
+        public int? MaxInstances { get => _explicitNullValueMaxInstances; set { _explicitNullValueMaxInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_instances"); else _explicitNullProperties?.Remove("max_instances"); } }
+        private int? _explicitNullValueMaxInstances = default!;
         /// <summary>The minimum number of Droplets in an autoscale pool.</summary>
-        public int? MinInstances { get; set; }
+        public int? MinInstances { get => _explicitNullValueMinInstances; set { _explicitNullValueMinInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_instances"); else _explicitNullProperties?.Remove("min_instances"); } }
+        private int? _explicitNullValueMinInstances = default!;
         /// <summary>Target CPU utilization as a decimal.</summary>
-        public float? TargetCpuUtilization { get; set; }
+        public float? TargetCpuUtilization { get => _explicitNullValueTargetCpuUtilization; set { _explicitNullValueTargetCpuUtilization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_cpu_utilization"); else _explicitNullProperties?.Remove("target_cpu_utilization"); } }
+        private float? _explicitNullValueTargetCpuUtilization = default!;
         /// <summary>Target memory utilization as a decimal.</summary>
-        public float? TargetMemoryUtilization { get; set; }
+        public float? TargetMemoryUtilization { get => _explicitNullValueTargetMemoryUtilization; set { _explicitNullValueTargetMemoryUtilization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_memory_utilization"); else _explicitNullProperties?.Remove("target_memory_utilization"); } }
+        private float? _explicitNullValueTargetMemoryUtilization = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDynamicConfig"/> and sets the default values.
         /// </summary>
@@ -39,7 +56,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDynamicConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDynamicConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDynamicConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +85,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("min_instances", MinInstances);
             writer.WriteFloatValue("target_cpu_utilization", TargetCpuUtilization);
             writer.WriteFloatValue("target_memory_utilization", TargetMemoryUtilization);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

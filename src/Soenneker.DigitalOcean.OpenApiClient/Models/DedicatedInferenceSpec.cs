@@ -12,38 +12,60 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DedicatedInferenceSpec : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enable_public_endpoint") is { } nullNodeEnablePublicEndpoint && nullNodeEnablePublicEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnablePublicEndpoint = null;
+            if (parseNode.GetChildNode("model_deployments") is { } nullNodeModelDeployments && nullNodeModelDeployments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelDeployments = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("vpc") is { } nullNodeVpc && nullNodeVpc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vpc = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to expose a public LLM endpoint.</summary>
-        public bool? EnablePublicEndpoint { get; set; }
+        public bool? EnablePublicEndpoint { get => _explicitNullValueEnablePublicEndpoint; set { _explicitNullValueEnablePublicEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_public_endpoint"); else _explicitNullProperties?.Remove("enable_public_endpoint"); } }
+        private bool? _explicitNullValueEnablePublicEndpoint = default!;
         /// <summary>At least one model deployment is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec>? ModelDeployments { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec>? ModelDeployments { get => _explicitNullValueModelDeployments; set { _explicitNullValueModelDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_deployments"); else _explicitNullProperties?.Remove("model_deployments"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec>? _explicitNullValueModelDeployments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec> ModelDeployments { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec> ModelDeployments { get => _explicitNullValueModelDeployments; set { _explicitNullValueModelDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_deployments"); else _explicitNullProperties?.Remove("model_deployments"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec> _explicitNullValueModelDeployments = default!;
 #endif
         /// <summary>Name of the Dedicated Inference. Must be unique within the team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>DigitalOcean region where the Dedicated Inference is hosted.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion? Region { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion? _explicitNullValueRegion = default!;
         /// <summary>Spec version.</summary>
-        public int? Version { get; set; }
+        public int? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private int? _explicitNullValueVersion = default!;
         /// <summary>The vpc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc? Vpc { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc? Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc? _explicitNullValueVpc = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc Vpc { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc _explicitNullValueVpc = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec"/> and sets the default values.
@@ -60,7 +82,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,6 +113,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion>("region", Region);
             writer.WriteIntValue("version", Version);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc>("vpc", Vpc);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

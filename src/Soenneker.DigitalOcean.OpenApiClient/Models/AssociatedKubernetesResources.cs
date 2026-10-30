@@ -12,32 +12,48 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssociatedKubernetesResources : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("load_balancers") is { } nullNodeLoadBalancers && nullNodeLoadBalancers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadBalancers = null;
+            if (parseNode.GetChildNode("volumes") is { } nullNodeVolumes && nullNodeVolumes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volumes = null;
+            if (parseNode.GetChildNode("volume_snapshots") is { } nullNodeVolumeSnapshots && nullNodeVolumeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VolumeSnapshots = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of names and IDs for associated load balancers that can be destroyed along with the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? LoadBalancers { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? LoadBalancers { get => _explicitNullValueLoadBalancers; set { _explicitNullValueLoadBalancers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancers"); else _explicitNullProperties?.Remove("load_balancers"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? _explicitNullValueLoadBalancers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> LoadBalancers { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> LoadBalancers { get => _explicitNullValueLoadBalancers; set { _explicitNullValueLoadBalancers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancers"); else _explicitNullProperties?.Remove("load_balancers"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> _explicitNullValueLoadBalancers = default!;
 #endif
         /// <summary>A list of names and IDs for associated volumes that can be destroyed along with the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? Volumes { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? _explicitNullValueVolumes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> Volumes { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> _explicitNullValueVolumes = default!;
 #endif
         /// <summary>A list of names and IDs for associated volume snapshots that can be destroyed along with the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? VolumeSnapshots { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>? _explicitNullValueVolumeSnapshots = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> VolumeSnapshots { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource> _explicitNullValueVolumeSnapshots = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResources"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResources CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResources();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResources(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>("load_balancers", LoadBalancers);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>("volumes", Volumes);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AssociatedKubernetesResource>("volume_snapshots", VolumeSnapshots);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

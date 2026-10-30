@@ -12,48 +12,70 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpansFilterExpression : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("and") is { } nullNodeAnd && nullNodeAnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) And = null;
+            if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
+            if (parseNode.GetChildNode("not") is { } nullNodeNot && nullNodeNot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Not = null;
+            if (parseNode.GetChildNode("or") is { } nullNodeOr && nullNodeOr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Or = null;
+            if (parseNode.GetChildNode("text_search") is { } nullNodeTextSearch && nullNodeTextSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextSearch = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The and property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd? And { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd? And { get => _explicitNullValueAnd; set { _explicitNullValueAnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("and"); else _explicitNullProperties?.Remove("and"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd? _explicitNullValueAnd = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd And { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd And { get => _explicitNullValueAnd; set { _explicitNullValueAnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("and"); else _explicitNullProperties?.Remove("and"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionAnd _explicitNullValueAnd = default!;
 #endif
         /// <summary>A single field comparison in a spans filter expression.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition? Condition { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition? _explicitNullValueCondition = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition Condition { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterCondition _explicitNullValueCondition = default!;
 #endif
         /// <summary>A boolean filter tree for spans queries. Exactly one node is set per message. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression? Not { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression? Not { get => _explicitNullValueNot; set { _explicitNullValueNot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not"); else _explicitNullProperties?.Remove("not"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression? _explicitNullValueNot = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression Not { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression Not { get => _explicitNullValueNot; set { _explicitNullValueNot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not"); else _explicitNullProperties?.Remove("not"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression _explicitNullValueNot = default!;
 #endif
         /// <summary>The or property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr? Or { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr? Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr? _explicitNullValueOr = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr Or { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr _explicitNullValueOr = default!;
 #endif
         /// <summary>A substring search across the span name, service name, and status message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch? TextSearch { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch? TextSearch { get => _explicitNullValueTextSearch; set { _explicitNullValueTextSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_search"); else _explicitNullProperties?.Remove("text_search"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch? _explicitNullValueTextSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch TextSearch { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch TextSearch { get => _explicitNullValueTextSearch; set { _explicitNullValueTextSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_search"); else _explicitNullProperties?.Remove("text_search"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch _explicitNullValueTextSearch = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression"/> and sets the default values.
@@ -70,7 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +121,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpression>("not", Not);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionOr>("or", Or);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SpansFilterExpressionTextSearch>("text_search", TextSearch);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

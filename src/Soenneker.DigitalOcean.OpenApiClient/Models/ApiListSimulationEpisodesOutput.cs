@@ -12,64 +12,92 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiListSimulationEpisodesOutput : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("available_sort_by") is { } nullNodeAvailableSortBy && nullNodeAvailableSortBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableSortBy = null;
+            if (parseNode.GetChildNode("available_sort_directions") is { } nullNodeAvailableSortDirections && nullNodeAvailableSortDirections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableSortDirections = null;
+            if (parseNode.GetChildNode("available_statuses") is { } nullNodeAvailableStatuses && nullNodeAvailableStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableStatuses = null;
+            if (parseNode.GetChildNode("available_verdicts") is { } nullNodeAvailableVerdicts && nullNodeAvailableVerdicts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableVerdicts = null;
+            if (parseNode.GetChildNode("episodes") is { } nullNodeEpisodes && nullNodeEpisodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Episodes = null;
+            if (parseNode.GetChildNode("links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
+            if (parseNode.GetChildNode("meta") is { } nullNodeMeta && nullNodeMeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Meta = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Sort-by values available for this list request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField?>? AvailableSortBy { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField?>? AvailableSortBy { get => _explicitNullValueAvailableSortBy; set { _explicitNullValueAvailableSortBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_sort_by"); else _explicitNullProperties?.Remove("available_sort_by"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField?>? _explicitNullValueAvailableSortBy = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField?> AvailableSortBy { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField?> AvailableSortBy { get => _explicitNullValueAvailableSortBy; set { _explicitNullValueAvailableSortBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_sort_by"); else _explicitNullProperties?.Remove("available_sort_by"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeSortField?> _explicitNullValueAvailableSortBy = default!;
 #endif
         /// <summary>Sort-direction values available for this list request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?>? AvailableSortDirections { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?>? AvailableSortDirections { get => _explicitNullValueAvailableSortDirections; set { _explicitNullValueAvailableSortDirections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_sort_directions"); else _explicitNullProperties?.Remove("available_sort_directions"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?>? _explicitNullValueAvailableSortDirections = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?> AvailableSortDirections { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?> AvailableSortDirections { get => _explicitNullValueAvailableSortDirections; set { _explicitNullValueAvailableSortDirections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_sort_directions"); else _explicitNullProperties?.Remove("available_sort_directions"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSortDirection?> _explicitNullValueAvailableSortDirections = default!;
 #endif
         /// <summary>Statuses available for filtering this list request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus?>? AvailableStatuses { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus?>? AvailableStatuses { get => _explicitNullValueAvailableStatuses; set { _explicitNullValueAvailableStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_statuses"); else _explicitNullProperties?.Remove("available_statuses"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus?>? _explicitNullValueAvailableStatuses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus?> AvailableStatuses { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus?> AvailableStatuses { get => _explicitNullValueAvailableStatuses; set { _explicitNullValueAvailableStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_statuses"); else _explicitNullProperties?.Remove("available_statuses"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeStatus?> _explicitNullValueAvailableStatuses = default!;
 #endif
         /// <summary>Verdicts available for filtering this list request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict?>? AvailableVerdicts { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict?>? AvailableVerdicts { get => _explicitNullValueAvailableVerdicts; set { _explicitNullValueAvailableVerdicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_verdicts"); else _explicitNullProperties?.Remove("available_verdicts"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict?>? _explicitNullValueAvailableVerdicts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict?> AvailableVerdicts { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict?> AvailableVerdicts { get => _explicitNullValueAvailableVerdicts; set { _explicitNullValueAvailableVerdicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_verdicts"); else _explicitNullProperties?.Remove("available_verdicts"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeVerdict?> _explicitNullValueAvailableVerdicts = default!;
 #endif
         /// <summary>The episodes for the current page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>? Episodes { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>? Episodes { get => _explicitNullValueEpisodes; set { _explicitNullValueEpisodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("episodes"); else _explicitNullProperties?.Remove("episodes"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>? _explicitNullValueEpisodes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode> Episodes { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode> Episodes { get => _explicitNullValueEpisodes; set { _explicitNullValueEpisodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("episodes"); else _explicitNullProperties?.Remove("episodes"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode> _explicitNullValueEpisodes = default!;
 #endif
         /// <summary>Links to other pages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks? Links { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks? _explicitNullValueLinks = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks Links { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks _explicitNullValueLinks = default!;
 #endif
         /// <summary>Meta information about the data set</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? Meta { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? _explicitNullValueMeta = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta Meta { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta _explicitNullValueMeta = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationEpisodesOutput"/> and sets the default values.
@@ -86,7 +114,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationEpisodesOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationEpisodesOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListSimulationEpisodesOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,6 +147,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisode>("episodes", Episodes);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks>("links", Links);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta>("meta", Meta);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

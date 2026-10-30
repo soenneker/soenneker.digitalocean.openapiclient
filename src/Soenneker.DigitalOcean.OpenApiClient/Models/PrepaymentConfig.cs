@@ -11,39 +11,61 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PrepaymentConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("is_auto_prepay_enabled") is { } nullNodeIsAutoPrepayEnabled && nullNodeIsAutoPrepayEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsAutoPrepayEnabled = null;
+            if (parseNode.GetChildNode("prepay_amount") is { } nullNodePrepayAmount && nullNodePrepayAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrepayAmount = null;
+            if (parseNode.GetChildNode("prepay_threshold") is { } nullNodePrepayThreshold && nullNodePrepayThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrepayThreshold = null;
+            if (parseNode.GetChildNode("spend_limit") is { } nullNodeSpendLimit && nullNodeSpendLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendLimit = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Time at which the prepayment configuration was created.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Whether automatic prepayment top-up is enabled.</summary>
-        public bool? IsAutoPrepayEnabled { get; set; }
+        public bool? IsAutoPrepayEnabled { get => _explicitNullValueIsAutoPrepayEnabled; set { _explicitNullValueIsAutoPrepayEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_auto_prepay_enabled"); else _explicitNullProperties?.Remove("is_auto_prepay_enabled"); } }
+        private bool? _explicitNullValueIsAutoPrepayEnabled = default!;
         /// <summary>Amount to charge when auto top-up triggers. Decimal dollars, e.g. `&quot;50.00&quot;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrepayAmount { get; set; }
+        public string? PrepayAmount { get => _explicitNullValuePrepayAmount; set { _explicitNullValuePrepayAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prepay_amount"); else _explicitNullProperties?.Remove("prepay_amount"); } }
+        private string? _explicitNullValuePrepayAmount = default!;
 #nullable restore
 #else
-        public string PrepayAmount { get; set; }
+        public string PrepayAmount { get => _explicitNullValuePrepayAmount; set { _explicitNullValuePrepayAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prepay_amount"); else _explicitNullProperties?.Remove("prepay_amount"); } }
+        private string _explicitNullValuePrepayAmount = default!;
 #endif
         /// <summary>Balance threshold that triggers auto top-up. Decimal dollars, e.g. `&quot;10.00&quot;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrepayThreshold { get; set; }
+        public string? PrepayThreshold { get => _explicitNullValuePrepayThreshold; set { _explicitNullValuePrepayThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prepay_threshold"); else _explicitNullProperties?.Remove("prepay_threshold"); } }
+        private string? _explicitNullValuePrepayThreshold = default!;
 #nullable restore
 #else
-        public string PrepayThreshold { get; set; }
+        public string PrepayThreshold { get => _explicitNullValuePrepayThreshold; set { _explicitNullValuePrepayThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prepay_threshold"); else _explicitNullProperties?.Remove("prepay_threshold"); } }
+        private string _explicitNullValuePrepayThreshold = default!;
 #endif
         /// <summary>Maximum spend allowed before the prepayment gate blocks usage. Decimal dollars, e.g. `&quot;100.00&quot;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpendLimit { get; set; }
+        public string? SpendLimit { get => _explicitNullValueSpendLimit; set { _explicitNullValueSpendLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_limit"); else _explicitNullProperties?.Remove("spend_limit"); } }
+        private string? _explicitNullValueSpendLimit = default!;
 #nullable restore
 #else
-        public string SpendLimit { get; set; }
+        public string SpendLimit { get => _explicitNullValueSpendLimit; set { _explicitNullValueSpendLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_limit"); else _explicitNullProperties?.Remove("spend_limit"); } }
+        private string _explicitNullValueSpendLimit = default!;
 #endif
         /// <summary>Time at which the prepayment configuration was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PrepaymentConfig"/> and sets the default values.
         /// </summary>
@@ -59,7 +81,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.PrepaymentConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.PrepaymentConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.PrepaymentConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,6 +112,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("prepay_threshold", PrepayThreshold);
             writer.WriteStringValue("spend_limit", SpendLimit);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

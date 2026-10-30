@@ -11,52 +11,76 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Credentials : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("certificate_authority_data") is { } nullNodeCertificateAuthorityData && nullNodeCertificateAuthorityData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateAuthorityData = null;
+            if (parseNode.GetChildNode("client_certificate_data") is { } nullNodeClientCertificateData && nullNodeClientCertificateData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientCertificateData = null;
+            if (parseNode.GetChildNode("client_key_data") is { } nullNodeClientKeyData && nullNodeClientKeyData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientKeyData = null;
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("server") is { } nullNodeServer && nullNodeServer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Server = null;
+            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A base64 encoding of bytes representing the certificate authority data for accessing the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? CertificateAuthorityData { get; set; }
+        public byte[]? CertificateAuthorityData { get => _explicitNullValueCertificateAuthorityData; set { _explicitNullValueCertificateAuthorityData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_authority_data"); else _explicitNullProperties?.Remove("certificate_authority_data"); } }
+        private byte[]? _explicitNullValueCertificateAuthorityData = default!;
 #nullable restore
 #else
-        public byte[] CertificateAuthorityData { get; set; }
+        public byte[] CertificateAuthorityData { get => _explicitNullValueCertificateAuthorityData; set { _explicitNullValueCertificateAuthorityData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_authority_data"); else _explicitNullProperties?.Remove("certificate_authority_data"); } }
+        private byte[] _explicitNullValueCertificateAuthorityData = default!;
 #endif
         /// <summary>A base64 encoding of bytes representing the x509 clientcertificate data for access the cluster. This is only returned for clusterswithout support for token-based authentication.Newly created Kubernetes clusters do not return credentials usingcertificate-based authentication. For additional information,[see here](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/#authenticate).</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? ClientCertificateData { get; set; }
+        public byte[]? ClientCertificateData { get => _explicitNullValueClientCertificateData; set { _explicitNullValueClientCertificateData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_certificate_data"); else _explicitNullProperties?.Remove("client_certificate_data"); } }
+        private byte[]? _explicitNullValueClientCertificateData = default!;
 #nullable restore
 #else
-        public byte[] ClientCertificateData { get; set; }
+        public byte[] ClientCertificateData { get => _explicitNullValueClientCertificateData; set { _explicitNullValueClientCertificateData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_certificate_data"); else _explicitNullProperties?.Remove("client_certificate_data"); } }
+        private byte[] _explicitNullValueClientCertificateData = default!;
 #endif
         /// <summary>A base64 encoding of bytes representing the x509 client keydata for access the cluster. This is only returned for clusters withoutsupport for token-based authentication.Newly created Kubernetes clusters do not return credentials usingcertificate-based authentication. For additional information,[see here](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/#authenticate).</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? ClientKeyData { get; set; }
+        public byte[]? ClientKeyData { get => _explicitNullValueClientKeyData; set { _explicitNullValueClientKeyData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_key_data"); else _explicitNullProperties?.Remove("client_key_data"); } }
+        private byte[]? _explicitNullValueClientKeyData = default!;
 #nullable restore
 #else
-        public byte[] ClientKeyData { get; set; }
+        public byte[] ClientKeyData { get => _explicitNullValueClientKeyData; set { _explicitNullValueClientKeyData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_key_data"); else _explicitNullProperties?.Remove("client_key_data"); } }
+        private byte[] _explicitNullValueClientKeyData = default!;
 #endif
         /// <summary>A time value given in ISO8601 combined date and time format that represents when the access token expires.</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>The URL used to access the cluster API server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Server { get; set; }
+        public string? Server { get => _explicitNullValueServer; set { _explicitNullValueServer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server"); else _explicitNullProperties?.Remove("server"); } }
+        private string? _explicitNullValueServer = default!;
 #nullable restore
 #else
-        public string Server { get; set; }
+        public string Server { get => _explicitNullValueServer; set { _explicitNullValueServer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server"); else _explicitNullProperties?.Remove("server"); } }
+        private string _explicitNullValueServer = default!;
 #endif
         /// <summary>An access token used to authenticate with the cluster. This is only returned for clusters with support for token-based authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public string? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private string? _explicitNullValueToken = default!;
 #nullable restore
 #else
-        public string Token { get; set; }
+        public string Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private string _explicitNullValueToken = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Credentials"/> and sets the default values.
@@ -73,7 +97,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.Credentials CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.Credentials();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.Credentials(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,6 +128,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteStringValue("server", Server);
             writer.WriteStringValue("token", Token);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

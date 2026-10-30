@@ -11,32 +11,48 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Settings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("plan_downgrades") is { } nullNodePlanDowngrades && nullNodePlanDowngrades.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanDowngrades = null;
+            if (parseNode.GetChildNode("settings") is { } nullNodeSettingsProp && nullNodeSettingsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SettingsProp = null;
+            if (parseNode.GetChildNode("tier_coverage") is { } nullNodeTierCoverage && nullNodeTierCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TierCoverage = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The plan_downgrades property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsPlanDowngradesProperty? PlanDowngrades { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsPlanDowngradesProperty? PlanDowngrades { get => _explicitNullValuePlanDowngrades; set { _explicitNullValuePlanDowngrades = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_downgrades"); else _explicitNullProperties?.Remove("plan_downgrades"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsPlanDowngradesProperty? _explicitNullValuePlanDowngrades = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsPlanDowngradesProperty PlanDowngrades { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsPlanDowngradesProperty PlanDowngrades { get => _explicitNullValuePlanDowngrades; set { _explicitNullValuePlanDowngrades = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_downgrades"); else _explicitNullProperties?.Remove("plan_downgrades"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsPlanDowngradesProperty _explicitNullValuePlanDowngrades = default!;
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsSettings? SettingsProp { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsSettings? SettingsProp { get => _explicitNullValueSettingsProp; set { _explicitNullValueSettingsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsSettings? _explicitNullValueSettingsProp = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsSettings SettingsProp { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsSettings SettingsProp { get => _explicitNullValueSettingsProp; set { _explicitNullValueSettingsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsSettings _explicitNullValueSettingsProp = default!;
 #endif
         /// <summary>The tier_coverage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsTierCoverageProperty? TierCoverage { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsTierCoverageProperty? TierCoverage { get => _explicitNullValueTierCoverage; set { _explicitNullValueTierCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier_coverage"); else _explicitNullProperties?.Remove("tier_coverage"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsTierCoverageProperty? _explicitNullValueTierCoverage = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsTierCoverageProperty TierCoverage { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsTierCoverageProperty TierCoverage { get => _explicitNullValueTierCoverage; set { _explicitNullValueTierCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier_coverage"); else _explicitNullProperties?.Remove("tier_coverage"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsTierCoverageProperty _explicitNullValueTierCoverage = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Settings"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.Settings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.Settings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.Settings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsPlanDowngradesProperty>("plan_downgrades", PlanDowngrades);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsSettings>("settings", SettingsProp);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SettingsTierCoverageProperty>("tier_coverage", TierCoverage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

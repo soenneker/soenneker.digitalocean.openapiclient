@@ -12,7 +12,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReservedIpCreate : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpCreateAssignToDroplet"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             var result = new global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpCreate();
             if("ReservedIpCreateAssignToDroplet".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReservedIpCreateAssignToDroplet = new global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpCreateAssignToDroplet();
+                
             }
             else if("ReservedIpCreateReserveToRegion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReservedIpCreateReserveToRegion = new global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpCreateReserveToRegion();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("droplet_id") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("region") != null))();
+            if (result.ReservedIpCreateAssignToDroplet == null && result.ReservedIpCreateReserveToRegion == null && matchesUnionBranch0 && !matchesUnionBranch1) result.ReservedIpCreateAssignToDroplet = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpCreateAssignToDroplet(), parseNode);
+            if (result.ReservedIpCreateAssignToDroplet == null && result.ReservedIpCreateReserveToRegion == null && matchesUnionBranch1 && !matchesUnionBranch0) result.ReservedIpCreateReserveToRegion = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpCreateReserveToRegion(), parseNode);
+            if (result.ReservedIpCreateAssignToDroplet == null && result.ReservedIpCreateReserveToRegion == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ReservedIpCreateAssignToDroplet == null && ReservedIpCreateReserveToRegion == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ReservedIpCreateAssignToDroplet != null && ReservedIpCreateReserveToRegion == null) { if (ReservedIpCreateAssignToDroplet is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReservedIpCreateAssignToDroplet); return; }
+            if (ReservedIpCreateReserveToRegion != null && ReservedIpCreateAssignToDroplet == null) { if (ReservedIpCreateReserveToRegion is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReservedIpCreateReserveToRegion); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ReservedIpCreateAssignToDroplet != null)
             {
+                if (ReservedIpCreateAssignToDroplet is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpCreateAssignToDroplet>(null, ReservedIpCreateAssignToDroplet);
             }
             else if(ReservedIpCreateReserveToRegion != null)
             {
+                if (ReservedIpCreateReserveToRegion is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpCreateReserveToRegion>(null, ReservedIpCreateReserveToRegion);
             }
         }

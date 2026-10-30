@@ -12,36 +12,56 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LogsFilterValue : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bool_value") is { } nullNodeBoolValue && nullNodeBoolValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BoolValue = null;
+            if (parseNode.GetChildNode("number_array_value") is { } nullNodeNumberArrayValue && nullNodeNumberArrayValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberArrayValue = null;
+            if (parseNode.GetChildNode("number_value") is { } nullNodeNumberValue && nullNodeNumberValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberValue = null;
+            if (parseNode.GetChildNode("string_array_value") is { } nullNodeStringArrayValue && nullNodeStringArrayValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StringArrayValue = null;
+            if (parseNode.GetChildNode("string_value") is { } nullNodeStringValue && nullNodeStringValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StringValue = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The bool_value property</summary>
-        public bool? BoolValue { get; set; }
+        public bool? BoolValue { get => _explicitNullValueBoolValue; set { _explicitNullValueBoolValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bool_value"); else _explicitNullProperties?.Remove("bool_value"); } }
+        private bool? _explicitNullValueBoolValue = default!;
         /// <summary>The number_array_value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue? NumberArrayValue { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue? NumberArrayValue { get => _explicitNullValueNumberArrayValue; set { _explicitNullValueNumberArrayValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_array_value"); else _explicitNullProperties?.Remove("number_array_value"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue? _explicitNullValueNumberArrayValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue NumberArrayValue { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue NumberArrayValue { get => _explicitNullValueNumberArrayValue; set { _explicitNullValueNumberArrayValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_array_value"); else _explicitNullProperties?.Remove("number_array_value"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue _explicitNullValueNumberArrayValue = default!;
 #endif
         /// <summary>The number_value property</summary>
-        public double? NumberValue { get; set; }
+        public double? NumberValue { get => _explicitNullValueNumberValue; set { _explicitNullValueNumberValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_value"); else _explicitNullProperties?.Remove("number_value"); } }
+        private double? _explicitNullValueNumberValue = default!;
         /// <summary>The string_array_value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue? StringArrayValue { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue? StringArrayValue { get => _explicitNullValueStringArrayValue; set { _explicitNullValueStringArrayValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_array_value"); else _explicitNullProperties?.Remove("string_array_value"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue? _explicitNullValueStringArrayValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue StringArrayValue { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue StringArrayValue { get => _explicitNullValueStringArrayValue; set { _explicitNullValueStringArrayValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_array_value"); else _explicitNullProperties?.Remove("string_array_value"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue _explicitNullValueStringArrayValue = default!;
 #endif
         /// <summary>The string_value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StringValue { get; set; }
+        public string? StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
+        private string? _explicitNullValueStringValue = default!;
 #nullable restore
 #else
-        public string StringValue { get; set; }
+        public string StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
+        private string _explicitNullValueStringValue = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValue"/> and sets the default values.
@@ -58,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValue();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValue(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,6 +107,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDoubleValue("number_value", NumberValue);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue>("string_array_value", StringArrayValue);
             writer.WriteStringValue("string_value", StringValue);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

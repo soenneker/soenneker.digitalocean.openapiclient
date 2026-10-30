@@ -12,17 +12,32 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetToolHealthResponseHistoryPointsItemHealth : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("data_status") is { } nullNodeDataStatus && nullNodeDataStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataStatus = null;
+            if (parseNode.GetChildNode("latency_p50_ms") is { } nullNodeLatencyP50Ms && nullNodeLatencyP50Ms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatencyP50Ms = null;
+            if (parseNode.GetChildNode("latency_p95_ms") is { } nullNodeLatencyP95Ms && nullNodeLatencyP95Ms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatencyP95Ms = null;
+            if (parseNode.GetChildNode("uptime_percentage") is { } nullNodeUptimePercentage && nullNodeUptimePercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UptimePercentage = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`HEALTH_DATA_STATUS_AVAILABLE` when the window has calls to measure; `HEALTH_DATA_STATUS_NO_DATA` when it has none, in which case the metrics are null. Do not treat no data as healthy.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthMetricsDataStatus? DataStatus { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthMetricsDataStatus? DataStatus { get => _explicitNullValueDataStatus; set { _explicitNullValueDataStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_status"); else _explicitNullProperties?.Remove("data_status"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthMetricsDataStatus? _explicitNullValueDataStatus = default!;
         /// <summary>Median duration of successful calls, in milliseconds. Durations above 40960 ms are reported as 40960.</summary>
-        public double? LatencyP50Ms { get; set; }
+        public double? LatencyP50Ms { get => _explicitNullValueLatencyP50Ms; set { _explicitNullValueLatencyP50Ms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latency_p50_ms"); else _explicitNullProperties?.Remove("latency_p50_ms"); } }
+        private double? _explicitNullValueLatencyP50Ms = default!;
         /// <summary>95th-percentile duration of successful calls, in milliseconds. Durations above 40960 ms are reported as 40960.</summary>
-        public double? LatencyP95Ms { get; set; }
+        public double? LatencyP95Ms { get => _explicitNullValueLatencyP95Ms; set { _explicitNullValueLatencyP95Ms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latency_p95_ms"); else _explicitNullProperties?.Remove("latency_p95_ms"); } }
+        private double? _explicitNullValueLatencyP95Ms = default!;
         /// <summary>Percentage of calls that did not fail because of the provider (an upstream error, timeout, rate limit, or unavailability). Calls that failed for other reasons are not counted.</summary>
-        public double? UptimePercentage { get; set; }
+        public double? UptimePercentage { get => _explicitNullValueUptimePercentage; set { _explicitNullValueUptimePercentage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uptime_percentage"); else _explicitNullProperties?.Remove("uptime_percentage"); } }
+        private double? _explicitNullValueUptimePercentage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistoryPointsItemHealth"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistoryPointsItemHealth CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistoryPointsItemHealth();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolHealthResponseHistoryPointsItemHealth(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDoubleValue("latency_p50_ms", LatencyP50Ms);
             writer.WriteDoubleValue("latency_p95_ms", LatencyP95Ms);
             writer.WriteDoubleValue("uptime_percentage", UptimePercentage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

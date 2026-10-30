@@ -12,58 +12,85 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TagsResources : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("databases") is { } nullNodeDatabases && nullNodeDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Databases = null;
+            if (parseNode.GetChildNode("droplets") is { } nullNodeDroplets && nullNodeDroplets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Droplets = null;
+            if (parseNode.GetChildNode("imgages") is { } nullNodeImgages && nullNodeImgages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Imgages = null;
+            if (parseNode.GetChildNode("last_tagged_uri") is { } nullNodeLastTaggedUri && nullNodeLastTaggedUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastTaggedUri = null;
+            if (parseNode.GetChildNode("volumes") is { } nullNodeVolumes && nullNodeVolumes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volumes = null;
+            if (parseNode.GetChildNode("volume_snapshots") is { } nullNodeVolumeSnapshots && nullNodeVolumeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VolumeSnapshots = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of tagged objects for this type of resource.</summary>
-        public int? Count { get; set; }
+        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        private int? _explicitNullValueCount = default!;
         /// <summary>Databases that are tagged with the specified tag.&lt;br&gt;Requires `database:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Databases? Databases { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Databases? Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Databases? _explicitNullValueDatabases = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Databases Databases { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Databases Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Databases _explicitNullValueDatabases = default!;
 #endif
         /// <summary>Droplets that are tagged with the specified tag.&lt;br&gt;Requires `droplet:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Droplets? Droplets { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Droplets? Droplets { get => _explicitNullValueDroplets; set { _explicitNullValueDroplets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplets"); else _explicitNullProperties?.Remove("droplets"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Droplets? _explicitNullValueDroplets = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Droplets Droplets { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Droplets Droplets { get => _explicitNullValueDroplets; set { _explicitNullValueDroplets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplets"); else _explicitNullProperties?.Remove("droplets"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Droplets _explicitNullValueDroplets = default!;
 #endif
         /// <summary>Images that are tagged with the specified tag.&lt;br&gt;Requires `image:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Imgages? Imgages { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Imgages? Imgages { get => _explicitNullValueImgages; set { _explicitNullValueImgages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imgages"); else _explicitNullProperties?.Remove("imgages"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Imgages? _explicitNullValueImgages = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Imgages Imgages { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Imgages Imgages { get => _explicitNullValueImgages; set { _explicitNullValueImgages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imgages"); else _explicitNullProperties?.Remove("imgages"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Imgages _explicitNullValueImgages = default!;
 #endif
         /// <summary>The URI for the last tagged object for this type of resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastTaggedUri { get; set; }
+        public string? LastTaggedUri { get => _explicitNullValueLastTaggedUri; set { _explicitNullValueLastTaggedUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_tagged_uri"); else _explicitNullProperties?.Remove("last_tagged_uri"); } }
+        private string? _explicitNullValueLastTaggedUri = default!;
 #nullable restore
 #else
-        public string LastTaggedUri { get; set; }
+        public string LastTaggedUri { get => _explicitNullValueLastTaggedUri; set { _explicitNullValueLastTaggedUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_tagged_uri"); else _explicitNullProperties?.Remove("last_tagged_uri"); } }
+        private string _explicitNullValueLastTaggedUri = default!;
 #endif
         /// <summary>Volumes that are tagged with the specified tag.&lt;br&gt;Requires `block_storage:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Volumes? Volumes { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Volumes? Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Volumes? _explicitNullValueVolumes = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Volumes Volumes { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Volumes Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Volumes _explicitNullValueVolumes = default!;
 #endif
         /// <summary>Volume Snapshots that are tagged with the specified tag.&lt;br&gt;Requires `block_storage_snapshot:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2VolumeSnapshots? VolumeSnapshots { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2VolumeSnapshots? VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2VolumeSnapshots? _explicitNullValueVolumeSnapshots = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2VolumeSnapshots VolumeSnapshots { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2VolumeSnapshots VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2VolumeSnapshots _explicitNullValueVolumeSnapshots = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResources"/> and sets the default values.
@@ -80,7 +107,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResources CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResources();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResources(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +140,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("last_tagged_uri", LastTaggedUri);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2Volumes>("volumes", Volumes);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TagsResourcesAllOf2VolumeSnapshots>("volume_snapshots", VolumeSnapshots);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

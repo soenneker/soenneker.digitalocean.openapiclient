@@ -11,11 +11,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MysqlSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auth_plugin") is { } nullNodeAuthPlugin && nullNodeAuthPlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthPlugin = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A string specifying the authentication method to be used for connectionsto the MySQL user account. The valid values are `mysql_native_password`or `caching_sha2_password`. If excluded when creating a new user, thedefault for the version of MySQL in use will be used. As of MySQL 8.0, thedefault is `caching_sha2_password`.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettingsAuthPlugin? AuthPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettingsAuthPlugin? AuthPlugin { get => _explicitNullValueAuthPlugin; set { _explicitNullValueAuthPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_plugin"); else _explicitNullProperties?.Remove("auth_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettingsAuthPlugin? _explicitNullValueAuthPlugin = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings"/> and sets the default values.
         /// </summary>
@@ -31,7 +40,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,6 +61,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettingsAuthPlugin>("auth_plugin", AuthPlugin);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

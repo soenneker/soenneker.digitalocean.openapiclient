@@ -11,89 +11,176 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class KafkaAdvancedConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auto_create_topics_enable") is { } nullNodeAutoCreateTopicsEnable && nullNodeAutoCreateTopicsEnable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateTopicsEnable = null;
+            if (parseNode.GetChildNode("compression_type") is { } nullNodeCompressionType && nullNodeCompressionType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompressionType = null;
+            if (parseNode.GetChildNode("connections_max_idle_ms") is { } nullNodeConnectionsMaxIdleMs && nullNodeConnectionsMaxIdleMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionsMaxIdleMs = null;
+            if (parseNode.GetChildNode("default_replication_factor") is { } nullNodeDefaultReplicationFactor && nullNodeDefaultReplicationFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultReplicationFactor = null;
+            if (parseNode.GetChildNode("group_initial_rebalance_delay_ms") is { } nullNodeGroupInitialRebalanceDelayMs && nullNodeGroupInitialRebalanceDelayMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupInitialRebalanceDelayMs = null;
+            if (parseNode.GetChildNode("group_max_session_timeout_ms") is { } nullNodeGroupMaxSessionTimeoutMs && nullNodeGroupMaxSessionTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupMaxSessionTimeoutMs = null;
+            if (parseNode.GetChildNode("group_min_session_timeout_ms") is { } nullNodeGroupMinSessionTimeoutMs && nullNodeGroupMinSessionTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupMinSessionTimeoutMs = null;
+            if (parseNode.GetChildNode("log_cleaner_delete_retention_ms") is { } nullNodeLogCleanerDeleteRetentionMs && nullNodeLogCleanerDeleteRetentionMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCleanerDeleteRetentionMs = null;
+            if (parseNode.GetChildNode("log_cleaner_max_compaction_lag_ms") is { } nullNodeLogCleanerMaxCompactionLagMs && nullNodeLogCleanerMaxCompactionLagMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCleanerMaxCompactionLagMs = null;
+            if (parseNode.GetChildNode("log_cleaner_min_cleanable_ratio") is { } nullNodeLogCleanerMinCleanableRatio && nullNodeLogCleanerMinCleanableRatio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCleanerMinCleanableRatio = null;
+            if (parseNode.GetChildNode("log_cleaner_min_compaction_lag_ms") is { } nullNodeLogCleanerMinCompactionLagMs && nullNodeLogCleanerMinCompactionLagMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCleanerMinCompactionLagMs = null;
+            if (parseNode.GetChildNode("log_cleanup_policy") is { } nullNodeLogCleanupPolicy && nullNodeLogCleanupPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCleanupPolicy = null;
+            if (parseNode.GetChildNode("log_flush_interval_messages") is { } nullNodeLogFlushIntervalMessages && nullNodeLogFlushIntervalMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogFlushIntervalMessages = null;
+            if (parseNode.GetChildNode("log_flush_interval_ms") is { } nullNodeLogFlushIntervalMs && nullNodeLogFlushIntervalMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogFlushIntervalMs = null;
+            if (parseNode.GetChildNode("log_index_interval_bytes") is { } nullNodeLogIndexIntervalBytes && nullNodeLogIndexIntervalBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogIndexIntervalBytes = null;
+            if (parseNode.GetChildNode("log_index_size_max_bytes") is { } nullNodeLogIndexSizeMaxBytes && nullNodeLogIndexSizeMaxBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogIndexSizeMaxBytes = null;
+            if (parseNode.GetChildNode("log_message_downconversion_enable") is { } nullNodeLogMessageDownconversionEnable && nullNodeLogMessageDownconversionEnable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogMessageDownconversionEnable = null;
+            if (parseNode.GetChildNode("log_message_timestamp_difference_max_ms") is { } nullNodeLogMessageTimestampDifferenceMaxMs && nullNodeLogMessageTimestampDifferenceMaxMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogMessageTimestampDifferenceMaxMs = null;
+            if (parseNode.GetChildNode("log_message_timestamp_type") is { } nullNodeLogMessageTimestampType && nullNodeLogMessageTimestampType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogMessageTimestampType = null;
+            if (parseNode.GetChildNode("log_preallocate") is { } nullNodeLogPreallocate && nullNodeLogPreallocate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogPreallocate = null;
+            if (parseNode.GetChildNode("log_retention_bytes") is { } nullNodeLogRetentionBytes && nullNodeLogRetentionBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogRetentionBytes = null;
+            if (parseNode.GetChildNode("log_retention_hours") is { } nullNodeLogRetentionHours && nullNodeLogRetentionHours.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogRetentionHours = null;
+            if (parseNode.GetChildNode("log_retention_ms") is { } nullNodeLogRetentionMs && nullNodeLogRetentionMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogRetentionMs = null;
+            if (parseNode.GetChildNode("log_roll_jitter_ms") is { } nullNodeLogRollJitterMs && nullNodeLogRollJitterMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogRollJitterMs = null;
+            if (parseNode.GetChildNode("log_roll_ms") is { } nullNodeLogRollMs && nullNodeLogRollMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogRollMs = null;
+            if (parseNode.GetChildNode("log_segment_bytes") is { } nullNodeLogSegmentBytes && nullNodeLogSegmentBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogSegmentBytes = null;
+            if (parseNode.GetChildNode("log_segment_delete_delay_ms") is { } nullNodeLogSegmentDeleteDelayMs && nullNodeLogSegmentDeleteDelayMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogSegmentDeleteDelayMs = null;
+            if (parseNode.GetChildNode("max_connections_per_ip") is { } nullNodeMaxConnectionsPerIp && nullNodeMaxConnectionsPerIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxConnectionsPerIp = null;
+            if (parseNode.GetChildNode("max_incremental_fetch_session_cache_slots") is { } nullNodeMaxIncrementalFetchSessionCacheSlots && nullNodeMaxIncrementalFetchSessionCacheSlots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIncrementalFetchSessionCacheSlots = null;
+            if (parseNode.GetChildNode("message_max_bytes") is { } nullNodeMessageMaxBytes && nullNodeMessageMaxBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageMaxBytes = null;
+            if (parseNode.GetChildNode("min_insync_replicas") is { } nullNodeMinInsyncReplicas && nullNodeMinInsyncReplicas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinInsyncReplicas = null;
+            if (parseNode.GetChildNode("num_partitions") is { } nullNodeNumPartitions && nullNodeNumPartitions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumPartitions = null;
+            if (parseNode.GetChildNode("offsets_retention_minutes") is { } nullNodeOffsetsRetentionMinutes && nullNodeOffsetsRetentionMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OffsetsRetentionMinutes = null;
+            if (parseNode.GetChildNode("producer_purgatory_purge_interval_requests") is { } nullNodeProducerPurgatoryPurgeIntervalRequests && nullNodeProducerPurgatoryPurgeIntervalRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProducerPurgatoryPurgeIntervalRequests = null;
+            if (parseNode.GetChildNode("replica_fetch_max_bytes") is { } nullNodeReplicaFetchMaxBytes && nullNodeReplicaFetchMaxBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplicaFetchMaxBytes = null;
+            if (parseNode.GetChildNode("replica_fetch_response_max_bytes") is { } nullNodeReplicaFetchResponseMaxBytes && nullNodeReplicaFetchResponseMaxBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplicaFetchResponseMaxBytes = null;
+            if (parseNode.GetChildNode("schema_registry") is { } nullNodeSchemaRegistry && nullNodeSchemaRegistry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaRegistry = null;
+            if (parseNode.GetChildNode("socket_request_max_bytes") is { } nullNodeSocketRequestMaxBytes && nullNodeSocketRequestMaxBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SocketRequestMaxBytes = null;
+            if (parseNode.GetChildNode("transaction_remove_expired_transaction_cleanup_interval_ms") is { } nullNodeTransactionRemoveExpiredTransactionCleanupIntervalMs && nullNodeTransactionRemoveExpiredTransactionCleanupIntervalMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionRemoveExpiredTransactionCleanupIntervalMs = null;
+            if (parseNode.GetChildNode("transaction_state_log_segment_bytes") is { } nullNodeTransactionStateLogSegmentBytes && nullNodeTransactionStateLogSegmentBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionStateLogSegmentBytes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable auto creation of topics</summary>
-        public bool? AutoCreateTopicsEnable { get; set; }
+        public bool? AutoCreateTopicsEnable { get => _explicitNullValueAutoCreateTopicsEnable; set { _explicitNullValueAutoCreateTopicsEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_create_topics_enable"); else _explicitNullProperties?.Remove("auto_create_topics_enable"); } }
+        private bool? _explicitNullValueAutoCreateTopicsEnable = default!;
         /// <summary>Specify the final compression type for a given topic. This configuration accepts the standard compression codecs (&apos;gzip&apos;, &apos;snappy&apos;, &apos;lz4&apos;, &apos;zstd&apos;). It additionally accepts &apos;uncompressed&apos; which is equivalent to no compression; and &apos;producer&apos; which means retain the original compression codec set by the producer.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigCompressionType? CompressionType { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigCompressionType? CompressionType { get => _explicitNullValueCompressionType; set { _explicitNullValueCompressionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compression_type"); else _explicitNullProperties?.Remove("compression_type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigCompressionType? _explicitNullValueCompressionType = default!;
         /// <summary>Idle connections timeout: the server socket processor threads close the connections that idle for longer than this.</summary>
-        public int? ConnectionsMaxIdleMs { get; set; }
+        public int? ConnectionsMaxIdleMs { get => _explicitNullValueConnectionsMaxIdleMs; set { _explicitNullValueConnectionsMaxIdleMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections_max_idle_ms"); else _explicitNullProperties?.Remove("connections_max_idle_ms"); } }
+        private int? _explicitNullValueConnectionsMaxIdleMs = default!;
         /// <summary>Replication factor for autocreated topics</summary>
-        public int? DefaultReplicationFactor { get; set; }
+        public int? DefaultReplicationFactor { get => _explicitNullValueDefaultReplicationFactor; set { _explicitNullValueDefaultReplicationFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_replication_factor"); else _explicitNullProperties?.Remove("default_replication_factor"); } }
+        private int? _explicitNullValueDefaultReplicationFactor = default!;
         /// <summary>The amount of time, in milliseconds, the group coordinator will wait for more consumers to join a new group before performing the first rebalance. A longer delay means potentially fewer rebalances, but increases the time until processing begins. The default value for this is 3 seconds. During development and testing it might be desirable to set this to 0 in order to not delay test execution time.</summary>
-        public int? GroupInitialRebalanceDelayMs { get; set; }
+        public int? GroupInitialRebalanceDelayMs { get => _explicitNullValueGroupInitialRebalanceDelayMs; set { _explicitNullValueGroupInitialRebalanceDelayMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_initial_rebalance_delay_ms"); else _explicitNullProperties?.Remove("group_initial_rebalance_delay_ms"); } }
+        private int? _explicitNullValueGroupInitialRebalanceDelayMs = default!;
         /// <summary>The maximum allowed session timeout for registered consumers. Longer timeouts give consumers more time to process messages in between heartbeats at the cost of a longer time to detect failures.</summary>
-        public int? GroupMaxSessionTimeoutMs { get; set; }
+        public int? GroupMaxSessionTimeoutMs { get => _explicitNullValueGroupMaxSessionTimeoutMs; set { _explicitNullValueGroupMaxSessionTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_max_session_timeout_ms"); else _explicitNullProperties?.Remove("group_max_session_timeout_ms"); } }
+        private int? _explicitNullValueGroupMaxSessionTimeoutMs = default!;
         /// <summary>The minimum allowed session timeout for registered consumers. Longer timeouts give consumers more time to process messages in between heartbeats at the cost of a longer time to detect failures.</summary>
-        public int? GroupMinSessionTimeoutMs { get; set; }
+        public int? GroupMinSessionTimeoutMs { get => _explicitNullValueGroupMinSessionTimeoutMs; set { _explicitNullValueGroupMinSessionTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_min_session_timeout_ms"); else _explicitNullProperties?.Remove("group_min_session_timeout_ms"); } }
+        private int? _explicitNullValueGroupMinSessionTimeoutMs = default!;
         /// <summary>How long are delete records retained?</summary>
-        public int? LogCleanerDeleteRetentionMs { get; set; }
+        public int? LogCleanerDeleteRetentionMs { get => _explicitNullValueLogCleanerDeleteRetentionMs; set { _explicitNullValueLogCleanerDeleteRetentionMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_delete_retention_ms"); else _explicitNullProperties?.Remove("log_cleaner_delete_retention_ms"); } }
+        private int? _explicitNullValueLogCleanerDeleteRetentionMs = default!;
         /// <summary>The maximum amount of time message will remain uncompacted. Only applicable for logs that are being compacted</summary>
-        public int? LogCleanerMaxCompactionLagMs { get; set; }
+        public int? LogCleanerMaxCompactionLagMs { get => _explicitNullValueLogCleanerMaxCompactionLagMs; set { _explicitNullValueLogCleanerMaxCompactionLagMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_max_compaction_lag_ms"); else _explicitNullProperties?.Remove("log_cleaner_max_compaction_lag_ms"); } }
+        private int? _explicitNullValueLogCleanerMaxCompactionLagMs = default!;
         /// <summary>Controls log compactor frequency. Larger value means more frequent compactions but also more space wasted for logs. Consider setting log_cleaner_max_compaction_lag_ms to enforce compactions sooner, instead of setting a very high value for this option.</summary>
-        public double? LogCleanerMinCleanableRatio { get; set; }
+        public double? LogCleanerMinCleanableRatio { get => _explicitNullValueLogCleanerMinCleanableRatio; set { _explicitNullValueLogCleanerMinCleanableRatio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_min_cleanable_ratio"); else _explicitNullProperties?.Remove("log_cleaner_min_cleanable_ratio"); } }
+        private double? _explicitNullValueLogCleanerMinCleanableRatio = default!;
         /// <summary>The minimum time a message will remain uncompacted in the log. Only applicable for logs that are being compacted.</summary>
-        public int? LogCleanerMinCompactionLagMs { get; set; }
+        public int? LogCleanerMinCompactionLagMs { get => _explicitNullValueLogCleanerMinCompactionLagMs; set { _explicitNullValueLogCleanerMinCompactionLagMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_min_compaction_lag_ms"); else _explicitNullProperties?.Remove("log_cleaner_min_compaction_lag_ms"); } }
+        private int? _explicitNullValueLogCleanerMinCompactionLagMs = default!;
         /// <summary>The default cleanup policy for segments beyond the retention window</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy? LogCleanupPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy? LogCleanupPolicy { get => _explicitNullValueLogCleanupPolicy; set { _explicitNullValueLogCleanupPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleanup_policy"); else _explicitNullProperties?.Remove("log_cleanup_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy? _explicitNullValueLogCleanupPolicy = default!;
         /// <summary>The number of messages accumulated on a log partition before messages are flushed to disk</summary>
-        public long? LogFlushIntervalMessages { get; set; }
+        public long? LogFlushIntervalMessages { get => _explicitNullValueLogFlushIntervalMessages; set { _explicitNullValueLogFlushIntervalMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_flush_interval_messages"); else _explicitNullProperties?.Remove("log_flush_interval_messages"); } }
+        private long? _explicitNullValueLogFlushIntervalMessages = default!;
         /// <summary>The maximum time in ms that a message in any topic is kept in memory before flushed to disk. If not set, the value in log.flush.scheduler.interval.ms is used</summary>
-        public int? LogFlushIntervalMs { get; set; }
+        public int? LogFlushIntervalMs { get => _explicitNullValueLogFlushIntervalMs; set { _explicitNullValueLogFlushIntervalMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_flush_interval_ms"); else _explicitNullProperties?.Remove("log_flush_interval_ms"); } }
+        private int? _explicitNullValueLogFlushIntervalMs = default!;
         /// <summary>The interval with which Kafka adds an entry to the offset index</summary>
-        public int? LogIndexIntervalBytes { get; set; }
+        public int? LogIndexIntervalBytes { get => _explicitNullValueLogIndexIntervalBytes; set { _explicitNullValueLogIndexIntervalBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_index_interval_bytes"); else _explicitNullProperties?.Remove("log_index_interval_bytes"); } }
+        private int? _explicitNullValueLogIndexIntervalBytes = default!;
         /// <summary>The maximum size in bytes of the offset index</summary>
-        public int? LogIndexSizeMaxBytes { get; set; }
+        public int? LogIndexSizeMaxBytes { get => _explicitNullValueLogIndexSizeMaxBytes; set { _explicitNullValueLogIndexSizeMaxBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_index_size_max_bytes"); else _explicitNullProperties?.Remove("log_index_size_max_bytes"); } }
+        private int? _explicitNullValueLogIndexSizeMaxBytes = default!;
         /// <summary>This configuration controls whether down-conversion of message formats is enabled to satisfy consume requests.</summary>
-        public bool? LogMessageDownconversionEnable { get; set; }
+        public bool? LogMessageDownconversionEnable { get => _explicitNullValueLogMessageDownconversionEnable; set { _explicitNullValueLogMessageDownconversionEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_message_downconversion_enable"); else _explicitNullProperties?.Remove("log_message_downconversion_enable"); } }
+        private bool? _explicitNullValueLogMessageDownconversionEnable = default!;
         /// <summary>The maximum difference allowed between the timestamp when a broker receives a message and the timestamp specified in the message</summary>
-        public int? LogMessageTimestampDifferenceMaxMs { get; set; }
+        public int? LogMessageTimestampDifferenceMaxMs { get => _explicitNullValueLogMessageTimestampDifferenceMaxMs; set { _explicitNullValueLogMessageTimestampDifferenceMaxMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_message_timestamp_difference_max_ms"); else _explicitNullProperties?.Remove("log_message_timestamp_difference_max_ms"); } }
+        private int? _explicitNullValueLogMessageTimestampDifferenceMaxMs = default!;
         /// <summary>Define whether the timestamp in the message is message create time or log append time.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogMessageTimestampType? LogMessageTimestampType { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogMessageTimestampType? LogMessageTimestampType { get => _explicitNullValueLogMessageTimestampType; set { _explicitNullValueLogMessageTimestampType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_message_timestamp_type"); else _explicitNullProperties?.Remove("log_message_timestamp_type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogMessageTimestampType? _explicitNullValueLogMessageTimestampType = default!;
         /// <summary>Controls whether to preallocate a file when creating a new segment</summary>
-        public bool? LogPreallocate { get; set; }
+        public bool? LogPreallocate { get => _explicitNullValueLogPreallocate; set { _explicitNullValueLogPreallocate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_preallocate"); else _explicitNullProperties?.Remove("log_preallocate"); } }
+        private bool? _explicitNullValueLogPreallocate = default!;
         /// <summary>The maximum size of the log before deleting messages</summary>
-        public int? LogRetentionBytes { get; set; }
+        public int? LogRetentionBytes { get => _explicitNullValueLogRetentionBytes; set { _explicitNullValueLogRetentionBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_retention_bytes"); else _explicitNullProperties?.Remove("log_retention_bytes"); } }
+        private int? _explicitNullValueLogRetentionBytes = default!;
         /// <summary>The number of hours to keep a log file before deleting it</summary>
-        public int? LogRetentionHours { get; set; }
+        public int? LogRetentionHours { get => _explicitNullValueLogRetentionHours; set { _explicitNullValueLogRetentionHours = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_retention_hours"); else _explicitNullProperties?.Remove("log_retention_hours"); } }
+        private int? _explicitNullValueLogRetentionHours = default!;
         /// <summary>The number of milliseconds to keep a log file before deleting it (in milliseconds), If not set, the value in log.retention.minutes is used. If set to -1, no time limit is applied.</summary>
-        public int? LogRetentionMs { get; set; }
+        public int? LogRetentionMs { get => _explicitNullValueLogRetentionMs; set { _explicitNullValueLogRetentionMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_retention_ms"); else _explicitNullProperties?.Remove("log_retention_ms"); } }
+        private int? _explicitNullValueLogRetentionMs = default!;
         /// <summary>The maximum jitter to subtract from logRollTimeMillis (in milliseconds). If not set, the value in log.roll.jitter.hours is used</summary>
-        public int? LogRollJitterMs { get; set; }
+        public int? LogRollJitterMs { get => _explicitNullValueLogRollJitterMs; set { _explicitNullValueLogRollJitterMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_roll_jitter_ms"); else _explicitNullProperties?.Remove("log_roll_jitter_ms"); } }
+        private int? _explicitNullValueLogRollJitterMs = default!;
         /// <summary>The maximum time before a new log segment is rolled out (in milliseconds).</summary>
-        public int? LogRollMs { get; set; }
+        public int? LogRollMs { get => _explicitNullValueLogRollMs; set { _explicitNullValueLogRollMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_roll_ms"); else _explicitNullProperties?.Remove("log_roll_ms"); } }
+        private int? _explicitNullValueLogRollMs = default!;
         /// <summary>The maximum size of a single log file</summary>
-        public int? LogSegmentBytes { get; set; }
+        public int? LogSegmentBytes { get => _explicitNullValueLogSegmentBytes; set { _explicitNullValueLogSegmentBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_segment_bytes"); else _explicitNullProperties?.Remove("log_segment_bytes"); } }
+        private int? _explicitNullValueLogSegmentBytes = default!;
         /// <summary>The amount of time to wait before deleting a file from the filesystem</summary>
-        public int? LogSegmentDeleteDelayMs { get; set; }
+        public int? LogSegmentDeleteDelayMs { get => _explicitNullValueLogSegmentDeleteDelayMs; set { _explicitNullValueLogSegmentDeleteDelayMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_segment_delete_delay_ms"); else _explicitNullProperties?.Remove("log_segment_delete_delay_ms"); } }
+        private int? _explicitNullValueLogSegmentDeleteDelayMs = default!;
         /// <summary>The maximum number of connections allowed from each ip address (defaults to 2147483647).</summary>
-        public int? MaxConnectionsPerIp { get; set; }
+        public int? MaxConnectionsPerIp { get => _explicitNullValueMaxConnectionsPerIp; set { _explicitNullValueMaxConnectionsPerIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_connections_per_ip"); else _explicitNullProperties?.Remove("max_connections_per_ip"); } }
+        private int? _explicitNullValueMaxConnectionsPerIp = default!;
         /// <summary>The maximum number of incremental fetch sessions that the broker will maintain.</summary>
-        public int? MaxIncrementalFetchSessionCacheSlots { get; set; }
+        public int? MaxIncrementalFetchSessionCacheSlots { get => _explicitNullValueMaxIncrementalFetchSessionCacheSlots; set { _explicitNullValueMaxIncrementalFetchSessionCacheSlots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_incremental_fetch_session_cache_slots"); else _explicitNullProperties?.Remove("max_incremental_fetch_session_cache_slots"); } }
+        private int? _explicitNullValueMaxIncrementalFetchSessionCacheSlots = default!;
         /// <summary>The maximum size of message that the server can receive.</summary>
-        public int? MessageMaxBytes { get; set; }
+        public int? MessageMaxBytes { get => _explicitNullValueMessageMaxBytes; set { _explicitNullValueMessageMaxBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_max_bytes"); else _explicitNullProperties?.Remove("message_max_bytes"); } }
+        private int? _explicitNullValueMessageMaxBytes = default!;
         /// <summary>When a producer sets acks to &apos;all&apos; (or &apos;-1&apos;), min_insync_replicas specifies the minimum number of replicas that must acknowledge a write for the write to be considered successful.</summary>
-        public int? MinInsyncReplicas { get; set; }
+        public int? MinInsyncReplicas { get => _explicitNullValueMinInsyncReplicas; set { _explicitNullValueMinInsyncReplicas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_insync_replicas"); else _explicitNullProperties?.Remove("min_insync_replicas"); } }
+        private int? _explicitNullValueMinInsyncReplicas = default!;
         /// <summary>Number of partitions for autocreated topics</summary>
-        public int? NumPartitions { get; set; }
+        public int? NumPartitions { get => _explicitNullValueNumPartitions; set { _explicitNullValueNumPartitions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_partitions"); else _explicitNullProperties?.Remove("num_partitions"); } }
+        private int? _explicitNullValueNumPartitions = default!;
         /// <summary>Log retention window in minutes for offsets topic</summary>
-        public int? OffsetsRetentionMinutes { get; set; }
+        public int? OffsetsRetentionMinutes { get => _explicitNullValueOffsetsRetentionMinutes; set { _explicitNullValueOffsetsRetentionMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offsets_retention_minutes"); else _explicitNullProperties?.Remove("offsets_retention_minutes"); } }
+        private int? _explicitNullValueOffsetsRetentionMinutes = default!;
         /// <summary>The purge interval (in number of requests) of the producer request purgatory (defaults to 1000).</summary>
-        public int? ProducerPurgatoryPurgeIntervalRequests { get; set; }
+        public int? ProducerPurgatoryPurgeIntervalRequests { get => _explicitNullValueProducerPurgatoryPurgeIntervalRequests; set { _explicitNullValueProducerPurgatoryPurgeIntervalRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_purgatory_purge_interval_requests"); else _explicitNullProperties?.Remove("producer_purgatory_purge_interval_requests"); } }
+        private int? _explicitNullValueProducerPurgatoryPurgeIntervalRequests = default!;
         /// <summary>The number of bytes of messages to attempt to fetch for each partition (defaults to 1048576). This is not an absolute maximum, if the first record batch in the first non-empty partition of the fetch is larger than this value, the record batch will still be returned to ensure that progress can be made.</summary>
-        public int? ReplicaFetchMaxBytes { get; set; }
+        public int? ReplicaFetchMaxBytes { get => _explicitNullValueReplicaFetchMaxBytes; set { _explicitNullValueReplicaFetchMaxBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replica_fetch_max_bytes"); else _explicitNullProperties?.Remove("replica_fetch_max_bytes"); } }
+        private int? _explicitNullValueReplicaFetchMaxBytes = default!;
         /// <summary>Maximum bytes expected for the entire fetch response (defaults to 10485760). Records are fetched in batches, and if the first record batch in the first non-empty partition of the fetch is larger than this value, the record batch will still be returned to ensure that progress can be made. As such, this is not an absolute maximum.</summary>
-        public int? ReplicaFetchResponseMaxBytes { get; set; }
+        public int? ReplicaFetchResponseMaxBytes { get => _explicitNullValueReplicaFetchResponseMaxBytes; set { _explicitNullValueReplicaFetchResponseMaxBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replica_fetch_response_max_bytes"); else _explicitNullProperties?.Remove("replica_fetch_response_max_bytes"); } }
+        private int? _explicitNullValueReplicaFetchResponseMaxBytes = default!;
         /// <summary>Enable creation of schema registry for the Kafka cluster. Schema_registry only works with General Purpose - Dedicated CPU plans.</summary>
-        public bool? SchemaRegistry { get; set; }
+        public bool? SchemaRegistry { get => _explicitNullValueSchemaRegistry; set { _explicitNullValueSchemaRegistry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema_registry"); else _explicitNullProperties?.Remove("schema_registry"); } }
+        private bool? _explicitNullValueSchemaRegistry = default!;
         /// <summary>The maximum number of bytes in a socket request (defaults to 104857600).</summary>
-        public int? SocketRequestMaxBytes { get; set; }
+        public int? SocketRequestMaxBytes { get => _explicitNullValueSocketRequestMaxBytes; set { _explicitNullValueSocketRequestMaxBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("socket_request_max_bytes"); else _explicitNullProperties?.Remove("socket_request_max_bytes"); } }
+        private int? _explicitNullValueSocketRequestMaxBytes = default!;
         /// <summary>The interval at which to remove transactions that have expired due to transactional.id.expiration.ms passing (defaults to 3600000 (1 hour)).</summary>
-        public int? TransactionRemoveExpiredTransactionCleanupIntervalMs { get; set; }
+        public int? TransactionRemoveExpiredTransactionCleanupIntervalMs { get => _explicitNullValueTransactionRemoveExpiredTransactionCleanupIntervalMs; set { _explicitNullValueTransactionRemoveExpiredTransactionCleanupIntervalMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_remove_expired_transaction_cleanup_interval_ms"); else _explicitNullProperties?.Remove("transaction_remove_expired_transaction_cleanup_interval_ms"); } }
+        private int? _explicitNullValueTransactionRemoveExpiredTransactionCleanupIntervalMs = default!;
         /// <summary>The transaction topic segment bytes should be kept relatively small in order to facilitate faster log compaction and cache loads (defaults to 104857600 (100 mebibytes)).</summary>
-        public int? TransactionStateLogSegmentBytes { get; set; }
+        public int? TransactionStateLogSegmentBytes { get => _explicitNullValueTransactionStateLogSegmentBytes; set { _explicitNullValueTransactionStateLogSegmentBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_state_log_segment_bytes"); else _explicitNullProperties?.Remove("transaction_state_log_segment_bytes"); } }
+        private int? _explicitNullValueTransactionStateLogSegmentBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfig"/> and sets the default values.
         /// </summary>
@@ -111,7 +198,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -210,6 +297,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("socket_request_max_bytes", SocketRequestMaxBytes);
             writer.WriteIntValue("transaction_remove_expired_transaction_cleanup_interval_ms", TransactionRemoveExpiredTransactionCleanupIntervalMs);
             writer.WriteIntValue("transaction_state_log_segment_bytes", TransactionStateLogSegmentBytes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

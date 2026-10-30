@@ -12,30 +12,46 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentConfigCloneRequest : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("oauth_assignments") is { } nullNodeOauthAssignments && nullNodeOauthAssignments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthAssignments = null;
+            if (parseNode.GetChildNode("secrets") is { } nullNodeSecrets && nullNodeSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secrets = null;
+        }
+
         /// <summary>New config name, unique among the team&apos;s active configs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Write-only map from oauth logical slot to an OAuth assignment UUID. Required when the source declares those slots; never copied from the source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestOAuthAssignmentsProperty? OauthAssignments { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestOAuthAssignmentsProperty? OauthAssignments { get => _explicitNullValueOauthAssignments; set { _explicitNullValueOauthAssignments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_assignments"); else _explicitNullProperties?.Remove("oauth_assignments"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestOAuthAssignmentsProperty? _explicitNullValueOauthAssignments = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestOAuthAssignmentsProperty OauthAssignments { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestOAuthAssignmentsProperty OauthAssignments { get => _explicitNullValueOauthAssignments; set { _explicitNullValueOauthAssignments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_assignments"); else _explicitNullProperties?.Remove("oauth_assignments"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestOAuthAssignmentsProperty _explicitNullValueOauthAssignments = default!;
 #endif
         /// <summary>Write-only map from tenantSecret logical slot to plaintext. Required when the source declares those slots; never copied from the source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestSecretsProperty? Secrets { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestSecretsProperty? Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestSecretsProperty? _explicitNullValueSecrets = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestSecretsProperty Secrets { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestSecretsProperty Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestSecretsProperty _explicitNullValueSecrets = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestOAuthAssignmentsProperty>("oauth_assignments", OauthAssignments);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestSecretsProperty>("secrets", Secrets);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentConfigCloneRequestSecretsProperty>("secrets", Secrets);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

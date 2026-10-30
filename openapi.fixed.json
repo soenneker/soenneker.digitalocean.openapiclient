@@ -4832,7 +4832,24 @@
             "$ref": "#/components/responses/data_plane_responses_unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "description": "The token or session cannot be used for this request. Tokens without the \u0060action_gateway:execute\u0060 scope, and accounts that are not in good standing, are rejected with the standard DigitalOcean API error format. Session failures return a tool result: the session ID is missing or invalid, the session belongs to another user or team, the session has no policy, or the session policy denies the operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponseError"
+                },
+                "example": {
+                  "status": "failed",
+                  "error": {
+                    "class": "forbidden",
+                    "message": "A valid session ID is required to invoke tools.",
+                    "retriable": false,
+                    "recovery_hint": "fix_args"
+                  },
+                  "call_id": ""
+                }
+              }
+            }
           },
           "412": {
             "$ref": "#/components/responses/precondition_failed"
@@ -4952,7 +4969,24 @@
             "$ref": "#/components/responses/data_plane_responses_unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "description": "The token or session cannot be used for this request. Tokens without the \u0060action_gateway:execute\u0060 scope, and accounts that are not in good standing, are rejected with the standard DigitalOcean API error format. Session failures return a tool result: the session ID is missing or invalid, the session belongs to another user or team, the session has no policy, or the session policy denies the operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponseError"
+                },
+                "example": {
+                  "status": "failed",
+                  "error": {
+                    "class": "forbidden",
+                    "message": "A valid session ID is required to invoke tools.",
+                    "retriable": false,
+                    "recovery_hint": "fix_args"
+                  },
+                  "call_id": ""
+                }
+              }
+            }
           },
           "412": {
             "$ref": "#/components/responses/precondition_failed"
@@ -5147,7 +5181,24 @@
             "$ref": "#/components/responses/payment_required"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "description": "The token or session cannot be used for this request. Tokens without the \u0060action_gateway:execute\u0060 scope, and accounts that are not in good standing, are rejected with the standard DigitalOcean API error format. Session failures return a tool result: the session ID is missing or invalid, the session belongs to another user or team, the session has no policy, or the session policy denies the operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponseError"
+                },
+                "example": {
+                  "status": "failed",
+                  "error": {
+                    "class": "forbidden",
+                    "message": "A valid session ID is required to invoke tools.",
+                    "retriable": false,
+                    "recovery_hint": "fix_args"
+                  },
+                  "call_id": ""
+                }
+              }
+            }
           },
           "412": {
             "$ref": "#/components/responses/precondition_failed"
@@ -5238,7 +5289,24 @@
             "$ref": "#/components/responses/data_plane_responses_unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "description": "The token or session cannot be used for this request. Tokens without the \u0060action_gateway:execute\u0060 scope, and accounts that are not in good standing, are rejected with the standard DigitalOcean API error format. Session failures return a tool result: the session ID is missing or invalid, the session belongs to another user or team, the session has no policy, or the session policy denies the operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponseError"
+                },
+                "example": {
+                  "status": "failed",
+                  "error": {
+                    "class": "forbidden",
+                    "message": "A valid session ID is required to invoke tools.",
+                    "retriable": false,
+                    "recovery_hint": "fix_args"
+                  },
+                  "call_id": ""
+                }
+              }
+            }
           },
           "412": {
             "$ref": "#/components/responses/precondition_failed"
@@ -5348,7 +5416,24 @@
             "$ref": "#/components/responses/data_plane_responses_unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "description": "The token or session cannot be used for this request. Tokens without the \u0060action_gateway:execute\u0060 scope, and accounts that are not in good standing, are rejected with the standard DigitalOcean API error format. Session failures return a tool result: the session ID is missing or invalid, the session belongs to another user or team, the session has no policy, or the session policy denies the operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponseError"
+                },
+                "example": {
+                  "status": "failed",
+                  "error": {
+                    "class": "forbidden",
+                    "message": "A valid session ID is required to invoke tools.",
+                    "retriable": false,
+                    "recovery_hint": "fix_args"
+                  },
+                  "call_id": ""
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/data_plane_responses_not_found"
@@ -5450,7 +5535,24 @@
             "$ref": "#/components/responses/data_plane_responses_unauthorized"
           },
           "403": {
-            "$ref": "#/components/responses/forbidden"
+            "description": "The token or session cannot be used for this request. Tokens without the \u0060action_gateway:execute\u0060 scope, and accounts that are not in good standing, are rejected with the standard DigitalOcean API error format. Session failures return a tool result: the session ID is missing or invalid, the session belongs to another user or team, the session has no policy, or the session policy denies the operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponseError"
+                },
+                "example": {
+                  "status": "failed",
+                  "error": {
+                    "class": "forbidden",
+                    "message": "A valid session ID is required to invoke tools.",
+                    "retriable": false,
+                    "recovery_hint": "fix_args"
+                  },
+                  "call_id": ""
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/data_plane_responses_not_found"
@@ -46835,6 +46937,541 @@
         ]
       }
     },
+    "/v2/security/secrets": {
+      "get": {
+        "tags": [
+          "Security"
+        ],
+        "summary": "List Secrets",
+        "description": "To list secrets across all configured regions, send a GET request to \u0060/v2/security/secrets\u0060.\n\nThe response includes secret metadata only. Secret values are not returned.\nUse \u0060name\u0060 to return secrets whose names start with that prefix, and\n\u0060include_deleted\u0060 to include secrets that are pending deletion.",
+        "operationId": "SecurityListSecrets",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/parameters_per_page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/include_deleted"
+          },
+          {
+            "$ref": "#/components/parameters/secret_name_prefix"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/secrets"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden-2"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "security:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/security/secrets?page=1\u0026per_page=20\u0022"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Security"
+        ],
+        "summary": "Create Secret",
+        "description": "To create a secret, send a POST request to \u0060/v2/security/secrets\u0060.\n\nCreating a secret that already exists in the same region returns a \u0060409\u0060 response.",
+        "operationId": "SecurityCreateSecret",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityCreateSecretRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/create_secret"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden-2"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "security:create"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022name\u0022:\u0022my-database-password\u0022,\u0022region\u0022:\u0022nyc3\u0022,\u0022values\u0022:{\u0022password\u0022:\u0022s3cr3t\u0022}}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/security/secrets\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/security/secrets/{secret}": {
+      "get": {
+        "tags": [
+          "Security"
+        ],
+        "summary": "Get Secret",
+        "description": "To retrieve a secret and its values, send a GET request to \u0060/v2/security/secrets/{secret}\u0060.\n\n\u0060region\u0060 is required.",
+        "operationId": "SecurityGetSecret",
+        "parameters": [
+          {
+            "name": "secret",
+            "in": "path",
+            "description": "The name of the secret.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "my-database-password"
+          },
+          {
+            "$ref": "#/components/parameters/secret_region"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/secret"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden-2"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "security:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/security/secrets/my-database-password?region=nyc3\u0022"
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Security"
+        ],
+        "summary": "Update Secret",
+        "description": "To update a secret, send a PUT request to \u0060/v2/security/secrets/{secret}\u0060.\n\n\u0060version\u0060 is the secret\u0027s current version. If it does not match, the request\nreturns a \u0060409\u0060 response and the secret is not changed.",
+        "operationId": "SecurityUpdateSecret",
+        "parameters": [
+          {
+            "name": "secret",
+            "in": "path",
+            "description": "The name of the secret.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "my-database-password"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityUpdateSecretRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/create_secret"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden-2"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "security:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X PUT \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022region\u0022:\u0022nyc3\u0022,\u0022version\u0022:1,\u0022values\u0022:{\u0022password\u0022:\u0022n3w-s3cr3t\u0022}}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/security/secrets/my-database-password\u0022"
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Security"
+        ],
+        "summary": "Delete Secret",
+        "description": "To schedule a secret for deletion, send a DELETE request to \u0060/v2/security/secrets/{secret}\u0060.\n\n\u0060region\u0060 is required. The secret is pending deletion and can be restored\nuntil it is permanently removed.",
+        "operationId": "SecurityDeleteSecret",
+        "parameters": [
+          {
+            "name": "secret",
+            "in": "path",
+            "description": "The name of the secret.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "my-database-password"
+          },
+          {
+            "$ref": "#/components/parameters/secret_region"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden-2"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "security:delete"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/security/secrets/my-database-password?region=nyc3\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/security/secrets/{secret}/versions": {
+      "get": {
+        "tags": [
+          "Security"
+        ],
+        "summary": "List Secret Versions",
+        "description": "To list all versions of a secret, send a GET request to \u0060/v2/security/secrets/{secret}/versions\u0060.\n\n\u0060region\u0060 is required. Version entries do not include secret values.",
+        "operationId": "SecurityListSecretVersions",
+        "parameters": [
+          {
+            "name": "secret",
+            "in": "path",
+            "description": "The name of the secret.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "my-database-password"
+          },
+          {
+            "$ref": "#/components/parameters/secret_region"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/secret_versions"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden-2"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "security:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/security/secrets/my-database-password/versions?region=nyc3\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/security/secrets/{secret}/versions/{version}/revert": {
+      "post": {
+        "tags": [
+          "Security"
+        ],
+        "summary": "Revert Secret",
+        "description": "To revert a secret to a prior version, send a POST request to\n\u0060/v2/security/secrets/{secret}/versions/{version}/revert\u0060.\n\n\u0060region\u0060 is required. \u0060current_version\u0060 must be the secret\u0027s current version.\nIf it does not match, the request returns a \u0060409\u0060 response. A successful\nrevert creates a new version with the contents of the target version.",
+        "operationId": "SecurityRevertSecret",
+        "parameters": [
+          {
+            "name": "secret",
+            "in": "path",
+            "description": "The name of the secret.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "my-database-password"
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "The target version to revert to. Reverting creates a new version with the contents of this version.",
+            "required": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 1
+          },
+          {
+            "$ref": "#/components/parameters/secret_region"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityRevertSecretRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/create_secret"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden-2"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "security:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022current_version\u0022:3}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/security/secrets/my-database-password/versions/1/revert?region=nyc3\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/security/secrets/{secret}/restore": {
+      "post": {
+        "tags": [
+          "Security"
+        ],
+        "summary": "Restore Secret",
+        "description": "To restore a secret that is pending deletion, send a POST request to \u0060/v2/security/secrets/{secret}/restore\u0060.\n\n\u0060region\u0060 is required. The response contains the secret metadata and does not\ninclude secret values.",
+        "operationId": "SecurityPostRestoreSecret",
+        "parameters": [
+          {
+            "name": "secret",
+            "in": "path",
+            "description": "The name of the secret.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "my-database-password"
+          },
+          {
+            "$ref": "#/components/parameters/secret_region"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/secret_list_item"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden-2"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "security:create"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/security/secrets/my-database-password/restore?region=nyc3\u0022"
+          }
+        ]
+      }
+    },
     "/v2/sizes": {
       "get": {
         "tags": [
@@ -46849,6 +47486,39 @@
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/cpu_minimum"
+          },
+          {
+            "$ref": "#/components/parameters/cpu_maximum"
+          },
+          {
+            "$ref": "#/components/parameters/gpu_minimum"
+          },
+          {
+            "$ref": "#/components/parameters/gpu_maximum"
+          },
+          {
+            "$ref": "#/components/parameters/gpu_fabric"
+          },
+          {
+            "$ref": "#/components/parameters/memory_minimum"
+          },
+          {
+            "$ref": "#/components/parameters/memory_maximum"
+          },
+          {
+            "$ref": "#/components/parameters/price_hourly_minimum"
+          },
+          {
+            "$ref": "#/components/parameters/price_hourly_maximum"
+          },
+          {
+            "$ref": "#/components/parameters/price_monthly_minimum"
+          },
+          {
+            "$ref": "#/components/parameters/price_monthly_maximum"
           }
         ],
         "responses": {
@@ -64041,11 +64711,19 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ChatCompletionResponse"
                 }
               },
               "text/event-stream": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ChatCompletionChunk"
                 }
               }
@@ -64131,11 +64809,19 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/MessagesCreateResponse"
                 }
               },
               "text/event-stream": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/MessagesStreamEvent"
                 }
               }
@@ -64340,11 +65026,19 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ChatCompletionResponse"
                 }
               },
               "text/event-stream": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ChatCompletionChunk"
                 }
               }
@@ -64435,11 +65129,19 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ImagesResponse"
                 }
               },
               "text/event-stream": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ImageGenPartialImageEvent"
                 }
               }
@@ -64738,11 +65440,19 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateResponseResponse"
                 }
               },
               "text/event-stream": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateResponseStreamResponse"
                 }
               }
@@ -64971,21 +65681,37 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/SpeechResponse"
                 }
               },
               "audio/mpeg": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/InferenceCreateSpeech200MpegResponseSchema"
                 }
               },
               "audio/wav": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/InferenceCreateSpeech200WavResponseSchema"
                 }
               },
               "audio/mp3": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/InferenceCreateSpeech200Mp3ResponseSchema"
                 }
               }
@@ -69691,6 +70417,11 @@
             "type": "string",
             "format": "date-time",
             "example": "2026-08-01T12:00:00Z"
+          },
+          "region": {
+            "type": "string",
+            "description": "DO region slug the config lives in, e.g. ric1. Stamped once at create from the region whose API host served the request, and never changed. Returned only for teams on the regional routing rollout; omitted otherwise.",
+            "example": "ric1"
           }
         },
         "description": "Lightweight list representation; the manifest is available from config reads, not list responses."
@@ -69941,6 +70672,11 @@
               "$ref": "#/components/schemas/AgentConfigCredentialSlot"
             },
             "description": "Redacted credential slot metadata (name/source/provider). Secret values are never included."
+          },
+          "region": {
+            "type": "string",
+            "description": "DO region slug the config lives in, e.g. ric1. Stamped once at create from the region whose API host served the request, and never changed. Returned only for teams on the regional routing rollout; omitted otherwise.",
+            "example": "ric1"
           }
         },
         "description": "Immutable team-scoped Environment Config: one sanitized manifest per config. There is no update; clone to a new config to change content."
@@ -70159,7 +70895,7 @@
           },
           "keep_warm": {
             "type": "boolean",
-            "description": "Session is exempt from idle auto-pause (manifest keep_warm, or the agent-kind default: hermes sessions keep warm). Pause requests against such a session are rejected with 409. Omitted when false.",
+            "description": "Session is exempt from idle auto-pause (manifest keep_warm, or the agent-kind default: hermes sessions keep warm). It still accepts a manual pause. Omitted when false.",
             "example": false
           },
           "resume_on_topoff": {
@@ -70206,6 +70942,11 @@
             "type": "string",
             "description": "OpenAI Agents API environment id (env_\u2026), captured from the resolved CODEX_ENVIRONMENT_ID guest env value. Populated only for AGENT_KIND_OPENAI_CODEX sessions. Non-secret correlation metadata.",
             "example": "example"
+          },
+          "region": {
+            "type": "string",
+            "description": "DO region slug the session lives in, e.g. ric1. Stamped once at create from the region whose API host served the request, and never changed. Returned only for teams on the regional routing rollout; omitted otherwise.",
+            "example": "ric1"
           }
         },
         "description": "Session is the user-facing record of a environment session \u002B sandbox pair."
@@ -70249,6 +70990,11 @@
             "type": "boolean",
             "description": "Opt the new session in to automatic resumption when the team\u0027s prepayment balance is restored. Defaults to false. Session-scoped, not config-scoped: the referenced config never confers this, so one shared config cannot enrol every session created from it. Omit to leave the default (or to let the ?resume_on_topoff= query parameter supply it).",
             "example": false
+          },
+          "region": {
+            "type": "string",
+            "description": "Optional placement check, not a placement choice: the session is always created in the region whose API host served the request. If set, it must equal that region, or the request fails with 400 and a region_mismatch message. Honored only for teams on the regional routing rollout; ignored otherwise.",
+            "example": "ric1"
           }
         },
         "additionalProperties": false,
@@ -80613,6 +81359,11 @@
           },
           "size": {
             "$ref": "#/components/schemas/DiskInfoSize"
+          },
+          "ephemeral": {
+            "type": "boolean",
+            "description": "Indicates an ephemeral (non-persistent) disk.",
+            "example": false
           }
         }
       },
@@ -90496,6 +91247,149 @@
           },
           "plan_downgrades": {
             "$ref": "#/components/schemas/SettingsPlanDowngradesProperty"
+          }
+        }
+      },
+      "SecretListItem": {
+        "type": "object",
+        "properties": {
+          "secret": {
+            "title": "secret",
+            "type": "string",
+            "description": "The name of the secret.",
+            "example": "my-database-password"
+          },
+          "region": {
+            "title": "region",
+            "type": "string",
+            "description": "The region where the secret is stored.",
+            "example": "nyc3"
+          },
+          "version": {
+            "title": "version",
+            "type": "integer",
+            "description": "The current version of the secret.",
+            "format": "int32",
+            "example": 1
+          },
+          "created_at": {
+            "title": "created_at",
+            "type": "string",
+            "description": "When the secret was created.",
+            "format": "date-time",
+            "example": "2025-12-04T00:00:00Z"
+          },
+          "updated_at": {
+            "title": "updated_at",
+            "type": "string",
+            "description": "When the secret was last updated.",
+            "format": "date-time",
+            "example": "2025-12-04T00:00:00Z"
+          },
+          "delete_requested_at": {
+            "title": "delete_requested_at",
+            "type": "string",
+            "description": "When deletion was requested for the secret.",
+            "format": "date-time",
+            "example": "2025-12-04T00:00:00Z"
+          }
+        }
+      },
+      "CreateSecretResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The name of the secret.",
+            "example": "my-database-password"
+          },
+          "region": {
+            "title": "region",
+            "type": "string",
+            "description": "The region where the secret is stored.",
+            "example": "nyc3"
+          },
+          "version": {
+            "title": "version",
+            "type": "integer",
+            "description": "The version of the secret after the operation.",
+            "format": "int32",
+            "example": 1
+          }
+        }
+      },
+      "Secret": {
+        "type": "object",
+        "properties": {
+          "secret": {
+            "title": "secret",
+            "type": "string",
+            "description": "The name of the secret.",
+            "example": "my-database-password"
+          },
+          "region": {
+            "title": "region",
+            "type": "string",
+            "description": "The region where the secret is stored.",
+            "example": "nyc3"
+          },
+          "version": {
+            "title": "version",
+            "type": "integer",
+            "description": "The current version of the secret.",
+            "format": "int32",
+            "example": 1
+          },
+          "values": {
+            "$ref": "#/components/schemas/SecretValuesProperty"
+          },
+          "created_at": {
+            "title": "created_at",
+            "type": "string",
+            "description": "When the secret was created.",
+            "format": "date-time",
+            "example": "2025-12-04T00:00:00Z"
+          },
+          "updated_at": {
+            "title": "updated_at",
+            "type": "string",
+            "description": "When the secret was last updated.",
+            "format": "date-time",
+            "example": "2025-12-04T00:00:00Z"
+          },
+          "delete_requested_at": {
+            "title": "delete_requested_at",
+            "type": "string",
+            "description": "When deletion was requested for the secret.",
+            "format": "date-time",
+            "example": "2025-12-04T00:00:00Z"
+          }
+        }
+      },
+      "SecretVersion": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "title": "version",
+            "type": "integer",
+            "description": "The version number.",
+            "format": "int32",
+            "example": 1
+          },
+          "created_at": {
+            "title": "created_at",
+            "type": "string",
+            "description": "When this version was created.",
+            "format": "date-time",
+            "example": "2025-12-04T00:00:00Z"
+          },
+          "updated_at": {
+            "title": "updated_at",
+            "type": "string",
+            "description": "When this version was last updated.",
+            "format": "date-time",
+            "example": "2025-12-04T00:00:00Z"
           }
         }
       },
@@ -109590,6 +110484,44 @@
           }
         }
       },
+      "SecretsResponse": {
+        "type": "object",
+        "properties": {
+          "secrets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretListItem"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/SecretsResponseMeta"
+          },
+          "links": {
+            "$ref": "#/components/schemas/SecretsResponseLinks"
+          },
+          "unavailable_regions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Regions that could not be queried while building the list response.",
+            "example": [
+              "sfo3"
+            ]
+          }
+        }
+      },
+      "SecretVersionsResponse": {
+        "type": "object",
+        "properties": {
+          "versions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretVersion"
+            }
+          }
+        }
+      },
       "AllSizesResponse": {
         "required": [
           "sizes",
@@ -120452,6 +121384,17 @@
           "$ref": "#/components/schemas/PlanDowngrades"
         }
       },
+      "SecretValues": {
+        "title": "values",
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Key-value pairs stored in the secret.",
+        "example": {
+          "password": "s3cr3t"
+        }
+      },
       "TagsResourceResourcesItem": {
         "type": "object",
         "properties": {
@@ -121527,6 +122470,37 @@
           "$ref": "#/components/schemas/TierCoverageResponseTierCoverageAdditionalProperties"
         }
       },
+      "SecretsResponseMeta": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "The current page number.",
+            "format": "int32",
+            "example": 1
+          },
+          "pages": {
+            "type": "integer",
+            "description": "The total number of pages.",
+            "format": "int32",
+            "example": 5
+          },
+          "total": {
+            "type": "integer",
+            "description": "The total number of secrets across all regions.",
+            "format": "int32",
+            "example": 42
+          }
+        }
+      },
+      "SecretsResponseLinks": {
+        "type": "object",
+        "properties": {
+          "pages": {
+            "$ref": "#/components/schemas/SecretsResponseLinksPages"
+          }
+        }
+      },
       "DataPlaneSearchToolsResponseAllOf2Output": {
         "type": "object",
         "properties": {
@@ -122518,6 +123492,31 @@
             "example": [
               "production"
             ]
+          }
+        }
+      },
+      "SecretsResponseLinksPages": {
+        "type": "object",
+        "properties": {
+          "first": {
+            "type": "string",
+            "description": "URL for the first page of results.",
+            "example": "https://api.digitalocean.com/v2/security/secrets?page=1\u0026per_page=20"
+          },
+          "prev": {
+            "type": "string",
+            "description": "URL for the previous page of results.",
+            "example": "https://api.digitalocean.com/v2/security/secrets?page=1\u0026per_page=20"
+          },
+          "next": {
+            "type": "string",
+            "description": "URL for the next page of results.",
+            "example": "https://api.digitalocean.com/v2/security/secrets?page=3\u0026per_page=20"
+          },
+          "last": {
+            "type": "string",
+            "description": "URL for the last page of results.",
+            "example": "https://api.digitalocean.com/v2/security/secrets?page=5\u0026per_page=20"
           }
         }
       },
@@ -123590,9 +124589,6 @@
         }
       },
       "DomainsCreateRecordRequest": {
-        "required": [
-          "type"
-        ],
         "anyOf": [
           {
             "$ref": "#/components/schemas/DomainRecordA"
@@ -123622,12 +124618,7 @@
             "$ref": "#/components/schemas/DomainRecordTxt"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "A": "#/components/schemas/DomainRecordA",
@@ -123653,9 +124644,6 @@
         ]
       },
       "DropletActionsPostRequest": {
-        "required": [
-          "type"
-        ],
         "anyOf": [
           {
             "$ref": "#/components/schemas/DropletAction"
@@ -123685,12 +124673,7 @@
             "$ref": "#/components/schemas/DropletActionSnapshot"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "enable_backups": "#/components/schemas/DropletActionEnableBackups",
@@ -123713,9 +124696,6 @@
         }
       },
       "DropletActionsPostByTagRequest": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/DropletAction"
@@ -123724,12 +124704,7 @@
             "$ref": "#/components/schemas/DropletActionSnapshot"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "enable_backups": "#/components/schemas/DropletAction",
@@ -124103,9 +125078,6 @@
         "type": "object"
       },
       "ImageActionsPostRequest": {
-        "required": [
-          "type"
-        ],
         "anyOf": [
           {
             "$ref": "#/components/schemas/ImageActionBase"
@@ -124114,12 +125086,7 @@
             "$ref": "#/components/schemas/ImageActionTransfer"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "convert": "#/components/schemas/ImageActionBase",
@@ -124377,9 +125344,6 @@
         }
       },
       "NfsCreateActionRequest": {
-        "required": [
-          "type"
-        ],
         "anyOf": [
           {
             "$ref": "#/components/schemas/NfsActionResize"
@@ -124400,12 +125364,7 @@
             "$ref": "#/components/schemas/NfsActionSwitchPerformanceTier"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "resize": "#/components/schemas/NfsActionResize",
@@ -124725,6 +125684,68 @@
           }
         }
       },
+      "SecurityCreateSecretRequest": {
+        "required": [
+          "name",
+          "region",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the secret to create.",
+            "example": "my-database-password"
+          },
+          "region": {
+            "type": "string",
+            "description": "The region where the secret will be stored.",
+            "example": "nyc3"
+          },
+          "values": {
+            "$ref": "#/components/schemas/SecurityCreateSecretRequestValues"
+          }
+        }
+      },
+      "SecurityUpdateSecretRequest": {
+        "required": [
+          "region",
+          "version",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "description": "The region where the secret is stored.",
+            "example": "nyc3"
+          },
+          "version": {
+            "type": "integer",
+            "description": "The current version of the secret to update.",
+            "format": "int32",
+            "example": 1
+          },
+          "values": {
+            "$ref": "#/components/schemas/SecurityUpdateSecretRequestValues"
+          }
+        }
+      },
+      "SecurityRevertSecretRequest": {
+        "required": [
+          "current_version"
+        ],
+        "type": "object",
+        "properties": {
+          "current_version": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The current version of the secret. Used to reject the request if the secret changed.",
+            "format": "int32",
+            "example": 3
+          }
+        }
+      },
       "VolumesCreateRequest": {
         "anyOf": [
           {
@@ -124736,9 +125757,6 @@
         ]
       },
       "VolumeActionsPostRequest": {
-        "required": [
-          "type"
-        ],
         "anyOf": [
           {
             "$ref": "#/components/schemas/VolumeActionPostAttach"
@@ -124747,12 +125765,7 @@
             "$ref": "#/components/schemas/VolumeActionPostDetach"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "attach": "#/components/schemas/VolumeActionPostAttach",
@@ -124761,9 +125774,6 @@
         }
       },
       "VolumeActionsPostByIdRequest": {
-        "required": [
-          "type"
-        ],
         "anyOf": [
           {
             "$ref": "#/components/schemas/VolumeActionPostAttach"
@@ -124775,12 +125785,7 @@
             "$ref": "#/components/schemas/VolumeActionPostResize"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "attach": "#/components/schemas/VolumeActionPostAttach",
@@ -126434,6 +127439,17 @@
           "$ref": "#/components/schemas/PlanDowngrades"
         }
       },
+      "SecretValuesProperty": {
+        "title": "values",
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Key-value pairs stored in the secret.",
+        "example": {
+          "password": "s3cr3t"
+        }
+      },
       "VpcSubnetStatisticsResourcesProperty": {
         "type": "object",
         "additionalProperties": {
@@ -126868,6 +127884,26 @@
               "production"
             ]
           }
+        }
+      },
+      "SecurityCreateSecretRequestValues": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Key-value pairs to store in the secret.",
+        "example": {
+          "password": "s3cr3t"
+        }
+      },
+      "SecurityUpdateSecretRequestValues": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Updated key-value pairs for the secret.",
+        "example": {
+          "password": "n3w-s3cr3t"
         }
       },
       "SecurityUpdateSettingsPlanRequestTierCoverageAdditionalProperties": {
@@ -139909,6 +140945,40 @@
         "additionalProperties": {
           "type": "string"
         }
+      },
+      "ForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/FailedStatus"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorEnvelope"
+          },
+          "call_id": {
+            "type": "string",
+            "description": "A unique identifier for this request, when one was assigned.",
+            "example": "call_8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e"
+          },
+          "id": {
+            "type": "string",
+            "description": "A short identifier corresponding to the HTTP status code returned. For  example, the ID for a response returning a 404 status code would be \u0022not_found.\u0022",
+            "example": "not_found"
+          },
+          "message": {
+            "type": "string",
+            "description": "A message providing additional information about the error, including  details to help resolve it when possible.",
+            "example": "The resource you were accessing could not be found."
+          },
+          "request_id": {
+            "type": "string",
+            "description": "Optionally, some endpoints may include a request ID that should be  provided when reporting bugs or opening support tickets to help  identify the issue.",
+            "example": "4d9d8375-3c56-4925-a3e7-eb137fed17e9"
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/ForbiddenResponse"
+        }
       }
     },
     "responses": {
@@ -151337,6 +152407,111 @@
           }
         }
       },
+      "secrets": {
+        "description": "The response will be a JSON object with a key called \u0060secrets\u0060. This will be set to an array of objects, each of which will contain the standard attributes associated with a secret.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SecretsResponse"
+            }
+          }
+        }
+      },
+      "create_secret": {
+        "description": "The response will be a JSON object containing the secret name, region, and version.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateSecretResponse"
+            }
+          }
+        }
+      },
+      "secret": {
+        "description": "The response will be a JSON object containing the secret and its values.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Secret"
+            }
+          }
+        }
+      },
+      "secret_versions": {
+        "description": "The response will be a JSON object with a key called \u0060versions\u0060.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SecretVersionsResponse"
+            }
+          }
+        }
+      },
+      "secret_list_item": {
+        "description": "The response will be a JSON object containing the secret metadata. Secret values are not included.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SecretListItem"
+            }
+          }
+        }
+      },
       "all_sizes": {
         "description": "A JSON object with a key called \u0060sizes\u0060. The value of this will be an array of \u0060size\u0060 objects each of which contain the standard size attributes.",
         "headers": {
@@ -154848,6 +156023,164 @@
           "format": "uuid"
         },
         "example": "5b3b2b2d-5c9c-4a61-9e2f-4d8f80f30a12"
+      },
+      "include_deleted": {
+        "name": "include_deleted",
+        "in": "query",
+        "description": "Whether to include secrets that are pending deletion.",
+        "schema": {
+          "type": "boolean",
+          "default": false
+        },
+        "example": false
+      },
+      "secret_name_prefix": {
+        "name": "name",
+        "in": "query",
+        "description": "Only return secrets whose names start with this value.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "app"
+      },
+      "secret": {
+        "name": "secret",
+        "in": "path",
+        "description": "The name of the secret.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "example": "my-database-password"
+      },
+      "secret_region": {
+        "name": "region",
+        "in": "query",
+        "description": "The region where the secret is stored.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "example": "nyc3"
+      },
+      "secret_version": {
+        "name": "version",
+        "in": "path",
+        "description": "The target version to revert to. Reverting creates a new version with the contents of this version.",
+        "required": true,
+        "schema": {
+          "minimum": 1,
+          "type": "integer",
+          "format": "int32"
+        },
+        "example": 1
+      },
+      "cpu_minimum": {
+        "name": "cpu_minimum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive minimum CPU count",
+        "schema": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "example": 4
+      },
+      "cpu_maximum": {
+        "name": "cpu_maximum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive maximum CPU count",
+        "schema": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "example": 4
+      },
+      "gpu_minimum": {
+        "name": "gpu_minimum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive minimum GPU count",
+        "schema": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "example": 1
+      },
+      "gpu_maximum": {
+        "name": "gpu_maximum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive maximum GPU count. Zero is allowed to filter to sizes without GPUs.",
+        "schema": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "example": 8
+      },
+      "gpu_fabric": {
+        "name": "gpu_fabric",
+        "in": "query",
+        "description": "Filter sizes to those with a given GPU fabric setting",
+        "schema": {
+          "type": "boolean"
+        },
+        "example": true
+      },
+      "memory_minimum": {
+        "name": "memory_minimum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive minimum memory amount (in megabytes)",
+        "schema": {
+          "multipleOf": 8,
+          "minimum": 8,
+          "type": "integer"
+        },
+        "example": 1024
+      },
+      "memory_maximum": {
+        "name": "memory_maximum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive maximum memory amount (in megabytes)",
+        "schema": {
+          "multipleOf": 8,
+          "minimum": 8,
+          "type": "integer"
+        },
+        "example": 1024
+      },
+      "price_hourly_minimum": {
+        "name": "price_hourly_minimum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive minimum hourly price (in USD)",
+        "schema": {
+          "type": "string"
+        },
+        "example": "0.50"
+      },
+      "price_hourly_maximum": {
+        "name": "price_hourly_maximum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive maximum hourly price (in USD)",
+        "schema": {
+          "type": "string"
+        },
+        "example": "1.00"
+      },
+      "price_monthly_minimum": {
+        "name": "price_monthly_minimum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive minimum monthly price (in USD)",
+        "schema": {
+          "type": "string"
+        },
+        "example": "5.00"
+      },
+      "price_monthly_maximum": {
+        "name": "price_monthly_maximum",
+        "in": "query",
+        "description": "Filter sizes with an inclusive maximum monthly price (in USD)",
+        "schema": {
+          "type": "string"
+        },
+        "example": "10.00"
       },
       "snapshot_resource_type": {
         "name": "resource_type",
@@ -162883,7 +164216,7 @@
     },
     {
       "name": "Security",
-      "description": "Security CSPM endpoints for scans, scan findings, and settings."
+      "description": "Security endpoints for CSPM scans, scan findings, settings, and Secrets Manager."
     },
     {
       "name": "Signals",

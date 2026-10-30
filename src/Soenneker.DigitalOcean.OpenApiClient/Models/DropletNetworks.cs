@@ -12,24 +12,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DropletNetworks : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("v4") is { } nullNodeV4 && nullNodeV4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) V4 = null;
+            if (parseNode.GetChildNode("v6") is { } nullNodeV6 && nullNodeV6.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) V6 = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The v4 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4>? V4 { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4>? V4 { get => _explicitNullValueV4; set { _explicitNullValueV4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v4"); else _explicitNullProperties?.Remove("v4"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4>? _explicitNullValueV4 = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4> V4 { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4> V4 { get => _explicitNullValueV4; set { _explicitNullValueV4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v4"); else _explicitNullProperties?.Remove("v4"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4> _explicitNullValueV4 = default!;
 #endif
         /// <summary>The v6 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6>? V6 { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6>? V6 { get => _explicitNullValueV6; set { _explicitNullValueV6 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v6"); else _explicitNullProperties?.Remove("v6"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6>? _explicitNullValueV6 = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6> V6 { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6> V6 { get => _explicitNullValueV6; set { _explicitNullValueV6 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v6"); else _explicitNullProperties?.Remove("v6"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6> _explicitNullValueV6 = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletNetworks"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletNetworks CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletNetworks();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletNetworks(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4>("v4", V4);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6>("v6", V6);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -17,11 +17,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.Ite
     public partial class WithRepositoryNameItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The digests property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.Item.Digests.DigestsRequestBuilder Digests
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.Item.Digests.DigestsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The tags property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.Item.Tags.TagsRequestBuilder Tags
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.Item.Tags.TagsRequestBuilder(PathParameters, RequestAdapter);

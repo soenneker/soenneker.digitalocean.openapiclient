@@ -12,29 +12,51 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HealthCheck : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("check_interval_seconds") is { } nullNodeCheckIntervalSeconds && nullNodeCheckIntervalSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckIntervalSeconds = null;
+            if (parseNode.GetChildNode("healthy_threshold") is { } nullNodeHealthyThreshold && nullNodeHealthyThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthyThreshold = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("port") is { } nullNodePort && nullNodePort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Port = null;
+            if (parseNode.GetChildNode("protocol") is { } nullNodeProtocol && nullNodeProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Protocol = null;
+            if (parseNode.GetChildNode("response_timeout_seconds") is { } nullNodeResponseTimeoutSeconds && nullNodeResponseTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponseTimeoutSeconds = null;
+            if (parseNode.GetChildNode("unhealthy_threshold") is { } nullNodeUnhealthyThreshold && nullNodeUnhealthyThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnhealthyThreshold = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of seconds between between two consecutive health checks.</summary>
-        public int? CheckIntervalSeconds { get; set; }
+        public int? CheckIntervalSeconds { get => _explicitNullValueCheckIntervalSeconds; set { _explicitNullValueCheckIntervalSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_interval_seconds"); else _explicitNullProperties?.Remove("check_interval_seconds"); } }
+        private int? _explicitNullValueCheckIntervalSeconds = default!;
         /// <summary>The number of times a health check must pass for a backend Droplet to be marked &quot;healthy&quot; and be re-added to the pool.</summary>
-        public int? HealthyThreshold { get; set; }
+        public int? HealthyThreshold { get => _explicitNullValueHealthyThreshold; set { _explicitNullValueHealthyThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthy_threshold"); else _explicitNullProperties?.Remove("healthy_threshold"); } }
+        private int? _explicitNullValueHealthyThreshold = default!;
         /// <summary>The path on the backend Droplets to which the load balancer instance will send a request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>An integer representing the port on the backend Droplets on which the health check will attempt a connection.</summary>
-        public int? Port { get; set; }
+        public int? Port { get => _explicitNullValuePort; set { _explicitNullValuePort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port"); else _explicitNullProperties?.Remove("port"); } }
+        private int? _explicitNullValuePort = default!;
         /// <summary>The protocol used for health checks sent to the backend Droplets. The possible values are `http`, `https`, or `tcp`.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheckProtocol? Protocol { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheckProtocol? Protocol { get => _explicitNullValueProtocol; set { _explicitNullValueProtocol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocol"); else _explicitNullProperties?.Remove("protocol"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheckProtocol? _explicitNullValueProtocol = default!;
         /// <summary>The number of seconds the load balancer instance will wait for a response until marking a health check as failed.</summary>
-        public int? ResponseTimeoutSeconds { get; set; }
+        public int? ResponseTimeoutSeconds { get => _explicitNullValueResponseTimeoutSeconds; set { _explicitNullValueResponseTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_timeout_seconds"); else _explicitNullProperties?.Remove("response_timeout_seconds"); } }
+        private int? _explicitNullValueResponseTimeoutSeconds = default!;
         /// <summary>The number of times a health check must fail for a backend Droplet to be marked &quot;unhealthy&quot; and be removed from the pool.</summary>
-        public int? UnhealthyThreshold { get; set; }
+        public int? UnhealthyThreshold { get => _explicitNullValueUnhealthyThreshold; set { _explicitNullValueUnhealthyThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unhealthy_threshold"); else _explicitNullProperties?.Remove("unhealthy_threshold"); } }
+        private int? _explicitNullValueUnhealthyThreshold = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck"/> and sets the default values.
         /// </summary>
@@ -56,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +111,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheckProtocol>("protocol", Protocol);
             writer.WriteIntValue("response_timeout_seconds", ResponseTimeoutSeconds);
             writer.WriteIntValue("unhealthy_threshold", UnhealthyThreshold);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

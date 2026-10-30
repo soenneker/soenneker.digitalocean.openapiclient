@@ -12,75 +12,113 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiModelEvaluationRunResultSummary : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("end_time") is { } nullNodeEndTime && nullNodeEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndTime = null;
+            if (parseNode.GetChildNode("epochs") is { } nullNodeEpochs && nullNodeEpochs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Epochs = null;
+            if (parseNode.GetChildNode("epoch_summary") is { } nullNodeEpochSummary && nullNodeEpochSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EpochSummary = null;
+            if (parseNode.GetChildNode("metric_summaries") is { } nullNodeMetricSummaries && nullNodeMetricSummaries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricSummaries = null;
+            if (parseNode.GetChildNode("overall_score_percent") is { } nullNodeOverallScorePercent && nullNodeOverallScorePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverallScorePercent = null;
+            if (parseNode.GetChildNode("performance_metrics") is { } nullNodePerformanceMetrics && nullNodePerformanceMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerformanceMetrics = null;
+            if (parseNode.GetChildNode("per_model_summaries") is { } nullNodePerModelSummaries && nullNodePerModelSummaries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerModelSummaries = null;
+            if (parseNode.GetChildNode("per_task_summaries") is { } nullNodePerTaskSummaries && nullNodePerTaskSummaries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerTaskSummaries = null;
+            if (parseNode.GetChildNode("pricing") is { } nullNodePricing && nullNodePricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pricing = null;
+            if (parseNode.GetChildNode("star_metric_summary") is { } nullNodeStarMetricSummary && nullNodeStarMetricSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StarMetricSummary = null;
+            if (parseNode.GetChildNode("start_time") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
+            if (parseNode.GetChildNode("total_duration_seconds") is { } nullNodeTotalDurationSeconds && nullNodeTotalDurationSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalDurationSeconds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The end_time property</summary>
-        public DateTimeOffset? EndTime { get; set; }
+        public DateTimeOffset? EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_time"); else _explicitNullProperties?.Remove("end_time"); } }
+        private DateTimeOffset? _explicitNullValueEndTime = default!;
         /// <summary>Number of times each dataset row was evaluated (n-pass/epochs). MirrorsModelEvaluationRunDetail.epochs. 1 for every existing run.</summary>
-        public long? Epochs { get; set; }
+        public long? Epochs { get => _explicitNullValueEpochs; set { _explicitNullValueEpochs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("epochs"); else _explicitNullProperties?.Remove("epochs"); } }
+        private long? _explicitNullValueEpochs = default!;
         /// <summary>Aggregation across epochs when a run repeats each dataset row k times.Only populated when epochs &gt; 1; at epochs == 1 every number here wouldequal overall_score_percent, so it is omitted rather than duplicated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary? EpochSummary { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary? EpochSummary { get => _explicitNullValueEpochSummary; set { _explicitNullValueEpochSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("epoch_summary"); else _explicitNullProperties?.Remove("epoch_summary"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary? _explicitNullValueEpochSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary EpochSummary { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary EpochSummary { get => _explicitNullValueEpochSummary; set { _explicitNullValueEpochSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("epoch_summary"); else _explicitNullProperties?.Remove("epoch_summary"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEpochResultSummary _explicitNullValueEpochSummary = default!;
 #endif
         /// <summary>Per-metric aggregated pass/fail statistics.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary>? MetricSummaries { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary>? MetricSummaries { get => _explicitNullValueMetricSummaries; set { _explicitNullValueMetricSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_summaries"); else _explicitNullProperties?.Remove("metric_summaries"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary>? _explicitNullValueMetricSummaries = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary> MetricSummaries { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary> MetricSummaries { get => _explicitNullValueMetricSummaries; set { _explicitNullValueMetricSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_summaries"); else _explicitNullProperties?.Remove("metric_summaries"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary> _explicitNullValueMetricSummaries = default!;
 #endif
         /// <summary>The overall_score_percent property</summary>
-        public double? OverallScorePercent { get; set; }
+        public double? OverallScorePercent { get => _explicitNullValueOverallScorePercent; set { _explicitNullValueOverallScorePercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overall_score_percent"); else _explicitNullProperties?.Remove("overall_score_percent"); } }
+        private double? _explicitNullValueOverallScorePercent = default!;
         /// <summary>All performance metrics are for the candidate model unless noted otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics? PerformanceMetrics { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics? PerformanceMetrics { get => _explicitNullValuePerformanceMetrics; set { _explicitNullValuePerformanceMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_metrics"); else _explicitNullProperties?.Remove("performance_metrics"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics? _explicitNullValuePerformanceMetrics = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics PerformanceMetrics { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics PerformanceMetrics { get => _explicitNullValuePerformanceMetrics; set { _explicitNullValuePerformanceMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_metrics"); else _explicitNullProperties?.Remove("performance_metrics"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics _explicitNullValuePerformanceMetrics = default!;
 #endif
         /// <summary>Per-model breakdown of an evaluation run. Set on router evaluations toshow how each underlying model performed across the prompts that wererouted to it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummaries? PerModelSummaries { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummaries? PerModelSummaries { get => _explicitNullValuePerModelSummaries; set { _explicitNullValuePerModelSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_model_summaries"); else _explicitNullProperties?.Remove("per_model_summaries"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummaries? _explicitNullValuePerModelSummaries = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummaries PerModelSummaries { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummaries PerModelSummaries { get => _explicitNullValuePerModelSummaries; set { _explicitNullValuePerModelSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_model_summaries"); else _explicitNullProperties?.Remove("per_model_summaries"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummaries _explicitNullValuePerModelSummaries = default!;
 #endif
         /// <summary>Per-task breakdown of an evaluation run. Set on router evaluations toshow how each routing task category performed across the prompts thatwere classified into it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerTaskResultSummaries? PerTaskSummaries { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerTaskResultSummaries? PerTaskSummaries { get => _explicitNullValuePerTaskSummaries; set { _explicitNullValuePerTaskSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_task_summaries"); else _explicitNullProperties?.Remove("per_task_summaries"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerTaskResultSummaries? _explicitNullValuePerTaskSummaries = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerTaskResultSummaries PerTaskSummaries { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerTaskResultSummaries PerTaskSummaries { get => _explicitNullValuePerTaskSummaries; set { _explicitNullValuePerTaskSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_task_summaries"); else _explicitNullProperties?.Remove("per_task_summaries"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerTaskResultSummaries _explicitNullValuePerTaskSummaries = default!;
 #endif
         /// <summary>Pricing breakdown for an evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing? Pricing { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing? Pricing { get => _explicitNullValuePricing; set { _explicitNullValuePricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pricing"); else _explicitNullProperties?.Remove("pricing"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing? _explicitNullValuePricing = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing Pricing { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing Pricing { get => _explicitNullValuePricing; set { _explicitNullValuePricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pricing"); else _explicitNullProperties?.Remove("pricing"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing _explicitNullValuePricing = default!;
 #endif
         /// <summary>Star metric summary with identifying details and threshold.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiStarMetricSummary? StarMetricSummary { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiStarMetricSummary? StarMetricSummary { get => _explicitNullValueStarMetricSummary; set { _explicitNullValueStarMetricSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("star_metric_summary"); else _explicitNullProperties?.Remove("star_metric_summary"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiStarMetricSummary? _explicitNullValueStarMetricSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiStarMetricSummary StarMetricSummary { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiStarMetricSummary StarMetricSummary { get => _explicitNullValueStarMetricSummary; set { _explicitNullValueStarMetricSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("star_metric_summary"); else _explicitNullProperties?.Remove("star_metric_summary"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiStarMetricSummary _explicitNullValueStarMetricSummary = default!;
 #endif
         /// <summary>Run timing.</summary>
-        public DateTimeOffset? StartTime { get; set; }
+        public DateTimeOffset? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_time"); else _explicitNullProperties?.Remove("start_time"); } }
+        private DateTimeOffset? _explicitNullValueStartTime = default!;
         /// <summary>Total wall-clock duration in seconds.</summary>
-        public long? TotalDurationSeconds { get; set; }
+        public long? TotalDurationSeconds { get => _explicitNullValueTotalDurationSeconds; set { _explicitNullValueTotalDurationSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_duration_seconds"); else _explicitNullProperties?.Remove("total_duration_seconds"); } }
+        private long? _explicitNullValueTotalDurationSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunResultSummary"/> and sets the default values.
         /// </summary>
@@ -96,7 +134,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunResultSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunResultSummary();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunResultSummary(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -139,6 +177,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiStarMetricSummary>("star_metric_summary", StarMetricSummary);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
             writer.WriteLongValue("total_duration_seconds", TotalDurationSeconds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

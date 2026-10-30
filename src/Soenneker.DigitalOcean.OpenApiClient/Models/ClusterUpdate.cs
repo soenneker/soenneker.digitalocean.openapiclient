@@ -11,144 +11,207 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ClusterUpdate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amd_gpu_device_metrics_exporter_plugin") is { } nullNodeAmdGpuDeviceMetricsExporterPlugin && nullNodeAmdGpuDeviceMetricsExporterPlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmdGpuDeviceMetricsExporterPlugin = null;
+            if (parseNode.GetChildNode("amd_gpu_device_plugin") is { } nullNodeAmdGpuDevicePlugin && nullNodeAmdGpuDevicePlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmdGpuDevicePlugin = null;
+            if (parseNode.GetChildNode("amd_gpu_dra_driver") is { } nullNodeAmdGpuDraDriver && nullNodeAmdGpuDraDriver.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmdGpuDraDriver = null;
+            if (parseNode.GetChildNode("auto_upgrade") is { } nullNodeAutoUpgrade && nullNodeAutoUpgrade.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoUpgrade = null;
+            if (parseNode.GetChildNode("cluster_autoscaler_configuration") is { } nullNodeClusterAutoscalerConfiguration && nullNodeClusterAutoscalerConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterAutoscalerConfiguration = null;
+            if (parseNode.GetChildNode("control_plane_firewall") is { } nullNodeControlPlaneFirewall && nullNodeControlPlaneFirewall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ControlPlaneFirewall = null;
+            if (parseNode.GetChildNode("coredns_autoscaler") is { } nullNodeCorednsAutoscaler && nullNodeCorednsAutoscaler.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CorednsAutoscaler = null;
+            if (parseNode.GetChildNode("gpu_operator_ready") is { } nullNodeGpuOperatorReady && nullNodeGpuOperatorReady.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GpuOperatorReady = null;
+            if (parseNode.GetChildNode("ha") is { } nullNodeHa && nullNodeHa.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ha = null;
+            if (parseNode.GetChildNode("maintenance_policy") is { } nullNodeMaintenancePolicy && nullNodeMaintenancePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaintenancePolicy = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("nfs_csi_plugin") is { } nullNodeNfsCsiPlugin && nullNodeNfsCsiPlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NfsCsiPlugin = null;
+            if (parseNode.GetChildNode("nvidia_gpu_device_plugin") is { } nullNodeNvidiaGpuDevicePlugin && nullNodeNvidiaGpuDevicePlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NvidiaGpuDevicePlugin = null;
+            if (parseNode.GetChildNode("nvidia_gpu_dra_driver") is { } nullNodeNvidiaGpuDraDriver && nullNodeNvidiaGpuDraDriver.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NvidiaGpuDraDriver = null;
+            if (parseNode.GetChildNode("p2p_oci_registry_plugin") is { } nullNodeP2pOciRegistryPlugin && nullNodeP2pOciRegistryPlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P2pOciRegistryPlugin = null;
+            if (parseNode.GetChildNode("rdma_shared_dev_plugin") is { } nullNodeRdmaSharedDevPlugin && nullNodeRdmaSharedDevPlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RdmaSharedDevPlugin = null;
+            if (parseNode.GetChildNode("routing_agent") is { } nullNodeRoutingAgent && nullNodeRoutingAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingAgent = null;
+            if (parseNode.GetChildNode("sso") is { } nullNodeSso && nullNodeSso.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sso = null;
+            if (parseNode.GetChildNode("surge_upgrade") is { } nullNodeSurgeUpgrade && nullNodeSurgeUpgrade.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SurgeUpgrade = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An object specifying whether the AMD Device Metrics Exporter should be enabled in the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDeviceMetricsExporterPlugin? AmdGpuDeviceMetricsExporterPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDeviceMetricsExporterPlugin? AmdGpuDeviceMetricsExporterPlugin { get => _explicitNullValueAmdGpuDeviceMetricsExporterPlugin; set { _explicitNullValueAmdGpuDeviceMetricsExporterPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amd_gpu_device_metrics_exporter_plugin"); else _explicitNullProperties?.Remove("amd_gpu_device_metrics_exporter_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDeviceMetricsExporterPlugin? _explicitNullValueAmdGpuDeviceMetricsExporterPlugin = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDeviceMetricsExporterPlugin AmdGpuDeviceMetricsExporterPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDeviceMetricsExporterPlugin AmdGpuDeviceMetricsExporterPlugin { get => _explicitNullValueAmdGpuDeviceMetricsExporterPlugin; set { _explicitNullValueAmdGpuDeviceMetricsExporterPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amd_gpu_device_metrics_exporter_plugin"); else _explicitNullProperties?.Remove("amd_gpu_device_metrics_exporter_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDeviceMetricsExporterPlugin _explicitNullValueAmdGpuDeviceMetricsExporterPlugin = default!;
 #endif
         /// <summary>An object specifying whether the AMD GPU Device Plugin should be enabled in the Kubernetes cluster. It&apos;s enabled by default for clusters with an AMD GPU node pool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDevicePlugin? AmdGpuDevicePlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDevicePlugin? AmdGpuDevicePlugin { get => _explicitNullValueAmdGpuDevicePlugin; set { _explicitNullValueAmdGpuDevicePlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amd_gpu_device_plugin"); else _explicitNullProperties?.Remove("amd_gpu_device_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDevicePlugin? _explicitNullValueAmdGpuDevicePlugin = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDevicePlugin AmdGpuDevicePlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDevicePlugin AmdGpuDevicePlugin { get => _explicitNullValueAmdGpuDevicePlugin; set { _explicitNullValueAmdGpuDevicePlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amd_gpu_device_plugin"); else _explicitNullProperties?.Remove("amd_gpu_device_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDevicePlugin _explicitNullValueAmdGpuDevicePlugin = default!;
 #endif
         /// <summary>An object specifying whether the AMD GPU DRA Driver should be enabled in the Kubernetes cluster. Mutually exclusive with `amd_gpu_device_plugin`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDraDriver? AmdGpuDraDriver { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDraDriver? AmdGpuDraDriver { get => _explicitNullValueAmdGpuDraDriver; set { _explicitNullValueAmdGpuDraDriver = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amd_gpu_dra_driver"); else _explicitNullProperties?.Remove("amd_gpu_dra_driver"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDraDriver? _explicitNullValueAmdGpuDraDriver = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDraDriver AmdGpuDraDriver { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDraDriver AmdGpuDraDriver { get => _explicitNullValueAmdGpuDraDriver; set { _explicitNullValueAmdGpuDraDriver = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amd_gpu_dra_driver"); else _explicitNullProperties?.Remove("amd_gpu_dra_driver"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDraDriver _explicitNullValueAmdGpuDraDriver = default!;
 #endif
         /// <summary>A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.</summary>
-        public bool? AutoUpgrade { get; set; }
+        public bool? AutoUpgrade { get => _explicitNullValueAutoUpgrade; set { _explicitNullValueAutoUpgrade = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_upgrade"); else _explicitNullProperties?.Remove("auto_upgrade"); } }
+        private bool? _explicitNullValueAutoUpgrade = default!;
         /// <summary>An object specifying custom cluster autoscaler configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration? ClusterAutoscalerConfiguration { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration? ClusterAutoscalerConfiguration { get => _explicitNullValueClusterAutoscalerConfiguration; set { _explicitNullValueClusterAutoscalerConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_autoscaler_configuration"); else _explicitNullProperties?.Remove("cluster_autoscaler_configuration"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration? _explicitNullValueClusterAutoscalerConfiguration = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration ClusterAutoscalerConfiguration { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration ClusterAutoscalerConfiguration { get => _explicitNullValueClusterAutoscalerConfiguration; set { _explicitNullValueClusterAutoscalerConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_autoscaler_configuration"); else _explicitNullProperties?.Remove("cluster_autoscaler_configuration"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterAutoscalerConfiguration _explicitNullValueClusterAutoscalerConfiguration = default!;
 #endif
         /// <summary>An object specifying the control plane firewall for the Kubernetes cluster. Control plane firewall is in early availability (invite only).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall? ControlPlaneFirewall { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall? ControlPlaneFirewall { get => _explicitNullValueControlPlaneFirewall; set { _explicitNullValueControlPlaneFirewall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("control_plane_firewall"); else _explicitNullProperties?.Remove("control_plane_firewall"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall? _explicitNullValueControlPlaneFirewall = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall ControlPlaneFirewall { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall ControlPlaneFirewall { get => _explicitNullValueControlPlaneFirewall; set { _explicitNullValueControlPlaneFirewall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("control_plane_firewall"); else _explicitNullProperties?.Remove("control_plane_firewall"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ControlPlaneFirewall _explicitNullValueControlPlaneFirewall = default!;
 #endif
         /// <summary>An object specifying whether the Cluster Proportional Autoscaler (CPA) add-on for CoreDNS should be enabled for the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler? CorednsAutoscaler { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler? CorednsAutoscaler { get => _explicitNullValueCorednsAutoscaler; set { _explicitNullValueCorednsAutoscaler = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coredns_autoscaler"); else _explicitNullProperties?.Remove("coredns_autoscaler"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler? _explicitNullValueCorednsAutoscaler = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler CorednsAutoscaler { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler CorednsAutoscaler { get => _explicitNullValueCorednsAutoscaler; set { _explicitNullValueCorednsAutoscaler = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coredns_autoscaler"); else _explicitNullProperties?.Remove("coredns_autoscaler"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler _explicitNullValueCorednsAutoscaler = default!;
 #endif
         /// <summary>A boolean value indicating whether GPU nodes in the cluster are launched with images that do not include pre-installed GPU drivers, allowing GPU drivers to be managed by a GPU operator instead. Mutually exclusive with other GPU-related cluster options, such as `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted, the current value is left unchanged.</summary>
-        public bool? GpuOperatorReady { get; set; }
+        public bool? GpuOperatorReady { get => _explicitNullValueGpuOperatorReady; set { _explicitNullValueGpuOperatorReady = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gpu_operator_ready"); else _explicitNullProperties?.Remove("gpu_operator_ready"); } }
+        private bool? _explicitNullValueGpuOperatorReady = default!;
         /// <summary>A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled. When omitted on create, the default is version-dependent; for DOKS 1.36.0 and later, the default is true; for earlier versions, the default is false.</summary>
-        public bool? Ha { get; set; }
+        public bool? Ha { get => _explicitNullValueHa; set { _explicitNullValueHa = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ha"); else _explicitNullProperties?.Remove("ha"); } }
+        private bool? _explicitNullValueHa = default!;
         /// <summary>An object specifying the maintenance window policy for the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy? MaintenancePolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy? MaintenancePolicy { get => _explicitNullValueMaintenancePolicy; set { _explicitNullValueMaintenancePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance_policy"); else _explicitNullProperties?.Remove("maintenance_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy? _explicitNullValueMaintenancePolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy MaintenancePolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy MaintenancePolicy { get => _explicitNullValueMaintenancePolicy; set { _explicitNullValueMaintenancePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance_policy"); else _explicitNullProperties?.Remove("maintenance_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy _explicitNullValueMaintenancePolicy = default!;
 #endif
         /// <summary>A human-readable name for a Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>An object specifying whether the NFS CSI plugin should be enabled for the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin? NfsCsiPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin? NfsCsiPlugin { get => _explicitNullValueNfsCsiPlugin; set { _explicitNullValueNfsCsiPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nfs_csi_plugin"); else _explicitNullProperties?.Remove("nfs_csi_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin? _explicitNullValueNfsCsiPlugin = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin NfsCsiPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin NfsCsiPlugin { get => _explicitNullValueNfsCsiPlugin; set { _explicitNullValueNfsCsiPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nfs_csi_plugin"); else _explicitNullProperties?.Remove("nfs_csi_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsCsiPlugin _explicitNullValueNfsCsiPlugin = default!;
 #endif
         /// <summary>An object specifying whether the Nvidia GPU Device Plugin should be enabled in the Kubernetes cluster. It&apos;s enabled by default for clusters with an Nvidia GPU node pool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin? NvidiaGpuDevicePlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin? NvidiaGpuDevicePlugin { get => _explicitNullValueNvidiaGpuDevicePlugin; set { _explicitNullValueNvidiaGpuDevicePlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nvidia_gpu_device_plugin"); else _explicitNullProperties?.Remove("nvidia_gpu_device_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin? _explicitNullValueNvidiaGpuDevicePlugin = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin NvidiaGpuDevicePlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin NvidiaGpuDevicePlugin { get => _explicitNullValueNvidiaGpuDevicePlugin; set { _explicitNullValueNvidiaGpuDevicePlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nvidia_gpu_device_plugin"); else _explicitNullProperties?.Remove("nvidia_gpu_device_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDevicePlugin _explicitNullValueNvidiaGpuDevicePlugin = default!;
 #endif
         /// <summary>An object specifying whether the NVIDIA GPU DRA Driver should be enabled in the Kubernetes cluster. Mutually exclusive with `nvidia_gpu_device_plugin`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver? NvidiaGpuDraDriver { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver? NvidiaGpuDraDriver { get => _explicitNullValueNvidiaGpuDraDriver; set { _explicitNullValueNvidiaGpuDraDriver = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nvidia_gpu_dra_driver"); else _explicitNullProperties?.Remove("nvidia_gpu_dra_driver"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver? _explicitNullValueNvidiaGpuDraDriver = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver NvidiaGpuDraDriver { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver NvidiaGpuDraDriver { get => _explicitNullValueNvidiaGpuDraDriver; set { _explicitNullValueNvidiaGpuDraDriver = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nvidia_gpu_dra_driver"); else _explicitNullProperties?.Remove("nvidia_gpu_dra_driver"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.NvidiaGpuDraDriver _explicitNullValueNvidiaGpuDraDriver = default!;
 #endif
         /// <summary>An object specifying whether the Peer-to-peer OCI registry component should be enabled for the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin? P2pOciRegistryPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin? P2pOciRegistryPlugin { get => _explicitNullValueP2pOciRegistryPlugin; set { _explicitNullValueP2pOciRegistryPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p2p_oci_registry_plugin"); else _explicitNullProperties?.Remove("p2p_oci_registry_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin? _explicitNullValueP2pOciRegistryPlugin = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin P2pOciRegistryPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin P2pOciRegistryPlugin { get => _explicitNullValueP2pOciRegistryPlugin; set { _explicitNullValueP2pOciRegistryPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p2p_oci_registry_plugin"); else _explicitNullProperties?.Remove("p2p_oci_registry_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.P2POciRegistryPlugin _explicitNullValueP2pOciRegistryPlugin = default!;
 #endif
         /// <summary>An object specifying whether the RDMA shared device plugin should be enabled in the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RdmaSharedDevPlugin? RdmaSharedDevPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RdmaSharedDevPlugin? RdmaSharedDevPlugin { get => _explicitNullValueRdmaSharedDevPlugin; set { _explicitNullValueRdmaSharedDevPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rdma_shared_dev_plugin"); else _explicitNullProperties?.Remove("rdma_shared_dev_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RdmaSharedDevPlugin? _explicitNullValueRdmaSharedDevPlugin = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RdmaSharedDevPlugin RdmaSharedDevPlugin { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RdmaSharedDevPlugin RdmaSharedDevPlugin { get => _explicitNullValueRdmaSharedDevPlugin; set { _explicitNullValueRdmaSharedDevPlugin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rdma_shared_dev_plugin"); else _explicitNullProperties?.Remove("rdma_shared_dev_plugin"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RdmaSharedDevPlugin _explicitNullValueRdmaSharedDevPlugin = default!;
 #endif
         /// <summary>An object specifying whether the routing-agent component should be enabled for the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RoutingAgent? RoutingAgent { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RoutingAgent? RoutingAgent { get => _explicitNullValueRoutingAgent; set { _explicitNullValueRoutingAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_agent"); else _explicitNullProperties?.Remove("routing_agent"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RoutingAgent? _explicitNullValueRoutingAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RoutingAgent RoutingAgent { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RoutingAgent RoutingAgent { get => _explicitNullValueRoutingAgent; set { _explicitNullValueRoutingAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_agent"); else _explicitNullProperties?.Remove("routing_agent"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RoutingAgent _explicitNullValueRoutingAgent = default!;
 #endif
         /// <summary>An object specifying Single Sign-On (SSO) configuration for the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Sso? Sso { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Sso? Sso { get => _explicitNullValueSso; set { _explicitNullValueSso = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso"); else _explicitNullProperties?.Remove("sso"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.Sso? _explicitNullValueSso = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Sso Sso { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Sso Sso { get => _explicitNullValueSso; set { _explicitNullValueSso = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso"); else _explicitNullProperties?.Remove("sso"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.Sso _explicitNullValueSso = default!;
 #endif
         /// <summary>A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes.</summary>
-        public bool? SurgeUpgrade { get; set; }
+        public bool? SurgeUpgrade { get => _explicitNullValueSurgeUpgrade; set { _explicitNullValueSurgeUpgrade = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("surge_upgrade"); else _explicitNullProperties?.Remove("surge_upgrade"); } }
+        private bool? _explicitNullValueSurgeUpgrade = default!;
         /// <summary>An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged `k8s` and `k8s:$K8S_CLUSTER_ID`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterUpdate"/> and sets the default values.
@@ -167,7 +230,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -226,6 +289,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Sso>("sso", Sso);
             writer.WriteBoolValue("surge_upgrade", SurgeUpgrade);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

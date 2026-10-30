@@ -19,21 +19,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item
     public partial class WithRegistryNameItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The garbageCollection property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.GarbageCollection.GarbageCollectionRequestBuilder GarbageCollection
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.GarbageCollection.GarbageCollectionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The garbageCollections property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.GarbageCollections.GarbageCollectionsRequestBuilder GarbageCollections
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.GarbageCollections.GarbageCollectionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The repositories property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.RepositoriesRequestBuilder Repositories
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.Repositories.RepositoriesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The repositoriesV2 property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.RepositoriesV2.RepositoriesV2RequestBuilder RepositoriesV2
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Registry.Item.RepositoriesV2.RepositoriesV2RequestBuilder(PathParameters, RequestAdapter);

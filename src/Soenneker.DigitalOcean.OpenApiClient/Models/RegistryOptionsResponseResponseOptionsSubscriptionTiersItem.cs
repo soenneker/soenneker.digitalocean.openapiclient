@@ -11,47 +11,77 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RegistryOptionsResponseResponseOptionsSubscriptionTiersItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_storage_overage") is { } nullNodeAllowStorageOverage && nullNodeAllowStorageOverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowStorageOverage = null;
+            if (parseNode.GetChildNode("eligibility_reasons") is { } nullNodeEligibilityReasons && nullNodeEligibilityReasons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EligibilityReasons = null;
+            if (parseNode.GetChildNode("eligible") is { } nullNodeEligible && nullNodeEligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eligible = null;
+            if (parseNode.GetChildNode("included_bandwidth_bytes") is { } nullNodeIncludedBandwidthBytes && nullNodeIncludedBandwidthBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludedBandwidthBytes = null;
+            if (parseNode.GetChildNode("included_repositories") is { } nullNodeIncludedRepositories && nullNodeIncludedRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludedRepositories = null;
+            if (parseNode.GetChildNode("included_storage_bytes") is { } nullNodeIncludedStorageBytes && nullNodeIncludedStorageBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludedStorageBytes = null;
+            if (parseNode.GetChildNode("monthly_price_in_cents") is { } nullNodeMonthlyPriceInCents && nullNodeMonthlyPriceInCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyPriceInCents = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("storage_overage_price_in_cents") is { } nullNodeStorageOveragePriceInCents && nullNodeStorageOveragePriceInCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorageOveragePriceInCents = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used.</summary>
-        public bool? AllowStorageOverage { get; set; }
+        public bool? AllowStorageOverage { get => _explicitNullValueAllowStorageOverage; set { _explicitNullValueAllowStorageOverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_storage_overage"); else _explicitNullProperties?.Remove("allow_storage_overage"); } }
+        private bool? _explicitNullValueAllowStorageOverage = default!;
         /// <summary>If your account is not eligible to use a certain subscription tier, this will include a list of reasons that prevent you from using the tier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SubscriptionTierExtendedEligibilityReasonsItem?>? EligibilityReasons { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SubscriptionTierExtendedEligibilityReasonsItem?>? EligibilityReasons { get => _explicitNullValueEligibilityReasons; set { _explicitNullValueEligibilityReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eligibility_reasons"); else _explicitNullProperties?.Remove("eligibility_reasons"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SubscriptionTierExtendedEligibilityReasonsItem?>? _explicitNullValueEligibilityReasons = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SubscriptionTierExtendedEligibilityReasonsItem?> EligibilityReasons { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SubscriptionTierExtendedEligibilityReasonsItem?> EligibilityReasons { get => _explicitNullValueEligibilityReasons; set { _explicitNullValueEligibilityReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eligibility_reasons"); else _explicitNullProperties?.Remove("eligibility_reasons"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SubscriptionTierExtendedEligibilityReasonsItem?> _explicitNullValueEligibilityReasons = default!;
 #endif
         /// <summary>A boolean indicating whether your account it eligible to use a certain subscription tier.</summary>
-        public bool? Eligible { get; set; }
+        public bool? Eligible { get => _explicitNullValueEligible; set { _explicitNullValueEligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eligible"); else _explicitNullProperties?.Remove("eligible"); } }
+        private bool? _explicitNullValueEligible = default!;
         /// <summary>The amount of outbound data transfer included in the subscription tier in bytes.</summary>
-        public long? IncludedBandwidthBytes { get; set; }
+        public long? IncludedBandwidthBytes { get => _explicitNullValueIncludedBandwidthBytes; set { _explicitNullValueIncludedBandwidthBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("included_bandwidth_bytes"); else _explicitNullProperties?.Remove("included_bandwidth_bytes"); } }
+        private long? _explicitNullValueIncludedBandwidthBytes = default!;
         /// <summary>The number of repositories included in the subscription tier. `0` indicates that the subscription tier includes unlimited repositories.</summary>
-        public int? IncludedRepositories { get; set; }
+        public int? IncludedRepositories { get => _explicitNullValueIncludedRepositories; set { _explicitNullValueIncludedRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("included_repositories"); else _explicitNullProperties?.Remove("included_repositories"); } }
+        private int? _explicitNullValueIncludedRepositories = default!;
         /// <summary>The amount of storage included in the subscription tier in bytes.</summary>
-        public long? IncludedStorageBytes { get; set; }
+        public long? IncludedStorageBytes { get => _explicitNullValueIncludedStorageBytes; set { _explicitNullValueIncludedStorageBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("included_storage_bytes"); else _explicitNullProperties?.Remove("included_storage_bytes"); } }
+        private long? _explicitNullValueIncludedStorageBytes = default!;
         /// <summary>The monthly cost of the subscription tier in cents.</summary>
-        public int? MonthlyPriceInCents { get; set; }
+        public int? MonthlyPriceInCents { get => _explicitNullValueMonthlyPriceInCents; set { _explicitNullValueMonthlyPriceInCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthly_price_in_cents"); else _explicitNullProperties?.Remove("monthly_price_in_cents"); } }
+        private int? _explicitNullValueMonthlyPriceInCents = default!;
         /// <summary>The name of the subscription tier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The slug identifier of the subscription tier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Slug { get; set; }
+        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        private string? _explicitNullValueSlug = default!;
 #nullable restore
 #else
-        public string Slug { get; set; }
+        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        private string _explicitNullValueSlug = default!;
 #endif
         /// <summary>The price paid in cents per GiB for additional storage beyond what is included in the subscription plan.</summary>
-        public int? StorageOveragePriceInCents { get; set; }
+        public int? StorageOveragePriceInCents { get => _explicitNullValueStorageOveragePriceInCents; set { _explicitNullValueStorageOveragePriceInCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_overage_price_in_cents"); else _explicitNullProperties?.Remove("storage_overage_price_in_cents"); } }
+        private int? _explicitNullValueStorageOveragePriceInCents = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem"/> and sets the default values.
         /// </summary>
@@ -67,7 +97,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,6 +136,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("slug", Slug);
             writer.WriteIntValue("storage_overage_price_in_cents", StorageOveragePriceInCents);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

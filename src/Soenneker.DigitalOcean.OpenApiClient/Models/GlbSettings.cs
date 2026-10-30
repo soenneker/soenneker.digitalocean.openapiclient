@@ -12,31 +12,50 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GlbSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cdn") is { } nullNodeCdn && nullNodeCdn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cdn = null;
+            if (parseNode.GetChildNode("failover_threshold") is { } nullNodeFailoverThreshold && nullNodeFailoverThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailoverThreshold = null;
+            if (parseNode.GetChildNode("region_priorities") is { } nullNodeRegionPriorities && nullNodeRegionPriorities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionPriorities = null;
+            if (parseNode.GetChildNode("target_port") is { } nullNodeTargetPort && nullNodeTargetPort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetPort = null;
+            if (parseNode.GetChildNode("target_protocol") is { } nullNodeTargetProtocol && nullNodeTargetProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetProtocol = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An object specifying CDN configurations for a Global load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsCdn? Cdn { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsCdn? Cdn { get => _explicitNullValueCdn; set { _explicitNullValueCdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cdn"); else _explicitNullProperties?.Remove("cdn"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsCdn? _explicitNullValueCdn = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsCdn Cdn { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsCdn Cdn { get => _explicitNullValueCdn; set { _explicitNullValueCdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cdn"); else _explicitNullProperties?.Remove("cdn"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsCdn _explicitNullValueCdn = default!;
 #endif
         /// <summary>An integer value as a percentage to indicate failure threshold to decide how the regional priorities will take effect. A value of `50` would indicate that the Global load balancer will choose a lower priority region to forward traffic to once this failure threshold has been reached for the higher priority region.</summary>
-        public int? FailoverThreshold { get; set; }
+        public int? FailoverThreshold { get => _explicitNullValueFailoverThreshold; set { _explicitNullValueFailoverThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failover_threshold"); else _explicitNullProperties?.Remove("failover_threshold"); } }
+        private int? _explicitNullValueFailoverThreshold = default!;
         /// <summary>A map of region string to an integer priority value indicating preference for which regional target a Global load balancer will forward traffic to. A lower value indicates a higher priority.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsRegionPrioritiesProperty? RegionPriorities { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsRegionPrioritiesProperty? RegionPriorities { get => _explicitNullValueRegionPriorities; set { _explicitNullValueRegionPriorities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_priorities"); else _explicitNullProperties?.Remove("region_priorities"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsRegionPrioritiesProperty? _explicitNullValueRegionPriorities = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsRegionPrioritiesProperty RegionPriorities { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsRegionPrioritiesProperty RegionPriorities { get => _explicitNullValueRegionPriorities; set { _explicitNullValueRegionPriorities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_priorities"); else _explicitNullProperties?.Remove("region_priorities"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsRegionPrioritiesProperty _explicitNullValueRegionPriorities = default!;
 #endif
         /// <summary>An integer representing the port on the target backends which the load balancer will forward traffic to.</summary>
-        public int? TargetPort { get; set; }
+        public int? TargetPort { get => _explicitNullValueTargetPort; set { _explicitNullValueTargetPort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_port"); else _explicitNullProperties?.Remove("target_port"); } }
+        private int? _explicitNullValueTargetPort = default!;
         /// <summary>The protocol used for forwarding traffic from the load balancer to the target backends. The possible values are `http`, `https` and `http2`.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsTargetProtocol? TargetProtocol { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsTargetProtocol? TargetProtocol { get => _explicitNullValueTargetProtocol; set { _explicitNullValueTargetProtocol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_protocol"); else _explicitNullProperties?.Remove("target_protocol"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsTargetProtocol? _explicitNullValueTargetProtocol = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings"/> and sets the default values.
         /// </summary>
@@ -52,7 +71,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,6 +100,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsRegionPrioritiesProperty>("region_priorities", RegionPriorities);
             writer.WriteIntValue("target_port", TargetPort);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettingsTargetProtocol>("target_protocol", TargetProtocol);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

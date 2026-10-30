@@ -12,33 +12,59 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PgbouncerAdvancedConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autodb_idle_timeout") is { } nullNodeAutodbIdleTimeout && nullNodeAutodbIdleTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutodbIdleTimeout = null;
+            if (parseNode.GetChildNode("autodb_max_db_connections") is { } nullNodeAutodbMaxDbConnections && nullNodeAutodbMaxDbConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutodbMaxDbConnections = null;
+            if (parseNode.GetChildNode("autodb_pool_mode") is { } nullNodeAutodbPoolMode && nullNodeAutodbPoolMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutodbPoolMode = null;
+            if (parseNode.GetChildNode("autodb_pool_size") is { } nullNodeAutodbPoolSize && nullNodeAutodbPoolSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutodbPoolSize = null;
+            if (parseNode.GetChildNode("ignore_startup_parameters") is { } nullNodeIgnoreStartupParameters && nullNodeIgnoreStartupParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreStartupParameters = null;
+            if (parseNode.GetChildNode("min_pool_size") is { } nullNodeMinPoolSize && nullNodeMinPoolSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinPoolSize = null;
+            if (parseNode.GetChildNode("server_idle_timeout") is { } nullNodeServerIdleTimeout && nullNodeServerIdleTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerIdleTimeout = null;
+            if (parseNode.GetChildNode("server_lifetime") is { } nullNodeServerLifetime && nullNodeServerLifetime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerLifetime = null;
+            if (parseNode.GetChildNode("server_reset_query_always") is { } nullNodeServerResetQueryAlways && nullNodeServerResetQueryAlways.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerResetQueryAlways = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If the automatically-created database pools have been unused this many seconds, they are freed. If 0, timeout is disabled.</summary>
-        public int? AutodbIdleTimeout { get; set; }
+        public int? AutodbIdleTimeout { get => _explicitNullValueAutodbIdleTimeout; set { _explicitNullValueAutodbIdleTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autodb_idle_timeout"); else _explicitNullProperties?.Remove("autodb_idle_timeout"); } }
+        private int? _explicitNullValueAutodbIdleTimeout = default!;
         /// <summary>Only allows a maximum this many server connections per database (regardless of user). If 0, allows unlimited connections.</summary>
-        public int? AutodbMaxDbConnections { get; set; }
+        public int? AutodbMaxDbConnections { get => _explicitNullValueAutodbMaxDbConnections; set { _explicitNullValueAutodbMaxDbConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autodb_max_db_connections"); else _explicitNullProperties?.Remove("autodb_max_db_connections"); } }
+        private int? _explicitNullValueAutodbMaxDbConnections = default!;
         /// <summary>PGBouncer pool mode</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigAutodbPoolMode? AutodbPoolMode { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigAutodbPoolMode? AutodbPoolMode { get => _explicitNullValueAutodbPoolMode; set { _explicitNullValueAutodbPoolMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autodb_pool_mode"); else _explicitNullProperties?.Remove("autodb_pool_mode"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigAutodbPoolMode? _explicitNullValueAutodbPoolMode = default!;
         /// <summary>If non-zero, automatically creates a pool of that size per user when a pool doesn&apos;t exist.</summary>
-        public int? AutodbPoolSize { get; set; }
+        public int? AutodbPoolSize { get => _explicitNullValueAutodbPoolSize; set { _explicitNullValueAutodbPoolSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autodb_pool_size"); else _explicitNullProperties?.Remove("autodb_pool_size"); } }
+        private int? _explicitNullValueAutodbPoolSize = default!;
         /// <summary>List of parameters to ignore when given in startup packet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigIgnoreStartupParametersItem?>? IgnoreStartupParameters { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigIgnoreStartupParametersItem?>? IgnoreStartupParameters { get => _explicitNullValueIgnoreStartupParameters; set { _explicitNullValueIgnoreStartupParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_startup_parameters"); else _explicitNullProperties?.Remove("ignore_startup_parameters"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigIgnoreStartupParametersItem?>? _explicitNullValueIgnoreStartupParameters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigIgnoreStartupParametersItem?> IgnoreStartupParameters { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigIgnoreStartupParametersItem?> IgnoreStartupParameters { get => _explicitNullValueIgnoreStartupParameters; set { _explicitNullValueIgnoreStartupParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_startup_parameters"); else _explicitNullProperties?.Remove("ignore_startup_parameters"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfigIgnoreStartupParametersItem?> _explicitNullValueIgnoreStartupParameters = default!;
 #endif
         /// <summary>If current server connections are below this number, adds more. Improves behavior when usual load comes suddenly back after period of total inactivity. The value is effectively capped at the pool size.</summary>
-        public int? MinPoolSize { get; set; }
+        public int? MinPoolSize { get => _explicitNullValueMinPoolSize; set { _explicitNullValueMinPoolSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_pool_size"); else _explicitNullProperties?.Remove("min_pool_size"); } }
+        private int? _explicitNullValueMinPoolSize = default!;
         /// <summary>Drops server connections if they have been idle more than this many seconds.  If 0, timeout is disabled. </summary>
-        public int? ServerIdleTimeout { get; set; }
+        public int? ServerIdleTimeout { get => _explicitNullValueServerIdleTimeout; set { _explicitNullValueServerIdleTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_idle_timeout"); else _explicitNullProperties?.Remove("server_idle_timeout"); } }
+        private int? _explicitNullValueServerIdleTimeout = default!;
         /// <summary>The pooler closes any unused server connection that has been connected longer than this amount of seconds.</summary>
-        public int? ServerLifetime { get; set; }
+        public int? ServerLifetime { get => _explicitNullValueServerLifetime; set { _explicitNullValueServerLifetime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_lifetime"); else _explicitNullProperties?.Remove("server_lifetime"); } }
+        private int? _explicitNullValueServerLifetime = default!;
         /// <summary>Run server_reset_query (DISCARD ALL) in all pooling modes.</summary>
-        public bool? ServerResetQueryAlways { get; set; }
+        public bool? ServerResetQueryAlways { get => _explicitNullValueServerResetQueryAlways; set { _explicitNullValueServerResetQueryAlways = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_reset_query_always"); else _explicitNullProperties?.Remove("server_reset_query_always"); } }
+        private bool? _explicitNullValueServerResetQueryAlways = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig"/> and sets the default values.
         /// </summary>
@@ -54,7 +80,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.PgbouncerAdvancedConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,6 +117,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("server_idle_timeout", ServerIdleTimeout);
             writer.WriteIntValue("server_lifetime", ServerLifetime);
             writer.WriteBoolValue("server_reset_query_always", ServerResetQueryAlways);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

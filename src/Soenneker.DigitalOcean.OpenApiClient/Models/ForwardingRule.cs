@@ -12,27 +12,47 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ForwardingRule : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("certificate_id") is { } nullNodeCertificateId && nullNodeCertificateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateId = null;
+            if (parseNode.GetChildNode("entry_port") is { } nullNodeEntryPort && nullNodeEntryPort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntryPort = null;
+            if (parseNode.GetChildNode("entry_protocol") is { } nullNodeEntryProtocol && nullNodeEntryProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntryProtocol = null;
+            if (parseNode.GetChildNode("target_port") is { } nullNodeTargetPort && nullNodeTargetPort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetPort = null;
+            if (parseNode.GetChildNode("target_protocol") is { } nullNodeTargetProtocol && nullNodeTargetProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetProtocol = null;
+            if (parseNode.GetChildNode("tls_passthrough") is { } nullNodeTlsPassthrough && nullNodeTlsPassthrough.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TlsPassthrough = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the TLS certificate used for SSL termination if enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CertificateId { get; set; }
+        public string? CertificateId { get => _explicitNullValueCertificateId; set { _explicitNullValueCertificateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_id"); else _explicitNullProperties?.Remove("certificate_id"); } }
+        private string? _explicitNullValueCertificateId = default!;
 #nullable restore
 #else
-        public string CertificateId { get; set; }
+        public string CertificateId { get => _explicitNullValueCertificateId; set { _explicitNullValueCertificateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_id"); else _explicitNullProperties?.Remove("certificate_id"); } }
+        private string _explicitNullValueCertificateId = default!;
 #endif
         /// <summary>An integer representing the port on which the load balancer instance will listen.</summary>
-        public int? EntryPort { get; set; }
+        public int? EntryPort { get => _explicitNullValueEntryPort; set { _explicitNullValueEntryPort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entry_port"); else _explicitNullProperties?.Remove("entry_port"); } }
+        private int? _explicitNullValueEntryPort = default!;
         /// <summary>The protocol used for traffic to the load balancer. The possible values are: `http`, `https`, `http2`, `http3`, `tcp`, or `udp`. If you set the  `entry_protocol` to `udp`, the `target_protocol` must be set to `udp`.  When using UDP, the load balancer requires that you set up a health  check with a port that uses TCP, HTTP, or HTTPS to work properly.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRuleEntryProtocol? EntryProtocol { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRuleEntryProtocol? EntryProtocol { get => _explicitNullValueEntryProtocol; set { _explicitNullValueEntryProtocol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entry_protocol"); else _explicitNullProperties?.Remove("entry_protocol"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRuleEntryProtocol? _explicitNullValueEntryProtocol = default!;
         /// <summary>An integer representing the port on the backend Droplets to which the load balancer will send traffic.</summary>
-        public int? TargetPort { get; set; }
+        public int? TargetPort { get => _explicitNullValueTargetPort; set { _explicitNullValueTargetPort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_port"); else _explicitNullProperties?.Remove("target_port"); } }
+        private int? _explicitNullValueTargetPort = default!;
         /// <summary>The protocol used for traffic from the load balancer to the backend Droplets. The possible values are: `http`, `https`, `http2`, `tcp`, or `udp`. If you set the `target_protocol` to `udp`, the `entry_protocol` must be set to  `udp`. When using UDP, the load balancer requires that you set up a health  check with a port that uses TCP, HTTP, or HTTPS to work properly.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRuleTargetProtocol? TargetProtocol { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRuleTargetProtocol? TargetProtocol { get => _explicitNullValueTargetProtocol; set { _explicitNullValueTargetProtocol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_protocol"); else _explicitNullProperties?.Remove("target_protocol"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRuleTargetProtocol? _explicitNullValueTargetProtocol = default!;
         /// <summary>A boolean value indicating whether SSL encrypted traffic will be passed through to the backend Droplets.</summary>
-        public bool? TlsPassthrough { get; set; }
+        public bool? TlsPassthrough { get => _explicitNullValueTlsPassthrough; set { _explicitNullValueTlsPassthrough = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tls_passthrough"); else _explicitNullProperties?.Remove("tls_passthrough"); } }
+        private bool? _explicitNullValueTlsPassthrough = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule"/> and sets the default values.
         /// </summary>
@@ -48,7 +68,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +99,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("target_port", TargetPort);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRuleTargetProtocol>("target_protocol", TargetProtocol);
             writer.WriteBoolValue("tls_passthrough", TlsPassthrough);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

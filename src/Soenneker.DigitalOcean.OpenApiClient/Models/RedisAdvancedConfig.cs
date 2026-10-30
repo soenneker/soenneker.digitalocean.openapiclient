@@ -11,37 +11,67 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RedisAdvancedConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("redis_acl_channels_default") is { } nullNodeRedisAclChannelsDefault && nullNodeRedisAclChannelsDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisAclChannelsDefault = null;
+            if (parseNode.GetChildNode("redis_io_threads") is { } nullNodeRedisIoThreads && nullNodeRedisIoThreads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisIoThreads = null;
+            if (parseNode.GetChildNode("redis_lfu_decay_time") is { } nullNodeRedisLfuDecayTime && nullNodeRedisLfuDecayTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisLfuDecayTime = null;
+            if (parseNode.GetChildNode("redis_lfu_log_factor") is { } nullNodeRedisLfuLogFactor && nullNodeRedisLfuLogFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisLfuLogFactor = null;
+            if (parseNode.GetChildNode("redis_maxmemory_policy") is { } nullNodeRedisMaxmemoryPolicy && nullNodeRedisMaxmemoryPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisMaxmemoryPolicy = null;
+            if (parseNode.GetChildNode("redis_notify_keyspace_events") is { } nullNodeRedisNotifyKeyspaceEvents && nullNodeRedisNotifyKeyspaceEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisNotifyKeyspaceEvents = null;
+            if (parseNode.GetChildNode("redis_number_of_databases") is { } nullNodeRedisNumberOfDatabases && nullNodeRedisNumberOfDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisNumberOfDatabases = null;
+            if (parseNode.GetChildNode("redis_persistence") is { } nullNodeRedisPersistence && nullNodeRedisPersistence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisPersistence = null;
+            if (parseNode.GetChildNode("redis_pubsub_client_output_buffer_limit") is { } nullNodeRedisPubsubClientOutputBufferLimit && nullNodeRedisPubsubClientOutputBufferLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisPubsubClientOutputBufferLimit = null;
+            if (parseNode.GetChildNode("redis_ssl") is { } nullNodeRedisSsl && nullNodeRedisSsl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisSsl = null;
+            if (parseNode.GetChildNode("redis_timeout") is { } nullNodeRedisTimeout && nullNodeRedisTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedisTimeout = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Determines default pub/sub channels&apos; ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn&apos;t affect Caching configuration acl-pubsub-default.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisAclChannelsDefault? RedisAclChannelsDefault { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisAclChannelsDefault? RedisAclChannelsDefault { get => _explicitNullValueRedisAclChannelsDefault; set { _explicitNullValueRedisAclChannelsDefault = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_acl_channels_default"); else _explicitNullProperties?.Remove("redis_acl_channels_default"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisAclChannelsDefault? _explicitNullValueRedisAclChannelsDefault = default!;
         /// <summary>Caching IO thread count</summary>
-        public int? RedisIoThreads { get; set; }
+        public int? RedisIoThreads { get => _explicitNullValueRedisIoThreads; set { _explicitNullValueRedisIoThreads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_io_threads"); else _explicitNullProperties?.Remove("redis_io_threads"); } }
+        private int? _explicitNullValueRedisIoThreads = default!;
         /// <summary>LFU maxmemory-policy counter decay time in minutes</summary>
-        public int? RedisLfuDecayTime { get; set; }
+        public int? RedisLfuDecayTime { get => _explicitNullValueRedisLfuDecayTime; set { _explicitNullValueRedisLfuDecayTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_lfu_decay_time"); else _explicitNullProperties?.Remove("redis_lfu_decay_time"); } }
+        private int? _explicitNullValueRedisLfuDecayTime = default!;
         /// <summary>Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies</summary>
-        public int? RedisLfuLogFactor { get; set; }
+        public int? RedisLfuLogFactor { get => _explicitNullValueRedisLfuLogFactor; set { _explicitNullValueRedisLfuLogFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_lfu_log_factor"); else _explicitNullProperties?.Remove("redis_lfu_log_factor"); } }
+        private int? _explicitNullValueRedisLfuLogFactor = default!;
         /// <summary>A string specifying the desired eviction policy for the Caching cluster.- `noeviction`: Don&apos;t evict any data, returns error when memory limit is reached.- `allkeys-lru:` Evict any key, least recently used (LRU) first.- `allkeys-random`: Evict keys in a random order.- `volatile-lru`: Evict keys with expiration only, least recently used (LRU) first.- `volatile-random`: Evict keys with expiration only in a random order.- `volatile-ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisMaxmemoryPolicy? RedisMaxmemoryPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisMaxmemoryPolicy? RedisMaxmemoryPolicy { get => _explicitNullValueRedisMaxmemoryPolicy; set { _explicitNullValueRedisMaxmemoryPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_maxmemory_policy"); else _explicitNullProperties?.Remove("redis_maxmemory_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisMaxmemoryPolicy? _explicitNullValueRedisMaxmemoryPolicy = default!;
         /// <summary>Set notify-keyspace-events option. Requires at least `K` or `E` and accepts any combination of the following options. Setting the parameter to `&quot;&quot;` disables notifications.- `K` &amp;mdash; Keyspace events- `E` &amp;mdash; Keyevent events- `g` &amp;mdash; Generic commands (e.g. `DEL`, `EXPIRE`, `RENAME`, ...)- `$` &amp;mdash; String commands- `l` &amp;mdash; List commands- `s` &amp;mdash; Set commands- `h` &amp;mdash; Hash commands- `z` &amp;mdash; Sorted set commands- `t` &amp;mdash; Stream commands- `d` &amp;mdash; Module key type events- `x` &amp;mdash; Expired events- `e` &amp;mdash; Evicted events- `m` &amp;mdash; Key miss events- `n` &amp;mdash; New key events- `A` &amp;mdash; Alias for `&quot;g$lshztxed&quot;`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedisNotifyKeyspaceEvents { get; set; }
+        public string? RedisNotifyKeyspaceEvents { get => _explicitNullValueRedisNotifyKeyspaceEvents; set { _explicitNullValueRedisNotifyKeyspaceEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_notify_keyspace_events"); else _explicitNullProperties?.Remove("redis_notify_keyspace_events"); } }
+        private string? _explicitNullValueRedisNotifyKeyspaceEvents = default!;
 #nullable restore
 #else
-        public string RedisNotifyKeyspaceEvents { get; set; }
+        public string RedisNotifyKeyspaceEvents { get => _explicitNullValueRedisNotifyKeyspaceEvents; set { _explicitNullValueRedisNotifyKeyspaceEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_notify_keyspace_events"); else _explicitNullProperties?.Remove("redis_notify_keyspace_events"); } }
+        private string _explicitNullValueRedisNotifyKeyspaceEvents = default!;
 #endif
         /// <summary>Set number of redis databases. Changing this will cause a restart of redis service.</summary>
-        public int? RedisNumberOfDatabases { get; set; }
+        public int? RedisNumberOfDatabases { get => _explicitNullValueRedisNumberOfDatabases; set { _explicitNullValueRedisNumberOfDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_number_of_databases"); else _explicitNullProperties?.Remove("redis_number_of_databases"); } }
+        private int? _explicitNullValueRedisNumberOfDatabases = default!;
         /// <summary>Creates an RDB dump of the database every 10 minutes that can be used  to recover data after a node crash. The database does not create the  dump if no keys have changed since the last dump. When set to `off`,  the database cannot fork services, and data can be lost if a service  is restarted or powered off. DigitalOcean Managed Caching databases  do not support the Append Only File (AOF) persistence method.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisPersistence? RedisPersistence { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisPersistence? RedisPersistence { get => _explicitNullValueRedisPersistence; set { _explicitNullValueRedisPersistence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_persistence"); else _explicitNullProperties?.Remove("redis_persistence"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisPersistence? _explicitNullValueRedisPersistence = default!;
         /// <summary>Set output buffer limit for pub / sub clients in MB. The value is the hard limit, the soft limit is 1/4 of the hard limit. When setting the limit, be mindful of the available memory in the selected service plan.</summary>
-        public int? RedisPubsubClientOutputBufferLimit { get; set; }
+        public int? RedisPubsubClientOutputBufferLimit { get => _explicitNullValueRedisPubsubClientOutputBufferLimit; set { _explicitNullValueRedisPubsubClientOutputBufferLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_pubsub_client_output_buffer_limit"); else _explicitNullProperties?.Remove("redis_pubsub_client_output_buffer_limit"); } }
+        private int? _explicitNullValueRedisPubsubClientOutputBufferLimit = default!;
         /// <summary>Require SSL to access Caching.- When enabled, Caching accepts only SSL connections on port `25061`.- When disabled, port `25060` is opened for non-SSL connections, while port `25061` remains available for SSL connections.</summary>
-        public bool? RedisSsl { get; set; }
+        public bool? RedisSsl { get => _explicitNullValueRedisSsl; set { _explicitNullValueRedisSsl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_ssl"); else _explicitNullProperties?.Remove("redis_ssl"); } }
+        private bool? _explicitNullValueRedisSsl = default!;
         /// <summary>Caching idle connection timeout in seconds</summary>
-        public int? RedisTimeout { get; set; }
+        public int? RedisTimeout { get => _explicitNullValueRedisTimeout; set { _explicitNullValueRedisTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis_timeout"); else _explicitNullProperties?.Remove("redis_timeout"); } }
+        private int? _explicitNullValueRedisTimeout = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfig"/> and sets the default values.
         /// </summary>
@@ -61,7 +91,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,6 +132,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("redis_pubsub_client_output_buffer_limit", RedisPubsubClientOutputBufferLimit);
             writer.WriteBoolValue("redis_ssl", RedisSsl);
             writer.WriteIntValue("redis_timeout", RedisTimeout);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

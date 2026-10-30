@@ -11,48 +11,70 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AppLogDestinationDefinition : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("datadog") is { } nullNodeDatadog && nullNodeDatadog.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Datadog = null;
+            if (parseNode.GetChildNode("logtail") is { } nullNodeLogtail && nullNodeLogtail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logtail = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("open_search") is { } nullNodeOpenSearch && nullNodeOpenSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenSearch = null;
+            if (parseNode.GetChildNode("papertrail") is { } nullNodePapertrail && nullNodePapertrail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Papertrail = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>DataDog configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDatadogSpec? Datadog { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDatadogSpec? Datadog { get => _explicitNullValueDatadog; set { _explicitNullValueDatadog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datadog"); else _explicitNullProperties?.Remove("datadog"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDatadogSpec? _explicitNullValueDatadog = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDatadogSpec Datadog { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDatadogSpec Datadog { get => _explicitNullValueDatadog; set { _explicitNullValueDatadog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datadog"); else _explicitNullProperties?.Remove("datadog"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDatadogSpec _explicitNullValueDatadog = default!;
 #endif
         /// <summary>Logtail configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationLogtailSpec? Logtail { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationLogtailSpec? Logtail { get => _explicitNullValueLogtail; set { _explicitNullValueLogtail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logtail"); else _explicitNullProperties?.Remove("logtail"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationLogtailSpec? _explicitNullValueLogtail = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationLogtailSpec Logtail { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationLogtailSpec Logtail { get => _explicitNullValueLogtail; set { _explicitNullValueLogtail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logtail"); else _explicitNullProperties?.Remove("logtail"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationLogtailSpec _explicitNullValueLogtail = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>OpenSearch configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpec? OpenSearch { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpec? OpenSearch { get => _explicitNullValueOpenSearch; set { _explicitNullValueOpenSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_search"); else _explicitNullProperties?.Remove("open_search"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpec? _explicitNullValueOpenSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpec OpenSearch { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpec OpenSearch { get => _explicitNullValueOpenSearch; set { _explicitNullValueOpenSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_search"); else _explicitNullProperties?.Remove("open_search"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpec _explicitNullValueOpenSearch = default!;
 #endif
         /// <summary>Papertrail configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationPapertrailSpec? Papertrail { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationPapertrailSpec? Papertrail { get => _explicitNullValuePapertrail; set { _explicitNullValuePapertrail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("papertrail"); else _explicitNullProperties?.Remove("papertrail"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationPapertrailSpec? _explicitNullValuePapertrail = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationPapertrailSpec Papertrail { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationPapertrailSpec Papertrail { get => _explicitNullValuePapertrail; set { _explicitNullValuePapertrail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("papertrail"); else _explicitNullProperties?.Remove("papertrail"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationPapertrailSpec _explicitNullValuePapertrail = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition"/> and sets the default values.
@@ -69,7 +91,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +120,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpec>("open_search", OpenSearch);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationPapertrailSpec>("papertrail", Papertrail);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

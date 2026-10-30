@@ -11,41 +11,75 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ValkeyAdvancedConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("frequent_snapshots") is { } nullNodeFrequentSnapshots && nullNodeFrequentSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FrequentSnapshots = null;
+            if (parseNode.GetChildNode("valkey_acl_channels_default") is { } nullNodeValkeyAclChannelsDefault && nullNodeValkeyAclChannelsDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyAclChannelsDefault = null;
+            if (parseNode.GetChildNode("valkey_active_expire_effort") is { } nullNodeValkeyActiveExpireEffort && nullNodeValkeyActiveExpireEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyActiveExpireEffort = null;
+            if (parseNode.GetChildNode("valkey_io_threads") is { } nullNodeValkeyIoThreads && nullNodeValkeyIoThreads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyIoThreads = null;
+            if (parseNode.GetChildNode("valkey_lfu_decay_time") is { } nullNodeValkeyLfuDecayTime && nullNodeValkeyLfuDecayTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyLfuDecayTime = null;
+            if (parseNode.GetChildNode("valkey_lfu_log_factor") is { } nullNodeValkeyLfuLogFactor && nullNodeValkeyLfuLogFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyLfuLogFactor = null;
+            if (parseNode.GetChildNode("valkey_maxmemory_policy") is { } nullNodeValkeyMaxmemoryPolicy && nullNodeValkeyMaxmemoryPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyMaxmemoryPolicy = null;
+            if (parseNode.GetChildNode("valkey_notify_keyspace_events") is { } nullNodeValkeyNotifyKeyspaceEvents && nullNodeValkeyNotifyKeyspaceEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyNotifyKeyspaceEvents = null;
+            if (parseNode.GetChildNode("valkey_number_of_databases") is { } nullNodeValkeyNumberOfDatabases && nullNodeValkeyNumberOfDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyNumberOfDatabases = null;
+            if (parseNode.GetChildNode("valkey_persistence") is { } nullNodeValkeyPersistence && nullNodeValkeyPersistence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyPersistence = null;
+            if (parseNode.GetChildNode("valkey_pubsub_client_output_buffer_limit") is { } nullNodeValkeyPubsubClientOutputBufferLimit && nullNodeValkeyPubsubClientOutputBufferLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyPubsubClientOutputBufferLimit = null;
+            if (parseNode.GetChildNode("valkey_ssl") is { } nullNodeValkeySsl && nullNodeValkeySsl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeySsl = null;
+            if (parseNode.GetChildNode("valkey_timeout") is { } nullNodeValkeyTimeout && nullNodeValkeyTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValkeyTimeout = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Frequent RDB snapshotsWhen enabled, Valkey will create frequent local RDB snapshots. When disabled, Valkey will only take RDB snapshots when a backup is created, based on the backup schedule. This setting is ignored when valkey_persistence is set to off.</summary>
-        public bool? FrequentSnapshots { get; set; }
+        public bool? FrequentSnapshots { get => _explicitNullValueFrequentSnapshots; set { _explicitNullValueFrequentSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frequent_snapshots"); else _explicitNullProperties?.Remove("frequent_snapshots"); } }
+        private bool? _explicitNullValueFrequentSnapshots = default!;
         /// <summary>Determines default pub/sub channels&apos; ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn&apos;t affect Valkey configuration acl-pubsub-default.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfigValkeyAclChannelsDefault? ValkeyAclChannelsDefault { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfigValkeyAclChannelsDefault? ValkeyAclChannelsDefault { get => _explicitNullValueValkeyAclChannelsDefault; set { _explicitNullValueValkeyAclChannelsDefault = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_acl_channels_default"); else _explicitNullProperties?.Remove("valkey_acl_channels_default"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfigValkeyAclChannelsDefault? _explicitNullValueValkeyAclChannelsDefault = default!;
         /// <summary>Active expire effortValkey reclaims expired keys both when accessed and in the background. The background process scans for expired keys to free memory. Increasing the active-expire-effort setting (default 1, max 10) uses more CPU to reclaim expired keys faster, reducing memory usage but potentially increasing latency.</summary>
-        public int? ValkeyActiveExpireEffort { get; set; }
+        public int? ValkeyActiveExpireEffort { get => _explicitNullValueValkeyActiveExpireEffort; set { _explicitNullValueValkeyActiveExpireEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_active_expire_effort"); else _explicitNullProperties?.Remove("valkey_active_expire_effort"); } }
+        private int? _explicitNullValueValkeyActiveExpireEffort = default!;
         /// <summary>Valkey IO thread count</summary>
-        public int? ValkeyIoThreads { get; set; }
+        public int? ValkeyIoThreads { get => _explicitNullValueValkeyIoThreads; set { _explicitNullValueValkeyIoThreads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_io_threads"); else _explicitNullProperties?.Remove("valkey_io_threads"); } }
+        private int? _explicitNullValueValkeyIoThreads = default!;
         /// <summary>LFU maxmemory-policy counter decay time in minutes</summary>
-        public int? ValkeyLfuDecayTime { get; set; }
+        public int? ValkeyLfuDecayTime { get => _explicitNullValueValkeyLfuDecayTime; set { _explicitNullValueValkeyLfuDecayTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_lfu_decay_time"); else _explicitNullProperties?.Remove("valkey_lfu_decay_time"); } }
+        private int? _explicitNullValueValkeyLfuDecayTime = default!;
         /// <summary>Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies</summary>
-        public int? ValkeyLfuLogFactor { get; set; }
+        public int? ValkeyLfuLogFactor { get => _explicitNullValueValkeyLfuLogFactor; set { _explicitNullValueValkeyLfuLogFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_lfu_log_factor"); else _explicitNullProperties?.Remove("valkey_lfu_log_factor"); } }
+        private int? _explicitNullValueValkeyLfuLogFactor = default!;
         /// <summary>A string specifying the desired eviction policy for a Caching or Valkey cluster.- `noeviction`: Don&apos;t evict any data, returns error when memory limit is reached.- `allkeys_lru:` Evict any key, least recently used (LRU) first.- `allkeys_random`: Evict keys in a random order.- `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.- `volatile_random`: Evict keys with expiration only in a random order.- `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyModel? ValkeyMaxmemoryPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyModel? ValkeyMaxmemoryPolicy { get => _explicitNullValueValkeyMaxmemoryPolicy; set { _explicitNullValueValkeyMaxmemoryPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_maxmemory_policy"); else _explicitNullProperties?.Remove("valkey_maxmemory_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyModel? _explicitNullValueValkeyMaxmemoryPolicy = default!;
         /// <summary>Set notify-keyspace-events option. Requires at least `K` or `E` and accepts any combination of the following options. Setting the parameter to `&quot;&quot;` disables notifications.- `K` &amp;mdash; Keyspace events- `E` &amp;mdash; Keyevent events- `g` &amp;mdash; Generic commands (e.g. `DEL`, `EXPIRE`, `RENAME`, ...)- `$` &amp;mdash; String commands- `l` &amp;mdash; List commands- `s` &amp;mdash; Set commands- `h` &amp;mdash; Hash commands- `z` &amp;mdash; Sorted set commands- `t` &amp;mdash; Stream commands- `d` &amp;mdash; Module key type events- `x` &amp;mdash; Expired events- `e` &amp;mdash; Evicted events- `m` &amp;mdash; Key miss events- `n` &amp;mdash; New key events- `A` &amp;mdash; Alias for `&quot;g$lshztxed&quot;`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ValkeyNotifyKeyspaceEvents { get; set; }
+        public string? ValkeyNotifyKeyspaceEvents { get => _explicitNullValueValkeyNotifyKeyspaceEvents; set { _explicitNullValueValkeyNotifyKeyspaceEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_notify_keyspace_events"); else _explicitNullProperties?.Remove("valkey_notify_keyspace_events"); } }
+        private string? _explicitNullValueValkeyNotifyKeyspaceEvents = default!;
 #nullable restore
 #else
-        public string ValkeyNotifyKeyspaceEvents { get; set; }
+        public string ValkeyNotifyKeyspaceEvents { get => _explicitNullValueValkeyNotifyKeyspaceEvents; set { _explicitNullValueValkeyNotifyKeyspaceEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_notify_keyspace_events"); else _explicitNullProperties?.Remove("valkey_notify_keyspace_events"); } }
+        private string _explicitNullValueValkeyNotifyKeyspaceEvents = default!;
 #endif
         /// <summary>Set number of valkey databases. Changing this will cause a restart of valkey service.</summary>
-        public int? ValkeyNumberOfDatabases { get; set; }
+        public int? ValkeyNumberOfDatabases { get => _explicitNullValueValkeyNumberOfDatabases; set { _explicitNullValueValkeyNumberOfDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_number_of_databases"); else _explicitNullProperties?.Remove("valkey_number_of_databases"); } }
+        private int? _explicitNullValueValkeyNumberOfDatabases = default!;
         /// <summary>When persistence is &apos;rdb&apos;, Valkey does RDB dumps each 10 minutes if any key is changed. Also RDB dumps are done according to backup schedule for backup purposes. When persistence is &apos;off&apos;, no RDB dumps and backups are done, so data can be lost at any moment if service is restarted for any reason, or if service is powered off. Also service can&apos;t be forked.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfigValkeyPersistence? ValkeyPersistence { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfigValkeyPersistence? ValkeyPersistence { get => _explicitNullValueValkeyPersistence; set { _explicitNullValueValkeyPersistence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_persistence"); else _explicitNullProperties?.Remove("valkey_persistence"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfigValkeyPersistence? _explicitNullValueValkeyPersistence = default!;
         /// <summary>Set output buffer limit for pub / sub clients in MB. The value is the hard limit, the soft limit is 1/4 of the hard limit. When setting the limit, be mindful of the available memory in the selected service plan.</summary>
-        public int? ValkeyPubsubClientOutputBufferLimit { get; set; }
+        public int? ValkeyPubsubClientOutputBufferLimit { get => _explicitNullValueValkeyPubsubClientOutputBufferLimit; set { _explicitNullValueValkeyPubsubClientOutputBufferLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_pubsub_client_output_buffer_limit"); else _explicitNullProperties?.Remove("valkey_pubsub_client_output_buffer_limit"); } }
+        private int? _explicitNullValueValkeyPubsubClientOutputBufferLimit = default!;
         /// <summary>Require SSL to access Valkey</summary>
-        public bool? ValkeySsl { get; set; }
+        public bool? ValkeySsl { get => _explicitNullValueValkeySsl; set { _explicitNullValueValkeySsl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_ssl"); else _explicitNullProperties?.Remove("valkey_ssl"); } }
+        private bool? _explicitNullValueValkeySsl = default!;
         /// <summary>Valkey idle connection timeout in seconds</summary>
-        public int? ValkeyTimeout { get; set; }
+        public int? ValkeyTimeout { get => _explicitNullValueValkeyTimeout; set { _explicitNullValueValkeyTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey_timeout"); else _explicitNullProperties?.Remove("valkey_timeout"); } }
+        private int? _explicitNullValueValkeyTimeout = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfig"/> and sets the default values.
         /// </summary>
@@ -67,7 +101,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,6 +146,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("valkey_pubsub_client_output_buffer_limit", ValkeyPubsubClientOutputBufferLimit);
             writer.WriteBoolValue("valkey_ssl", ValkeySsl);
             writer.WriteIntValue("valkey_timeout", ValkeyTimeout);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

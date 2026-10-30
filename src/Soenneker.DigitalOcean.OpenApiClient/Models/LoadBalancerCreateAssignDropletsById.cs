@@ -11,79 +11,131 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class LoadBalancerCreateAssignDropletsById : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("algorithm") is { } nullNodeAlgorithm && nullNodeAlgorithm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Algorithm = null;
+            if (parseNode.GetChildNode("disable_lets_encrypt_dns_records") is { } nullNodeDisableLetsEncryptDnsRecords && nullNodeDisableLetsEncryptDnsRecords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableLetsEncryptDnsRecords = null;
+            if (parseNode.GetChildNode("domains") is { } nullNodeDomains && nullNodeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domains = null;
+            if (parseNode.GetChildNode("droplet_ids") is { } nullNodeDropletIds && nullNodeDropletIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletIds = null;
+            if (parseNode.GetChildNode("enable_backend_keepalive") is { } nullNodeEnableBackendKeepalive && nullNodeEnableBackendKeepalive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableBackendKeepalive = null;
+            if (parseNode.GetChildNode("enable_proxy_protocol") is { } nullNodeEnableProxyProtocol && nullNodeEnableProxyProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableProxyProtocol = null;
+            if (parseNode.GetChildNode("firewall") is { } nullNodeFirewall && nullNodeFirewall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Firewall = null;
+            if (parseNode.GetChildNode("forwarding_rules") is { } nullNodeForwardingRules && nullNodeForwardingRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingRules = null;
+            if (parseNode.GetChildNode("glb_settings") is { } nullNodeGlbSettings && nullNodeGlbSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlbSettings = null;
+            if (parseNode.GetChildNode("health_check") is { } nullNodeHealthCheck && nullNodeHealthCheck.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheck = null;
+            if (parseNode.GetChildNode("http_idle_timeout_seconds") is { } nullNodeHttpIdleTimeoutSeconds && nullNodeHttpIdleTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpIdleTimeoutSeconds = null;
+            if (parseNode.GetChildNode("ip") is { } nullNodeIp && nullNodeIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ip = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("network_stack") is { } nullNodeNetworkStack && nullNodeNetworkStack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkStack = null;
+            if (parseNode.GetChildNode("project_id") is { } nullNodeProjectId && nullNodeProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectId = null;
+            if (parseNode.GetChildNode("redirect_http_to_https") is { } nullNodeRedirectHttpToHttps && nullNodeRedirectHttpToHttps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectHttpToHttps = null;
+            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("size_unit") is { } nullNodeSizeUnit && nullNodeSizeUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SizeUnit = null;
+            if (parseNode.GetChildNode("sticky_sessions") is { } nullNodeStickySessions && nullNodeStickySessions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StickySessions = null;
+            if (parseNode.GetChildNode("subnet_uuid") is { } nullNodeSubnetUuid && nullNodeSubnetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubnetUuid = null;
+            if (parseNode.GetChildNode("target_load_balancer_ids") is { } nullNodeTargetLoadBalancerIds && nullNodeTargetLoadBalancerIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetLoadBalancerIds = null;
+            if (parseNode.GetChildNode("tls_cipher_policy") is { } nullNodeTlsCipherPolicy && nullNodeTlsCipherPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TlsCipherPolicy = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("vpc_uuid") is { } nullNodeVpcUuid && nullNodeVpcUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcUuid = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>This field has been deprecated. You can no longer specify an algorithm for load balancers.</summary>
         [Obsolete("")]
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseAlgorithm? Algorithm { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseAlgorithm? Algorithm { get => _explicitNullValueAlgorithm; set { _explicitNullValueAlgorithm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("algorithm"); else _explicitNullProperties?.Remove("algorithm"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseAlgorithm? _explicitNullValueAlgorithm = default!;
         /// <summary>A time value given in ISO8601 combined date and time format that represents when the load balancer was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A boolean value indicating whether to disable automatic DNS record creation for Let&apos;s Encrypt certificates that are added to the load balancer.</summary>
-        public bool? DisableLetsEncryptDnsRecords { get; set; }
+        public bool? DisableLetsEncryptDnsRecords { get => _explicitNullValueDisableLetsEncryptDnsRecords; set { _explicitNullValueDisableLetsEncryptDnsRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_lets_encrypt_dns_records"); else _explicitNullProperties?.Remove("disable_lets_encrypt_dns_records"); } }
+        private bool? _explicitNullValueDisableLetsEncryptDnsRecords = default!;
         /// <summary>An array of objects specifying the domain configurations for a Global load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Domains>? Domains { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Domains>? Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Domains>? _explicitNullValueDomains = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Domains> Domains { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Domains> Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Domains> _explicitNullValueDomains = default!;
 #endif
         /// <summary>An array containing the IDs of the Droplets assigned to the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? DropletIds { get; set; }
+        public List<int?>? DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
+        private List<int?>? _explicitNullValueDropletIds = default!;
 #nullable restore
 #else
-        public List<int?> DropletIds { get; set; }
+        public List<int?> DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
+        private List<int?> _explicitNullValueDropletIds = default!;
 #endif
         /// <summary>A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.</summary>
-        public bool? EnableBackendKeepalive { get; set; }
+        public bool? EnableBackendKeepalive { get => _explicitNullValueEnableBackendKeepalive; set { _explicitNullValueEnableBackendKeepalive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_backend_keepalive"); else _explicitNullProperties?.Remove("enable_backend_keepalive"); } }
+        private bool? _explicitNullValueEnableBackendKeepalive = default!;
         /// <summary>A boolean value indicating whether PROXY Protocol is in use.</summary>
-        public bool? EnableProxyProtocol { get; set; }
+        public bool? EnableProxyProtocol { get => _explicitNullValueEnableProxyProtocol; set { _explicitNullValueEnableProxyProtocol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_proxy_protocol"); else _explicitNullProperties?.Remove("enable_proxy_protocol"); } }
+        private bool? _explicitNullValueEnableProxyProtocol = default!;
         /// <summary>An object specifying allow and deny rules to control traffic to the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LbFirewall? Firewall { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LbFirewall? Firewall { get => _explicitNullValueFirewall; set { _explicitNullValueFirewall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("firewall"); else _explicitNullProperties?.Remove("firewall"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LbFirewall? _explicitNullValueFirewall = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LbFirewall Firewall { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LbFirewall Firewall { get => _explicitNullValueFirewall; set { _explicitNullValueFirewall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("firewall"); else _explicitNullProperties?.Remove("firewall"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LbFirewall _explicitNullValueFirewall = default!;
 #endif
         /// <summary>An array of objects specifying the forwarding rules for a load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule>? ForwardingRules { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule>? ForwardingRules { get => _explicitNullValueForwardingRules; set { _explicitNullValueForwardingRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_rules"); else _explicitNullProperties?.Remove("forwarding_rules"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule>? _explicitNullValueForwardingRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule> ForwardingRules { get; set; }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule> ForwardingRules { get => _explicitNullValueForwardingRules; set { _explicitNullValueForwardingRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_rules"); else _explicitNullProperties?.Remove("forwarding_rules"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule> _explicitNullValueForwardingRules = default!;
 #endif
         /// <summary>An object specifying forwarding configurations for a Global load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings? GlbSettings { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings? GlbSettings { get => _explicitNullValueGlbSettings; set { _explicitNullValueGlbSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("glb_settings"); else _explicitNullProperties?.Remove("glb_settings"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings? _explicitNullValueGlbSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings GlbSettings { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings GlbSettings { get => _explicitNullValueGlbSettings; set { _explicitNullValueGlbSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("glb_settings"); else _explicitNullProperties?.Remove("glb_settings"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.GlbSettings _explicitNullValueGlbSettings = default!;
 #endif
         /// <summary>An object specifying health check settings for the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck? HealthCheck { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck? HealthCheck { get => _explicitNullValueHealthCheck; set { _explicitNullValueHealthCheck = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check"); else _explicitNullProperties?.Remove("health_check"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck? _explicitNullValueHealthCheck = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck HealthCheck { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck HealthCheck { get => _explicitNullValueHealthCheck; set { _explicitNullValueHealthCheck = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check"); else _explicitNullProperties?.Remove("health_check"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthCheck _explicitNullValueHealthCheck = default!;
 #endif
         /// <summary>An integer value which configures the idle timeout for HTTP requests to the target droplets.</summary>
-        public int? HttpIdleTimeoutSeconds { get; set; }
+        public int? HttpIdleTimeoutSeconds { get => _explicitNullValueHttpIdleTimeoutSeconds; set { _explicitNullValueHttpIdleTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_idle_timeout_seconds"); else _explicitNullProperties?.Remove("http_idle_timeout_seconds"); } }
+        private int? _explicitNullValueHttpIdleTimeoutSeconds = default!;
         /// <summary>A unique ID that can be used to identify and reference a load balancer.</summary>
         public Guid? Id { get; private set; }
         /// <summary>An optional IP address to assign to the load balancer from one of your Bring Your Own IP (BYOIP) prefixes. The address must be an unassigned BYOIP address on your account in the same region as the load balancer. If omitted, DigitalOcean assigns a public IP address automatically. This field is only applied when creating the load balancer, cannot be changed afterward, and is not supported for `GLOBAL` or `INTERNAL` load balancers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ip { get; set; }
+        public string? Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
+        private string? _explicitNullValueIp = default!;
 #nullable restore
 #else
-        public string Ip { get; set; }
+        public string Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
+        private string _explicitNullValueIp = default!;
 #endif
         /// <summary>An attribute containing the public-facing IPv6 address of the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,58 +148,76 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A human-readable name for a load balancer instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>A string indicating whether the load balancer should be external or internal. Internal load balancers have no public IPs and are only accessible to resources on the same VPC network. This property cannot be updated after creating the load balancer.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetwork? Network { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetwork? _explicitNullValueNetwork = default!;
         /// <summary>A string indicating whether the load balancer will support IPv4 or both IPv4 and IPv6 networking. This property cannot be updated after creating the load balancer.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetworkStack? NetworkStack { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetworkStack? NetworkStack { get => _explicitNullValueNetworkStack; set { _explicitNullValueNetworkStack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_stack"); else _explicitNullProperties?.Remove("network_stack"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseNetworkStack? _explicitNullValueNetworkStack = default!;
         /// <summary>The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user&apos;s default project. If an invalid project ID is provided, the load balancer will not be created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProjectId { get; set; }
+        public string? ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        private string? _explicitNullValueProjectId = default!;
 #nullable restore
 #else
-        public string ProjectId { get; set; }
+        public string ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        private string _explicitNullValueProjectId = default!;
 #endif
         /// <summary>A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.</summary>
-        public bool? RedirectHttpToHttps { get; set; }
+        public bool? RedirectHttpToHttps { get => _explicitNullValueRedirectHttpToHttps; set { _explicitNullValueRedirectHttpToHttps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect_http_to_https"); else _explicitNullProperties?.Remove("redirect_http_to_https"); } }
+        private bool? _explicitNullValueRedirectHttpToHttps = default!;
         /// <summary>The slug identifier for the region where the resource will initially be  available.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionSlug? Region { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionSlug? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionSlug? _explicitNullValueRegion = default!;
         /// <summary>This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.* `lb-small` = 1 node* `lb-medium` = 3 nodes* `lb-large` = 6 nodesYou can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.</summary>
         [Obsolete("")]
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseSize? Size { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseSize? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseSize? _explicitNullValueSize = default!;
         /// <summary>How many nodes the load balancer contains. Each additional node increases the load balancer&apos;s ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.</summary>
-        public int? SizeUnit { get; set; }
+        public int? SizeUnit { get => _explicitNullValueSizeUnit; set { _explicitNullValueSizeUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_unit"); else _explicitNullProperties?.Remove("size_unit"); } }
+        private int? _explicitNullValueSizeUnit = default!;
         /// <summary>A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseStatus? Status { get; private set; }
         /// <summary>An object specifying sticky sessions settings for the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions? StickySessions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions? StickySessions { get => _explicitNullValueStickySessions; set { _explicitNullValueStickySessions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sticky_sessions"); else _explicitNullProperties?.Remove("sticky_sessions"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions? _explicitNullValueStickySessions = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions StickySessions { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions StickySessions { get => _explicitNullValueStickySessions; set { _explicitNullValueStickySessions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sticky_sessions"); else _explicitNullProperties?.Remove("sticky_sessions"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.StickySessions _explicitNullValueStickySessions = default!;
 #endif
         /// <summary>A string specifying the UUID of the VPC subnet to which the load balancer is assigned.</summary>
-        public Guid? SubnetUuid { get; set; }
+        public Guid? SubnetUuid { get => _explicitNullValueSubnetUuid; set { _explicitNullValueSubnetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subnet_uuid"); else _explicitNullProperties?.Remove("subnet_uuid"); } }
+        private Guid? _explicitNullValueSubnetUuid = default!;
         /// <summary>An array containing the UUIDs of the Regional load balancers to be used as target backends for a Global load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TargetLoadBalancerIds { get; set; }
+        public List<string>? TargetLoadBalancerIds { get => _explicitNullValueTargetLoadBalancerIds; set { _explicitNullValueTargetLoadBalancerIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_load_balancer_ids"); else _explicitNullProperties?.Remove("target_load_balancer_ids"); } }
+        private List<string>? _explicitNullValueTargetLoadBalancerIds = default!;
 #nullable restore
 #else
-        public List<string> TargetLoadBalancerIds { get; set; }
+        public List<string> TargetLoadBalancerIds { get => _explicitNullValueTargetLoadBalancerIds; set { _explicitNullValueTargetLoadBalancerIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_load_balancer_ids"); else _explicitNullProperties?.Remove("target_load_balancer_ids"); } }
+        private List<string> _explicitNullValueTargetLoadBalancerIds = default!;
 #endif
         /// <summary>A string indicating the policy for the TLS cipher suites used by the load balancer. The possible values are `DEFAULT` or `STRONG`. The default value is `DEFAULT`.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseTlsCipherPolicy? TlsCipherPolicy { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseTlsCipherPolicy? TlsCipherPolicy { get => _explicitNullValueTlsCipherPolicy; set { _explicitNullValueTlsCipherPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tls_cipher_policy"); else _explicitNullProperties?.Remove("tls_cipher_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseTlsCipherPolicy? _explicitNullValueTlsCipherPolicy = default!;
         /// <summary>A string indicating whether the load balancer should be a standard regional HTTP load balancer, a regional network load balancer that routes traffic at the TCP/UDP transport layer, or a global load balancer.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseType? Type { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseType? _explicitNullValueType = default!;
         /// <summary>A string specifying the UUID of the VPC to which the load balancer is assigned.</summary>
-        public Guid? VpcUuid { get; set; }
+        public Guid? VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_uuid"); else _explicitNullProperties?.Remove("vpc_uuid"); } }
+        private Guid? _explicitNullValueVpcUuid = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreateAssignDropletsById"/> and sets the default values.
         /// </summary>
@@ -169,7 +239,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreateAssignDropletsById CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreateAssignDropletsById();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerCreateAssignDropletsById(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -244,6 +314,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseTlsCipherPolicy>("tls_cipher_policy", TlsCipherPolicy);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LoadBalancerBaseType>("type", Type);
             writer.WriteGuidValue("vpc_uuid", VpcUuid);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

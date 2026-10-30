@@ -12,47 +12,92 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiModelPricing : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cache_read_input_price_per_million") is { } nullNodeCacheReadInputPricePerMillion && nullNodeCacheReadInputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheReadInputPricePerMillion = null;
+            if (parseNode.GetChildNode("cache_write_1h_input_price_per_million") is { } nullNodeCacheWrite1hInputPricePerMillion && nullNodeCacheWrite1hInputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheWrite1hInputPricePerMillion = null;
+            if (parseNode.GetChildNode("cache_write_5m_input_price_per_million") is { } nullNodeCacheWrite5mInputPricePerMillion && nullNodeCacheWrite5mInputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheWrite5mInputPricePerMillion = null;
+            if (parseNode.GetChildNode("image_cache_read_input_price_per_million") is { } nullNodeImageCacheReadInputPricePerMillion && nullNodeImageCacheReadInputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageCacheReadInputPricePerMillion = null;
+            if (parseNode.GetChildNode("image_input_price_per_million") is { } nullNodeImageInputPricePerMillion && nullNodeImageInputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageInputPricePerMillion = null;
+            if (parseNode.GetChildNode("image_output_price_per_million") is { } nullNodeImageOutputPricePerMillion && nullNodeImageOutputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageOutputPricePerMillion = null;
+            if (parseNode.GetChildNode("input_cache_read") is { } nullNodeInputCacheRead && nullNodeInputCacheRead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputCacheRead = null;
+            if (parseNode.GetChildNode("input_price_per_million") is { } nullNodeInputPricePerMillion && nullNodeInputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputPricePerMillion = null;
+            if (parseNode.GetChildNode("output_price_per_million") is { } nullNodeOutputPricePerMillion && nullNodeOutputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputPricePerMillion = null;
+            if (parseNode.GetChildNode("price_per_audio") is { } nullNodePricePerAudio && nullNodePricePerAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerAudio = null;
+            if (parseNode.GetChildNode("price_per_image") is { } nullNodePricePerImage && nullNodePricePerImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerImage = null;
+            if (parseNode.GetChildNode("price_per_megapixel") is { } nullNodePricePerMegapixel && nullNodePricePerMegapixel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerMegapixel = null;
+            if (parseNode.GetChildNode("price_per_second") is { } nullNodePricePerSecond && nullNodePricePerSecond.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerSecond = null;
+            if (parseNode.GetChildNode("price_per_thousand_characters") is { } nullNodePricePerThousandCharacters && nullNodePricePerThousandCharacters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerThousandCharacters = null;
+            if (parseNode.GetChildNode("price_per_video") is { } nullNodePricePerVideo && nullNodePricePerVideo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerVideo = null;
+            if (parseNode.GetChildNode("reasoning_price_per_million") is { } nullNodeReasoningPricePerMillion && nullNodeReasoningPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningPricePerMillion = null;
+            if (parseNode.GetChildNode("text_cache_read_input_price_per_million") is { } nullNodeTextCacheReadInputPricePerMillion && nullNodeTextCacheReadInputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextCacheReadInputPricePerMillion = null;
+            if (parseNode.GetChildNode("text_input_price_per_million") is { } nullNodeTextInputPricePerMillion && nullNodeTextInputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextInputPricePerMillion = null;
+            if (parseNode.GetChildNode("text_output_price_per_million") is { } nullNodeTextOutputPricePerMillion && nullNodeTextOutputPricePerMillion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextOutputPricePerMillion = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Per-million cache read rate for standard chat models (token_type &quot;cache read input&quot;).Multimodal models use text_cache_read_input_price_per_million / image_cache_read_input_price_per_million instead.</summary>
-        public double? CacheReadInputPricePerMillion { get; set; }
+        public double? CacheReadInputPricePerMillion { get => _explicitNullValueCacheReadInputPricePerMillion; set { _explicitNullValueCacheReadInputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_read_input_price_per_million"); else _explicitNullProperties?.Remove("cache_read_input_price_per_million"); } }
+        private double? _explicitNullValueCacheReadInputPricePerMillion = default!;
         /// <summary>Price per million tokens written to the prompt cache with a 1-hour lifetime.</summary>
-        public double? CacheWrite1hInputPricePerMillion { get; set; }
+        public double? CacheWrite1hInputPricePerMillion { get => _explicitNullValueCacheWrite1hInputPricePerMillion; set { _explicitNullValueCacheWrite1hInputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_write_1h_input_price_per_million"); else _explicitNullProperties?.Remove("cache_write_1h_input_price_per_million"); } }
+        private double? _explicitNullValueCacheWrite1hInputPricePerMillion = default!;
         /// <summary>Price per million tokens written to the prompt cache with a 5-minute lifetime.</summary>
-        public double? CacheWrite5mInputPricePerMillion { get; set; }
+        public double? CacheWrite5mInputPricePerMillion { get => _explicitNullValueCacheWrite5mInputPricePerMillion; set { _explicitNullValueCacheWrite5mInputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_write_5m_input_price_per_million"); else _explicitNullProperties?.Remove("cache_write_5m_input_price_per_million"); } }
+        private double? _explicitNullValueCacheWrite5mInputPricePerMillion = default!;
         /// <summary>The image_cache_read_input_price_per_million property</summary>
-        public double? ImageCacheReadInputPricePerMillion { get; set; }
+        public double? ImageCacheReadInputPricePerMillion { get => _explicitNullValueImageCacheReadInputPricePerMillion; set { _explicitNullValueImageCacheReadInputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_cache_read_input_price_per_million"); else _explicitNullProperties?.Remove("image_cache_read_input_price_per_million"); } }
+        private double? _explicitNullValueImageCacheReadInputPricePerMillion = default!;
         /// <summary>The image_input_price_per_million property</summary>
-        public double? ImageInputPricePerMillion { get; set; }
+        public double? ImageInputPricePerMillion { get => _explicitNullValueImageInputPricePerMillion; set { _explicitNullValueImageInputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_input_price_per_million"); else _explicitNullProperties?.Remove("image_input_price_per_million"); } }
+        private double? _explicitNullValueImageInputPricePerMillion = default!;
         /// <summary>The image_output_price_per_million property</summary>
-        public double? ImageOutputPricePerMillion { get; set; }
+        public double? ImageOutputPricePerMillion { get => _explicitNullValueImageOutputPricePerMillion; set { _explicitNullValueImageOutputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_output_price_per_million"); else _explicitNullProperties?.Remove("image_output_price_per_million"); } }
+        private double? _explicitNullValueImageOutputPricePerMillion = default!;
         /// <summary>Cache read input price per single token. Equivalent tocache_read_input_price_per_million.</summary>
-        public double? InputCacheRead { get; set; }
+        public double? InputCacheRead { get => _explicitNullValueInputCacheRead; set { _explicitNullValueInputCacheRead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_cache_read"); else _explicitNullProperties?.Remove("input_cache_read"); } }
+        private double? _explicitNullValueInputCacheRead = default!;
         /// <summary>The input_price_per_million property</summary>
-        public double? InputPricePerMillion { get; set; }
+        public double? InputPricePerMillion { get => _explicitNullValueInputPricePerMillion; set { _explicitNullValueInputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_price_per_million"); else _explicitNullProperties?.Remove("input_price_per_million"); } }
+        private double? _explicitNullValueInputPricePerMillion = default!;
         /// <summary>The output_price_per_million property</summary>
-        public double? OutputPricePerMillion { get; set; }
+        public double? OutputPricePerMillion { get => _explicitNullValueOutputPricePerMillion; set { _explicitNullValueOutputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_price_per_million"); else _explicitNullProperties?.Remove("output_price_per_million"); } }
+        private double? _explicitNullValueOutputPricePerMillion = default!;
         /// <summary>The price_per_audio property</summary>
-        public double? PricePerAudio { get; set; }
+        public double? PricePerAudio { get => _explicitNullValuePricePerAudio; set { _explicitNullValuePricePerAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_audio"); else _explicitNullProperties?.Remove("price_per_audio"); } }
+        private double? _explicitNullValuePricePerAudio = default!;
         /// <summary>Unit-based pricing for non-token models (e.g., Fal AI image/video/audiogeneration, speech models). At most one of these is typically populatedper model. Token-based models (chat, embeddings) leave all of these at 0and populate input_price_per_million / output_price_per_million instead.</summary>
-        public double? PricePerImage { get; set; }
+        public double? PricePerImage { get => _explicitNullValuePricePerImage; set { _explicitNullValuePricePerImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_image"); else _explicitNullProperties?.Remove("price_per_image"); } }
+        private double? _explicitNullValuePricePerImage = default!;
         /// <summary>The price_per_megapixel property</summary>
-        public double? PricePerMegapixel { get; set; }
+        public double? PricePerMegapixel { get => _explicitNullValuePricePerMegapixel; set { _explicitNullValuePricePerMegapixel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_megapixel"); else _explicitNullProperties?.Remove("price_per_megapixel"); } }
+        private double? _explicitNullValuePricePerMegapixel = default!;
         /// <summary>The price_per_second property</summary>
-        public double? PricePerSecond { get; set; }
+        public double? PricePerSecond { get => _explicitNullValuePricePerSecond; set { _explicitNullValuePricePerSecond = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_second"); else _explicitNullProperties?.Remove("price_per_second"); } }
+        private double? _explicitNullValuePricePerSecond = default!;
         /// <summary>The price_per_thousand_characters property</summary>
-        public double? PricePerThousandCharacters { get; set; }
+        public double? PricePerThousandCharacters { get => _explicitNullValuePricePerThousandCharacters; set { _explicitNullValuePricePerThousandCharacters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_thousand_characters"); else _explicitNullProperties?.Remove("price_per_thousand_characters"); } }
+        private double? _explicitNullValuePricePerThousandCharacters = default!;
         /// <summary>The price_per_video property</summary>
-        public double? PricePerVideo { get; set; }
+        public double? PricePerVideo { get => _explicitNullValuePricePerVideo; set { _explicitNullValuePricePerVideo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_video"); else _explicitNullProperties?.Remove("price_per_video"); } }
+        private double? _explicitNullValuePricePerVideo = default!;
         /// <summary>Price per million reasoning tokens. 0 if the model does not chargeseparately for reasoning tokens.</summary>
-        public double? ReasoningPricePerMillion { get; set; }
+        public double? ReasoningPricePerMillion { get => _explicitNullValueReasoningPricePerMillion; set { _explicitNullValueReasoningPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_price_per_million"); else _explicitNullProperties?.Remove("reasoning_price_per_million"); } }
+        private double? _explicitNullValueReasoningPricePerMillion = default!;
         /// <summary>The text_cache_read_input_price_per_million property</summary>
-        public double? TextCacheReadInputPricePerMillion { get; set; }
+        public double? TextCacheReadInputPricePerMillion { get => _explicitNullValueTextCacheReadInputPricePerMillion; set { _explicitNullValueTextCacheReadInputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_cache_read_input_price_per_million"); else _explicitNullProperties?.Remove("text_cache_read_input_price_per_million"); } }
+        private double? _explicitNullValueTextCacheReadInputPricePerMillion = default!;
         /// <summary>Per-million token rates for models that bill text vs image tokens separately(e.g. OpenAI gpt-image-2). Standard chat models leave these at 0 and useinput_price_per_million / output_price_per_million instead. Values alignwith usage token_type / internal/usage.Type string values for each meter.</summary>
-        public double? TextInputPricePerMillion { get; set; }
+        public double? TextInputPricePerMillion { get => _explicitNullValueTextInputPricePerMillion; set { _explicitNullValueTextInputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_input_price_per_million"); else _explicitNullProperties?.Remove("text_input_price_per_million"); } }
+        private double? _explicitNullValueTextInputPricePerMillion = default!;
         /// <summary>The text_output_price_per_million property</summary>
-        public double? TextOutputPricePerMillion { get; set; }
+        public double? TextOutputPricePerMillion { get => _explicitNullValueTextOutputPricePerMillion; set { _explicitNullValueTextOutputPricePerMillion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_output_price_per_million"); else _explicitNullProperties?.Remove("text_output_price_per_million"); } }
+        private double? _explicitNullValueTextOutputPricePerMillion = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing"/> and sets the default values.
         /// </summary>
@@ -68,7 +113,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -125,6 +170,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDoubleValue("text_cache_read_input_price_per_million", TextCacheReadInputPricePerMillion);
             writer.WriteDoubleValue("text_input_price_per_million", TextInputPricePerMillion);
             writer.WriteDoubleValue("text_output_price_per_million", TextOutputPricePerMillion);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

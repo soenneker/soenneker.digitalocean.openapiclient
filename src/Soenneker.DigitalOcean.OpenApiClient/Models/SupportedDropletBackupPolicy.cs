@@ -11,37 +11,57 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SupportedDropletBackupPolicy : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("possible_days") is { } nullNodePossibleDays && nullNodePossibleDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PossibleDays = null;
+            if (parseNode.GetChildNode("possible_window_starts") is { } nullNodePossibleWindowStarts && nullNodePossibleWindowStarts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PossibleWindowStarts = null;
+            if (parseNode.GetChildNode("retention_period_days") is { } nullNodeRetentionPeriodDays && nullNodeRetentionPeriodDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionPeriodDays = null;
+            if (parseNode.GetChildNode("window_length_hours") is { } nullNodeWindowLengthHours && nullNodeWindowLengthHours.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowLengthHours = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the Droplet backup plan.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The day of the week the backup will occur.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PossibleDays { get; set; }
+        public List<string>? PossibleDays { get => _explicitNullValuePossibleDays; set { _explicitNullValuePossibleDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("possible_days"); else _explicitNullProperties?.Remove("possible_days"); } }
+        private List<string>? _explicitNullValuePossibleDays = default!;
 #nullable restore
 #else
-        public List<string> PossibleDays { get; set; }
+        public List<string> PossibleDays { get => _explicitNullValuePossibleDays; set { _explicitNullValuePossibleDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("possible_days"); else _explicitNullProperties?.Remove("possible_days"); } }
+        private List<string> _explicitNullValuePossibleDays = default!;
 #endif
         /// <summary>An array of integers representing the hours of the day that a backup canstart.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? PossibleWindowStarts { get; set; }
+        public List<int?>? PossibleWindowStarts { get => _explicitNullValuePossibleWindowStarts; set { _explicitNullValuePossibleWindowStarts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("possible_window_starts"); else _explicitNullProperties?.Remove("possible_window_starts"); } }
+        private List<int?>? _explicitNullValuePossibleWindowStarts = default!;
 #nullable restore
 #else
-        public List<int?> PossibleWindowStarts { get; set; }
+        public List<int?> PossibleWindowStarts { get => _explicitNullValuePossibleWindowStarts; set { _explicitNullValuePossibleWindowStarts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("possible_window_starts"); else _explicitNullProperties?.Remove("possible_window_starts"); } }
+        private List<int?> _explicitNullValuePossibleWindowStarts = default!;
 #endif
         /// <summary>The number of days that a backup will be kept.</summary>
-        public int? RetentionPeriodDays { get; set; }
+        public int? RetentionPeriodDays { get => _explicitNullValueRetentionPeriodDays; set { _explicitNullValueRetentionPeriodDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_period_days"); else _explicitNullProperties?.Remove("retention_period_days"); } }
+        private int? _explicitNullValueRetentionPeriodDays = default!;
         /// <summary>The number of hours that a backup window is open.</summary>
-        public int? WindowLengthHours { get; set; }
+        public int? WindowLengthHours { get => _explicitNullValueWindowLengthHours; set { _explicitNullValueWindowLengthHours = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_length_hours"); else _explicitNullProperties?.Remove("window_length_hours"); } }
+        private int? _explicitNullValueWindowLengthHours = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy"/> and sets the default values.
         /// </summary>
@@ -57,7 +77,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +106,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("possible_window_starts", PossibleWindowStarts);
             writer.WriteIntValue("retention_period_days", RetentionPeriodDays);
             writer.WriteIntValue("window_length_hours", WindowLengthHours);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

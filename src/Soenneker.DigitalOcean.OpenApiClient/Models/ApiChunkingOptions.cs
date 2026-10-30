@@ -11,17 +11,32 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiChunkingOptions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("child_chunk_size") is { } nullNodeChildChunkSize && nullNodeChildChunkSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildChunkSize = null;
+            if (parseNode.GetChildNode("max_chunk_size") is { } nullNodeMaxChunkSize && nullNodeMaxChunkSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxChunkSize = null;
+            if (parseNode.GetChildNode("parent_chunk_size") is { } nullNodeParentChunkSize && nullNodeParentChunkSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentChunkSize = null;
+            if (parseNode.GetChildNode("semantic_threshold") is { } nullNodeSemanticThreshold && nullNodeSemanticThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SemanticThreshold = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The child_chunk_size property</summary>
-        public long? ChildChunkSize { get; set; }
+        public long? ChildChunkSize { get => _explicitNullValueChildChunkSize; set { _explicitNullValueChildChunkSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_chunk_size"); else _explicitNullProperties?.Remove("child_chunk_size"); } }
+        private long? _explicitNullValueChildChunkSize = default!;
         /// <summary>Common options</summary>
-        public long? MaxChunkSize { get; set; }
+        public long? MaxChunkSize { get => _explicitNullValueMaxChunkSize; set { _explicitNullValueMaxChunkSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_chunk_size"); else _explicitNullProperties?.Remove("max_chunk_size"); } }
+        private long? _explicitNullValueMaxChunkSize = default!;
         /// <summary>Hierarchical options</summary>
-        public long? ParentChunkSize { get; set; }
+        public long? ParentChunkSize { get => _explicitNullValueParentChunkSize; set { _explicitNullValueParentChunkSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_chunk_size"); else _explicitNullProperties?.Remove("parent_chunk_size"); } }
+        private long? _explicitNullValueParentChunkSize = default!;
         /// <summary>Semantic options</summary>
-        public float? SemanticThreshold { get; set; }
+        public float? SemanticThreshold { get => _explicitNullValueSemanticThreshold; set { _explicitNullValueSemanticThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("semantic_threshold"); else _explicitNullProperties?.Remove("semantic_threshold"); } }
+        private float? _explicitNullValueSemanticThreshold = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions"/> and sets the default values.
         /// </summary>
@@ -37,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingOptions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +79,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteLongValue("max_chunk_size", MaxChunkSize);
             writer.WriteLongValue("parent_chunk_size", ParentChunkSize);
             writer.WriteFloatValue("semantic_threshold", SemanticThreshold);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

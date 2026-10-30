@@ -42,6 +42,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ForbiddenResponseError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError">When receiving a 412 status code</exception>
@@ -63,12 +64,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Approvals.Session.Item.Item
             {
                 { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.DigitalOcean.OpenApiClient.Models.ForbiddenResponseError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError.CreateFromDiscriminatorValue },
                 { "412", global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolResultError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApprovalDecisionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApprovalDecisionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

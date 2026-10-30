@@ -12,106 +12,172 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DefinitionsSession : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_kind") is { } nullNodeAgentKind && nullNodeAgentKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentKind = null;
+            if (parseNode.GetChildNode("config_id") is { } nullNodeConfigId && nullNodeConfigId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfigId = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("fork_from_checkpoint_id") is { } nullNodeForkFromCheckpointId && nullNodeForkFromCheckpointId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkFromCheckpointId = null;
+            if (parseNode.GetChildNode("fork_id") is { } nullNodeForkId && nullNodeForkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkId = null;
+            if (parseNode.GetChildNode("idle_timeout_seconds") is { } nullNodeIdleTimeoutSeconds && nullNodeIdleTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutSeconds = null;
+            if (parseNode.GetChildNode("keep_warm") is { } nullNodeKeepWarm && nullNodeKeepWarm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeepWarm = null;
+            if (parseNode.GetChildNode("last_event_at") is { } nullNodeLastEventAt && nullNodeLastEventAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastEventAt = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("openai_environment_id") is { } nullNodeOpenaiEnvironmentId && nullNodeOpenaiEnvironmentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenaiEnvironmentId = null;
+            if (parseNode.GetChildNode("openai_session_id") is { } nullNodeOpenaiSessionId && nullNodeOpenaiSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenaiSessionId = null;
+            if (parseNode.GetChildNode("parent_session_id") is { } nullNodeParentSessionId && nullNodeParentSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentSessionId = null;
+            if (parseNode.GetChildNode("pause_reason") is { } nullNodePauseReason && nullNodePauseReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PauseReason = null;
+            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("repo_hint") is { } nullNodeRepoHint && nullNodeRepoHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepoHint = null;
+            if (parseNode.GetChildNode("resume_on_topoff") is { } nullNodeResumeOnTopoff && nullNodeResumeOnTopoff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeOnTopoff = null;
+            if (parseNode.GetChildNode("sandbox_id") is { } nullNodeSandboxId && nullNodeSandboxId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxId = null;
+            if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("warnings") is { } nullNodeWarnings && nullNodeWarnings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warnings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>AgentKind identifies what runs inside the session sandbox. CreateSession accepts CLAUDE_CODE, OPENCODE, CODEX_CLI, CURSOR_CLI, OPENAI_CODEX, LANGGRAPH, and CREWAI (the supported set is overridable via HARNESS_SUPPORTED_AGENT_KINDS); other values are rejected with 400. AGENT_KIND_OPENAI_CODEX is the OpenAI sandbox-provider kind (DO runs codex exec-server; the agent loop lives at OpenAI). AGENT_KIND_LANGGRAPH is the LangGraph framework adapter. AGENT_KIND_CREWAI is the CrewAI Crew framework adapter: like LANGGRAPH the template bakes no agent code, so spec.env must supply FRAMEWORK_REPO and FRAMEWORK_REPO_SHA; a Crew kickoff is one-shot and exposes no HITL surface. CREWAI is additionally gated per team and returns 400 for teams it is not enabled for.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentKind? AgentKind { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentKind? AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentKind? _explicitNullValueAgentKind = default!;
         /// <summary>Durable Environment Config UUID the session was created from (inline manifests persist a config too, named after the session). Persisted and returned on create/get/list; absent only for sessions created before config references were stored.</summary>
-        public Guid? ConfigId { get; set; }
+        public Guid? ConfigId { get => _explicitNullValueConfigId; set { _explicitNullValueConfigId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config_id"); else _explicitNullProperties?.Remove("config_id"); } }
+        private Guid? _explicitNullValueConfigId = default!;
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Lineage: harness-api checkpoint id (cp_&lt;hex&gt;) the child booted from at fork time. Drives OHP inherited-history replay on attach. Omitted/empty for root sessions and legacy forks created before this field was persisted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForkFromCheckpointId { get; set; }
+        public string? ForkFromCheckpointId { get => _explicitNullValueForkFromCheckpointId; set { _explicitNullValueForkFromCheckpointId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_from_checkpoint_id"); else _explicitNullProperties?.Remove("fork_from_checkpoint_id"); } }
+        private string? _explicitNullValueForkFromCheckpointId = default!;
 #nullable restore
 #else
-        public string ForkFromCheckpointId { get; set; }
+        public string ForkFromCheckpointId { get => _explicitNullValueForkFromCheckpointId; set { _explicitNullValueForkFromCheckpointId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_from_checkpoint_id"); else _explicitNullProperties?.Remove("fork_from_checkpoint_id"); } }
+        private string _explicitNullValueForkFromCheckpointId = default!;
 #endif
         /// <summary>Lineage: branch label assigned when this session was created by ForkSession (or rollback&apos;s internal fork). Omitted/empty for root sessions.</summary>
-        public Guid? ForkId { get; set; }
+        public Guid? ForkId { get => _explicitNullValueForkId; set { _explicitNullValueForkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_id"); else _explicitNullProperties?.Remove("fork_id"); } }
+        private Guid? _explicitNullValueForkId = default!;
         /// <summary>This session&apos;s own idle-pause timeout (manifest idle_timeout). Omitted when the session uses the deployment-wide default.</summary>
-        public long? IdleTimeoutSeconds { get; set; }
-        /// <summary>Session is exempt from idle auto-pause (manifest keep_warm, or the agent-kind default: hermes sessions keep warm). Pause requests against such a session are rejected with 409. Omitted when false.</summary>
-        public bool? KeepWarm { get; set; }
+        public long? IdleTimeoutSeconds { get => _explicitNullValueIdleTimeoutSeconds; set { _explicitNullValueIdleTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_seconds"); else _explicitNullProperties?.Remove("idle_timeout_seconds"); } }
+        private long? _explicitNullValueIdleTimeoutSeconds = default!;
+        /// <summary>Session is exempt from idle auto-pause (manifest keep_warm, or the agent-kind default: hermes sessions keep warm). It still accepts a manual pause. Omitted when false.</summary>
+        public bool? KeepWarm { get => _explicitNullValueKeepWarm; set { _explicitNullValueKeepWarm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keep_warm"); else _explicitNullProperties?.Remove("keep_warm"); } }
+        private bool? _explicitNullValueKeepWarm = default!;
         /// <summary>Timestamp of the most recent event in this session&apos;s canonical stream. Drives the inactivity policy that pauses idle sessions.</summary>
-        public DateTimeOffset? LastEventAt { get; set; }
+        public DateTimeOffset? LastEventAt { get => _explicitNullValueLastEventAt; set { _explicitNullValueLastEventAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_event_at"); else _explicitNullProperties?.Remove("last_event_at"); } }
+        private DateTimeOffset? _explicitNullValueLastEventAt = default!;
         /// <summary>User-assignable display name, unique per team among non-terminal sessions. Usable in place of session_id by clients (doctl / Console resolve it to the id via the ListSessions ?name= filter; the {session_id} path stays UUID-only). Supplied via the environment-spec metadata.name, or auto-generated (&quot;session-&lt;agent-type&gt;-&lt;date-time&gt;&quot;) when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>OpenAI Agents API environment id (env_…), captured from the resolved CODEX_ENVIRONMENT_ID guest env value. Populated only for AGENT_KIND_OPENAI_CODEX sessions. Non-secret correlation metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OpenaiEnvironmentId { get; set; }
+        public string? OpenaiEnvironmentId { get => _explicitNullValueOpenaiEnvironmentId; set { _explicitNullValueOpenaiEnvironmentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openai_environment_id"); else _explicitNullProperties?.Remove("openai_environment_id"); } }
+        private string? _explicitNullValueOpenaiEnvironmentId = default!;
 #nullable restore
 #else
-        public string OpenaiEnvironmentId { get; set; }
+        public string OpenaiEnvironmentId { get => _explicitNullValueOpenaiEnvironmentId; set { _explicitNullValueOpenaiEnvironmentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openai_environment_id"); else _explicitNullProperties?.Remove("openai_environment_id"); } }
+        private string _explicitNullValueOpenaiEnvironmentId = default!;
 #endif
         /// <summary>OpenAI Agents API session id (sess_…) this DO sandbox hosts. Populated only for AGENT_KIND_OPENAI_CODEX sessions (empty otherwise). Non-secret correlation metadata; a client (doctl agents attach) reads it to bridge to the OpenAI session. See docs/design/openai-sandbox-provider.md.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OpenaiSessionId { get; set; }
+        public string? OpenaiSessionId { get => _explicitNullValueOpenaiSessionId; set { _explicitNullValueOpenaiSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openai_session_id"); else _explicitNullProperties?.Remove("openai_session_id"); } }
+        private string? _explicitNullValueOpenaiSessionId = default!;
 #nullable restore
 #else
-        public string OpenaiSessionId { get; set; }
+        public string OpenaiSessionId { get => _explicitNullValueOpenaiSessionId; set { _explicitNullValueOpenaiSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openai_session_id"); else _explicitNullProperties?.Remove("openai_session_id"); } }
+        private string _explicitNullValueOpenaiSessionId = default!;
 #endif
         /// <summary>Lineage: id of the session this one was forked from. Omitted/empty for root (non-fork) sessions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentSessionId { get; set; }
+        public string? ParentSessionId { get => _explicitNullValueParentSessionId; set { _explicitNullValueParentSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_session_id"); else _explicitNullProperties?.Remove("parent_session_id"); } }
+        private string? _explicitNullValueParentSessionId = default!;
 #nullable restore
 #else
-        public string ParentSessionId { get; set; }
+        public string ParentSessionId { get => _explicitNullValueParentSessionId; set { _explicitNullValueParentSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_session_id"); else _explicitNullProperties?.Remove("parent_session_id"); } }
+        private string _explicitNullValueParentSessionId = default!;
 #endif
         /// <summary>Why this session is paused. Present only when status is SESSION_STATUS_PAUSED; omitted otherwise. Known values: manual (PauseSession RPC), idle (inactivity auto-pause), low_balance (prepay gate). Clients should treat an unrecognized value as an opaque reason string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PauseReason { get; set; }
+        public string? PauseReason { get => _explicitNullValuePauseReason; set { _explicitNullValuePauseReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pause_reason"); else _explicitNullProperties?.Remove("pause_reason"); } }
+        private string? _explicitNullValuePauseReason = default!;
 #nullable restore
 #else
-        public string PauseReason { get; set; }
+        public string PauseReason { get => _explicitNullValuePauseReason; set { _explicitNullValuePauseReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pause_reason"); else _explicitNullProperties?.Remove("pause_reason"); } }
+        private string _explicitNullValuePauseReason = default!;
+#endif
+        /// <summary>DO region slug the session lives in, e.g. ric1. Stamped once at create from the region whose API host served the request, and never changed. Returned only for teams on the regional routing rollout; omitted otherwise.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string? _explicitNullValueRegion = default!;
+#nullable restore
+#else
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>Optional repository hint supplied at session creation (first spec.workspace.repos entry of the manifest). Not authoritative; the agent may change repos in-session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RepoHint { get; set; }
+        public string? RepoHint { get => _explicitNullValueRepoHint; set { _explicitNullValueRepoHint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repo_hint"); else _explicitNullProperties?.Remove("repo_hint"); } }
+        private string? _explicitNullValueRepoHint = default!;
 #nullable restore
 #else
-        public string RepoHint { get; set; }
+        public string RepoHint { get => _explicitNullValueRepoHint; set { _explicitNullValueRepoHint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repo_hint"); else _explicitNullProperties?.Remove("repo_hint"); } }
+        private string _explicitNullValueRepoHint = default!;
 #endif
         /// <summary>Session consents to being resumed automatically when the team&apos;s prepayment balance is restored after a low-balance pause. Defaults to false at create time; may be toggled later via PATCH /v2/agents/sessions/{session_id} (resume_on_topoff only). Only a session paused with reason low_balance whose latest run did not complete is ever resumed automatically - a session the customer paused themselves, or one that idled out, stays paused regardless. Not an environment-spec field, and forks do not inherit it. Omitted when false.</summary>
-        public bool? ResumeOnTopoff { get; set; }
+        public bool? ResumeOnTopoff { get => _explicitNullValueResumeOnTopoff; set { _explicitNullValueResumeOnTopoff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume_on_topoff"); else _explicitNullProperties?.Remove("resume_on_topoff"); } }
+        private bool? _explicitNullValueResumeOnTopoff = default!;
         /// <summary>Sandbox identity for support / debugging. Informational; omitted until a sandbox is allocated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SandboxId { get; set; }
+        public string? SandboxId { get => _explicitNullValueSandboxId; set { _explicitNullValueSandboxId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_id"); else _explicitNullProperties?.Remove("sandbox_id"); } }
+        private string? _explicitNullValueSandboxId = default!;
 #nullable restore
 #else
-        public string SandboxId { get; set; }
+        public string SandboxId { get => _explicitNullValueSandboxId; set { _explicitNullValueSandboxId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_id"); else _explicitNullProperties?.Remove("sandbox_id"); } }
+        private string _explicitNullValueSandboxId = default!;
 #endif
         /// <summary>The session_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionId { get; set; }
+        public string? SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private string? _explicitNullValueSessionId = default!;
 #nullable restore
 #else
-        public string SessionId { get; set; }
+        public string SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private string _explicitNullValueSessionId = default!;
 #endif
         /// <summary>SessionStatus is the lifecycle state of the sandbox + agent pair. SESSION_STATUS_ALL is a ListSessions status-filter value only -- no session is ever actually in this status. SESSION_STATUS_LOCKED is reserved for internal use and never appears in an end-user-facing response.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionStatus? Status { get; set; }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionStatus? _explicitNullValueStatus = default!;
         /// <summary>Non-fatal advisories computed from the manifest at create time: one entry per populated accepted-but-not-yet-enforced section (flat names: secrets, model, tools, memory, budget, max_lifetime, mounts; legacy manifests get the corresponding spec.* paths), a deprecation entry when a legacy-envelope manifest or an adapter alias (codex-cli, cursor-cli) is used, and a heuristic entry per credential-looking spec.env value. Populated on the CreateSession response only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Warnings { get; set; }
+        public List<string>? Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
+        private List<string>? _explicitNullValueWarnings = default!;
 #nullable restore
 #else
-        public List<string> Warnings { get; set; }
+        public List<string> Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
+        private List<string> _explicitNullValueWarnings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSession"/> and sets the default values.
@@ -128,7 +194,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public static global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSession CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSession();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSession(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -151,6 +217,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "openai_session_id", n => { OpenaiSessionId = n.GetStringValue(); } },
                 { "parent_session_id", n => { ParentSessionId = n.GetStringValue(); } },
                 { "pause_reason", n => { PauseReason = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetStringValue(); } },
                 { "repo_hint", n => { RepoHint = n.GetStringValue(); } },
                 { "resume_on_topoff", n => { ResumeOnTopoff = n.GetBoolValue(); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
@@ -179,12 +246,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("openai_session_id", OpenaiSessionId);
             writer.WriteStringValue("parent_session_id", ParentSessionId);
             writer.WriteStringValue("pause_reason", PauseReason);
+            writer.WriteStringValue("region", Region);
             writer.WriteStringValue("repo_hint", RepoHint);
             writer.WriteBoolValue("resume_on_topoff", ResumeOnTopoff);
             writer.WriteStringValue("sandbox_id", SandboxId);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionStatus>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("warnings", Warnings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
