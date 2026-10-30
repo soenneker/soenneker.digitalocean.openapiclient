@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("databases") is { } nullNodeDatabases && nullNodeDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Databases = null;
+            if (parseNode.GetChildNode("databases") is null) { _explicitNullValueDatabases = default!; _explicitNullProperties?.Remove("databases"); }
+            else if (parseNode.GetChildNode("databases") is { } nullNodeDatabases && nullNodeDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Databases = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The databases property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseClusterRead>? Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseClusterRead>? Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; AdditionalData?.Remove("databases"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseClusterRead>? _explicitNullValueDatabases = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseClusterRead> Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseClusterRead> Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; AdditionalData?.Remove("databases"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseClusterRead> _explicitNullValueDatabases = default!;
 #endif
         /// <summary>

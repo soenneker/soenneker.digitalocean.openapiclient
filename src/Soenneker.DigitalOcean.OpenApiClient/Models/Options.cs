@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("options") is { } nullNodeOptionsProp && nullNodeOptionsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptionsProp = null;
-            if (parseNode.GetChildNode("version_availability") is { } nullNodeVersionAvailability && nullNodeVersionAvailability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionAvailability = null;
+            if (parseNode.GetChildNode("options") is null) { _explicitNullValueOptionsProp = default!; _explicitNullProperties?.Remove("options"); }
+            else if (parseNode.GetChildNode("options") is { } nullNodeOptionsProp && nullNodeOptionsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptionsProp = null;
+            if (parseNode.GetChildNode("version_availability") is null) { _explicitNullValueVersionAvailability = default!; _explicitNullProperties?.Remove("version_availability"); }
+            else if (parseNode.GetChildNode("version_availability") is { } nullNodeVersionAvailability && nullNodeVersionAvailability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionAvailability = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptions? OptionsProp { get => _explicitNullValueOptionsProp; set { _explicitNullValueOptionsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptions? OptionsProp { get => _explicitNullValueOptionsProp; set { _explicitNullValueOptionsProp = value; AdditionalData?.Remove("options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptions? _explicitNullValueOptionsProp = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptions OptionsProp { get => _explicitNullValueOptionsProp; set { _explicitNullValueOptionsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptions OptionsProp { get => _explicitNullValueOptionsProp; set { _explicitNullValueOptionsProp = value; AdditionalData?.Remove("options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptions _explicitNullValueOptionsProp = default!;
 #endif
         /// <summary>The version_availability property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability? VersionAvailability { get => _explicitNullValueVersionAvailability; set { _explicitNullValueVersionAvailability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_availability"); else _explicitNullProperties?.Remove("version_availability"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability? VersionAvailability { get => _explicitNullValueVersionAvailability; set { _explicitNullValueVersionAvailability = value; AdditionalData?.Remove("version_availability"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_availability"); else _explicitNullProperties?.Remove("version_availability"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability? _explicitNullValueVersionAvailability = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability VersionAvailability { get => _explicitNullValueVersionAvailability; set { _explicitNullValueVersionAvailability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_availability"); else _explicitNullProperties?.Remove("version_availability"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability VersionAvailability { get => _explicitNullValueVersionAvailability; set { _explicitNullValueVersionAvailability = value; AdditionalData?.Remove("version_availability"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_availability"); else _explicitNullProperties?.Remove("version_availability"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsVersionAvailability _explicitNullValueVersionAvailability = default!;
 #endif
         /// <summary>

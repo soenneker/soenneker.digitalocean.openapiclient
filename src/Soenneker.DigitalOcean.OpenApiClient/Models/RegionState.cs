@@ -17,28 +17,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("status_changed_at") is { } nullNodeStatusChangedAt && nullNodeStatusChangedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusChangedAt = null;
-            if (parseNode.GetChildNode("thirty_day_uptime_percentage") is { } nullNodeThirtyDayUptimePercentage && nullNodeThirtyDayUptimePercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThirtyDayUptimePercentage = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("status_changed_at") is null) { _explicitNullValueStatusChangedAt = default!; _explicitNullProperties?.Remove("status_changed_at"); }
+            else if (parseNode.GetChildNode("status_changed_at") is { } nullNodeStatusChangedAt && nullNodeStatusChangedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusChangedAt = null;
+            if (parseNode.GetChildNode("thirty_day_uptime_percentage") is null) { _explicitNullValueThirtyDayUptimePercentage = default!; _explicitNullProperties?.Remove("thirty_day_uptime_percentage"); }
+            else if (parseNode.GetChildNode("thirty_day_uptime_percentage") is { } nullNodeThirtyDayUptimePercentage && nullNodeThirtyDayUptimePercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThirtyDayUptimePercentage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionStateStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionStateStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionStateStatus? _explicitNullValueStatus = default!;
         /// <summary>The status_changed_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusChangedAt { get => _explicitNullValueStatusChangedAt; set { _explicitNullValueStatusChangedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_changed_at"); else _explicitNullProperties?.Remove("status_changed_at"); } }
+        public string? StatusChangedAt { get => _explicitNullValueStatusChangedAt; set { _explicitNullValueStatusChangedAt = value; AdditionalData?.Remove("status_changed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_changed_at"); else _explicitNullProperties?.Remove("status_changed_at"); } }
         private string? _explicitNullValueStatusChangedAt = default!;
 #nullable restore
 #else
-        public string StatusChangedAt { get => _explicitNullValueStatusChangedAt; set { _explicitNullValueStatusChangedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_changed_at"); else _explicitNullProperties?.Remove("status_changed_at"); } }
+        public string StatusChangedAt { get => _explicitNullValueStatusChangedAt; set { _explicitNullValueStatusChangedAt = value; AdditionalData?.Remove("status_changed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_changed_at"); else _explicitNullProperties?.Remove("status_changed_at"); } }
         private string _explicitNullValueStatusChangedAt = default!;
 #endif
         /// <summary>The thirty_day_uptime_percentage property</summary>
-        public double? ThirtyDayUptimePercentage { get => _explicitNullValueThirtyDayUptimePercentage; set { _explicitNullValueThirtyDayUptimePercentage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thirty_day_uptime_percentage"); else _explicitNullProperties?.Remove("thirty_day_uptime_percentage"); } }
+        public double? ThirtyDayUptimePercentage { get => _explicitNullValueThirtyDayUptimePercentage; set { _explicitNullValueThirtyDayUptimePercentage = value; AdditionalData?.Remove("thirty_day_uptime_percentage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thirty_day_uptime_percentage"); else _explicitNullProperties?.Remove("thirty_day_uptime_percentage"); } }
         private double? _explicitNullValueThirtyDayUptimePercentage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState"/> and sets the default values.
@@ -65,7 +68,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionStateStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionStateStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "status_changed_at", n => { StatusChangedAt = n.GetStringValue(); } },
                 { "thirty_day_uptime_percentage", n => { ThirtyDayUptimePercentage = n.GetDoubleValue(); } },
             };

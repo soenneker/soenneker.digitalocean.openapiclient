@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("vpc_nat_gateway") is { } nullNodeVpcNatGateway && nullNodeVpcNatGateway.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcNatGateway = null;
+            if (parseNode.GetChildNode("vpc_nat_gateway") is null) { _explicitNullValueVpcNatGateway = default!; _explicitNullProperties?.Remove("vpc_nat_gateway"); }
+            else if (parseNode.GetChildNode("vpc_nat_gateway") is { } nullNodeVpcNatGateway && nullNodeVpcNatGateway.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcNatGateway = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The vpc_nat_gateway property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdate? VpcNatGateway { get => _explicitNullValueVpcNatGateway; set { _explicitNullValueVpcNatGateway = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_nat_gateway"); else _explicitNullProperties?.Remove("vpc_nat_gateway"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdate? VpcNatGateway { get => _explicitNullValueVpcNatGateway; set { _explicitNullValueVpcNatGateway = value; AdditionalData?.Remove("vpc_nat_gateway"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_nat_gateway"); else _explicitNullProperties?.Remove("vpc_nat_gateway"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdate? _explicitNullValueVpcNatGateway = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdate VpcNatGateway { get => _explicitNullValueVpcNatGateway; set { _explicitNullValueVpcNatGateway = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_nat_gateway"); else _explicitNullProperties?.Remove("vpc_nat_gateway"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdate VpcNatGateway { get => _explicitNullValueVpcNatGateway; set { _explicitNullValueVpcNatGateway = value; AdditionalData?.Remove("vpc_nat_gateway"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_nat_gateway"); else _explicitNullProperties?.Remove("vpc_nat_gateway"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdate _explicitNullValueVpcNatGateway = default!;
 #endif
         /// <summary>

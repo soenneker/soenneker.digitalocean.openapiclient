@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("tier_slug") is { } nullNodeTierSlug && nullNodeTierSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TierSlug = null;
+            if (parseNode.GetChildNode("tier_slug") is null) { _explicitNullValueTierSlug = default!; _explicitNullProperties?.Remove("tier_slug"); }
+            else if (parseNode.GetChildNode("tier_slug") is { } nullNodeTierSlug && nullNodeTierSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TierSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The slug of the subscription tier to sign up for.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryUpdateSubscriptionRequestTierSlug? TierSlug { get => _explicitNullValueTierSlug; set { _explicitNullValueTierSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier_slug"); else _explicitNullProperties?.Remove("tier_slug"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryUpdateSubscriptionRequestTierSlug? TierSlug { get => _explicitNullValueTierSlug; set { _explicitNullValueTierSlug = value; AdditionalData?.Remove("tier_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier_slug"); else _explicitNullProperties?.Remove("tier_slug"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryUpdateSubscriptionRequestTierSlug? _explicitNullValueTierSlug = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryUpdateSubscriptionRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tier_slug", n => { TierSlug = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryUpdateSubscriptionRequestTierSlug>(); } },
+                { "tier_slug", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryUpdateSubscriptionRequestTierSlug>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTierSlug = default; _explicitNullProperties?.Remove("tier_slug"); AdditionalData["tier_slug"] = unknown; } else { TierSlug = parsed; AdditionalData.Remove("tier_slug"); } } },
             };
         }
         /// <summary>

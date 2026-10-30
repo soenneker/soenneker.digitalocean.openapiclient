@@ -18,21 +18,26 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accelerators") is { } nullNodeAccelerators && nullNodeAccelerators.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accelerators = null;
-            if (parseNode.GetChildNode("model_id") is { } nullNodeModelId && nullNodeModelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelId = null;
-            if (parseNode.GetChildNode("model_provider") is { } nullNodeModelProvider && nullNodeModelProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelProvider = null;
-            if (parseNode.GetChildNode("model_slug") is { } nullNodeModelSlug && nullNodeModelSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelSlug = null;
-            if (parseNode.GetChildNode("workload_config") is { } nullNodeWorkloadConfig && nullNodeWorkloadConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadConfig = null;
+            if (parseNode.GetChildNode("accelerators") is null) { _explicitNullValueAccelerators = default!; _explicitNullProperties?.Remove("accelerators"); }
+            else if (parseNode.GetChildNode("accelerators") is { } nullNodeAccelerators && nullNodeAccelerators.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accelerators = null;
+            if (parseNode.GetChildNode("model_id") is null) { _explicitNullValueModelId = default!; _explicitNullProperties?.Remove("model_id"); }
+            else if (parseNode.GetChildNode("model_id") is { } nullNodeModelId && nullNodeModelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelId = null;
+            if (parseNode.GetChildNode("model_provider") is null) { _explicitNullValueModelProvider = default!; _explicitNullProperties?.Remove("model_provider"); }
+            else if (parseNode.GetChildNode("model_provider") is { } nullNodeModelProvider && nullNodeModelProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelProvider = null;
+            if (parseNode.GetChildNode("model_slug") is null) { _explicitNullValueModelSlug = default!; _explicitNullProperties?.Remove("model_slug"); }
+            else if (parseNode.GetChildNode("model_slug") is { } nullNodeModelSlug && nullNodeModelSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelSlug = null;
+            if (parseNode.GetChildNode("workload_config") is null) { _explicitNullValueWorkloadConfig = default!; _explicitNullProperties?.Remove("workload_config"); }
+            else if (parseNode.GetChildNode("workload_config") is { } nullNodeWorkloadConfig && nullNodeWorkloadConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadConfig = null;
         }
 
         /// <summary>Accelerator configuration for this deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AcceleratorConfigSpec>? Accelerators { get => _explicitNullValueAccelerators; set { _explicitNullValueAccelerators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accelerators"); else _explicitNullProperties?.Remove("accelerators"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AcceleratorConfigSpec>? Accelerators { get => _explicitNullValueAccelerators; set { _explicitNullValueAccelerators = value; AdditionalData?.Remove("accelerators"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accelerators"); else _explicitNullProperties?.Remove("accelerators"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AcceleratorConfigSpec>? _explicitNullValueAccelerators = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AcceleratorConfigSpec> Accelerators { get => _explicitNullValueAccelerators; set { _explicitNullValueAccelerators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accelerators"); else _explicitNullProperties?.Remove("accelerators"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AcceleratorConfigSpec> Accelerators { get => _explicitNullValueAccelerators; set { _explicitNullValueAccelerators = value; AdditionalData?.Remove("accelerators"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accelerators"); else _explicitNullProperties?.Remove("accelerators"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AcceleratorConfigSpec> _explicitNullValueAccelerators = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -40,34 +45,34 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Used to identify an existing deployment when updating; empty means create new.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelId { get => _explicitNullValueModelId; set { _explicitNullValueModelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_id"); else _explicitNullProperties?.Remove("model_id"); } }
+        public string? ModelId { get => _explicitNullValueModelId; set { _explicitNullValueModelId = value; AdditionalData?.Remove("model_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_id"); else _explicitNullProperties?.Remove("model_id"); } }
         private string? _explicitNullValueModelId = default!;
 #nullable restore
 #else
-        public string ModelId { get => _explicitNullValueModelId; set { _explicitNullValueModelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_id"); else _explicitNullProperties?.Remove("model_id"); } }
+        public string ModelId { get => _explicitNullValueModelId; set { _explicitNullValueModelId = value; AdditionalData?.Remove("model_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_id"); else _explicitNullProperties?.Remove("model_id"); } }
         private string _explicitNullValueModelId = default!;
 #endif
         /// <summary>Model provider.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HuggingFaceModelProvider? ModelProvider { get => _explicitNullValueModelProvider; set { _explicitNullValueModelProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_provider"); else _explicitNullProperties?.Remove("model_provider"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.HuggingFaceModelProvider? ModelProvider { get => _explicitNullValueModelProvider; set { _explicitNullValueModelProvider = value; AdditionalData?.Remove("model_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_provider"); else _explicitNullProperties?.Remove("model_provider"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.HuggingFaceModelProvider? _explicitNullValueModelProvider = default!;
         /// <summary>Model identifier (e.g. Hugging Face slug).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelSlug { get => _explicitNullValueModelSlug; set { _explicitNullValueModelSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_slug"); else _explicitNullProperties?.Remove("model_slug"); } }
+        public string? ModelSlug { get => _explicitNullValueModelSlug; set { _explicitNullValueModelSlug = value; AdditionalData?.Remove("model_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_slug"); else _explicitNullProperties?.Remove("model_slug"); } }
         private string? _explicitNullValueModelSlug = default!;
 #nullable restore
 #else
-        public string ModelSlug { get => _explicitNullValueModelSlug; set { _explicitNullValueModelSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_slug"); else _explicitNullProperties?.Remove("model_slug"); } }
+        public string ModelSlug { get => _explicitNullValueModelSlug; set { _explicitNullValueModelSlug = value; AdditionalData?.Remove("model_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_slug"); else _explicitNullProperties?.Remove("model_slug"); } }
         private string _explicitNullValueModelSlug = default!;
 #endif
         /// <summary>Workload-specific configuration (e.g. ISL/OSL in future).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpecWorkloadConfigProperty? WorkloadConfig { get => _explicitNullValueWorkloadConfig; set { _explicitNullValueWorkloadConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_config"); else _explicitNullProperties?.Remove("workload_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpecWorkloadConfigProperty? WorkloadConfig { get => _explicitNullValueWorkloadConfig; set { _explicitNullValueWorkloadConfig = value; AdditionalData?.Remove("workload_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_config"); else _explicitNullProperties?.Remove("workload_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpecWorkloadConfigProperty? _explicitNullValueWorkloadConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpecWorkloadConfigProperty WorkloadConfig { get => _explicitNullValueWorkloadConfig; set { _explicitNullValueWorkloadConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_config"); else _explicitNullProperties?.Remove("workload_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpecWorkloadConfigProperty WorkloadConfig { get => _explicitNullValueWorkloadConfig; set { _explicitNullValueWorkloadConfig = value; AdditionalData?.Remove("workload_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_config"); else _explicitNullProperties?.Remove("workload_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpecWorkloadConfigProperty _explicitNullValueWorkloadConfig = default!;
 #endif
         /// <summary>
@@ -97,7 +102,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "accelerators", n => { Accelerators = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AcceleratorConfigSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AcceleratorConfigSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "model_id", n => { ModelId = n.GetStringValue(); } },
-                { "model_provider", n => { ModelProvider = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.HuggingFaceModelProvider>(); } },
+                { "model_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.HuggingFaceModelProvider>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueModelProvider = default; _explicitNullProperties?.Remove("model_provider"); AdditionalData["model_provider"] = unknown; } else { ModelProvider = parsed; AdditionalData.Remove("model_provider"); } } },
                 { "model_slug", n => { ModelSlug = n.GetStringValue(); } },
                 { "workload_config", n => { WorkloadConfig = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpecWorkloadConfigProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpecWorkloadConfigProperty.CreateFromDiscriminatorValue); } },
             };

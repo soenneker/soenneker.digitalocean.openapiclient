@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("metric_label") is { } nullNodeMetricLabel && nullNodeMetricLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricLabel = null;
-            if (parseNode.GetChildNode("metric_value") is { } nullNodeMetricValue && nullNodeMetricValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricValue = null;
-            if (parseNode.GetChildNode("time_window") is { } nullNodeTimeWindow && nullNodeTimeWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeWindow = null;
+            if (parseNode.GetChildNode("metric_label") is null) { _explicitNullValueMetricLabel = default!; _explicitNullProperties?.Remove("metric_label"); }
+            else if (parseNode.GetChildNode("metric_label") is { } nullNodeMetricLabel && nullNodeMetricLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricLabel = null;
+            if (parseNode.GetChildNode("metric_value") is null) { _explicitNullValueMetricValue = default!; _explicitNullProperties?.Remove("metric_value"); }
+            else if (parseNode.GetChildNode("metric_value") is { } nullNodeMetricValue && nullNodeMetricValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricValue = null;
+            if (parseNode.GetChildNode("time_window") is null) { _explicitNullValueTimeWindow = default!; _explicitNullProperties?.Remove("time_window"); }
+            else if (parseNode.GetChildNode("time_window") is { } nullNodeTimeWindow && nullNodeTimeWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeWindow = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The metric_label property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricLabel { get => _explicitNullValueMetricLabel; set { _explicitNullValueMetricLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_label"); else _explicitNullProperties?.Remove("metric_label"); } }
+        public string? MetricLabel { get => _explicitNullValueMetricLabel; set { _explicitNullValueMetricLabel = value; AdditionalData?.Remove("metric_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_label"); else _explicitNullProperties?.Remove("metric_label"); } }
         private string? _explicitNullValueMetricLabel = default!;
 #nullable restore
 #else
-        public string MetricLabel { get => _explicitNullValueMetricLabel; set { _explicitNullValueMetricLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_label"); else _explicitNullProperties?.Remove("metric_label"); } }
+        public string MetricLabel { get => _explicitNullValueMetricLabel; set { _explicitNullValueMetricLabel = value; AdditionalData?.Remove("metric_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_label"); else _explicitNullProperties?.Remove("metric_label"); } }
         private string _explicitNullValueMetricLabel = default!;
 #endif
         /// <summary>The metric_value property</summary>
-        public double? MetricValue { get => _explicitNullValueMetricValue; set { _explicitNullValueMetricValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_value"); else _explicitNullProperties?.Remove("metric_value"); } }
+        public double? MetricValue { get => _explicitNullValueMetricValue; set { _explicitNullValueMetricValue = value; AdditionalData?.Remove("metric_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_value"); else _explicitNullProperties?.Remove("metric_value"); } }
         private double? _explicitNullValueMetricValue = default!;
         /// <summary>The time_window property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimeWindow { get => _explicitNullValueTimeWindow; set { _explicitNullValueTimeWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_window"); else _explicitNullProperties?.Remove("time_window"); } }
+        public string? TimeWindow { get => _explicitNullValueTimeWindow; set { _explicitNullValueTimeWindow = value; AdditionalData?.Remove("time_window"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_window"); else _explicitNullProperties?.Remove("time_window"); } }
         private string? _explicitNullValueTimeWindow = default!;
 #nullable restore
 #else
-        public string TimeWindow { get => _explicitNullValueTimeWindow; set { _explicitNullValueTimeWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_window"); else _explicitNullProperties?.Remove("time_window"); } }
+        public string TimeWindow { get => _explicitNullValueTimeWindow; set { _explicitNullValueTimeWindow = value; AdditionalData?.Remove("time_window"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_window"); else _explicitNullProperties?.Remove("time_window"); } }
         private string _explicitNullValueTimeWindow = default!;
 #endif
         /// <summary>

@@ -17,21 +17,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("incremental") is { } nullNodeIncremental && nullNodeIncremental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Incremental = null;
-            if (parseNode.GetChildNode("size_gigabytes") is { } nullNodeSizeGigabytes && nullNodeSizeGigabytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SizeGigabytes = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("incremental") is null) { _explicitNullValueIncremental = default!; _explicitNullProperties?.Remove("incremental"); }
+            else if (parseNode.GetChildNode("incremental") is { } nullNodeIncremental && nullNodeIncremental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Incremental = null;
+            if (parseNode.GetChildNode("size_gigabytes") is null) { _explicitNullValueSizeGigabytes = default!; _explicitNullProperties?.Remove("size_gigabytes"); }
+            else if (parseNode.GetChildNode("size_gigabytes") is { } nullNodeSizeGigabytes && nullNodeSizeGigabytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SizeGigabytes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A time value given in ISO8601 combined date and time format at which the backup was created.</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Indicates if this backup is a full or an incremental one (available only for MySQL).</summary>
-        public bool? Incremental { get => _explicitNullValueIncremental; set { _explicitNullValueIncremental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incremental"); else _explicitNullProperties?.Remove("incremental"); } }
+        public bool? Incremental { get => _explicitNullValueIncremental; set { _explicitNullValueIncremental = value; AdditionalData?.Remove("incremental"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incremental"); else _explicitNullProperties?.Remove("incremental"); } }
         private bool? _explicitNullValueIncremental = default!;
         /// <summary>The size of the database backup in GBs.</summary>
-        public double? SizeGigabytes { get => _explicitNullValueSizeGigabytes; set { _explicitNullValueSizeGigabytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_gigabytes"); else _explicitNullProperties?.Remove("size_gigabytes"); } }
+        public double? SizeGigabytes { get => _explicitNullValueSizeGigabytes; set { _explicitNullValueSizeGigabytes = value; AdditionalData?.Remove("size_gigabytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_gigabytes"); else _explicitNullProperties?.Remove("size_gigabytes"); } }
         private double? _explicitNullValueSizeGigabytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Backup"/> and sets the default values.

@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
-            if (parseNode.GetChildNode("droplet_template") is { } nullNodeDropletTemplate && nullNodeDropletTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletTemplate = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("config") is null) { _explicitNullValueConfig = default!; _explicitNullProperties?.Remove("config"); }
+            else if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
+            if (parseNode.GetChildNode("droplet_template") is null) { _explicitNullValueDropletTemplate = default!; _explicitNullProperties?.Remove("droplet_template"); }
+            else if (parseNode.GetChildNode("droplet_template") is { } nullNodeDropletTemplate && nullNodeDropletTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletTemplate = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The scaling configuration for an autoscale pool, which is how the pool scales up and down (either by resource utilization or static configuration).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolCreateConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
-        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolCreateConfig? _explicitNullValueConfig = default!;
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolConfig? _explicitNullValueConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolCreateConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
-        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolCreateConfig _explicitNullValueConfig = default!;
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolConfig _explicitNullValueConfig = default!;
 #endif
         /// <summary>The droplet_template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate? DropletTemplate { get => _explicitNullValueDropletTemplate; set { _explicitNullValueDropletTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_template"); else _explicitNullProperties?.Remove("droplet_template"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate? DropletTemplate { get => _explicitNullValueDropletTemplate; set { _explicitNullValueDropletTemplate = value; AdditionalData?.Remove("droplet_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_template"); else _explicitNullProperties?.Remove("droplet_template"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate? _explicitNullValueDropletTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate DropletTemplate { get => _explicitNullValueDropletTemplate; set { _explicitNullValueDropletTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_template"); else _explicitNullProperties?.Remove("droplet_template"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate DropletTemplate { get => _explicitNullValueDropletTemplate; set { _explicitNullValueDropletTemplate = value; AdditionalData?.Remove("droplet_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_template"); else _explicitNullProperties?.Remove("droplet_template"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate _explicitNullValueDropletTemplate = default!;
 #endif
         /// <summary>The human-readable name of the autoscale pool. This field cannot be updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>
@@ -79,7 +82,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolCreateConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolCreateConfig.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolConfig.CreateFromDiscriminatorValue); } },
                 { "droplet_template", n => { DropletTemplate = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
@@ -91,7 +94,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolCreateConfig>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolConfig>("config", Config);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolDropletTemplate>("droplet_template", DropletTemplate);
             writer.WriteStringValue("name", Name);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

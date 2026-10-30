@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("resume_on_topoff") is { } nullNodeResumeOnTopoff && nullNodeResumeOnTopoff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeOnTopoff = null;
+            if (parseNode.GetChildNode("resume_on_topoff") is null) { _explicitNullValueResumeOnTopoff = default!; _explicitNullProperties?.Remove("resume_on_topoff"); }
+            else if (parseNode.GetChildNode("resume_on_topoff") is { } nullNodeResumeOnTopoff && nullNodeResumeOnTopoff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeOnTopoff = null;
         }
 
         /// <summary>When present, sets whether this session opts in to automatic resumption when the team&apos;s prepayment balance is restored after a low-balance pause. Session-scoped consent, not config-scoped. Omitted properties are not modified.</summary>

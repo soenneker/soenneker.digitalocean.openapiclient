@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("trajectory") is { } nullNodeTrajectory && nullNodeTrajectory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trajectory = null;
+            if (parseNode.GetChildNode("trajectory") is null) { _explicitNullValueTrajectory = default!; _explicitNullProperties?.Remove("trajectory"); }
+            else if (parseNode.GetChildNode("trajectory") is { } nullNodeTrajectory && nullNodeTrajectory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trajectory = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Turn-by-turn trajectory for one episode. Poll this resource while the episode is running to watch live progress.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory? Trajectory { get => _explicitNullValueTrajectory; set { _explicitNullValueTrajectory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory"); else _explicitNullProperties?.Remove("trajectory"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory? Trajectory { get => _explicitNullValueTrajectory; set { _explicitNullValueTrajectory = value; AdditionalData?.Remove("trajectory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory"); else _explicitNullProperties?.Remove("trajectory"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory? _explicitNullValueTrajectory = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory Trajectory { get => _explicitNullValueTrajectory; set { _explicitNullValueTrajectory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory"); else _explicitNullProperties?.Remove("trajectory"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory Trajectory { get => _explicitNullValueTrajectory; set { _explicitNullValueTrajectory = value; AdditionalData?.Remove("trajectory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trajectory"); else _explicitNullProperties?.Remove("trajectory"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTrajectory _explicitNullValueTrajectory = default!;
 #endif
         /// <summary>

@@ -18,86 +18,95 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bound_session_id") is { } nullNodeBoundSessionId && nullNodeBoundSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BoundSessionId = null;
-            if (parseNode.GetChildNode("cron") is { } nullNodeCron && nullNodeCron.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cron = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
-            if (parseNode.GetChildNode("prompt_template") is { } nullNodePromptTemplate && nullNodePromptTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptTemplate = null;
-            if (parseNode.GetChildNode("session_mode") is { } nullNodeSessionMode && nullNodeSessionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionMode = null;
-            if (parseNode.GetChildNode("session_template") is { } nullNodeSessionTemplate && nullNodeSessionTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionTemplate = null;
-            if (parseNode.GetChildNode("webhook") is { } nullNodeWebhook && nullNodeWebhook.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Webhook = null;
+            if (parseNode.GetChildNode("bound_session_id") is null) { _explicitNullValueBoundSessionId = default!; _explicitNullProperties?.Remove("bound_session_id"); }
+            else if (parseNode.GetChildNode("bound_session_id") is { } nullNodeBoundSessionId && nullNodeBoundSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BoundSessionId = null;
+            if (parseNode.GetChildNode("cron") is null) { _explicitNullValueCron = default!; _explicitNullProperties?.Remove("cron"); }
+            else if (parseNode.GetChildNode("cron") is { } nullNodeCron && nullNodeCron.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cron = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("output") is null) { _explicitNullValueOutput = default!; _explicitNullProperties?.Remove("output"); }
+            else if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
+            if (parseNode.GetChildNode("prompt_template") is null) { _explicitNullValuePromptTemplate = default!; _explicitNullProperties?.Remove("prompt_template"); }
+            else if (parseNode.GetChildNode("prompt_template") is { } nullNodePromptTemplate && nullNodePromptTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptTemplate = null;
+            if (parseNode.GetChildNode("session_mode") is null) { _explicitNullValueSessionMode = default!; _explicitNullProperties?.Remove("session_mode"); }
+            else if (parseNode.GetChildNode("session_mode") is { } nullNodeSessionMode && nullNodeSessionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionMode = null;
+            if (parseNode.GetChildNode("session_template") is null) { _explicitNullValueSessionTemplate = default!; _explicitNullProperties?.Remove("session_template"); }
+            else if (parseNode.GetChildNode("session_template") is { } nullNodeSessionTemplate && nullNodeSessionTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionTemplate = null;
+            if (parseNode.GetChildNode("webhook") is null) { _explicitNullValueWebhook = default!; _explicitNullProperties?.Remove("webhook"); }
+            else if (parseNode.GetChildNode("webhook") is { } nullNodeWebhook && nullNodeWebhook.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Webhook = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>reuse only. UUID of an existing session owned by the team.</summary>
-        public Guid? BoundSessionId { get => _explicitNullValueBoundSessionId; set { _explicitNullValueBoundSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bound_session_id"); else _explicitNullProperties?.Remove("bound_session_id"); } }
+        public Guid? BoundSessionId { get => _explicitNullValueBoundSessionId; set { _explicitNullValueBoundSessionId = value; AdditionalData?.Remove("bound_session_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bound_session_id"); else _explicitNullProperties?.Remove("bound_session_id"); } }
         private Guid? _explicitNullValueBoundSessionId = default!;
         /// <summary>cron block on create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig? Cron { get => _explicitNullValueCron; set { _explicitNullValueCron = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron"); else _explicitNullProperties?.Remove("cron"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig? Cron { get => _explicitNullValueCron; set { _explicitNullValueCron = value; AdditionalData?.Remove("cron"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron"); else _explicitNullProperties?.Remove("cron"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig? _explicitNullValueCron = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig Cron { get => _explicitNullValueCron; set { _explicitNullValueCron = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron"); else _explicitNullProperties?.Remove("cron"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig Cron { get => _explicitNullValueCron; set { _explicitNullValueCron = value; AdditionalData?.Remove("cron"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron"); else _explicitNullProperties?.Remove("cron"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig _explicitNullValueCron = default!;
 #endif
         /// <summary>How the trigger fires - on an event (webhook) or on a schedule (cron). Immutable after create.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerKind? _explicitNullValueKind = default!;
         /// <summary>Team-unique (among non-deleted triggers) trigger name. Same rules as session names; not UUID-form.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Output-delivery configuration on create/update. Exactly one of email / slack is required for the matching mode and forbidden otherwise; destinations are stored encrypted and never returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite? _explicitNullValueOutput = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite _explicitNullValueOutput = default!;
 #endif
         /// <summary>The prompt sent on each fire. For cron it must not contain payload-interpolation placeholders.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PromptTemplate { get => _explicitNullValuePromptTemplate; set { _explicitNullValuePromptTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_template"); else _explicitNullProperties?.Remove("prompt_template"); } }
+        public string? PromptTemplate { get => _explicitNullValuePromptTemplate; set { _explicitNullValuePromptTemplate = value; AdditionalData?.Remove("prompt_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_template"); else _explicitNullProperties?.Remove("prompt_template"); } }
         private string? _explicitNullValuePromptTemplate = default!;
 #nullable restore
 #else
-        public string PromptTemplate { get => _explicitNullValuePromptTemplate; set { _explicitNullValuePromptTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_template"); else _explicitNullProperties?.Remove("prompt_template"); } }
+        public string PromptTemplate { get => _explicitNullValuePromptTemplate; set { _explicitNullValuePromptTemplate = value; AdditionalData?.Remove("prompt_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_template"); else _explicitNullProperties?.Remove("prompt_template"); } }
         private string _explicitNullValuePromptTemplate = default!;
 #endif
         /// <summary>fresh = a new session is created from the trigger&apos;s spec on every firing and destroyed after. reuse = the trigger binds an existing PAUSED session, resumed on each firing and paused after; multiple triggers may bind one session.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode? SessionMode { get => _explicitNullValueSessionMode; set { _explicitNullValueSessionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_mode"); else _explicitNullProperties?.Remove("session_mode"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode? SessionMode { get => _explicitNullValueSessionMode; set { _explicitNullValueSessionMode = value; AdditionalData?.Remove("session_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_mode"); else _explicitNullProperties?.Remove("session_mode"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode? _explicitNullValueSessionMode = default!;
         /// <summary>fresh only. Full agents.yaml Agent manifest (YAML or JSON). Any embedded env values are split out and encrypted server-side.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionTemplate { get => _explicitNullValueSessionTemplate; set { _explicitNullValueSessionTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_template"); else _explicitNullProperties?.Remove("session_template"); } }
+        public string? SessionTemplate { get => _explicitNullValueSessionTemplate; set { _explicitNullValueSessionTemplate = value; AdditionalData?.Remove("session_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_template"); else _explicitNullProperties?.Remove("session_template"); } }
         private string? _explicitNullValueSessionTemplate = default!;
 #nullable restore
 #else
-        public string SessionTemplate { get => _explicitNullValueSessionTemplate; set { _explicitNullValueSessionTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_template"); else _explicitNullProperties?.Remove("session_template"); } }
+        public string SessionTemplate { get => _explicitNullValueSessionTemplate; set { _explicitNullValueSessionTemplate = value; AdditionalData?.Remove("session_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_template"); else _explicitNullProperties?.Remove("session_template"); } }
         private string _explicitNullValueSessionTemplate = default!;
 #endif
         /// <summary>webhook block on create. Omitting provider defaults to custom.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig? Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig? Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; AdditionalData?.Remove("webhook"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig? _explicitNullValueWebhook = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; AdditionalData?.Remove("webhook"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig _explicitNullValueWebhook = default!;
 #endif
         /// <summary>
@@ -127,11 +136,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "bound_session_id", n => { BoundSessionId = n.GetGuidValue(); } },
                 { "cron", n => { Cron = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCronConfig.CreateFromDiscriminatorValue); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerKind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite>(global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputWrite.CreateFromDiscriminatorValue); } },
                 { "prompt_template", n => { PromptTemplate = n.GetStringValue(); } },
-                { "session_mode", n => { SessionMode = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode>(); } },
+                { "session_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerSessionMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSessionMode = default; _explicitNullProperties?.Remove("session_mode"); AdditionalData["session_mode"] = unknown; } else { SessionMode = parsed; AdditionalData.Remove("session_mode"); } } },
                 { "session_template", n => { SessionTemplate = n.GetStringValue(); } },
                 { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateWebhookConfig.CreateFromDiscriminatorValue); } },
             };

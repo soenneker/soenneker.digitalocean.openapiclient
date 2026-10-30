@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("droplet") is { } nullNodeDroplet && nullNodeDroplet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Droplet = null;
-            if (parseNode.GetChildNode("links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
+            if (parseNode.GetChildNode("droplet") is null) { _explicitNullValueDroplet = default!; _explicitNullProperties?.Remove("droplet"); }
+            else if (parseNode.GetChildNode("droplet") is { } nullNodeDroplet && nullNodeDroplet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Droplet = null;
+            if (parseNode.GetChildNode("links") is null) { _explicitNullValueLinks = default!; _explicitNullProperties?.Remove("links"); }
+            else if (parseNode.GetChildNode("links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The droplet property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet? Droplet { get => _explicitNullValueDroplet; set { _explicitNullValueDroplet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet"); else _explicitNullProperties?.Remove("droplet"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet? Droplet { get => _explicitNullValueDroplet; set { _explicitNullValueDroplet = value; AdditionalData?.Remove("droplet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet"); else _explicitNullProperties?.Remove("droplet"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet? _explicitNullValueDroplet = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet Droplet { get => _explicitNullValueDroplet; set { _explicitNullValueDroplet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet"); else _explicitNullProperties?.Remove("droplet"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet Droplet { get => _explicitNullValueDroplet; set { _explicitNullValueDroplet = value; AdditionalData?.Remove("droplet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet"); else _explicitNullProperties?.Remove("droplet"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet _explicitNullValueDroplet = default!;
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateResponseSingleDropletResponseLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateResponseSingleDropletResponseLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; AdditionalData?.Remove("links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateResponseSingleDropletResponseLinks? _explicitNullValueLinks = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateResponseSingleDropletResponseLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateResponseSingleDropletResponseLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; AdditionalData?.Remove("links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletCreateResponseSingleDropletResponseLinks _explicitNullValueLinks = default!;
 #endif
         /// <summary>

@@ -18,11 +18,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("floating_ips") is { } nullNodeFloatingIps && nullNodeFloatingIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FloatingIps = null;
-            if (parseNode.GetChildNode("reserved_ips") is { } nullNodeReservedIps && nullNodeReservedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedIps = null;
-            if (parseNode.GetChildNode("snapshots") is { } nullNodeSnapshots && nullNodeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Snapshots = null;
-            if (parseNode.GetChildNode("volumes") is { } nullNodeVolumes && nullNodeVolumes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volumes = null;
-            if (parseNode.GetChildNode("volume_snapshots") is { } nullNodeVolumeSnapshots && nullNodeVolumeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VolumeSnapshots = null;
+            if (parseNode.GetChildNode("floating_ips") is null) { _explicitNullValueFloatingIps = default!; _explicitNullProperties?.Remove("floating_ips"); }
+            else if (parseNode.GetChildNode("floating_ips") is { } nullNodeFloatingIps && nullNodeFloatingIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FloatingIps = null;
+            if (parseNode.GetChildNode("reserved_ips") is null) { _explicitNullValueReservedIps = default!; _explicitNullProperties?.Remove("reserved_ips"); }
+            else if (parseNode.GetChildNode("reserved_ips") is { } nullNodeReservedIps && nullNodeReservedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedIps = null;
+            if (parseNode.GetChildNode("snapshots") is null) { _explicitNullValueSnapshots = default!; _explicitNullProperties?.Remove("snapshots"); }
+            else if (parseNode.GetChildNode("snapshots") is { } nullNodeSnapshots && nullNodeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Snapshots = null;
+            if (parseNode.GetChildNode("volumes") is null) { _explicitNullValueVolumes = default!; _explicitNullProperties?.Remove("volumes"); }
+            else if (parseNode.GetChildNode("volumes") is { } nullNodeVolumes && nullNodeVolumes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volumes = null;
+            if (parseNode.GetChildNode("volume_snapshots") is null) { _explicitNullValueVolumeSnapshots = default!; _explicitNullProperties?.Remove("volume_snapshots"); }
+            else if (parseNode.GetChildNode("volume_snapshots") is { } nullNodeVolumeSnapshots && nullNodeVolumeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VolumeSnapshots = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,51 +36,51 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FloatingIps { get => _explicitNullValueFloatingIps; set { _explicitNullValueFloatingIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ips"); else _explicitNullProperties?.Remove("floating_ips"); } }
+        public List<string>? FloatingIps { get => _explicitNullValueFloatingIps; set { _explicitNullValueFloatingIps = value; AdditionalData?.Remove("floating_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ips"); else _explicitNullProperties?.Remove("floating_ips"); } }
         private List<string>? _explicitNullValueFloatingIps = default!;
 #nullable restore
 #else
-        public List<string> FloatingIps { get => _explicitNullValueFloatingIps; set { _explicitNullValueFloatingIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ips"); else _explicitNullProperties?.Remove("floating_ips"); } }
+        public List<string> FloatingIps { get => _explicitNullValueFloatingIps; set { _explicitNullValueFloatingIps = value; AdditionalData?.Remove("floating_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ips"); else _explicitNullProperties?.Remove("floating_ips"); } }
         private List<string> _explicitNullValueFloatingIps = default!;
 #endif
         /// <summary>An array of unique identifiers for the reserved IPs to be scheduled for deletion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ReservedIps { get => _explicitNullValueReservedIps; set { _explicitNullValueReservedIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ips"); else _explicitNullProperties?.Remove("reserved_ips"); } }
+        public List<string>? ReservedIps { get => _explicitNullValueReservedIps; set { _explicitNullValueReservedIps = value; AdditionalData?.Remove("reserved_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ips"); else _explicitNullProperties?.Remove("reserved_ips"); } }
         private List<string>? _explicitNullValueReservedIps = default!;
 #nullable restore
 #else
-        public List<string> ReservedIps { get => _explicitNullValueReservedIps; set { _explicitNullValueReservedIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ips"); else _explicitNullProperties?.Remove("reserved_ips"); } }
+        public List<string> ReservedIps { get => _explicitNullValueReservedIps; set { _explicitNullValueReservedIps = value; AdditionalData?.Remove("reserved_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ips"); else _explicitNullProperties?.Remove("reserved_ips"); } }
         private List<string> _explicitNullValueReservedIps = default!;
 #endif
         /// <summary>An array of unique identifiers for the snapshots to be scheduled for deletion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Snapshots { get => _explicitNullValueSnapshots; set { _explicitNullValueSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshots"); else _explicitNullProperties?.Remove("snapshots"); } }
+        public List<string>? Snapshots { get => _explicitNullValueSnapshots; set { _explicitNullValueSnapshots = value; AdditionalData?.Remove("snapshots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshots"); else _explicitNullProperties?.Remove("snapshots"); } }
         private List<string>? _explicitNullValueSnapshots = default!;
 #nullable restore
 #else
-        public List<string> Snapshots { get => _explicitNullValueSnapshots; set { _explicitNullValueSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshots"); else _explicitNullProperties?.Remove("snapshots"); } }
+        public List<string> Snapshots { get => _explicitNullValueSnapshots; set { _explicitNullValueSnapshots = value; AdditionalData?.Remove("snapshots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshots"); else _explicitNullProperties?.Remove("snapshots"); } }
         private List<string> _explicitNullValueSnapshots = default!;
 #endif
         /// <summary>An array of unique identifiers for the volumes to be scheduled for deletion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        public List<string>? Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; AdditionalData?.Remove("volumes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
         private List<string>? _explicitNullValueVolumes = default!;
 #nullable restore
 #else
-        public List<string> Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        public List<string> Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; AdditionalData?.Remove("volumes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
         private List<string> _explicitNullValueVolumes = default!;
 #endif
         /// <summary>An array of unique identifiers for the volume snapshots to be scheduled for deletion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        public List<string>? VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; AdditionalData?.Remove("volume_snapshots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
         private List<string>? _explicitNullValueVolumeSnapshots = default!;
 #nullable restore
 #else
-        public List<string> VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        public List<string> VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; AdditionalData?.Remove("volume_snapshots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
         private List<string> _explicitNullValueVolumeSnapshots = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bgp_auth_key") is { } nullNodeBgpAuthKey && nullNodeBgpAuthKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BgpAuthKey = null;
+            if (parseNode.GetChildNode("bgp_auth_key") is null) { _explicitNullValueBgpAuthKey = default!; _explicitNullProperties?.Remove("bgp_auth_key"); }
+            else if (parseNode.GetChildNode("bgp_auth_key") is { } nullNodeBgpAuthKey && nullNodeBgpAuthKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BgpAuthKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The bgp_auth_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>? BgpAuthKey { get => _explicitNullValueBgpAuthKey; set { _explicitNullValueBgpAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp_auth_key"); else _explicitNullProperties?.Remove("bgp_auth_key"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>? BgpAuthKey { get => _explicitNullValueBgpAuthKey; set { _explicitNullValueBgpAuthKey = value; AdditionalData?.Remove("bgp_auth_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp_auth_key"); else _explicitNullProperties?.Remove("bgp_auth_key"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>? _explicitNullValueBgpAuthKey = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey> BgpAuthKey { get => _explicitNullValueBgpAuthKey; set { _explicitNullValueBgpAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp_auth_key"); else _explicitNullProperties?.Remove("bgp_auth_key"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey> BgpAuthKey { get => _explicitNullValueBgpAuthKey; set { _explicitNullValueBgpAuthKey = value; AdditionalData?.Remove("bgp_auth_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp_auth_key"); else _explicitNullProperties?.Remove("bgp_auth_key"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey> _explicitNullValueBgpAuthKey = default!;
 #endif
         /// <summary>

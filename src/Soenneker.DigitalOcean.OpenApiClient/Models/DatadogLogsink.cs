@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("datadog_api_key") is { } nullNodeDatadogApiKey && nullNodeDatadogApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatadogApiKey = null;
-            if (parseNode.GetChildNode("site") is { } nullNodeSite && nullNodeSite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Site = null;
+            if (parseNode.GetChildNode("datadog_api_key") is null) { _explicitNullValueDatadogApiKey = default!; _explicitNullProperties?.Remove("datadog_api_key"); }
+            else if (parseNode.GetChildNode("datadog_api_key") is { } nullNodeDatadogApiKey && nullNodeDatadogApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatadogApiKey = null;
+            if (parseNode.GetChildNode("site") is null) { _explicitNullValueSite = default!; _explicitNullProperties?.Remove("site"); }
+            else if (parseNode.GetChildNode("site") is { } nullNodeSite && nullNodeSite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Site = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Datadog API key</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DatadogApiKey { get => _explicitNullValueDatadogApiKey; set { _explicitNullValueDatadogApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datadog_api_key"); else _explicitNullProperties?.Remove("datadog_api_key"); } }
+        public string? DatadogApiKey { get => _explicitNullValueDatadogApiKey; set { _explicitNullValueDatadogApiKey = value; AdditionalData?.Remove("datadog_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datadog_api_key"); else _explicitNullProperties?.Remove("datadog_api_key"); } }
         private string? _explicitNullValueDatadogApiKey = default!;
 #nullable restore
 #else
-        public string DatadogApiKey { get => _explicitNullValueDatadogApiKey; set { _explicitNullValueDatadogApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datadog_api_key"); else _explicitNullProperties?.Remove("datadog_api_key"); } }
+        public string DatadogApiKey { get => _explicitNullValueDatadogApiKey; set { _explicitNullValueDatadogApiKey = value; AdditionalData?.Remove("datadog_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datadog_api_key"); else _explicitNullProperties?.Remove("datadog_api_key"); } }
         private string _explicitNullValueDatadogApiKey = default!;
 #endif
         /// <summary>Datadog connection URL</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Site { get => _explicitNullValueSite; set { _explicitNullValueSite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site"); else _explicitNullProperties?.Remove("site"); } }
+        public string? Site { get => _explicitNullValueSite; set { _explicitNullValueSite = value; AdditionalData?.Remove("site"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site"); else _explicitNullProperties?.Remove("site"); } }
         private string? _explicitNullValueSite = default!;
 #nullable restore
 #else
-        public string Site { get => _explicitNullValueSite; set { _explicitNullValueSite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site"); else _explicitNullProperties?.Remove("site"); } }
+        public string Site { get => _explicitNullValueSite; set { _explicitNullValueSite = value; AdditionalData?.Remove("site"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site"); else _explicitNullProperties?.Remove("site"); } }
         private string _explicitNullValueSite = default!;
 #endif
         /// <summary>

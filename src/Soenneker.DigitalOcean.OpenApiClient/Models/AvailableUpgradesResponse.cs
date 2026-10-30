@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available_upgrade_versions") is { } nullNodeAvailableUpgradeVersions && nullNodeAvailableUpgradeVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableUpgradeVersions = null;
+            if (parseNode.GetChildNode("available_upgrade_versions") is null) { _explicitNullValueAvailableUpgradeVersions = default!; _explicitNullProperties?.Remove("available_upgrade_versions"); }
+            else if (parseNode.GetChildNode("available_upgrade_versions") is { } nullNodeAvailableUpgradeVersions && nullNodeAvailableUpgradeVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableUpgradeVersions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The available_upgrade_versions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KubernetesVersion>? AvailableUpgradeVersions { get => _explicitNullValueAvailableUpgradeVersions; set { _explicitNullValueAvailableUpgradeVersions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_upgrade_versions"); else _explicitNullProperties?.Remove("available_upgrade_versions"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KubernetesVersion>? AvailableUpgradeVersions { get => _explicitNullValueAvailableUpgradeVersions; set { _explicitNullValueAvailableUpgradeVersions = value; AdditionalData?.Remove("available_upgrade_versions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_upgrade_versions"); else _explicitNullProperties?.Remove("available_upgrade_versions"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KubernetesVersion>? _explicitNullValueAvailableUpgradeVersions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KubernetesVersion> AvailableUpgradeVersions { get => _explicitNullValueAvailableUpgradeVersions; set { _explicitNullValueAvailableUpgradeVersions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_upgrade_versions"); else _explicitNullProperties?.Remove("available_upgrade_versions"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KubernetesVersion> AvailableUpgradeVersions { get => _explicitNullValueAvailableUpgradeVersions; set { _explicitNullValueAvailableUpgradeVersions = value; AdditionalData?.Remove("available_upgrade_versions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_upgrade_versions"); else _explicitNullProperties?.Remove("available_upgrade_versions"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KubernetesVersion> _explicitNullValueAvailableUpgradeVersions = default!;
 #endif
         /// <summary>

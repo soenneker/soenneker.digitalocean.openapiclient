@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("metric_summaries") is { } nullNodeMetricSummaries && nullNodeMetricSummaries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricSummaries = null;
-            if (parseNode.GetChildNode("performance_metrics") is { } nullNodePerformanceMetrics && nullNodePerformanceMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerformanceMetrics = null;
-            if (parseNode.GetChildNode("prompt_count") is { } nullNodePromptCount && nullNodePromptCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCount = null;
-            if (parseNode.GetChildNode("task_name") is { } nullNodeTaskName && nullNodeTaskName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskName = null;
+            if (parseNode.GetChildNode("metric_summaries") is null) { _explicitNullValueMetricSummaries = default!; _explicitNullProperties?.Remove("metric_summaries"); }
+            else if (parseNode.GetChildNode("metric_summaries") is { } nullNodeMetricSummaries && nullNodeMetricSummaries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricSummaries = null;
+            if (parseNode.GetChildNode("performance_metrics") is null) { _explicitNullValuePerformanceMetrics = default!; _explicitNullProperties?.Remove("performance_metrics"); }
+            else if (parseNode.GetChildNode("performance_metrics") is { } nullNodePerformanceMetrics && nullNodePerformanceMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerformanceMetrics = null;
+            if (parseNode.GetChildNode("prompt_count") is null) { _explicitNullValuePromptCount = default!; _explicitNullProperties?.Remove("prompt_count"); }
+            else if (parseNode.GetChildNode("prompt_count") is { } nullNodePromptCount && nullNodePromptCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCount = null;
+            if (parseNode.GetChildNode("task_name") is null) { _explicitNullValueTaskName = default!; _explicitNullProperties?.Remove("task_name"); }
+            else if (parseNode.GetChildNode("task_name") is { } nullNodeTaskName && nullNodeTaskName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,34 +33,34 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Pass/fail rate for each metric, computed over only the prompts inthis task category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary>? MetricSummaries { get => _explicitNullValueMetricSummaries; set { _explicitNullValueMetricSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_summaries"); else _explicitNullProperties?.Remove("metric_summaries"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary>? MetricSummaries { get => _explicitNullValueMetricSummaries; set { _explicitNullValueMetricSummaries = value; AdditionalData?.Remove("metric_summaries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_summaries"); else _explicitNullProperties?.Remove("metric_summaries"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary>? _explicitNullValueMetricSummaries = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary> MetricSummaries { get => _explicitNullValueMetricSummaries; set { _explicitNullValueMetricSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_summaries"); else _explicitNullProperties?.Remove("metric_summaries"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary> MetricSummaries { get => _explicitNullValueMetricSummaries; set { _explicitNullValueMetricSummaries = value; AdditionalData?.Remove("metric_summaries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_summaries"); else _explicitNullProperties?.Remove("metric_summaries"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMetricResultSummary> _explicitNullValueMetricSummaries = default!;
 #endif
         /// <summary>All performance metrics are for the candidate model unless noted otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics? PerformanceMetrics { get => _explicitNullValuePerformanceMetrics; set { _explicitNullValuePerformanceMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_metrics"); else _explicitNullProperties?.Remove("performance_metrics"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics? PerformanceMetrics { get => _explicitNullValuePerformanceMetrics; set { _explicitNullValuePerformanceMetrics = value; AdditionalData?.Remove("performance_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_metrics"); else _explicitNullProperties?.Remove("performance_metrics"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics? _explicitNullValuePerformanceMetrics = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics PerformanceMetrics { get => _explicitNullValuePerformanceMetrics; set { _explicitNullValuePerformanceMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_metrics"); else _explicitNullProperties?.Remove("performance_metrics"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics PerformanceMetrics { get => _explicitNullValuePerformanceMetrics; set { _explicitNullValuePerformanceMetrics = value; AdditionalData?.Remove("performance_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_metrics"); else _explicitNullProperties?.Remove("performance_metrics"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerformanceMetrics _explicitNullValuePerformanceMetrics = default!;
 #endif
         /// <summary>Number of prompts in the run that were classified into this taskcategory.</summary>
-        public long? PromptCount { get => _explicitNullValuePromptCount; set { _explicitNullValuePromptCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_count"); else _explicitNullProperties?.Remove("prompt_count"); } }
+        public long? PromptCount { get => _explicitNullValuePromptCount; set { _explicitNullValuePromptCount = value; AdditionalData?.Remove("prompt_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_count"); else _explicitNullProperties?.Remove("prompt_count"); } }
         private long? _explicitNullValuePromptCount = default!;
         /// <summary>The routing task category these results are for, such as`Coding &amp; brainstorming` or `Summarization`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TaskName { get => _explicitNullValueTaskName; set { _explicitNullValueTaskName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_name"); else _explicitNullProperties?.Remove("task_name"); } }
+        public string? TaskName { get => _explicitNullValueTaskName; set { _explicitNullValueTaskName = value; AdditionalData?.Remove("task_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_name"); else _explicitNullProperties?.Remove("task_name"); } }
         private string? _explicitNullValueTaskName = default!;
 #nullable restore
 #else
-        public string TaskName { get => _explicitNullValueTaskName; set { _explicitNullValueTaskName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_name"); else _explicitNullProperties?.Remove("task_name"); } }
+        public string TaskName { get => _explicitNullValueTaskName; set { _explicitNullValueTaskName = value; AdditionalData?.Remove("task_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_name"); else _explicitNullProperties?.Remove("task_name"); } }
         private string _explicitNullValueTaskName = default!;
 #endif
         /// <summary>

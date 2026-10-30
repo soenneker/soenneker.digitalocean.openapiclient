@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("floating_ip") is { } nullNodeFloatingIp && nullNodeFloatingIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FloatingIp = null;
-            if (parseNode.GetChildNode("links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
+            if (parseNode.GetChildNode("floating_ip") is null) { _explicitNullValueFloatingIp = default!; _explicitNullProperties?.Remove("floating_ip"); }
+            else if (parseNode.GetChildNode("floating_ip") is { } nullNodeFloatingIp && nullNodeFloatingIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FloatingIp = null;
+            if (parseNode.GetChildNode("links") is null) { _explicitNullValueLinks = default!; _explicitNullProperties?.Remove("links"); }
+            else if (parseNode.GetChildNode("links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The floating_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIp? FloatingIp { get => _explicitNullValueFloatingIp; set { _explicitNullValueFloatingIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ip"); else _explicitNullProperties?.Remove("floating_ip"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIp? FloatingIp { get => _explicitNullValueFloatingIp; set { _explicitNullValueFloatingIp = value; AdditionalData?.Remove("floating_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ip"); else _explicitNullProperties?.Remove("floating_ip"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIp? _explicitNullValueFloatingIp = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIp FloatingIp { get => _explicitNullValueFloatingIp; set { _explicitNullValueFloatingIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ip"); else _explicitNullProperties?.Remove("floating_ip"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIp FloatingIp { get => _explicitNullValueFloatingIp; set { _explicitNullValueFloatingIp = value; AdditionalData?.Remove("floating_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("floating_ip"); else _explicitNullProperties?.Remove("floating_ip"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIp _explicitNullValueFloatingIp = default!;
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIpCreatedResponseLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIpCreatedResponseLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; AdditionalData?.Remove("links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIpCreatedResponseLinks? _explicitNullValueLinks = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIpCreatedResponseLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIpCreatedResponseLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; AdditionalData?.Remove("links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIpCreatedResponseLinks _explicitNullValueLinks = default!;
 #endif
         /// <summary>

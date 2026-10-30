@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("authority") is { } nullNodeAuthority && nullNodeAuthority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Authority = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("authority") is null) { _explicitNullValueAuthority = default!; _explicitNullProperties?.Remove("authority"); }
+            else if (parseNode.GetChildNode("authority") is { } nullNodeAuthority && nullNodeAuthority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Authority = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The authority to match on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchExact? Authority { get => _explicitNullValueAuthority; set { _explicitNullValueAuthority = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authority"); else _explicitNullProperties?.Remove("authority"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchExact? Authority { get => _explicitNullValueAuthority; set { _explicitNullValueAuthority = value; AdditionalData?.Remove("authority"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authority"); else _explicitNullProperties?.Remove("authority"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchExact? _explicitNullValueAuthority = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchExact Authority { get => _explicitNullValueAuthority; set { _explicitNullValueAuthority = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authority"); else _explicitNullProperties?.Remove("authority"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchExact Authority { get => _explicitNullValueAuthority; set { _explicitNullValueAuthority = value; AdditionalData?.Remove("authority"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authority"); else _explicitNullProperties?.Remove("authority"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchExact _explicitNullValueAuthority = default!;
 #endif
         /// <summary>The path to match on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchPrefix? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchPrefix? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchPrefix? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchPrefix Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchPrefix Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpecRuleStringMatchPrefix _explicitNullValuePath = default!;
 #endif
         /// <summary>

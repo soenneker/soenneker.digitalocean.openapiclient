@@ -18,21 +18,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("email_configured") is { } nullNodeEmailConfigured && nullNodeEmailConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailConfigured = null;
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
-            if (parseNode.GetChildNode("slack_configured") is { } nullNodeSlackConfigured && nullNodeSlackConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackConfigured = null;
+            if (parseNode.GetChildNode("email_configured") is null) { _explicitNullValueEmailConfigured = default!; _explicitNullProperties?.Remove("email_configured"); }
+            else if (parseNode.GetChildNode("email_configured") is { } nullNodeEmailConfigured && nullNodeEmailConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailConfigured = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("slack_configured") is null) { _explicitNullValueSlackConfigured = default!; _explicitNullProperties?.Remove("slack_configured"); }
+            else if (parseNode.GetChildNode("slack_configured") is { } nullNodeSlackConfigured && nullNodeSlackConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackConfigured = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>True when an email address is stored (mode=email).</summary>
-        public bool? EmailConfigured { get => _explicitNullValueEmailConfigured; set { _explicitNullValueEmailConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_configured"); else _explicitNullProperties?.Remove("email_configured"); } }
+        public bool? EmailConfigured { get => _explicitNullValueEmailConfigured; set { _explicitNullValueEmailConfigured = value; AdditionalData?.Remove("email_configured"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_configured"); else _explicitNullProperties?.Remove("email_configured"); } }
         private bool? _explicitNullValueEmailConfigured = default!;
         /// <summary>none = nothing pushed; the result stays in run history for self-serve. email = the collected run output is emailed to a configured address. slack = the collected run output is posted to a Slack incoming webhook URL (channel fixed by the webhook at install time).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputMode? _explicitNullValueMode = default!;
         /// <summary>True when a Slack incoming webhook URL is stored (mode=slack).</summary>
-        public bool? SlackConfigured { get => _explicitNullValueSlackConfigured; set { _explicitNullValueSlackConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_configured"); else _explicitNullProperties?.Remove("slack_configured"); } }
+        public bool? SlackConfigured { get => _explicitNullValueSlackConfigured; set { _explicitNullValueSlackConfigured = value; AdditionalData?.Remove("slack_configured"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_configured"); else _explicitNullProperties?.Remove("slack_configured"); } }
         private bool? _explicitNullValueSlackConfigured = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputRead"/> and sets the default values.
@@ -60,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email_configured", n => { EmailConfigured = n.GetBoolValue(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputMode>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerOutputMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "slack_configured", n => { SlackConfigured = n.GetBoolValue(); } },
             };
         }

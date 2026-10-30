@@ -76,7 +76,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Load_balanc
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Load_balancer.Frontend_http_requests_per_second.Frontend_http_requests_per_secondRequestBuilder.Frontend_http_requests_per_secondRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.digitalocean.com", "/v2/monitoring/metrics/load_balancer/frontend_http_requests_per_second", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

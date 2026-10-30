@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("last_run_at") is { } nullNodeLastRunAt && nullNodeLastRunAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRunAt = null;
-            if (parseNode.GetChildNode("next_run_at") is { } nullNodeNextRunAt && nullNodeNextRunAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextRunAt = null;
+            if (parseNode.GetChildNode("last_run_at") is null) { _explicitNullValueLastRunAt = default!; _explicitNullProperties?.Remove("last_run_at"); }
+            else if (parseNode.GetChildNode("last_run_at") is { } nullNodeLastRunAt && nullNodeLastRunAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRunAt = null;
+            if (parseNode.GetChildNode("next_run_at") is null) { _explicitNullValueNextRunAt = default!; _explicitNullProperties?.Remove("next_run_at"); }
+            else if (parseNode.GetChildNode("next_run_at") is { } nullNodeNextRunAt && nullNodeNextRunAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextRunAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Indicates last run time. null value indicates trigger not run yet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRunAt { get => _explicitNullValueLastRunAt; set { _explicitNullValueLastRunAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_run_at"); else _explicitNullProperties?.Remove("last_run_at"); } }
+        public string? LastRunAt { get => _explicitNullValueLastRunAt; set { _explicitNullValueLastRunAt = value; AdditionalData?.Remove("last_run_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_run_at"); else _explicitNullProperties?.Remove("last_run_at"); } }
         private string? _explicitNullValueLastRunAt = default!;
 #nullable restore
 #else
-        public string LastRunAt { get => _explicitNullValueLastRunAt; set { _explicitNullValueLastRunAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_run_at"); else _explicitNullProperties?.Remove("last_run_at"); } }
+        public string LastRunAt { get => _explicitNullValueLastRunAt; set { _explicitNullValueLastRunAt = value; AdditionalData?.Remove("last_run_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_run_at"); else _explicitNullProperties?.Remove("last_run_at"); } }
         private string _explicitNullValueLastRunAt = default!;
 #endif
         /// <summary>Indicates next run time. null value indicates trigger will not run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NextRunAt { get => _explicitNullValueNextRunAt; set { _explicitNullValueNextRunAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_run_at"); else _explicitNullProperties?.Remove("next_run_at"); } }
+        public string? NextRunAt { get => _explicitNullValueNextRunAt; set { _explicitNullValueNextRunAt = value; AdditionalData?.Remove("next_run_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_run_at"); else _explicitNullProperties?.Remove("next_run_at"); } }
         private string? _explicitNullValueNextRunAt = default!;
 #nullable restore
 #else
-        public string NextRunAt { get => _explicitNullValueNextRunAt; set { _explicitNullValueNextRunAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_run_at"); else _explicitNullProperties?.Remove("next_run_at"); } }
+        public string NextRunAt { get => _explicitNullValueNextRunAt; set { _explicitNullValueNextRunAt = value; AdditionalData?.Remove("next_run_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_run_at"); else _explicitNullProperties?.Remove("next_run_at"); } }
         private string _explicitNullValueNextRunAt = default!;
 #endif
         /// <summary>

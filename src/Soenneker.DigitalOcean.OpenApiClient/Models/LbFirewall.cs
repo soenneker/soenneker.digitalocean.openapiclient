@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allow") is { } nullNodeAllow && nullNodeAllow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Allow = null;
-            if (parseNode.GetChildNode("deny") is { } nullNodeDeny && nullNodeDeny.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deny = null;
+            if (parseNode.GetChildNode("allow") is null) { _explicitNullValueAllow = default!; _explicitNullProperties?.Remove("allow"); }
+            else if (parseNode.GetChildNode("allow") is { } nullNodeAllow && nullNodeAllow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Allow = null;
+            if (parseNode.GetChildNode("deny") is null) { _explicitNullValueDeny = default!; _explicitNullProperties?.Remove("deny"); }
+            else if (parseNode.GetChildNode("deny") is { } nullNodeDeny && nullNodeDeny.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deny = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>the rules for allowing traffic to the load balancer (in the form &apos;ip:1.2.3.4&apos; or &apos;cidr:1.2.0.0/16&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Allow { get => _explicitNullValueAllow; set { _explicitNullValueAllow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow"); else _explicitNullProperties?.Remove("allow"); } }
+        public List<string>? Allow { get => _explicitNullValueAllow; set { _explicitNullValueAllow = value; AdditionalData?.Remove("allow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow"); else _explicitNullProperties?.Remove("allow"); } }
         private List<string>? _explicitNullValueAllow = default!;
 #nullable restore
 #else
-        public List<string> Allow { get => _explicitNullValueAllow; set { _explicitNullValueAllow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow"); else _explicitNullProperties?.Remove("allow"); } }
+        public List<string> Allow { get => _explicitNullValueAllow; set { _explicitNullValueAllow = value; AdditionalData?.Remove("allow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow"); else _explicitNullProperties?.Remove("allow"); } }
         private List<string> _explicitNullValueAllow = default!;
 #endif
         /// <summary>the rules for denying traffic to the load balancer (in the form &apos;ip:1.2.3.4&apos; or &apos;cidr:1.2.0.0/16&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Deny { get => _explicitNullValueDeny; set { _explicitNullValueDeny = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deny"); else _explicitNullProperties?.Remove("deny"); } }
+        public List<string>? Deny { get => _explicitNullValueDeny; set { _explicitNullValueDeny = value; AdditionalData?.Remove("deny"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deny"); else _explicitNullProperties?.Remove("deny"); } }
         private List<string>? _explicitNullValueDeny = default!;
 #nullable restore
 #else
-        public List<string> Deny { get => _explicitNullValueDeny; set { _explicitNullValueDeny = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deny"); else _explicitNullProperties?.Remove("deny"); } }
+        public List<string> Deny { get => _explicitNullValueDeny; set { _explicitNullValueDeny = value; AdditionalData?.Remove("deny"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deny"); else _explicitNullProperties?.Remove("deny"); } }
         private List<string> _explicitNullValueDeny = default!;
 #endif
         /// <summary>

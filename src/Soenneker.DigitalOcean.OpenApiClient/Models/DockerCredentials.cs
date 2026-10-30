@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auths") is { } nullNodeAuths && nullNodeAuths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auths = null;
+            if (parseNode.GetChildNode("auths") is null) { _explicitNullValueAuths = default!; _explicitNullProperties?.Remove("auths"); }
+            else if (parseNode.GetChildNode("auths") is { } nullNodeAuths && nullNodeAuths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auths = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The auths property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuths? Auths { get => _explicitNullValueAuths; set { _explicitNullValueAuths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auths"); else _explicitNullProperties?.Remove("auths"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuths? Auths { get => _explicitNullValueAuths; set { _explicitNullValueAuths = value; AdditionalData?.Remove("auths"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auths"); else _explicitNullProperties?.Remove("auths"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuths? _explicitNullValueAuths = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuths Auths { get => _explicitNullValueAuths; set { _explicitNullValueAuths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auths"); else _explicitNullProperties?.Remove("auths"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuths Auths { get => _explicitNullValueAuths; set { _explicitNullValueAuths = value; AdditionalData?.Remove("auths"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auths"); else _explicitNullProperties?.Remove("auths"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuths _explicitNullValueAuths = default!;
 #endif
         /// <summary>

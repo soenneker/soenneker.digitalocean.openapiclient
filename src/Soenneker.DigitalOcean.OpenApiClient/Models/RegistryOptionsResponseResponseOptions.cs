@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available_regions") is { } nullNodeAvailableRegions && nullNodeAvailableRegions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableRegions = null;
-            if (parseNode.GetChildNode("subscription_tiers") is { } nullNodeSubscriptionTiers && nullNodeSubscriptionTiers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionTiers = null;
+            if (parseNode.GetChildNode("available_regions") is null) { _explicitNullValueAvailableRegions = default!; _explicitNullProperties?.Remove("available_regions"); }
+            else if (parseNode.GetChildNode("available_regions") is { } nullNodeAvailableRegions && nullNodeAvailableRegions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableRegions = null;
+            if (parseNode.GetChildNode("subscription_tiers") is null) { _explicitNullValueSubscriptionTiers = default!; _explicitNullProperties?.Remove("subscription_tiers"); }
+            else if (parseNode.GetChildNode("subscription_tiers") is { } nullNodeSubscriptionTiers && nullNodeSubscriptionTiers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionTiers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The available_regions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AvailableRegions { get => _explicitNullValueAvailableRegions; set { _explicitNullValueAvailableRegions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_regions"); else _explicitNullProperties?.Remove("available_regions"); } }
+        public List<string>? AvailableRegions { get => _explicitNullValueAvailableRegions; set { _explicitNullValueAvailableRegions = value; AdditionalData?.Remove("available_regions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_regions"); else _explicitNullProperties?.Remove("available_regions"); } }
         private List<string>? _explicitNullValueAvailableRegions = default!;
 #nullable restore
 #else
-        public List<string> AvailableRegions { get => _explicitNullValueAvailableRegions; set { _explicitNullValueAvailableRegions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_regions"); else _explicitNullProperties?.Remove("available_regions"); } }
+        public List<string> AvailableRegions { get => _explicitNullValueAvailableRegions; set { _explicitNullValueAvailableRegions = value; AdditionalData?.Remove("available_regions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_regions"); else _explicitNullProperties?.Remove("available_regions"); } }
         private List<string> _explicitNullValueAvailableRegions = default!;
 #endif
         /// <summary>The subscription_tiers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem>? SubscriptionTiers { get => _explicitNullValueSubscriptionTiers; set { _explicitNullValueSubscriptionTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_tiers"); else _explicitNullProperties?.Remove("subscription_tiers"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem>? SubscriptionTiers { get => _explicitNullValueSubscriptionTiers; set { _explicitNullValueSubscriptionTiers = value; AdditionalData?.Remove("subscription_tiers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_tiers"); else _explicitNullProperties?.Remove("subscription_tiers"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem>? _explicitNullValueSubscriptionTiers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem> SubscriptionTiers { get => _explicitNullValueSubscriptionTiers; set { _explicitNullValueSubscriptionTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_tiers"); else _explicitNullProperties?.Remove("subscription_tiers"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem> SubscriptionTiers { get => _explicitNullValueSubscriptionTiers; set { _explicitNullValueSubscriptionTiers = value; AdditionalData?.Remove("subscription_tiers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_tiers"); else _explicitNullProperties?.Remove("subscription_tiers"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryOptionsResponseResponseOptionsSubscriptionTiersItem> _explicitNullValueSubscriptionTiers = default!;
 #endif
         /// <summary>

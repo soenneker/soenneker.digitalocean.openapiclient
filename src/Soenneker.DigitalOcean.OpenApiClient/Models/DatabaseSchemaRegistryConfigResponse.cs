@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("compatibility_level") is { } nullNodeCompatibilityLevel && nullNodeCompatibilityLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompatibilityLevel = null;
+            if (parseNode.GetChildNode("compatibility_level") is null) { _explicitNullValueCompatibilityLevel = default!; _explicitNullProperties?.Remove("compatibility_level"); }
+            else if (parseNode.GetChildNode("compatibility_level") is { } nullNodeCompatibilityLevel && nullNodeCompatibilityLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompatibilityLevel = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The compatibility level of the schema registry.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseSchemaRegistryConfigResponseCompatibilityLevel? CompatibilityLevel { get => _explicitNullValueCompatibilityLevel; set { _explicitNullValueCompatibilityLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compatibility_level"); else _explicitNullProperties?.Remove("compatibility_level"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseSchemaRegistryConfigResponseCompatibilityLevel? CompatibilityLevel { get => _explicitNullValueCompatibilityLevel; set { _explicitNullValueCompatibilityLevel = value; AdditionalData?.Remove("compatibility_level"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compatibility_level"); else _explicitNullProperties?.Remove("compatibility_level"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseSchemaRegistryConfigResponseCompatibilityLevel? _explicitNullValueCompatibilityLevel = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseSchemaRegistryConfigResponse"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "compatibility_level", n => { CompatibilityLevel = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseSchemaRegistryConfigResponseCompatibilityLevel>(); } },
+                { "compatibility_level", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseSchemaRegistryConfigResponseCompatibilityLevel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCompatibilityLevel = default; _explicitNullProperties?.Remove("compatibility_level"); AdditionalData["compatibility_level"] = unknown; } else { CompatibilityLevel = parsed; AdditionalData.Remove("compatibility_level"); } } },
             };
         }
         /// <summary>

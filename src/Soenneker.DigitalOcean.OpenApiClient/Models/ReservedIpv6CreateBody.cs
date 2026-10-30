@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("region_slug") is { } nullNodeRegionSlug && nullNodeRegionSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionSlug = null;
+            if (parseNode.GetChildNode("region_slug") is null) { _explicitNullValueRegionSlug = default!; _explicitNullProperties?.Remove("region_slug"); }
+            else if (parseNode.GetChildNode("region_slug") is { } nullNodeRegionSlug && nullNodeRegionSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The slug identifier for the region the reserved IPv6 will be reserved to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
+        public string? RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; AdditionalData?.Remove("region_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
         private string? _explicitNullValueRegionSlug = default!;
 #nullable restore
 #else
-        public string RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
+        public string RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; AdditionalData?.Remove("region_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
         private string _explicitNullValueRegionSlug = default!;
 #endif
         /// <summary>

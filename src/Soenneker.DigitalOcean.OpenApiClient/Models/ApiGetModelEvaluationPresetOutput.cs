@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("preset") is { } nullNodePreset && nullNodePreset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Preset = null;
+            if (parseNode.GetChildNode("preset") is null) { _explicitNullValuePreset = default!; _explicitNullProperties?.Remove("preset"); }
+            else if (parseNode.GetChildNode("preset") is { } nullNodePreset && nullNodePreset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Preset = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Model Evaluation Preset - a saved, reusable configuration for modelevaluation runs. Each section (dataset, judge, metrics, candidate, systemprompt) is independent and may be empty; sections the preset omits must besupplied inline on the run that references it. Use `saved_sections` to tell&quot;section saved with empty value&quot; apart from &quot;section not saved at all&quot; —each section&apos;s scalar fields are left empty when the section was not saved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationPreset? Preset { get => _explicitNullValuePreset; set { _explicitNullValuePreset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset"); else _explicitNullProperties?.Remove("preset"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationPreset? Preset { get => _explicitNullValuePreset; set { _explicitNullValuePreset = value; AdditionalData?.Remove("preset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset"); else _explicitNullProperties?.Remove("preset"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationPreset? _explicitNullValuePreset = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationPreset Preset { get => _explicitNullValuePreset; set { _explicitNullValuePreset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset"); else _explicitNullProperties?.Remove("preset"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationPreset Preset { get => _explicitNullValuePreset; set { _explicitNullValuePreset = value; AdditionalData?.Remove("preset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset"); else _explicitNullProperties?.Remove("preset"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationPreset _explicitNullValuePreset = default!;
 #endif
         /// <summary>

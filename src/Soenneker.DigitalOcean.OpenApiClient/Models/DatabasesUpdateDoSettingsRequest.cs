@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("do_settings") is { } nullNodeDoSettings && nullNodeDoSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoSettings = null;
+            if (parseNode.GetChildNode("do_settings") is null) { _explicitNullValueDoSettings = default!; _explicitNullProperties?.Remove("do_settings"); }
+            else if (parseNode.GetChildNode("do_settings") is { } nullNodeDoSettings && nullNodeDoSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoSettings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>DigitalOcean-specific settings for the database cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DoSettings? DoSettings { get => _explicitNullValueDoSettings; set { _explicitNullValueDoSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("do_settings"); else _explicitNullProperties?.Remove("do_settings"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DoSettings? DoSettings { get => _explicitNullValueDoSettings; set { _explicitNullValueDoSettings = value; AdditionalData?.Remove("do_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("do_settings"); else _explicitNullProperties?.Remove("do_settings"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DoSettings? _explicitNullValueDoSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DoSettings DoSettings { get => _explicitNullValueDoSettings; set { _explicitNullValueDoSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("do_settings"); else _explicitNullProperties?.Remove("do_settings"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DoSettings DoSettings { get => _explicitNullValueDoSettings; set { _explicitNullValueDoSettings = value; AdditionalData?.Remove("do_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("do_settings"); else _explicitNullProperties?.Remove("do_settings"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DoSettings _explicitNullValueDoSettings = default!;
 #endif
         /// <summary>

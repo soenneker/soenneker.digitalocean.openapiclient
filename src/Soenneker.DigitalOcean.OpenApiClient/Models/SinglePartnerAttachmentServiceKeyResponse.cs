@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("service_key") is { } nullNodeServiceKey && nullNodeServiceKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceKey = null;
+            if (parseNode.GetChildNode("service_key") is null) { _explicitNullValueServiceKey = default!; _explicitNullProperties?.Remove("service_key"); }
+            else if (parseNode.GetChildNode("service_key") is { } nullNodeServiceKey && nullNodeServiceKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The service_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>? ServiceKey { get => _explicitNullValueServiceKey; set { _explicitNullValueServiceKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_key"); else _explicitNullProperties?.Remove("service_key"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>? ServiceKey { get => _explicitNullValueServiceKey; set { _explicitNullValueServiceKey = value; AdditionalData?.Remove("service_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_key"); else _explicitNullProperties?.Remove("service_key"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey>? _explicitNullValueServiceKey = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey> ServiceKey { get => _explicitNullValueServiceKey; set { _explicitNullValueServiceKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_key"); else _explicitNullProperties?.Remove("service_key"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey> ServiceKey { get => _explicitNullValueServiceKey; set { _explicitNullValueServiceKey = value; AdditionalData?.Remove("service_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_key"); else _explicitNullProperties?.Remove("service_key"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentServiceKey> _explicitNullValueServiceKey = default!;
 #endif
         /// <summary>

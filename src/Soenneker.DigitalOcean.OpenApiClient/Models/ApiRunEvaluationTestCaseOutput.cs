@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("evaluation_run_uuids") is { } nullNodeEvaluationRunUuids && nullNodeEvaluationRunUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationRunUuids = null;
+            if (parseNode.GetChildNode("evaluation_run_uuids") is null) { _explicitNullValueEvaluationRunUuids = default!; _explicitNullProperties?.Remove("evaluation_run_uuids"); }
+            else if (parseNode.GetChildNode("evaluation_run_uuids") is { } nullNodeEvaluationRunUuids && nullNodeEvaluationRunUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationRunUuids = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The evaluation_run_uuids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EvaluationRunUuids { get => _explicitNullValueEvaluationRunUuids; set { _explicitNullValueEvaluationRunUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_run_uuids"); else _explicitNullProperties?.Remove("evaluation_run_uuids"); } }
+        public List<string>? EvaluationRunUuids { get => _explicitNullValueEvaluationRunUuids; set { _explicitNullValueEvaluationRunUuids = value; AdditionalData?.Remove("evaluation_run_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_run_uuids"); else _explicitNullProperties?.Remove("evaluation_run_uuids"); } }
         private List<string>? _explicitNullValueEvaluationRunUuids = default!;
 #nullable restore
 #else
-        public List<string> EvaluationRunUuids { get => _explicitNullValueEvaluationRunUuids; set { _explicitNullValueEvaluationRunUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_run_uuids"); else _explicitNullProperties?.Remove("evaluation_run_uuids"); } }
+        public List<string> EvaluationRunUuids { get => _explicitNullValueEvaluationRunUuids; set { _explicitNullValueEvaluationRunUuids = value; AdditionalData?.Remove("evaluation_run_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_run_uuids"); else _explicitNullProperties?.Remove("evaluation_run_uuids"); } }
         private List<string> _explicitNullValueEvaluationRunUuids = default!;
 #endif
         /// <summary>

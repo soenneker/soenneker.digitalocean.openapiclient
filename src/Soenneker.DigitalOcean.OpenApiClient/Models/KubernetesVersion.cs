@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("kubernetes_version") is { } nullNodeKubernetesVersionProp && nullNodeKubernetesVersionProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KubernetesVersionProp = null;
-            if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
-            if (parseNode.GetChildNode("supported_features") is { } nullNodeSupportedFeatures && nullNodeSupportedFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedFeatures = null;
+            if (parseNode.GetChildNode("kubernetes_version") is null) { _explicitNullValueKubernetesVersionProp = default!; _explicitNullProperties?.Remove("kubernetes_version"); }
+            else if (parseNode.GetChildNode("kubernetes_version") is { } nullNodeKubernetesVersionProp && nullNodeKubernetesVersionProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KubernetesVersionProp = null;
+            if (parseNode.GetChildNode("slug") is null) { _explicitNullValueSlug = default!; _explicitNullProperties?.Remove("slug"); }
+            else if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("supported_features") is null) { _explicitNullValueSupportedFeatures = default!; _explicitNullProperties?.Remove("supported_features"); }
+            else if (parseNode.GetChildNode("supported_features") is { } nullNodeSupportedFeatures && nullNodeSupportedFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedFeatures = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The upstream version string for the version of Kubernetes provided by a given slug.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KubernetesVersionProp { get => _explicitNullValueKubernetesVersionProp; set { _explicitNullValueKubernetesVersionProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_version"); else _explicitNullProperties?.Remove("kubernetes_version"); } }
+        public string? KubernetesVersionProp { get => _explicitNullValueKubernetesVersionProp; set { _explicitNullValueKubernetesVersionProp = value; AdditionalData?.Remove("kubernetes_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_version"); else _explicitNullProperties?.Remove("kubernetes_version"); } }
         private string? _explicitNullValueKubernetesVersionProp = default!;
 #nullable restore
 #else
-        public string KubernetesVersionProp { get => _explicitNullValueKubernetesVersionProp; set { _explicitNullValueKubernetesVersionProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_version"); else _explicitNullProperties?.Remove("kubernetes_version"); } }
+        public string KubernetesVersionProp { get => _explicitNullValueKubernetesVersionProp; set { _explicitNullValueKubernetesVersionProp = value; AdditionalData?.Remove("kubernetes_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_version"); else _explicitNullProperties?.Remove("kubernetes_version"); } }
         private string _explicitNullValueKubernetesVersionProp = default!;
 #endif
         /// <summary>The slug identifier for an available version of Kubernetes for use when creating or updating a cluster. The string contains both the upstream version of Kubernetes as well as the DigitalOcean revision.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private string? _explicitNullValueSlug = default!;
 #nullable restore
 #else
-        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private string _explicitNullValueSlug = default!;
 #endif
         /// <summary>The features available with the version of Kubernetes provided by a given slug.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SupportedFeatures { get => _explicitNullValueSupportedFeatures; set { _explicitNullValueSupportedFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported_features"); else _explicitNullProperties?.Remove("supported_features"); } }
+        public List<string>? SupportedFeatures { get => _explicitNullValueSupportedFeatures; set { _explicitNullValueSupportedFeatures = value; AdditionalData?.Remove("supported_features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported_features"); else _explicitNullProperties?.Remove("supported_features"); } }
         private List<string>? _explicitNullValueSupportedFeatures = default!;
 #nullable restore
 #else
-        public List<string> SupportedFeatures { get => _explicitNullValueSupportedFeatures; set { _explicitNullValueSupportedFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported_features"); else _explicitNullProperties?.Remove("supported_features"); } }
+        public List<string> SupportedFeatures { get => _explicitNullValueSupportedFeatures; set { _explicitNullValueSupportedFeatures = value; AdditionalData?.Remove("supported_features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported_features"); else _explicitNullProperties?.Remove("supported_features"); } }
         private List<string> _explicitNullValueSupportedFeatures = default!;
 #endif
         /// <summary>

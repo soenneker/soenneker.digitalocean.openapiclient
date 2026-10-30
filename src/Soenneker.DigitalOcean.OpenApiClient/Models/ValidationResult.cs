@@ -18,14 +18,22 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
-            if (parseNode.GetChildNode("defaultAction") is { } nullNodeDefaultAction && nullNodeDefaultAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAction = null;
-            if (parseNode.GetChildNode("defaultActionReason") is { } nullNodeDefaultActionReason && nullNodeDefaultActionReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultActionReason = null;
-            if (parseNode.GetChildNode("defaultActionRendered") is { } nullNodeDefaultActionRendered && nullNodeDefaultActionRendered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultActionRendered = null;
-            if (parseNode.GetChildNode("defaultActionVerdict") is { } nullNodeDefaultActionVerdict && nullNodeDefaultActionVerdict.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultActionVerdict = null;
-            if (parseNode.GetChildNode("ok") is { } nullNodeOk && nullNodeOk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ok = null;
-            if (parseNode.GetChildNode("verdicts") is { } nullNodeVerdicts && nullNodeVerdicts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verdicts = null;
-            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("agent") is null) { _explicitNullValueAgent = default!; _explicitNullProperties?.Remove("agent"); }
+            else if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("defaultAction") is null) { _explicitNullValueDefaultAction = default!; _explicitNullProperties?.Remove("defaultAction"); }
+            else if (parseNode.GetChildNode("defaultAction") is { } nullNodeDefaultAction && nullNodeDefaultAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAction = null;
+            if (parseNode.GetChildNode("defaultActionReason") is null) { _explicitNullValueDefaultActionReason = default!; _explicitNullProperties?.Remove("defaultActionReason"); }
+            else if (parseNode.GetChildNode("defaultActionReason") is { } nullNodeDefaultActionReason && nullNodeDefaultActionReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultActionReason = null;
+            if (parseNode.GetChildNode("defaultActionRendered") is null) { _explicitNullValueDefaultActionRendered = default!; _explicitNullProperties?.Remove("defaultActionRendered"); }
+            else if (parseNode.GetChildNode("defaultActionRendered") is { } nullNodeDefaultActionRendered && nullNodeDefaultActionRendered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultActionRendered = null;
+            if (parseNode.GetChildNode("defaultActionVerdict") is null) { _explicitNullValueDefaultActionVerdict = default!; _explicitNullProperties?.Remove("defaultActionVerdict"); }
+            else if (parseNode.GetChildNode("defaultActionVerdict") is { } nullNodeDefaultActionVerdict && nullNodeDefaultActionVerdict.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultActionVerdict = null;
+            if (parseNode.GetChildNode("ok") is null) { _explicitNullValueOk = default!; _explicitNullProperties?.Remove("ok"); }
+            else if (parseNode.GetChildNode("ok") is { } nullNodeOk && nullNodeOk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ok = null;
+            if (parseNode.GetChildNode("verdicts") is null) { _explicitNullValueVerdicts = default!; _explicitNullProperties?.Remove("verdicts"); }
+            else if (parseNode.GetChildNode("verdicts") is { } nullNodeVerdicts && nullNodeVerdicts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verdicts = null;
+            if (parseNode.GetChildNode("version") is null) { _explicitNullValueVersion = default!; _explicitNullProperties?.Remove("version"); }
+            else if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,53 +41,53 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The agent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public string? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private string? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public string Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public string Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private string _explicitNullValueAgent = default!;
 #endif
         /// <summary>Catch-all disposition AS SHIPPED (after unverified allow→ask downgrade). When defaultActionVerdict is degraded, this remains the shipped value; see defaultActionRendered for what the agent will actually enforce.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultAction? DefaultAction { get => _explicitNullValueDefaultAction; set { _explicitNullValueDefaultAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultAction"); else _explicitNullProperties?.Remove("defaultAction"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultAction? DefaultAction { get => _explicitNullValueDefaultAction; set { _explicitNullValueDefaultAction = value; AdditionalData?.Remove("defaultAction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultAction"); else _explicitNullProperties?.Remove("defaultAction"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultAction? _explicitNullValueDefaultAction = default!;
         /// <summary>Human-readable explanation when defaultActionVerdict is degraded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultActionReason { get => _explicitNullValueDefaultActionReason; set { _explicitNullValueDefaultActionReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultActionReason"); else _explicitNullProperties?.Remove("defaultActionReason"); } }
+        public string? DefaultActionReason { get => _explicitNullValueDefaultActionReason; set { _explicitNullValueDefaultActionReason = value; AdditionalData?.Remove("defaultActionReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultActionReason"); else _explicitNullProperties?.Remove("defaultActionReason"); } }
         private string? _explicitNullValueDefaultActionReason = default!;
 #nullable restore
 #else
-        public string DefaultActionReason { get => _explicitNullValueDefaultActionReason; set { _explicitNullValueDefaultActionReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultActionReason"); else _explicitNullProperties?.Remove("defaultActionReason"); } }
+        public string DefaultActionReason { get => _explicitNullValueDefaultActionReason; set { _explicitNullValueDefaultActionReason = value; AdditionalData?.Remove("defaultActionReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultActionReason"); else _explicitNullProperties?.Remove("defaultActionReason"); } }
         private string _explicitNullValueDefaultActionReason = default!;
 #endif
         /// <summary>Disposition the agent will actually enforce as the catch-all: equals defaultAction when exact; the more-restrictive degrade target (usually ask) when degraded.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionRendered? DefaultActionRendered { get => _explicitNullValueDefaultActionRendered; set { _explicitNullValueDefaultActionRendered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultActionRendered"); else _explicitNullProperties?.Remove("defaultActionRendered"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionRendered? DefaultActionRendered { get => _explicitNullValueDefaultActionRendered; set { _explicitNullValueDefaultActionRendered = value; AdditionalData?.Remove("defaultActionRendered"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultActionRendered"); else _explicitNullProperties?.Remove("defaultActionRendered"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionRendered? _explicitNullValueDefaultActionRendered = default!;
         /// <summary>exact — agent can enforce the catch-all as written; degraded — agent cannot enforce the requested defaultAction (warn-only; shipped value unchanged); omitted when no descriptor was available to classify against.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionVerdict? DefaultActionVerdict { get => _explicitNullValueDefaultActionVerdict; set { _explicitNullValueDefaultActionVerdict = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultActionVerdict"); else _explicitNullProperties?.Remove("defaultActionVerdict"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionVerdict? DefaultActionVerdict { get => _explicitNullValueDefaultActionVerdict; set { _explicitNullValueDefaultActionVerdict = value; AdditionalData?.Remove("defaultActionVerdict"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultActionVerdict"); else _explicitNullProperties?.Remove("defaultActionVerdict"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionVerdict? _explicitNullValueDefaultActionVerdict = default!;
         /// <summary>False when any strict rule is unsupported or unverified — i.e. CreateSession would reject this policy for this (agent, version).</summary>
-        public bool? Ok { get => _explicitNullValueOk; set { _explicitNullValueOk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ok"); else _explicitNullProperties?.Remove("ok"); } }
+        public bool? Ok { get => _explicitNullValueOk; set { _explicitNullValueOk = value; AdditionalData?.Remove("ok"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ok"); else _explicitNullProperties?.Remove("ok"); } }
         private bool? _explicitNullValueOk = default!;
         /// <summary>The verdicts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RuleVerdict>? Verdicts { get => _explicitNullValueVerdicts; set { _explicitNullValueVerdicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdicts"); else _explicitNullProperties?.Remove("verdicts"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RuleVerdict>? Verdicts { get => _explicitNullValueVerdicts; set { _explicitNullValueVerdicts = value; AdditionalData?.Remove("verdicts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdicts"); else _explicitNullProperties?.Remove("verdicts"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RuleVerdict>? _explicitNullValueVerdicts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RuleVerdict> Verdicts { get => _explicitNullValueVerdicts; set { _explicitNullValueVerdicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdicts"); else _explicitNullProperties?.Remove("verdicts"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RuleVerdict> Verdicts { get => _explicitNullValueVerdicts; set { _explicitNullValueVerdicts = value; AdditionalData?.Remove("verdicts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdicts"); else _explicitNullProperties?.Remove("verdicts"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.RuleVerdict> _explicitNullValueVerdicts = default!;
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>
@@ -108,10 +116,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "agent", n => { Agent = n.GetStringValue(); } },
-                { "defaultAction", n => { DefaultAction = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultAction>(); } },
+                { "defaultAction", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultAction = default; _explicitNullProperties?.Remove("defaultAction"); AdditionalData["defaultAction"] = unknown; } else { DefaultAction = parsed; AdditionalData.Remove("defaultAction"); } } },
                 { "defaultActionReason", n => { DefaultActionReason = n.GetStringValue(); } },
-                { "defaultActionRendered", n => { DefaultActionRendered = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionRendered>(); } },
-                { "defaultActionVerdict", n => { DefaultActionVerdict = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionVerdict>(); } },
+                { "defaultActionRendered", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionRendered>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultActionRendered = default; _explicitNullProperties?.Remove("defaultActionRendered"); AdditionalData["defaultActionRendered"] = unknown; } else { DefaultActionRendered = parsed; AdditionalData.Remove("defaultActionRendered"); } } },
+                { "defaultActionVerdict", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ValidationResultDefaultActionVerdict>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultActionVerdict = default; _explicitNullProperties?.Remove("defaultActionVerdict"); AdditionalData["defaultActionVerdict"] = unknown; } else { DefaultActionVerdict = parsed; AdditionalData.Remove("defaultActionVerdict"); } } },
                 { "ok", n => { Ok = n.GetBoolValue(); } },
                 { "verdicts", n => { Verdicts = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.RuleVerdict>(global::Soenneker.DigitalOcean.OpenApiClient.Models.RuleVerdict.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetStringValue(); } },

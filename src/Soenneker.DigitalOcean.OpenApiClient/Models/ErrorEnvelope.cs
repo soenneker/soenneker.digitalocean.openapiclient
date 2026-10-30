@@ -18,32 +18,36 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("class") is { } nullNodeClass && nullNodeClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Class = null;
-            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
-            if (parseNode.GetChildNode("recovery_hint") is { } nullNodeRecoveryHint && nullNodeRecoveryHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecoveryHint = null;
-            if (parseNode.GetChildNode("retriable") is { } nullNodeRetriable && nullNodeRetriable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retriable = null;
+            if (parseNode.GetChildNode("class") is null) { _explicitNullValueClass = default!; _explicitNullProperties?.Remove("class"); }
+            else if (parseNode.GetChildNode("class") is { } nullNodeClass && nullNodeClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Class = null;
+            if (parseNode.GetChildNode("message") is null) { _explicitNullValueMessage = default!; _explicitNullProperties?.Remove("message"); }
+            else if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("recovery_hint") is null) { _explicitNullValueRecoveryHint = default!; _explicitNullProperties?.Remove("recovery_hint"); }
+            else if (parseNode.GetChildNode("recovery_hint") is { } nullNodeRecoveryHint && nullNodeRecoveryHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecoveryHint = null;
+            if (parseNode.GetChildNode("retriable") is null) { _explicitNullValueRetriable = default!; _explicitNullProperties?.Remove("retriable"); }
+            else if (parseNode.GetChildNode("retriable") is { } nullNodeRetriable && nullNodeRetriable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retriable = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The failure class. Branch on this value rather than on `message`, which may change.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeClass? Class { get => _explicitNullValueClass; set { _explicitNullValueClass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("class"); else _explicitNullProperties?.Remove("class"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeClass? Class { get => _explicitNullValueClass; set { _explicitNullValueClass = value; AdditionalData?.Remove("class"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("class"); else _explicitNullProperties?.Remove("class"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeClass? _explicitNullValueClass = default!;
         /// <summary>A human-readable explanation that is safe to show to an agent or end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>The suggested next step.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeRecoveryHint? RecoveryHint { get => _explicitNullValueRecoveryHint; set { _explicitNullValueRecoveryHint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recovery_hint"); else _explicitNullProperties?.Remove("recovery_hint"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeRecoveryHint? RecoveryHint { get => _explicitNullValueRecoveryHint; set { _explicitNullValueRecoveryHint = value; AdditionalData?.Remove("recovery_hint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recovery_hint"); else _explicitNullProperties?.Remove("recovery_hint"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeRecoveryHint? _explicitNullValueRecoveryHint = default!;
         /// <summary>Whether retrying the same request later can succeed.</summary>
-        public bool? Retriable { get => _explicitNullValueRetriable; set { _explicitNullValueRetriable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retriable"); else _explicitNullProperties?.Remove("retriable"); } }
+        public bool? Retriable { get => _explicitNullValueRetriable; set { _explicitNullValueRetriable = value; AdditionalData?.Remove("retriable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retriable"); else _explicitNullProperties?.Remove("retriable"); } }
         private bool? _explicitNullValueRetriable = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelope"/> and sets the default values.
@@ -70,9 +74,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "class", n => { Class = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeClass>(); } },
+                { "class", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeClass>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueClass = default; _explicitNullProperties?.Remove("class"); AdditionalData["class"] = unknown; } else { Class = parsed; AdditionalData.Remove("class"); } } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "recovery_hint", n => { RecoveryHint = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeRecoveryHint>(); } },
+                { "recovery_hint", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ErrorEnvelopeRecoveryHint>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecoveryHint = default; _explicitNullProperties?.Remove("recovery_hint"); AdditionalData["recovery_hint"] = unknown; } else { RecoveryHint = parsed; AdditionalData.Remove("recovery_hint"); } } },
                 { "retriable", n => { Retriable = n.GetBoolValue(); } },
             };
         }

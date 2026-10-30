@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("evaluation_test_case") is { } nullNodeEvaluationTestCase && nullNodeEvaluationTestCase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationTestCase = null;
+            if (parseNode.GetChildNode("evaluation_test_case") is null) { _explicitNullValueEvaluationTestCase = default!; _explicitNullProperties?.Remove("evaluation_test_case"); }
+            else if (parseNode.GetChildNode("evaluation_test_case") is { } nullNodeEvaluationTestCase && nullNodeEvaluationTestCase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationTestCase = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The evaluation_test_case property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTestCase? EvaluationTestCase { get => _explicitNullValueEvaluationTestCase; set { _explicitNullValueEvaluationTestCase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_test_case"); else _explicitNullProperties?.Remove("evaluation_test_case"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTestCase? EvaluationTestCase { get => _explicitNullValueEvaluationTestCase; set { _explicitNullValueEvaluationTestCase = value; AdditionalData?.Remove("evaluation_test_case"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_test_case"); else _explicitNullProperties?.Remove("evaluation_test_case"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTestCase? _explicitNullValueEvaluationTestCase = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTestCase EvaluationTestCase { get => _explicitNullValueEvaluationTestCase; set { _explicitNullValueEvaluationTestCase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_test_case"); else _explicitNullProperties?.Remove("evaluation_test_case"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTestCase EvaluationTestCase { get => _explicitNullValueEvaluationTestCase; set { _explicitNullValueEvaluationTestCase = value; AdditionalData?.Remove("evaluation_test_case"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_test_case"); else _explicitNullProperties?.Remove("evaluation_test_case"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTestCase _explicitNullValueEvaluationTestCase = default!;
 #endif
         /// <summary>

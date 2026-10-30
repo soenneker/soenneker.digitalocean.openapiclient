@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sql_mode") is { } nullNodeSqlModeProp && nullNodeSqlModeProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SqlModeProp = null;
+            if (parseNode.GetChildNode("sql_mode") is null) { _explicitNullValueSqlModeProp = default!; _explicitNullProperties?.Remove("sql_mode"); }
+            else if (parseNode.GetChildNode("sql_mode") is { } nullNodeSqlModeProp && nullNodeSqlModeProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SqlModeProp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A string specifying the configured SQL modes for the MySQL cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SqlModeProp { get => _explicitNullValueSqlModeProp; set { _explicitNullValueSqlModeProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql_mode"); else _explicitNullProperties?.Remove("sql_mode"); } }
+        public string? SqlModeProp { get => _explicitNullValueSqlModeProp; set { _explicitNullValueSqlModeProp = value; AdditionalData?.Remove("sql_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql_mode"); else _explicitNullProperties?.Remove("sql_mode"); } }
         private string? _explicitNullValueSqlModeProp = default!;
 #nullable restore
 #else
-        public string SqlModeProp { get => _explicitNullValueSqlModeProp; set { _explicitNullValueSqlModeProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql_mode"); else _explicitNullProperties?.Remove("sql_mode"); } }
+        public string SqlModeProp { get => _explicitNullValueSqlModeProp; set { _explicitNullValueSqlModeProp = value; AdditionalData?.Remove("sql_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql_mode"); else _explicitNullProperties?.Remove("sql_mode"); } }
         private string _explicitNullValueSqlModeProp = default!;
 #endif
         /// <summary>

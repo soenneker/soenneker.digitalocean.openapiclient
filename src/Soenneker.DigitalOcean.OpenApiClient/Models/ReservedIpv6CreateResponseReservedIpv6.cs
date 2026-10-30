@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ip") is { } nullNodeIp && nullNodeIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ip = null;
-            if (parseNode.GetChildNode("region_slug") is { } nullNodeRegionSlug && nullNodeRegionSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionSlug = null;
-            if (parseNode.GetChildNode("reserved_at") is { } nullNodeReservedAt && nullNodeReservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedAt = null;
+            if (parseNode.GetChildNode("ip") is null) { _explicitNullValueIp = default!; _explicitNullProperties?.Remove("ip"); }
+            else if (parseNode.GetChildNode("ip") is { } nullNodeIp && nullNodeIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ip = null;
+            if (parseNode.GetChildNode("region_slug") is null) { _explicitNullValueRegionSlug = default!; _explicitNullProperties?.Remove("region_slug"); }
+            else if (parseNode.GetChildNode("region_slug") is { } nullNodeRegionSlug && nullNodeRegionSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionSlug = null;
+            if (parseNode.GetChildNode("reserved_at") is null) { _explicitNullValueReservedAt = default!; _explicitNullProperties?.Remove("reserved_at"); }
+            else if (parseNode.GetChildNode("reserved_at") is { } nullNodeReservedAt && nullNodeReservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The public IP address of the reserved IPv6. It also serves as its identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
+        public string? Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; AdditionalData?.Remove("ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
         private string? _explicitNullValueIp = default!;
 #nullable restore
 #else
-        public string Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
+        public string Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; AdditionalData?.Remove("ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
         private string _explicitNullValueIp = default!;
 #endif
         /// <summary>The region that the reserved IPv6 is reserved to. When you query a reserved IPv6,the region_slug will be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
+        public string? RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; AdditionalData?.Remove("region_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
         private string? _explicitNullValueRegionSlug = default!;
 #nullable restore
 #else
-        public string RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
+        public string RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; AdditionalData?.Remove("region_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
         private string _explicitNullValueRegionSlug = default!;
 #endif
         /// <summary>The reserved_at property</summary>
-        public DateTimeOffset? ReservedAt { get => _explicitNullValueReservedAt; set { _explicitNullValueReservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_at"); else _explicitNullProperties?.Remove("reserved_at"); } }
+        public DateTimeOffset? ReservedAt { get => _explicitNullValueReservedAt; set { _explicitNullValueReservedAt = value; AdditionalData?.Remove("reserved_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_at"); else _explicitNullProperties?.Remove("reserved_at"); } }
         private DateTimeOffset? _explicitNullValueReservedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6CreateResponseReservedIpv6"/> and sets the default values.

@@ -18,11 +18,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("inference_url") is { } nullNodeInferenceUrl && nullNodeInferenceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InferenceUrl = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("serves_batch") is { } nullNodeServesBatch && nullNodeServesBatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServesBatch = null;
-            if (parseNode.GetChildNode("serves_inference") is { } nullNodeServesInference && nullNodeServesInference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServesInference = null;
-            if (parseNode.GetChildNode("stream_inference_url") is { } nullNodeStreamInferenceUrl && nullNodeStreamInferenceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamInferenceUrl = null;
+            if (parseNode.GetChildNode("inference_url") is null) { _explicitNullValueInferenceUrl = default!; _explicitNullProperties?.Remove("inference_url"); }
+            else if (parseNode.GetChildNode("inference_url") is { } nullNodeInferenceUrl && nullNodeInferenceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InferenceUrl = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("serves_batch") is null) { _explicitNullValueServesBatch = default!; _explicitNullProperties?.Remove("serves_batch"); }
+            else if (parseNode.GetChildNode("serves_batch") is { } nullNodeServesBatch && nullNodeServesBatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServesBatch = null;
+            if (parseNode.GetChildNode("serves_inference") is null) { _explicitNullValueServesInference = default!; _explicitNullProperties?.Remove("serves_inference"); }
+            else if (parseNode.GetChildNode("serves_inference") is { } nullNodeServesInference && nullNodeServesInference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServesInference = null;
+            if (parseNode.GetChildNode("stream_inference_url") is null) { _explicitNullValueStreamInferenceUrl = default!; _explicitNullProperties?.Remove("stream_inference_url"); }
+            else if (parseNode.GetChildNode("stream_inference_url") is { } nullNodeStreamInferenceUrl && nullNodeStreamInferenceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamInferenceUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,37 +35,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Url for inference server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InferenceUrl { get => _explicitNullValueInferenceUrl; set { _explicitNullValueInferenceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inference_url"); else _explicitNullProperties?.Remove("inference_url"); } }
+        public string? InferenceUrl { get => _explicitNullValueInferenceUrl; set { _explicitNullValueInferenceUrl = value; AdditionalData?.Remove("inference_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inference_url"); else _explicitNullProperties?.Remove("inference_url"); } }
         private string? _explicitNullValueInferenceUrl = default!;
 #nullable restore
 #else
-        public string InferenceUrl { get => _explicitNullValueInferenceUrl; set { _explicitNullValueInferenceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inference_url"); else _explicitNullProperties?.Remove("inference_url"); } }
+        public string InferenceUrl { get => _explicitNullValueInferenceUrl; set { _explicitNullValueInferenceUrl = value; AdditionalData?.Remove("inference_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inference_url"); else _explicitNullProperties?.Remove("inference_url"); } }
         private string _explicitNullValueInferenceUrl = default!;
 #endif
         /// <summary>Region code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private string? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>This datacenter is capable of running batch jobs</summary>
-        public bool? ServesBatch { get => _explicitNullValueServesBatch; set { _explicitNullValueServesBatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serves_batch"); else _explicitNullProperties?.Remove("serves_batch"); } }
+        public bool? ServesBatch { get => _explicitNullValueServesBatch; set { _explicitNullValueServesBatch = value; AdditionalData?.Remove("serves_batch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serves_batch"); else _explicitNullProperties?.Remove("serves_batch"); } }
         private bool? _explicitNullValueServesBatch = default!;
         /// <summary>This datacenter is capable of serving inference</summary>
-        public bool? ServesInference { get => _explicitNullValueServesInference; set { _explicitNullValueServesInference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serves_inference"); else _explicitNullProperties?.Remove("serves_inference"); } }
+        public bool? ServesInference { get => _explicitNullValueServesInference; set { _explicitNullValueServesInference = value; AdditionalData?.Remove("serves_inference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serves_inference"); else _explicitNullProperties?.Remove("serves_inference"); } }
         private bool? _explicitNullValueServesInference = default!;
         /// <summary>The url for the inference streaming server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamInferenceUrl { get => _explicitNullValueStreamInferenceUrl; set { _explicitNullValueStreamInferenceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_inference_url"); else _explicitNullProperties?.Remove("stream_inference_url"); } }
+        public string? StreamInferenceUrl { get => _explicitNullValueStreamInferenceUrl; set { _explicitNullValueStreamInferenceUrl = value; AdditionalData?.Remove("stream_inference_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_inference_url"); else _explicitNullProperties?.Remove("stream_inference_url"); } }
         private string? _explicitNullValueStreamInferenceUrl = default!;
 #nullable restore
 #else
-        public string StreamInferenceUrl { get => _explicitNullValueStreamInferenceUrl; set { _explicitNullValueStreamInferenceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_inference_url"); else _explicitNullProperties?.Remove("stream_inference_url"); } }
+        public string StreamInferenceUrl { get => _explicitNullValueStreamInferenceUrl; set { _explicitNullValueStreamInferenceUrl = value; AdditionalData?.Remove("stream_inference_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_inference_url"); else _explicitNullProperties?.Remove("stream_inference_url"); } }
         private string _explicitNullValueStreamInferenceUrl = default!;
 #endif
         /// <summary>

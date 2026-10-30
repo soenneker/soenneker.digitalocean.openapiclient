@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("garbage_collections") is { } nullNodeGarbageCollections && nullNodeGarbageCollections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GarbageCollections = null;
+            if (parseNode.GetChildNode("garbage_collections") is null) { _explicitNullValueGarbageCollections = default!; _explicitNullProperties?.Remove("garbage_collections"); }
+            else if (parseNode.GetChildNode("garbage_collections") is { } nullNodeGarbageCollections && nullNodeGarbageCollections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GarbageCollections = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The garbage_collections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.GarbageCollection>? GarbageCollections { get => _explicitNullValueGarbageCollections; set { _explicitNullValueGarbageCollections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("garbage_collections"); else _explicitNullProperties?.Remove("garbage_collections"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.GarbageCollection>? GarbageCollections { get => _explicitNullValueGarbageCollections; set { _explicitNullValueGarbageCollections = value; AdditionalData?.Remove("garbage_collections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("garbage_collections"); else _explicitNullProperties?.Remove("garbage_collections"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.GarbageCollection>? _explicitNullValueGarbageCollections = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.GarbageCollection> GarbageCollections { get => _explicitNullValueGarbageCollections; set { _explicitNullValueGarbageCollections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("garbage_collections"); else _explicitNullProperties?.Remove("garbage_collections"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.GarbageCollection> GarbageCollections { get => _explicitNullValueGarbageCollections; set { _explicitNullValueGarbageCollections = value; AdditionalData?.Remove("garbage_collections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("garbage_collections"); else _explicitNullProperties?.Remove("garbage_collections"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.GarbageCollection> _explicitNullValueGarbageCollections = default!;
 #endif
         /// <summary>

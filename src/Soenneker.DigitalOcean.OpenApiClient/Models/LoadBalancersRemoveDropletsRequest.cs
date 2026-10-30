@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("droplet_ids") is { } nullNodeDropletIds && nullNodeDropletIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletIds = null;
+            if (parseNode.GetChildNode("droplet_ids") is null) { _explicitNullValueDropletIds = default!; _explicitNullProperties?.Remove("droplet_ids"); }
+            else if (parseNode.GetChildNode("droplet_ids") is { } nullNodeDropletIds && nullNodeDropletIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array containing the IDs of the Droplets assigned to the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
+        public List<int?>? DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; AdditionalData?.Remove("droplet_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
         private List<int?>? _explicitNullValueDropletIds = default!;
 #nullable restore
 #else
-        public List<int?> DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
+        public List<int?> DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; AdditionalData?.Remove("droplet_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
         private List<int?> _explicitNullValueDropletIds = default!;
 #endif
         /// <summary>

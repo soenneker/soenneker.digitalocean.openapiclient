@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_chatbot_identifier") is { } nullNodeAgentChatbotIdentifier && nullNodeAgentChatbotIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentChatbotIdentifier = null;
+            if (parseNode.GetChildNode("agent_chatbot_identifier") is null) { _explicitNullValueAgentChatbotIdentifier = default!; _explicitNullProperties?.Remove("agent_chatbot_identifier"); }
+            else if (parseNode.GetChildNode("agent_chatbot_identifier") is { } nullNodeAgentChatbotIdentifier && nullNodeAgentChatbotIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentChatbotIdentifier = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Agent chatbot identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentChatbotIdentifier { get => _explicitNullValueAgentChatbotIdentifier; set { _explicitNullValueAgentChatbotIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_chatbot_identifier"); else _explicitNullProperties?.Remove("agent_chatbot_identifier"); } }
+        public string? AgentChatbotIdentifier { get => _explicitNullValueAgentChatbotIdentifier; set { _explicitNullValueAgentChatbotIdentifier = value; AdditionalData?.Remove("agent_chatbot_identifier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_chatbot_identifier"); else _explicitNullProperties?.Remove("agent_chatbot_identifier"); } }
         private string? _explicitNullValueAgentChatbotIdentifier = default!;
 #nullable restore
 #else
-        public string AgentChatbotIdentifier { get => _explicitNullValueAgentChatbotIdentifier; set { _explicitNullValueAgentChatbotIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_chatbot_identifier"); else _explicitNullProperties?.Remove("agent_chatbot_identifier"); } }
+        public string AgentChatbotIdentifier { get => _explicitNullValueAgentChatbotIdentifier; set { _explicitNullValueAgentChatbotIdentifier = value; AdditionalData?.Remove("agent_chatbot_identifier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_chatbot_identifier"); else _explicitNullProperties?.Remove("agent_chatbot_identifier"); } }
         private string _explicitNullValueAgentChatbotIdentifier = default!;
 #endif
         /// <summary>

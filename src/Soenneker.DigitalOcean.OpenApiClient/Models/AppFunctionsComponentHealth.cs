@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("functions_component_health_metrics") is { } nullNodeFunctionsComponentHealthMetrics && nullNodeFunctionsComponentHealthMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FunctionsComponentHealthMetrics = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("functions_component_health_metrics") is null) { _explicitNullValueFunctionsComponentHealthMetrics = default!; _explicitNullProperties?.Remove("functions_component_health_metrics"); }
+            else if (parseNode.GetChildNode("functions_component_health_metrics") is { } nullNodeFunctionsComponentHealthMetrics && nullNodeFunctionsComponentHealthMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FunctionsComponentHealthMetrics = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The functions_component_health_metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsComponentHealthFunctionsComponentHealthMetricsItem>? FunctionsComponentHealthMetrics { get => _explicitNullValueFunctionsComponentHealthMetrics; set { _explicitNullValueFunctionsComponentHealthMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("functions_component_health_metrics"); else _explicitNullProperties?.Remove("functions_component_health_metrics"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsComponentHealthFunctionsComponentHealthMetricsItem>? FunctionsComponentHealthMetrics { get => _explicitNullValueFunctionsComponentHealthMetrics; set { _explicitNullValueFunctionsComponentHealthMetrics = value; AdditionalData?.Remove("functions_component_health_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("functions_component_health_metrics"); else _explicitNullProperties?.Remove("functions_component_health_metrics"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsComponentHealthFunctionsComponentHealthMetricsItem>? _explicitNullValueFunctionsComponentHealthMetrics = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsComponentHealthFunctionsComponentHealthMetricsItem> FunctionsComponentHealthMetrics { get => _explicitNullValueFunctionsComponentHealthMetrics; set { _explicitNullValueFunctionsComponentHealthMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("functions_component_health_metrics"); else _explicitNullProperties?.Remove("functions_component_health_metrics"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsComponentHealthFunctionsComponentHealthMetricsItem> FunctionsComponentHealthMetrics { get => _explicitNullValueFunctionsComponentHealthMetrics; set { _explicitNullValueFunctionsComponentHealthMetrics = value; AdditionalData?.Remove("functions_component_health_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("functions_component_health_metrics"); else _explicitNullProperties?.Remove("functions_component_health_metrics"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsComponentHealthFunctionsComponentHealthMetricsItem> _explicitNullValueFunctionsComponentHealthMetrics = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>

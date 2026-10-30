@@ -18,9 +18,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("default_quantization") is { } nullNodeDefaultQuantization && nullNodeDefaultQuantization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultQuantization = null;
-            if (parseNode.GetChildNode("enable_auto_schema") is { } nullNodeEnableAutoSchema && nullNodeEnableAutoSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableAutoSchema = null;
-            if (parseNode.GetChildNode("weaviate_version") is { } nullNodeWeaviateVersion && nullNodeWeaviateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WeaviateVersion = null;
+            if (parseNode.GetChildNode("default_quantization") is null) { _explicitNullValueDefaultQuantization = default!; _explicitNullProperties?.Remove("default_quantization"); }
+            else if (parseNode.GetChildNode("default_quantization") is { } nullNodeDefaultQuantization && nullNodeDefaultQuantization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultQuantization = null;
+            if (parseNode.GetChildNode("enable_auto_schema") is null) { _explicitNullValueEnableAutoSchema = default!; _explicitNullProperties?.Remove("enable_auto_schema"); }
+            else if (parseNode.GetChildNode("enable_auto_schema") is { } nullNodeEnableAutoSchema && nullNodeEnableAutoSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableAutoSchema = null;
+            if (parseNode.GetChildNode("weaviate_version") is null) { _explicitNullValueWeaviateVersion = default!; _explicitNullProperties?.Remove("weaviate_version"); }
+            else if (parseNode.GetChildNode("weaviate_version") is { } nullNodeWeaviateVersion && nullNodeWeaviateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WeaviateVersion = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,24 +31,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Default vector compression for new collections: rq, pq, bq, or sq. Empty means platform default (rq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultQuantization { get => _explicitNullValueDefaultQuantization; set { _explicitNullValueDefaultQuantization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_quantization"); else _explicitNullProperties?.Remove("default_quantization"); } }
+        public string? DefaultQuantization { get => _explicitNullValueDefaultQuantization; set { _explicitNullValueDefaultQuantization = value; AdditionalData?.Remove("default_quantization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_quantization"); else _explicitNullProperties?.Remove("default_quantization"); } }
         private string? _explicitNullValueDefaultQuantization = default!;
 #nullable restore
 #else
-        public string DefaultQuantization { get => _explicitNullValueDefaultQuantization; set { _explicitNullValueDefaultQuantization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_quantization"); else _explicitNullProperties?.Remove("default_quantization"); } }
+        public string DefaultQuantization { get => _explicitNullValueDefaultQuantization; set { _explicitNullValueDefaultQuantization = value; AdditionalData?.Remove("default_quantization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_quantization"); else _explicitNullProperties?.Remove("default_quantization"); } }
         private string _explicitNullValueDefaultQuantization = default!;
 #endif
         /// <summary>The enable_auto_schema property</summary>
-        public bool? EnableAutoSchema { get => _explicitNullValueEnableAutoSchema; set { _explicitNullValueEnableAutoSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_auto_schema"); else _explicitNullProperties?.Remove("enable_auto_schema"); } }
+        public bool? EnableAutoSchema { get => _explicitNullValueEnableAutoSchema; set { _explicitNullValueEnableAutoSchema = value; AdditionalData?.Remove("enable_auto_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_auto_schema"); else _explicitNullProperties?.Remove("enable_auto_schema"); } }
         private bool? _explicitNullValueEnableAutoSchema = default!;
         /// <summary>The Vector Database version running on the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WeaviateVersion { get => _explicitNullValueWeaviateVersion; set { _explicitNullValueWeaviateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weaviate_version"); else _explicitNullProperties?.Remove("weaviate_version"); } }
+        public string? WeaviateVersion { get => _explicitNullValueWeaviateVersion; set { _explicitNullValueWeaviateVersion = value; AdditionalData?.Remove("weaviate_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weaviate_version"); else _explicitNullProperties?.Remove("weaviate_version"); } }
         private string? _explicitNullValueWeaviateVersion = default!;
 #nullable restore
 #else
-        public string WeaviateVersion { get => _explicitNullValueWeaviateVersion; set { _explicitNullValueWeaviateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weaviate_version"); else _explicitNullProperties?.Remove("weaviate_version"); } }
+        public string WeaviateVersion { get => _explicitNullValueWeaviateVersion; set { _explicitNullValueWeaviateVersion = value; AdditionalData?.Remove("weaviate_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weaviate_version"); else _explicitNullProperties?.Remove("weaviate_version"); } }
         private string _explicitNullValueWeaviateVersion = default!;
 #endif
         /// <summary>

@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("droplet_id") is { } nullNodeDropletId && nullNodeDropletId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletId = null;
+            if (parseNode.GetChildNode("droplet_id") is null) { _explicitNullValueDropletId = default!; _explicitNullProperties?.Remove("droplet_id"); }
+            else if (parseNode.GetChildNode("droplet_id") is { } nullNodeDropletId && nullNodeDropletId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the Droplet that the floating IP will be assigned to.</summary>
-        public int? DropletId { get => _explicitNullValueDropletId; set { _explicitNullValueDropletId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_id"); else _explicitNullProperties?.Remove("droplet_id"); } }
+        public int? DropletId { get => _explicitNullValueDropletId; set { _explicitNullValueDropletId = value; AdditionalData?.Remove("droplet_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_id"); else _explicitNullProperties?.Remove("droplet_id"); } }
         private int? _explicitNullValueDropletId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.FloatingIpCreateAssignToDroplet"/> and sets the default values.

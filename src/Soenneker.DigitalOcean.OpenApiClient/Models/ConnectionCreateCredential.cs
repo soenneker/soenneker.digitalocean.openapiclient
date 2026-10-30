@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("digitalocean_oauth") is { } nullNodeDigitaloceanOauth && nullNodeDigitaloceanOauth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DigitaloceanOauth = null;
-            if (parseNode.GetChildNode("team_credential") is { } nullNodeTeamCredential && nullNodeTeamCredential.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamCredential = null;
+            if (parseNode.GetChildNode("digitalocean_oauth") is null) { _explicitNullValueDigitaloceanOauth = default!; _explicitNullProperties?.Remove("digitalocean_oauth"); }
+            else if (parseNode.GetChildNode("digitalocean_oauth") is { } nullNodeDigitaloceanOauth && nullNodeDigitaloceanOauth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DigitaloceanOauth = null;
+            if (parseNode.GetChildNode("team_credential") is null) { _explicitNullValueTeamCredential = default!; _explicitNullProperties?.Remove("team_credential"); }
+            else if (parseNode.GetChildNode("team_credential") is { } nullNodeTeamCredential && nullNodeTeamCredential.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamCredential = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Use DigitalOcean&apos;s shared OAuth application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialDigitaloceanOAuthProperty? DigitaloceanOauth { get => _explicitNullValueDigitaloceanOauth; set { _explicitNullValueDigitaloceanOauth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digitalocean_oauth"); else _explicitNullProperties?.Remove("digitalocean_oauth"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialDigitaloceanOAuthProperty? DigitaloceanOauth { get => _explicitNullValueDigitaloceanOauth; set { _explicitNullValueDigitaloceanOauth = value; AdditionalData?.Remove("digitalocean_oauth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digitalocean_oauth"); else _explicitNullProperties?.Remove("digitalocean_oauth"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialDigitaloceanOAuthProperty? _explicitNullValueDigitaloceanOauth = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialDigitaloceanOAuthProperty DigitaloceanOauth { get => _explicitNullValueDigitaloceanOauth; set { _explicitNullValueDigitaloceanOauth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digitalocean_oauth"); else _explicitNullProperties?.Remove("digitalocean_oauth"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialDigitaloceanOAuthProperty DigitaloceanOauth { get => _explicitNullValueDigitaloceanOauth; set { _explicitNullValueDigitaloceanOauth = value; AdditionalData?.Remove("digitalocean_oauth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digitalocean_oauth"); else _explicitNullProperties?.Remove("digitalocean_oauth"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialDigitaloceanOAuthProperty _explicitNullValueDigitaloceanOauth = default!;
 #endif
         /// <summary>Use one of your team&apos;s provider credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialTeamCredential? TeamCredential { get => _explicitNullValueTeamCredential; set { _explicitNullValueTeamCredential = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_credential"); else _explicitNullProperties?.Remove("team_credential"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialTeamCredential? TeamCredential { get => _explicitNullValueTeamCredential; set { _explicitNullValueTeamCredential = value; AdditionalData?.Remove("team_credential"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_credential"); else _explicitNullProperties?.Remove("team_credential"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialTeamCredential? _explicitNullValueTeamCredential = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialTeamCredential TeamCredential { get => _explicitNullValueTeamCredential; set { _explicitNullValueTeamCredential = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_credential"); else _explicitNullProperties?.Remove("team_credential"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialTeamCredential TeamCredential { get => _explicitNullValueTeamCredential; set { _explicitNullValueTeamCredential = value; AdditionalData?.Remove("team_credential"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_credential"); else _explicitNullProperties?.Remove("team_credential"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateCredentialTeamCredential _explicitNullValueTeamCredential = default!;
 #endif
         /// <summary>

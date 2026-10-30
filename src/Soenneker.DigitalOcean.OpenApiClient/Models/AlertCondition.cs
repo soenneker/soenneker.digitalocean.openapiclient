@@ -18,13 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("window") is { } nullNodeWindow && nullNodeWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Window = null;
+            if (parseNode.GetChildNode("window") is null) { _explicitNullValueWindow = default!; _explicitNullProperties?.Remove("window"); }
+            else if (parseNode.GetChildNode("window") is { } nullNodeWindow && nullNodeWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Window = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Time window over which the metric is evaluated. Allowed values:- `EVALUATION_WINDOW_1M` = `1m`- `EVALUATION_WINDOW_5M` = `5m`- `EVALUATION_WINDOW_10M` = `10m`- `EVALUATION_WINDOW_15M` = `15m`- `EVALUATION_WINDOW_30M` = `30m`- `EVALUATION_WINDOW_1H` = `1h`</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertConditionWindow? Window { get => _explicitNullValueWindow; set { _explicitNullValueWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window"); else _explicitNullProperties?.Remove("window"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertConditionWindow? Window { get => _explicitNullValueWindow; set { _explicitNullValueWindow = value; AdditionalData?.Remove("window"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window"); else _explicitNullProperties?.Remove("window"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertConditionWindow? _explicitNullValueWindow = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertCondition"/> and sets the default values.
@@ -51,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "window", n => { Window = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertConditionWindow>(); } },
+                { "window", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertConditionWindow>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueWindow = default; _explicitNullProperties?.Remove("window"); AdditionalData["window"] = unknown; } else { Window = parsed; AdditionalData.Remove("window"); } } },
             };
         }
         /// <summary>

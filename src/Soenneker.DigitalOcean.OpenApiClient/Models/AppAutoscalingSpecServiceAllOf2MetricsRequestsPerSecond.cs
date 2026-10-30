@@ -18,13 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("per_instance") is { } nullNodePerInstance && nullNodePerInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerInstance = null;
+            if (parseNode.GetChildNode("per_instance") is null) { _explicitNullValuePerInstance = default!; _explicitNullProperties?.Remove("per_instance"); }
+            else if (parseNode.GetChildNode("per_instance") is { } nullNodePerInstance && nullNodePerInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerInstance = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The target number of requests per second per instance for the component.</summary>
-        public int? PerInstance { get => _explicitNullValuePerInstance; set { _explicitNullValuePerInstance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_instance"); else _explicitNullProperties?.Remove("per_instance"); } }
+        public int? PerInstance { get => _explicitNullValuePerInstance; set { _explicitNullValuePerInstance = value; AdditionalData?.Remove("per_instance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_instance"); else _explicitNullProperties?.Remove("per_instance"); } }
         private int? _explicitNullValuePerInstance = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond"/> and sets the default values.

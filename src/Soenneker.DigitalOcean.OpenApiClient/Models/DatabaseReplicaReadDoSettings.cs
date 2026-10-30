@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("service_cnames") is { } nullNodeServiceCnames && nullNodeServiceCnames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceCnames = null;
+            if (parseNode.GetChildNode("service_cnames") is null) { _explicitNullValueServiceCnames = default!; _explicitNullProperties?.Remove("service_cnames"); }
+            else if (parseNode.GetChildNode("service_cnames") is { } nullNodeServiceCnames && nullNodeServiceCnames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceCnames = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array of custom CNAMEs for the database cluster. Each CNAME must be a valid RFC 1123 hostname (e.g., &quot;db.example.com&quot;). Maximum of 16 CNAMEs allowed, each up to 253 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ServiceCnames { get => _explicitNullValueServiceCnames; set { _explicitNullValueServiceCnames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_cnames"); else _explicitNullProperties?.Remove("service_cnames"); } }
+        public List<string>? ServiceCnames { get => _explicitNullValueServiceCnames; set { _explicitNullValueServiceCnames = value; AdditionalData?.Remove("service_cnames"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_cnames"); else _explicitNullProperties?.Remove("service_cnames"); } }
         private List<string>? _explicitNullValueServiceCnames = default!;
 #nullable restore
 #else
-        public List<string> ServiceCnames { get => _explicitNullValueServiceCnames; set { _explicitNullValueServiceCnames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_cnames"); else _explicitNullProperties?.Remove("service_cnames"); } }
+        public List<string> ServiceCnames { get => _explicitNullValueServiceCnames; set { _explicitNullValueServiceCnames = value; AdditionalData?.Remove("service_cnames"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_cnames"); else _explicitNullProperties?.Remove("service_cnames"); } }
         private List<string> _explicitNullValueServiceCnames = default!;
 #endif
         /// <summary>

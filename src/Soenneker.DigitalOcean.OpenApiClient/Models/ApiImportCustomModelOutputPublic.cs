@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
-            if (parseNode.GetChildNode("import_job") is { } nullNodeImportJob && nullNodeImportJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportJob = null;
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
-            if (parseNode.GetChildNode("validation_steps") is { } nullNodeValidationSteps && nullNodeValidationSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidationSteps = null;
+            if (parseNode.GetChildNode("error") is null) { _explicitNullValueError = default!; _explicitNullProperties?.Remove("error"); }
+            else if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("import_job") is null) { _explicitNullValueImportJob = default!; _explicitNullProperties?.Remove("import_job"); }
+            else if (parseNode.GetChildNode("import_job") is { } nullNodeImportJob && nullNodeImportJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportJob = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("validation_steps") is null) { _explicitNullValueValidationSteps = default!; _explicitNullProperties?.Remove("validation_steps"); }
+            else if (parseNode.GetChildNode("validation_steps") is { } nullNodeValidationSteps && nullNodeValidationSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidationSteps = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string _explicitNullValueError = default!;
 #endif
         /// <summary>Import job tracking for a custom model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModelImportJob? ImportJob { get => _explicitNullValueImportJob; set { _explicitNullValueImportJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_job"); else _explicitNullProperties?.Remove("import_job"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModelImportJob? ImportJob { get => _explicitNullValueImportJob; set { _explicitNullValueImportJob = value; AdditionalData?.Remove("import_job"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_job"); else _explicitNullProperties?.Remove("import_job"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModelImportJob? _explicitNullValueImportJob = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModelImportJob ImportJob { get => _explicitNullValueImportJob; set { _explicitNullValueImportJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_job"); else _explicitNullProperties?.Remove("import_job"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModelImportJob ImportJob { get => _explicitNullValueImportJob; set { _explicitNullValueImportJob = value; AdditionalData?.Remove("import_job"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_job"); else _explicitNullProperties?.Remove("import_job"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModelImportJob _explicitNullValueImportJob = default!;
 #endif
         /// <summary>Custom model - user-imported model from HuggingFace, Spaces, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModel? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModel Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModel Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCustomModel _explicitNullValueModel = default!;
 #endif
         /// <summary>Validation steps performed during import</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportValidationStep>? ValidationSteps { get => _explicitNullValueValidationSteps; set { _explicitNullValueValidationSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_steps"); else _explicitNullProperties?.Remove("validation_steps"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportValidationStep>? ValidationSteps { get => _explicitNullValueValidationSteps; set { _explicitNullValueValidationSteps = value; AdditionalData?.Remove("validation_steps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_steps"); else _explicitNullProperties?.Remove("validation_steps"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportValidationStep>? _explicitNullValueValidationSteps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportValidationStep> ValidationSteps { get => _explicitNullValueValidationSteps; set { _explicitNullValueValidationSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_steps"); else _explicitNullProperties?.Remove("validation_steps"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportValidationStep> ValidationSteps { get => _explicitNullValueValidationSteps; set { _explicitNullValueValidationSteps = value; AdditionalData?.Remove("validation_steps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_steps"); else _explicitNullProperties?.Remove("validation_steps"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiImportValidationStep> _explicitNullValueValidationSteps = default!;
 #endif
         /// <summary>

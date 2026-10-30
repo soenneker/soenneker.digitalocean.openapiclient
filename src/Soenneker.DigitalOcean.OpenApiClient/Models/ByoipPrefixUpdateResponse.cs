@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("byoip_prefix") is { } nullNodeByoipPrefix && nullNodeByoipPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ByoipPrefix = null;
+            if (parseNode.GetChildNode("byoip_prefix") is null) { _explicitNullValueByoipPrefix = default!; _explicitNullProperties?.Remove("byoip_prefix"); }
+            else if (parseNode.GetChildNode("byoip_prefix") is { } nullNodeByoipPrefix && nullNodeByoipPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ByoipPrefix = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The byoip_prefix property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ByoipPrefix? ByoipPrefix { get => _explicitNullValueByoipPrefix; set { _explicitNullValueByoipPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("byoip_prefix"); else _explicitNullProperties?.Remove("byoip_prefix"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ByoipPrefix? ByoipPrefix { get => _explicitNullValueByoipPrefix; set { _explicitNullValueByoipPrefix = value; AdditionalData?.Remove("byoip_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("byoip_prefix"); else _explicitNullProperties?.Remove("byoip_prefix"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ByoipPrefix? _explicitNullValueByoipPrefix = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ByoipPrefix ByoipPrefix { get => _explicitNullValueByoipPrefix; set { _explicitNullValueByoipPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("byoip_prefix"); else _explicitNullProperties?.Remove("byoip_prefix"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ByoipPrefix ByoipPrefix { get => _explicitNullValueByoipPrefix; set { _explicitNullValueByoipPrefix = value; AdditionalData?.Remove("byoip_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("byoip_prefix"); else _explicitNullProperties?.Remove("byoip_prefix"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ByoipPrefix _explicitNullValueByoipPrefix = default!;
 #endif
         /// <summary>

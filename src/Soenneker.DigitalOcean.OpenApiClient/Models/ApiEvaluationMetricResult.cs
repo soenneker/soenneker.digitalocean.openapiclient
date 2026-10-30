@@ -17,14 +17,22 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("error_description") is { } nullNodeErrorDescription && nullNodeErrorDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorDescription = null;
-            if (parseNode.GetChildNode("metric_name") is { } nullNodeMetricName && nullNodeMetricName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricName = null;
-            if (parseNode.GetChildNode("metric_uuid") is { } nullNodeMetricUuid && nullNodeMetricUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricUuid = null;
-            if (parseNode.GetChildNode("metric_value_type") is { } nullNodeMetricValueType && nullNodeMetricValueType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricValueType = null;
-            if (parseNode.GetChildNode("number_value") is { } nullNodeNumberValue && nullNodeNumberValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberValue = null;
-            if (parseNode.GetChildNode("reasoning") is { } nullNodeReasoning && nullNodeReasoning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reasoning = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("string_value") is { } nullNodeStringValue && nullNodeStringValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StringValue = null;
+            if (parseNode.GetChildNode("error_description") is null) { _explicitNullValueErrorDescription = default!; _explicitNullProperties?.Remove("error_description"); }
+            else if (parseNode.GetChildNode("error_description") is { } nullNodeErrorDescription && nullNodeErrorDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorDescription = null;
+            if (parseNode.GetChildNode("metric_name") is null) { _explicitNullValueMetricName = default!; _explicitNullProperties?.Remove("metric_name"); }
+            else if (parseNode.GetChildNode("metric_name") is { } nullNodeMetricName && nullNodeMetricName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricName = null;
+            if (parseNode.GetChildNode("metric_uuid") is null) { _explicitNullValueMetricUuid = default!; _explicitNullProperties?.Remove("metric_uuid"); }
+            else if (parseNode.GetChildNode("metric_uuid") is { } nullNodeMetricUuid && nullNodeMetricUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricUuid = null;
+            if (parseNode.GetChildNode("metric_value_type") is null) { _explicitNullValueMetricValueType = default!; _explicitNullProperties?.Remove("metric_value_type"); }
+            else if (parseNode.GetChildNode("metric_value_type") is { } nullNodeMetricValueType && nullNodeMetricValueType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricValueType = null;
+            if (parseNode.GetChildNode("number_value") is null) { _explicitNullValueNumberValue = default!; _explicitNullProperties?.Remove("number_value"); }
+            else if (parseNode.GetChildNode("number_value") is { } nullNodeNumberValue && nullNodeNumberValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberValue = null;
+            if (parseNode.GetChildNode("reasoning") is null) { _explicitNullValueReasoning = default!; _explicitNullProperties?.Remove("reasoning"); }
+            else if (parseNode.GetChildNode("reasoning") is { } nullNodeReasoning && nullNodeReasoning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reasoning = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("string_value") is null) { _explicitNullValueStringValue = default!; _explicitNullProperties?.Remove("string_value"); }
+            else if (parseNode.GetChildNode("string_value") is { } nullNodeStringValue && nullNodeStringValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StringValue = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,60 +40,60 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Error description if the metric could not be calculated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorDescription { get => _explicitNullValueErrorDescription; set { _explicitNullValueErrorDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_description"); else _explicitNullProperties?.Remove("error_description"); } }
+        public string? ErrorDescription { get => _explicitNullValueErrorDescription; set { _explicitNullValueErrorDescription = value; AdditionalData?.Remove("error_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_description"); else _explicitNullProperties?.Remove("error_description"); } }
         private string? _explicitNullValueErrorDescription = default!;
 #nullable restore
 #else
-        public string ErrorDescription { get => _explicitNullValueErrorDescription; set { _explicitNullValueErrorDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_description"); else _explicitNullProperties?.Remove("error_description"); } }
+        public string ErrorDescription { get => _explicitNullValueErrorDescription; set { _explicitNullValueErrorDescription = value; AdditionalData?.Remove("error_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_description"); else _explicitNullProperties?.Remove("error_description"); } }
         private string _explicitNullValueErrorDescription = default!;
 #endif
         /// <summary>Metric name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricName { get => _explicitNullValueMetricName; set { _explicitNullValueMetricName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_name"); else _explicitNullProperties?.Remove("metric_name"); } }
+        public string? MetricName { get => _explicitNullValueMetricName; set { _explicitNullValueMetricName = value; AdditionalData?.Remove("metric_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_name"); else _explicitNullProperties?.Remove("metric_name"); } }
         private string? _explicitNullValueMetricName = default!;
 #nullable restore
 #else
-        public string MetricName { get => _explicitNullValueMetricName; set { _explicitNullValueMetricName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_name"); else _explicitNullProperties?.Remove("metric_name"); } }
+        public string MetricName { get => _explicitNullValueMetricName; set { _explicitNullValueMetricName = value; AdditionalData?.Remove("metric_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_name"); else _explicitNullProperties?.Remove("metric_name"); } }
         private string _explicitNullValueMetricName = default!;
 #endif
         /// <summary>Metric UUID (built-in or custom); stable key for results UI and aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
+        public string? MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; AdditionalData?.Remove("metric_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
         private string? _explicitNullValueMetricUuid = default!;
 #nullable restore
 #else
-        public string MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
+        public string MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; AdditionalData?.Remove("metric_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
         private string _explicitNullValueMetricUuid = default!;
 #endif
         /// <summary>The metric_value_type property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType? MetricValueType { get => _explicitNullValueMetricValueType; set { _explicitNullValueMetricValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_value_type"); else _explicitNullProperties?.Remove("metric_value_type"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType? MetricValueType { get => _explicitNullValueMetricValueType; set { _explicitNullValueMetricValueType = value; AdditionalData?.Remove("metric_value_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_value_type"); else _explicitNullProperties?.Remove("metric_value_type"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType? _explicitNullValueMetricValueType = default!;
         /// <summary>The value of the metric as a number.</summary>
-        public double? NumberValue { get => _explicitNullValueNumberValue; set { _explicitNullValueNumberValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_value"); else _explicitNullProperties?.Remove("number_value"); } }
+        public double? NumberValue { get => _explicitNullValueNumberValue; set { _explicitNullValueNumberValue = value; AdditionalData?.Remove("number_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_value"); else _explicitNullProperties?.Remove("number_value"); } }
         private double? _explicitNullValueNumberValue = default!;
         /// <summary>Reasoning of the metric result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
+        public string? Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; AdditionalData?.Remove("reasoning"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
         private string? _explicitNullValueReasoning = default!;
 #nullable restore
 #else
-        public string Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
+        public string Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; AdditionalData?.Remove("reasoning"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
         private string _explicitNullValueReasoning = default!;
 #endif
         /// <summary>Outcome of scoring a single metric for one prompt or span.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResultStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResultStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResultStatus? _explicitNullValueStatus = default!;
         /// <summary>The value of the metric as a string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
+        public string? StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; AdditionalData?.Remove("string_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
         private string? _explicitNullValueStringValue = default!;
 #nullable restore
 #else
-        public string StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
+        public string StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; AdditionalData?.Remove("string_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
         private string _explicitNullValueStringValue = default!;
 #endif
         /// <summary>
@@ -116,10 +124,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
                 { "metric_name", n => { MetricName = n.GetStringValue(); } },
                 { "metric_uuid", n => { MetricUuid = n.GetStringValue(); } },
-                { "metric_value_type", n => { MetricValueType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType>(); } },
+                { "metric_value_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMetricValueType = default; _explicitNullProperties?.Remove("metric_value_type"); AdditionalData["metric_value_type"] = unknown; } else { MetricValueType = parsed; AdditionalData.Remove("metric_value_type"); } } },
                 { "number_value", n => { NumberValue = n.GetDoubleValue(); } },
                 { "reasoning", n => { Reasoning = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResultStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResultStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "string_value", n => { StringValue = n.GetStringValue(); } },
             };
         }

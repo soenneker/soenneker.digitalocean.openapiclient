@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("consents") is { } nullNodeConsents && nullNodeConsents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Consents = null;
-            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("consents") is null) { _explicitNullValueConsents = default!; _explicitNullProperties?.Remove("consents"); }
+            else if (parseNode.GetChildNode("consents") is { } nullNodeConsents && nullNodeConsents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Consents = null;
+            if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
+            else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A list of consent records for the team. Includes per-environment records (`source: agent`) and, when set, the team-level inference record (`source: inference`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord>? Consents { get => _explicitNullValueConsents; set { _explicitNullValueConsents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consents"); else _explicitNullProperties?.Remove("consents"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord>? Consents { get => _explicitNullValueConsents; set { _explicitNullValueConsents = value; AdditionalData?.Remove("consents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consents"); else _explicitNullProperties?.Remove("consents"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord>? _explicitNullValueConsents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord> Consents { get => _explicitNullValueConsents; set { _explicitNullValueConsents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consents"); else _explicitNullProperties?.Remove("consents"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord> Consents { get => _explicitNullValueConsents; set { _explicitNullValueConsents = value; AdditionalData?.Remove("consents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consents"); else _explicitNullProperties?.Remove("consents"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord> _explicitNullValueConsents = default!;
 #endif
         /// <summary>Echoes the `source` filter when the request was filtered by source. Omitted when the list was not filtered.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsentsSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsentsSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsentsSource? _explicitNullValueSource = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsents"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "consents", n => { Consents = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConsentRecord.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsentsSource>(); } },
+                { "source", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListConsentsSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSource = default; _explicitNullProperties?.Remove("source"); AdditionalData["source"] = unknown; } else { Source = parsed; AdditionalData.Remove("source"); } } },
             };
         }
         /// <summary>

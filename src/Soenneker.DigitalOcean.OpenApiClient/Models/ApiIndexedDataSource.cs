@@ -17,141 +17,155 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
-            if (parseNode.GetChildNode("data_source_uuid") is { } nullNodeDataSourceUuid && nullNodeDataSourceUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataSourceUuid = null;
-            if (parseNode.GetChildNode("error_details") is { } nullNodeErrorDetails && nullNodeErrorDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorDetails = null;
-            if (parseNode.GetChildNode("error_msg") is { } nullNodeErrorMsg && nullNodeErrorMsg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMsg = null;
-            if (parseNode.GetChildNode("failed_item_count") is { } nullNodeFailedItemCount && nullNodeFailedItemCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedItemCount = null;
-            if (parseNode.GetChildNode("indexed_file_count") is { } nullNodeIndexedFileCount && nullNodeIndexedFileCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexedFileCount = null;
-            if (parseNode.GetChildNode("indexed_item_count") is { } nullNodeIndexedItemCount && nullNodeIndexedItemCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexedItemCount = null;
-            if (parseNode.GetChildNode("removed_item_count") is { } nullNodeRemovedItemCount && nullNodeRemovedItemCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedItemCount = null;
-            if (parseNode.GetChildNode("skipped_item_count") is { } nullNodeSkippedItemCount && nullNodeSkippedItemCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedItemCount = null;
-            if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("total_bytes") is { } nullNodeTotalBytes && nullNodeTotalBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBytes = null;
-            if (parseNode.GetChildNode("total_bytes_indexed") is { } nullNodeTotalBytesIndexed && nullNodeTotalBytesIndexed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBytesIndexed = null;
-            if (parseNode.GetChildNode("total_file_count") is { } nullNodeTotalFileCount && nullNodeTotalFileCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalFileCount = null;
+            if (parseNode.GetChildNode("completed_at") is null) { _explicitNullValueCompletedAt = default!; _explicitNullProperties?.Remove("completed_at"); }
+            else if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("data_source_uuid") is null) { _explicitNullValueDataSourceUuid = default!; _explicitNullProperties?.Remove("data_source_uuid"); }
+            else if (parseNode.GetChildNode("data_source_uuid") is { } nullNodeDataSourceUuid && nullNodeDataSourceUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataSourceUuid = null;
+            if (parseNode.GetChildNode("error_details") is null) { _explicitNullValueErrorDetails = default!; _explicitNullProperties?.Remove("error_details"); }
+            else if (parseNode.GetChildNode("error_details") is { } nullNodeErrorDetails && nullNodeErrorDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorDetails = null;
+            if (parseNode.GetChildNode("error_msg") is null) { _explicitNullValueErrorMsg = default!; _explicitNullProperties?.Remove("error_msg"); }
+            else if (parseNode.GetChildNode("error_msg") is { } nullNodeErrorMsg && nullNodeErrorMsg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMsg = null;
+            if (parseNode.GetChildNode("failed_item_count") is null) { _explicitNullValueFailedItemCount = default!; _explicitNullProperties?.Remove("failed_item_count"); }
+            else if (parseNode.GetChildNode("failed_item_count") is { } nullNodeFailedItemCount && nullNodeFailedItemCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedItemCount = null;
+            if (parseNode.GetChildNode("indexed_file_count") is null) { _explicitNullValueIndexedFileCount = default!; _explicitNullProperties?.Remove("indexed_file_count"); }
+            else if (parseNode.GetChildNode("indexed_file_count") is { } nullNodeIndexedFileCount && nullNodeIndexedFileCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexedFileCount = null;
+            if (parseNode.GetChildNode("indexed_item_count") is null) { _explicitNullValueIndexedItemCount = default!; _explicitNullProperties?.Remove("indexed_item_count"); }
+            else if (parseNode.GetChildNode("indexed_item_count") is { } nullNodeIndexedItemCount && nullNodeIndexedItemCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexedItemCount = null;
+            if (parseNode.GetChildNode("removed_item_count") is null) { _explicitNullValueRemovedItemCount = default!; _explicitNullProperties?.Remove("removed_item_count"); }
+            else if (parseNode.GetChildNode("removed_item_count") is { } nullNodeRemovedItemCount && nullNodeRemovedItemCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedItemCount = null;
+            if (parseNode.GetChildNode("skipped_item_count") is null) { _explicitNullValueSkippedItemCount = default!; _explicitNullProperties?.Remove("skipped_item_count"); }
+            else if (parseNode.GetChildNode("skipped_item_count") is { } nullNodeSkippedItemCount && nullNodeSkippedItemCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedItemCount = null;
+            if (parseNode.GetChildNode("started_at") is null) { _explicitNullValueStartedAt = default!; _explicitNullProperties?.Remove("started_at"); }
+            else if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("total_bytes") is null) { _explicitNullValueTotalBytes = default!; _explicitNullProperties?.Remove("total_bytes"); }
+            else if (parseNode.GetChildNode("total_bytes") is { } nullNodeTotalBytes && nullNodeTotalBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBytes = null;
+            if (parseNode.GetChildNode("total_bytes_indexed") is null) { _explicitNullValueTotalBytesIndexed = default!; _explicitNullProperties?.Remove("total_bytes_indexed"); }
+            else if (parseNode.GetChildNode("total_bytes_indexed") is { } nullNodeTotalBytesIndexed && nullNodeTotalBytesIndexed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBytesIndexed = null;
+            if (parseNode.GetChildNode("total_file_count") is null) { _explicitNullValueTotalFileCount = default!; _explicitNullProperties?.Remove("total_file_count"); }
+            else if (parseNode.GetChildNode("total_file_count") is { } nullNodeTotalFileCount && nullNodeTotalFileCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalFileCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Timestamp when data source completed indexing</summary>
-        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
         private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>Uuid of the indexed data source</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DataSourceUuid { get => _explicitNullValueDataSourceUuid; set { _explicitNullValueDataSourceUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuid"); else _explicitNullProperties?.Remove("data_source_uuid"); } }
+        public string? DataSourceUuid { get => _explicitNullValueDataSourceUuid; set { _explicitNullValueDataSourceUuid = value; AdditionalData?.Remove("data_source_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuid"); else _explicitNullProperties?.Remove("data_source_uuid"); } }
         private string? _explicitNullValueDataSourceUuid = default!;
 #nullable restore
 #else
-        public string DataSourceUuid { get => _explicitNullValueDataSourceUuid; set { _explicitNullValueDataSourceUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuid"); else _explicitNullProperties?.Remove("data_source_uuid"); } }
+        public string DataSourceUuid { get => _explicitNullValueDataSourceUuid; set { _explicitNullValueDataSourceUuid = value; AdditionalData?.Remove("data_source_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuid"); else _explicitNullProperties?.Remove("data_source_uuid"); } }
         private string _explicitNullValueDataSourceUuid = default!;
 #endif
         /// <summary>A detailed error description</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorDetails { get => _explicitNullValueErrorDetails; set { _explicitNullValueErrorDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_details"); else _explicitNullProperties?.Remove("error_details"); } }
+        public string? ErrorDetails { get => _explicitNullValueErrorDetails; set { _explicitNullValueErrorDetails = value; AdditionalData?.Remove("error_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_details"); else _explicitNullProperties?.Remove("error_details"); } }
         private string? _explicitNullValueErrorDetails = default!;
 #nullable restore
 #else
-        public string ErrorDetails { get => _explicitNullValueErrorDetails; set { _explicitNullValueErrorDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_details"); else _explicitNullProperties?.Remove("error_details"); } }
+        public string ErrorDetails { get => _explicitNullValueErrorDetails; set { _explicitNullValueErrorDetails = value; AdditionalData?.Remove("error_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_details"); else _explicitNullProperties?.Remove("error_details"); } }
         private string _explicitNullValueErrorDetails = default!;
 #endif
         /// <summary>A string code provinding a hint which part of the system experienced an error</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorMsg { get => _explicitNullValueErrorMsg; set { _explicitNullValueErrorMsg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_msg"); else _explicitNullProperties?.Remove("error_msg"); } }
+        public string? ErrorMsg { get => _explicitNullValueErrorMsg; set { _explicitNullValueErrorMsg = value; AdditionalData?.Remove("error_msg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_msg"); else _explicitNullProperties?.Remove("error_msg"); } }
         private string? _explicitNullValueErrorMsg = default!;
 #nullable restore
 #else
-        public string ErrorMsg { get => _explicitNullValueErrorMsg; set { _explicitNullValueErrorMsg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_msg"); else _explicitNullProperties?.Remove("error_msg"); } }
+        public string ErrorMsg { get => _explicitNullValueErrorMsg; set { _explicitNullValueErrorMsg = value; AdditionalData?.Remove("error_msg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_msg"); else _explicitNullProperties?.Remove("error_msg"); } }
         private string _explicitNullValueErrorMsg = default!;
 #endif
         /// <summary>Total count of files that have failed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FailedItemCount { get => _explicitNullValueFailedItemCount; set { _explicitNullValueFailedItemCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_item_count"); else _explicitNullProperties?.Remove("failed_item_count"); } }
+        public string? FailedItemCount { get => _explicitNullValueFailedItemCount; set { _explicitNullValueFailedItemCount = value; AdditionalData?.Remove("failed_item_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_item_count"); else _explicitNullProperties?.Remove("failed_item_count"); } }
         private string? _explicitNullValueFailedItemCount = default!;
 #nullable restore
 #else
-        public string FailedItemCount { get => _explicitNullValueFailedItemCount; set { _explicitNullValueFailedItemCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_item_count"); else _explicitNullProperties?.Remove("failed_item_count"); } }
+        public string FailedItemCount { get => _explicitNullValueFailedItemCount; set { _explicitNullValueFailedItemCount = value; AdditionalData?.Remove("failed_item_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_item_count"); else _explicitNullProperties?.Remove("failed_item_count"); } }
         private string _explicitNullValueFailedItemCount = default!;
 #endif
         /// <summary>Total count of files that have been indexed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IndexedFileCount { get => _explicitNullValueIndexedFileCount; set { _explicitNullValueIndexedFileCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_file_count"); else _explicitNullProperties?.Remove("indexed_file_count"); } }
+        public string? IndexedFileCount { get => _explicitNullValueIndexedFileCount; set { _explicitNullValueIndexedFileCount = value; AdditionalData?.Remove("indexed_file_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_file_count"); else _explicitNullProperties?.Remove("indexed_file_count"); } }
         private string? _explicitNullValueIndexedFileCount = default!;
 #nullable restore
 #else
-        public string IndexedFileCount { get => _explicitNullValueIndexedFileCount; set { _explicitNullValueIndexedFileCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_file_count"); else _explicitNullProperties?.Remove("indexed_file_count"); } }
+        public string IndexedFileCount { get => _explicitNullValueIndexedFileCount; set { _explicitNullValueIndexedFileCount = value; AdditionalData?.Remove("indexed_file_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_file_count"); else _explicitNullProperties?.Remove("indexed_file_count"); } }
         private string _explicitNullValueIndexedFileCount = default!;
 #endif
         /// <summary>Total count of files that have been indexed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IndexedItemCount { get => _explicitNullValueIndexedItemCount; set { _explicitNullValueIndexedItemCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_item_count"); else _explicitNullProperties?.Remove("indexed_item_count"); } }
+        public string? IndexedItemCount { get => _explicitNullValueIndexedItemCount; set { _explicitNullValueIndexedItemCount = value; AdditionalData?.Remove("indexed_item_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_item_count"); else _explicitNullProperties?.Remove("indexed_item_count"); } }
         private string? _explicitNullValueIndexedItemCount = default!;
 #nullable restore
 #else
-        public string IndexedItemCount { get => _explicitNullValueIndexedItemCount; set { _explicitNullValueIndexedItemCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_item_count"); else _explicitNullProperties?.Remove("indexed_item_count"); } }
+        public string IndexedItemCount { get => _explicitNullValueIndexedItemCount; set { _explicitNullValueIndexedItemCount = value; AdditionalData?.Remove("indexed_item_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_item_count"); else _explicitNullProperties?.Remove("indexed_item_count"); } }
         private string _explicitNullValueIndexedItemCount = default!;
 #endif
         /// <summary>Total count of files that have been removed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RemovedItemCount { get => _explicitNullValueRemovedItemCount; set { _explicitNullValueRemovedItemCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed_item_count"); else _explicitNullProperties?.Remove("removed_item_count"); } }
+        public string? RemovedItemCount { get => _explicitNullValueRemovedItemCount; set { _explicitNullValueRemovedItemCount = value; AdditionalData?.Remove("removed_item_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed_item_count"); else _explicitNullProperties?.Remove("removed_item_count"); } }
         private string? _explicitNullValueRemovedItemCount = default!;
 #nullable restore
 #else
-        public string RemovedItemCount { get => _explicitNullValueRemovedItemCount; set { _explicitNullValueRemovedItemCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed_item_count"); else _explicitNullProperties?.Remove("removed_item_count"); } }
+        public string RemovedItemCount { get => _explicitNullValueRemovedItemCount; set { _explicitNullValueRemovedItemCount = value; AdditionalData?.Remove("removed_item_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed_item_count"); else _explicitNullProperties?.Remove("removed_item_count"); } }
         private string _explicitNullValueRemovedItemCount = default!;
 #endif
         /// <summary>Total count of files that have been skipped</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SkippedItemCount { get => _explicitNullValueSkippedItemCount; set { _explicitNullValueSkippedItemCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_item_count"); else _explicitNullProperties?.Remove("skipped_item_count"); } }
+        public string? SkippedItemCount { get => _explicitNullValueSkippedItemCount; set { _explicitNullValueSkippedItemCount = value; AdditionalData?.Remove("skipped_item_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_item_count"); else _explicitNullProperties?.Remove("skipped_item_count"); } }
         private string? _explicitNullValueSkippedItemCount = default!;
 #nullable restore
 #else
-        public string SkippedItemCount { get => _explicitNullValueSkippedItemCount; set { _explicitNullValueSkippedItemCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_item_count"); else _explicitNullProperties?.Remove("skipped_item_count"); } }
+        public string SkippedItemCount { get => _explicitNullValueSkippedItemCount; set { _explicitNullValueSkippedItemCount = value; AdditionalData?.Remove("skipped_item_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_item_count"); else _explicitNullProperties?.Remove("skipped_item_count"); } }
         private string _explicitNullValueSkippedItemCount = default!;
 #endif
         /// <summary>Timestamp when data source started indexing</summary>
-        public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
+        public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; AdditionalData?.Remove("started_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
         private DateTimeOffset? _explicitNullValueStartedAt = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSourceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSourceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSourceStatus? _explicitNullValueStatus = default!;
         /// <summary>Total size of files in data source in bytes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalBytes { get => _explicitNullValueTotalBytes; set { _explicitNullValueTotalBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes"); else _explicitNullProperties?.Remove("total_bytes"); } }
+        public string? TotalBytes { get => _explicitNullValueTotalBytes; set { _explicitNullValueTotalBytes = value; AdditionalData?.Remove("total_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes"); else _explicitNullProperties?.Remove("total_bytes"); } }
         private string? _explicitNullValueTotalBytes = default!;
 #nullable restore
 #else
-        public string TotalBytes { get => _explicitNullValueTotalBytes; set { _explicitNullValueTotalBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes"); else _explicitNullProperties?.Remove("total_bytes"); } }
+        public string TotalBytes { get => _explicitNullValueTotalBytes; set { _explicitNullValueTotalBytes = value; AdditionalData?.Remove("total_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes"); else _explicitNullProperties?.Remove("total_bytes"); } }
         private string _explicitNullValueTotalBytes = default!;
 #endif
         /// <summary>Total size of files in data source in bytes that have been indexed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalBytesIndexed { get => _explicitNullValueTotalBytesIndexed; set { _explicitNullValueTotalBytesIndexed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes_indexed"); else _explicitNullProperties?.Remove("total_bytes_indexed"); } }
+        public string? TotalBytesIndexed { get => _explicitNullValueTotalBytesIndexed; set { _explicitNullValueTotalBytesIndexed = value; AdditionalData?.Remove("total_bytes_indexed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes_indexed"); else _explicitNullProperties?.Remove("total_bytes_indexed"); } }
         private string? _explicitNullValueTotalBytesIndexed = default!;
 #nullable restore
 #else
-        public string TotalBytesIndexed { get => _explicitNullValueTotalBytesIndexed; set { _explicitNullValueTotalBytesIndexed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes_indexed"); else _explicitNullProperties?.Remove("total_bytes_indexed"); } }
+        public string TotalBytesIndexed { get => _explicitNullValueTotalBytesIndexed; set { _explicitNullValueTotalBytesIndexed = value; AdditionalData?.Remove("total_bytes_indexed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes_indexed"); else _explicitNullProperties?.Remove("total_bytes_indexed"); } }
         private string _explicitNullValueTotalBytesIndexed = default!;
 #endif
         /// <summary>Total file count in the data source</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalFileCount { get => _explicitNullValueTotalFileCount; set { _explicitNullValueTotalFileCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_file_count"); else _explicitNullProperties?.Remove("total_file_count"); } }
+        public string? TotalFileCount { get => _explicitNullValueTotalFileCount; set { _explicitNullValueTotalFileCount = value; AdditionalData?.Remove("total_file_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_file_count"); else _explicitNullProperties?.Remove("total_file_count"); } }
         private string? _explicitNullValueTotalFileCount = default!;
 #nullable restore
 #else
-        public string TotalFileCount { get => _explicitNullValueTotalFileCount; set { _explicitNullValueTotalFileCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_file_count"); else _explicitNullProperties?.Remove("total_file_count"); } }
+        public string TotalFileCount { get => _explicitNullValueTotalFileCount; set { _explicitNullValueTotalFileCount = value; AdditionalData?.Remove("total_file_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_file_count"); else _explicitNullProperties?.Remove("total_file_count"); } }
         private string _explicitNullValueTotalFileCount = default!;
 #endif
         /// <summary>
@@ -189,7 +203,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "removed_item_count", n => { RemovedItemCount = n.GetStringValue(); } },
                 { "skipped_item_count", n => { SkippedItemCount = n.GetStringValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSourceStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSourceStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "total_bytes", n => { TotalBytes = n.GetStringValue(); } },
                 { "total_bytes_indexed", n => { TotalBytesIndexed = n.GetStringValue(); } },
                 { "total_file_count", n => { TotalFileCount = n.GetStringValue(); } },

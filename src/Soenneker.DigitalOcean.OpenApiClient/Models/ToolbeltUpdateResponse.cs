@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("toolbelt") is { } nullNodeToolbelt && nullNodeToolbelt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolbelt = null;
+            if (parseNode.GetChildNode("toolbelt") is null) { _explicitNullValueToolbelt = default!; _explicitNullProperties?.Remove("toolbelt"); }
+            else if (parseNode.GetChildNode("toolbelt") is { } nullNodeToolbelt && nullNodeToolbelt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolbelt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>After adding or removing tools: the new version, or the current version when membership did not change. After a delete: the latest version, with status deprecated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponseToolbelt? Toolbelt { get => _explicitNullValueToolbelt; set { _explicitNullValueToolbelt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelt"); else _explicitNullProperties?.Remove("toolbelt"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponseToolbelt? Toolbelt { get => _explicitNullValueToolbelt; set { _explicitNullValueToolbelt = value; AdditionalData?.Remove("toolbelt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelt"); else _explicitNullProperties?.Remove("toolbelt"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponseToolbelt? _explicitNullValueToolbelt = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponseToolbelt Toolbelt { get => _explicitNullValueToolbelt; set { _explicitNullValueToolbelt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelt"); else _explicitNullProperties?.Remove("toolbelt"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponseToolbelt Toolbelt { get => _explicitNullValueToolbelt; set { _explicitNullValueToolbelt = value; AdditionalData?.Remove("toolbelt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelt"); else _explicitNullProperties?.Remove("toolbelt"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltUpdateResponseToolbelt _explicitNullValueToolbelt = default!;
 #endif
         /// <summary>

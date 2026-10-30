@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("historic_urls") is { } nullNodeHistoricUrls && nullNodeHistoricUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoricUrls = null;
-            if (parseNode.GetChildNode("live_url") is { } nullNodeLiveUrl && nullNodeLiveUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiveUrl = null;
+            if (parseNode.GetChildNode("historic_urls") is null) { _explicitNullValueHistoricUrls = default!; _explicitNullProperties?.Remove("historic_urls"); }
+            else if (parseNode.GetChildNode("historic_urls") is { } nullNodeHistoricUrls && nullNodeHistoricUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoricUrls = null;
+            if (parseNode.GetChildNode("live_url") is null) { _explicitNullValueLiveUrl = default!; _explicitNullProperties?.Remove("live_url"); }
+            else if (parseNode.GetChildNode("live_url") is { } nullNodeLiveUrl && nullNodeLiveUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiveUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The historic_urls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? HistoricUrls { get => _explicitNullValueHistoricUrls; set { _explicitNullValueHistoricUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("historic_urls"); else _explicitNullProperties?.Remove("historic_urls"); } }
+        public List<string>? HistoricUrls { get => _explicitNullValueHistoricUrls; set { _explicitNullValueHistoricUrls = value; AdditionalData?.Remove("historic_urls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("historic_urls"); else _explicitNullProperties?.Remove("historic_urls"); } }
         private List<string>? _explicitNullValueHistoricUrls = default!;
 #nullable restore
 #else
-        public List<string> HistoricUrls { get => _explicitNullValueHistoricUrls; set { _explicitNullValueHistoricUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("historic_urls"); else _explicitNullProperties?.Remove("historic_urls"); } }
+        public List<string> HistoricUrls { get => _explicitNullValueHistoricUrls; set { _explicitNullValueHistoricUrls = value; AdditionalData?.Remove("historic_urls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("historic_urls"); else _explicitNullProperties?.Remove("historic_urls"); } }
         private List<string> _explicitNullValueHistoricUrls = default!;
 #endif
         /// <summary>A URL of the real-time live logs. This URL may use either the `https://` or `wss://` protocols and will keep pushing live logs as they become available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LiveUrl { get => _explicitNullValueLiveUrl; set { _explicitNullValueLiveUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("live_url"); else _explicitNullProperties?.Remove("live_url"); } }
+        public string? LiveUrl { get => _explicitNullValueLiveUrl; set { _explicitNullValueLiveUrl = value; AdditionalData?.Remove("live_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("live_url"); else _explicitNullProperties?.Remove("live_url"); } }
         private string? _explicitNullValueLiveUrl = default!;
 #nullable restore
 #else
-        public string LiveUrl { get => _explicitNullValueLiveUrl; set { _explicitNullValueLiveUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("live_url"); else _explicitNullProperties?.Remove("live_url"); } }
+        public string LiveUrl { get => _explicitNullValueLiveUrl; set { _explicitNullValueLiveUrl = value; AdditionalData?.Remove("live_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("live_url"); else _explicitNullProperties?.Remove("live_url"); } }
         private string _explicitNullValueLiveUrl = default!;
 #endif
         /// <summary>

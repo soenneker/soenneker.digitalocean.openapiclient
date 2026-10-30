@@ -17,16 +17,26 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("evaluation_trace_spans") is { } nullNodeEvaluationTraceSpans && nullNodeEvaluationTraceSpans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationTraceSpans = null;
-            if (parseNode.GetChildNode("ground_truth") is { } nullNodeGroundTruth && nullNodeGroundTruth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroundTruth = null;
-            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
-            if (parseNode.GetChildNode("input_tokens") is { } nullNodeInputTokens && nullNodeInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTokens = null;
-            if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
-            if (parseNode.GetChildNode("output_tokens") is { } nullNodeOutputTokens && nullNodeOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputTokens = null;
-            if (parseNode.GetChildNode("prompt_chunks") is { } nullNodePromptChunks && nullNodePromptChunks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptChunks = null;
-            if (parseNode.GetChildNode("prompt_id") is { } nullNodePromptId && nullNodePromptId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptId = null;
-            if (parseNode.GetChildNode("prompt_level_metric_results") is { } nullNodePromptLevelMetricResults && nullNodePromptLevelMetricResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptLevelMetricResults = null;
-            if (parseNode.GetChildNode("trace_id") is { } nullNodeTraceId && nullNodeTraceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TraceId = null;
+            if (parseNode.GetChildNode("evaluation_trace_spans") is null) { _explicitNullValueEvaluationTraceSpans = default!; _explicitNullProperties?.Remove("evaluation_trace_spans"); }
+            else if (parseNode.GetChildNode("evaluation_trace_spans") is { } nullNodeEvaluationTraceSpans && nullNodeEvaluationTraceSpans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationTraceSpans = null;
+            if (parseNode.GetChildNode("ground_truth") is null) { _explicitNullValueGroundTruth = default!; _explicitNullProperties?.Remove("ground_truth"); }
+            else if (parseNode.GetChildNode("ground_truth") is { } nullNodeGroundTruth && nullNodeGroundTruth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroundTruth = null;
+            if (parseNode.GetChildNode("input") is null) { _explicitNullValueInput = default!; _explicitNullProperties?.Remove("input"); }
+            else if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("input_tokens") is null) { _explicitNullValueInputTokens = default!; _explicitNullProperties?.Remove("input_tokens"); }
+            else if (parseNode.GetChildNode("input_tokens") is { } nullNodeInputTokens && nullNodeInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTokens = null;
+            if (parseNode.GetChildNode("output") is null) { _explicitNullValueOutput = default!; _explicitNullProperties?.Remove("output"); }
+            else if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
+            if (parseNode.GetChildNode("output_tokens") is null) { _explicitNullValueOutputTokens = default!; _explicitNullProperties?.Remove("output_tokens"); }
+            else if (parseNode.GetChildNode("output_tokens") is { } nullNodeOutputTokens && nullNodeOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputTokens = null;
+            if (parseNode.GetChildNode("prompt_chunks") is null) { _explicitNullValuePromptChunks = default!; _explicitNullProperties?.Remove("prompt_chunks"); }
+            else if (parseNode.GetChildNode("prompt_chunks") is { } nullNodePromptChunks && nullNodePromptChunks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptChunks = null;
+            if (parseNode.GetChildNode("prompt_id") is null) { _explicitNullValuePromptId = default!; _explicitNullProperties?.Remove("prompt_id"); }
+            else if (parseNode.GetChildNode("prompt_id") is { } nullNodePromptId && nullNodePromptId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptId = null;
+            if (parseNode.GetChildNode("prompt_level_metric_results") is null) { _explicitNullValuePromptLevelMetricResults = default!; _explicitNullProperties?.Remove("prompt_level_metric_results"); }
+            else if (parseNode.GetChildNode("prompt_level_metric_results") is { } nullNodePromptLevelMetricResults && nullNodePromptLevelMetricResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptLevelMetricResults = null;
+            if (parseNode.GetChildNode("trace_id") is null) { _explicitNullValueTraceId = default!; _explicitNullProperties?.Remove("trace_id"); }
+            else if (parseNode.GetChildNode("trace_id") is { } nullNodeTraceId && nullNodeTraceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TraceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,94 +44,94 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The evaluated trace spans.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTraceSpan>? EvaluationTraceSpans { get => _explicitNullValueEvaluationTraceSpans; set { _explicitNullValueEvaluationTraceSpans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_trace_spans"); else _explicitNullProperties?.Remove("evaluation_trace_spans"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTraceSpan>? EvaluationTraceSpans { get => _explicitNullValueEvaluationTraceSpans; set { _explicitNullValueEvaluationTraceSpans = value; AdditionalData?.Remove("evaluation_trace_spans"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_trace_spans"); else _explicitNullProperties?.Remove("evaluation_trace_spans"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTraceSpan>? _explicitNullValueEvaluationTraceSpans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTraceSpan> EvaluationTraceSpans { get => _explicitNullValueEvaluationTraceSpans; set { _explicitNullValueEvaluationTraceSpans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_trace_spans"); else _explicitNullProperties?.Remove("evaluation_trace_spans"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTraceSpan> EvaluationTraceSpans { get => _explicitNullValueEvaluationTraceSpans; set { _explicitNullValueEvaluationTraceSpans = value; AdditionalData?.Remove("evaluation_trace_spans"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_trace_spans"); else _explicitNullProperties?.Remove("evaluation_trace_spans"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTraceSpan> _explicitNullValueEvaluationTraceSpans = default!;
 #endif
         /// <summary>The ground truth for the prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GroundTruth { get => _explicitNullValueGroundTruth; set { _explicitNullValueGroundTruth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ground_truth"); else _explicitNullProperties?.Remove("ground_truth"); } }
+        public string? GroundTruth { get => _explicitNullValueGroundTruth; set { _explicitNullValueGroundTruth = value; AdditionalData?.Remove("ground_truth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ground_truth"); else _explicitNullProperties?.Remove("ground_truth"); } }
         private string? _explicitNullValueGroundTruth = default!;
 #nullable restore
 #else
-        public string GroundTruth { get => _explicitNullValueGroundTruth; set { _explicitNullValueGroundTruth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ground_truth"); else _explicitNullProperties?.Remove("ground_truth"); } }
+        public string GroundTruth { get => _explicitNullValueGroundTruth; set { _explicitNullValueGroundTruth = value; AdditionalData?.Remove("ground_truth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ground_truth"); else _explicitNullProperties?.Remove("ground_truth"); } }
         private string _explicitNullValueGroundTruth = default!;
 #endif
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        public string? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
         private string? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public string Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        public string Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
         private string _explicitNullValueInput = default!;
 #endif
         /// <summary>The number of input tokens used in the prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InputTokens { get => _explicitNullValueInputTokens; set { _explicitNullValueInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens"); else _explicitNullProperties?.Remove("input_tokens"); } }
+        public string? InputTokens { get => _explicitNullValueInputTokens; set { _explicitNullValueInputTokens = value; AdditionalData?.Remove("input_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens"); else _explicitNullProperties?.Remove("input_tokens"); } }
         private string? _explicitNullValueInputTokens = default!;
 #nullable restore
 #else
-        public string InputTokens { get => _explicitNullValueInputTokens; set { _explicitNullValueInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens"); else _explicitNullProperties?.Remove("input_tokens"); } }
+        public string InputTokens { get => _explicitNullValueInputTokens; set { _explicitNullValueInputTokens = value; AdditionalData?.Remove("input_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens"); else _explicitNullProperties?.Remove("input_tokens"); } }
         private string _explicitNullValueInputTokens = default!;
 #endif
         /// <summary>The output property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public string? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private string? _explicitNullValueOutput = default!;
 #nullable restore
 #else
-        public string Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public string Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private string _explicitNullValueOutput = default!;
 #endif
         /// <summary>The number of output tokens used in the prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OutputTokens { get => _explicitNullValueOutputTokens; set { _explicitNullValueOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens"); else _explicitNullProperties?.Remove("output_tokens"); } }
+        public string? OutputTokens { get => _explicitNullValueOutputTokens; set { _explicitNullValueOutputTokens = value; AdditionalData?.Remove("output_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens"); else _explicitNullProperties?.Remove("output_tokens"); } }
         private string? _explicitNullValueOutputTokens = default!;
 #nullable restore
 #else
-        public string OutputTokens { get => _explicitNullValueOutputTokens; set { _explicitNullValueOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens"); else _explicitNullProperties?.Remove("output_tokens"); } }
+        public string OutputTokens { get => _explicitNullValueOutputTokens; set { _explicitNullValueOutputTokens = value; AdditionalData?.Remove("output_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens"); else _explicitNullProperties?.Remove("output_tokens"); } }
         private string _explicitNullValueOutputTokens = default!;
 #endif
         /// <summary>The list of prompt chunks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPromptChunk>? PromptChunks { get => _explicitNullValuePromptChunks; set { _explicitNullValuePromptChunks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_chunks"); else _explicitNullProperties?.Remove("prompt_chunks"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPromptChunk>? PromptChunks { get => _explicitNullValuePromptChunks; set { _explicitNullValuePromptChunks = value; AdditionalData?.Remove("prompt_chunks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_chunks"); else _explicitNullProperties?.Remove("prompt_chunks"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPromptChunk>? _explicitNullValuePromptChunks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPromptChunk> PromptChunks { get => _explicitNullValuePromptChunks; set { _explicitNullValuePromptChunks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_chunks"); else _explicitNullProperties?.Remove("prompt_chunks"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPromptChunk> PromptChunks { get => _explicitNullValuePromptChunks; set { _explicitNullValuePromptChunks = value; AdditionalData?.Remove("prompt_chunks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_chunks"); else _explicitNullProperties?.Remove("prompt_chunks"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPromptChunk> _explicitNullValuePromptChunks = default!;
 #endif
         /// <summary>Prompt ID</summary>
-        public long? PromptId { get => _explicitNullValuePromptId; set { _explicitNullValuePromptId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_id"); else _explicitNullProperties?.Remove("prompt_id"); } }
+        public long? PromptId { get => _explicitNullValuePromptId; set { _explicitNullValuePromptId = value; AdditionalData?.Remove("prompt_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_id"); else _explicitNullProperties?.Remove("prompt_id"); } }
         private long? _explicitNullValuePromptId = default!;
         /// <summary>The metric results for the prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult>? PromptLevelMetricResults { get => _explicitNullValuePromptLevelMetricResults; set { _explicitNullValuePromptLevelMetricResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_level_metric_results"); else _explicitNullProperties?.Remove("prompt_level_metric_results"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult>? PromptLevelMetricResults { get => _explicitNullValuePromptLevelMetricResults; set { _explicitNullValuePromptLevelMetricResults = value; AdditionalData?.Remove("prompt_level_metric_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_level_metric_results"); else _explicitNullProperties?.Remove("prompt_level_metric_results"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult>? _explicitNullValuePromptLevelMetricResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult> PromptLevelMetricResults { get => _explicitNullValuePromptLevelMetricResults; set { _explicitNullValuePromptLevelMetricResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_level_metric_results"); else _explicitNullProperties?.Remove("prompt_level_metric_results"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult> PromptLevelMetricResults { get => _explicitNullValuePromptLevelMetricResults; set { _explicitNullValuePromptLevelMetricResults = value; AdditionalData?.Remove("prompt_level_metric_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_level_metric_results"); else _explicitNullProperties?.Remove("prompt_level_metric_results"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResult> _explicitNullValuePromptLevelMetricResults = default!;
 #endif
         /// <summary>The trace id for the prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TraceId { get => _explicitNullValueTraceId; set { _explicitNullValueTraceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trace_id"); else _explicitNullProperties?.Remove("trace_id"); } }
+        public string? TraceId { get => _explicitNullValueTraceId; set { _explicitNullValueTraceId = value; AdditionalData?.Remove("trace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trace_id"); else _explicitNullProperties?.Remove("trace_id"); } }
         private string? _explicitNullValueTraceId = default!;
 #nullable restore
 #else
-        public string TraceId { get => _explicitNullValueTraceId; set { _explicitNullValueTraceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trace_id"); else _explicitNullProperties?.Remove("trace_id"); } }
+        public string TraceId { get => _explicitNullValueTraceId; set { _explicitNullValueTraceId = value; AdditionalData?.Remove("trace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trace_id"); else _explicitNullProperties?.Remove("trace_id"); } }
         private string _explicitNullValueTraceId = default!;
 #endif
         /// <summary>

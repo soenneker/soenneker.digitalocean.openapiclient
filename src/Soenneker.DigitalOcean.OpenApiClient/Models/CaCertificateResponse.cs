@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cert") is { } nullNodeCert && nullNodeCert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cert = null;
+            if (parseNode.GetChildNode("cert") is null) { _explicitNullValueCert = default!; _explicitNullProperties?.Remove("cert"); }
+            else if (parseNode.GetChildNode("cert") is { } nullNodeCert && nullNodeCert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cert = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Base64-encoded CA certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cert { get => _explicitNullValueCert; set { _explicitNullValueCert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cert"); else _explicitNullProperties?.Remove("cert"); } }
+        public string? Cert { get => _explicitNullValueCert; set { _explicitNullValueCert = value; AdditionalData?.Remove("cert"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cert"); else _explicitNullProperties?.Remove("cert"); } }
         private string? _explicitNullValueCert = default!;
 #nullable restore
 #else
-        public string Cert { get => _explicitNullValueCert; set { _explicitNullValueCert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cert"); else _explicitNullProperties?.Remove("cert"); } }
+        public string Cert { get => _explicitNullValueCert; set { _explicitNullValueCert = value; AdditionalData?.Remove("cert"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cert"); else _explicitNullProperties?.Remove("cert"); } }
         private string _explicitNullValueCert = default!;
 #endif
         /// <summary>

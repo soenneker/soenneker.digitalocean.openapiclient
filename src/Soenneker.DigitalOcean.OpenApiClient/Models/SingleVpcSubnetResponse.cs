@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("vpc_subnet") is { } nullNodeVpcSubnet && nullNodeVpcSubnet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcSubnet = null;
+            if (parseNode.GetChildNode("vpc_subnet") is null) { _explicitNullValueVpcSubnet = default!; _explicitNullProperties?.Remove("vpc_subnet"); }
+            else if (parseNode.GetChildNode("vpc_subnet") is { } nullNodeVpcSubnet && nullNodeVpcSubnet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcSubnet = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The vpc_subnet property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnet? VpcSubnet { get => _explicitNullValueVpcSubnet; set { _explicitNullValueVpcSubnet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_subnet"); else _explicitNullProperties?.Remove("vpc_subnet"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnet? VpcSubnet { get => _explicitNullValueVpcSubnet; set { _explicitNullValueVpcSubnet = value; AdditionalData?.Remove("vpc_subnet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_subnet"); else _explicitNullProperties?.Remove("vpc_subnet"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnet? _explicitNullValueVpcSubnet = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnet VpcSubnet { get => _explicitNullValueVpcSubnet; set { _explicitNullValueVpcSubnet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_subnet"); else _explicitNullProperties?.Remove("vpc_subnet"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnet VpcSubnet { get => _explicitNullValueVpcSubnet; set { _explicitNullValueVpcSubnet = value; AdditionalData?.Remove("vpc_subnet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_subnet"); else _explicitNullProperties?.Remove("vpc_subnet"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcSubnet _explicitNullValueVpcSubnet = default!;
 #endif
         /// <summary>

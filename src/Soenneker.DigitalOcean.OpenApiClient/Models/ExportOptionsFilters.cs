@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("signal_type") is { } nullNodeSignalType && nullNodeSignalType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignalType = null;
+            if (parseNode.GetChildNode("signal_type") is null) { _explicitNullValueSignalType = default!; _explicitNullProperties?.Remove("signal_type"); }
+            else if (parseNode.GetChildNode("signal_type") is { } nullNodeSignalType && nullNodeSignalType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignalType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The list of valid signal type values that can be used when creating an export.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SignalType { get => _explicitNullValueSignalType; set { _explicitNullValueSignalType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signal_type"); else _explicitNullProperties?.Remove("signal_type"); } }
+        public List<string>? SignalType { get => _explicitNullValueSignalType; set { _explicitNullValueSignalType = value; AdditionalData?.Remove("signal_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signal_type"); else _explicitNullProperties?.Remove("signal_type"); } }
         private List<string>? _explicitNullValueSignalType = default!;
 #nullable restore
 #else
-        public List<string> SignalType { get => _explicitNullValueSignalType; set { _explicitNullValueSignalType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signal_type"); else _explicitNullProperties?.Remove("signal_type"); } }
+        public List<string> SignalType { get => _explicitNullValueSignalType; set { _explicitNullValueSignalType = value; AdditionalData?.Remove("signal_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signal_type"); else _explicitNullProperties?.Remove("signal_type"); } }
         private List<string> _explicitNullValueSignalType = default!;
 #endif
         /// <summary>

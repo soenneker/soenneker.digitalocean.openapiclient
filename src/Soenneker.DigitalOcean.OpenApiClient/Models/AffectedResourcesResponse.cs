@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("affected_resources") is { } nullNodeAffectedResources && nullNodeAffectedResources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AffectedResources = null;
+            if (parseNode.GetChildNode("affected_resources") is null) { _explicitNullValueAffectedResources = default!; _explicitNullProperties?.Remove("affected_resources"); }
+            else if (parseNode.GetChildNode("affected_resources") is { } nullNodeAffectedResources && nullNodeAffectedResources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AffectedResources = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The affected_resources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AffectedResource>? AffectedResources { get => _explicitNullValueAffectedResources; set { _explicitNullValueAffectedResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("affected_resources"); else _explicitNullProperties?.Remove("affected_resources"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AffectedResource>? AffectedResources { get => _explicitNullValueAffectedResources; set { _explicitNullValueAffectedResources = value; AdditionalData?.Remove("affected_resources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("affected_resources"); else _explicitNullProperties?.Remove("affected_resources"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AffectedResource>? _explicitNullValueAffectedResources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AffectedResource> AffectedResources { get => _explicitNullValueAffectedResources; set { _explicitNullValueAffectedResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("affected_resources"); else _explicitNullProperties?.Remove("affected_resources"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AffectedResource> AffectedResources { get => _explicitNullValueAffectedResources; set { _explicitNullValueAffectedResources = value; AdditionalData?.Remove("affected_resources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("affected_resources"); else _explicitNullProperties?.Remove("affected_resources"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AffectedResource> _explicitNullValueAffectedResources = default!;
 #endif
         /// <summary>

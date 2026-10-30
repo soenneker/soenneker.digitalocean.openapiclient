@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
-            if (parseNode.GetChildNode("crawling_option") is { } nullNodeCrawlingOption && nullNodeCrawlingOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrawlingOption = null;
-            if (parseNode.GetChildNode("embed_media") is { } nullNodeEmbedMedia && nullNodeEmbedMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmbedMedia = null;
-            if (parseNode.GetChildNode("exclude_tags") is { } nullNodeExcludeTags && nullNodeExcludeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeTags = null;
+            if (parseNode.GetChildNode("base_url") is null) { _explicitNullValueBaseUrl = default!; _explicitNullProperties?.Remove("base_url"); }
+            else if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
+            if (parseNode.GetChildNode("crawling_option") is null) { _explicitNullValueCrawlingOption = default!; _explicitNullProperties?.Remove("crawling_option"); }
+            else if (parseNode.GetChildNode("crawling_option") is { } nullNodeCrawlingOption && nullNodeCrawlingOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrawlingOption = null;
+            if (parseNode.GetChildNode("embed_media") is null) { _explicitNullValueEmbedMedia = default!; _explicitNullProperties?.Remove("embed_media"); }
+            else if (parseNode.GetChildNode("embed_media") is { } nullNodeEmbedMedia && nullNodeEmbedMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmbedMedia = null;
+            if (parseNode.GetChildNode("exclude_tags") is null) { _explicitNullValueExcludeTags = default!; _explicitNullProperties?.Remove("exclude_tags"); }
+            else if (parseNode.GetChildNode("exclude_tags") is { } nullNodeExcludeTags && nullNodeExcludeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeTags = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,27 +33,27 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The base url to crawl.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
+        public string? BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; AdditionalData?.Remove("base_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
         private string? _explicitNullValueBaseUrl = default!;
 #nullable restore
 #else
-        public string BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
+        public string BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; AdditionalData?.Remove("base_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
         private string _explicitNullValueBaseUrl = default!;
 #endif
         /// <summary>Options for specifying how URLs found on pages should be handled. - UNKNOWN: Default unknown value - SCOPED: Only include the base URL. - PATH: Crawl the base URL and linked pages within the URL path. - DOMAIN: Crawl the base URL and linked pages within the same domain. - SUBDOMAINS: Crawl the base URL and linked pages for any subdomain. - SITEMAP: Crawl URLs discovered in the sitemap.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCrawlingOption? CrawlingOption { get => _explicitNullValueCrawlingOption; set { _explicitNullValueCrawlingOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crawling_option"); else _explicitNullProperties?.Remove("crawling_option"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCrawlingOption? CrawlingOption { get => _explicitNullValueCrawlingOption; set { _explicitNullValueCrawlingOption = value; AdditionalData?.Remove("crawling_option"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crawling_option"); else _explicitNullProperties?.Remove("crawling_option"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCrawlingOption? _explicitNullValueCrawlingOption = default!;
         /// <summary>Whether to ingest and index media (images, etc.) on web pages.</summary>
-        public bool? EmbedMedia { get => _explicitNullValueEmbedMedia; set { _explicitNullValueEmbedMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("embed_media"); else _explicitNullProperties?.Remove("embed_media"); } }
+        public bool? EmbedMedia { get => _explicitNullValueEmbedMedia; set { _explicitNullValueEmbedMedia = value; AdditionalData?.Remove("embed_media"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("embed_media"); else _explicitNullProperties?.Remove("embed_media"); } }
         private bool? _explicitNullValueEmbedMedia = default!;
         /// <summary>Declaring which tags to exclude in web pages while webcrawling</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludeTags { get => _explicitNullValueExcludeTags; set { _explicitNullValueExcludeTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_tags"); else _explicitNullProperties?.Remove("exclude_tags"); } }
+        public List<string>? ExcludeTags { get => _explicitNullValueExcludeTags; set { _explicitNullValueExcludeTags = value; AdditionalData?.Remove("exclude_tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_tags"); else _explicitNullProperties?.Remove("exclude_tags"); } }
         private List<string>? _explicitNullValueExcludeTags = default!;
 #nullable restore
 #else
-        public List<string> ExcludeTags { get => _explicitNullValueExcludeTags; set { _explicitNullValueExcludeTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_tags"); else _explicitNullProperties?.Remove("exclude_tags"); } }
+        public List<string> ExcludeTags { get => _explicitNullValueExcludeTags; set { _explicitNullValueExcludeTags = value; AdditionalData?.Remove("exclude_tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_tags"); else _explicitNullProperties?.Remove("exclude_tags"); } }
         private List<string> _explicitNullValueExcludeTags = default!;
 #endif
         /// <summary>
@@ -78,7 +82,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
-                { "crawling_option", n => { CrawlingOption = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCrawlingOption>(); } },
+                { "crawling_option", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCrawlingOption>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCrawlingOption = default; _explicitNullProperties?.Remove("crawling_option"); AdditionalData["crawling_option"] = unknown; } else { CrawlingOption = parsed; AdditionalData.Remove("crawling_option"); } } },
                 { "embed_media", n => { EmbedMedia = n.GetBoolValue(); } },
                 { "exclude_tags", n => { ExcludeTags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };

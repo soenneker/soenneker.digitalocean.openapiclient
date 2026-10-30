@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cluster_uuids") is { } nullNodeClusterUuids && nullNodeClusterUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterUuids = null;
+            if (parseNode.GetChildNode("cluster_uuids") is null) { _explicitNullValueClusterUuids = default!; _explicitNullProperties?.Remove("cluster_uuids"); }
+            else if (parseNode.GetChildNode("cluster_uuids") is { } nullNodeClusterUuids && nullNodeClusterUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterUuids = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array containing the UUIDs of Kubernetes clusters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ClusterUuids { get => _explicitNullValueClusterUuids; set { _explicitNullValueClusterUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuids"); else _explicitNullProperties?.Remove("cluster_uuids"); } }
+        public List<string>? ClusterUuids { get => _explicitNullValueClusterUuids; set { _explicitNullValueClusterUuids = value; AdditionalData?.Remove("cluster_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuids"); else _explicitNullProperties?.Remove("cluster_uuids"); } }
         private List<string>? _explicitNullValueClusterUuids = default!;
 #nullable restore
 #else
-        public List<string> ClusterUuids { get => _explicitNullValueClusterUuids; set { _explicitNullValueClusterUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuids"); else _explicitNullProperties?.Remove("cluster_uuids"); } }
+        public List<string> ClusterUuids { get => _explicitNullValueClusterUuids; set { _explicitNullValueClusterUuids = value; AdditionalData?.Remove("cluster_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuids"); else _explicitNullProperties?.Remove("cluster_uuids"); } }
         private List<string> _explicitNullValueClusterUuids = default!;
 #endif
         /// <summary>

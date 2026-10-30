@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
-            if (parseNode.GetChildNode("judge_model_pricing") is { } nullNodeJudgeModelPricing && nullNodeJudgeModelPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelPricing = null;
-            if (parseNode.GetChildNode("per_candidate_model_pricing") is { } nullNodePerCandidateModelPricing && nullNodePerCandidateModelPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerCandidateModelPricing = null;
-            if (parseNode.GetChildNode("total_cost") is { } nullNodeTotalCost && nullNodeTotalCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCost = null;
+            if (parseNode.GetChildNode("currency") is null) { _explicitNullValueCurrency = default!; _explicitNullProperties?.Remove("currency"); }
+            else if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("judge_model_pricing") is null) { _explicitNullValueJudgeModelPricing = default!; _explicitNullProperties?.Remove("judge_model_pricing"); }
+            else if (parseNode.GetChildNode("judge_model_pricing") is { } nullNodeJudgeModelPricing && nullNodeJudgeModelPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelPricing = null;
+            if (parseNode.GetChildNode("per_candidate_model_pricing") is null) { _explicitNullValuePerCandidateModelPricing = default!; _explicitNullProperties?.Remove("per_candidate_model_pricing"); }
+            else if (parseNode.GetChildNode("per_candidate_model_pricing") is { } nullNodePerCandidateModelPricing && nullNodePerCandidateModelPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerCandidateModelPricing = null;
+            if (parseNode.GetChildNode("total_cost") is null) { _explicitNullValueTotalCost = default!; _explicitNullProperties?.Remove("total_cost"); }
+            else if (parseNode.GetChildNode("total_cost") is { } nullNodeTotalCost && nullNodeTotalCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCost = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,35 +33,35 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Currency code (e.g., &quot;USD&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
         private string? _explicitNullValueCurrency = default!;
 #nullable restore
 #else
-        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
         private string _explicitNullValueCurrency = default!;
 #endif
         /// <summary>Token pricing breakdown for a single model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing? JudgeModelPricing { get => _explicitNullValueJudgeModelPricing; set { _explicitNullValueJudgeModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_pricing"); else _explicitNullProperties?.Remove("judge_model_pricing"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing? JudgeModelPricing { get => _explicitNullValueJudgeModelPricing; set { _explicitNullValueJudgeModelPricing = value; AdditionalData?.Remove("judge_model_pricing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_pricing"); else _explicitNullProperties?.Remove("judge_model_pricing"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing? _explicitNullValueJudgeModelPricing = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing JudgeModelPricing { get => _explicitNullValueJudgeModelPricing; set { _explicitNullValueJudgeModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_pricing"); else _explicitNullProperties?.Remove("judge_model_pricing"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing JudgeModelPricing { get => _explicitNullValueJudgeModelPricing; set { _explicitNullValueJudgeModelPricing = value; AdditionalData?.Remove("judge_model_pricing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_pricing"); else _explicitNullProperties?.Remove("judge_model_pricing"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenPricing _explicitNullValueJudgeModelPricing = default!;
 #endif
         /// <summary>Pricing per candidate model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry>? PerCandidateModelPricing { get => _explicitNullValuePerCandidateModelPricing; set { _explicitNullValuePerCandidateModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_candidate_model_pricing"); else _explicitNullProperties?.Remove("per_candidate_model_pricing"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry>? PerCandidateModelPricing { get => _explicitNullValuePerCandidateModelPricing; set { _explicitNullValuePerCandidateModelPricing = value; AdditionalData?.Remove("per_candidate_model_pricing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_candidate_model_pricing"); else _explicitNullProperties?.Remove("per_candidate_model_pricing"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry>? _explicitNullValuePerCandidateModelPricing = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry> PerCandidateModelPricing { get => _explicitNullValuePerCandidateModelPricing; set { _explicitNullValuePerCandidateModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_candidate_model_pricing"); else _explicitNullProperties?.Remove("per_candidate_model_pricing"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry> PerCandidateModelPricing { get => _explicitNullValuePerCandidateModelPricing; set { _explicitNullValuePerCandidateModelPricing = value; AdditionalData?.Remove("per_candidate_model_pricing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_candidate_model_pricing"); else _explicitNullProperties?.Remove("per_candidate_model_pricing"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingEntry> _explicitNullValuePerCandidateModelPricing = default!;
 #endif
         /// <summary>Total cost of the evaluation run (all candidates + judge).</summary>
-        public double? TotalCost { get => _explicitNullValueTotalCost; set { _explicitNullValueTotalCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cost"); else _explicitNullProperties?.Remove("total_cost"); } }
+        public double? TotalCost { get => _explicitNullValueTotalCost; set { _explicitNullValueTotalCost = value; AdditionalData?.Remove("total_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cost"); else _explicitNullProperties?.Remove("total_cost"); } }
         private double? _explicitNullValueTotalCost = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationPricing"/> and sets the default values.

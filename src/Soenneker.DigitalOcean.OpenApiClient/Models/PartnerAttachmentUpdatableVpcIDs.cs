@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("vpc_ids") is { } nullNodeVpcIds && nullNodeVpcIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcIds = null;
+            if (parseNode.GetChildNode("vpc_ids") is null) { _explicitNullValueVpcIds = default!; _explicitNullProperties?.Remove("vpc_ids"); }
+            else if (parseNode.GetChildNode("vpc_ids") is { } nullNodeVpcIds && nullNodeVpcIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array of VPCs IDs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
+        public List<string>? VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; AdditionalData?.Remove("vpc_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
         private List<string>? _explicitNullValueVpcIds = default!;
 #nullable restore
 #else
-        public List<string> VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
+        public List<string> VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; AdditionalData?.Remove("vpc_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
         private List<string> _explicitNullValueVpcIds = default!;
 #endif
         /// <summary>

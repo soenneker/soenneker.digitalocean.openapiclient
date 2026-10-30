@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
-            if (parseNode.GetChildNode("sink_name") is { } nullNodeSinkName && nullNodeSinkName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SinkName = null;
-            if (parseNode.GetChildNode("sink_type") is { } nullNodeSinkType && nullNodeSinkType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SinkType = null;
+            if (parseNode.GetChildNode("config") is null) { _explicitNullValueConfig = default!; _explicitNullProperties?.Remove("config"); }
+            else if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
+            if (parseNode.GetChildNode("sink_name") is null) { _explicitNullValueSinkName = default!; _explicitNullProperties?.Remove("sink_name"); }
+            else if (parseNode.GetChildNode("sink_name") is { } nullNodeSinkName && nullNodeSinkName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SinkName = null;
+            if (parseNode.GetChildNode("sink_type") is null) { _explicitNullValueSinkType = default!; _explicitNullProperties?.Remove("sink_type"); }
+            else if (parseNode.GetChildNode("sink_type") is { } nullNodeSinkType && nullNodeSinkType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SinkType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkCreateAllOf2Config? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkCreateAllOf2Config? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkCreateAllOf2Config? _explicitNullValueConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkCreateAllOf2Config Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkCreateAllOf2Config Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkCreateAllOf2Config _explicitNullValueConfig = default!;
 #endif
         /// <summary>The name of the Logsink</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SinkName { get => _explicitNullValueSinkName; set { _explicitNullValueSinkName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sink_name"); else _explicitNullProperties?.Remove("sink_name"); } }
+        public string? SinkName { get => _explicitNullValueSinkName; set { _explicitNullValueSinkName = value; AdditionalData?.Remove("sink_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sink_name"); else _explicitNullProperties?.Remove("sink_name"); } }
         private string? _explicitNullValueSinkName = default!;
 #nullable restore
 #else
-        public string SinkName { get => _explicitNullValueSinkName; set { _explicitNullValueSinkName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sink_name"); else _explicitNullProperties?.Remove("sink_name"); } }
+        public string SinkName { get => _explicitNullValueSinkName; set { _explicitNullValueSinkName = value; AdditionalData?.Remove("sink_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sink_name"); else _explicitNullProperties?.Remove("sink_name"); } }
         private string _explicitNullValueSinkName = default!;
 #endif
         /// <summary>Type of logsink integration.- Use `datadog` for Datadog integration **only with MongoDB clusters**.- For non-MongoDB clusters, use `rsyslog` for general syslog forwarding.- Other supported types include `elasticsearch` and `opensearch`.More details about the configuration can be found in the `config` property.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkBaseSinkType? SinkType { get => _explicitNullValueSinkType; set { _explicitNullValueSinkType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sink_type"); else _explicitNullProperties?.Remove("sink_type"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkBaseSinkType? SinkType { get => _explicitNullValueSinkType; set { _explicitNullValueSinkType = value; AdditionalData?.Remove("sink_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sink_type"); else _explicitNullProperties?.Remove("sink_type"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkBaseSinkType? _explicitNullValueSinkType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabasesCreateLogsinkRequest"/> and sets the default values.
@@ -74,7 +77,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkCreateAllOf2Config>(global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkCreateAllOf2Config.CreateFromDiscriminatorValue); } },
                 { "sink_name", n => { SinkName = n.GetStringValue(); } },
-                { "sink_type", n => { SinkType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkBaseSinkType>(); } },
+                { "sink_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsinkBaseSinkType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSinkType = default; _explicitNullProperties?.Remove("sink_type"); AdditionalData["sink_type"] = unknown; } else { SinkType = parsed; AdditionalData.Remove("sink_type"); } } },
             };
         }
         /// <summary>

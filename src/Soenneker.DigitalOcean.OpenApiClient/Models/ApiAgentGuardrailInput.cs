@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("guardrail_uuid") is { } nullNodeGuardrailUuid && nullNodeGuardrailUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GuardrailUuid = null;
-            if (parseNode.GetChildNode("priority") is { } nullNodePriority && nullNodePriority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Priority = null;
+            if (parseNode.GetChildNode("guardrail_uuid") is null) { _explicitNullValueGuardrailUuid = default!; _explicitNullProperties?.Remove("guardrail_uuid"); }
+            else if (parseNode.GetChildNode("guardrail_uuid") is { } nullNodeGuardrailUuid && nullNodeGuardrailUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GuardrailUuid = null;
+            if (parseNode.GetChildNode("priority") is null) { _explicitNullValuePriority = default!; _explicitNullProperties?.Remove("priority"); }
+            else if (parseNode.GetChildNode("priority") is { } nullNodePriority && nullNodePriority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Priority = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Guardrail uuid</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GuardrailUuid { get => _explicitNullValueGuardrailUuid; set { _explicitNullValueGuardrailUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guardrail_uuid"); else _explicitNullProperties?.Remove("guardrail_uuid"); } }
+        public string? GuardrailUuid { get => _explicitNullValueGuardrailUuid; set { _explicitNullValueGuardrailUuid = value; AdditionalData?.Remove("guardrail_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guardrail_uuid"); else _explicitNullProperties?.Remove("guardrail_uuid"); } }
         private string? _explicitNullValueGuardrailUuid = default!;
 #nullable restore
 #else
-        public string GuardrailUuid { get => _explicitNullValueGuardrailUuid; set { _explicitNullValueGuardrailUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guardrail_uuid"); else _explicitNullProperties?.Remove("guardrail_uuid"); } }
+        public string GuardrailUuid { get => _explicitNullValueGuardrailUuid; set { _explicitNullValueGuardrailUuid = value; AdditionalData?.Remove("guardrail_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guardrail_uuid"); else _explicitNullProperties?.Remove("guardrail_uuid"); } }
         private string _explicitNullValueGuardrailUuid = default!;
 #endif
         /// <summary>Priority of the guardrail</summary>
-        public long? Priority { get => _explicitNullValuePriority; set { _explicitNullValuePriority = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("priority"); else _explicitNullProperties?.Remove("priority"); } }
+        public long? Priority { get => _explicitNullValuePriority; set { _explicitNullValuePriority = value; AdditionalData?.Remove("priority"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("priority"); else _explicitNullProperties?.Remove("priority"); } }
         private long? _explicitNullValuePriority = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentGuardrailInput"/> and sets the default values.

@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("edges") is { } nullNodeEdges && nullNodeEdges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Edges = null;
-            if (parseNode.GetChildNode("page_info") is { } nullNodePageInfo && nullNodePageInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageInfo = null;
+            if (parseNode.GetChildNode("edges") is null) { _explicitNullValueEdges = default!; _explicitNullProperties?.Remove("edges"); }
+            else if (parseNode.GetChildNode("edges") is { } nullNodeEdges && nullNodeEdges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Edges = null;
+            if (parseNode.GetChildNode("page_info") is null) { _explicitNullValuePageInfo = default!; _explicitNullProperties?.Remove("page_info"); }
+            else if (parseNode.GetChildNode("page_info") is { } nullNodePageInfo && nullNodePageInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageInfo = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The edges property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem>? Edges { get => _explicitNullValueEdges; set { _explicitNullValueEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edges"); else _explicitNullProperties?.Remove("edges"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem>? Edges { get => _explicitNullValueEdges; set { _explicitNullValueEdges = value; AdditionalData?.Remove("edges"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edges"); else _explicitNullProperties?.Remove("edges"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem>? _explicitNullValueEdges = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem> Edges { get => _explicitNullValueEdges; set { _explicitNullValueEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edges"); else _explicitNullProperties?.Remove("edges"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem> Edges { get => _explicitNullValueEdges; set { _explicitNullValueEdges = value; AdditionalData?.Remove("edges"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edges"); else _explicitNullProperties?.Remove("edges"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponseEdgesItem> _explicitNullValueEdges = default!;
 #endif
         /// <summary>The page_info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo? PageInfo { get => _explicitNullValuePageInfo; set { _explicitNullValuePageInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_info"); else _explicitNullProperties?.Remove("page_info"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo? PageInfo { get => _explicitNullValuePageInfo; set { _explicitNullValuePageInfo = value; AdditionalData?.Remove("page_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_info"); else _explicitNullProperties?.Remove("page_info"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo? _explicitNullValuePageInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo PageInfo { get => _explicitNullValuePageInfo; set { _explicitNullValuePageInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_info"); else _explicitNullProperties?.Remove("page_info"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo PageInfo { get => _explicitNullValuePageInfo; set { _explicitNullValuePageInfo = value; AdditionalData?.Remove("page_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_info"); else _explicitNullProperties?.Remove("page_info"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ListExportsResponseResponsePageInfo _explicitNullValuePageInfo = default!;
 #endif
         /// <summary>

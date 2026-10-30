@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reserved_ipv6") is { } nullNodeReservedIpv6 && nullNodeReservedIpv6.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedIpv6 = null;
+            if (parseNode.GetChildNode("reserved_ipv6") is null) { _explicitNullValueReservedIpv6 = default!; _explicitNullProperties?.Remove("reserved_ipv6"); }
+            else if (parseNode.GetChildNode("reserved_ipv6") is { } nullNodeReservedIpv6 && nullNodeReservedIpv6.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedIpv6 = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The reserved_ipv6 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6? ReservedIpv6 { get => _explicitNullValueReservedIpv6; set { _explicitNullValueReservedIpv6 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ipv6"); else _explicitNullProperties?.Remove("reserved_ipv6"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6? ReservedIpv6 { get => _explicitNullValueReservedIpv6; set { _explicitNullValueReservedIpv6 = value; AdditionalData?.Remove("reserved_ipv6"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ipv6"); else _explicitNullProperties?.Remove("reserved_ipv6"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6? _explicitNullValueReservedIpv6 = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6 ReservedIpv6 { get => _explicitNullValueReservedIpv6; set { _explicitNullValueReservedIpv6 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ipv6"); else _explicitNullProperties?.Remove("reserved_ipv6"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6 ReservedIpv6 { get => _explicitNullValueReservedIpv6; set { _explicitNullValueReservedIpv6 = value; AdditionalData?.Remove("reserved_ipv6"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_ipv6"); else _explicitNullProperties?.Remove("reserved_ipv6"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6 _explicitNullValueReservedIpv6 = default!;
 #endif
         /// <summary>

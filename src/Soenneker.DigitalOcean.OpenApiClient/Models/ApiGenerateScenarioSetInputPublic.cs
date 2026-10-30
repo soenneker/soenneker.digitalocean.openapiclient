@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("generator_model_uuid") is { } nullNodeGeneratorModelUuid && nullNodeGeneratorModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneratorModelUuid = null;
-            if (parseNode.GetChildNode("goal_description") is { } nullNodeGoalDescription && nullNodeGoalDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoalDescription = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("num_scenarios") is { } nullNodeNumScenarios && nullNodeNumScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumScenarios = null;
+            if (parseNode.GetChildNode("generator_model_uuid") is null) { _explicitNullValueGeneratorModelUuid = default!; _explicitNullProperties?.Remove("generator_model_uuid"); }
+            else if (parseNode.GetChildNode("generator_model_uuid") is { } nullNodeGeneratorModelUuid && nullNodeGeneratorModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneratorModelUuid = null;
+            if (parseNode.GetChildNode("goal_description") is null) { _explicitNullValueGoalDescription = default!; _explicitNullProperties?.Remove("goal_description"); }
+            else if (parseNode.GetChildNode("goal_description") is { } nullNodeGoalDescription && nullNodeGoalDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoalDescription = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("num_scenarios") is null) { _explicitNullValueNumScenarios = default!; _explicitNullProperties?.Remove("num_scenarios"); }
+            else if (parseNode.GetChildNode("num_scenarios") is { } nullNodeNumScenarios && nullNodeNumScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumScenarios = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,35 +33,35 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Optional model to use for generation. Platform default when unset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GeneratorModelUuid { get => _explicitNullValueGeneratorModelUuid; set { _explicitNullValueGeneratorModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generator_model_uuid"); else _explicitNullProperties?.Remove("generator_model_uuid"); } }
+        public string? GeneratorModelUuid { get => _explicitNullValueGeneratorModelUuid; set { _explicitNullValueGeneratorModelUuid = value; AdditionalData?.Remove("generator_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generator_model_uuid"); else _explicitNullProperties?.Remove("generator_model_uuid"); } }
         private string? _explicitNullValueGeneratorModelUuid = default!;
 #nullable restore
 #else
-        public string GeneratorModelUuid { get => _explicitNullValueGeneratorModelUuid; set { _explicitNullValueGeneratorModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generator_model_uuid"); else _explicitNullProperties?.Remove("generator_model_uuid"); } }
+        public string GeneratorModelUuid { get => _explicitNullValueGeneratorModelUuid; set { _explicitNullValueGeneratorModelUuid = value; AdditionalData?.Remove("generator_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generator_model_uuid"); else _explicitNullProperties?.Remove("generator_model_uuid"); } }
         private string _explicitNullValueGeneratorModelUuid = default!;
 #endif
         /// <summary>The goal that drives scenario generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GoalDescription { get => _explicitNullValueGoalDescription; set { _explicitNullValueGoalDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("goal_description"); else _explicitNullProperties?.Remove("goal_description"); } }
+        public string? GoalDescription { get => _explicitNullValueGoalDescription; set { _explicitNullValueGoalDescription = value; AdditionalData?.Remove("goal_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("goal_description"); else _explicitNullProperties?.Remove("goal_description"); } }
         private string? _explicitNullValueGoalDescription = default!;
 #nullable restore
 #else
-        public string GoalDescription { get => _explicitNullValueGoalDescription; set { _explicitNullValueGoalDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("goal_description"); else _explicitNullProperties?.Remove("goal_description"); } }
+        public string GoalDescription { get => _explicitNullValueGoalDescription; set { _explicitNullValueGoalDescription = value; AdditionalData?.Remove("goal_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("goal_description"); else _explicitNullProperties?.Remove("goal_description"); } }
         private string _explicitNullValueGoalDescription = default!;
 #endif
         /// <summary>The name of the scenario set to create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Number of scenarios to generate. Defaults to 1 if unset.</summary>
-        public long? NumScenarios { get => _explicitNullValueNumScenarios; set { _explicitNullValueNumScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_scenarios"); else _explicitNullProperties?.Remove("num_scenarios"); } }
+        public long? NumScenarios { get => _explicitNullValueNumScenarios; set { _explicitNullValueNumScenarios = value; AdditionalData?.Remove("num_scenarios"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_scenarios"); else _explicitNullProperties?.Remove("num_scenarios"); } }
         private long? _explicitNullValueNumScenarios = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiGenerateScenarioSetInputPublic"/> and sets the default values.

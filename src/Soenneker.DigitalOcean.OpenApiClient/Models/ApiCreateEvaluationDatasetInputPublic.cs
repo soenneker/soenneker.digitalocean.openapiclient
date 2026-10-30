@@ -18,38 +18,42 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dataset_paradigm") is { } nullNodeDatasetParadigm && nullNodeDatasetParadigm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetParadigm = null;
-            if (parseNode.GetChildNode("dataset_type") is { } nullNodeDatasetType && nullNodeDatasetType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetType = null;
-            if (parseNode.GetChildNode("file_upload_dataset") is { } nullNodeFileUploadDataset && nullNodeFileUploadDataset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileUploadDataset = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("dataset_paradigm") is null) { _explicitNullValueDatasetParadigm = default!; _explicitNullProperties?.Remove("dataset_paradigm"); }
+            else if (parseNode.GetChildNode("dataset_paradigm") is { } nullNodeDatasetParadigm && nullNodeDatasetParadigm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetParadigm = null;
+            if (parseNode.GetChildNode("dataset_type") is null) { _explicitNullValueDatasetType = default!; _explicitNullProperties?.Remove("dataset_type"); }
+            else if (parseNode.GetChildNode("dataset_type") is { } nullNodeDatasetType && nullNodeDatasetType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetType = null;
+            if (parseNode.GetChildNode("file_upload_dataset") is null) { _explicitNullValueFileUploadDataset = default!; _explicitNullProperties?.Remove("file_upload_dataset"); }
+            else if (parseNode.GetChildNode("file_upload_dataset") is { } nullNodeFileUploadDataset && nullNodeFileUploadDataset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileUploadDataset = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>EvaluationDatasetParadigm is the row/content shape of a dataset, orthogonal to thesurface in EvaluationDatasetType (e.g. a model dataset can be single- or multi-turn).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? DatasetParadigm { get => _explicitNullValueDatasetParadigm; set { _explicitNullValueDatasetParadigm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_paradigm"); else _explicitNullProperties?.Remove("dataset_paradigm"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? DatasetParadigm { get => _explicitNullValueDatasetParadigm; set { _explicitNullValueDatasetParadigm = value; AdditionalData?.Remove("dataset_paradigm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_paradigm"); else _explicitNullProperties?.Remove("dataset_paradigm"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? _explicitNullValueDatasetParadigm = default!;
         /// <summary>The dataset_type property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType? DatasetType { get => _explicitNullValueDatasetType; set { _explicitNullValueDatasetType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_type"); else _explicitNullProperties?.Remove("dataset_type"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType? DatasetType { get => _explicitNullValueDatasetType; set { _explicitNullValueDatasetType = value; AdditionalData?.Remove("dataset_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_type"); else _explicitNullProperties?.Remove("dataset_type"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType? _explicitNullValueDatasetType = default!;
         /// <summary>File to upload as data source for knowledge base.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource? FileUploadDataset { get => _explicitNullValueFileUploadDataset; set { _explicitNullValueFileUploadDataset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_upload_dataset"); else _explicitNullProperties?.Remove("file_upload_dataset"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource? FileUploadDataset { get => _explicitNullValueFileUploadDataset; set { _explicitNullValueFileUploadDataset = value; AdditionalData?.Remove("file_upload_dataset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_upload_dataset"); else _explicitNullProperties?.Remove("file_upload_dataset"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource? _explicitNullValueFileUploadDataset = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource FileUploadDataset { get => _explicitNullValueFileUploadDataset; set { _explicitNullValueFileUploadDataset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_upload_dataset"); else _explicitNullProperties?.Remove("file_upload_dataset"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource FileUploadDataset { get => _explicitNullValueFileUploadDataset; set { _explicitNullValueFileUploadDataset = value; AdditionalData?.Remove("file_upload_dataset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_upload_dataset"); else _explicitNullProperties?.Remove("file_upload_dataset"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource _explicitNullValueFileUploadDataset = default!;
 #endif
         /// <summary>The name of the agent evaluation dataset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>
@@ -77,8 +81,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dataset_paradigm", n => { DatasetParadigm = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>(); } },
-                { "dataset_type", n => { DatasetType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>(); } },
+                { "dataset_paradigm", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDatasetParadigm = default; _explicitNullProperties?.Remove("dataset_paradigm"); AdditionalData["dataset_paradigm"] = unknown; } else { DatasetParadigm = parsed; AdditionalData.Remove("dataset_paradigm"); } } },
+                { "dataset_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDatasetType = default; _explicitNullProperties?.Remove("dataset_type"); AdditionalData["dataset_type"] = unknown; } else { DatasetType = parsed; AdditionalData.Remove("dataset_type"); } } },
                 { "file_upload_dataset", n => { FileUploadDataset = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiFileUploadDataSource.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };

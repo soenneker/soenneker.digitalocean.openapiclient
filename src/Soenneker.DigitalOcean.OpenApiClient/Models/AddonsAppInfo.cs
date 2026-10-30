@@ -17,10 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("app_slug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
-            if (parseNode.GetChildNode("eula") is { } nullNodeEula && nullNodeEula.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eula = null;
-            if (parseNode.GetChildNode("plans") is { } nullNodePlans && nullNodePlans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plans = null;
-            if (parseNode.GetChildNode("tos") is { } nullNodeTos && nullNodeTos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tos = null;
+            if (parseNode.GetChildNode("app_slug") is null) { _explicitNullValueAppSlug = default!; _explicitNullProperties?.Remove("app_slug"); }
+            else if (parseNode.GetChildNode("app_slug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
+            if (parseNode.GetChildNode("eula") is null) { _explicitNullValueEula = default!; _explicitNullProperties?.Remove("eula"); }
+            else if (parseNode.GetChildNode("eula") is { } nullNodeEula && nullNodeEula.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eula = null;
+            if (parseNode.GetChildNode("plans") is null) { _explicitNullValuePlans = default!; _explicitNullProperties?.Remove("plans"); }
+            else if (parseNode.GetChildNode("plans") is { } nullNodePlans && nullNodePlans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plans = null;
+            if (parseNode.GetChildNode("tos") is null) { _explicitNullValueTos = default!; _explicitNullProperties?.Remove("tos"); }
+            else if (parseNode.GetChildNode("tos") is { } nullNodeTos && nullNodeTos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tos = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The slug identifier for the application associated with the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
+        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("app_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
         private string? _explicitNullValueAppSlug = default!;
 #nullable restore
 #else
-        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
+        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("app_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
         private string _explicitNullValueAppSlug = default!;
 #endif
         /// <summary>The End User License Agreement URL for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Eula { get => _explicitNullValueEula; set { _explicitNullValueEula = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eula"); else _explicitNullProperties?.Remove("eula"); } }
+        public string? Eula { get => _explicitNullValueEula; set { _explicitNullValueEula = value; AdditionalData?.Remove("eula"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eula"); else _explicitNullProperties?.Remove("eula"); } }
         private string? _explicitNullValueEula = default!;
 #nullable restore
 #else
-        public string Eula { get => _explicitNullValueEula; set { _explicitNullValueEula = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eula"); else _explicitNullProperties?.Remove("eula"); } }
+        public string Eula { get => _explicitNullValueEula; set { _explicitNullValueEula = value; AdditionalData?.Remove("eula"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eula"); else _explicitNullProperties?.Remove("eula"); } }
         private string _explicitNullValueEula = default!;
 #endif
         /// <summary>A list of plans available for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan>? Plans { get => _explicitNullValuePlans; set { _explicitNullValuePlans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plans"); else _explicitNullProperties?.Remove("plans"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan>? Plans { get => _explicitNullValuePlans; set { _explicitNullValuePlans = value; AdditionalData?.Remove("plans"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plans"); else _explicitNullProperties?.Remove("plans"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan>? _explicitNullValuePlans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan> Plans { get => _explicitNullValuePlans; set { _explicitNullValuePlans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plans"); else _explicitNullProperties?.Remove("plans"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan> Plans { get => _explicitNullValuePlans; set { _explicitNullValuePlans = value; AdditionalData?.Remove("plans"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plans"); else _explicitNullProperties?.Remove("plans"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsPlan> _explicitNullValuePlans = default!;
 #endif
         /// <summary>The Terms of Service URL for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tos { get => _explicitNullValueTos; set { _explicitNullValueTos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tos"); else _explicitNullProperties?.Remove("tos"); } }
+        public string? Tos { get => _explicitNullValueTos; set { _explicitNullValueTos = value; AdditionalData?.Remove("tos"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tos"); else _explicitNullProperties?.Remove("tos"); } }
         private string? _explicitNullValueTos = default!;
 #nullable restore
 #else
-        public string Tos { get => _explicitNullValueTos; set { _explicitNullValueTos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tos"); else _explicitNullProperties?.Remove("tos"); } }
+        public string Tos { get => _explicitNullValueTos; set { _explicitNullValueTos = value; AdditionalData?.Remove("tos"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tos"); else _explicitNullProperties?.Remove("tos"); } }
         private string _explicitNullValueTos = default!;
 #endif
         /// <summary>

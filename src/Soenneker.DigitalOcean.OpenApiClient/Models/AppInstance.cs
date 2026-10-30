@@ -17,10 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("component_name") is { } nullNodeComponentName && nullNodeComponentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComponentName = null;
-            if (parseNode.GetChildNode("component_type") is { } nullNodeComponentType && nullNodeComponentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComponentType = null;
-            if (parseNode.GetChildNode("instance_alias") is { } nullNodeInstanceAlias && nullNodeInstanceAlias.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceAlias = null;
-            if (parseNode.GetChildNode("instance_name") is { } nullNodeInstanceName && nullNodeInstanceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceName = null;
+            if (parseNode.GetChildNode("component_name") is null) { _explicitNullValueComponentName = default!; _explicitNullProperties?.Remove("component_name"); }
+            else if (parseNode.GetChildNode("component_name") is { } nullNodeComponentName && nullNodeComponentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComponentName = null;
+            if (parseNode.GetChildNode("component_type") is null) { _explicitNullValueComponentType = default!; _explicitNullProperties?.Remove("component_type"); }
+            else if (parseNode.GetChildNode("component_type") is { } nullNodeComponentType && nullNodeComponentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComponentType = null;
+            if (parseNode.GetChildNode("instance_alias") is null) { _explicitNullValueInstanceAlias = default!; _explicitNullProperties?.Remove("instance_alias"); }
+            else if (parseNode.GetChildNode("instance_alias") is { } nullNodeInstanceAlias && nullNodeInstanceAlias.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceAlias = null;
+            if (parseNode.GetChildNode("instance_name") is null) { _explicitNullValueInstanceName = default!; _explicitNullProperties?.Remove("instance_name"); }
+            else if (parseNode.GetChildNode("instance_name") is { } nullNodeInstanceName && nullNodeInstanceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,34 +32,34 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Name of the component, from the app spec.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ComponentName { get => _explicitNullValueComponentName; set { _explicitNullValueComponentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_name"); else _explicitNullProperties?.Remove("component_name"); } }
+        public string? ComponentName { get => _explicitNullValueComponentName; set { _explicitNullValueComponentName = value; AdditionalData?.Remove("component_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_name"); else _explicitNullProperties?.Remove("component_name"); } }
         private string? _explicitNullValueComponentName = default!;
 #nullable restore
 #else
-        public string ComponentName { get => _explicitNullValueComponentName; set { _explicitNullValueComponentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_name"); else _explicitNullProperties?.Remove("component_name"); } }
+        public string ComponentName { get => _explicitNullValueComponentName; set { _explicitNullValueComponentName = value; AdditionalData?.Remove("component_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_name"); else _explicitNullProperties?.Remove("component_name"); } }
         private string _explicitNullValueComponentName = default!;
 #endif
         /// <summary>Supported compute component by DigitalOcean App Platform.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppInstanceComponentType? ComponentType { get => _explicitNullValueComponentType; set { _explicitNullValueComponentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_type"); else _explicitNullProperties?.Remove("component_type"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppInstanceComponentType? ComponentType { get => _explicitNullValueComponentType; set { _explicitNullValueComponentType = value; AdditionalData?.Remove("component_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_type"); else _explicitNullProperties?.Remove("component_type"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppInstanceComponentType? _explicitNullValueComponentType = default!;
         /// <summary>Readable identifier, an alias of the instance name, reference for mapping insights to instance names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InstanceAlias { get => _explicitNullValueInstanceAlias; set { _explicitNullValueInstanceAlias = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_alias"); else _explicitNullProperties?.Remove("instance_alias"); } }
+        public string? InstanceAlias { get => _explicitNullValueInstanceAlias; set { _explicitNullValueInstanceAlias = value; AdditionalData?.Remove("instance_alias"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_alias"); else _explicitNullProperties?.Remove("instance_alias"); } }
         private string? _explicitNullValueInstanceAlias = default!;
 #nullable restore
 #else
-        public string InstanceAlias { get => _explicitNullValueInstanceAlias; set { _explicitNullValueInstanceAlias = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_alias"); else _explicitNullProperties?.Remove("instance_alias"); } }
+        public string InstanceAlias { get => _explicitNullValueInstanceAlias; set { _explicitNullValueInstanceAlias = value; AdditionalData?.Remove("instance_alias"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_alias"); else _explicitNullProperties?.Remove("instance_alias"); } }
         private string _explicitNullValueInstanceAlias = default!;
 #endif
         /// <summary>Name of the instance, which is a unique identifier for the instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InstanceName { get => _explicitNullValueInstanceName; set { _explicitNullValueInstanceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_name"); else _explicitNullProperties?.Remove("instance_name"); } }
+        public string? InstanceName { get => _explicitNullValueInstanceName; set { _explicitNullValueInstanceName = value; AdditionalData?.Remove("instance_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_name"); else _explicitNullProperties?.Remove("instance_name"); } }
         private string? _explicitNullValueInstanceName = default!;
 #nullable restore
 #else
-        public string InstanceName { get => _explicitNullValueInstanceName; set { _explicitNullValueInstanceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_name"); else _explicitNullProperties?.Remove("instance_name"); } }
+        public string InstanceName { get => _explicitNullValueInstanceName; set { _explicitNullValueInstanceName = value; AdditionalData?.Remove("instance_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_name"); else _explicitNullProperties?.Remove("instance_name"); } }
         private string _explicitNullValueInstanceName = default!;
 #endif
         /// <summary>
@@ -84,7 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "component_name", n => { ComponentName = n.GetStringValue(); } },
-                { "component_type", n => { ComponentType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppInstanceComponentType>(); } },
+                { "component_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppInstanceComponentType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueComponentType = default; _explicitNullProperties?.Remove("component_type"); AdditionalData["component_type"] = unknown; } else { ComponentType = parsed; AdditionalData.Remove("component_type"); } } },
                 { "instance_alias", n => { InstanceAlias = n.GetStringValue(); } },
                 { "instance_name", n => { InstanceName = n.GetStringValue(); } },
             };

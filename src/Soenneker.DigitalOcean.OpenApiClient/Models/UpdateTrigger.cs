@@ -17,23 +17,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("is_enabled") is { } nullNodeIsEnabled && nullNodeIsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEnabled = null;
-            if (parseNode.GetChildNode("scheduled_details") is { } nullNodeScheduledDetails && nullNodeScheduledDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduledDetails = null;
+            if (parseNode.GetChildNode("is_enabled") is null) { _explicitNullValueIsEnabled = default!; _explicitNullProperties?.Remove("is_enabled"); }
+            else if (parseNode.GetChildNode("is_enabled") is { } nullNodeIsEnabled && nullNodeIsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEnabled = null;
+            if (parseNode.GetChildNode("scheduled_details") is null) { _explicitNullValueScheduledDetails = default!; _explicitNullProperties?.Remove("scheduled_details"); }
+            else if (parseNode.GetChildNode("scheduled_details") is { } nullNodeScheduledDetails && nullNodeScheduledDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduledDetails = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates weather the trigger is paused or unpaused.</summary>
-        public bool? IsEnabled { get => _explicitNullValueIsEnabled; set { _explicitNullValueIsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_enabled"); else _explicitNullProperties?.Remove("is_enabled"); } }
+        public bool? IsEnabled { get => _explicitNullValueIsEnabled; set { _explicitNullValueIsEnabled = value; AdditionalData?.Remove("is_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_enabled"); else _explicitNullProperties?.Remove("is_enabled"); } }
         private bool? _explicitNullValueIsEnabled = default!;
         /// <summary>Trigger details for SCHEDULED type, where body is optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ScheduledDetails? ScheduledDetails { get => _explicitNullValueScheduledDetails; set { _explicitNullValueScheduledDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_details"); else _explicitNullProperties?.Remove("scheduled_details"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ScheduledDetails? ScheduledDetails { get => _explicitNullValueScheduledDetails; set { _explicitNullValueScheduledDetails = value; AdditionalData?.Remove("scheduled_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_details"); else _explicitNullProperties?.Remove("scheduled_details"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ScheduledDetails? _explicitNullValueScheduledDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ScheduledDetails ScheduledDetails { get => _explicitNullValueScheduledDetails; set { _explicitNullValueScheduledDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_details"); else _explicitNullProperties?.Remove("scheduled_details"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ScheduledDetails ScheduledDetails { get => _explicitNullValueScheduledDetails; set { _explicitNullValueScheduledDetails = value; AdditionalData?.Remove("scheduled_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_details"); else _explicitNullProperties?.Remove("scheduled_details"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ScheduledDetails _explicitNullValueScheduledDetails = default!;
 #endif
         /// <summary>

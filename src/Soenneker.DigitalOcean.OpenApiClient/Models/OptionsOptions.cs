@@ -17,15 +17,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("advanced_mysql") is { } nullNodeAdvancedMysql && nullNodeAdvancedMysql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedMysql = null;
-            if (parseNode.GetChildNode("advanced_pg") is { } nullNodeAdvancedPg && nullNodeAdvancedPg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedPg = null;
-            if (parseNode.GetChildNode("kafka") is { } nullNodeKafka && nullNodeKafka.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kafka = null;
-            if (parseNode.GetChildNode("mongodb") is { } nullNodeMongodb && nullNodeMongodb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mongodb = null;
-            if (parseNode.GetChildNode("mysql") is { } nullNodeMysql && nullNodeMysql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mysql = null;
-            if (parseNode.GetChildNode("opensearch") is { } nullNodeOpensearch && nullNodeOpensearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Opensearch = null;
-            if (parseNode.GetChildNode("pg") is { } nullNodePg && nullNodePg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pg = null;
-            if (parseNode.GetChildNode("redis") is { } nullNodeRedis && nullNodeRedis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Redis = null;
-            if (parseNode.GetChildNode("valkey") is { } nullNodeValkey && nullNodeValkey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Valkey = null;
+            if (parseNode.GetChildNode("advanced_mysql") is null) { _explicitNullValueAdvancedMysql = default!; _explicitNullProperties?.Remove("advanced_mysql"); }
+            else if (parseNode.GetChildNode("advanced_mysql") is { } nullNodeAdvancedMysql && nullNodeAdvancedMysql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedMysql = null;
+            if (parseNode.GetChildNode("advanced_pg") is null) { _explicitNullValueAdvancedPg = default!; _explicitNullProperties?.Remove("advanced_pg"); }
+            else if (parseNode.GetChildNode("advanced_pg") is { } nullNodeAdvancedPg && nullNodeAdvancedPg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedPg = null;
+            if (parseNode.GetChildNode("kafka") is null) { _explicitNullValueKafka = default!; _explicitNullProperties?.Remove("kafka"); }
+            else if (parseNode.GetChildNode("kafka") is { } nullNodeKafka && nullNodeKafka.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kafka = null;
+            if (parseNode.GetChildNode("mongodb") is null) { _explicitNullValueMongodb = default!; _explicitNullProperties?.Remove("mongodb"); }
+            else if (parseNode.GetChildNode("mongodb") is { } nullNodeMongodb && nullNodeMongodb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mongodb = null;
+            if (parseNode.GetChildNode("mysql") is null) { _explicitNullValueMysql = default!; _explicitNullProperties?.Remove("mysql"); }
+            else if (parseNode.GetChildNode("mysql") is { } nullNodeMysql && nullNodeMysql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mysql = null;
+            if (parseNode.GetChildNode("opensearch") is null) { _explicitNullValueOpensearch = default!; _explicitNullProperties?.Remove("opensearch"); }
+            else if (parseNode.GetChildNode("opensearch") is { } nullNodeOpensearch && nullNodeOpensearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Opensearch = null;
+            if (parseNode.GetChildNode("pg") is null) { _explicitNullValuePg = default!; _explicitNullProperties?.Remove("pg"); }
+            else if (parseNode.GetChildNode("pg") is { } nullNodePg && nullNodePg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pg = null;
+            if (parseNode.GetChildNode("redis") is null) { _explicitNullValueRedis = default!; _explicitNullProperties?.Remove("redis"); }
+            else if (parseNode.GetChildNode("redis") is { } nullNodeRedis && nullNodeRedis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Redis = null;
+            if (parseNode.GetChildNode("valkey") is null) { _explicitNullValueValkey = default!; _explicitNullProperties?.Remove("valkey"); }
+            else if (parseNode.GetChildNode("valkey") is { } nullNodeValkey && nullNodeValkey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Valkey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,91 +42,91 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The advanced_mysql property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedMysql? AdvancedMysql { get => _explicitNullValueAdvancedMysql; set { _explicitNullValueAdvancedMysql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_mysql"); else _explicitNullProperties?.Remove("advanced_mysql"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedMysql? AdvancedMysql { get => _explicitNullValueAdvancedMysql; set { _explicitNullValueAdvancedMysql = value; AdditionalData?.Remove("advanced_mysql"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_mysql"); else _explicitNullProperties?.Remove("advanced_mysql"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedMysql? _explicitNullValueAdvancedMysql = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedMysql AdvancedMysql { get => _explicitNullValueAdvancedMysql; set { _explicitNullValueAdvancedMysql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_mysql"); else _explicitNullProperties?.Remove("advanced_mysql"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedMysql AdvancedMysql { get => _explicitNullValueAdvancedMysql; set { _explicitNullValueAdvancedMysql = value; AdditionalData?.Remove("advanced_mysql"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_mysql"); else _explicitNullProperties?.Remove("advanced_mysql"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedMysql _explicitNullValueAdvancedMysql = default!;
 #endif
         /// <summary>The advanced_pg property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedPg? AdvancedPg { get => _explicitNullValueAdvancedPg; set { _explicitNullValueAdvancedPg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_pg"); else _explicitNullProperties?.Remove("advanced_pg"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedPg? AdvancedPg { get => _explicitNullValueAdvancedPg; set { _explicitNullValueAdvancedPg = value; AdditionalData?.Remove("advanced_pg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_pg"); else _explicitNullProperties?.Remove("advanced_pg"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedPg? _explicitNullValueAdvancedPg = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedPg AdvancedPg { get => _explicitNullValueAdvancedPg; set { _explicitNullValueAdvancedPg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_pg"); else _explicitNullProperties?.Remove("advanced_pg"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedPg AdvancedPg { get => _explicitNullValueAdvancedPg; set { _explicitNullValueAdvancedPg = value; AdditionalData?.Remove("advanced_pg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_pg"); else _explicitNullProperties?.Remove("advanced_pg"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsAdvancedPg _explicitNullValueAdvancedPg = default!;
 #endif
         /// <summary>The kafka property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsKafka? Kafka { get => _explicitNullValueKafka; set { _explicitNullValueKafka = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kafka"); else _explicitNullProperties?.Remove("kafka"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsKafka? Kafka { get => _explicitNullValueKafka; set { _explicitNullValueKafka = value; AdditionalData?.Remove("kafka"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kafka"); else _explicitNullProperties?.Remove("kafka"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsKafka? _explicitNullValueKafka = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsKafka Kafka { get => _explicitNullValueKafka; set { _explicitNullValueKafka = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kafka"); else _explicitNullProperties?.Remove("kafka"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsKafka Kafka { get => _explicitNullValueKafka; set { _explicitNullValueKafka = value; AdditionalData?.Remove("kafka"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kafka"); else _explicitNullProperties?.Remove("kafka"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsKafka _explicitNullValueKafka = default!;
 #endif
         /// <summary>The mongodb property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMongodb? Mongodb { get => _explicitNullValueMongodb; set { _explicitNullValueMongodb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongodb"); else _explicitNullProperties?.Remove("mongodb"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMongodb? Mongodb { get => _explicitNullValueMongodb; set { _explicitNullValueMongodb = value; AdditionalData?.Remove("mongodb"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongodb"); else _explicitNullProperties?.Remove("mongodb"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMongodb? _explicitNullValueMongodb = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMongodb Mongodb { get => _explicitNullValueMongodb; set { _explicitNullValueMongodb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongodb"); else _explicitNullProperties?.Remove("mongodb"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMongodb Mongodb { get => _explicitNullValueMongodb; set { _explicitNullValueMongodb = value; AdditionalData?.Remove("mongodb"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongodb"); else _explicitNullProperties?.Remove("mongodb"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMongodb _explicitNullValueMongodb = default!;
 #endif
         /// <summary>The mysql property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMysql? Mysql { get => _explicitNullValueMysql; set { _explicitNullValueMysql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql"); else _explicitNullProperties?.Remove("mysql"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMysql? Mysql { get => _explicitNullValueMysql; set { _explicitNullValueMysql = value; AdditionalData?.Remove("mysql"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql"); else _explicitNullProperties?.Remove("mysql"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMysql? _explicitNullValueMysql = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMysql Mysql { get => _explicitNullValueMysql; set { _explicitNullValueMysql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql"); else _explicitNullProperties?.Remove("mysql"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMysql Mysql { get => _explicitNullValueMysql; set { _explicitNullValueMysql = value; AdditionalData?.Remove("mysql"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql"); else _explicitNullProperties?.Remove("mysql"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsMysql _explicitNullValueMysql = default!;
 #endif
         /// <summary>The opensearch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsOpensearch? Opensearch { get => _explicitNullValueOpensearch; set { _explicitNullValueOpensearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch"); else _explicitNullProperties?.Remove("opensearch"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsOpensearch? Opensearch { get => _explicitNullValueOpensearch; set { _explicitNullValueOpensearch = value; AdditionalData?.Remove("opensearch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch"); else _explicitNullProperties?.Remove("opensearch"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsOpensearch? _explicitNullValueOpensearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsOpensearch Opensearch { get => _explicitNullValueOpensearch; set { _explicitNullValueOpensearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch"); else _explicitNullProperties?.Remove("opensearch"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsOpensearch Opensearch { get => _explicitNullValueOpensearch; set { _explicitNullValueOpensearch = value; AdditionalData?.Remove("opensearch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch"); else _explicitNullProperties?.Remove("opensearch"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsOpensearch _explicitNullValueOpensearch = default!;
 #endif
         /// <summary>The pg property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsPg? Pg { get => _explicitNullValuePg; set { _explicitNullValuePg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg"); else _explicitNullProperties?.Remove("pg"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsPg? Pg { get => _explicitNullValuePg; set { _explicitNullValuePg = value; AdditionalData?.Remove("pg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg"); else _explicitNullProperties?.Remove("pg"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsPg? _explicitNullValuePg = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsPg Pg { get => _explicitNullValuePg; set { _explicitNullValuePg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg"); else _explicitNullProperties?.Remove("pg"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsPg Pg { get => _explicitNullValuePg; set { _explicitNullValuePg = value; AdditionalData?.Remove("pg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg"); else _explicitNullProperties?.Remove("pg"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsPg _explicitNullValuePg = default!;
 #endif
         /// <summary>The redis property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsRedis? Redis { get => _explicitNullValueRedis; set { _explicitNullValueRedis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis"); else _explicitNullProperties?.Remove("redis"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsRedis? Redis { get => _explicitNullValueRedis; set { _explicitNullValueRedis = value; AdditionalData?.Remove("redis"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis"); else _explicitNullProperties?.Remove("redis"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsRedis? _explicitNullValueRedis = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsRedis Redis { get => _explicitNullValueRedis; set { _explicitNullValueRedis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis"); else _explicitNullProperties?.Remove("redis"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsRedis Redis { get => _explicitNullValueRedis; set { _explicitNullValueRedis = value; AdditionalData?.Remove("redis"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redis"); else _explicitNullProperties?.Remove("redis"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsRedis _explicitNullValueRedis = default!;
 #endif
         /// <summary>The valkey property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsValkey? Valkey { get => _explicitNullValueValkey; set { _explicitNullValueValkey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey"); else _explicitNullProperties?.Remove("valkey"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsValkey? Valkey { get => _explicitNullValueValkey; set { _explicitNullValueValkey = value; AdditionalData?.Remove("valkey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey"); else _explicitNullProperties?.Remove("valkey"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsValkey? _explicitNullValueValkey = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsValkey Valkey { get => _explicitNullValueValkey; set { _explicitNullValueValkey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey"); else _explicitNullProperties?.Remove("valkey"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsValkey Valkey { get => _explicitNullValueValkey; set { _explicitNullValueValkey = value; AdditionalData?.Remove("valkey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valkey"); else _explicitNullProperties?.Remove("valkey"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.OptionsOptionsValkey _explicitNullValueValkey = default!;
 #endif
         /// <summary>

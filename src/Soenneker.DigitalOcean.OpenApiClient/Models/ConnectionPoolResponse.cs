@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pool") is { } nullNodePool && nullNodePool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pool = null;
+            if (parseNode.GetChildNode("pool") is null) { _explicitNullValuePool = default!; _explicitNullProperties?.Remove("pool"); }
+            else if (parseNode.GetChildNode("pool") is { } nullNodePool && nullNodePool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pool = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The pool property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionPool? Pool { get => _explicitNullValuePool; set { _explicitNullValuePool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool"); else _explicitNullProperties?.Remove("pool"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionPool? Pool { get => _explicitNullValuePool; set { _explicitNullValuePool = value; AdditionalData?.Remove("pool"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool"); else _explicitNullProperties?.Remove("pool"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionPool? _explicitNullValuePool = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionPool Pool { get => _explicitNullValuePool; set { _explicitNullValuePool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool"); else _explicitNullProperties?.Remove("pool"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionPool Pool { get => _explicitNullValuePool; set { _explicitNullValuePool = value; AdditionalData?.Remove("pool"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool"); else _explicitNullProperties?.Remove("pool"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionPool _explicitNullValuePool = default!;
 #endif
         /// <summary>

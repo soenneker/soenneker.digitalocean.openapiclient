@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("db") is { } nullNodeDb && nullNodeDb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Db = null;
+            if (parseNode.GetChildNode("db") is null) { _explicitNullValueDb = default!; _explicitNullProperties?.Remove("db"); }
+            else if (parseNode.GetChildNode("db") is { } nullNodeDb && nullNodeDb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Db = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The db property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Database? Db { get => _explicitNullValueDb; set { _explicitNullValueDb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db"); else _explicitNullProperties?.Remove("db"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Database? Db { get => _explicitNullValueDb; set { _explicitNullValueDb = value; AdditionalData?.Remove("db"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db"); else _explicitNullProperties?.Remove("db"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.Database? _explicitNullValueDb = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Database Db { get => _explicitNullValueDb; set { _explicitNullValueDb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db"); else _explicitNullProperties?.Remove("db"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Database Db { get => _explicitNullValueDb; set { _explicitNullValueDb = value; AdditionalData?.Remove("db"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db"); else _explicitNullProperties?.Remove("db"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.Database _explicitNullValueDb = default!;
 #endif
         /// <summary>

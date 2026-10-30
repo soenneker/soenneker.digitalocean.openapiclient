@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("subscription_tier_slug") is { } nullNodeSubscriptionTierSlug && nullNodeSubscriptionTierSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionTierSlug = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("subscription_tier_slug") is null) { _explicitNullValueSubscriptionTierSlug = default!; _explicitNullProperties?.Remove("subscription_tier_slug"); }
+            else if (parseNode.GetChildNode("subscription_tier_slug") is { } nullNodeSubscriptionTierSlug && nullNodeSubscriptionTierSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionTierSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,18 +30,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Slug of the region where registry data is stored. When not provided, a region will be selected.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodyRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodyRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodyRegion? _explicitNullValueRegion = default!;
         /// <summary>The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodySubscriptionTierSlug? SubscriptionTierSlug { get => _explicitNullValueSubscriptionTierSlug; set { _explicitNullValueSubscriptionTierSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_tier_slug"); else _explicitNullProperties?.Remove("subscription_tier_slug"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodySubscriptionTierSlug? SubscriptionTierSlug { get => _explicitNullValueSubscriptionTierSlug; set { _explicitNullValueSubscriptionTierSlug = value; AdditionalData?.Remove("subscription_tier_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_tier_slug"); else _explicitNullProperties?.Remove("subscription_tier_slug"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodySubscriptionTierSlug? _explicitNullValueSubscriptionTierSlug = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBody"/> and sets the default values.
@@ -66,8 +69,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodyRegion>(); } },
-                { "subscription_tier_slug", n => { SubscriptionTierSlug = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodySubscriptionTierSlug>(); } },
+                { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodyRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
+                { "subscription_tier_slug", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryCreateBodySubscriptionTierSlug>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSubscriptionTierSlug = default; _explicitNullProperties?.Remove("subscription_tier_slug"); AdditionalData["subscription_tier_slug"] = unknown; } else { SubscriptionTierSlug = parsed; AdditionalData.Remove("subscription_tier_slug"); } } },
             };
         }
         /// <summary>

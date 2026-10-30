@@ -18,23 +18,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("database_status") is { } nullNodeDatabaseStatus && nullNodeDatabaseStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseStatus = null;
-            if (parseNode.GetChildNode("knowledge_base") is { } nullNodeKnowledgeBase && nullNodeKnowledgeBase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnowledgeBase = null;
+            if (parseNode.GetChildNode("database_status") is null) { _explicitNullValueDatabaseStatus = default!; _explicitNullProperties?.Remove("database_status"); }
+            else if (parseNode.GetChildNode("database_status") is { } nullNodeDatabaseStatus && nullNodeDatabaseStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseStatus = null;
+            if (parseNode.GetChildNode("knowledge_base") is null) { _explicitNullValueKnowledgeBase = default!; _explicitNullProperties?.Remove("knowledge_base"); }
+            else if (parseNode.GetChildNode("knowledge_base") is { } nullNodeKnowledgeBase && nullNodeKnowledgeBase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnowledgeBase = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The database_status property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DbaasClusterStatus? DatabaseStatus { get => _explicitNullValueDatabaseStatus; set { _explicitNullValueDatabaseStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_status"); else _explicitNullProperties?.Remove("database_status"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DbaasClusterStatus? DatabaseStatus { get => _explicitNullValueDatabaseStatus; set { _explicitNullValueDatabaseStatus = value; AdditionalData?.Remove("database_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_status"); else _explicitNullProperties?.Remove("database_status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DbaasClusterStatus? _explicitNullValueDatabaseStatus = default!;
         /// <summary>Knowledgebase Description</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiKnowledgeBase? KnowledgeBase { get => _explicitNullValueKnowledgeBase; set { _explicitNullValueKnowledgeBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base"); else _explicitNullProperties?.Remove("knowledge_base"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiKnowledgeBase? KnowledgeBase { get => _explicitNullValueKnowledgeBase; set { _explicitNullValueKnowledgeBase = value; AdditionalData?.Remove("knowledge_base"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base"); else _explicitNullProperties?.Remove("knowledge_base"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiKnowledgeBase? _explicitNullValueKnowledgeBase = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiKnowledgeBase KnowledgeBase { get => _explicitNullValueKnowledgeBase; set { _explicitNullValueKnowledgeBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base"); else _explicitNullProperties?.Remove("knowledge_base"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiKnowledgeBase KnowledgeBase { get => _explicitNullValueKnowledgeBase; set { _explicitNullValueKnowledgeBase = value; AdditionalData?.Remove("knowledge_base"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base"); else _explicitNullProperties?.Remove("knowledge_base"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiKnowledgeBase _explicitNullValueKnowledgeBase = default!;
 #endif
         /// <summary>
@@ -62,7 +64,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "database_status", n => { DatabaseStatus = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DbaasClusterStatus>(); } },
+                { "database_status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DbaasClusterStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDatabaseStatus = default; _explicitNullProperties?.Remove("database_status"); AdditionalData["database_status"] = unknown; } else { DatabaseStatus = parsed; AdditionalData.Remove("database_status"); } } },
                 { "knowledge_base", n => { KnowledgeBase = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiKnowledgeBase>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiKnowledgeBase.CreateFromDiscriminatorValue); } },
             };
         }

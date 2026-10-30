@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("model_router") is { } nullNodeModelRouter && nullNodeModelRouter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelRouter = null;
+            if (parseNode.GetChildNode("model_router") is null) { _explicitNullValueModelRouter = default!; _explicitNullProperties?.Remove("model_router"); }
+            else if (parseNode.GetChildNode("model_router") is { } nullNodeModelRouter && nullNodeModelRouter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelRouter = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Model router</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouter? ModelRouter { get => _explicitNullValueModelRouter; set { _explicitNullValueModelRouter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_router"); else _explicitNullProperties?.Remove("model_router"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouter? ModelRouter { get => _explicitNullValueModelRouter; set { _explicitNullValueModelRouter = value; AdditionalData?.Remove("model_router"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_router"); else _explicitNullProperties?.Remove("model_router"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouter? _explicitNullValueModelRouter = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouter ModelRouter { get => _explicitNullValueModelRouter; set { _explicitNullValueModelRouter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_router"); else _explicitNullProperties?.Remove("model_router"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouter ModelRouter { get => _explicitNullValueModelRouter; set { _explicitNullValueModelRouter = value; AdditionalData?.Remove("model_router"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_router"); else _explicitNullProperties?.Remove("model_router"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouter _explicitNullValueModelRouter = default!;
 #endif
         /// <summary>

@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("data_source_uuids") is { } nullNodeDataSourceUuids && nullNodeDataSourceUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataSourceUuids = null;
-            if (parseNode.GetChildNode("knowledge_base_uuid") is { } nullNodeKnowledgeBaseUuid && nullNodeKnowledgeBaseUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnowledgeBaseUuid = null;
+            if (parseNode.GetChildNode("data_source_uuids") is null) { _explicitNullValueDataSourceUuids = default!; _explicitNullProperties?.Remove("data_source_uuids"); }
+            else if (parseNode.GetChildNode("data_source_uuids") is { } nullNodeDataSourceUuids && nullNodeDataSourceUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataSourceUuids = null;
+            if (parseNode.GetChildNode("knowledge_base_uuid") is null) { _explicitNullValueKnowledgeBaseUuid = default!; _explicitNullProperties?.Remove("knowledge_base_uuid"); }
+            else if (parseNode.GetChildNode("knowledge_base_uuid") is { } nullNodeKnowledgeBaseUuid && nullNodeKnowledgeBaseUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnowledgeBaseUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>List of data source ids to index, if none are provided, all data sources will be indexed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DataSourceUuids { get => _explicitNullValueDataSourceUuids; set { _explicitNullValueDataSourceUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuids"); else _explicitNullProperties?.Remove("data_source_uuids"); } }
+        public List<string>? DataSourceUuids { get => _explicitNullValueDataSourceUuids; set { _explicitNullValueDataSourceUuids = value; AdditionalData?.Remove("data_source_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuids"); else _explicitNullProperties?.Remove("data_source_uuids"); } }
         private List<string>? _explicitNullValueDataSourceUuids = default!;
 #nullable restore
 #else
-        public List<string> DataSourceUuids { get => _explicitNullValueDataSourceUuids; set { _explicitNullValueDataSourceUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuids"); else _explicitNullProperties?.Remove("data_source_uuids"); } }
+        public List<string> DataSourceUuids { get => _explicitNullValueDataSourceUuids; set { _explicitNullValueDataSourceUuids = value; AdditionalData?.Remove("data_source_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_uuids"); else _explicitNullProperties?.Remove("data_source_uuids"); } }
         private List<string> _explicitNullValueDataSourceUuids = default!;
 #endif
         /// <summary>Knowledge base id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KnowledgeBaseUuid { get => _explicitNullValueKnowledgeBaseUuid; set { _explicitNullValueKnowledgeBaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_uuid"); else _explicitNullProperties?.Remove("knowledge_base_uuid"); } }
+        public string? KnowledgeBaseUuid { get => _explicitNullValueKnowledgeBaseUuid; set { _explicitNullValueKnowledgeBaseUuid = value; AdditionalData?.Remove("knowledge_base_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_uuid"); else _explicitNullProperties?.Remove("knowledge_base_uuid"); } }
         private string? _explicitNullValueKnowledgeBaseUuid = default!;
 #nullable restore
 #else
-        public string KnowledgeBaseUuid { get => _explicitNullValueKnowledgeBaseUuid; set { _explicitNullValueKnowledgeBaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_uuid"); else _explicitNullProperties?.Remove("knowledge_base_uuid"); } }
+        public string KnowledgeBaseUuid { get => _explicitNullValueKnowledgeBaseUuid; set { _explicitNullValueKnowledgeBaseUuid = value; AdditionalData?.Remove("knowledge_base_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_uuid"); else _explicitNullProperties?.Remove("knowledge_base_uuid"); } }
         private string _explicitNullValueKnowledgeBaseUuid = default!;
 #endif
         /// <summary>

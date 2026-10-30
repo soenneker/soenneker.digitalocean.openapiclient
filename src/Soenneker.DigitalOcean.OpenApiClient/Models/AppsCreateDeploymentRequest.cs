@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("force_build") is { } nullNodeForceBuild && nullNodeForceBuild.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceBuild = null;
+            if (parseNode.GetChildNode("force_build") is null) { _explicitNullValueForceBuild = default!; _explicitNullProperties?.Remove("force_build"); }
+            else if (parseNode.GetChildNode("force_build") is { } nullNodeForceBuild && nullNodeForceBuild.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceBuild = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The force_build property</summary>
-        public bool? ForceBuild { get => _explicitNullValueForceBuild; set { _explicitNullValueForceBuild = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_build"); else _explicitNullProperties?.Remove("force_build"); } }
+        public bool? ForceBuild { get => _explicitNullValueForceBuild; set { _explicitNullValueForceBuild = value; AdditionalData?.Remove("force_build"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_build"); else _explicitNullProperties?.Remove("force_build"); } }
         private bool? _explicitNullValueForceBuild = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsCreateDeploymentRequest"/> and sets the default values.

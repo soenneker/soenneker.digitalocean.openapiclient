@@ -17,11 +17,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("performance_tier") is { } nullNodePerformanceTier && nullNodePerformanceTier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerformanceTier = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("size_gib") is { } nullNodeSizeGib && nullNodeSizeGib.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SizeGib = null;
-            if (parseNode.GetChildNode("vpc_ids") is { } nullNodeVpcIds && nullNodeVpcIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcIds = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("performance_tier") is null) { _explicitNullValuePerformanceTier = default!; _explicitNullProperties?.Remove("performance_tier"); }
+            else if (parseNode.GetChildNode("performance_tier") is { } nullNodePerformanceTier && nullNodePerformanceTier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerformanceTier = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("size_gib") is null) { _explicitNullValueSizeGib = default!; _explicitNullProperties?.Remove("size_gib"); }
+            else if (parseNode.GetChildNode("size_gib") is { } nullNodeSizeGib && nullNodeSizeGib.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SizeGib = null;
+            if (parseNode.GetChildNode("vpc_ids") is null) { _explicitNullValueVpcIds = default!; _explicitNullProperties?.Remove("vpc_ids"); }
+            else if (parseNode.GetChildNode("vpc_ids") is { } nullNodeVpcIds && nullNodeVpcIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The human-readable name of the share.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The performance tier of the share.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PerformanceTier { get => _explicitNullValuePerformanceTier; set { _explicitNullValuePerformanceTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_tier"); else _explicitNullProperties?.Remove("performance_tier"); } }
+        public string? PerformanceTier { get => _explicitNullValuePerformanceTier; set { _explicitNullValuePerformanceTier = value; AdditionalData?.Remove("performance_tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_tier"); else _explicitNullProperties?.Remove("performance_tier"); } }
         private string? _explicitNullValuePerformanceTier = default!;
 #nullable restore
 #else
-        public string PerformanceTier { get => _explicitNullValuePerformanceTier; set { _explicitNullValuePerformanceTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_tier"); else _explicitNullProperties?.Remove("performance_tier"); } }
+        public string PerformanceTier { get => _explicitNullValuePerformanceTier; set { _explicitNullValuePerformanceTier = value; AdditionalData?.Remove("performance_tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance_tier"); else _explicitNullProperties?.Remove("performance_tier"); } }
         private string _explicitNullValuePerformanceTier = default!;
 #endif
         /// <summary>The DigitalOcean region slug (e.g., nyc2, atl1) where the NFS share resides.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private string? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>The desired/provisioned size of the share in GiB (Gibibytes). Must be &gt;= 50.</summary>
-        public int? SizeGib { get => _explicitNullValueSizeGib; set { _explicitNullValueSizeGib = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_gib"); else _explicitNullProperties?.Remove("size_gib"); } }
+        public int? SizeGib { get => _explicitNullValueSizeGib; set { _explicitNullValueSizeGib = value; AdditionalData?.Remove("size_gib"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_gib"); else _explicitNullProperties?.Remove("size_gib"); } }
         private int? _explicitNullValueSizeGib = default!;
         /// <summary>List of VPC IDs that should be able to access the share.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
+        public List<string>? VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; AdditionalData?.Remove("vpc_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
         private List<string>? _explicitNullValueVpcIds = default!;
 #nullable restore
 #else
-        public List<string> VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
+        public List<string> VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; AdditionalData?.Remove("vpc_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
         private List<string> _explicitNullValueVpcIds = default!;
 #endif
         /// <summary>

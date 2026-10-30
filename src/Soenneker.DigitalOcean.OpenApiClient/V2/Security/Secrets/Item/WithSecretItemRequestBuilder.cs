@@ -169,7 +169,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item.WithSecretItemRequestBuilder.WithSecretItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/v2/security/secrets/{secret}?region={region}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/v2/security/secrets/{secret}?region={region}", RequestAdapter.BaseUrl, "https://api.digitalocean.com", "/v2/security/secrets/{secret}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -188,7 +188,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item.WithSecretItemRequestBuilder.WithSecretItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/v2/security/secrets/{secret}?region={region}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/v2/security/secrets/{secret}?region={region}", RequestAdapter.BaseUrl, "https://api.digitalocean.com", "/v2/security/secrets/{secret}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -209,7 +209,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.digitalocean.com", "/v2/security/secrets/{secret}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

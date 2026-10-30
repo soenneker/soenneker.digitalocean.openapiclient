@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("app_bandwidth_usage") is { } nullNodeAppBandwidthUsage && nullNodeAppBandwidthUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppBandwidthUsage = null;
-            if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
+            if (parseNode.GetChildNode("app_bandwidth_usage") is null) { _explicitNullValueAppBandwidthUsage = default!; _explicitNullProperties?.Remove("app_bandwidth_usage"); }
+            else if (parseNode.GetChildNode("app_bandwidth_usage") is { } nullNodeAppBandwidthUsage && nullNodeAppBandwidthUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppBandwidthUsage = null;
+            if (parseNode.GetChildNode("date") is null) { _explicitNullValueDate = default!; _explicitNullProperties?.Remove("date"); }
+            else if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A list of bandwidth usage details by app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMetricsBandwidthUsageDetails>? AppBandwidthUsage { get => _explicitNullValueAppBandwidthUsage; set { _explicitNullValueAppBandwidthUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_bandwidth_usage"); else _explicitNullProperties?.Remove("app_bandwidth_usage"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMetricsBandwidthUsageDetails>? AppBandwidthUsage { get => _explicitNullValueAppBandwidthUsage; set { _explicitNullValueAppBandwidthUsage = value; AdditionalData?.Remove("app_bandwidth_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_bandwidth_usage"); else _explicitNullProperties?.Remove("app_bandwidth_usage"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMetricsBandwidthUsageDetails>? _explicitNullValueAppBandwidthUsage = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMetricsBandwidthUsageDetails> AppBandwidthUsage { get => _explicitNullValueAppBandwidthUsage; set { _explicitNullValueAppBandwidthUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_bandwidth_usage"); else _explicitNullProperties?.Remove("app_bandwidth_usage"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMetricsBandwidthUsageDetails> AppBandwidthUsage { get => _explicitNullValueAppBandwidthUsage; set { _explicitNullValueAppBandwidthUsage = value; AdditionalData?.Remove("app_bandwidth_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_bandwidth_usage"); else _explicitNullProperties?.Remove("app_bandwidth_usage"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMetricsBandwidthUsageDetails> _explicitNullValueAppBandwidthUsage = default!;
 #endif
         /// <summary>The date for the metrics data.</summary>
-        public DateTimeOffset? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        public DateTimeOffset? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; AdditionalData?.Remove("date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
         private DateTimeOffset? _explicitNullValueDate = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMetricsBandwidthUsage"/> and sets the default values.

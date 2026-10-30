@@ -18,20 +18,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("access_policy") is { } nullNodeAccessPolicy && nullNodeAccessPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessPolicy = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
-            if (parseNode.GetChildNode("vpc_id") is { } nullNodeVpcId && nullNodeVpcId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcId = null;
+            if (parseNode.GetChildNode("access_policy") is null) { _explicitNullValueAccessPolicy = default!; _explicitNullProperties?.Remove("access_policy"); }
+            else if (parseNode.GetChildNode("access_policy") is { } nullNodeAccessPolicy && nullNodeAccessPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessPolicy = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("vpc_id") is null) { _explicitNullValueVpcId = default!; _explicitNullProperties?.Remove("vpc_id"); }
+            else if (parseNode.GetChildNode("vpc_id") is { } nullNodeVpcId && nullNodeVpcId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcId = null;
         }
 
         /// <summary>Provider-agnostic NFS access policy for an access point. Network CIDRs aremanaged by attach, detach, and managed-access workflows and are not part ofthis policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicy? AccessPolicy { get => _explicitNullValueAccessPolicy; set { _explicitNullValueAccessPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_policy"); else _explicitNullProperties?.Remove("access_policy"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicy? AccessPolicy { get => _explicitNullValueAccessPolicy; set { _explicitNullValueAccessPolicy = value; AdditionalData?.Remove("access_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_policy"); else _explicitNullProperties?.Remove("access_policy"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicy? _explicitNullValueAccessPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicy AccessPolicy { get => _explicitNullValueAccessPolicy; set { _explicitNullValueAccessPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_policy"); else _explicitNullProperties?.Remove("access_policy"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicy AccessPolicy { get => _explicitNullValueAccessPolicy; set { _explicitNullValueAccessPolicy = value; AdditionalData?.Remove("access_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_policy"); else _explicitNullProperties?.Remove("access_policy"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicy _explicitNullValueAccessPolicy = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,31 +43,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The name for the access point. Must be unique per share. Must be 2–63characters and match `^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]$`.The name `default` is reserved (case-insensitive) for the implicit defaultaccess point created with each share.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The export sub-path. Must start with `/`, must not be exactly `/` (reservedfor the default access point), must be at most 1024 characters, may containonly alphanumerics, `-`, `_`, `.`, and `/`, and must not contain `..` pathsegments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
         /// <summary>Required. The VPC this access point will be pinned to. A storage gateway isprovisioned (or reused) in this VPC, and the access point becomes mountable fromthis VPC regardless of whether the parent share is currently attached to it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VpcId { get => _explicitNullValueVpcId; set { _explicitNullValueVpcId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_id"); else _explicitNullProperties?.Remove("vpc_id"); } }
+        public string? VpcId { get => _explicitNullValueVpcId; set { _explicitNullValueVpcId = value; AdditionalData?.Remove("vpc_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_id"); else _explicitNullProperties?.Remove("vpc_id"); } }
         private string? _explicitNullValueVpcId = default!;
 #nullable restore
 #else
-        public string VpcId { get => _explicitNullValueVpcId; set { _explicitNullValueVpcId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_id"); else _explicitNullProperties?.Remove("vpc_id"); } }
+        public string VpcId { get => _explicitNullValueVpcId; set { _explicitNullValueVpcId = value; AdditionalData?.Remove("vpc_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_id"); else _explicitNullProperties?.Remove("vpc_id"); } }
         private string _explicitNullValueVpcId = default!;
 #endif
         /// <summary>

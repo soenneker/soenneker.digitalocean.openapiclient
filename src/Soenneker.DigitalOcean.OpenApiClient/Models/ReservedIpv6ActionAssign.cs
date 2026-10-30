@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
             base.CaptureExplicitNulls(parseNode);
-            if (parseNode.GetChildNode("droplet_id") is { } nullNodeDropletId && nullNodeDropletId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletId = null;
+            if (parseNode.GetChildNode("droplet_id") is null) { _explicitNullValueDropletId = default!; _explicitNullProperties?.Remove("droplet_id"); }
+            else if (parseNode.GetChildNode("droplet_id") is { } nullNodeDropletId && nullNodeDropletId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletId = null;
         }
 
         /// <summary>The ID of the Droplet that the reserved IPv6 will be assigned to.</summary>

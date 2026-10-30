@@ -18,21 +18,26 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("account_limits") is { } nullNodeAccountLimits && nullNodeAccountLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountLimits = null;
-            if (parseNode.GetChildNode("default_region") is { } nullNodeDefaultRegion && nullNodeDefaultRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultRegion = null;
-            if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
-            if (parseNode.GetChildNode("resource_pricing") is { } nullNodeResourcePricing && nullNodeResourcePricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcePricing = null;
-            if (parseNode.GetChildNode("sizes") is { } nullNodeSizes && nullNodeSizes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sizes = null;
+            if (parseNode.GetChildNode("account_limits") is null) { _explicitNullValueAccountLimits = default!; _explicitNullProperties?.Remove("account_limits"); }
+            else if (parseNode.GetChildNode("account_limits") is { } nullNodeAccountLimits && nullNodeAccountLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountLimits = null;
+            if (parseNode.GetChildNode("default_region") is null) { _explicitNullValueDefaultRegion = default!; _explicitNullProperties?.Remove("default_region"); }
+            else if (parseNode.GetChildNode("default_region") is { } nullNodeDefaultRegion && nullNodeDefaultRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultRegion = null;
+            if (parseNode.GetChildNode("features") is null) { _explicitNullValueFeatures = default!; _explicitNullProperties?.Remove("features"); }
+            else if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
+            if (parseNode.GetChildNode("resource_pricing") is null) { _explicitNullValueResourcePricing = default!; _explicitNullProperties?.Remove("resource_pricing"); }
+            else if (parseNode.GetChildNode("resource_pricing") is { } nullNodeResourcePricing && nullNodeResourcePricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcePricing = null;
+            if (parseNode.GetChildNode("sizes") is null) { _explicitNullValueSizes = default!; _explicitNullProperties?.Remove("sizes"); }
+            else if (parseNode.GetChildNode("sizes") is { } nullNodeSizes && nullNodeSizes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sizes = null;
         }
 
         /// <summary>Your team&apos;s MicroVM limits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits? AccountLimits { get => _explicitNullValueAccountLimits; set { _explicitNullValueAccountLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_limits"); else _explicitNullProperties?.Remove("account_limits"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits? AccountLimits { get => _explicitNullValueAccountLimits; set { _explicitNullValueAccountLimits = value; AdditionalData?.Remove("account_limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_limits"); else _explicitNullProperties?.Remove("account_limits"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits? _explicitNullValueAccountLimits = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits AccountLimits { get => _explicitNullValueAccountLimits; set { _explicitNullValueAccountLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_limits"); else _explicitNullProperties?.Remove("account_limits"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits AccountLimits { get => _explicitNullValueAccountLimits; set { _explicitNullValueAccountLimits = value; AdditionalData?.Remove("account_limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_limits"); else _explicitNullProperties?.Remove("account_limits"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits _explicitNullValueAccountLimits = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -40,41 +45,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The slug of the region MicroVMs are created in by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultRegion { get => _explicitNullValueDefaultRegion; set { _explicitNullValueDefaultRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_region"); else _explicitNullProperties?.Remove("default_region"); } }
+        public string? DefaultRegion { get => _explicitNullValueDefaultRegion; set { _explicitNullValueDefaultRegion = value; AdditionalData?.Remove("default_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_region"); else _explicitNullProperties?.Remove("default_region"); } }
         private string? _explicitNullValueDefaultRegion = default!;
 #nullable restore
 #else
-        public string DefaultRegion { get => _explicitNullValueDefaultRegion; set { _explicitNullValueDefaultRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_region"); else _explicitNullProperties?.Remove("default_region"); } }
+        public string DefaultRegion { get => _explicitNullValueDefaultRegion; set { _explicitNullValueDefaultRegion = value; AdditionalData?.Remove("default_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_region"); else _explicitNullProperties?.Remove("default_region"); } }
         private string _explicitNullValueDefaultRegion = default!;
 #endif
         /// <summary>Features and whether they are enabled for your team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsFeaturesItem>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsFeaturesItem>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsFeaturesItem>? _explicitNullValueFeatures = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsFeaturesItem> Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsFeaturesItem> Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsFeaturesItem> _explicitNullValueFeatures = default!;
 #endif
         /// <summary>Per-resource rates, in USD.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing? ResourcePricing { get => _explicitNullValueResourcePricing; set { _explicitNullValueResourcePricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_pricing"); else _explicitNullProperties?.Remove("resource_pricing"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing? ResourcePricing { get => _explicitNullValueResourcePricing; set { _explicitNullValueResourcePricing = value; AdditionalData?.Remove("resource_pricing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_pricing"); else _explicitNullProperties?.Remove("resource_pricing"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing? _explicitNullValueResourcePricing = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing ResourcePricing { get => _explicitNullValueResourcePricing; set { _explicitNullValueResourcePricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_pricing"); else _explicitNullProperties?.Remove("resource_pricing"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing ResourcePricing { get => _explicitNullValueResourcePricing; set { _explicitNullValueResourcePricing = value; AdditionalData?.Remove("resource_pricing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_pricing"); else _explicitNullProperties?.Remove("resource_pricing"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsResourcePricing _explicitNullValueResourcePricing = default!;
 #endif
         /// <summary>The sizes available to your team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsSizesItem>? Sizes { get => _explicitNullValueSizes; set { _explicitNullValueSizes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sizes"); else _explicitNullProperties?.Remove("sizes"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsSizesItem>? Sizes { get => _explicitNullValueSizes; set { _explicitNullValueSizes = value; AdditionalData?.Remove("sizes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sizes"); else _explicitNullProperties?.Remove("sizes"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsSizesItem>? _explicitNullValueSizes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsSizesItem> Sizes { get => _explicitNullValueSizes; set { _explicitNullValueSizes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sizes"); else _explicitNullProperties?.Remove("sizes"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsSizesItem> Sizes { get => _explicitNullValueSizes; set { _explicitNullValueSizes = value; AdditionalData?.Remove("sizes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sizes"); else _explicitNullProperties?.Remove("sizes"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsSizesItem> _explicitNullValueSizes = default!;
 #endif
         /// <summary>

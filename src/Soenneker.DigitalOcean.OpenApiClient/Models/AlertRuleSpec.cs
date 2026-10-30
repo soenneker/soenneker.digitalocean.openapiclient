@@ -18,12 +18,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("notification_channels") is { } nullNodeNotificationChannels && nullNodeNotificationChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationChannels = null;
-            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
-            if (parseNode.GetChildNode("re_alert_duration") is { } nullNodeReAlertDuration && nullNodeReAlertDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReAlertDuration = null;
-            if (parseNode.GetChildNode("thresholds") is { } nullNodeThresholds && nullNodeThresholds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Thresholds = null;
+            if (parseNode.GetChildNode("condition") is null) { _explicitNullValueCondition = default!; _explicitNullProperties?.Remove("condition"); }
+            else if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("notification_channels") is null) { _explicitNullValueNotificationChannels = default!; _explicitNullProperties?.Remove("notification_channels"); }
+            else if (parseNode.GetChildNode("notification_channels") is { } nullNodeNotificationChannels && nullNodeNotificationChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationChannels = null;
+            if (parseNode.GetChildNode("query") is null) { _explicitNullValueQuery = default!; _explicitNullProperties?.Remove("query"); }
+            else if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("re_alert_duration") is null) { _explicitNullValueReAlertDuration = default!; _explicitNullProperties?.Remove("re_alert_duration"); }
+            else if (parseNode.GetChildNode("re_alert_duration") is { } nullNodeReAlertDuration && nullNodeReAlertDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReAlertDuration = null;
+            if (parseNode.GetChildNode("thresholds") is null) { _explicitNullValueThresholds = default!; _explicitNullProperties?.Remove("thresholds"); }
+            else if (parseNode.GetChildNode("thresholds") is { } nullNodeThresholds && nullNodeThresholds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Thresholds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,54 +37,54 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Evaluation condition for the alert rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertCondition? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertCondition? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; AdditionalData?.Remove("condition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertCondition? _explicitNullValueCondition = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertCondition Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertCondition Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; AdditionalData?.Remove("condition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertCondition _explicitNullValueCondition = default!;
 #endif
         /// <summary>A human-readable name for the alert rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Notification channels to notify when the rule fires.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding>? NotificationChannels { get => _explicitNullValueNotificationChannels; set { _explicitNullValueNotificationChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channels"); else _explicitNullProperties?.Remove("notification_channels"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding>? NotificationChannels { get => _explicitNullValueNotificationChannels; set { _explicitNullValueNotificationChannels = value; AdditionalData?.Remove("notification_channels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channels"); else _explicitNullProperties?.Remove("notification_channels"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding>? _explicitNullValueNotificationChannels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding> NotificationChannels { get => _explicitNullValueNotificationChannels; set { _explicitNullValueNotificationChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channels"); else _explicitNullProperties?.Remove("notification_channels"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding> NotificationChannels { get => _explicitNullValueNotificationChannels; set { _explicitNullValueNotificationChannels = value; AdditionalData?.Remove("notification_channels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channels"); else _explicitNullProperties?.Remove("notification_channels"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding> _explicitNullValueNotificationChannels = default!;
 #endif
         /// <summary>Metrics query that the alert rule evaluates. `metric` must be a dottedOpenTelemetry name (for example `do.droplets.cpu_utilization`). UnderscoredPrometheus-style names are rejected. When `resource_urns` is omitted or empty,the rule is not scoped to specific resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MetricsQuery? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MetricsQuery? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MetricsQuery? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MetricsQuery Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MetricsQuery Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MetricsQuery _explicitNullValueQuery = default!;
 #endif
         /// <summary>Minimum wait before re-notifying a still-firing alert. Defaults to`RE_ALERT_DURATION_4H` on create when omitted. Allowed values:- `RE_ALERT_DURATION_30M` = `30m`- `RE_ALERT_DURATION_1H` = `1h`- `RE_ALERT_DURATION_4H` = `4h`- `RE_ALERT_DURATION_NEVER` = never</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpecReAlertDuration? ReAlertDuration { get => _explicitNullValueReAlertDuration; set { _explicitNullValueReAlertDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("re_alert_duration"); else _explicitNullProperties?.Remove("re_alert_duration"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpecReAlertDuration? ReAlertDuration { get => _explicitNullValueReAlertDuration; set { _explicitNullValueReAlertDuration = value; AdditionalData?.Remove("re_alert_duration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("re_alert_duration"); else _explicitNullProperties?.Remove("re_alert_duration"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpecReAlertDuration? _explicitNullValueReAlertDuration = default!;
         /// <summary>Threshold configuration for the alert rule. At least one of `warning` or`critical` must be set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertThresholds? Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertThresholds? Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; AdditionalData?.Remove("thresholds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertThresholds? _explicitNullValueThresholds = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertThresholds Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertThresholds Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; AdditionalData?.Remove("thresholds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertThresholds _explicitNullValueThresholds = default!;
 #endif
         /// <summary>
@@ -110,7 +116,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "notification_channels", n => { NotificationChannels = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding>(global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelBinding.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "query", n => { Query = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MetricsQuery>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MetricsQuery.CreateFromDiscriminatorValue); } },
-                { "re_alert_duration", n => { ReAlertDuration = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpecReAlertDuration>(); } },
+                { "re_alert_duration", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRuleSpecReAlertDuration>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReAlertDuration = default; _explicitNullProperties?.Remove("re_alert_duration"); AdditionalData["re_alert_duration"] = unknown; } else { ReAlertDuration = parsed; AdditionalData.Remove("re_alert_duration"); } } },
                 { "thresholds", n => { Thresholds = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertThresholds>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertThresholds.CreateFromDiscriminatorValue); } },
             };
         }

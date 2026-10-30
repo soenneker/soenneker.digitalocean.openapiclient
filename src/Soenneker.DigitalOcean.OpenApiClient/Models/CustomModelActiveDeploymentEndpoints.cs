@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("private_endpoint_fqdn") is { } nullNodePrivateEndpointFqdn && nullNodePrivateEndpointFqdn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateEndpointFqdn = null;
-            if (parseNode.GetChildNode("public_endpoint_fqdn") is { } nullNodePublicEndpointFqdn && nullNodePublicEndpointFqdn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicEndpointFqdn = null;
+            if (parseNode.GetChildNode("private_endpoint_fqdn") is null) { _explicitNullValuePrivateEndpointFqdn = default!; _explicitNullProperties?.Remove("private_endpoint_fqdn"); }
+            else if (parseNode.GetChildNode("private_endpoint_fqdn") is { } nullNodePrivateEndpointFqdn && nullNodePrivateEndpointFqdn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateEndpointFqdn = null;
+            if (parseNode.GetChildNode("public_endpoint_fqdn") is null) { _explicitNullValuePublicEndpointFqdn = default!; _explicitNullProperties?.Remove("public_endpoint_fqdn"); }
+            else if (parseNode.GetChildNode("public_endpoint_fqdn") is { } nullNodePublicEndpointFqdn && nullNodePublicEndpointFqdn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicEndpointFqdn = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Private FQDN for the deployment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrivateEndpointFqdn { get => _explicitNullValuePrivateEndpointFqdn; set { _explicitNullValuePrivateEndpointFqdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_endpoint_fqdn"); else _explicitNullProperties?.Remove("private_endpoint_fqdn"); } }
+        public string? PrivateEndpointFqdn { get => _explicitNullValuePrivateEndpointFqdn; set { _explicitNullValuePrivateEndpointFqdn = value; AdditionalData?.Remove("private_endpoint_fqdn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_endpoint_fqdn"); else _explicitNullProperties?.Remove("private_endpoint_fqdn"); } }
         private string? _explicitNullValuePrivateEndpointFqdn = default!;
 #nullable restore
 #else
-        public string PrivateEndpointFqdn { get => _explicitNullValuePrivateEndpointFqdn; set { _explicitNullValuePrivateEndpointFqdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_endpoint_fqdn"); else _explicitNullProperties?.Remove("private_endpoint_fqdn"); } }
+        public string PrivateEndpointFqdn { get => _explicitNullValuePrivateEndpointFqdn; set { _explicitNullValuePrivateEndpointFqdn = value; AdditionalData?.Remove("private_endpoint_fqdn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_endpoint_fqdn"); else _explicitNullProperties?.Remove("private_endpoint_fqdn"); } }
         private string _explicitNullValuePrivateEndpointFqdn = default!;
 #endif
         /// <summary>Public FQDN for the deployment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PublicEndpointFqdn { get => _explicitNullValuePublicEndpointFqdn; set { _explicitNullValuePublicEndpointFqdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_endpoint_fqdn"); else _explicitNullProperties?.Remove("public_endpoint_fqdn"); } }
+        public string? PublicEndpointFqdn { get => _explicitNullValuePublicEndpointFqdn; set { _explicitNullValuePublicEndpointFqdn = value; AdditionalData?.Remove("public_endpoint_fqdn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_endpoint_fqdn"); else _explicitNullProperties?.Remove("public_endpoint_fqdn"); } }
         private string? _explicitNullValuePublicEndpointFqdn = default!;
 #nullable restore
 #else
-        public string PublicEndpointFqdn { get => _explicitNullValuePublicEndpointFqdn; set { _explicitNullValuePublicEndpointFqdn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_endpoint_fqdn"); else _explicitNullProperties?.Remove("public_endpoint_fqdn"); } }
+        public string PublicEndpointFqdn { get => _explicitNullValuePublicEndpointFqdn; set { _explicitNullValuePublicEndpointFqdn = value; AdditionalData?.Remove("public_endpoint_fqdn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_endpoint_fqdn"); else _explicitNullProperties?.Remove("public_endpoint_fqdn"); } }
         private string _explicitNullValuePublicEndpointFqdn = default!;
 #endif
         /// <summary>

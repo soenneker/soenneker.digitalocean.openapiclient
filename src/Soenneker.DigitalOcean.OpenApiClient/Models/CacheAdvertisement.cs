@@ -18,13 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("maxAgeSeconds") is { } nullNodeMaxAgeSeconds && nullNodeMaxAgeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAgeSeconds = null;
+            if (parseNode.GetChildNode("maxAgeSeconds") is null) { _explicitNullValueMaxAgeSeconds = default!; _explicitNullProperties?.Remove("maxAgeSeconds"); }
+            else if (parseNode.GetChildNode("maxAgeSeconds") is { } nullNodeMaxAgeSeconds && nullNodeMaxAgeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAgeSeconds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum result age the session allows, or 300 if the session sets no limit. The tool&apos;s own cache lifetime can be shorter. Invoke controls use max_age_seconds, not this field&apos;s camelCase spelling.</summary>
-        public int? MaxAgeSeconds { get => _explicitNullValueMaxAgeSeconds; set { _explicitNullValueMaxAgeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxAgeSeconds"); else _explicitNullProperties?.Remove("maxAgeSeconds"); } }
+        public int? MaxAgeSeconds { get => _explicitNullValueMaxAgeSeconds; set { _explicitNullValueMaxAgeSeconds = value; AdditionalData?.Remove("maxAgeSeconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxAgeSeconds"); else _explicitNullProperties?.Remove("maxAgeSeconds"); } }
         private int? _explicitNullValueMaxAgeSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CacheAdvertisement"/> and sets the default values.

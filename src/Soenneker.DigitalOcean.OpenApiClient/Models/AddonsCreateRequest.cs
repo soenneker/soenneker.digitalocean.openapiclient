@@ -17,12 +17,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("app_slug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
-            if (parseNode.GetChildNode("fleet_uuid") is { } nullNodeFleetUuid && nullNodeFleetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FleetUuid = null;
-            if (parseNode.GetChildNode("linked_droplet_id") is { } nullNodeLinkedDropletId && nullNodeLinkedDropletId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedDropletId = null;
-            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("plan_slug") is { } nullNodePlanSlug && nullNodePlanSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanSlug = null;
+            if (parseNode.GetChildNode("app_slug") is null) { _explicitNullValueAppSlug = default!; _explicitNullProperties?.Remove("app_slug"); }
+            else if (parseNode.GetChildNode("app_slug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
+            if (parseNode.GetChildNode("fleet_uuid") is null) { _explicitNullValueFleetUuid = default!; _explicitNullProperties?.Remove("fleet_uuid"); }
+            else if (parseNode.GetChildNode("fleet_uuid") is { } nullNodeFleetUuid && nullNodeFleetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FleetUuid = null;
+            if (parseNode.GetChildNode("linked_droplet_id") is null) { _explicitNullValueLinkedDropletId = default!; _explicitNullProperties?.Remove("linked_droplet_id"); }
+            else if (parseNode.GetChildNode("linked_droplet_id") is { } nullNodeLinkedDropletId && nullNodeLinkedDropletId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedDropletId = null;
+            if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
+            else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("plan_slug") is null) { _explicitNullValuePlanSlug = default!; _explicitNullProperties?.Remove("plan_slug"); }
+            else if (parseNode.GetChildNode("plan_slug") is { } nullNodePlanSlug && nullNodePlanSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,54 +36,54 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The slug identifier for the application associated with the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
+        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("app_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
         private string? _explicitNullValueAppSlug = default!;
 #nullable restore
 #else
-        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
+        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("app_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_slug"); else _explicitNullProperties?.Remove("app_slug"); } }
         private string _explicitNullValueAppSlug = default!;
 #endif
         /// <summary>UUID of the fleet/project to which this resource will belong.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FleetUuid { get => _explicitNullValueFleetUuid; set { _explicitNullValueFleetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fleet_uuid"); else _explicitNullProperties?.Remove("fleet_uuid"); } }
+        public string? FleetUuid { get => _explicitNullValueFleetUuid; set { _explicitNullValueFleetUuid = value; AdditionalData?.Remove("fleet_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fleet_uuid"); else _explicitNullProperties?.Remove("fleet_uuid"); } }
         private string? _explicitNullValueFleetUuid = default!;
 #nullable restore
 #else
-        public string FleetUuid { get => _explicitNullValueFleetUuid; set { _explicitNullValueFleetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fleet_uuid"); else _explicitNullProperties?.Remove("fleet_uuid"); } }
+        public string FleetUuid { get => _explicitNullValueFleetUuid; set { _explicitNullValueFleetUuid = value; AdditionalData?.Remove("fleet_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fleet_uuid"); else _explicitNullProperties?.Remove("fleet_uuid"); } }
         private string _explicitNullValueFleetUuid = default!;
 #endif
         /// <summary>ID of the droplet to be linked to this resource, if applicable.</summary>
-        public int? LinkedDropletId { get => _explicitNullValueLinkedDropletId; set { _explicitNullValueLinkedDropletId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linked_droplet_id"); else _explicitNullProperties?.Remove("linked_droplet_id"); } }
+        public int? LinkedDropletId { get => _explicitNullValueLinkedDropletId; set { _explicitNullValueLinkedDropletId = value; AdditionalData?.Remove("linked_droplet_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linked_droplet_id"); else _explicitNullProperties?.Remove("linked_droplet_id"); } }
         private int? _explicitNullValueLinkedDropletId = default!;
         /// <summary>Metadata associated with the resource, set by the user. Metadata expected varies per app, and can be verified with a GET request to &quot;/v2/add-ons/apps/{app_slug}/metadata&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsResourceMetadata>? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsResourceMetadata>? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsResourceMetadata>? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsResourceMetadata> Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsResourceMetadata> Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AddonsResourceMetadata> _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The name of the addon resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The slug identifier for the plan associated with the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlanSlug { get => _explicitNullValuePlanSlug; set { _explicitNullValuePlanSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_slug"); else _explicitNullProperties?.Remove("plan_slug"); } }
+        public string? PlanSlug { get => _explicitNullValuePlanSlug; set { _explicitNullValuePlanSlug = value; AdditionalData?.Remove("plan_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_slug"); else _explicitNullProperties?.Remove("plan_slug"); } }
         private string? _explicitNullValuePlanSlug = default!;
 #nullable restore
 #else
-        public string PlanSlug { get => _explicitNullValuePlanSlug; set { _explicitNullValuePlanSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_slug"); else _explicitNullProperties?.Remove("plan_slug"); } }
+        public string PlanSlug { get => _explicitNullValuePlanSlug; set { _explicitNullValuePlanSlug = value; AdditionalData?.Remove("plan_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_slug"); else _explicitNullProperties?.Remove("plan_slug"); } }
         private string _explicitNullValuePlanSlug = default!;
 #endif
         /// <summary>

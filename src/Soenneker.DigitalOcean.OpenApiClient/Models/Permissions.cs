@@ -18,45 +18,49 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("defaultAction") is { } nullNodeDefaultAction && nullNodeDefaultAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAction = null;
-            if (parseNode.GetChildNode("filesystem") is { } nullNodeFilesystem && nullNodeFilesystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filesystem = null;
-            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
-            if (parseNode.GetChildNode("rules") is { } nullNodeRules && nullNodeRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rules = null;
+            if (parseNode.GetChildNode("defaultAction") is null) { _explicitNullValueDefaultAction = default!; _explicitNullProperties?.Remove("defaultAction"); }
+            else if (parseNode.GetChildNode("defaultAction") is { } nullNodeDefaultAction && nullNodeDefaultAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAction = null;
+            if (parseNode.GetChildNode("filesystem") is null) { _explicitNullValueFilesystem = default!; _explicitNullProperties?.Remove("filesystem"); }
+            else if (parseNode.GetChildNode("filesystem") is { } nullNodeFilesystem && nullNodeFilesystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filesystem = null;
+            if (parseNode.GetChildNode("network") is null) { _explicitNullValueNetwork = default!; _explicitNullProperties?.Remove("network"); }
+            else if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("rules") is null) { _explicitNullValueRules = default!; _explicitNullProperties?.Remove("rules"); }
+            else if (parseNode.GetChildNode("rules") is { } nullNodeRules && nullNodeRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rules = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Disposition for tool calls that match no rule. Defaults to &quot;ask&quot; when omitted.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionsDefaultAction? DefaultAction { get => _explicitNullValueDefaultAction; set { _explicitNullValueDefaultAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultAction"); else _explicitNullProperties?.Remove("defaultAction"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionsDefaultAction? DefaultAction { get => _explicitNullValueDefaultAction; set { _explicitNullValueDefaultAction = value; AdditionalData?.Remove("defaultAction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultAction"); else _explicitNullProperties?.Remove("defaultAction"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionsDefaultAction? _explicitNullValueDefaultAction = default!;
         /// <summary>Filesystem boundary, enforced by the microVM (read-only root + bind-mounted writable roots) for every agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem? Filesystem { get => _explicitNullValueFilesystem; set { _explicitNullValueFilesystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filesystem"); else _explicitNullProperties?.Remove("filesystem"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem? Filesystem { get => _explicitNullValueFilesystem; set { _explicitNullValueFilesystem = value; AdditionalData?.Remove("filesystem"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filesystem"); else _explicitNullProperties?.Remove("filesystem"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem? _explicitNullValueFilesystem = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem Filesystem { get => _explicitNullValueFilesystem; set { _explicitNullValueFilesystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filesystem"); else _explicitNullProperties?.Remove("filesystem"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem Filesystem { get => _explicitNullValueFilesystem; set { _explicitNullValueFilesystem = value; AdditionalData?.Remove("filesystem"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filesystem"); else _explicitNullProperties?.Remove("filesystem"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem _explicitNullValueFilesystem = default!;
 #endif
         /// <summary>Network boundary. Narrows (subtract-only) spec.sandbox.egress; link-local/internal addresses stay blocked by the broader egress policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; AdditionalData?.Remove("network"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionNetwork? _explicitNullValueNetwork = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionNetwork Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionNetwork Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; AdditionalData?.Remove("network"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionNetwork _explicitNullValueNetwork = default!;
 #endif
         /// <summary>Ordered match→action rules. Declared order is authoritative: the LAST matching rule wins (author-order last-match).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionRule>? Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionRule>? Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; AdditionalData?.Remove("rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionRule>? _explicitNullValueRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionRule> Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionRule> Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; AdditionalData?.Remove("rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionRule> _explicitNullValueRules = default!;
 #endif
         /// <summary>
@@ -84,7 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "defaultAction", n => { DefaultAction = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionsDefaultAction>(); } },
+                { "defaultAction", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionsDefaultAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultAction = default; _explicitNullProperties?.Remove("defaultAction"); AdditionalData["defaultAction"] = unknown; } else { DefaultAction = parsed; AdditionalData.Remove("defaultAction"); } } },
                 { "filesystem", n => { Filesystem = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem.CreateFromDiscriminatorValue); } },
                 { "network", n => { Network = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionNetwork>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionNetwork.CreateFromDiscriminatorValue); } },
                 { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionRule>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionRule.CreateFromDiscriminatorValue)?.AsList(); } },

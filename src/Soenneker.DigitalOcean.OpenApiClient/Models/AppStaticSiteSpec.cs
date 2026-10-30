@@ -17,25 +17,44 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bitbucket") is { } nullNodeBitbucket && nullNodeBitbucket.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bitbucket = null;
-            if (parseNode.GetChildNode("build_command") is { } nullNodeBuildCommand && nullNodeBuildCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BuildCommand = null;
-            if (parseNode.GetChildNode("catchall_document") is { } nullNodeCatchallDocument && nullNodeCatchallDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CatchallDocument = null;
-            if (parseNode.GetChildNode("cors") is { } nullNodeCors && nullNodeCors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cors = null;
-            if (parseNode.GetChildNode("dockerfile_path") is { } nullNodeDockerfilePath && nullNodeDockerfilePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DockerfilePath = null;
-            if (parseNode.GetChildNode("environment_slug") is { } nullNodeEnvironmentSlug && nullNodeEnvironmentSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvironmentSlug = null;
-            if (parseNode.GetChildNode("envs") is { } nullNodeEnvs && nullNodeEnvs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Envs = null;
-            if (parseNode.GetChildNode("error_document") is { } nullNodeErrorDocument && nullNodeErrorDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorDocument = null;
-            if (parseNode.GetChildNode("git") is { } nullNodeGit && nullNodeGit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Git = null;
-            if (parseNode.GetChildNode("github") is { } nullNodeGithub && nullNodeGithub.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Github = null;
-            if (parseNode.GetChildNode("gitlab") is { } nullNodeGitlab && nullNodeGitlab.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gitlab = null;
-            if (parseNode.GetChildNode("image") is { } nullNodeImage && nullNodeImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Image = null;
-            if (parseNode.GetChildNode("index_document") is { } nullNodeIndexDocument && nullNodeIndexDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexDocument = null;
-            if (parseNode.GetChildNode("log_destinations") is { } nullNodeLogDestinations && nullNodeLogDestinations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogDestinations = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("output_dir") is { } nullNodeOutputDir && nullNodeOutputDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputDir = null;
-            if (parseNode.GetChildNode("routes") is { } nullNodeRoutes && nullNodeRoutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Routes = null;
-            if (parseNode.GetChildNode("run_command") is { } nullNodeRunCommand && nullNodeRunCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunCommand = null;
-            if (parseNode.GetChildNode("source_dir") is { } nullNodeSourceDir && nullNodeSourceDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceDir = null;
+            if (parseNode.GetChildNode("bitbucket") is null) { _explicitNullValueBitbucket = default!; _explicitNullProperties?.Remove("bitbucket"); }
+            else if (parseNode.GetChildNode("bitbucket") is { } nullNodeBitbucket && nullNodeBitbucket.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bitbucket = null;
+            if (parseNode.GetChildNode("build_command") is null) { _explicitNullValueBuildCommand = default!; _explicitNullProperties?.Remove("build_command"); }
+            else if (parseNode.GetChildNode("build_command") is { } nullNodeBuildCommand && nullNodeBuildCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BuildCommand = null;
+            if (parseNode.GetChildNode("catchall_document") is null) { _explicitNullValueCatchallDocument = default!; _explicitNullProperties?.Remove("catchall_document"); }
+            else if (parseNode.GetChildNode("catchall_document") is { } nullNodeCatchallDocument && nullNodeCatchallDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CatchallDocument = null;
+            if (parseNode.GetChildNode("cors") is null) { _explicitNullValueCors = default!; _explicitNullProperties?.Remove("cors"); }
+            else if (parseNode.GetChildNode("cors") is { } nullNodeCors && nullNodeCors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cors = null;
+            if (parseNode.GetChildNode("dockerfile_path") is null) { _explicitNullValueDockerfilePath = default!; _explicitNullProperties?.Remove("dockerfile_path"); }
+            else if (parseNode.GetChildNode("dockerfile_path") is { } nullNodeDockerfilePath && nullNodeDockerfilePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DockerfilePath = null;
+            if (parseNode.GetChildNode("environment_slug") is null) { _explicitNullValueEnvironmentSlug = default!; _explicitNullProperties?.Remove("environment_slug"); }
+            else if (parseNode.GetChildNode("environment_slug") is { } nullNodeEnvironmentSlug && nullNodeEnvironmentSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvironmentSlug = null;
+            if (parseNode.GetChildNode("envs") is null) { _explicitNullValueEnvs = default!; _explicitNullProperties?.Remove("envs"); }
+            else if (parseNode.GetChildNode("envs") is { } nullNodeEnvs && nullNodeEnvs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Envs = null;
+            if (parseNode.GetChildNode("error_document") is null) { _explicitNullValueErrorDocument = default!; _explicitNullProperties?.Remove("error_document"); }
+            else if (parseNode.GetChildNode("error_document") is { } nullNodeErrorDocument && nullNodeErrorDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorDocument = null;
+            if (parseNode.GetChildNode("git") is null) { _explicitNullValueGit = default!; _explicitNullProperties?.Remove("git"); }
+            else if (parseNode.GetChildNode("git") is { } nullNodeGit && nullNodeGit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Git = null;
+            if (parseNode.GetChildNode("github") is null) { _explicitNullValueGithub = default!; _explicitNullProperties?.Remove("github"); }
+            else if (parseNode.GetChildNode("github") is { } nullNodeGithub && nullNodeGithub.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Github = null;
+            if (parseNode.GetChildNode("gitlab") is null) { _explicitNullValueGitlab = default!; _explicitNullProperties?.Remove("gitlab"); }
+            else if (parseNode.GetChildNode("gitlab") is { } nullNodeGitlab && nullNodeGitlab.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gitlab = null;
+            if (parseNode.GetChildNode("image") is null) { _explicitNullValueImage = default!; _explicitNullProperties?.Remove("image"); }
+            else if (parseNode.GetChildNode("image") is { } nullNodeImage && nullNodeImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Image = null;
+            if (parseNode.GetChildNode("index_document") is null) { _explicitNullValueIndexDocument = default!; _explicitNullProperties?.Remove("index_document"); }
+            else if (parseNode.GetChildNode("index_document") is { } nullNodeIndexDocument && nullNodeIndexDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexDocument = null;
+            if (parseNode.GetChildNode("log_destinations") is null) { _explicitNullValueLogDestinations = default!; _explicitNullProperties?.Remove("log_destinations"); }
+            else if (parseNode.GetChildNode("log_destinations") is { } nullNodeLogDestinations && nullNodeLogDestinations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogDestinations = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("output_dir") is null) { _explicitNullValueOutputDir = default!; _explicitNullProperties?.Remove("output_dir"); }
+            else if (parseNode.GetChildNode("output_dir") is { } nullNodeOutputDir && nullNodeOutputDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputDir = null;
+            if (parseNode.GetChildNode("routes") is null) { _explicitNullValueRoutes = default!; _explicitNullProperties?.Remove("routes"); }
+            else if (parseNode.GetChildNode("routes") is { } nullNodeRoutes && nullNodeRoutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Routes = null;
+            if (parseNode.GetChildNode("run_command") is null) { _explicitNullValueRunCommand = default!; _explicitNullProperties?.Remove("run_command"); }
+            else if (parseNode.GetChildNode("run_command") is { } nullNodeRunCommand && nullNodeRunCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunCommand = null;
+            if (parseNode.GetChildNode("source_dir") is null) { _explicitNullValueSourceDir = default!; _explicitNullProperties?.Remove("source_dir"); }
+            else if (parseNode.GetChildNode("source_dir") is { } nullNodeSourceDir && nullNodeSourceDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceDir = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -43,193 +62,193 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The bitbucket property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsBitbucketSourceSpec? Bitbucket { get => _explicitNullValueBitbucket; set { _explicitNullValueBitbucket = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket"); else _explicitNullProperties?.Remove("bitbucket"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsBitbucketSourceSpec? Bitbucket { get => _explicitNullValueBitbucket; set { _explicitNullValueBitbucket = value; AdditionalData?.Remove("bitbucket"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket"); else _explicitNullProperties?.Remove("bitbucket"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsBitbucketSourceSpec? _explicitNullValueBitbucket = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsBitbucketSourceSpec Bitbucket { get => _explicitNullValueBitbucket; set { _explicitNullValueBitbucket = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket"); else _explicitNullProperties?.Remove("bitbucket"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsBitbucketSourceSpec Bitbucket { get => _explicitNullValueBitbucket; set { _explicitNullValueBitbucket = value; AdditionalData?.Remove("bitbucket"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket"); else _explicitNullProperties?.Remove("bitbucket"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsBitbucketSourceSpec _explicitNullValueBitbucket = default!;
 #endif
         /// <summary>An optional build command to run while building this component from source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BuildCommand { get => _explicitNullValueBuildCommand; set { _explicitNullValueBuildCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_command"); else _explicitNullProperties?.Remove("build_command"); } }
+        public string? BuildCommand { get => _explicitNullValueBuildCommand; set { _explicitNullValueBuildCommand = value; AdditionalData?.Remove("build_command"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_command"); else _explicitNullProperties?.Remove("build_command"); } }
         private string? _explicitNullValueBuildCommand = default!;
 #nullable restore
 #else
-        public string BuildCommand { get => _explicitNullValueBuildCommand; set { _explicitNullValueBuildCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_command"); else _explicitNullProperties?.Remove("build_command"); } }
+        public string BuildCommand { get => _explicitNullValueBuildCommand; set { _explicitNullValueBuildCommand = value; AdditionalData?.Remove("build_command"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_command"); else _explicitNullProperties?.Remove("build_command"); } }
         private string _explicitNullValueBuildCommand = default!;
 #endif
         /// <summary>The name of the document to use as the fallback for any requests to documents that are not found when serving this static site. Only 1 of `catchall_document` or `error_document` can be set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CatchallDocument { get => _explicitNullValueCatchallDocument; set { _explicitNullValueCatchallDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("catchall_document"); else _explicitNullProperties?.Remove("catchall_document"); } }
+        public string? CatchallDocument { get => _explicitNullValueCatchallDocument; set { _explicitNullValueCatchallDocument = value; AdditionalData?.Remove("catchall_document"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("catchall_document"); else _explicitNullProperties?.Remove("catchall_document"); } }
         private string? _explicitNullValueCatchallDocument = default!;
 #nullable restore
 #else
-        public string CatchallDocument { get => _explicitNullValueCatchallDocument; set { _explicitNullValueCatchallDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("catchall_document"); else _explicitNullProperties?.Remove("catchall_document"); } }
+        public string CatchallDocument { get => _explicitNullValueCatchallDocument; set { _explicitNullValueCatchallDocument = value; AdditionalData?.Remove("catchall_document"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("catchall_document"); else _explicitNullProperties?.Remove("catchall_document"); } }
         private string _explicitNullValueCatchallDocument = default!;
 #endif
         /// <summary>(Deprecated - Use Ingress Rules instead).</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpecAllOf2Cors? Cors { get => _explicitNullValueCors; set { _explicitNullValueCors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cors"); else _explicitNullProperties?.Remove("cors"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpecAllOf2Cors? Cors { get => _explicitNullValueCors; set { _explicitNullValueCors = value; AdditionalData?.Remove("cors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cors"); else _explicitNullProperties?.Remove("cors"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpecAllOf2Cors? _explicitNullValueCors = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpecAllOf2Cors Cors { get => _explicitNullValueCors; set { _explicitNullValueCors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cors"); else _explicitNullProperties?.Remove("cors"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpecAllOf2Cors Cors { get => _explicitNullValueCors; set { _explicitNullValueCors = value; AdditionalData?.Remove("cors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cors"); else _explicitNullProperties?.Remove("cors"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpecAllOf2Cors _explicitNullValueCors = default!;
 #endif
         /// <summary>The path to the Dockerfile relative to the root of the repo. If set, it will be used to build this component. Otherwise, App Platform will attempt to build it using buildpacks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DockerfilePath { get => _explicitNullValueDockerfilePath; set { _explicitNullValueDockerfilePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dockerfile_path"); else _explicitNullProperties?.Remove("dockerfile_path"); } }
+        public string? DockerfilePath { get => _explicitNullValueDockerfilePath; set { _explicitNullValueDockerfilePath = value; AdditionalData?.Remove("dockerfile_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dockerfile_path"); else _explicitNullProperties?.Remove("dockerfile_path"); } }
         private string? _explicitNullValueDockerfilePath = default!;
 #nullable restore
 #else
-        public string DockerfilePath { get => _explicitNullValueDockerfilePath; set { _explicitNullValueDockerfilePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dockerfile_path"); else _explicitNullProperties?.Remove("dockerfile_path"); } }
+        public string DockerfilePath { get => _explicitNullValueDockerfilePath; set { _explicitNullValueDockerfilePath = value; AdditionalData?.Remove("dockerfile_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dockerfile_path"); else _explicitNullProperties?.Remove("dockerfile_path"); } }
         private string _explicitNullValueDockerfilePath = default!;
 #endif
         /// <summary>An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://docs.digitalocean.com/products/app-platform/).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EnvironmentSlug { get => _explicitNullValueEnvironmentSlug; set { _explicitNullValueEnvironmentSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_slug"); else _explicitNullProperties?.Remove("environment_slug"); } }
+        public string? EnvironmentSlug { get => _explicitNullValueEnvironmentSlug; set { _explicitNullValueEnvironmentSlug = value; AdditionalData?.Remove("environment_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_slug"); else _explicitNullProperties?.Remove("environment_slug"); } }
         private string? _explicitNullValueEnvironmentSlug = default!;
 #nullable restore
 #else
-        public string EnvironmentSlug { get => _explicitNullValueEnvironmentSlug; set { _explicitNullValueEnvironmentSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_slug"); else _explicitNullProperties?.Remove("environment_slug"); } }
+        public string EnvironmentSlug { get => _explicitNullValueEnvironmentSlug; set { _explicitNullValueEnvironmentSlug = value; AdditionalData?.Remove("environment_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_slug"); else _explicitNullProperties?.Remove("environment_slug"); } }
         private string _explicitNullValueEnvironmentSlug = default!;
 #endif
         /// <summary>A list of environment variables made available to the component.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppVariableDefinition>? Envs { get => _explicitNullValueEnvs; set { _explicitNullValueEnvs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("envs"); else _explicitNullProperties?.Remove("envs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppVariableDefinition>? Envs { get => _explicitNullValueEnvs; set { _explicitNullValueEnvs = value; AdditionalData?.Remove("envs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("envs"); else _explicitNullProperties?.Remove("envs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppVariableDefinition>? _explicitNullValueEnvs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppVariableDefinition> Envs { get => _explicitNullValueEnvs; set { _explicitNullValueEnvs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("envs"); else _explicitNullProperties?.Remove("envs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppVariableDefinition> Envs { get => _explicitNullValueEnvs; set { _explicitNullValueEnvs = value; AdditionalData?.Remove("envs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("envs"); else _explicitNullProperties?.Remove("envs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppVariableDefinition> _explicitNullValueEnvs = default!;
 #endif
         /// <summary>The name of the error document to use when serving this static site. Default: 404.html. If no such file exists within the built assets, App Platform will supply one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorDocument { get => _explicitNullValueErrorDocument; set { _explicitNullValueErrorDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_document"); else _explicitNullProperties?.Remove("error_document"); } }
+        public string? ErrorDocument { get => _explicitNullValueErrorDocument; set { _explicitNullValueErrorDocument = value; AdditionalData?.Remove("error_document"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_document"); else _explicitNullProperties?.Remove("error_document"); } }
         private string? _explicitNullValueErrorDocument = default!;
 #nullable restore
 #else
-        public string ErrorDocument { get => _explicitNullValueErrorDocument; set { _explicitNullValueErrorDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_document"); else _explicitNullProperties?.Remove("error_document"); } }
+        public string ErrorDocument { get => _explicitNullValueErrorDocument; set { _explicitNullValueErrorDocument = value; AdditionalData?.Remove("error_document"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_document"); else _explicitNullProperties?.Remove("error_document"); } }
         private string _explicitNullValueErrorDocument = default!;
 #endif
         /// <summary>The git property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitSourceSpec? Git { get => _explicitNullValueGit; set { _explicitNullValueGit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git"); else _explicitNullProperties?.Remove("git"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitSourceSpec? Git { get => _explicitNullValueGit; set { _explicitNullValueGit = value; AdditionalData?.Remove("git"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git"); else _explicitNullProperties?.Remove("git"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitSourceSpec? _explicitNullValueGit = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitSourceSpec Git { get => _explicitNullValueGit; set { _explicitNullValueGit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git"); else _explicitNullProperties?.Remove("git"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitSourceSpec Git { get => _explicitNullValueGit; set { _explicitNullValueGit = value; AdditionalData?.Remove("git"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git"); else _explicitNullProperties?.Remove("git"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitSourceSpec _explicitNullValueGit = default!;
 #endif
         /// <summary>The github property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGithubSourceSpec? Github { get => _explicitNullValueGithub; set { _explicitNullValueGithub = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github"); else _explicitNullProperties?.Remove("github"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGithubSourceSpec? Github { get => _explicitNullValueGithub; set { _explicitNullValueGithub = value; AdditionalData?.Remove("github"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github"); else _explicitNullProperties?.Remove("github"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGithubSourceSpec? _explicitNullValueGithub = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGithubSourceSpec Github { get => _explicitNullValueGithub; set { _explicitNullValueGithub = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github"); else _explicitNullProperties?.Remove("github"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGithubSourceSpec Github { get => _explicitNullValueGithub; set { _explicitNullValueGithub = value; AdditionalData?.Remove("github"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github"); else _explicitNullProperties?.Remove("github"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGithubSourceSpec _explicitNullValueGithub = default!;
 #endif
         /// <summary>The gitlab property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec? Gitlab { get => _explicitNullValueGitlab; set { _explicitNullValueGitlab = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab"); else _explicitNullProperties?.Remove("gitlab"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec? Gitlab { get => _explicitNullValueGitlab; set { _explicitNullValueGitlab = value; AdditionalData?.Remove("gitlab"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab"); else _explicitNullProperties?.Remove("gitlab"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec? _explicitNullValueGitlab = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec Gitlab { get => _explicitNullValueGitlab; set { _explicitNullValueGitlab = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab"); else _explicitNullProperties?.Remove("gitlab"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec Gitlab { get => _explicitNullValueGitlab; set { _explicitNullValueGitlab = value; AdditionalData?.Remove("gitlab"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab"); else _explicitNullProperties?.Remove("gitlab"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsGitlabSourceSpec _explicitNullValueGitlab = default!;
 #endif
         /// <summary>The image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec? Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec? Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; AdditionalData?.Remove("image"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec? _explicitNullValueImage = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; AdditionalData?.Remove("image"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsImageSourceSpec _explicitNullValueImage = default!;
 #endif
         /// <summary>The name of the index document to use when serving this static site. Default: index.html</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IndexDocument { get => _explicitNullValueIndexDocument; set { _explicitNullValueIndexDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_document"); else _explicitNullProperties?.Remove("index_document"); } }
+        public string? IndexDocument { get => _explicitNullValueIndexDocument; set { _explicitNullValueIndexDocument = value; AdditionalData?.Remove("index_document"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_document"); else _explicitNullProperties?.Remove("index_document"); } }
         private string? _explicitNullValueIndexDocument = default!;
 #nullable restore
 #else
-        public string IndexDocument { get => _explicitNullValueIndexDocument; set { _explicitNullValueIndexDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_document"); else _explicitNullProperties?.Remove("index_document"); } }
+        public string IndexDocument { get => _explicitNullValueIndexDocument; set { _explicitNullValueIndexDocument = value; AdditionalData?.Remove("index_document"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_document"); else _explicitNullProperties?.Remove("index_document"); } }
         private string _explicitNullValueIndexDocument = default!;
 #endif
         /// <summary>A list of configured log forwarding destinations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition>? LogDestinations { get => _explicitNullValueLogDestinations; set { _explicitNullValueLogDestinations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_destinations"); else _explicitNullProperties?.Remove("log_destinations"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition>? LogDestinations { get => _explicitNullValueLogDestinations; set { _explicitNullValueLogDestinations = value; AdditionalData?.Remove("log_destinations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_destinations"); else _explicitNullProperties?.Remove("log_destinations"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition>? _explicitNullValueLogDestinations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition> LogDestinations { get => _explicitNullValueLogDestinations; set { _explicitNullValueLogDestinations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_destinations"); else _explicitNullProperties?.Remove("log_destinations"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition> LogDestinations { get => _explicitNullValueLogDestinations; set { _explicitNullValueLogDestinations = value; AdditionalData?.Remove("log_destinations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_destinations"); else _explicitNullProperties?.Remove("log_destinations"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDefinition> _explicitNullValueLogDestinations = default!;
 #endif
         /// <summary>The name. Must be unique across all components within the same app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>An optional path to where the built assets will be located, relative to the build context. If not set, App Platform will automatically scan for these directory names: `_static`, `dist`, `public`, `build`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OutputDir { get => _explicitNullValueOutputDir; set { _explicitNullValueOutputDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_dir"); else _explicitNullProperties?.Remove("output_dir"); } }
+        public string? OutputDir { get => _explicitNullValueOutputDir; set { _explicitNullValueOutputDir = value; AdditionalData?.Remove("output_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_dir"); else _explicitNullProperties?.Remove("output_dir"); } }
         private string? _explicitNullValueOutputDir = default!;
 #nullable restore
 #else
-        public string OutputDir { get => _explicitNullValueOutputDir; set { _explicitNullValueOutputDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_dir"); else _explicitNullProperties?.Remove("output_dir"); } }
+        public string OutputDir { get => _explicitNullValueOutputDir; set { _explicitNullValueOutputDir = value; AdditionalData?.Remove("output_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_dir"); else _explicitNullProperties?.Remove("output_dir"); } }
         private string _explicitNullValueOutputDir = default!;
 #endif
         /// <summary>(Deprecated - Use Ingress Rules instead). A list of HTTP routes that should be routed to this component.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppRouteSpec>? Routes { get => _explicitNullValueRoutes; set { _explicitNullValueRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routes"); else _explicitNullProperties?.Remove("routes"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppRouteSpec>? Routes { get => _explicitNullValueRoutes; set { _explicitNullValueRoutes = value; AdditionalData?.Remove("routes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routes"); else _explicitNullProperties?.Remove("routes"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppRouteSpec>? _explicitNullValueRoutes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppRouteSpec> Routes { get => _explicitNullValueRoutes; set { _explicitNullValueRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routes"); else _explicitNullProperties?.Remove("routes"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppRouteSpec> Routes { get => _explicitNullValueRoutes; set { _explicitNullValueRoutes = value; AdditionalData?.Remove("routes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routes"); else _explicitNullProperties?.Remove("routes"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppRouteSpec> _explicitNullValueRoutes = default!;
 #endif
         /// <summary>An optional run command to override the component&apos;s default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunCommand { get => _explicitNullValueRunCommand; set { _explicitNullValueRunCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_command"); else _explicitNullProperties?.Remove("run_command"); } }
+        public string? RunCommand { get => _explicitNullValueRunCommand; set { _explicitNullValueRunCommand = value; AdditionalData?.Remove("run_command"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_command"); else _explicitNullProperties?.Remove("run_command"); } }
         private string? _explicitNullValueRunCommand = default!;
 #nullable restore
 #else
-        public string RunCommand { get => _explicitNullValueRunCommand; set { _explicitNullValueRunCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_command"); else _explicitNullProperties?.Remove("run_command"); } }
+        public string RunCommand { get => _explicitNullValueRunCommand; set { _explicitNullValueRunCommand = value; AdditionalData?.Remove("run_command"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_command"); else _explicitNullProperties?.Remove("run_command"); } }
         private string _explicitNullValueRunCommand = default!;
 #endif
         /// <summary>An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceDir { get => _explicitNullValueSourceDir; set { _explicitNullValueSourceDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_dir"); else _explicitNullProperties?.Remove("source_dir"); } }
+        public string? SourceDir { get => _explicitNullValueSourceDir; set { _explicitNullValueSourceDir = value; AdditionalData?.Remove("source_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_dir"); else _explicitNullProperties?.Remove("source_dir"); } }
         private string? _explicitNullValueSourceDir = default!;
 #nullable restore
 #else
-        public string SourceDir { get => _explicitNullValueSourceDir; set { _explicitNullValueSourceDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_dir"); else _explicitNullProperties?.Remove("source_dir"); } }
+        public string SourceDir { get => _explicitNullValueSourceDir; set { _explicitNullValueSourceDir = value; AdditionalData?.Remove("source_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_dir"); else _explicitNullProperties?.Remove("source_dir"); } }
         private string _explicitNullValueSourceDir = default!;
 #endif
         /// <summary>

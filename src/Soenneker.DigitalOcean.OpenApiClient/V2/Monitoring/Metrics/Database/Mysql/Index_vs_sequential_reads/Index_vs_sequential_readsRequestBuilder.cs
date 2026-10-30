@@ -78,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.My
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.Mysql.Index_vs_sequential_reads.Index_vs_sequential_readsRequestBuilder.Index_vs_sequential_readsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.digitalocean.com", "/v2/monitoring/metrics/database/mysql/index_vs_sequential_reads", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

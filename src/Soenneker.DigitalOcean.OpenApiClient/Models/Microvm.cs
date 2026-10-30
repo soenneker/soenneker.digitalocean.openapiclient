@@ -18,17 +18,28 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auto_pause") is { } nullNodeAutoPause && nullNodeAutoPause.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoPause = null;
-            if (parseNode.GetChildNode("auto_resume") is { } nullNodeAutoResume && nullNodeAutoResume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoResume = null;
-            if (parseNode.GetChildNode("http_protocol") is { } nullNodeHttpProtocol && nullNodeHttpProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpProtocol = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("networking") is { } nullNodeNetworking && nullNodeNetworking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Networking = null;
-            if (parseNode.GetChildNode("ports") is { } nullNodePorts && nullNodePorts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ports = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
-            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
-            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
-            if (parseNode.GetChildNode("vpc_uuid") is { } nullNodeVpcUuid && nullNodeVpcUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcUuid = null;
+            if (parseNode.GetChildNode("auto_pause") is null) { _explicitNullValueAutoPause = default!; _explicitNullProperties?.Remove("auto_pause"); }
+            else if (parseNode.GetChildNode("auto_pause") is { } nullNodeAutoPause && nullNodeAutoPause.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoPause = null;
+            if (parseNode.GetChildNode("auto_resume") is null) { _explicitNullValueAutoResume = default!; _explicitNullProperties?.Remove("auto_resume"); }
+            else if (parseNode.GetChildNode("auto_resume") is { } nullNodeAutoResume && nullNodeAutoResume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoResume = null;
+            if (parseNode.GetChildNode("http_protocol") is null) { _explicitNullValueHttpProtocol = default!; _explicitNullProperties?.Remove("http_protocol"); }
+            else if (parseNode.GetChildNode("http_protocol") is { } nullNodeHttpProtocol && nullNodeHttpProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpProtocol = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("networking") is null) { _explicitNullValueNetworking = default!; _explicitNullProperties?.Remove("networking"); }
+            else if (parseNode.GetChildNode("networking") is { } nullNodeNetworking && nullNodeNetworking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Networking = null;
+            if (parseNode.GetChildNode("ports") is null) { _explicitNullValuePorts = default!; _explicitNullProperties?.Remove("ports"); }
+            else if (parseNode.GetChildNode("ports") is { } nullNodePorts && nullNodePorts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ports = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("size") is null) { _explicitNullValueSize = default!; _explicitNullProperties?.Remove("size"); }
+            else if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
+            else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
+            else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("vpc_uuid") is null) { _explicitNullValueVpcUuid = default!; _explicitNullProperties?.Remove("vpc_uuid"); }
+            else if (parseNode.GetChildNode("vpc_uuid") is { } nullNodeVpcUuid && nullNodeVpcUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,15 +47,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Automatic pause settings. A MicroVM always pauses after it is idle for `idle_timeout`. Sending `enabled` set to `false` is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmAutoPause? AutoPause { get => _explicitNullValueAutoPause; set { _explicitNullValueAutoPause = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pause"); else _explicitNullProperties?.Remove("auto_pause"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmAutoPause? AutoPause { get => _explicitNullValueAutoPause; set { _explicitNullValueAutoPause = value; AdditionalData?.Remove("auto_pause"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pause"); else _explicitNullProperties?.Remove("auto_pause"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmAutoPause? _explicitNullValueAutoPause = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmAutoPause AutoPause { get => _explicitNullValueAutoPause; set { _explicitNullValueAutoPause = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pause"); else _explicitNullProperties?.Remove("auto_pause"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmAutoPause AutoPause { get => _explicitNullValueAutoPause; set { _explicitNullValueAutoPause = value; AdditionalData?.Remove("auto_pause"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pause"); else _explicitNullProperties?.Remove("auto_pause"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmAutoPause _explicitNullValueAutoPause = default!;
 #endif
         /// <summary>Whether an HTTP request, command, or console session resumes the MicroVM when it is paused.</summary>
-        public bool? AutoResume { get => _explicitNullValueAutoResume; set { _explicitNullValueAutoResume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_resume"); else _explicitNullProperties?.Remove("auto_resume"); } }
+        public bool? AutoResume { get => _explicitNullValueAutoResume; set { _explicitNullValueAutoResume = value; AdditionalData?.Remove("auto_resume"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_resume"); else _explicitNullProperties?.Remove("auto_resume"); } }
         private bool? _explicitNullValueAutoResume = default!;
         /// <summary>When the MicroVM was created, in ISO 8601 format.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
@@ -57,61 +68,61 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string FailureReason { get; private set; }
 #endif
         /// <summary>The protocol the MicroVM&apos;s HTTP port serves. `null` if the protocol was not set when the MicroVM was created.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmHttpProtocol? HttpProtocol { get => _explicitNullValueHttpProtocol; set { _explicitNullValueHttpProtocol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_protocol"); else _explicitNullProperties?.Remove("http_protocol"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmHttpProtocol? HttpProtocol { get => _explicitNullValueHttpProtocol; set { _explicitNullValueHttpProtocol = value; AdditionalData?.Remove("http_protocol"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_protocol"); else _explicitNullProperties?.Remove("http_protocol"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmHttpProtocol? _explicitNullValueHttpProtocol = default!;
         /// <summary>The unique ID of the MicroVM.</summary>
         public Guid? Id { get; private set; }
         /// <summary>The name of the MicroVM. Must be unique in the region and contain 1 to 63 lowercase letters, digits, and hyphens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>`public` sends outbound traffic through a shared NAT gateway. `vpc` places the MicroVM in the VPC network set by `vpc_uuid`.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmNetworking? Networking { get => _explicitNullValueNetworking; set { _explicitNullValueNetworking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("networking"); else _explicitNullProperties?.Remove("networking"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmNetworking? Networking { get => _explicitNullValueNetworking; set { _explicitNullValueNetworking = value; AdditionalData?.Remove("networking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("networking"); else _explicitNullProperties?.Remove("networking"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmNetworking? _explicitNullValueNetworking = default!;
         /// <summary>The guest ports declared on the MicroVM, including the HTTP port. During the public preview, only the HTTP port is reachable through the MicroVM&apos;s endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? Ports { get => _explicitNullValuePorts; set { _explicitNullValuePorts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ports"); else _explicitNullProperties?.Remove("ports"); } }
+        public List<int?>? Ports { get => _explicitNullValuePorts; set { _explicitNullValuePorts = value; AdditionalData?.Remove("ports"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ports"); else _explicitNullProperties?.Remove("ports"); } }
         private List<int?>? _explicitNullValuePorts = default!;
 #nullable restore
 #else
-        public List<int?> Ports { get => _explicitNullValuePorts; set { _explicitNullValuePorts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ports"); else _explicitNullProperties?.Remove("ports"); } }
+        public List<int?> Ports { get => _explicitNullValuePorts; set { _explicitNullValuePorts = value; AdditionalData?.Remove("ports"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ports"); else _explicitNullProperties?.Remove("ports"); } }
         private List<int?> _explicitNullValuePorts = default!;
 #endif
         /// <summary>The slug of the region the MicroVM is in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private string? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>The MicroVM&apos;s size. `cpu` and `memory` must be one of the pairs `1`/`2048`, `2`/`4096`, `8`/`16384`, or `16`/`32768`. The size sets the disk, which is returned in responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; AdditionalData?.Remove("size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize? _explicitNullValueSize = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; AdditionalData?.Remove("size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize _explicitNullValueSize = default!;
 #endif
         /// <summary>What the MicroVM runs. Set exactly one of `oci_ref` or `checkpoint_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSource _explicitNullValueSource = default!;
 #endif
         /// <summary>The MicroVM&apos;s current state.</summary>
@@ -119,11 +130,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The tags applied to the MicroVM.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>The MicroVM&apos;s HTTPS endpoints. The entry with `default` set to `true` is the endpoint for the HTTP port.</summary>
@@ -135,7 +146,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmUrl> Urls { get; private set; }
 #endif
         /// <summary>The ID of a VPC network in the same region that belongs to your team. Present only when `networking` is `vpc`.</summary>
-        public Guid? VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_uuid"); else _explicitNullProperties?.Remove("vpc_uuid"); } }
+        public Guid? VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; AdditionalData?.Remove("vpc_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_uuid"); else _explicitNullProperties?.Remove("vpc_uuid"); } }
         private Guid? _explicitNullValueVpcUuid = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Microvm"/> and sets the default values.
@@ -167,10 +178,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "auto_resume", n => { AutoResume = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "failure_reason", n => { FailureReason = n.GetStringValue(); } },
-                { "http_protocol", n => { HttpProtocol = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmHttpProtocol>(); } },
+                { "http_protocol", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmHttpProtocol>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueHttpProtocol = default; _explicitNullProperties?.Remove("http_protocol"); AdditionalData["http_protocol"] = unknown; } else { HttpProtocol = parsed; AdditionalData.Remove("http_protocol"); } } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "networking", n => { Networking = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmNetworking>(); } },
+                { "networking", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmNetworking>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNetworking = default; _explicitNullProperties?.Remove("networking"); AdditionalData["networking"] = unknown; } else { Networking = parsed; AdditionalData.Remove("networking"); } } },
                 { "ports", n => { Ports = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize.CreateFromDiscriminatorValue); } },

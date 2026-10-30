@@ -18,49 +18,54 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bool_value") is { } nullNodeBoolValue && nullNodeBoolValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BoolValue = null;
-            if (parseNode.GetChildNode("number_array_value") is { } nullNodeNumberArrayValue && nullNodeNumberArrayValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberArrayValue = null;
-            if (parseNode.GetChildNode("number_value") is { } nullNodeNumberValue && nullNodeNumberValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberValue = null;
-            if (parseNode.GetChildNode("string_array_value") is { } nullNodeStringArrayValue && nullNodeStringArrayValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StringArrayValue = null;
-            if (parseNode.GetChildNode("string_value") is { } nullNodeStringValue && nullNodeStringValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StringValue = null;
+            if (parseNode.GetChildNode("bool_value") is null) { _explicitNullValueBoolValue = default!; _explicitNullProperties?.Remove("bool_value"); }
+            else if (parseNode.GetChildNode("bool_value") is { } nullNodeBoolValue && nullNodeBoolValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BoolValue = null;
+            if (parseNode.GetChildNode("number_array_value") is null) { _explicitNullValueNumberArrayValue = default!; _explicitNullProperties?.Remove("number_array_value"); }
+            else if (parseNode.GetChildNode("number_array_value") is { } nullNodeNumberArrayValue && nullNodeNumberArrayValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberArrayValue = null;
+            if (parseNode.GetChildNode("number_value") is null) { _explicitNullValueNumberValue = default!; _explicitNullProperties?.Remove("number_value"); }
+            else if (parseNode.GetChildNode("number_value") is { } nullNodeNumberValue && nullNodeNumberValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberValue = null;
+            if (parseNode.GetChildNode("string_array_value") is null) { _explicitNullValueStringArrayValue = default!; _explicitNullProperties?.Remove("string_array_value"); }
+            else if (parseNode.GetChildNode("string_array_value") is { } nullNodeStringArrayValue && nullNodeStringArrayValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StringArrayValue = null;
+            if (parseNode.GetChildNode("string_value") is null) { _explicitNullValueStringValue = default!; _explicitNullProperties?.Remove("string_value"); }
+            else if (parseNode.GetChildNode("string_value") is { } nullNodeStringValue && nullNodeStringValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StringValue = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The bool_value property</summary>
-        public bool? BoolValue { get => _explicitNullValueBoolValue; set { _explicitNullValueBoolValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bool_value"); else _explicitNullProperties?.Remove("bool_value"); } }
+        public bool? BoolValue { get => _explicitNullValueBoolValue; set { _explicitNullValueBoolValue = value; AdditionalData?.Remove("bool_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bool_value"); else _explicitNullProperties?.Remove("bool_value"); } }
         private bool? _explicitNullValueBoolValue = default!;
         /// <summary>The number_array_value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue? NumberArrayValue { get => _explicitNullValueNumberArrayValue; set { _explicitNullValueNumberArrayValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_array_value"); else _explicitNullProperties?.Remove("number_array_value"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue? NumberArrayValue { get => _explicitNullValueNumberArrayValue; set { _explicitNullValueNumberArrayValue = value; AdditionalData?.Remove("number_array_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_array_value"); else _explicitNullProperties?.Remove("number_array_value"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue? _explicitNullValueNumberArrayValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue NumberArrayValue { get => _explicitNullValueNumberArrayValue; set { _explicitNullValueNumberArrayValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_array_value"); else _explicitNullProperties?.Remove("number_array_value"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue NumberArrayValue { get => _explicitNullValueNumberArrayValue; set { _explicitNullValueNumberArrayValue = value; AdditionalData?.Remove("number_array_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_array_value"); else _explicitNullProperties?.Remove("number_array_value"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue _explicitNullValueNumberArrayValue = default!;
 #endif
         /// <summary>The number_value property</summary>
-        public double? NumberValue { get => _explicitNullValueNumberValue; set { _explicitNullValueNumberValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_value"); else _explicitNullProperties?.Remove("number_value"); } }
+        public double? NumberValue { get => _explicitNullValueNumberValue; set { _explicitNullValueNumberValue = value; AdditionalData?.Remove("number_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_value"); else _explicitNullProperties?.Remove("number_value"); } }
         private double? _explicitNullValueNumberValue = default!;
         /// <summary>The string_array_value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue? StringArrayValue { get => _explicitNullValueStringArrayValue; set { _explicitNullValueStringArrayValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_array_value"); else _explicitNullProperties?.Remove("string_array_value"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue? StringArrayValue { get => _explicitNullValueStringArrayValue; set { _explicitNullValueStringArrayValue = value; AdditionalData?.Remove("string_array_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_array_value"); else _explicitNullProperties?.Remove("string_array_value"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue? _explicitNullValueStringArrayValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue StringArrayValue { get => _explicitNullValueStringArrayValue; set { _explicitNullValueStringArrayValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_array_value"); else _explicitNullProperties?.Remove("string_array_value"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue StringArrayValue { get => _explicitNullValueStringArrayValue; set { _explicitNullValueStringArrayValue = value; AdditionalData?.Remove("string_array_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_array_value"); else _explicitNullProperties?.Remove("string_array_value"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueStringArrayValue _explicitNullValueStringArrayValue = default!;
 #endif
         /// <summary>The string_value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
+        public string? StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; AdditionalData?.Remove("string_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
         private string? _explicitNullValueStringValue = default!;
 #nullable restore
 #else
-        public string StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
+        public string StringValue { get => _explicitNullValueStringValue; set { _explicitNullValueStringValue = value; AdditionalData?.Remove("string_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("string_value"); else _explicitNullProperties?.Remove("string_value"); } }
         private string _explicitNullValueStringValue = default!;
 #endif
         /// <summary>

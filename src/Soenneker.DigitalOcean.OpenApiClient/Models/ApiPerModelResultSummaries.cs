@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("summaries") is { } nullNodeSummaries && nullNodeSummaries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summaries = null;
+            if (parseNode.GetChildNode("summaries") is null) { _explicitNullValueSummaries = default!; _explicitNullProperties?.Remove("summaries"); }
+            else if (parseNode.GetChildNode("summaries") is { } nullNodeSummaries && nullNodeSummaries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summaries = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>One entry per underlying model that received at least one promptduring the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummary>? Summaries { get => _explicitNullValueSummaries; set { _explicitNullValueSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summaries"); else _explicitNullProperties?.Remove("summaries"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummary>? Summaries { get => _explicitNullValueSummaries; set { _explicitNullValueSummaries = value; AdditionalData?.Remove("summaries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summaries"); else _explicitNullProperties?.Remove("summaries"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummary>? _explicitNullValueSummaries = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummary> Summaries { get => _explicitNullValueSummaries; set { _explicitNullValueSummaries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summaries"); else _explicitNullProperties?.Remove("summaries"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummary> Summaries { get => _explicitNullValueSummaries; set { _explicitNullValueSummaries = value; AdditionalData?.Remove("summaries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summaries"); else _explicitNullProperties?.Remove("summaries"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerModelResultSummary> _explicitNullValueSummaries = default!;
 #endif
         /// <summary>

@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("advertise") is { } nullNodeAdvertise && nullNodeAdvertise.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Advertise = null;
+            if (parseNode.GetChildNode("advertise") is null) { _explicitNullValueAdvertise = default!; _explicitNullProperties?.Remove("advertise"); }
+            else if (parseNode.GetChildNode("advertise") is { } nullNodeAdvertise && nullNodeAdvertise.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Advertise = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the BYOIP prefix should be advertised</summary>
-        public bool? Advertise { get => _explicitNullValueAdvertise; set { _explicitNullValueAdvertise = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advertise"); else _explicitNullProperties?.Remove("advertise"); } }
+        public bool? Advertise { get => _explicitNullValueAdvertise; set { _explicitNullValueAdvertise = value; AdditionalData?.Remove("advertise"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advertise"); else _explicitNullProperties?.Remove("advertise"); } }
         private bool? _explicitNullValueAdvertise = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ByoipPrefixUpdate"/> and sets the default values.

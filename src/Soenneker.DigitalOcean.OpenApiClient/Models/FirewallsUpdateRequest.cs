@@ -17,11 +17,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("droplet_ids") is { } nullNodeDropletIds && nullNodeDropletIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletIds = null;
-            if (parseNode.GetChildNode("inbound_rules") is { } nullNodeInboundRules && nullNodeInboundRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundRules = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("outbound_rules") is { } nullNodeOutboundRules && nullNodeOutboundRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundRules = null;
-            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("droplet_ids") is null) { _explicitNullValueDropletIds = default!; _explicitNullProperties?.Remove("droplet_ids"); }
+            else if (parseNode.GetChildNode("droplet_ids") is { } nullNodeDropletIds && nullNodeDropletIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletIds = null;
+            if (parseNode.GetChildNode("inbound_rules") is null) { _explicitNullValueInboundRules = default!; _explicitNullProperties?.Remove("inbound_rules"); }
+            else if (parseNode.GetChildNode("inbound_rules") is { } nullNodeInboundRules && nullNodeInboundRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundRules = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("outbound_rules") is null) { _explicitNullValueOutboundRules = default!; _explicitNullProperties?.Remove("outbound_rules"); }
+            else if (parseNode.GetChildNode("outbound_rules") is { } nullNodeOutboundRules && nullNodeOutboundRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundRules = null;
+            if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
+            else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,11 +36,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array containing the IDs of the Droplets assigned to the firewall. &lt;br&gt;&lt;br&gt;Requires `droplet:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
+        public List<int?>? DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; AdditionalData?.Remove("droplet_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
         private List<int?>? _explicitNullValueDropletIds = default!;
 #nullable restore
 #else
-        public List<int?> DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
+        public List<int?> DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; AdditionalData?.Remove("droplet_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
         private List<int?> _explicitNullValueDropletIds = default!;
 #endif
         /// <summary>A unique ID that can be used to identify and reference a firewall.</summary>
@@ -49,31 +54,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The inbound_rules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem>? InboundRules { get => _explicitNullValueInboundRules; set { _explicitNullValueInboundRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_rules"); else _explicitNullProperties?.Remove("inbound_rules"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem>? InboundRules { get => _explicitNullValueInboundRules; set { _explicitNullValueInboundRules = value; AdditionalData?.Remove("inbound_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_rules"); else _explicitNullProperties?.Remove("inbound_rules"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem>? _explicitNullValueInboundRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem> InboundRules { get => _explicitNullValueInboundRules; set { _explicitNullValueInboundRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_rules"); else _explicitNullProperties?.Remove("inbound_rules"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem> InboundRules { get => _explicitNullValueInboundRules; set { _explicitNullValueInboundRules = value; AdditionalData?.Remove("inbound_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_rules"); else _explicitNullProperties?.Remove("inbound_rules"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesInboundRulesItem> _explicitNullValueInboundRules = default!;
 #endif
         /// <summary>A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The outbound_rules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>? OutboundRules { get => _explicitNullValueOutboundRules; set { _explicitNullValueOutboundRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_rules"); else _explicitNullProperties?.Remove("outbound_rules"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>? OutboundRules { get => _explicitNullValueOutboundRules; set { _explicitNullValueOutboundRules = value; AdditionalData?.Remove("outbound_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_rules"); else _explicitNullProperties?.Remove("outbound_rules"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem>? _explicitNullValueOutboundRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem> OutboundRules { get => _explicitNullValueOutboundRules; set { _explicitNullValueOutboundRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_rules"); else _explicitNullProperties?.Remove("outbound_rules"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem> OutboundRules { get => _explicitNullValueOutboundRules; set { _explicitNullValueOutboundRules = value; AdditionalData?.Remove("outbound_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_rules"); else _explicitNullProperties?.Remove("outbound_rules"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.FirewallRulesOutboundRulesItem> _explicitNullValueOutboundRules = default!;
 #endif
         /// <summary>An array of objects each containing the fields &quot;droplet_id&quot;, &quot;removing&quot;, and &quot;status&quot;. It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied.</summary>
@@ -89,11 +94,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A flat array of tag names as strings to be applied to the resource. Tag names must exist in order to be referenced in a request. &lt;br&gt;&lt;br&gt;Requires `tag:create` and `tag:read` scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>

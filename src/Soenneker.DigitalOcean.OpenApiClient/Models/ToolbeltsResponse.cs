@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
-            if (parseNode.GetChildNode("toolbelts") is { } nullNodeToolbelts && nullNodeToolbelts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolbelts = null;
+            if (parseNode.GetChildNode("pagination") is null) { _explicitNullValuePagination = default!; _explicitNullProperties?.Remove("pagination"); }
+            else if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
+            if (parseNode.GetChildNode("toolbelts") is null) { _explicitNullValueToolbelts = default!; _explicitNullProperties?.Remove("toolbelts"); }
+            else if (parseNode.GetChildNode("toolbelts") is { } nullNodeToolbelts && nullNodeToolbelts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolbelts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Paging applied to this response and the total number of toolbelts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponsePagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponsePagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; AdditionalData?.Remove("pagination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponsePagination? _explicitNullValuePagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponsePagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponsePagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; AdditionalData?.Remove("pagination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltsResponsePagination _explicitNullValuePagination = default!;
 #endif
         /// <summary>Toolbelts sorted by name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltSummary>? Toolbelts { get => _explicitNullValueToolbelts; set { _explicitNullValueToolbelts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelts"); else _explicitNullProperties?.Remove("toolbelts"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltSummary>? Toolbelts { get => _explicitNullValueToolbelts; set { _explicitNullValueToolbelts = value; AdditionalData?.Remove("toolbelts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelts"); else _explicitNullProperties?.Remove("toolbelts"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltSummary>? _explicitNullValueToolbelts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltSummary> Toolbelts { get => _explicitNullValueToolbelts; set { _explicitNullValueToolbelts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelts"); else _explicitNullProperties?.Remove("toolbelts"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltSummary> Toolbelts { get => _explicitNullValueToolbelts; set { _explicitNullValueToolbelts = value; AdditionalData?.Remove("toolbelts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelts"); else _explicitNullProperties?.Remove("toolbelts"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltSummary> _explicitNullValueToolbelts = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("neighbor_ids") is { } nullNodeNeighborIdsProp && nullNodeNeighborIdsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NeighborIdsProp = null;
+            if (parseNode.GetChildNode("neighbor_ids") is null) { _explicitNullValueNeighborIdsProp = default!; _explicitNullProperties?.Remove("neighbor_ids"); }
+            else if (parseNode.GetChildNode("neighbor_ids") is { } nullNodeNeighborIdsProp && nullNodeNeighborIdsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NeighborIdsProp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? NeighborIdsProp { get => _explicitNullValueNeighborIdsProp; set { _explicitNullValueNeighborIdsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("neighbor_ids"); else _explicitNullProperties?.Remove("neighbor_ids"); } }
+        public UntypedNode? NeighborIdsProp { get => _explicitNullValueNeighborIdsProp; set { _explicitNullValueNeighborIdsProp = value; AdditionalData?.Remove("neighbor_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("neighbor_ids"); else _explicitNullProperties?.Remove("neighbor_ids"); } }
         private UntypedNode? _explicitNullValueNeighborIdsProp = default!;
 #nullable restore
 #else
-        public UntypedNode NeighborIdsProp { get => _explicitNullValueNeighborIdsProp; set { _explicitNullValueNeighborIdsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("neighbor_ids"); else _explicitNullProperties?.Remove("neighbor_ids"); } }
+        public UntypedNode NeighborIdsProp { get => _explicitNullValueNeighborIdsProp; set { _explicitNullValueNeighborIdsProp = value; AdditionalData?.Remove("neighbor_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("neighbor_ids"); else _explicitNullProperties?.Remove("neighbor_ids"); } }
         private UntypedNode _explicitNullValueNeighborIdsProp = default!;
 #endif
         /// <summary>

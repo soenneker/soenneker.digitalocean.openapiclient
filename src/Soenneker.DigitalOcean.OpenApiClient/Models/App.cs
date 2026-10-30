@@ -18,22 +18,28 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("active_deployment") is { } nullNodeActiveDeployment && nullNodeActiveDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveDeployment = null;
-            if (parseNode.GetChildNode("in_progress_deployment") is { } nullNodeInProgressDeployment && nullNodeInProgressDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InProgressDeployment = null;
-            if (parseNode.GetChildNode("pending_deployment") is { } nullNodePendingDeployment && nullNodePendingDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingDeployment = null;
-            if (parseNode.GetChildNode("pinned_deployment") is { } nullNodePinnedDeployment && nullNodePinnedDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PinnedDeployment = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("spec") is { } nullNodeSpec && nullNodeSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spec = null;
+            if (parseNode.GetChildNode("active_deployment") is null) { _explicitNullValueActiveDeployment = default!; _explicitNullProperties?.Remove("active_deployment"); }
+            else if (parseNode.GetChildNode("active_deployment") is { } nullNodeActiveDeployment && nullNodeActiveDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveDeployment = null;
+            if (parseNode.GetChildNode("in_progress_deployment") is null) { _explicitNullValueInProgressDeployment = default!; _explicitNullProperties?.Remove("in_progress_deployment"); }
+            else if (parseNode.GetChildNode("in_progress_deployment") is { } nullNodeInProgressDeployment && nullNodeInProgressDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InProgressDeployment = null;
+            if (parseNode.GetChildNode("pending_deployment") is null) { _explicitNullValuePendingDeployment = default!; _explicitNullProperties?.Remove("pending_deployment"); }
+            else if (parseNode.GetChildNode("pending_deployment") is { } nullNodePendingDeployment && nullNodePendingDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingDeployment = null;
+            if (parseNode.GetChildNode("pinned_deployment") is null) { _explicitNullValuePinnedDeployment = default!; _explicitNullProperties?.Remove("pinned_deployment"); }
+            else if (parseNode.GetChildNode("pinned_deployment") is { } nullNodePinnedDeployment && nullNodePinnedDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PinnedDeployment = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("spec") is null) { _explicitNullValueSpec = default!; _explicitNullProperties?.Remove("spec"); }
+            else if (parseNode.GetChildNode("spec") is { } nullNodeSpec && nullNodeSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spec = null;
         }
 
         /// <summary>The active_deployment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment? ActiveDeployment { get => _explicitNullValueActiveDeployment; set { _explicitNullValueActiveDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_deployment"); else _explicitNullProperties?.Remove("active_deployment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment? ActiveDeployment { get => _explicitNullValueActiveDeployment; set { _explicitNullValueActiveDeployment = value; AdditionalData?.Remove("active_deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_deployment"); else _explicitNullProperties?.Remove("active_deployment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment? _explicitNullValueActiveDeployment = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment ActiveDeployment { get => _explicitNullValueActiveDeployment; set { _explicitNullValueActiveDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_deployment"); else _explicitNullProperties?.Remove("active_deployment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment ActiveDeployment { get => _explicitNullValueActiveDeployment; set { _explicitNullValueActiveDeployment = value; AdditionalData?.Remove("active_deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_deployment"); else _explicitNullProperties?.Remove("active_deployment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment _explicitNullValueActiveDeployment = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -75,11 +81,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The in_progress_deployment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment? InProgressDeployment { get => _explicitNullValueInProgressDeployment; set { _explicitNullValueInProgressDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress_deployment"); else _explicitNullProperties?.Remove("in_progress_deployment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment? InProgressDeployment { get => _explicitNullValueInProgressDeployment; set { _explicitNullValueInProgressDeployment = value; AdditionalData?.Remove("in_progress_deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress_deployment"); else _explicitNullProperties?.Remove("in_progress_deployment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment? _explicitNullValueInProgressDeployment = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment InProgressDeployment { get => _explicitNullValueInProgressDeployment; set { _explicitNullValueInProgressDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress_deployment"); else _explicitNullProperties?.Remove("in_progress_deployment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment InProgressDeployment { get => _explicitNullValueInProgressDeployment; set { _explicitNullValueInProgressDeployment = value; AdditionalData?.Remove("in_progress_deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress_deployment"); else _explicitNullProperties?.Remove("in_progress_deployment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsDeployment _explicitNullValueInProgressDeployment = default!;
 #endif
         /// <summary>The last_deployment_created_at property</summary>
@@ -119,21 +125,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The most recent pending deployment. For CreateApp and UpdateApp transactions this is guaranteed to reflect the associated deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPendingDeployment? PendingDeployment { get => _explicitNullValuePendingDeployment; set { _explicitNullValuePendingDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_deployment"); else _explicitNullProperties?.Remove("pending_deployment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPendingDeployment? PendingDeployment { get => _explicitNullValuePendingDeployment; set { _explicitNullValuePendingDeployment = value; AdditionalData?.Remove("pending_deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_deployment"); else _explicitNullProperties?.Remove("pending_deployment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPendingDeployment? _explicitNullValuePendingDeployment = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPendingDeployment PendingDeployment { get => _explicitNullValuePendingDeployment; set { _explicitNullValuePendingDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_deployment"); else _explicitNullProperties?.Remove("pending_deployment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPendingDeployment PendingDeployment { get => _explicitNullValuePendingDeployment; set { _explicitNullValuePendingDeployment = value; AdditionalData?.Remove("pending_deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_deployment"); else _explicitNullProperties?.Remove("pending_deployment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPendingDeployment _explicitNullValuePendingDeployment = default!;
 #endif
         /// <summary>The deployment that the app is pinned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPinnedDeployment? PinnedDeployment { get => _explicitNullValuePinnedDeployment; set { _explicitNullValuePinnedDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinned_deployment"); else _explicitNullProperties?.Remove("pinned_deployment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPinnedDeployment? PinnedDeployment { get => _explicitNullValuePinnedDeployment; set { _explicitNullValuePinnedDeployment = value; AdditionalData?.Remove("pinned_deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinned_deployment"); else _explicitNullProperties?.Remove("pinned_deployment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPinnedDeployment? _explicitNullValuePinnedDeployment = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPinnedDeployment PinnedDeployment { get => _explicitNullValuePinnedDeployment; set { _explicitNullValuePinnedDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinned_deployment"); else _explicitNullProperties?.Remove("pinned_deployment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPinnedDeployment PinnedDeployment { get => _explicitNullValuePinnedDeployment; set { _explicitNullValuePinnedDeployment = value; AdditionalData?.Remove("pinned_deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinned_deployment"); else _explicitNullProperties?.Remove("pinned_deployment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppPinnedDeployment _explicitNullValuePinnedDeployment = default!;
 #endif
         /// <summary>Requires `project:read` scope.</summary>
@@ -147,21 +153,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsRegion? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsRegion Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsRegion Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsRegion _explicitNullValueRegion = default!;
 #endif
         /// <summary>The desired configuration of an application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec? Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec? Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; AdditionalData?.Remove("spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec? _explicitNullValueSpec = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; AdditionalData?.Remove("spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec _explicitNullValueSpec = default!;
 #endif
         /// <summary>The tier_slug property</summary>

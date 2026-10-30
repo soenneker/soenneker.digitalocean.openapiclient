@@ -18,23 +18,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
-            if (parseNode.GetChildNode("requests_per_minute") is { } nullNodeRequestsPerMinute && nullNodeRequestsPerMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestsPerMinute = null;
+            if (parseNode.GetChildNode("category") is null) { _explicitNullValueCategory = default!; _explicitNullProperties?.Remove("category"); }
+            else if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
+            if (parseNode.GetChildNode("requests_per_minute") is null) { _explicitNullValueRequestsPerMinute = default!; _explicitNullProperties?.Remove("requests_per_minute"); }
+            else if (parseNode.GetChildNode("requests_per_minute") is { } nullNodeRequestsPerMinute && nullNodeRequestsPerMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestsPerMinute = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The category the limit applies to.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverrideCategory? Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverrideCategory? Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; AdditionalData?.Remove("category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverrideCategory? _explicitNullValueCategory = default!;
         /// <summary>Calls allowed per minute. 0 blocks every call in the category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestsPerMinute { get => _explicitNullValueRequestsPerMinute; set { _explicitNullValueRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests_per_minute"); else _explicitNullProperties?.Remove("requests_per_minute"); } }
+        public string? RequestsPerMinute { get => _explicitNullValueRequestsPerMinute; set { _explicitNullValueRequestsPerMinute = value; AdditionalData?.Remove("requests_per_minute"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests_per_minute"); else _explicitNullProperties?.Remove("requests_per_minute"); } }
         private string? _explicitNullValueRequestsPerMinute = default!;
 #nullable restore
 #else
-        public string RequestsPerMinute { get => _explicitNullValueRequestsPerMinute; set { _explicitNullValueRequestsPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests_per_minute"); else _explicitNullProperties?.Remove("requests_per_minute"); } }
+        public string RequestsPerMinute { get => _explicitNullValueRequestsPerMinute; set { _explicitNullValueRequestsPerMinute = value; AdditionalData?.Remove("requests_per_minute"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests_per_minute"); else _explicitNullProperties?.Remove("requests_per_minute"); } }
         private string _explicitNullValueRequestsPerMinute = default!;
 #endif
         /// <summary>
@@ -62,7 +64,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "category", n => { Category = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverrideCategory>(); } },
+                { "category", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverrideCategory>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCategory = default; _explicitNullProperties?.Remove("category"); AdditionalData["category"] = unknown; } else { Category = parsed; AdditionalData.Remove("category"); } } },
                 { "requests_per_minute", n => { RequestsPerMinute = n.GetStringValue(); } },
             };
         }

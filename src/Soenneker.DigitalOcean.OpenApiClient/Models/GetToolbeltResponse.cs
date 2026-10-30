@@ -18,9 +18,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("next_page_token") is { } nullNodeNextPageToken && nullNodeNextPageToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPageToken = null;
-            if (parseNode.GetChildNode("toolbelt") is { } nullNodeToolbelt && nullNodeToolbelt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolbelt = null;
-            if (parseNode.GetChildNode("tool_details") is { } nullNodeToolDetails && nullNodeToolDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolDetails = null;
+            if (parseNode.GetChildNode("next_page_token") is null) { _explicitNullValueNextPageToken = default!; _explicitNullProperties?.Remove("next_page_token"); }
+            else if (parseNode.GetChildNode("next_page_token") is { } nullNodeNextPageToken && nullNodeNextPageToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPageToken = null;
+            if (parseNode.GetChildNode("toolbelt") is null) { _explicitNullValueToolbelt = default!; _explicitNullProperties?.Remove("toolbelt"); }
+            else if (parseNode.GetChildNode("toolbelt") is { } nullNodeToolbelt && nullNodeToolbelt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolbelt = null;
+            if (parseNode.GetChildNode("tool_details") is null) { _explicitNullValueToolDetails = default!; _explicitNullProperties?.Remove("tool_details"); }
+            else if (parseNode.GetChildNode("tool_details") is { } nullNodeToolDetails && nullNodeToolDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolDetails = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An opaque cursor for the next page of results. Pass it back verbatim as `page_token`. It is empty on the last page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_page_token"); else _explicitNullProperties?.Remove("next_page_token"); } }
+        public string? NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; AdditionalData?.Remove("next_page_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_page_token"); else _explicitNullProperties?.Remove("next_page_token"); } }
         private string? _explicitNullValueNextPageToken = default!;
 #nullable restore
 #else
-        public string NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_page_token"); else _explicitNullProperties?.Remove("next_page_token"); } }
+        public string NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; AdditionalData?.Remove("next_page_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_page_token"); else _explicitNullProperties?.Remove("next_page_token"); } }
         private string _explicitNullValueNextPageToken = default!;
 #endif
         /// <summary>The requested toolbelt version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponseToolbelt? Toolbelt { get => _explicitNullValueToolbelt; set { _explicitNullValueToolbelt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelt"); else _explicitNullProperties?.Remove("toolbelt"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponseToolbelt? Toolbelt { get => _explicitNullValueToolbelt; set { _explicitNullValueToolbelt = value; AdditionalData?.Remove("toolbelt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelt"); else _explicitNullProperties?.Remove("toolbelt"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponseToolbelt? _explicitNullValueToolbelt = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponseToolbelt Toolbelt { get => _explicitNullValueToolbelt; set { _explicitNullValueToolbelt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelt"); else _explicitNullProperties?.Remove("toolbelt"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponseToolbelt Toolbelt { get => _explicitNullValueToolbelt; set { _explicitNullValueToolbelt = value; AdditionalData?.Remove("toolbelt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolbelt"); else _explicitNullProperties?.Remove("toolbelt"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetToolbeltResponseToolbelt _explicitNullValueToolbelt = default!;
 #endif
         /// <summary>The requested page of resolved catalog metadata for the members named in toolbelt.tools. It is a page, so it is not the membership of the toolbelt: read toolbelt.tools for that, and toolbelt.tool_count for the total. Ordering matches toolbelt.tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltToolDetail>? ToolDetails { get => _explicitNullValueToolDetails; set { _explicitNullValueToolDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_details"); else _explicitNullProperties?.Remove("tool_details"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltToolDetail>? ToolDetails { get => _explicitNullValueToolDetails; set { _explicitNullValueToolDetails = value; AdditionalData?.Remove("tool_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_details"); else _explicitNullProperties?.Remove("tool_details"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltToolDetail>? _explicitNullValueToolDetails = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltToolDetail> ToolDetails { get => _explicitNullValueToolDetails; set { _explicitNullValueToolDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_details"); else _explicitNullProperties?.Remove("tool_details"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltToolDetail> ToolDetails { get => _explicitNullValueToolDetails; set { _explicitNullValueToolDetails = value; AdditionalData?.Remove("tool_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_details"); else _explicitNullProperties?.Remove("tool_details"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ToolbeltToolDetail> _explicitNullValueToolDetails = default!;
 #endif
         /// <summary>

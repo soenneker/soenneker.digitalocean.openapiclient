@@ -18,13 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_background_workers") is { } nullNodeMaxBackgroundWorkers && nullNodeMaxBackgroundWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBackgroundWorkers = null;
+            if (parseNode.GetChildNode("max_background_workers") is null) { _explicitNullValueMaxBackgroundWorkers = default!; _explicitNullProperties?.Remove("max_background_workers"); }
+            else if (parseNode.GetChildNode("max_background_workers") is { } nullNodeMaxBackgroundWorkers && nullNodeMaxBackgroundWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBackgroundWorkers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of background workers for timescaledb operations.  Set to the sum of your number of databases and the total number of concurrent background workers you want running at any given point in time.</summary>
-        public int? MaxBackgroundWorkers { get => _explicitNullValueMaxBackgroundWorkers; set { _explicitNullValueMaxBackgroundWorkers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_background_workers"); else _explicitNullProperties?.Remove("max_background_workers"); } }
+        public int? MaxBackgroundWorkers { get => _explicitNullValueMaxBackgroundWorkers; set { _explicitNullValueMaxBackgroundWorkers = value; AdditionalData?.Remove("max_background_workers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_background_workers"); else _explicitNullProperties?.Remove("max_background_workers"); } }
         private int? _explicitNullValueMaxBackgroundWorkers = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.TimescaledbAdvancedConfig"/> and sets the default values.

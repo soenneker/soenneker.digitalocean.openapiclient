@@ -18,34 +18,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("exit_code") is { } nullNodeExitCode && nullNodeExitCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExitCode = null;
-            if (parseNode.GetChildNode("stderr") is { } nullNodeStderr && nullNodeStderr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stderr = null;
-            if (parseNode.GetChildNode("stdout") is { } nullNodeStdout && nullNodeStdout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stdout = null;
+            if (parseNode.GetChildNode("exit_code") is null) { _explicitNullValueExitCode = default!; _explicitNullProperties?.Remove("exit_code"); }
+            else if (parseNode.GetChildNode("exit_code") is { } nullNodeExitCode && nullNodeExitCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExitCode = null;
+            if (parseNode.GetChildNode("stderr") is null) { _explicitNullValueStderr = default!; _explicitNullProperties?.Remove("stderr"); }
+            else if (parseNode.GetChildNode("stderr") is { } nullNodeStderr && nullNodeStderr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stderr = null;
+            if (parseNode.GetChildNode("stdout") is null) { _explicitNullValueStdout = default!; _explicitNullProperties?.Remove("stdout"); }
+            else if (parseNode.GetChildNode("stdout") is { } nullNodeStdout && nullNodeStdout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stdout = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The process exit code. A nonzero exit code is still a succeeded result.</summary>
-        public int? ExitCode { get => _explicitNullValueExitCode; set { _explicitNullValueExitCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exit_code"); else _explicitNullProperties?.Remove("exit_code"); } }
+        public int? ExitCode { get => _explicitNullValueExitCode; set { _explicitNullValueExitCode = value; AdditionalData?.Remove("exit_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exit_code"); else _explicitNullProperties?.Remove("exit_code"); } }
         private int? _explicitNullValueExitCode = default!;
         /// <summary>Omitted when empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Stderr { get => _explicitNullValueStderr; set { _explicitNullValueStderr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stderr"); else _explicitNullProperties?.Remove("stderr"); } }
+        public string? Stderr { get => _explicitNullValueStderr; set { _explicitNullValueStderr = value; AdditionalData?.Remove("stderr"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stderr"); else _explicitNullProperties?.Remove("stderr"); } }
         private string? _explicitNullValueStderr = default!;
 #nullable restore
 #else
-        public string Stderr { get => _explicitNullValueStderr; set { _explicitNullValueStderr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stderr"); else _explicitNullProperties?.Remove("stderr"); } }
+        public string Stderr { get => _explicitNullValueStderr; set { _explicitNullValueStderr = value; AdditionalData?.Remove("stderr"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stderr"); else _explicitNullProperties?.Remove("stderr"); } }
         private string _explicitNullValueStderr = default!;
 #endif
         /// <summary>The stdout property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Stdout { get => _explicitNullValueStdout; set { _explicitNullValueStdout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdout"); else _explicitNullProperties?.Remove("stdout"); } }
+        public string? Stdout { get => _explicitNullValueStdout; set { _explicitNullValueStdout = value; AdditionalData?.Remove("stdout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdout"); else _explicitNullProperties?.Remove("stdout"); } }
         private string? _explicitNullValueStdout = default!;
 #nullable restore
 #else
-        public string Stdout { get => _explicitNullValueStdout; set { _explicitNullValueStdout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdout"); else _explicitNullProperties?.Remove("stdout"); } }
+        public string Stdout { get => _explicitNullValueStdout; set { _explicitNullValueStdout = value; AdditionalData?.Remove("stdout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdout"); else _explicitNullProperties?.Remove("stdout"); } }
         private string _explicitNullValueStdout = default!;
 #endif
         /// <summary>

@@ -17,46 +17,52 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("icmp_timeout_seconds") is { } nullNodeIcmpTimeoutSeconds && nullNodeIcmpTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IcmpTimeoutSeconds = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
-            if (parseNode.GetChildNode("tcp_timeout_seconds") is { } nullNodeTcpTimeoutSeconds && nullNodeTcpTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TcpTimeoutSeconds = null;
-            if (parseNode.GetChildNode("udp_timeout_seconds") is { } nullNodeUdpTimeoutSeconds && nullNodeUdpTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UdpTimeoutSeconds = null;
-            if (parseNode.GetChildNode("vpcs") is { } nullNodeVpcs && nullNodeVpcs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vpcs = null;
+            if (parseNode.GetChildNode("icmp_timeout_seconds") is null) { _explicitNullValueIcmpTimeoutSeconds = default!; _explicitNullProperties?.Remove("icmp_timeout_seconds"); }
+            else if (parseNode.GetChildNode("icmp_timeout_seconds") is { } nullNodeIcmpTimeoutSeconds && nullNodeIcmpTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IcmpTimeoutSeconds = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("size") is null) { _explicitNullValueSize = default!; _explicitNullProperties?.Remove("size"); }
+            else if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("tcp_timeout_seconds") is null) { _explicitNullValueTcpTimeoutSeconds = default!; _explicitNullProperties?.Remove("tcp_timeout_seconds"); }
+            else if (parseNode.GetChildNode("tcp_timeout_seconds") is { } nullNodeTcpTimeoutSeconds && nullNodeTcpTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TcpTimeoutSeconds = null;
+            if (parseNode.GetChildNode("udp_timeout_seconds") is null) { _explicitNullValueUdpTimeoutSeconds = default!; _explicitNullProperties?.Remove("udp_timeout_seconds"); }
+            else if (parseNode.GetChildNode("udp_timeout_seconds") is { } nullNodeUdpTimeoutSeconds && nullNodeUdpTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UdpTimeoutSeconds = null;
+            if (parseNode.GetChildNode("vpcs") is null) { _explicitNullValueVpcs = default!; _explicitNullProperties?.Remove("vpcs"); }
+            else if (parseNode.GetChildNode("vpcs") is { } nullNodeVpcs && nullNodeVpcs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vpcs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ICMP timeout in seconds for the VPC NAT gateway.</summary>
-        public int? IcmpTimeoutSeconds { get => _explicitNullValueIcmpTimeoutSeconds; set { _explicitNullValueIcmpTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icmp_timeout_seconds"); else _explicitNullProperties?.Remove("icmp_timeout_seconds"); } }
+        public int? IcmpTimeoutSeconds { get => _explicitNullValueIcmpTimeoutSeconds; set { _explicitNullValueIcmpTimeoutSeconds = value; AdditionalData?.Remove("icmp_timeout_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icmp_timeout_seconds"); else _explicitNullProperties?.Remove("icmp_timeout_seconds"); } }
         private int? _explicitNullValueIcmpTimeoutSeconds = default!;
         /// <summary>The human-readable name of the VPC NAT gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The size of the VPC NAT gateway.</summary>
-        public int? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        public int? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; AdditionalData?.Remove("size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
         private int? _explicitNullValueSize = default!;
         /// <summary>The TCP timeout in seconds for the VPC NAT gateway.</summary>
-        public int? TcpTimeoutSeconds { get => _explicitNullValueTcpTimeoutSeconds; set { _explicitNullValueTcpTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcp_timeout_seconds"); else _explicitNullProperties?.Remove("tcp_timeout_seconds"); } }
+        public int? TcpTimeoutSeconds { get => _explicitNullValueTcpTimeoutSeconds; set { _explicitNullValueTcpTimeoutSeconds = value; AdditionalData?.Remove("tcp_timeout_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcp_timeout_seconds"); else _explicitNullProperties?.Remove("tcp_timeout_seconds"); } }
         private int? _explicitNullValueTcpTimeoutSeconds = default!;
         /// <summary>The UDP timeout in seconds for the VPC NAT gateway.</summary>
-        public int? UdpTimeoutSeconds { get => _explicitNullValueUdpTimeoutSeconds; set { _explicitNullValueUdpTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("udp_timeout_seconds"); else _explicitNullProperties?.Remove("udp_timeout_seconds"); } }
+        public int? UdpTimeoutSeconds { get => _explicitNullValueUdpTimeoutSeconds; set { _explicitNullValueUdpTimeoutSeconds = value; AdditionalData?.Remove("udp_timeout_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("udp_timeout_seconds"); else _explicitNullProperties?.Remove("udp_timeout_seconds"); } }
         private int? _explicitNullValueUdpTimeoutSeconds = default!;
         /// <summary>An array of VPCs associated with the VPC NAT gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdateVpcsItem>? Vpcs { get => _explicitNullValueVpcs; set { _explicitNullValueVpcs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpcs"); else _explicitNullProperties?.Remove("vpcs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdateVpcsItem>? Vpcs { get => _explicitNullValueVpcs; set { _explicitNullValueVpcs = value; AdditionalData?.Remove("vpcs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpcs"); else _explicitNullProperties?.Remove("vpcs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdateVpcsItem>? _explicitNullValueVpcs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdateVpcsItem> Vpcs { get => _explicitNullValueVpcs; set { _explicitNullValueVpcs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpcs"); else _explicitNullProperties?.Remove("vpcs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdateVpcsItem> Vpcs { get => _explicitNullValueVpcs; set { _explicitNullValueVpcs = value; AdditionalData?.Remove("vpcs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpcs"); else _explicitNullProperties?.Remove("vpcs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayUpdateVpcsItem> _explicitNullValueVpcs = default!;
 #endif
         /// <summary>

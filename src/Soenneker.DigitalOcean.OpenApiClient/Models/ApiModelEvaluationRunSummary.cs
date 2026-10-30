@@ -18,18 +18,30 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("candidate_model_name") is { } nullNodeCandidateModelName && nullNodeCandidateModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateModelName = null;
-            if (parseNode.GetChildNode("candidate_model_source") is { } nullNodeCandidateModelSource && nullNodeCandidateModelSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateModelSource = null;
-            if (parseNode.GetChildNode("candidate_model_uuid") is { } nullNodeCandidateModelUuid && nullNodeCandidateModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateModelUuid = null;
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("dataset_name") is { } nullNodeDatasetName && nullNodeDatasetName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetName = null;
-            if (parseNode.GetChildNode("dataset_uuid") is { } nullNodeDatasetUuid && nullNodeDatasetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetUuid = null;
-            if (parseNode.GetChildNode("eval_run_uuid") is { } nullNodeEvalRunUuid && nullNodeEvalRunUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvalRunUuid = null;
-            if (parseNode.GetChildNode("judge_model_name") is { } nullNodeJudgeModelName && nullNodeJudgeModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelName = null;
-            if (parseNode.GetChildNode("judge_model_uuid") is { } nullNodeJudgeModelUuid && nullNodeJudgeModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelUuid = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("candidate_model_name") is null) { _explicitNullValueCandidateModelName = default!; _explicitNullProperties?.Remove("candidate_model_name"); }
+            else if (parseNode.GetChildNode("candidate_model_name") is { } nullNodeCandidateModelName && nullNodeCandidateModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateModelName = null;
+            if (parseNode.GetChildNode("candidate_model_source") is null) { _explicitNullValueCandidateModelSource = default!; _explicitNullProperties?.Remove("candidate_model_source"); }
+            else if (parseNode.GetChildNode("candidate_model_source") is { } nullNodeCandidateModelSource && nullNodeCandidateModelSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateModelSource = null;
+            if (parseNode.GetChildNode("candidate_model_uuid") is null) { _explicitNullValueCandidateModelUuid = default!; _explicitNullProperties?.Remove("candidate_model_uuid"); }
+            else if (parseNode.GetChildNode("candidate_model_uuid") is { } nullNodeCandidateModelUuid && nullNodeCandidateModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateModelUuid = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("dataset_name") is null) { _explicitNullValueDatasetName = default!; _explicitNullProperties?.Remove("dataset_name"); }
+            else if (parseNode.GetChildNode("dataset_name") is { } nullNodeDatasetName && nullNodeDatasetName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetName = null;
+            if (parseNode.GetChildNode("dataset_uuid") is null) { _explicitNullValueDatasetUuid = default!; _explicitNullProperties?.Remove("dataset_uuid"); }
+            else if (parseNode.GetChildNode("dataset_uuid") is { } nullNodeDatasetUuid && nullNodeDatasetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetUuid = null;
+            if (parseNode.GetChildNode("eval_run_uuid") is null) { _explicitNullValueEvalRunUuid = default!; _explicitNullProperties?.Remove("eval_run_uuid"); }
+            else if (parseNode.GetChildNode("eval_run_uuid") is { } nullNodeEvalRunUuid && nullNodeEvalRunUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvalRunUuid = null;
+            if (parseNode.GetChildNode("judge_model_name") is null) { _explicitNullValueJudgeModelName = default!; _explicitNullProperties?.Remove("judge_model_name"); }
+            else if (parseNode.GetChildNode("judge_model_name") is { } nullNodeJudgeModelName && nullNodeJudgeModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelName = null;
+            if (parseNode.GetChildNode("judge_model_uuid") is null) { _explicitNullValueJudgeModelUuid = default!; _explicitNullProperties?.Remove("judge_model_uuid"); }
+            else if (parseNode.GetChildNode("judge_model_uuid") is { } nullNodeJudgeModelUuid && nullNodeJudgeModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelUuid = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("progress") is null) { _explicitNullValueProgress = default!; _explicitNullProperties?.Remove("progress"); }
+            else if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,101 +49,101 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Name of the candidate model being evaluated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CandidateModelName { get => _explicitNullValueCandidateModelName; set { _explicitNullValueCandidateModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_name"); else _explicitNullProperties?.Remove("candidate_model_name"); } }
+        public string? CandidateModelName { get => _explicitNullValueCandidateModelName; set { _explicitNullValueCandidateModelName = value; AdditionalData?.Remove("candidate_model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_name"); else _explicitNullProperties?.Remove("candidate_model_name"); } }
         private string? _explicitNullValueCandidateModelName = default!;
 #nullable restore
 #else
-        public string CandidateModelName { get => _explicitNullValueCandidateModelName; set { _explicitNullValueCandidateModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_name"); else _explicitNullProperties?.Remove("candidate_model_name"); } }
+        public string CandidateModelName { get => _explicitNullValueCandidateModelName; set { _explicitNullValueCandidateModelName = value; AdditionalData?.Remove("candidate_model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_name"); else _explicitNullProperties?.Remove("candidate_model_name"); } }
         private string _explicitNullValueCandidateModelName = default!;
 #endif
         /// <summary>Whether the candidate is a served model (serverless platform, a dedicateddeployment, or a model router) or an OHS-hosted agent config.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource? CandidateModelSource { get => _explicitNullValueCandidateModelSource; set { _explicitNullValueCandidateModelSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_source"); else _explicitNullProperties?.Remove("candidate_model_source"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource? CandidateModelSource { get => _explicitNullValueCandidateModelSource; set { _explicitNullValueCandidateModelSource = value; AdditionalData?.Remove("candidate_model_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_source"); else _explicitNullProperties?.Remove("candidate_model_source"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource? _explicitNullValueCandidateModelSource = default!;
         /// <summary>UUID of the candidate model being evaluated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CandidateModelUuid { get => _explicitNullValueCandidateModelUuid; set { _explicitNullValueCandidateModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_uuid"); else _explicitNullProperties?.Remove("candidate_model_uuid"); } }
+        public string? CandidateModelUuid { get => _explicitNullValueCandidateModelUuid; set { _explicitNullValueCandidateModelUuid = value; AdditionalData?.Remove("candidate_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_uuid"); else _explicitNullProperties?.Remove("candidate_model_uuid"); } }
         private string? _explicitNullValueCandidateModelUuid = default!;
 #nullable restore
 #else
-        public string CandidateModelUuid { get => _explicitNullValueCandidateModelUuid; set { _explicitNullValueCandidateModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_uuid"); else _explicitNullProperties?.Remove("candidate_model_uuid"); } }
+        public string CandidateModelUuid { get => _explicitNullValueCandidateModelUuid; set { _explicitNullValueCandidateModelUuid = value; AdditionalData?.Remove("candidate_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_model_uuid"); else _explicitNullProperties?.Remove("candidate_model_uuid"); } }
         private string _explicitNullValueCandidateModelUuid = default!;
 #endif
         /// <summary>Timestamp when the run was created.</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Name of the dataset used for evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DatasetName { get => _explicitNullValueDatasetName; set { _explicitNullValueDatasetName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_name"); else _explicitNullProperties?.Remove("dataset_name"); } }
+        public string? DatasetName { get => _explicitNullValueDatasetName; set { _explicitNullValueDatasetName = value; AdditionalData?.Remove("dataset_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_name"); else _explicitNullProperties?.Remove("dataset_name"); } }
         private string? _explicitNullValueDatasetName = default!;
 #nullable restore
 #else
-        public string DatasetName { get => _explicitNullValueDatasetName; set { _explicitNullValueDatasetName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_name"); else _explicitNullProperties?.Remove("dataset_name"); } }
+        public string DatasetName { get => _explicitNullValueDatasetName; set { _explicitNullValueDatasetName = value; AdditionalData?.Remove("dataset_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_name"); else _explicitNullProperties?.Remove("dataset_name"); } }
         private string _explicitNullValueDatasetName = default!;
 #endif
         /// <summary>UUID of the dataset used for evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DatasetUuid { get => _explicitNullValueDatasetUuid; set { _explicitNullValueDatasetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_uuid"); else _explicitNullProperties?.Remove("dataset_uuid"); } }
+        public string? DatasetUuid { get => _explicitNullValueDatasetUuid; set { _explicitNullValueDatasetUuid = value; AdditionalData?.Remove("dataset_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_uuid"); else _explicitNullProperties?.Remove("dataset_uuid"); } }
         private string? _explicitNullValueDatasetUuid = default!;
 #nullable restore
 #else
-        public string DatasetUuid { get => _explicitNullValueDatasetUuid; set { _explicitNullValueDatasetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_uuid"); else _explicitNullProperties?.Remove("dataset_uuid"); } }
+        public string DatasetUuid { get => _explicitNullValueDatasetUuid; set { _explicitNullValueDatasetUuid = value; AdditionalData?.Remove("dataset_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_uuid"); else _explicitNullProperties?.Remove("dataset_uuid"); } }
         private string _explicitNullValueDatasetUuid = default!;
 #endif
         /// <summary>UUID of the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EvalRunUuid { get => _explicitNullValueEvalRunUuid; set { _explicitNullValueEvalRunUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_run_uuid"); else _explicitNullProperties?.Remove("eval_run_uuid"); } }
+        public string? EvalRunUuid { get => _explicitNullValueEvalRunUuid; set { _explicitNullValueEvalRunUuid = value; AdditionalData?.Remove("eval_run_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_run_uuid"); else _explicitNullProperties?.Remove("eval_run_uuid"); } }
         private string? _explicitNullValueEvalRunUuid = default!;
 #nullable restore
 #else
-        public string EvalRunUuid { get => _explicitNullValueEvalRunUuid; set { _explicitNullValueEvalRunUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_run_uuid"); else _explicitNullProperties?.Remove("eval_run_uuid"); } }
+        public string EvalRunUuid { get => _explicitNullValueEvalRunUuid; set { _explicitNullValueEvalRunUuid = value; AdditionalData?.Remove("eval_run_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_run_uuid"); else _explicitNullProperties?.Remove("eval_run_uuid"); } }
         private string _explicitNullValueEvalRunUuid = default!;
 #endif
         /// <summary>The judge_model_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JudgeModelName { get => _explicitNullValueJudgeModelName; set { _explicitNullValueJudgeModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_name"); else _explicitNullProperties?.Remove("judge_model_name"); } }
+        public string? JudgeModelName { get => _explicitNullValueJudgeModelName; set { _explicitNullValueJudgeModelName = value; AdditionalData?.Remove("judge_model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_name"); else _explicitNullProperties?.Remove("judge_model_name"); } }
         private string? _explicitNullValueJudgeModelName = default!;
 #nullable restore
 #else
-        public string JudgeModelName { get => _explicitNullValueJudgeModelName; set { _explicitNullValueJudgeModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_name"); else _explicitNullProperties?.Remove("judge_model_name"); } }
+        public string JudgeModelName { get => _explicitNullValueJudgeModelName; set { _explicitNullValueJudgeModelName = value; AdditionalData?.Remove("judge_model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_name"); else _explicitNullProperties?.Remove("judge_model_name"); } }
         private string _explicitNullValueJudgeModelName = default!;
 #endif
         /// <summary>Judge model used to score responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JudgeModelUuid { get => _explicitNullValueJudgeModelUuid; set { _explicitNullValueJudgeModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_uuid"); else _explicitNullProperties?.Remove("judge_model_uuid"); } }
+        public string? JudgeModelUuid { get => _explicitNullValueJudgeModelUuid; set { _explicitNullValueJudgeModelUuid = value; AdditionalData?.Remove("judge_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_uuid"); else _explicitNullProperties?.Remove("judge_model_uuid"); } }
         private string? _explicitNullValueJudgeModelUuid = default!;
 #nullable restore
 #else
-        public string JudgeModelUuid { get => _explicitNullValueJudgeModelUuid; set { _explicitNullValueJudgeModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_uuid"); else _explicitNullProperties?.Remove("judge_model_uuid"); } }
+        public string JudgeModelUuid { get => _explicitNullValueJudgeModelUuid; set { _explicitNullValueJudgeModelUuid = value; AdditionalData?.Remove("judge_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_uuid"); else _explicitNullProperties?.Remove("judge_model_uuid"); } }
         private string _explicitNullValueJudgeModelUuid = default!;
 #endif
         /// <summary>Name of the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Per-phase progress for a model evaluation run. The candidate phase invokes thecandidate model once per dataset row; the judge phase scores eachcandidate-success row with the configured metrics. Counts grow as the runadvances; compare against total_rows to render a progress bar.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunProgress? Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunProgress? Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; AdditionalData?.Remove("progress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunProgress? _explicitNullValueProgress = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunProgress Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunProgress Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; AdditionalData?.Remove("progress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunProgress _explicitNullValueProgress = default!;
 #endif
         /// <summary>Model Evaluation Run Statuses</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunSummary"/> and sets the default values.
@@ -159,7 +171,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "candidate_model_name", n => { CandidateModelName = n.GetStringValue(); } },
-                { "candidate_model_source", n => { CandidateModelSource = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource>(); } },
+                { "candidate_model_source", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCandidateModelSource = default; _explicitNullProperties?.Remove("candidate_model_source"); AdditionalData["candidate_model_source"] = unknown; } else { CandidateModelSource = parsed; AdditionalData.Remove("candidate_model_source"); } } },
                 { "candidate_model_uuid", n => { CandidateModelUuid = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dataset_name", n => { DatasetName = n.GetStringValue(); } },
@@ -169,7 +181,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "judge_model_uuid", n => { JudgeModelUuid = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "progress", n => { Progress = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunProgress>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunProgress.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
         /// <summary>

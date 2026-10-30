@@ -18,9 +18,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("intervals") is { } nullNodeIntervals && nullNodeIntervals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Intervals = null;
-            if (parseNode.GetChildNode("max_prices") is { } nullNodeMaxPrices && nullNodeMaxPrices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPrices = null;
-            if (parseNode.GetChildNode("min_prices") is { } nullNodeMinPrices && nullNodeMinPrices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinPrices = null;
+            if (parseNode.GetChildNode("intervals") is null) { _explicitNullValueIntervals = default!; _explicitNullProperties?.Remove("intervals"); }
+            else if (parseNode.GetChildNode("intervals") is { } nullNodeIntervals && nullNodeIntervals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Intervals = null;
+            if (parseNode.GetChildNode("max_prices") is null) { _explicitNullValueMaxPrices = default!; _explicitNullProperties?.Remove("max_prices"); }
+            else if (parseNode.GetChildNode("max_prices") is { } nullNodeMaxPrices && nullNodeMaxPrices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPrices = null;
+            if (parseNode.GetChildNode("min_prices") is null) { _explicitNullValueMinPrices = default!; _explicitNullProperties?.Remove("min_prices"); }
+            else if (parseNode.GetChildNode("min_prices") is { } nullNodeMinPrices && nullNodeMinPrices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinPrices = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The pricing schedule as a series of consecutive time intervals, ordered bystart time. Neighboring hours with the same rates are combined, so eachinterval represents a distinct price.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingInterval>? Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingInterval>? Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; AdditionalData?.Remove("intervals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingInterval>? _explicitNullValueIntervals = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingInterval> Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingInterval> Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; AdditionalData?.Remove("intervals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricingInterval> _explicitNullValueIntervals = default!;
 #endif
         /// <summary>Pricing per million tokens (aligns with existing ModelPrice pattern)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing? MaxPrices { get => _explicitNullValueMaxPrices; set { _explicitNullValueMaxPrices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_prices"); else _explicitNullProperties?.Remove("max_prices"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing? MaxPrices { get => _explicitNullValueMaxPrices; set { _explicitNullValueMaxPrices = value; AdditionalData?.Remove("max_prices"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_prices"); else _explicitNullProperties?.Remove("max_prices"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing? _explicitNullValueMaxPrices = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing MaxPrices { get => _explicitNullValueMaxPrices; set { _explicitNullValueMaxPrices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_prices"); else _explicitNullProperties?.Remove("max_prices"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing MaxPrices { get => _explicitNullValueMaxPrices; set { _explicitNullValueMaxPrices = value; AdditionalData?.Remove("max_prices"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_prices"); else _explicitNullProperties?.Remove("max_prices"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing _explicitNullValueMaxPrices = default!;
 #endif
         /// <summary>Pricing per million tokens (aligns with existing ModelPrice pattern)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing? MinPrices { get => _explicitNullValueMinPrices; set { _explicitNullValueMinPrices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_prices"); else _explicitNullProperties?.Remove("min_prices"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing? MinPrices { get => _explicitNullValueMinPrices; set { _explicitNullValueMinPrices = value; AdditionalData?.Remove("min_prices"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_prices"); else _explicitNullProperties?.Remove("min_prices"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing? _explicitNullValueMinPrices = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing MinPrices { get => _explicitNullValueMinPrices; set { _explicitNullValueMinPrices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_prices"); else _explicitNullProperties?.Remove("min_prices"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing MinPrices { get => _explicitNullValueMinPrices; set { _explicitNullValueMinPrices = value; AdditionalData?.Remove("min_prices"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_prices"); else _explicitNullProperties?.Remove("min_prices"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelPricing _explicitNullValueMinPrices = default!;
 #endif
         /// <summary>

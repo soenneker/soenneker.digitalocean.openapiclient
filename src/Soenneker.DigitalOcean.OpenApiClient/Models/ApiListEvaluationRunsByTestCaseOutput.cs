@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("evaluation_runs") is { } nullNodeEvaluationRuns && nullNodeEvaluationRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationRuns = null;
+            if (parseNode.GetChildNode("evaluation_runs") is null) { _explicitNullValueEvaluationRuns = default!; _explicitNullProperties?.Remove("evaluation_runs"); }
+            else if (parseNode.GetChildNode("evaluation_runs") is { } nullNodeEvaluationRuns && nullNodeEvaluationRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationRuns = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>List of evaluation runs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationRun>? EvaluationRuns { get => _explicitNullValueEvaluationRuns; set { _explicitNullValueEvaluationRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_runs"); else _explicitNullProperties?.Remove("evaluation_runs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationRun>? EvaluationRuns { get => _explicitNullValueEvaluationRuns; set { _explicitNullValueEvaluationRuns = value; AdditionalData?.Remove("evaluation_runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_runs"); else _explicitNullProperties?.Remove("evaluation_runs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationRun>? _explicitNullValueEvaluationRuns = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationRun> EvaluationRuns { get => _explicitNullValueEvaluationRuns; set { _explicitNullValueEvaluationRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_runs"); else _explicitNullProperties?.Remove("evaluation_runs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationRun> EvaluationRuns { get => _explicitNullValueEvaluationRuns; set { _explicitNullValueEvaluationRuns = value; AdditionalData?.Remove("evaluation_runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_runs"); else _explicitNullProperties?.Remove("evaluation_runs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationRun> _explicitNullValueEvaluationRuns = default!;
 #endif
         /// <summary>

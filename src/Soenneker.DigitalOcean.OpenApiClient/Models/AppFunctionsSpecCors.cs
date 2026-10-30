@@ -19,67 +19,73 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allow_credentials") is { } nullNodeAllowCredentials && nullNodeAllowCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowCredentials = null;
-            if (parseNode.GetChildNode("allow_headers") is { } nullNodeAllowHeaders && nullNodeAllowHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowHeaders = null;
-            if (parseNode.GetChildNode("allow_methods") is { } nullNodeAllowMethods && nullNodeAllowMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowMethods = null;
-            if (parseNode.GetChildNode("allow_origins") is { } nullNodeAllowOrigins && nullNodeAllowOrigins.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowOrigins = null;
-            if (parseNode.GetChildNode("expose_headers") is { } nullNodeExposeHeaders && nullNodeExposeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExposeHeaders = null;
-            if (parseNode.GetChildNode("max_age") is { } nullNodeMaxAge && nullNodeMaxAge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAge = null;
+            if (parseNode.GetChildNode("allow_credentials") is null) { _explicitNullValueAllowCredentials = default!; _explicitNullProperties?.Remove("allow_credentials"); }
+            else if (parseNode.GetChildNode("allow_credentials") is { } nullNodeAllowCredentials && nullNodeAllowCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowCredentials = null;
+            if (parseNode.GetChildNode("allow_headers") is null) { _explicitNullValueAllowHeaders = default!; _explicitNullProperties?.Remove("allow_headers"); }
+            else if (parseNode.GetChildNode("allow_headers") is { } nullNodeAllowHeaders && nullNodeAllowHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowHeaders = null;
+            if (parseNode.GetChildNode("allow_methods") is null) { _explicitNullValueAllowMethods = default!; _explicitNullProperties?.Remove("allow_methods"); }
+            else if (parseNode.GetChildNode("allow_methods") is { } nullNodeAllowMethods && nullNodeAllowMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowMethods = null;
+            if (parseNode.GetChildNode("allow_origins") is null) { _explicitNullValueAllowOrigins = default!; _explicitNullProperties?.Remove("allow_origins"); }
+            else if (parseNode.GetChildNode("allow_origins") is { } nullNodeAllowOrigins && nullNodeAllowOrigins.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowOrigins = null;
+            if (parseNode.GetChildNode("expose_headers") is null) { _explicitNullValueExposeHeaders = default!; _explicitNullProperties?.Remove("expose_headers"); }
+            else if (parseNode.GetChildNode("expose_headers") is { } nullNodeExposeHeaders && nullNodeExposeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExposeHeaders = null;
+            if (parseNode.GetChildNode("max_age") is null) { _explicitNullValueMaxAge = default!; _explicitNullProperties?.Remove("max_age"); }
+            else if (parseNode.GetChildNode("max_age") is { } nullNodeMaxAge && nullNodeMaxAge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAge = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is include. This configures the `Access-Control-Allow-Credentials` header.</summary>
-        public bool? AllowCredentials { get => _explicitNullValueAllowCredentials; set { _explicitNullValueAllowCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_credentials"); else _explicitNullProperties?.Remove("allow_credentials"); } }
+        public bool? AllowCredentials { get => _explicitNullValueAllowCredentials; set { _explicitNullValueAllowCredentials = value; AdditionalData?.Remove("allow_credentials"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_credentials"); else _explicitNullProperties?.Remove("allow_credentials"); } }
         private bool? _explicitNullValueAllowCredentials = default!;
         /// <summary>The set of allowed HTTP request headers. This configures the `Access-Control-Allow-Headers` header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowHeaders { get => _explicitNullValueAllowHeaders; set { _explicitNullValueAllowHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_headers"); else _explicitNullProperties?.Remove("allow_headers"); } }
+        public List<string>? AllowHeaders { get => _explicitNullValueAllowHeaders; set { _explicitNullValueAllowHeaders = value; AdditionalData?.Remove("allow_headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_headers"); else _explicitNullProperties?.Remove("allow_headers"); } }
         private List<string>? _explicitNullValueAllowHeaders = default!;
 #nullable restore
 #else
-        public List<string> AllowHeaders { get => _explicitNullValueAllowHeaders; set { _explicitNullValueAllowHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_headers"); else _explicitNullProperties?.Remove("allow_headers"); } }
+        public List<string> AllowHeaders { get => _explicitNullValueAllowHeaders; set { _explicitNullValueAllowHeaders = value; AdditionalData?.Remove("allow_headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_headers"); else _explicitNullProperties?.Remove("allow_headers"); } }
         private List<string> _explicitNullValueAllowHeaders = default!;
 #endif
         /// <summary>The set of allowed HTTP methods. This configures the `Access-Control-Allow-Methods` header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowMethods { get => _explicitNullValueAllowMethods; set { _explicitNullValueAllowMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_methods"); else _explicitNullProperties?.Remove("allow_methods"); } }
+        public List<string>? AllowMethods { get => _explicitNullValueAllowMethods; set { _explicitNullValueAllowMethods = value; AdditionalData?.Remove("allow_methods"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_methods"); else _explicitNullProperties?.Remove("allow_methods"); } }
         private List<string>? _explicitNullValueAllowMethods = default!;
 #nullable restore
 #else
-        public List<string> AllowMethods { get => _explicitNullValueAllowMethods; set { _explicitNullValueAllowMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_methods"); else _explicitNullProperties?.Remove("allow_methods"); } }
+        public List<string> AllowMethods { get => _explicitNullValueAllowMethods; set { _explicitNullValueAllowMethods = value; AdditionalData?.Remove("allow_methods"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_methods"); else _explicitNullProperties?.Remove("allow_methods"); } }
         private List<string> _explicitNullValueAllowMethods = default!;
 #endif
         /// <summary>The set of allowed CORS origins.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsStringMatch>? AllowOrigins { get => _explicitNullValueAllowOrigins; set { _explicitNullValueAllowOrigins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_origins"); else _explicitNullProperties?.Remove("allow_origins"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsStringMatch>? AllowOrigins { get => _explicitNullValueAllowOrigins; set { _explicitNullValueAllowOrigins = value; AdditionalData?.Remove("allow_origins"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_origins"); else _explicitNullProperties?.Remove("allow_origins"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsStringMatch>? _explicitNullValueAllowOrigins = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsStringMatch> AllowOrigins { get => _explicitNullValueAllowOrigins; set { _explicitNullValueAllowOrigins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_origins"); else _explicitNullProperties?.Remove("allow_origins"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsStringMatch> AllowOrigins { get => _explicitNullValueAllowOrigins; set { _explicitNullValueAllowOrigins = value; AdditionalData?.Remove("allow_origins"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_origins"); else _explicitNullProperties?.Remove("allow_origins"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsStringMatch> _explicitNullValueAllowOrigins = default!;
 #endif
         /// <summary>The set of HTTP response headers that browsers are allowed to access. This configures the `Access-Control-Expose-Headers` header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExposeHeaders { get => _explicitNullValueExposeHeaders; set { _explicitNullValueExposeHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expose_headers"); else _explicitNullProperties?.Remove("expose_headers"); } }
+        public List<string>? ExposeHeaders { get => _explicitNullValueExposeHeaders; set { _explicitNullValueExposeHeaders = value; AdditionalData?.Remove("expose_headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expose_headers"); else _explicitNullProperties?.Remove("expose_headers"); } }
         private List<string>? _explicitNullValueExposeHeaders = default!;
 #nullable restore
 #else
-        public List<string> ExposeHeaders { get => _explicitNullValueExposeHeaders; set { _explicitNullValueExposeHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expose_headers"); else _explicitNullProperties?.Remove("expose_headers"); } }
+        public List<string> ExposeHeaders { get => _explicitNullValueExposeHeaders; set { _explicitNullValueExposeHeaders = value; AdditionalData?.Remove("expose_headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expose_headers"); else _explicitNullProperties?.Remove("expose_headers"); } }
         private List<string> _explicitNullValueExposeHeaders = default!;
 #endif
         /// <summary>An optional duration specifying how long browsers can cache the results of a preflight request. This configures the `Access-Control-Max-Age` header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxAge { get => _explicitNullValueMaxAge; set { _explicitNullValueMaxAge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_age"); else _explicitNullProperties?.Remove("max_age"); } }
+        public string? MaxAge { get => _explicitNullValueMaxAge; set { _explicitNullValueMaxAge = value; AdditionalData?.Remove("max_age"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_age"); else _explicitNullProperties?.Remove("max_age"); } }
         private string? _explicitNullValueMaxAge = default!;
 #nullable restore
 #else
-        public string MaxAge { get => _explicitNullValueMaxAge; set { _explicitNullValueMaxAge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_age"); else _explicitNullProperties?.Remove("max_age"); } }
+        public string MaxAge { get => _explicitNullValueMaxAge; set { _explicitNullValueMaxAge = value; AdditionalData?.Remove("max_age"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_age"); else _explicitNullProperties?.Remove("max_age"); } }
         private string _explicitNullValueMaxAge = default!;
 #endif
         /// <summary>

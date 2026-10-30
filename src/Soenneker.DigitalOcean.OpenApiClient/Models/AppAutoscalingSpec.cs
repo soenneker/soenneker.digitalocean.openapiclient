@@ -18,28 +18,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_instance_count") is { } nullNodeMaxInstanceCount && nullNodeMaxInstanceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxInstanceCount = null;
-            if (parseNode.GetChildNode("metrics") is { } nullNodeMetrics && nullNodeMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metrics = null;
-            if (parseNode.GetChildNode("min_instance_count") is { } nullNodeMinInstanceCount && nullNodeMinInstanceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinInstanceCount = null;
+            if (parseNode.GetChildNode("max_instance_count") is null) { _explicitNullValueMaxInstanceCount = default!; _explicitNullProperties?.Remove("max_instance_count"); }
+            else if (parseNode.GetChildNode("max_instance_count") is { } nullNodeMaxInstanceCount && nullNodeMaxInstanceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxInstanceCount = null;
+            if (parseNode.GetChildNode("metrics") is null) { _explicitNullValueMetrics = default!; _explicitNullProperties?.Remove("metrics"); }
+            else if (parseNode.GetChildNode("metrics") is { } nullNodeMetrics && nullNodeMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metrics = null;
+            if (parseNode.GetChildNode("min_instance_count") is null) { _explicitNullValueMinInstanceCount = default!; _explicitNullProperties?.Remove("min_instance_count"); }
+            else if (parseNode.GetChildNode("min_instance_count") is { } nullNodeMinInstanceCount && nullNodeMinInstanceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinInstanceCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum amount of instances for this component. Maximum 250. Consider using a larger instance size if your application requires more than 250 instances.</summary>
-        public int? MaxInstanceCount { get => _explicitNullValueMaxInstanceCount; set { _explicitNullValueMaxInstanceCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_instance_count"); else _explicitNullProperties?.Remove("max_instance_count"); } }
+        public int? MaxInstanceCount { get => _explicitNullValueMaxInstanceCount; set { _explicitNullValueMaxInstanceCount = value; AdditionalData?.Remove("max_instance_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_instance_count"); else _explicitNullProperties?.Remove("max_instance_count"); } }
         private int? _explicitNullValueMaxInstanceCount = default!;
         /// <summary>The metrics that the component is scaled on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics? _explicitNullValueMetrics = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetrics _explicitNullValueMetrics = default!;
 #endif
         /// <summary>The minimum amount of instances for this component.</summary>
-        public int? MinInstanceCount { get => _explicitNullValueMinInstanceCount; set { _explicitNullValueMinInstanceCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_instance_count"); else _explicitNullProperties?.Remove("min_instance_count"); } }
+        public int? MinInstanceCount { get => _explicitNullValueMinInstanceCount; set { _explicitNullValueMinInstanceCount = value; AdditionalData?.Remove("min_instance_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_instance_count"); else _explicitNullProperties?.Remove("min_instance_count"); } }
         private int? _explicitNullValueMinInstanceCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpec"/> and sets the default values.

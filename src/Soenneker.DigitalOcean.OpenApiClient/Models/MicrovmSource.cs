@@ -18,23 +18,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("checkpoint_id") is { } nullNodeCheckpointId && nullNodeCheckpointId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckpointId = null;
-            if (parseNode.GetChildNode("oci_ref") is { } nullNodeOciRef && nullNodeOciRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OciRef = null;
+            if (parseNode.GetChildNode("checkpoint_id") is null) { _explicitNullValueCheckpointId = default!; _explicitNullProperties?.Remove("checkpoint_id"); }
+            else if (parseNode.GetChildNode("checkpoint_id") is { } nullNodeCheckpointId && nullNodeCheckpointId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckpointId = null;
+            if (parseNode.GetChildNode("oci_ref") is null) { _explicitNullValueOciRef = default!; _explicitNullProperties?.Remove("oci_ref"); }
+            else if (parseNode.GetChildNode("oci_ref") is { } nullNodeOciRef && nullNodeOciRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OciRef = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of a checkpoint to create the MicroVM from. The new MicroVM inherits the checkpoint&apos;s region, size, container image, and environment variables.</summary>
-        public Guid? CheckpointId { get => _explicitNullValueCheckpointId; set { _explicitNullValueCheckpointId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint_id"); else _explicitNullProperties?.Remove("checkpoint_id"); } }
+        public Guid? CheckpointId { get => _explicitNullValueCheckpointId; set { _explicitNullValueCheckpointId = value; AdditionalData?.Remove("checkpoint_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint_id"); else _explicitNullProperties?.Remove("checkpoint_id"); } }
         private Guid? _explicitNullValueCheckpointId = default!;
         /// <summary>A reference to a `linux/amd64` container image in the form `registry/repository:tag`. The image can be public, such as an image on Docker Hub, or private in your team&apos;s DigitalOcean Container Registry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OciRef { get => _explicitNullValueOciRef; set { _explicitNullValueOciRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oci_ref"); else _explicitNullProperties?.Remove("oci_ref"); } }
+        public string? OciRef { get => _explicitNullValueOciRef; set { _explicitNullValueOciRef = value; AdditionalData?.Remove("oci_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oci_ref"); else _explicitNullProperties?.Remove("oci_ref"); } }
         private string? _explicitNullValueOciRef = default!;
 #nullable restore
 #else
-        public string OciRef { get => _explicitNullValueOciRef; set { _explicitNullValueOciRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oci_ref"); else _explicitNullProperties?.Remove("oci_ref"); } }
+        public string OciRef { get => _explicitNullValueOciRef; set { _explicitNullValueOciRef = value; AdditionalData?.Remove("oci_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oci_ref"); else _explicitNullProperties?.Remove("oci_ref"); } }
         private string _explicitNullValueOciRef = default!;
 #endif
         /// <summary>

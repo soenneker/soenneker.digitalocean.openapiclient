@@ -18,9 +18,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_deployment_uuid") is { } nullNodeAgentDeploymentUuid && nullNodeAgentDeploymentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentDeploymentUuid = null;
-            if (parseNode.GetChildNode("agent_uuid") is { } nullNodeAgentUuid && nullNodeAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUuid = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("agent_deployment_uuid") is null) { _explicitNullValueAgentDeploymentUuid = default!; _explicitNullProperties?.Remove("agent_deployment_uuid"); }
+            else if (parseNode.GetChildNode("agent_deployment_uuid") is { } nullNodeAgentDeploymentUuid && nullNodeAgentDeploymentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentDeploymentUuid = null;
+            if (parseNode.GetChildNode("agent_uuid") is null) { _explicitNullValueAgentUuid = default!; _explicitNullProperties?.Remove("agent_uuid"); }
+            else if (parseNode.GetChildNode("agent_uuid") is { } nullNodeAgentUuid && nullNodeAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUuid = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Optional agent deployment to run. Defaults to the agent&apos;s current deployment when unset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentDeploymentUuid { get => _explicitNullValueAgentDeploymentUuid; set { _explicitNullValueAgentDeploymentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_uuid"); else _explicitNullProperties?.Remove("agent_deployment_uuid"); } }
+        public string? AgentDeploymentUuid { get => _explicitNullValueAgentDeploymentUuid; set { _explicitNullValueAgentDeploymentUuid = value; AdditionalData?.Remove("agent_deployment_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_uuid"); else _explicitNullProperties?.Remove("agent_deployment_uuid"); } }
         private string? _explicitNullValueAgentDeploymentUuid = default!;
 #nullable restore
 #else
-        public string AgentDeploymentUuid { get => _explicitNullValueAgentDeploymentUuid; set { _explicitNullValueAgentDeploymentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_uuid"); else _explicitNullProperties?.Remove("agent_deployment_uuid"); } }
+        public string AgentDeploymentUuid { get => _explicitNullValueAgentDeploymentUuid; set { _explicitNullValueAgentDeploymentUuid = value; AdditionalData?.Remove("agent_deployment_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_uuid"); else _explicitNullProperties?.Remove("agent_deployment_uuid"); } }
         private string _explicitNullValueAgentDeploymentUuid = default!;
 #endif
         /// <summary>UUID of the agent to exercise as the candidate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentUuid { get => _explicitNullValueAgentUuid; set { _explicitNullValueAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuid"); else _explicitNullProperties?.Remove("agent_uuid"); } }
+        public string? AgentUuid { get => _explicitNullValueAgentUuid; set { _explicitNullValueAgentUuid = value; AdditionalData?.Remove("agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuid"); else _explicitNullProperties?.Remove("agent_uuid"); } }
         private string? _explicitNullValueAgentUuid = default!;
 #nullable restore
 #else
-        public string AgentUuid { get => _explicitNullValueAgentUuid; set { _explicitNullValueAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuid"); else _explicitNullProperties?.Remove("agent_uuid"); } }
+        public string AgentUuid { get => _explicitNullValueAgentUuid; set { _explicitNullValueAgentUuid = value; AdditionalData?.Remove("agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuid"); else _explicitNullProperties?.Remove("agent_uuid"); } }
         private string _explicitNullValueAgentUuid = default!;
 #endif
         /// <summary>Display name of the candidate agent. Persisted with the run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>

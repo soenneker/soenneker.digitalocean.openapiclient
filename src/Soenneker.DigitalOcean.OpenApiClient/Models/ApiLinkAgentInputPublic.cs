@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("child_agent_uuid") is { } nullNodeChildAgentUuid && nullNodeChildAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildAgentUuid = null;
-            if (parseNode.GetChildNode("if_case") is { } nullNodeIfCase && nullNodeIfCase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IfCase = null;
-            if (parseNode.GetChildNode("parent_agent_uuid") is { } nullNodeParentAgentUuid && nullNodeParentAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentAgentUuid = null;
-            if (parseNode.GetChildNode("route_name") is { } nullNodeRouteName && nullNodeRouteName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RouteName = null;
+            if (parseNode.GetChildNode("child_agent_uuid") is null) { _explicitNullValueChildAgentUuid = default!; _explicitNullProperties?.Remove("child_agent_uuid"); }
+            else if (parseNode.GetChildNode("child_agent_uuid") is { } nullNodeChildAgentUuid && nullNodeChildAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildAgentUuid = null;
+            if (parseNode.GetChildNode("if_case") is null) { _explicitNullValueIfCase = default!; _explicitNullProperties?.Remove("if_case"); }
+            else if (parseNode.GetChildNode("if_case") is { } nullNodeIfCase && nullNodeIfCase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IfCase = null;
+            if (parseNode.GetChildNode("parent_agent_uuid") is null) { _explicitNullValueParentAgentUuid = default!; _explicitNullProperties?.Remove("parent_agent_uuid"); }
+            else if (parseNode.GetChildNode("parent_agent_uuid") is { } nullNodeParentAgentUuid && nullNodeParentAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentAgentUuid = null;
+            if (parseNode.GetChildNode("route_name") is null) { _explicitNullValueRouteName = default!; _explicitNullProperties?.Remove("route_name"); }
+            else if (parseNode.GetChildNode("route_name") is { } nullNodeRouteName && nullNodeRouteName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RouteName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Routed agent id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChildAgentUuid { get => _explicitNullValueChildAgentUuid; set { _explicitNullValueChildAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_agent_uuid"); else _explicitNullProperties?.Remove("child_agent_uuid"); } }
+        public string? ChildAgentUuid { get => _explicitNullValueChildAgentUuid; set { _explicitNullValueChildAgentUuid = value; AdditionalData?.Remove("child_agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_agent_uuid"); else _explicitNullProperties?.Remove("child_agent_uuid"); } }
         private string? _explicitNullValueChildAgentUuid = default!;
 #nullable restore
 #else
-        public string ChildAgentUuid { get => _explicitNullValueChildAgentUuid; set { _explicitNullValueChildAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_agent_uuid"); else _explicitNullProperties?.Remove("child_agent_uuid"); } }
+        public string ChildAgentUuid { get => _explicitNullValueChildAgentUuid; set { _explicitNullValueChildAgentUuid = value; AdditionalData?.Remove("child_agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_agent_uuid"); else _explicitNullProperties?.Remove("child_agent_uuid"); } }
         private string _explicitNullValueChildAgentUuid = default!;
 #endif
         /// <summary>The if_case property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IfCase { get => _explicitNullValueIfCase; set { _explicitNullValueIfCase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("if_case"); else _explicitNullProperties?.Remove("if_case"); } }
+        public string? IfCase { get => _explicitNullValueIfCase; set { _explicitNullValueIfCase = value; AdditionalData?.Remove("if_case"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("if_case"); else _explicitNullProperties?.Remove("if_case"); } }
         private string? _explicitNullValueIfCase = default!;
 #nullable restore
 #else
-        public string IfCase { get => _explicitNullValueIfCase; set { _explicitNullValueIfCase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("if_case"); else _explicitNullProperties?.Remove("if_case"); } }
+        public string IfCase { get => _explicitNullValueIfCase; set { _explicitNullValueIfCase = value; AdditionalData?.Remove("if_case"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("if_case"); else _explicitNullProperties?.Remove("if_case"); } }
         private string _explicitNullValueIfCase = default!;
 #endif
         /// <summary>A unique identifier for the parent agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentAgentUuid { get => _explicitNullValueParentAgentUuid; set { _explicitNullValueParentAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_agent_uuid"); else _explicitNullProperties?.Remove("parent_agent_uuid"); } }
+        public string? ParentAgentUuid { get => _explicitNullValueParentAgentUuid; set { _explicitNullValueParentAgentUuid = value; AdditionalData?.Remove("parent_agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_agent_uuid"); else _explicitNullProperties?.Remove("parent_agent_uuid"); } }
         private string? _explicitNullValueParentAgentUuid = default!;
 #nullable restore
 #else
-        public string ParentAgentUuid { get => _explicitNullValueParentAgentUuid; set { _explicitNullValueParentAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_agent_uuid"); else _explicitNullProperties?.Remove("parent_agent_uuid"); } }
+        public string ParentAgentUuid { get => _explicitNullValueParentAgentUuid; set { _explicitNullValueParentAgentUuid = value; AdditionalData?.Remove("parent_agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_agent_uuid"); else _explicitNullProperties?.Remove("parent_agent_uuid"); } }
         private string _explicitNullValueParentAgentUuid = default!;
 #endif
         /// <summary>Name of route</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RouteName { get => _explicitNullValueRouteName; set { _explicitNullValueRouteName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_name"); else _explicitNullProperties?.Remove("route_name"); } }
+        public string? RouteName { get => _explicitNullValueRouteName; set { _explicitNullValueRouteName = value; AdditionalData?.Remove("route_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_name"); else _explicitNullProperties?.Remove("route_name"); } }
         private string? _explicitNullValueRouteName = default!;
 #nullable restore
 #else
-        public string RouteName { get => _explicitNullValueRouteName; set { _explicitNullValueRouteName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_name"); else _explicitNullProperties?.Remove("route_name"); } }
+        public string RouteName { get => _explicitNullValueRouteName; set { _explicitNullValueRouteName = value; AdditionalData?.Remove("route_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_name"); else _explicitNullProperties?.Remove("route_name"); } }
         private string _explicitNullValueRouteName = default!;
 #endif
         /// <summary>

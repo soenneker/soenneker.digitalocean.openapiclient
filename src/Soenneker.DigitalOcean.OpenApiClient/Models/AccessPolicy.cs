@@ -18,36 +18,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("anongid") is { } nullNodeAnongid && nullNodeAnongid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anongid = null;
-            if (parseNode.GetChildNode("anonuid") is { } nullNodeAnonuid && nullNodeAnonuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anonuid = null;
-            if (parseNode.GetChildNode("identity_enforcement_enabled") is { } nullNodeIdentityEnforcementEnabled && nullNodeIdentityEnforcementEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentityEnforcementEnabled = null;
-            if (parseNode.GetChildNode("protocols") is { } nullNodeProtocols && nullNodeProtocols.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Protocols = null;
-            if (parseNode.GetChildNode("squash_config") is { } nullNodeSquashConfig && nullNodeSquashConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SquashConfig = null;
+            if (parseNode.GetChildNode("anongid") is null) { _explicitNullValueAnongid = default!; _explicitNullProperties?.Remove("anongid"); }
+            else if (parseNode.GetChildNode("anongid") is { } nullNodeAnongid && nullNodeAnongid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anongid = null;
+            if (parseNode.GetChildNode("anonuid") is null) { _explicitNullValueAnonuid = default!; _explicitNullProperties?.Remove("anonuid"); }
+            else if (parseNode.GetChildNode("anonuid") is { } nullNodeAnonuid && nullNodeAnonuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anonuid = null;
+            if (parseNode.GetChildNode("identity_enforcement_enabled") is null) { _explicitNullValueIdentityEnforcementEnabled = default!; _explicitNullProperties?.Remove("identity_enforcement_enabled"); }
+            else if (parseNode.GetChildNode("identity_enforcement_enabled") is { } nullNodeIdentityEnforcementEnabled && nullNodeIdentityEnforcementEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentityEnforcementEnabled = null;
+            if (parseNode.GetChildNode("protocols") is null) { _explicitNullValueProtocols = default!; _explicitNullProperties?.Remove("protocols"); }
+            else if (parseNode.GetChildNode("protocols") is { } nullNodeProtocols && nullNodeProtocols.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Protocols = null;
+            if (parseNode.GetChildNode("squash_config") is null) { _explicitNullValueSquashConfig = default!; _explicitNullProperties?.Remove("squash_config"); }
+            else if (parseNode.GetChildNode("squash_config") is { } nullNodeSquashConfig && nullNodeSquashConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SquashConfig = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>GID used for squashed users. Currently only 65534 is supported.</summary>
-        public int? Anongid { get => _explicitNullValueAnongid; set { _explicitNullValueAnongid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anongid"); else _explicitNullProperties?.Remove("anongid"); } }
+        public int? Anongid { get => _explicitNullValueAnongid; set { _explicitNullValueAnongid = value; AdditionalData?.Remove("anongid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anongid"); else _explicitNullProperties?.Remove("anongid"); } }
         private int? _explicitNullValueAnongid = default!;
         /// <summary>UID used for squashed users. Currently only 65534 is supported.</summary>
-        public int? Anonuid { get => _explicitNullValueAnonuid; set { _explicitNullValueAnonuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anonuid"); else _explicitNullProperties?.Remove("anonuid"); } }
+        public int? Anonuid { get => _explicitNullValueAnonuid; set { _explicitNullValueAnonuid = value; AdditionalData?.Remove("anonuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anonuid"); else _explicitNullProperties?.Remove("anonuid"); } }
         private int? _explicitNullValueAnonuid = default!;
         /// <summary>Whether identity enforcement is enabled for this export.</summary>
-        public bool? IdentityEnforcementEnabled { get => _explicitNullValueIdentityEnforcementEnabled; set { _explicitNullValueIdentityEnforcementEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_enforcement_enabled"); else _explicitNullProperties?.Remove("identity_enforcement_enabled"); } }
+        public bool? IdentityEnforcementEnabled { get => _explicitNullValueIdentityEnforcementEnabled; set { _explicitNullValueIdentityEnforcementEnabled = value; AdditionalData?.Remove("identity_enforcement_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_enforcement_enabled"); else _explicitNullProperties?.Remove("identity_enforcement_enabled"); } }
         private bool? _explicitNullValueIdentityEnforcementEnabled = default!;
         /// <summary>Allowed NFS protocols for this export.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicyProtocolsItem?>? Protocols { get => _explicitNullValueProtocols; set { _explicitNullValueProtocols = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocols"); else _explicitNullProperties?.Remove("protocols"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicyProtocolsItem?>? Protocols { get => _explicitNullValueProtocols; set { _explicitNullValueProtocols = value; AdditionalData?.Remove("protocols"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocols"); else _explicitNullProperties?.Remove("protocols"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicyProtocolsItem?>? _explicitNullValueProtocols = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicyProtocolsItem?> Protocols { get => _explicitNullValueProtocols; set { _explicitNullValueProtocols = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocols"); else _explicitNullProperties?.Remove("protocols"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicyProtocolsItem?> Protocols { get => _explicitNullValueProtocols; set { _explicitNullValueProtocols = value; AdditionalData?.Remove("protocols"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocols"); else _explicitNullProperties?.Remove("protocols"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicyProtocolsItem?> _explicitNullValueProtocols = default!;
 #endif
         /// <summary>The squash mode applied to the access point export.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicySquashConfig? SquashConfig { get => _explicitNullValueSquashConfig; set { _explicitNullValueSquashConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("squash_config"); else _explicitNullProperties?.Remove("squash_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicySquashConfig? SquashConfig { get => _explicitNullValueSquashConfig; set { _explicitNullValueSquashConfig = value; AdditionalData?.Remove("squash_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("squash_config"); else _explicitNullProperties?.Remove("squash_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicySquashConfig? _explicitNullValueSquashConfig = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicy"/> and sets the default values.
@@ -78,7 +83,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "anonuid", n => { Anonuid = n.GetIntValue(); } },
                 { "identity_enforcement_enabled", n => { IdentityEnforcementEnabled = n.GetBoolValue(); } },
                 { "protocols", n => { Protocols = n.GetCollectionOfEnumValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicyProtocolsItem>()?.AsList(); } },
-                { "squash_config", n => { SquashConfig = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicySquashConfig>(); } },
+                { "squash_config", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPolicySquashConfig>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSquashConfig = default; _explicitNullProperties?.Remove("squash_config"); AdditionalData["squash_config"] = unknown; } else { SquashConfig = parsed; AdditionalData.Remove("squash_config"); } } },
             };
         }
         /// <summary>

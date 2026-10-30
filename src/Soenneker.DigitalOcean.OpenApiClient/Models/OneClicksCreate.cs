@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("addon_slugs") is { } nullNodeAddonSlugs && nullNodeAddonSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddonSlugs = null;
-            if (parseNode.GetChildNode("cluster_uuid") is { } nullNodeClusterUuid && nullNodeClusterUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterUuid = null;
+            if (parseNode.GetChildNode("addon_slugs") is null) { _explicitNullValueAddonSlugs = default!; _explicitNullProperties?.Remove("addon_slugs"); }
+            else if (parseNode.GetChildNode("addon_slugs") is { } nullNodeAddonSlugs && nullNodeAddonSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddonSlugs = null;
+            if (parseNode.GetChildNode("cluster_uuid") is null) { _explicitNullValueClusterUuid = default!; _explicitNullProperties?.Remove("cluster_uuid"); }
+            else if (parseNode.GetChildNode("cluster_uuid") is { } nullNodeClusterUuid && nullNodeClusterUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array of 1-Click Application slugs to be installed to the Kubernetes cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AddonSlugs { get => _explicitNullValueAddonSlugs; set { _explicitNullValueAddonSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addon_slugs"); else _explicitNullProperties?.Remove("addon_slugs"); } }
+        public List<string>? AddonSlugs { get => _explicitNullValueAddonSlugs; set { _explicitNullValueAddonSlugs = value; AdditionalData?.Remove("addon_slugs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addon_slugs"); else _explicitNullProperties?.Remove("addon_slugs"); } }
         private List<string>? _explicitNullValueAddonSlugs = default!;
 #nullable restore
 #else
-        public List<string> AddonSlugs { get => _explicitNullValueAddonSlugs; set { _explicitNullValueAddonSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addon_slugs"); else _explicitNullProperties?.Remove("addon_slugs"); } }
+        public List<string> AddonSlugs { get => _explicitNullValueAddonSlugs; set { _explicitNullValueAddonSlugs = value; AdditionalData?.Remove("addon_slugs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addon_slugs"); else _explicitNullProperties?.Remove("addon_slugs"); } }
         private List<string> _explicitNullValueAddonSlugs = default!;
 #endif
         /// <summary>A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClusterUuid { get => _explicitNullValueClusterUuid; set { _explicitNullValueClusterUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuid"); else _explicitNullProperties?.Remove("cluster_uuid"); } }
+        public string? ClusterUuid { get => _explicitNullValueClusterUuid; set { _explicitNullValueClusterUuid = value; AdditionalData?.Remove("cluster_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuid"); else _explicitNullProperties?.Remove("cluster_uuid"); } }
         private string? _explicitNullValueClusterUuid = default!;
 #nullable restore
 #else
-        public string ClusterUuid { get => _explicitNullValueClusterUuid; set { _explicitNullValueClusterUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuid"); else _explicitNullProperties?.Remove("cluster_uuid"); } }
+        public string ClusterUuid { get => _explicitNullValueClusterUuid; set { _explicitNullValueClusterUuid = value; AdditionalData?.Remove("cluster_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_uuid"); else _explicitNullProperties?.Remove("cluster_uuid"); } }
         private string _explicitNullValueClusterUuid = default!;
 #endif
         /// <summary>

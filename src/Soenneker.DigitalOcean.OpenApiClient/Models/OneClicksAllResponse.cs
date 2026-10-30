@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("1_clicks") is { } nullNodeOneClicks && nullNodeOneClicks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneClicks = null;
+            if (parseNode.GetChildNode("1_clicks") is null) { _explicitNullValueOneClicks = default!; _explicitNullProperties?.Remove("1_clicks"); }
+            else if (parseNode.GetChildNode("1_clicks") is { } nullNodeOneClicks && nullNodeOneClicks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneClicks = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The One_clicks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicks>? OneClicks { get => _explicitNullValueOneClicks; set { _explicitNullValueOneClicks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("1_clicks"); else _explicitNullProperties?.Remove("1_clicks"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicks>? OneClicks { get => _explicitNullValueOneClicks; set { _explicitNullValueOneClicks = value; AdditionalData?.Remove("1_clicks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("1_clicks"); else _explicitNullProperties?.Remove("1_clicks"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicks>? _explicitNullValueOneClicks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicks> OneClicks { get => _explicitNullValueOneClicks; set { _explicitNullValueOneClicks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("1_clicks"); else _explicitNullProperties?.Remove("1_clicks"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicks> OneClicks { get => _explicitNullValueOneClicks; set { _explicitNullValueOneClicks = value; AdditionalData?.Remove("1_clicks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("1_clicks"); else _explicitNullProperties?.Remove("1_clicks"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.OneClicks> _explicitNullValueOneClicks = default!;
 #endif
         /// <summary>

@@ -17,10 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("exclude_checks") is { } nullNodeExcludeChecks && nullNodeExcludeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeChecks = null;
-            if (parseNode.GetChildNode("exclude_groups") is { } nullNodeExcludeGroups && nullNodeExcludeGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeGroups = null;
-            if (parseNode.GetChildNode("include_checks") is { } nullNodeIncludeChecks && nullNodeIncludeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeChecks = null;
-            if (parseNode.GetChildNode("include_groups") is { } nullNodeIncludeGroups && nullNodeIncludeGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeGroups = null;
+            if (parseNode.GetChildNode("exclude_checks") is null) { _explicitNullValueExcludeChecks = default!; _explicitNullProperties?.Remove("exclude_checks"); }
+            else if (parseNode.GetChildNode("exclude_checks") is { } nullNodeExcludeChecks && nullNodeExcludeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeChecks = null;
+            if (parseNode.GetChildNode("exclude_groups") is null) { _explicitNullValueExcludeGroups = default!; _explicitNullProperties?.Remove("exclude_groups"); }
+            else if (parseNode.GetChildNode("exclude_groups") is { } nullNodeExcludeGroups && nullNodeExcludeGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeGroups = null;
+            if (parseNode.GetChildNode("include_checks") is null) { _explicitNullValueIncludeChecks = default!; _explicitNullProperties?.Remove("include_checks"); }
+            else if (parseNode.GetChildNode("include_checks") is { } nullNodeIncludeChecks && nullNodeIncludeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeChecks = null;
+            if (parseNode.GetChildNode("include_groups") is null) { _explicitNullValueIncludeGroups = default!; _explicitNullProperties?.Remove("include_groups"); }
+            else if (parseNode.GetChildNode("include_groups") is { } nullNodeIncludeGroups && nullNodeIncludeGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeGroups = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array of checks that will be run when clusterlint executes checks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludeChecks { get => _explicitNullValueExcludeChecks; set { _explicitNullValueExcludeChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_checks"); else _explicitNullProperties?.Remove("exclude_checks"); } }
+        public List<string>? ExcludeChecks { get => _explicitNullValueExcludeChecks; set { _explicitNullValueExcludeChecks = value; AdditionalData?.Remove("exclude_checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_checks"); else _explicitNullProperties?.Remove("exclude_checks"); } }
         private List<string>? _explicitNullValueExcludeChecks = default!;
 #nullable restore
 #else
-        public List<string> ExcludeChecks { get => _explicitNullValueExcludeChecks; set { _explicitNullValueExcludeChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_checks"); else _explicitNullProperties?.Remove("exclude_checks"); } }
+        public List<string> ExcludeChecks { get => _explicitNullValueExcludeChecks; set { _explicitNullValueExcludeChecks = value; AdditionalData?.Remove("exclude_checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_checks"); else _explicitNullProperties?.Remove("exclude_checks"); } }
         private List<string> _explicitNullValueExcludeChecks = default!;
 #endif
         /// <summary>An array of check groups that will be omitted when clusterlint executes checks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludeGroups { get => _explicitNullValueExcludeGroups; set { _explicitNullValueExcludeGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_groups"); else _explicitNullProperties?.Remove("exclude_groups"); } }
+        public List<string>? ExcludeGroups { get => _explicitNullValueExcludeGroups; set { _explicitNullValueExcludeGroups = value; AdditionalData?.Remove("exclude_groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_groups"); else _explicitNullProperties?.Remove("exclude_groups"); } }
         private List<string>? _explicitNullValueExcludeGroups = default!;
 #nullable restore
 #else
-        public List<string> ExcludeGroups { get => _explicitNullValueExcludeGroups; set { _explicitNullValueExcludeGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_groups"); else _explicitNullProperties?.Remove("exclude_groups"); } }
+        public List<string> ExcludeGroups { get => _explicitNullValueExcludeGroups; set { _explicitNullValueExcludeGroups = value; AdditionalData?.Remove("exclude_groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_groups"); else _explicitNullProperties?.Remove("exclude_groups"); } }
         private List<string> _explicitNullValueExcludeGroups = default!;
 #endif
         /// <summary>An array of checks that will be run when clusterlint executes checks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IncludeChecks { get => _explicitNullValueIncludeChecks; set { _explicitNullValueIncludeChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_checks"); else _explicitNullProperties?.Remove("include_checks"); } }
+        public List<string>? IncludeChecks { get => _explicitNullValueIncludeChecks; set { _explicitNullValueIncludeChecks = value; AdditionalData?.Remove("include_checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_checks"); else _explicitNullProperties?.Remove("include_checks"); } }
         private List<string>? _explicitNullValueIncludeChecks = default!;
 #nullable restore
 #else
-        public List<string> IncludeChecks { get => _explicitNullValueIncludeChecks; set { _explicitNullValueIncludeChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_checks"); else _explicitNullProperties?.Remove("include_checks"); } }
+        public List<string> IncludeChecks { get => _explicitNullValueIncludeChecks; set { _explicitNullValueIncludeChecks = value; AdditionalData?.Remove("include_checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_checks"); else _explicitNullProperties?.Remove("include_checks"); } }
         private List<string> _explicitNullValueIncludeChecks = default!;
 #endif
         /// <summary>An array of check groups that will be run when clusterlint executes checks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IncludeGroups { get => _explicitNullValueIncludeGroups; set { _explicitNullValueIncludeGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_groups"); else _explicitNullProperties?.Remove("include_groups"); } }
+        public List<string>? IncludeGroups { get => _explicitNullValueIncludeGroups; set { _explicitNullValueIncludeGroups = value; AdditionalData?.Remove("include_groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_groups"); else _explicitNullProperties?.Remove("include_groups"); } }
         private List<string>? _explicitNullValueIncludeGroups = default!;
 #nullable restore
 #else
-        public List<string> IncludeGroups { get => _explicitNullValueIncludeGroups; set { _explicitNullValueIncludeGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_groups"); else _explicitNullProperties?.Remove("include_groups"); } }
+        public List<string> IncludeGroups { get => _explicitNullValueIncludeGroups; set { _explicitNullValueIncludeGroups = value; AdditionalData?.Remove("include_groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_groups"); else _explicitNullProperties?.Remove("include_groups"); } }
         private List<string> _explicitNullValueIncludeGroups = default!;
 #endif
         /// <summary>

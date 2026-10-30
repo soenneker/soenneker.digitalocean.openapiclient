@@ -17,11 +17,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available_candidate_types") is { } nullNodeAvailableCandidateTypes && nullNodeAvailableCandidateTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableCandidateTypes = null;
-            if (parseNode.GetChildNode("available_statuses") is { } nullNodeAvailableStatuses && nullNodeAvailableStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableStatuses = null;
-            if (parseNode.GetChildNode("links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
-            if (parseNode.GetChildNode("meta") is { } nullNodeMeta && nullNodeMeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Meta = null;
-            if (parseNode.GetChildNode("runs") is { } nullNodeRuns && nullNodeRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runs = null;
+            if (parseNode.GetChildNode("available_candidate_types") is null) { _explicitNullValueAvailableCandidateTypes = default!; _explicitNullProperties?.Remove("available_candidate_types"); }
+            else if (parseNode.GetChildNode("available_candidate_types") is { } nullNodeAvailableCandidateTypes && nullNodeAvailableCandidateTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableCandidateTypes = null;
+            if (parseNode.GetChildNode("available_statuses") is null) { _explicitNullValueAvailableStatuses = default!; _explicitNullProperties?.Remove("available_statuses"); }
+            else if (parseNode.GetChildNode("available_statuses") is { } nullNodeAvailableStatuses && nullNodeAvailableStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableStatuses = null;
+            if (parseNode.GetChildNode("links") is null) { _explicitNullValueLinks = default!; _explicitNullProperties?.Remove("links"); }
+            else if (parseNode.GetChildNode("links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
+            if (parseNode.GetChildNode("meta") is null) { _explicitNullValueMeta = default!; _explicitNullProperties?.Remove("meta"); }
+            else if (parseNode.GetChildNode("meta") is { } nullNodeMeta && nullNodeMeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Meta = null;
+            if (parseNode.GetChildNode("runs") is null) { _explicitNullValueRuns = default!; _explicitNullProperties?.Remove("runs"); }
+            else if (parseNode.GetChildNode("runs") is { } nullNodeRuns && nullNodeRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Full set of candidate model source types the FE can offer in thecandidate-type filter UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource?>? AvailableCandidateTypes { get => _explicitNullValueAvailableCandidateTypes; set { _explicitNullValueAvailableCandidateTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_candidate_types"); else _explicitNullProperties?.Remove("available_candidate_types"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource?>? AvailableCandidateTypes { get => _explicitNullValueAvailableCandidateTypes; set { _explicitNullValueAvailableCandidateTypes = value; AdditionalData?.Remove("available_candidate_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_candidate_types"); else _explicitNullProperties?.Remove("available_candidate_types"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource?>? _explicitNullValueAvailableCandidateTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource?> AvailableCandidateTypes { get => _explicitNullValueAvailableCandidateTypes; set { _explicitNullValueAvailableCandidateTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_candidate_types"); else _explicitNullProperties?.Remove("available_candidate_types"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource?> AvailableCandidateTypes { get => _explicitNullValueAvailableCandidateTypes; set { _explicitNullValueAvailableCandidateTypes = value; AdditionalData?.Remove("available_candidate_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_candidate_types"); else _explicitNullProperties?.Remove("available_candidate_types"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource?> _explicitNullValueAvailableCandidateTypes = default!;
 #endif
         /// <summary>Full set of statuses the FE can offer in the status filter UI. Returnedon every list call so clients never need to hardcode the enum values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus?>? AvailableStatuses { get => _explicitNullValueAvailableStatuses; set { _explicitNullValueAvailableStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_statuses"); else _explicitNullProperties?.Remove("available_statuses"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus?>? AvailableStatuses { get => _explicitNullValueAvailableStatuses; set { _explicitNullValueAvailableStatuses = value; AdditionalData?.Remove("available_statuses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_statuses"); else _explicitNullProperties?.Remove("available_statuses"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus?>? _explicitNullValueAvailableStatuses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus?> AvailableStatuses { get => _explicitNullValueAvailableStatuses; set { _explicitNullValueAvailableStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_statuses"); else _explicitNullProperties?.Remove("available_statuses"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus?> AvailableStatuses { get => _explicitNullValueAvailableStatuses; set { _explicitNullValueAvailableStatuses = value; AdditionalData?.Remove("available_statuses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_statuses"); else _explicitNullProperties?.Remove("available_statuses"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunStatus?> _explicitNullValueAvailableStatuses = default!;
 #endif
         /// <summary>Links to other pages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; AdditionalData?.Remove("links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks? _explicitNullValueLinks = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; AdditionalData?.Remove("links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("links"); else _explicitNullProperties?.Remove("links"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLinks _explicitNullValueLinks = default!;
 #endif
         /// <summary>Meta information about the data set</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; AdditionalData?.Remove("meta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta? _explicitNullValueMeta = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; AdditionalData?.Remove("meta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiMeta _explicitNullValueMeta = default!;
 #endif
         /// <summary>Summary view of evaluation runs for the run history list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunSummary>? Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunSummary>? Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; AdditionalData?.Remove("runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunSummary>? _explicitNullValueRuns = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunSummary> Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunSummary> Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; AdditionalData?.Remove("runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelEvaluationRunSummary> _explicitNullValueRuns = default!;
 #endif
         /// <summary>

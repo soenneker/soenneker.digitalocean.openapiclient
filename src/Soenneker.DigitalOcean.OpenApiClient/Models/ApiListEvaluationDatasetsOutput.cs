@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("evaluation_datasets") is { } nullNodeEvaluationDatasets && nullNodeEvaluationDatasets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationDatasets = null;
+            if (parseNode.GetChildNode("evaluation_datasets") is null) { _explicitNullValueEvaluationDatasets = default!; _explicitNullProperties?.Remove("evaluation_datasets"); }
+            else if (parseNode.GetChildNode("evaluation_datasets") is { } nullNodeEvaluationDatasets && nullNodeEvaluationDatasets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationDatasets = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The list of evaluation datasets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDataset>? EvaluationDatasets { get => _explicitNullValueEvaluationDatasets; set { _explicitNullValueEvaluationDatasets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_datasets"); else _explicitNullProperties?.Remove("evaluation_datasets"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDataset>? EvaluationDatasets { get => _explicitNullValueEvaluationDatasets; set { _explicitNullValueEvaluationDatasets = value; AdditionalData?.Remove("evaluation_datasets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_datasets"); else _explicitNullProperties?.Remove("evaluation_datasets"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDataset>? _explicitNullValueEvaluationDatasets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDataset> EvaluationDatasets { get => _explicitNullValueEvaluationDatasets; set { _explicitNullValueEvaluationDatasets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_datasets"); else _explicitNullProperties?.Remove("evaluation_datasets"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDataset> EvaluationDatasets { get => _explicitNullValueEvaluationDatasets; set { _explicitNullValueEvaluationDatasets = value; AdditionalData?.Remove("evaluation_datasets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_datasets"); else _explicitNullProperties?.Remove("evaluation_datasets"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDataset> _explicitNullValueEvaluationDatasets = default!;
 #endif
         /// <summary>

@@ -17,62 +17,70 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("dataset_name") is { } nullNodeDatasetName && nullNodeDatasetName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetName = null;
-            if (parseNode.GetChildNode("dataset_paradigm") is { } nullNodeDatasetParadigm && nullNodeDatasetParadigm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetParadigm = null;
-            if (parseNode.GetChildNode("dataset_type") is { } nullNodeDatasetType && nullNodeDatasetType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetType = null;
-            if (parseNode.GetChildNode("dataset_uuid") is { } nullNodeDatasetUuid && nullNodeDatasetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetUuid = null;
-            if (parseNode.GetChildNode("file_size") is { } nullNodeFileSize && nullNodeFileSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileSize = null;
-            if (parseNode.GetChildNode("has_ground_truth") is { } nullNodeHasGroundTruth && nullNodeHasGroundTruth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasGroundTruth = null;
-            if (parseNode.GetChildNode("row_count") is { } nullNodeRowCount && nullNodeRowCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowCount = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("dataset_name") is null) { _explicitNullValueDatasetName = default!; _explicitNullProperties?.Remove("dataset_name"); }
+            else if (parseNode.GetChildNode("dataset_name") is { } nullNodeDatasetName && nullNodeDatasetName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetName = null;
+            if (parseNode.GetChildNode("dataset_paradigm") is null) { _explicitNullValueDatasetParadigm = default!; _explicitNullProperties?.Remove("dataset_paradigm"); }
+            else if (parseNode.GetChildNode("dataset_paradigm") is { } nullNodeDatasetParadigm && nullNodeDatasetParadigm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetParadigm = null;
+            if (parseNode.GetChildNode("dataset_type") is null) { _explicitNullValueDatasetType = default!; _explicitNullProperties?.Remove("dataset_type"); }
+            else if (parseNode.GetChildNode("dataset_type") is { } nullNodeDatasetType && nullNodeDatasetType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetType = null;
+            if (parseNode.GetChildNode("dataset_uuid") is null) { _explicitNullValueDatasetUuid = default!; _explicitNullProperties?.Remove("dataset_uuid"); }
+            else if (parseNode.GetChildNode("dataset_uuid") is { } nullNodeDatasetUuid && nullNodeDatasetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasetUuid = null;
+            if (parseNode.GetChildNode("file_size") is null) { _explicitNullValueFileSize = default!; _explicitNullProperties?.Remove("file_size"); }
+            else if (parseNode.GetChildNode("file_size") is { } nullNodeFileSize && nullNodeFileSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileSize = null;
+            if (parseNode.GetChildNode("has_ground_truth") is null) { _explicitNullValueHasGroundTruth = default!; _explicitNullProperties?.Remove("has_ground_truth"); }
+            else if (parseNode.GetChildNode("has_ground_truth") is { } nullNodeHasGroundTruth && nullNodeHasGroundTruth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasGroundTruth = null;
+            if (parseNode.GetChildNode("row_count") is null) { _explicitNullValueRowCount = default!; _explicitNullProperties?.Remove("row_count"); }
+            else if (parseNode.GetChildNode("row_count") is { } nullNodeRowCount && nullNodeRowCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Time created at.</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Name of the dataset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DatasetName { get => _explicitNullValueDatasetName; set { _explicitNullValueDatasetName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_name"); else _explicitNullProperties?.Remove("dataset_name"); } }
+        public string? DatasetName { get => _explicitNullValueDatasetName; set { _explicitNullValueDatasetName = value; AdditionalData?.Remove("dataset_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_name"); else _explicitNullProperties?.Remove("dataset_name"); } }
         private string? _explicitNullValueDatasetName = default!;
 #nullable restore
 #else
-        public string DatasetName { get => _explicitNullValueDatasetName; set { _explicitNullValueDatasetName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_name"); else _explicitNullProperties?.Remove("dataset_name"); } }
+        public string DatasetName { get => _explicitNullValueDatasetName; set { _explicitNullValueDatasetName = value; AdditionalData?.Remove("dataset_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_name"); else _explicitNullProperties?.Remove("dataset_name"); } }
         private string _explicitNullValueDatasetName = default!;
 #endif
         /// <summary>EvaluationDatasetParadigm is the row/content shape of a dataset, orthogonal to thesurface in EvaluationDatasetType (e.g. a model dataset can be single- or multi-turn).</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? DatasetParadigm { get => _explicitNullValueDatasetParadigm; set { _explicitNullValueDatasetParadigm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_paradigm"); else _explicitNullProperties?.Remove("dataset_paradigm"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? DatasetParadigm { get => _explicitNullValueDatasetParadigm; set { _explicitNullValueDatasetParadigm = value; AdditionalData?.Remove("dataset_paradigm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_paradigm"); else _explicitNullProperties?.Remove("dataset_paradigm"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm? _explicitNullValueDatasetParadigm = default!;
         /// <summary>The dataset_type property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType? DatasetType { get => _explicitNullValueDatasetType; set { _explicitNullValueDatasetType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_type"); else _explicitNullProperties?.Remove("dataset_type"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType? DatasetType { get => _explicitNullValueDatasetType; set { _explicitNullValueDatasetType = value; AdditionalData?.Remove("dataset_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_type"); else _explicitNullProperties?.Remove("dataset_type"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType? _explicitNullValueDatasetType = default!;
         /// <summary>UUID of the dataset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DatasetUuid { get => _explicitNullValueDatasetUuid; set { _explicitNullValueDatasetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_uuid"); else _explicitNullProperties?.Remove("dataset_uuid"); } }
+        public string? DatasetUuid { get => _explicitNullValueDatasetUuid; set { _explicitNullValueDatasetUuid = value; AdditionalData?.Remove("dataset_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_uuid"); else _explicitNullProperties?.Remove("dataset_uuid"); } }
         private string? _explicitNullValueDatasetUuid = default!;
 #nullable restore
 #else
-        public string DatasetUuid { get => _explicitNullValueDatasetUuid; set { _explicitNullValueDatasetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_uuid"); else _explicitNullProperties?.Remove("dataset_uuid"); } }
+        public string DatasetUuid { get => _explicitNullValueDatasetUuid; set { _explicitNullValueDatasetUuid = value; AdditionalData?.Remove("dataset_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset_uuid"); else _explicitNullProperties?.Remove("dataset_uuid"); } }
         private string _explicitNullValueDatasetUuid = default!;
 #endif
         /// <summary>The size of the dataset uploaded file in bytes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FileSize { get => _explicitNullValueFileSize; set { _explicitNullValueFileSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_size"); else _explicitNullProperties?.Remove("file_size"); } }
+        public string? FileSize { get => _explicitNullValueFileSize; set { _explicitNullValueFileSize = value; AdditionalData?.Remove("file_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_size"); else _explicitNullProperties?.Remove("file_size"); } }
         private string? _explicitNullValueFileSize = default!;
 #nullable restore
 #else
-        public string FileSize { get => _explicitNullValueFileSize; set { _explicitNullValueFileSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_size"); else _explicitNullProperties?.Remove("file_size"); } }
+        public string FileSize { get => _explicitNullValueFileSize; set { _explicitNullValueFileSize = value; AdditionalData?.Remove("file_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_size"); else _explicitNullProperties?.Remove("file_size"); } }
         private string _explicitNullValueFileSize = default!;
 #endif
         /// <summary>Does the dataset have a ground truth column?</summary>
-        public bool? HasGroundTruth { get => _explicitNullValueHasGroundTruth; set { _explicitNullValueHasGroundTruth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_ground_truth"); else _explicitNullProperties?.Remove("has_ground_truth"); } }
+        public bool? HasGroundTruth { get => _explicitNullValueHasGroundTruth; set { _explicitNullValueHasGroundTruth = value; AdditionalData?.Remove("has_ground_truth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_ground_truth"); else _explicitNullProperties?.Remove("has_ground_truth"); } }
         private bool? _explicitNullValueHasGroundTruth = default!;
         /// <summary>Number of rows in the dataset.</summary>
-        public long? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row_count"); else _explicitNullProperties?.Remove("row_count"); } }
+        public long? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; AdditionalData?.Remove("row_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row_count"); else _explicitNullProperties?.Remove("row_count"); } }
         private long? _explicitNullValueRowCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDataset"/> and sets the default values.
@@ -101,8 +109,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dataset_name", n => { DatasetName = n.GetStringValue(); } },
-                { "dataset_paradigm", n => { DatasetParadigm = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>(); } },
-                { "dataset_type", n => { DatasetType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>(); } },
+                { "dataset_paradigm", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDatasetParadigm = default; _explicitNullProperties?.Remove("dataset_paradigm"); AdditionalData["dataset_paradigm"] = unknown; } else { DatasetParadigm = parsed; AdditionalData.Remove("dataset_paradigm"); } } },
+                { "dataset_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDatasetType = default; _explicitNullProperties?.Remove("dataset_type"); AdditionalData["dataset_type"] = unknown; } else { DatasetType = parsed; AdditionalData.Remove("dataset_type"); } } },
                 { "dataset_uuid", n => { DatasetUuid = n.GetStringValue(); } },
                 { "file_size", n => { FileSize = n.GetStringValue(); } },
                 { "has_ground_truth", n => { HasGroundTruth = n.GetBoolValue(); } },

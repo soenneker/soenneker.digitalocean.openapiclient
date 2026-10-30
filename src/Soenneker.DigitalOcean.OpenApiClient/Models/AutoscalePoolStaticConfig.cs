@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("target_number_instances") is { } nullNodeTargetNumberInstances && nullNodeTargetNumberInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetNumberInstances = null;
+            if (parseNode.GetChildNode("target_number_instances") is null) { _explicitNullValueTargetNumberInstances = default!; _explicitNullProperties?.Remove("target_number_instances"); }
+            else if (parseNode.GetChildNode("target_number_instances") is { } nullNodeTargetNumberInstances && nullNodeTargetNumberInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetNumberInstances = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Fixed number of instances in an autoscale pool.</summary>
-        public int? TargetNumberInstances { get => _explicitNullValueTargetNumberInstances; set { _explicitNullValueTargetNumberInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_number_instances"); else _explicitNullProperties?.Remove("target_number_instances"); } }
+        public int? TargetNumberInstances { get => _explicitNullValueTargetNumberInstances; set { _explicitNullValueTargetNumberInstances = value; AdditionalData?.Remove("target_number_instances"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_number_instances"); else _explicitNullProperties?.Remove("target_number_instances"); } }
         private int? _explicitNullValueTargetNumberInstances = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AutoscalePoolStaticConfig"/> and sets the default values.

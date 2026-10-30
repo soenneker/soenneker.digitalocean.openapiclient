@@ -18,21 +18,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("increment_gib") is { } nullNodeIncrementGib && nullNodeIncrementGib.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncrementGib = null;
-            if (parseNode.GetChildNode("threshold_percent") is { } nullNodeThresholdPercent && nullNodeThresholdPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThresholdPercent = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("increment_gib") is null) { _explicitNullValueIncrementGib = default!; _explicitNullProperties?.Remove("increment_gib"); }
+            else if (parseNode.GetChildNode("increment_gib") is { } nullNodeIncrementGib && nullNodeIncrementGib.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncrementGib = null;
+            if (parseNode.GetChildNode("threshold_percent") is null) { _explicitNullValueThresholdPercent = default!; _explicitNullProperties?.Remove("threshold_percent"); }
+            else if (parseNode.GetChildNode("threshold_percent") is { } nullNodeThresholdPercent && nullNodeThresholdPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThresholdPercent = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether storage autoscaling is enabled for the cluster</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>The amount of additional storage to add (in GiB) when autoscaling is triggered</summary>
-        public int? IncrementGib { get => _explicitNullValueIncrementGib; set { _explicitNullValueIncrementGib = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("increment_gib"); else _explicitNullProperties?.Remove("increment_gib"); } }
+        public int? IncrementGib { get => _explicitNullValueIncrementGib; set { _explicitNullValueIncrementGib = value; AdditionalData?.Remove("increment_gib"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("increment_gib"); else _explicitNullProperties?.Remove("increment_gib"); } }
         private int? _explicitNullValueIncrementGib = default!;
         /// <summary>The storage usage threshold percentage that triggers autoscaling. When storage usage exceeds this percentage, additional storage will be added automatically.</summary>
-        public int? ThresholdPercent { get => _explicitNullValueThresholdPercent; set { _explicitNullValueThresholdPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_percent"); else _explicitNullProperties?.Remove("threshold_percent"); } }
+        public int? ThresholdPercent { get => _explicitNullValueThresholdPercent; set { _explicitNullValueThresholdPercent = value; AdditionalData?.Remove("threshold_percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_percent"); else _explicitNullProperties?.Remove("threshold_percent"); } }
         private int? _explicitNullValueThresholdPercent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseAutoscaleParamsStorage"/> and sets the default values.

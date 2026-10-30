@@ -18,15 +18,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_config") is { } nullNodeAgentConfig && nullNodeAgentConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentConfig = null;
-            if (parseNode.GetChildNode("evaluation_config") is { } nullNodeEvaluationConfig && nullNodeEvaluationConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationConfig = null;
-            if (parseNode.GetChildNode("exploration_budget") is { } nullNodeExplorationBudget && nullNodeExplorationBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExplorationBudget = null;
-            if (parseNode.GetChildNode("judge_model_uuid") is { } nullNodeJudgeModelUuid && nullNodeJudgeModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelUuid = null;
-            if (parseNode.GetChildNode("max_turns") is { } nullNodeMaxTurns && nullNodeMaxTurns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTurns = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("scenario_set_uuid") is { } nullNodeScenarioSetUuid && nullNodeScenarioSetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioSetUuid = null;
-            if (parseNode.GetChildNode("user_simulator_config") is { } nullNodeUserSimulatorConfig && nullNodeUserSimulatorConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserSimulatorConfig = null;
-            if (parseNode.GetChildNode("user_simulator_model_uuid") is { } nullNodeUserSimulatorModelUuid && nullNodeUserSimulatorModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserSimulatorModelUuid = null;
+            if (parseNode.GetChildNode("agent_config") is null) { _explicitNullValueAgentConfig = default!; _explicitNullProperties?.Remove("agent_config"); }
+            else if (parseNode.GetChildNode("agent_config") is { } nullNodeAgentConfig && nullNodeAgentConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentConfig = null;
+            if (parseNode.GetChildNode("evaluation_config") is null) { _explicitNullValueEvaluationConfig = default!; _explicitNullProperties?.Remove("evaluation_config"); }
+            else if (parseNode.GetChildNode("evaluation_config") is { } nullNodeEvaluationConfig && nullNodeEvaluationConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationConfig = null;
+            if (parseNode.GetChildNode("exploration_budget") is null) { _explicitNullValueExplorationBudget = default!; _explicitNullProperties?.Remove("exploration_budget"); }
+            else if (parseNode.GetChildNode("exploration_budget") is { } nullNodeExplorationBudget && nullNodeExplorationBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExplorationBudget = null;
+            if (parseNode.GetChildNode("judge_model_uuid") is null) { _explicitNullValueJudgeModelUuid = default!; _explicitNullProperties?.Remove("judge_model_uuid"); }
+            else if (parseNode.GetChildNode("judge_model_uuid") is { } nullNodeJudgeModelUuid && nullNodeJudgeModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeModelUuid = null;
+            if (parseNode.GetChildNode("max_turns") is null) { _explicitNullValueMaxTurns = default!; _explicitNullProperties?.Remove("max_turns"); }
+            else if (parseNode.GetChildNode("max_turns") is { } nullNodeMaxTurns && nullNodeMaxTurns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTurns = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("scenario_set_uuid") is null) { _explicitNullValueScenarioSetUuid = default!; _explicitNullProperties?.Remove("scenario_set_uuid"); }
+            else if (parseNode.GetChildNode("scenario_set_uuid") is { } nullNodeScenarioSetUuid && nullNodeScenarioSetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioSetUuid = null;
+            if (parseNode.GetChildNode("user_simulator_config") is null) { _explicitNullValueUserSimulatorConfig = default!; _explicitNullProperties?.Remove("user_simulator_config"); }
+            else if (parseNode.GetChildNode("user_simulator_config") is { } nullNodeUserSimulatorConfig && nullNodeUserSimulatorConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserSimulatorConfig = null;
+            if (parseNode.GetChildNode("user_simulator_model_uuid") is null) { _explicitNullValueUserSimulatorModelUuid = default!; _explicitNullProperties?.Remove("user_simulator_model_uuid"); }
+            else if (parseNode.GetChildNode("user_simulator_model_uuid") is { } nullNodeUserSimulatorModelUuid && nullNodeUserSimulatorModelUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserSimulatorModelUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,77 +43,77 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Configuration of the candidate agent under test for a simulation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig? AgentConfig { get => _explicitNullValueAgentConfig; set { _explicitNullValueAgentConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_config"); else _explicitNullProperties?.Remove("agent_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig? AgentConfig { get => _explicitNullValueAgentConfig; set { _explicitNullValueAgentConfig = value; AdditionalData?.Remove("agent_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_config"); else _explicitNullProperties?.Remove("agent_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig? _explicitNullValueAgentConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig AgentConfig { get => _explicitNullValueAgentConfig; set { _explicitNullValueAgentConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_config"); else _explicitNullProperties?.Remove("agent_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig AgentConfig { get => _explicitNullValueAgentConfig; set { _explicitNullValueAgentConfig = value; AdditionalData?.Remove("agent_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_config"); else _explicitNullProperties?.Remove("agent_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig _explicitNullValueAgentConfig = default!;
 #endif
         /// <summary>Optional configuration that opts a simulation run into an evaluation. Whenincluded on the create-run request, the platform reserves amodel_evaluation_run linked to this simulation run and dispatches theevaluation automatically after the simulation finishes. The evaluationreuses the simulation run&apos;s judge_model_uuid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig? EvaluationConfig { get => _explicitNullValueEvaluationConfig; set { _explicitNullValueEvaluationConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_config"); else _explicitNullProperties?.Remove("evaluation_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig? EvaluationConfig { get => _explicitNullValueEvaluationConfig; set { _explicitNullValueEvaluationConfig = value; AdditionalData?.Remove("evaluation_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_config"); else _explicitNullProperties?.Remove("evaluation_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig? _explicitNullValueEvaluationConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig EvaluationConfig { get => _explicitNullValueEvaluationConfig; set { _explicitNullValueEvaluationConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_config"); else _explicitNullProperties?.Remove("evaluation_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig EvaluationConfig { get => _explicitNullValueEvaluationConfig; set { _explicitNullValueEvaluationConfig = value; AdditionalData?.Remove("evaluation_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_config"); else _explicitNullProperties?.Remove("evaluation_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig _explicitNullValueEvaluationConfig = default!;
 #endif
         /// <summary>Optional run-level episodes-per-scenario override. When set, overrides each scenario&apos;s exploration_budget.</summary>
-        public long? ExplorationBudget { get => _explicitNullValueExplorationBudget; set { _explicitNullValueExplorationBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exploration_budget"); else _explicitNullProperties?.Remove("exploration_budget"); } }
+        public long? ExplorationBudget { get => _explicitNullValueExplorationBudget; set { _explicitNullValueExplorationBudget = value; AdditionalData?.Remove("exploration_budget"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exploration_budget"); else _explicitNullProperties?.Remove("exploration_budget"); } }
         private long? _explicitNullValueExplorationBudget = default!;
         /// <summary>Optional model override for the judge. Platform default when unset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JudgeModelUuid { get => _explicitNullValueJudgeModelUuid; set { _explicitNullValueJudgeModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_uuid"); else _explicitNullProperties?.Remove("judge_model_uuid"); } }
+        public string? JudgeModelUuid { get => _explicitNullValueJudgeModelUuid; set { _explicitNullValueJudgeModelUuid = value; AdditionalData?.Remove("judge_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_uuid"); else _explicitNullProperties?.Remove("judge_model_uuid"); } }
         private string? _explicitNullValueJudgeModelUuid = default!;
 #nullable restore
 #else
-        public string JudgeModelUuid { get => _explicitNullValueJudgeModelUuid; set { _explicitNullValueJudgeModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_uuid"); else _explicitNullProperties?.Remove("judge_model_uuid"); } }
+        public string JudgeModelUuid { get => _explicitNullValueJudgeModelUuid; set { _explicitNullValueJudgeModelUuid = value; AdditionalData?.Remove("judge_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_model_uuid"); else _explicitNullProperties?.Remove("judge_model_uuid"); } }
         private string _explicitNullValueJudgeModelUuid = default!;
 #endif
         /// <summary>Optional run-level turn budget. When set, overrides each scenario&apos;s max_turns.</summary>
-        public long? MaxTurns { get => _explicitNullValueMaxTurns; set { _explicitNullValueMaxTurns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_turns"); else _explicitNullProperties?.Remove("max_turns"); } }
+        public long? MaxTurns { get => _explicitNullValueMaxTurns; set { _explicitNullValueMaxTurns = value; AdditionalData?.Remove("max_turns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_turns"); else _explicitNullProperties?.Remove("max_turns"); } }
         private long? _explicitNullValueMaxTurns = default!;
         /// <summary>Optional run name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>UUID of the existing scenario set to execute. The set must be ready.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScenarioSetUuid { get => _explicitNullValueScenarioSetUuid; set { _explicitNullValueScenarioSetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_set_uuid"); else _explicitNullProperties?.Remove("scenario_set_uuid"); } }
+        public string? ScenarioSetUuid { get => _explicitNullValueScenarioSetUuid; set { _explicitNullValueScenarioSetUuid = value; AdditionalData?.Remove("scenario_set_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_set_uuid"); else _explicitNullProperties?.Remove("scenario_set_uuid"); } }
         private string? _explicitNullValueScenarioSetUuid = default!;
 #nullable restore
 #else
-        public string ScenarioSetUuid { get => _explicitNullValueScenarioSetUuid; set { _explicitNullValueScenarioSetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_set_uuid"); else _explicitNullProperties?.Remove("scenario_set_uuid"); } }
+        public string ScenarioSetUuid { get => _explicitNullValueScenarioSetUuid; set { _explicitNullValueScenarioSetUuid = value; AdditionalData?.Remove("scenario_set_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_set_uuid"); else _explicitNullProperties?.Remove("scenario_set_uuid"); } }
         private string _explicitNullValueScenarioSetUuid = default!;
 #endif
         /// <summary>Optional user simulator model settings such as temperature and max_tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateSimulationRunInputPublicUserSimulatorConfigProperty? UserSimulatorConfig { get => _explicitNullValueUserSimulatorConfig; set { _explicitNullValueUserSimulatorConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_simulator_config"); else _explicitNullProperties?.Remove("user_simulator_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateSimulationRunInputPublicUserSimulatorConfigProperty? UserSimulatorConfig { get => _explicitNullValueUserSimulatorConfig; set { _explicitNullValueUserSimulatorConfig = value; AdditionalData?.Remove("user_simulator_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_simulator_config"); else _explicitNullProperties?.Remove("user_simulator_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateSimulationRunInputPublicUserSimulatorConfigProperty? _explicitNullValueUserSimulatorConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateSimulationRunInputPublicUserSimulatorConfigProperty UserSimulatorConfig { get => _explicitNullValueUserSimulatorConfig; set { _explicitNullValueUserSimulatorConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_simulator_config"); else _explicitNullProperties?.Remove("user_simulator_config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateSimulationRunInputPublicUserSimulatorConfigProperty UserSimulatorConfig { get => _explicitNullValueUserSimulatorConfig; set { _explicitNullValueUserSimulatorConfig = value; AdditionalData?.Remove("user_simulator_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_simulator_config"); else _explicitNullProperties?.Remove("user_simulator_config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCreateSimulationRunInputPublicUserSimulatorConfigProperty _explicitNullValueUserSimulatorConfig = default!;
 #endif
         /// <summary>Optional model override for the user simulator. Platform default when unset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserSimulatorModelUuid { get => _explicitNullValueUserSimulatorModelUuid; set { _explicitNullValueUserSimulatorModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_simulator_model_uuid"); else _explicitNullProperties?.Remove("user_simulator_model_uuid"); } }
+        public string? UserSimulatorModelUuid { get => _explicitNullValueUserSimulatorModelUuid; set { _explicitNullValueUserSimulatorModelUuid = value; AdditionalData?.Remove("user_simulator_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_simulator_model_uuid"); else _explicitNullProperties?.Remove("user_simulator_model_uuid"); } }
         private string? _explicitNullValueUserSimulatorModelUuid = default!;
 #nullable restore
 #else
-        public string UserSimulatorModelUuid { get => _explicitNullValueUserSimulatorModelUuid; set { _explicitNullValueUserSimulatorModelUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_simulator_model_uuid"); else _explicitNullProperties?.Remove("user_simulator_model_uuid"); } }
+        public string UserSimulatorModelUuid { get => _explicitNullValueUserSimulatorModelUuid; set { _explicitNullValueUserSimulatorModelUuid = value; AdditionalData?.Remove("user_simulator_model_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_simulator_model_uuid"); else _explicitNullProperties?.Remove("user_simulator_model_uuid"); } }
         private string _explicitNullValueUserSimulatorModelUuid = default!;
 #endif
         /// <summary>

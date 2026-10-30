@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth_key") is { } nullNodeAuthKey && nullNodeAuthKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthKey = null;
-            if (parseNode.GetChildNode("local_router_ip") is { } nullNodeLocalRouterIp && nullNodeLocalRouterIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalRouterIp = null;
-            if (parseNode.GetChildNode("peer_router_asn") is { } nullNodePeerRouterAsn && nullNodePeerRouterAsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeerRouterAsn = null;
-            if (parseNode.GetChildNode("peer_router_ip") is { } nullNodePeerRouterIp && nullNodePeerRouterIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeerRouterIp = null;
+            if (parseNode.GetChildNode("auth_key") is null) { _explicitNullValueAuthKey = default!; _explicitNullProperties?.Remove("auth_key"); }
+            else if (parseNode.GetChildNode("auth_key") is { } nullNodeAuthKey && nullNodeAuthKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthKey = null;
+            if (parseNode.GetChildNode("local_router_ip") is null) { _explicitNullValueLocalRouterIp = default!; _explicitNullProperties?.Remove("local_router_ip"); }
+            else if (parseNode.GetChildNode("local_router_ip") is { } nullNodeLocalRouterIp && nullNodeLocalRouterIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalRouterIp = null;
+            if (parseNode.GetChildNode("peer_router_asn") is null) { _explicitNullValuePeerRouterAsn = default!; _explicitNullProperties?.Remove("peer_router_asn"); }
+            else if (parseNode.GetChildNode("peer_router_asn") is { } nullNodePeerRouterAsn && nullNodePeerRouterAsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeerRouterAsn = null;
+            if (parseNode.GetChildNode("peer_router_ip") is null) { _explicitNullValuePeerRouterIp = default!; _explicitNullProperties?.Remove("peer_router_ip"); }
+            else if (parseNode.GetChildNode("peer_router_ip") is { } nullNodePeerRouterIp && nullNodePeerRouterIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeerRouterIp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,34 +33,34 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>BGP Auth Key</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthKey { get => _explicitNullValueAuthKey; set { _explicitNullValueAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_key"); else _explicitNullProperties?.Remove("auth_key"); } }
+        public string? AuthKey { get => _explicitNullValueAuthKey; set { _explicitNullValueAuthKey = value; AdditionalData?.Remove("auth_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_key"); else _explicitNullProperties?.Remove("auth_key"); } }
         private string? _explicitNullValueAuthKey = default!;
 #nullable restore
 #else
-        public string AuthKey { get => _explicitNullValueAuthKey; set { _explicitNullValueAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_key"); else _explicitNullProperties?.Remove("auth_key"); } }
+        public string AuthKey { get => _explicitNullValueAuthKey; set { _explicitNullValueAuthKey = value; AdditionalData?.Remove("auth_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_key"); else _explicitNullProperties?.Remove("auth_key"); } }
         private string _explicitNullValueAuthKey = default!;
 #endif
         /// <summary>IP of the DO router</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocalRouterIp { get => _explicitNullValueLocalRouterIp; set { _explicitNullValueLocalRouterIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_router_ip"); else _explicitNullProperties?.Remove("local_router_ip"); } }
+        public string? LocalRouterIp { get => _explicitNullValueLocalRouterIp; set { _explicitNullValueLocalRouterIp = value; AdditionalData?.Remove("local_router_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_router_ip"); else _explicitNullProperties?.Remove("local_router_ip"); } }
         private string? _explicitNullValueLocalRouterIp = default!;
 #nullable restore
 #else
-        public string LocalRouterIp { get => _explicitNullValueLocalRouterIp; set { _explicitNullValueLocalRouterIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_router_ip"); else _explicitNullProperties?.Remove("local_router_ip"); } }
+        public string LocalRouterIp { get => _explicitNullValueLocalRouterIp; set { _explicitNullValueLocalRouterIp = value; AdditionalData?.Remove("local_router_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_router_ip"); else _explicitNullProperties?.Remove("local_router_ip"); } }
         private string _explicitNullValueLocalRouterIp = default!;
 #endif
         /// <summary>ASN of the peer router</summary>
-        public int? PeerRouterAsn { get => _explicitNullValuePeerRouterAsn; set { _explicitNullValuePeerRouterAsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_asn"); else _explicitNullProperties?.Remove("peer_router_asn"); } }
+        public int? PeerRouterAsn { get => _explicitNullValuePeerRouterAsn; set { _explicitNullValuePeerRouterAsn = value; AdditionalData?.Remove("peer_router_asn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_asn"); else _explicitNullProperties?.Remove("peer_router_asn"); } }
         private int? _explicitNullValuePeerRouterAsn = default!;
         /// <summary>IP of the NaaS provider router</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PeerRouterIp { get => _explicitNullValuePeerRouterIp; set { _explicitNullValuePeerRouterIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_ip"); else _explicitNullProperties?.Remove("peer_router_ip"); } }
+        public string? PeerRouterIp { get => _explicitNullValuePeerRouterIp; set { _explicitNullValuePeerRouterIp = value; AdditionalData?.Remove("peer_router_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_ip"); else _explicitNullProperties?.Remove("peer_router_ip"); } }
         private string? _explicitNullValuePeerRouterIp = default!;
 #nullable restore
 #else
-        public string PeerRouterIp { get => _explicitNullValuePeerRouterIp; set { _explicitNullValuePeerRouterIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_ip"); else _explicitNullProperties?.Remove("peer_router_ip"); } }
+        public string PeerRouterIp { get => _explicitNullValuePeerRouterIp; set { _explicitNullValuePeerRouterIp = value; AdditionalData?.Remove("peer_router_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("peer_router_ip"); else _explicitNullProperties?.Remove("peer_router_ip"); } }
         private string _explicitNullValuePeerRouterIp = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_key_info") is { } nullNodeApiKeyInfo && nullNodeApiKeyInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyInfo = null;
+            if (parseNode.GetChildNode("api_key_info") is null) { _explicitNullValueApiKeyInfo = default!; _explicitNullProperties?.Remove("api_key_info"); }
+            else if (parseNode.GetChildNode("api_key_info") is { } nullNodeApiKeyInfo && nullNodeApiKeyInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyInfo = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Agent API Key Info</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentApiKeyInfo? ApiKeyInfo { get => _explicitNullValueApiKeyInfo; set { _explicitNullValueApiKeyInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_info"); else _explicitNullProperties?.Remove("api_key_info"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentApiKeyInfo? ApiKeyInfo { get => _explicitNullValueApiKeyInfo; set { _explicitNullValueApiKeyInfo = value; AdditionalData?.Remove("api_key_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_info"); else _explicitNullProperties?.Remove("api_key_info"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentApiKeyInfo? _explicitNullValueApiKeyInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentApiKeyInfo ApiKeyInfo { get => _explicitNullValueApiKeyInfo; set { _explicitNullValueApiKeyInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_info"); else _explicitNullProperties?.Remove("api_key_info"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentApiKeyInfo ApiKeyInfo { get => _explicitNullValueApiKeyInfo; set { _explicitNullValueApiKeyInfo = value; AdditionalData?.Remove("api_key_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_info"); else _explicitNullProperties?.Remove("api_key_info"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentApiKeyInfo _explicitNullValueApiKeyInfo = default!;
 #endif
         /// <summary>

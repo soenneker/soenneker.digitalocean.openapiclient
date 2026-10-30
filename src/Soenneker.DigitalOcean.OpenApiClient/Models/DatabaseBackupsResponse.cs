@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("backup_progress") is { } nullNodeBackupProgress && nullNodeBackupProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupProgress = null;
-            if (parseNode.GetChildNode("backups") is { } nullNodeBackups && nullNodeBackups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Backups = null;
-            if (parseNode.GetChildNode("scheduled_backup_time") is { } nullNodeScheduledBackupTime && nullNodeScheduledBackupTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduledBackupTime = null;
+            if (parseNode.GetChildNode("backup_progress") is null) { _explicitNullValueBackupProgress = default!; _explicitNullProperties?.Remove("backup_progress"); }
+            else if (parseNode.GetChildNode("backup_progress") is { } nullNodeBackupProgress && nullNodeBackupProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupProgress = null;
+            if (parseNode.GetChildNode("backups") is null) { _explicitNullValueBackups = default!; _explicitNullProperties?.Remove("backups"); }
+            else if (parseNode.GetChildNode("backups") is { } nullNodeBackups && nullNodeBackups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Backups = null;
+            if (parseNode.GetChildNode("scheduled_backup_time") is null) { _explicitNullValueScheduledBackupTime = default!; _explicitNullProperties?.Remove("scheduled_backup_time"); }
+            else if (parseNode.GetChildNode("scheduled_backup_time") is { } nullNodeScheduledBackupTime && nullNodeScheduledBackupTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduledBackupTime = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>If a backup is currently in progress, this attribute shows the percentage of completion. If no backup is in progress, this attribute will be hidden.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BackupProgress { get => _explicitNullValueBackupProgress; set { _explicitNullValueBackupProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_progress"); else _explicitNullProperties?.Remove("backup_progress"); } }
+        public string? BackupProgress { get => _explicitNullValueBackupProgress; set { _explicitNullValueBackupProgress = value; AdditionalData?.Remove("backup_progress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_progress"); else _explicitNullProperties?.Remove("backup_progress"); } }
         private string? _explicitNullValueBackupProgress = default!;
 #nullable restore
 #else
-        public string BackupProgress { get => _explicitNullValueBackupProgress; set { _explicitNullValueBackupProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_progress"); else _explicitNullProperties?.Remove("backup_progress"); } }
+        public string BackupProgress { get => _explicitNullValueBackupProgress; set { _explicitNullValueBackupProgress = value; AdditionalData?.Remove("backup_progress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_progress"); else _explicitNullProperties?.Remove("backup_progress"); } }
         private string _explicitNullValueBackupProgress = default!;
 #endif
         /// <summary>The backups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Backup>? Backups { get => _explicitNullValueBackups; set { _explicitNullValueBackups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backups"); else _explicitNullProperties?.Remove("backups"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Backup>? Backups { get => _explicitNullValueBackups; set { _explicitNullValueBackups = value; AdditionalData?.Remove("backups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backups"); else _explicitNullProperties?.Remove("backups"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Backup>? _explicitNullValueBackups = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Backup> Backups { get => _explicitNullValueBackups; set { _explicitNullValueBackups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backups"); else _explicitNullProperties?.Remove("backups"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Backup> Backups { get => _explicitNullValueBackups; set { _explicitNullValueBackups = value; AdditionalData?.Remove("backups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backups"); else _explicitNullProperties?.Remove("backups"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.Backup> _explicitNullValueBackups = default!;
 #endif
         /// <summary>The scheduled_backup_time property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime? ScheduledBackupTime { get => _explicitNullValueScheduledBackupTime; set { _explicitNullValueScheduledBackupTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_backup_time"); else _explicitNullProperties?.Remove("scheduled_backup_time"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime? ScheduledBackupTime { get => _explicitNullValueScheduledBackupTime; set { _explicitNullValueScheduledBackupTime = value; AdditionalData?.Remove("scheduled_backup_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_backup_time"); else _explicitNullProperties?.Remove("scheduled_backup_time"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime? _explicitNullValueScheduledBackupTime = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime ScheduledBackupTime { get => _explicitNullValueScheduledBackupTime; set { _explicitNullValueScheduledBackupTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_backup_time"); else _explicitNullProperties?.Remove("scheduled_backup_time"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime ScheduledBackupTime { get => _explicitNullValueScheduledBackupTime; set { _explicitNullValueScheduledBackupTime = value; AdditionalData?.Remove("scheduled_backup_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_backup_time"); else _explicitNullProperties?.Remove("scheduled_backup_time"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackupsResponseScheduledBackupTime _explicitNullValueScheduledBackupTime = default!;
 #endif
         /// <summary>

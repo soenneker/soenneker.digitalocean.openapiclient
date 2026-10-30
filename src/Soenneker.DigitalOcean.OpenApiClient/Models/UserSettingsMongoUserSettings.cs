@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("databases") is { } nullNodeDatabases && nullNodeDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Databases = null;
-            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("databases") is null) { _explicitNullValueDatabases = default!; _explicitNullProperties?.Remove("databases"); }
+            else if (parseNode.GetChildNode("databases") is { } nullNodeDatabases && nullNodeDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Databases = null;
+            if (parseNode.GetChildNode("role") is null) { _explicitNullValueRole = default!; _explicitNullProperties?.Remove("role"); }
+            else if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A list of databases to which the user should have access. When the database is set to `admin`, the user will have access to all databases based on the user&apos;s role i.e. a user with the role `readOnly` assigned to the `admin` database will have read access to all databases.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
+        public List<string>? Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; AdditionalData?.Remove("databases"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
         private List<string>? _explicitNullValueDatabases = default!;
 #nullable restore
 #else
-        public List<string> Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
+        public List<string> Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; AdditionalData?.Remove("databases"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
         private List<string> _explicitNullValueDatabases = default!;
 #endif
         /// <summary>The role to assign to the user with each role mapping to a MongoDB built-in role.  `readOnly` maps to a [read](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) role. `readWrite` maps to a [readWrite](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-readWrite) role. `dbAdmin` maps to a [dbAdmin](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-dbAdmin) role.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettingsRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettingsRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; AdditionalData?.Remove("role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettingsRole? _explicitNullValueRole = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettings"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "databases", n => { Databases = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettingsRole>(); } },
+                { "role", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettingsRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRole = default; _explicitNullProperties?.Remove("role"); AdditionalData["role"] = unknown; } else { Role = parsed; AdditionalData.Remove("role"); } } },
             };
         }
         /// <summary>

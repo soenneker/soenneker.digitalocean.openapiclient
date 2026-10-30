@@ -17,23 +17,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
-            if (parseNode.GetChildNode("from_checkpoint_id") is { } nullNodeFromCheckpointId && nullNodeFromCheckpointId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromCheckpointId = null;
+            if (parseNode.GetChildNode("count") is null) { _explicitNullValueCount = default!; _explicitNullProperties?.Remove("count"); }
+            else if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("from_checkpoint_id") is null) { _explicitNullValueFromCheckpointId = default!; _explicitNullProperties?.Remove("from_checkpoint_id"); }
+            else if (parseNode.GetChildNode("from_checkpoint_id") is { } nullNodeFromCheckpointId && nullNodeFromCheckpointId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromCheckpointId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of child sessions to create, 1-4. Defaults to 1 when omitted; a value outside 1-4 is rejected with 400.</summary>
-        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; AdditionalData?.Remove("count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private int? _explicitNullValueCount = default!;
         /// <summary>Checkpoint to fork from; must be READY. Omitted/empty means capture an implicit checkpoint of the session &quot;now&quot; first and fork from that.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromCheckpointId { get => _explicitNullValueFromCheckpointId; set { _explicitNullValueFromCheckpointId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_checkpoint_id"); else _explicitNullProperties?.Remove("from_checkpoint_id"); } }
+        public string? FromCheckpointId { get => _explicitNullValueFromCheckpointId; set { _explicitNullValueFromCheckpointId = value; AdditionalData?.Remove("from_checkpoint_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_checkpoint_id"); else _explicitNullProperties?.Remove("from_checkpoint_id"); } }
         private string? _explicitNullValueFromCheckpointId = default!;
 #nullable restore
 #else
-        public string FromCheckpointId { get => _explicitNullValueFromCheckpointId; set { _explicitNullValueFromCheckpointId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_checkpoint_id"); else _explicitNullProperties?.Remove("from_checkpoint_id"); } }
+        public string FromCheckpointId { get => _explicitNullValueFromCheckpointId; set { _explicitNullValueFromCheckpointId = value; AdditionalData?.Remove("from_checkpoint_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_checkpoint_id"); else _explicitNullProperties?.Remove("from_checkpoint_id"); } }
         private string _explicitNullValueFromCheckpointId = default!;
 #endif
         /// <summary>

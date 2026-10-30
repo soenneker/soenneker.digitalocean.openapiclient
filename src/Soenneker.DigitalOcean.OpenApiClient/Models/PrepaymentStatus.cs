@@ -17,11 +17,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("balance") is { } nullNodeBalance && nullNodeBalance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Balance = null;
-            if (parseNode.GetChildNode("blocked") is { } nullNodeBlocked && nullNodeBlocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocked = null;
-            if (parseNode.GetChildNode("eligible") is { } nullNodeEligible && nullNodeEligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eligible = null;
-            if (parseNode.GetChildNode("is_auto_prepay_enabled") is { } nullNodeIsAutoPrepayEnabled && nullNodeIsAutoPrepayEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsAutoPrepayEnabled = null;
-            if (parseNode.GetChildNode("month_to_date_balance") is { } nullNodeMonthToDateBalance && nullNodeMonthToDateBalance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthToDateBalance = null;
+            if (parseNode.GetChildNode("balance") is null) { _explicitNullValueBalance = default!; _explicitNullProperties?.Remove("balance"); }
+            else if (parseNode.GetChildNode("balance") is { } nullNodeBalance && nullNodeBalance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Balance = null;
+            if (parseNode.GetChildNode("blocked") is null) { _explicitNullValueBlocked = default!; _explicitNullProperties?.Remove("blocked"); }
+            else if (parseNode.GetChildNode("blocked") is { } nullNodeBlocked && nullNodeBlocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocked = null;
+            if (parseNode.GetChildNode("eligible") is null) { _explicitNullValueEligible = default!; _explicitNullProperties?.Remove("eligible"); }
+            else if (parseNode.GetChildNode("eligible") is { } nullNodeEligible && nullNodeEligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eligible = null;
+            if (parseNode.GetChildNode("is_auto_prepay_enabled") is null) { _explicitNullValueIsAutoPrepayEnabled = default!; _explicitNullProperties?.Remove("is_auto_prepay_enabled"); }
+            else if (parseNode.GetChildNode("is_auto_prepay_enabled") is { } nullNodeIsAutoPrepayEnabled && nullNodeIsAutoPrepayEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsAutoPrepayEnabled = null;
+            if (parseNode.GetChildNode("month_to_date_balance") is null) { _explicitNullValueMonthToDateBalance = default!; _explicitNullProperties?.Remove("month_to_date_balance"); }
+            else if (parseNode.GetChildNode("month_to_date_balance") is { } nullNodeMonthToDateBalance && nullNodeMonthToDateBalance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthToDateBalance = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,30 +34,30 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Current prepayment balance. Decimal dollars, e.g. `&quot;25.00&quot;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Balance { get => _explicitNullValueBalance; set { _explicitNullValueBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("balance"); else _explicitNullProperties?.Remove("balance"); } }
+        public string? Balance { get => _explicitNullValueBalance; set { _explicitNullValueBalance = value; AdditionalData?.Remove("balance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("balance"); else _explicitNullProperties?.Remove("balance"); } }
         private string? _explicitNullValueBalance = default!;
 #nullable restore
 #else
-        public string Balance { get => _explicitNullValueBalance; set { _explicitNullValueBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("balance"); else _explicitNullProperties?.Remove("balance"); } }
+        public string Balance { get => _explicitNullValueBalance; set { _explicitNullValueBalance = value; AdditionalData?.Remove("balance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("balance"); else _explicitNullProperties?.Remove("balance"); } }
         private string _explicitNullValueBalance = default!;
 #endif
         /// <summary>Whether the prepayment gate is currently blocking usage.</summary>
-        public bool? Blocked { get => _explicitNullValueBlocked; set { _explicitNullValueBlocked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked"); else _explicitNullProperties?.Remove("blocked"); } }
+        public bool? Blocked { get => _explicitNullValueBlocked; set { _explicitNullValueBlocked = value; AdditionalData?.Remove("blocked"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked"); else _explicitNullProperties?.Remove("blocked"); } }
         private bool? _explicitNullValueBlocked = default!;
         /// <summary>Whether the account is eligible for the prepayment gate experience.</summary>
-        public bool? Eligible { get => _explicitNullValueEligible; set { _explicitNullValueEligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eligible"); else _explicitNullProperties?.Remove("eligible"); } }
+        public bool? Eligible { get => _explicitNullValueEligible; set { _explicitNullValueEligible = value; AdditionalData?.Remove("eligible"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eligible"); else _explicitNullProperties?.Remove("eligible"); } }
         private bool? _explicitNullValueEligible = default!;
         /// <summary>Whether automatic prepayment top-up is enabled.</summary>
-        public bool? IsAutoPrepayEnabled { get => _explicitNullValueIsAutoPrepayEnabled; set { _explicitNullValueIsAutoPrepayEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_auto_prepay_enabled"); else _explicitNullProperties?.Remove("is_auto_prepay_enabled"); } }
+        public bool? IsAutoPrepayEnabled { get => _explicitNullValueIsAutoPrepayEnabled; set { _explicitNullValueIsAutoPrepayEnabled = value; AdditionalData?.Remove("is_auto_prepay_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_auto_prepay_enabled"); else _explicitNullProperties?.Remove("is_auto_prepay_enabled"); } }
         private bool? _explicitNullValueIsAutoPrepayEnabled = default!;
         /// <summary>Current account balance including month-to-date usage. Decimal dollars, e.g. `&quot;75.00&quot;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MonthToDateBalance { get => _explicitNullValueMonthToDateBalance; set { _explicitNullValueMonthToDateBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_to_date_balance"); else _explicitNullProperties?.Remove("month_to_date_balance"); } }
+        public string? MonthToDateBalance { get => _explicitNullValueMonthToDateBalance; set { _explicitNullValueMonthToDateBalance = value; AdditionalData?.Remove("month_to_date_balance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_to_date_balance"); else _explicitNullProperties?.Remove("month_to_date_balance"); } }
         private string? _explicitNullValueMonthToDateBalance = default!;
 #nullable restore
 #else
-        public string MonthToDateBalance { get => _explicitNullValueMonthToDateBalance; set { _explicitNullValueMonthToDateBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_to_date_balance"); else _explicitNullProperties?.Remove("month_to_date_balance"); } }
+        public string MonthToDateBalance { get => _explicitNullValueMonthToDateBalance; set { _explicitNullValueMonthToDateBalance = value; AdditionalData?.Remove("month_to_date_balance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_to_date_balance"); else _explicitNullProperties?.Remove("month_to_date_balance"); } }
         private string _explicitNullValueMonthToDateBalance = default!;
 #endif
         /// <summary>

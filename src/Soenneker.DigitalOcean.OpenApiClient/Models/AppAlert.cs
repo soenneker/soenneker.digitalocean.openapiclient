@@ -17,12 +17,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("component_name") is { } nullNodeComponentName && nullNodeComponentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComponentName = null;
-            if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
-            if (parseNode.GetChildNode("phase") is { } nullNodePhase && nullNodePhase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Phase = null;
-            if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
-            if (parseNode.GetChildNode("slack_webhooks") is { } nullNodeSlackWebhooks && nullNodeSlackWebhooks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackWebhooks = null;
-            if (parseNode.GetChildNode("spec") is { } nullNodeSpec && nullNodeSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spec = null;
+            if (parseNode.GetChildNode("component_name") is null) { _explicitNullValueComponentName = default!; _explicitNullProperties?.Remove("component_name"); }
+            else if (parseNode.GetChildNode("component_name") is { } nullNodeComponentName && nullNodeComponentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComponentName = null;
+            if (parseNode.GetChildNode("emails") is null) { _explicitNullValueEmails = default!; _explicitNullProperties?.Remove("emails"); }
+            else if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
+            if (parseNode.GetChildNode("phase") is null) { _explicitNullValuePhase = default!; _explicitNullProperties?.Remove("phase"); }
+            else if (parseNode.GetChildNode("phase") is { } nullNodePhase && nullNodePhase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Phase = null;
+            if (parseNode.GetChildNode("progress") is null) { _explicitNullValueProgress = default!; _explicitNullProperties?.Remove("progress"); }
+            else if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
+            if (parseNode.GetChildNode("slack_webhooks") is null) { _explicitNullValueSlackWebhooks = default!; _explicitNullProperties?.Remove("slack_webhooks"); }
+            else if (parseNode.GetChildNode("slack_webhooks") is { } nullNodeSlackWebhooks && nullNodeSlackWebhooks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackWebhooks = null;
+            if (parseNode.GetChildNode("spec") is null) { _explicitNullValueSpec = default!; _explicitNullProperties?.Remove("spec"); }
+            else if (parseNode.GetChildNode("spec") is { } nullNodeSpec && nullNodeSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spec = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,21 +36,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The component_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ComponentName { get => _explicitNullValueComponentName; set { _explicitNullValueComponentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_name"); else _explicitNullProperties?.Remove("component_name"); } }
+        public string? ComponentName { get => _explicitNullValueComponentName; set { _explicitNullValueComponentName = value; AdditionalData?.Remove("component_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_name"); else _explicitNullProperties?.Remove("component_name"); } }
         private string? _explicitNullValueComponentName = default!;
 #nullable restore
 #else
-        public string ComponentName { get => _explicitNullValueComponentName; set { _explicitNullValueComponentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_name"); else _explicitNullProperties?.Remove("component_name"); } }
+        public string ComponentName { get => _explicitNullValueComponentName; set { _explicitNullValueComponentName = value; AdditionalData?.Remove("component_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component_name"); else _explicitNullProperties?.Remove("component_name"); } }
         private string _explicitNullValueComponentName = default!;
 #endif
         /// <summary>The emails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string>? _explicitNullValueEmails = default!;
 #nullable restore
 #else
-        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string> _explicitNullValueEmails = default!;
 #endif
         /// <summary>The id property</summary>
@@ -56,36 +62,36 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string Id { get; private set; }
 #endif
         /// <summary>The phase property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertPhase? Phase { get => _explicitNullValuePhase; set { _explicitNullValuePhase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phase"); else _explicitNullProperties?.Remove("phase"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertPhase? Phase { get => _explicitNullValuePhase; set { _explicitNullValuePhase = value; AdditionalData?.Remove("phase"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phase"); else _explicitNullProperties?.Remove("phase"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertPhase? _explicitNullValuePhase = default!;
         /// <summary>The progress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertProgress? Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertProgress? Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; AdditionalData?.Remove("progress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertProgress? _explicitNullValueProgress = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertProgress Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertProgress Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; AdditionalData?.Remove("progress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertProgress _explicitNullValueProgress = default!;
 #endif
         /// <summary>The slack_webhooks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSlackWebhook>? SlackWebhooks { get => _explicitNullValueSlackWebhooks; set { _explicitNullValueSlackWebhooks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_webhooks"); else _explicitNullProperties?.Remove("slack_webhooks"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSlackWebhook>? SlackWebhooks { get => _explicitNullValueSlackWebhooks; set { _explicitNullValueSlackWebhooks = value; AdditionalData?.Remove("slack_webhooks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_webhooks"); else _explicitNullProperties?.Remove("slack_webhooks"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSlackWebhook>? _explicitNullValueSlackWebhooks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSlackWebhook> SlackWebhooks { get => _explicitNullValueSlackWebhooks; set { _explicitNullValueSlackWebhooks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_webhooks"); else _explicitNullProperties?.Remove("slack_webhooks"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSlackWebhook> SlackWebhooks { get => _explicitNullValueSlackWebhooks; set { _explicitNullValueSlackWebhooks = value; AdditionalData?.Remove("slack_webhooks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_webhooks"); else _explicitNullProperties?.Remove("slack_webhooks"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSlackWebhook> _explicitNullValueSlackWebhooks = default!;
 #endif
         /// <summary>The spec property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSpec? Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSpec? Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; AdditionalData?.Remove("spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSpec? _explicitNullValueSpec = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSpec Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSpec Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; AdditionalData?.Remove("spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSpec _explicitNullValueSpec = default!;
 #endif
         /// <summary>
@@ -116,7 +122,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "component_name", n => { ComponentName = n.GetStringValue(); } },
                 { "emails", n => { Emails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "phase", n => { Phase = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertPhase>(); } },
+                { "phase", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertPhase>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePhase = default; _explicitNullProperties?.Remove("phase"); AdditionalData["phase"] = unknown; } else { Phase = parsed; AdditionalData.Remove("phase"); } } },
                 { "progress", n => { Progress = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertProgress>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertProgress.CreateFromDiscriminatorValue); } },
                 { "slack_webhooks", n => { SlackWebhooks = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSlackWebhook>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSlackWebhook.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "spec", n => { Spec = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAlertSpec.CreateFromDiscriminatorValue); } },

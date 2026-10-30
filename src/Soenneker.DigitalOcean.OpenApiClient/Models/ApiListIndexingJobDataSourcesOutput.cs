@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("indexed_data_sources") is { } nullNodeIndexedDataSources && nullNodeIndexedDataSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexedDataSources = null;
+            if (parseNode.GetChildNode("indexed_data_sources") is null) { _explicitNullValueIndexedDataSources = default!; _explicitNullProperties?.Remove("indexed_data_sources"); }
+            else if (parseNode.GetChildNode("indexed_data_sources") is { } nullNodeIndexedDataSources && nullNodeIndexedDataSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexedDataSources = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The indexed_data_sources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSource>? IndexedDataSources { get => _explicitNullValueIndexedDataSources; set { _explicitNullValueIndexedDataSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_data_sources"); else _explicitNullProperties?.Remove("indexed_data_sources"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSource>? IndexedDataSources { get => _explicitNullValueIndexedDataSources; set { _explicitNullValueIndexedDataSources = value; AdditionalData?.Remove("indexed_data_sources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_data_sources"); else _explicitNullProperties?.Remove("indexed_data_sources"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSource>? _explicitNullValueIndexedDataSources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSource> IndexedDataSources { get => _explicitNullValueIndexedDataSources; set { _explicitNullValueIndexedDataSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_data_sources"); else _explicitNullProperties?.Remove("indexed_data_sources"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSource> IndexedDataSources { get => _explicitNullValueIndexedDataSources; set { _explicitNullValueIndexedDataSources = value; AdditionalData?.Remove("indexed_data_sources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_data_sources"); else _explicitNullProperties?.Remove("indexed_data_sources"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiIndexedDataSource> _explicitNullValueIndexedDataSources = default!;
 #endif
         /// <summary>

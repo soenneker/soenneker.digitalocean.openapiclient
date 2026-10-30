@@ -18,13 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("percent") is { } nullNodePercent && nullNodePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Percent = null;
+            if (parseNode.GetChildNode("percent") is null) { _explicitNullValuePercent = default!; _explicitNullProperties?.Remove("percent"); }
+            else if (parseNode.GetChildNode("percent") is { } nullNodePercent && nullNodePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Percent = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The average target CPU utilization for the component.</summary>
-        public int? Percent { get => _explicitNullValuePercent; set { _explicitNullValuePercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent"); else _explicitNullProperties?.Remove("percent"); } }
+        public int? Percent { get => _explicitNullValuePercent; set { _explicitNullValuePercent = value; AdditionalData?.Remove("percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent"); else _explicitNullProperties?.Remove("percent"); } }
         private int? _explicitNullValuePercent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetricsCpu"/> and sets the default values.

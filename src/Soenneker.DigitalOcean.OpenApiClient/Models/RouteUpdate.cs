@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("target_urns") is { } nullNodeTargetUrns && nullNodeTargetUrns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetUrns = null;
+            if (parseNode.GetChildNode("target_urns") is null) { _explicitNullValueTargetUrns = default!; _explicitNullProperties?.Remove("target_urns"); }
+            else if (parseNode.GetChildNode("target_urns") is { } nullNodeTargetUrns && nullNodeTargetUrns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetUrns = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The URNs of supported next-hop resources. Droplet targets must use anumeric ID in the format `do:droplet:&lt;id&gt;`. VPC NAT Gateway targets usea UUID in the format `do:nat_gateway:&lt;uuid&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TargetUrns { get => _explicitNullValueTargetUrns; set { _explicitNullValueTargetUrns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_urns"); else _explicitNullProperties?.Remove("target_urns"); } }
+        public List<string>? TargetUrns { get => _explicitNullValueTargetUrns; set { _explicitNullValueTargetUrns = value; AdditionalData?.Remove("target_urns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_urns"); else _explicitNullProperties?.Remove("target_urns"); } }
         private List<string>? _explicitNullValueTargetUrns = default!;
 #nullable restore
 #else
-        public List<string> TargetUrns { get => _explicitNullValueTargetUrns; set { _explicitNullValueTargetUrns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_urns"); else _explicitNullProperties?.Remove("target_urns"); } }
+        public List<string> TargetUrns { get => _explicitNullValueTargetUrns; set { _explicitNullValueTargetUrns = value; AdditionalData?.Remove("target_urns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_urns"); else _explicitNullProperties?.Remove("target_urns"); } }
         private List<string> _explicitNullValueTargetUrns = default!;
 #endif
         /// <summary>

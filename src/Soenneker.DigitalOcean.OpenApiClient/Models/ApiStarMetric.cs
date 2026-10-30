@@ -17,10 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("metric_uuid") is { } nullNodeMetricUuid && nullNodeMetricUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricUuid = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("success_threshold") is { } nullNodeSuccessThreshold && nullNodeSuccessThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessThreshold = null;
-            if (parseNode.GetChildNode("success_threshold_pct") is { } nullNodeSuccessThresholdPct && nullNodeSuccessThresholdPct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessThresholdPct = null;
+            if (parseNode.GetChildNode("metric_uuid") is null) { _explicitNullValueMetricUuid = default!; _explicitNullProperties?.Remove("metric_uuid"); }
+            else if (parseNode.GetChildNode("metric_uuid") is { } nullNodeMetricUuid && nullNodeMetricUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricUuid = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("success_threshold") is null) { _explicitNullValueSuccessThreshold = default!; _explicitNullProperties?.Remove("success_threshold"); }
+            else if (parseNode.GetChildNode("success_threshold") is { } nullNodeSuccessThreshold && nullNodeSuccessThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessThreshold = null;
+            if (parseNode.GetChildNode("success_threshold_pct") is null) { _explicitNullValueSuccessThresholdPct = default!; _explicitNullProperties?.Remove("success_threshold_pct"); }
+            else if (parseNode.GetChildNode("success_threshold_pct") is { } nullNodeSuccessThresholdPct && nullNodeSuccessThresholdPct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessThresholdPct = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,28 +32,28 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The metric_uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
+        public string? MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; AdditionalData?.Remove("metric_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
         private string? _explicitNullValueMetricUuid = default!;
 #nullable restore
 #else
-        public string MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
+        public string MetricUuid { get => _explicitNullValueMetricUuid; set { _explicitNullValueMetricUuid = value; AdditionalData?.Remove("metric_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuid"); else _explicitNullProperties?.Remove("metric_uuid"); } }
         private string _explicitNullValueMetricUuid = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The success threshold for the star metric.This is a value that the metric must reach to be considered successful.</summary>
-        public float? SuccessThreshold { get => _explicitNullValueSuccessThreshold; set { _explicitNullValueSuccessThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_threshold"); else _explicitNullProperties?.Remove("success_threshold"); } }
+        public float? SuccessThreshold { get => _explicitNullValueSuccessThreshold; set { _explicitNullValueSuccessThreshold = value; AdditionalData?.Remove("success_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_threshold"); else _explicitNullProperties?.Remove("success_threshold"); } }
         private float? _explicitNullValueSuccessThreshold = default!;
         /// <summary>The success threshold for the star metric.This is a percentage value between 0 and 100.</summary>
-        public int? SuccessThresholdPct { get => _explicitNullValueSuccessThresholdPct; set { _explicitNullValueSuccessThresholdPct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_threshold_pct"); else _explicitNullProperties?.Remove("success_threshold_pct"); } }
+        public int? SuccessThresholdPct { get => _explicitNullValueSuccessThresholdPct; set { _explicitNullValueSuccessThresholdPct = value; AdditionalData?.Remove("success_threshold_pct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_threshold_pct"); else _explicitNullProperties?.Remove("success_threshold_pct"); } }
         private int? _explicitNullValueSuccessThresholdPct = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiStarMetric"/> and sets the default values.

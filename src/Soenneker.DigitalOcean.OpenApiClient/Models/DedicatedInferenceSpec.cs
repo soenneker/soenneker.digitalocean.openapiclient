@@ -18,53 +18,59 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enable_public_endpoint") is { } nullNodeEnablePublicEndpoint && nullNodeEnablePublicEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnablePublicEndpoint = null;
-            if (parseNode.GetChildNode("model_deployments") is { } nullNodeModelDeployments && nullNodeModelDeployments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelDeployments = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
-            if (parseNode.GetChildNode("vpc") is { } nullNodeVpc && nullNodeVpc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vpc = null;
+            if (parseNode.GetChildNode("enable_public_endpoint") is null) { _explicitNullValueEnablePublicEndpoint = default!; _explicitNullProperties?.Remove("enable_public_endpoint"); }
+            else if (parseNode.GetChildNode("enable_public_endpoint") is { } nullNodeEnablePublicEndpoint && nullNodeEnablePublicEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnablePublicEndpoint = null;
+            if (parseNode.GetChildNode("model_deployments") is null) { _explicitNullValueModelDeployments = default!; _explicitNullProperties?.Remove("model_deployments"); }
+            else if (parseNode.GetChildNode("model_deployments") is { } nullNodeModelDeployments && nullNodeModelDeployments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelDeployments = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("version") is null) { _explicitNullValueVersion = default!; _explicitNullProperties?.Remove("version"); }
+            else if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("vpc") is null) { _explicitNullValueVpc = default!; _explicitNullProperties?.Remove("vpc"); }
+            else if (parseNode.GetChildNode("vpc") is { } nullNodeVpc && nullNodeVpc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vpc = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to expose a public LLM endpoint.</summary>
-        public bool? EnablePublicEndpoint { get => _explicitNullValueEnablePublicEndpoint; set { _explicitNullValueEnablePublicEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_public_endpoint"); else _explicitNullProperties?.Remove("enable_public_endpoint"); } }
+        public bool? EnablePublicEndpoint { get => _explicitNullValueEnablePublicEndpoint; set { _explicitNullValueEnablePublicEndpoint = value; AdditionalData?.Remove("enable_public_endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_public_endpoint"); else _explicitNullProperties?.Remove("enable_public_endpoint"); } }
         private bool? _explicitNullValueEnablePublicEndpoint = default!;
         /// <summary>At least one model deployment is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec>? ModelDeployments { get => _explicitNullValueModelDeployments; set { _explicitNullValueModelDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_deployments"); else _explicitNullProperties?.Remove("model_deployments"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec>? ModelDeployments { get => _explicitNullValueModelDeployments; set { _explicitNullValueModelDeployments = value; AdditionalData?.Remove("model_deployments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_deployments"); else _explicitNullProperties?.Remove("model_deployments"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec>? _explicitNullValueModelDeployments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec> ModelDeployments { get => _explicitNullValueModelDeployments; set { _explicitNullValueModelDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_deployments"); else _explicitNullProperties?.Remove("model_deployments"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec> ModelDeployments { get => _explicitNullValueModelDeployments; set { _explicitNullValueModelDeployments = value; AdditionalData?.Remove("model_deployments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_deployments"); else _explicitNullProperties?.Remove("model_deployments"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec> _explicitNullValueModelDeployments = default!;
 #endif
         /// <summary>Name of the Dedicated Inference. Must be unique within the team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>DigitalOcean region where the Dedicated Inference is hosted.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion? _explicitNullValueRegion = default!;
         /// <summary>Spec version.</summary>
-        public int? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public int? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private int? _explicitNullValueVersion = default!;
         /// <summary>The vpc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc? Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc? Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; AdditionalData?.Remove("vpc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc? _explicitNullValueVpc = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; AdditionalData?.Remove("vpc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc _explicitNullValueVpc = default!;
 #endif
         /// <summary>
@@ -95,7 +101,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "enable_public_endpoint", n => { EnablePublicEndpoint = n.GetBoolValue(); } },
                 { "model_deployments", n => { ModelDeployments = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion>(); } },
+                { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
                 { "version", n => { Version = n.GetIntValue(); } },
                 { "vpc", n => { Vpc = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpecVpc.CreateFromDiscriminatorValue); } },
             };

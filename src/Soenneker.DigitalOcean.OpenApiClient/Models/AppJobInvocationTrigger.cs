@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("manual") is { } nullNodeManual && nullNodeManual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Manual = null;
-            if (parseNode.GetChildNode("scheduled") is { } nullNodeScheduled && nullNodeScheduled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scheduled = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("manual") is null) { _explicitNullValueManual = default!; _explicitNullProperties?.Remove("manual"); }
+            else if (parseNode.GetChildNode("manual") is { } nullNodeManual && nullNodeManual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Manual = null;
+            if (parseNode.GetChildNode("scheduled") is null) { _explicitNullValueScheduled = default!; _explicitNullProperties?.Remove("scheduled"); }
+            else if (parseNode.GetChildNode("scheduled") is { } nullNodeScheduled && nullNodeScheduled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scheduled = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Details about the manual trigger, if applicable</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerManual? Manual { get => _explicitNullValueManual; set { _explicitNullValueManual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manual"); else _explicitNullProperties?.Remove("manual"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerManual? Manual { get => _explicitNullValueManual; set { _explicitNullValueManual = value; AdditionalData?.Remove("manual"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manual"); else _explicitNullProperties?.Remove("manual"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerManual? _explicitNullValueManual = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerManual Manual { get => _explicitNullValueManual; set { _explicitNullValueManual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manual"); else _explicitNullProperties?.Remove("manual"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerManual Manual { get => _explicitNullValueManual; set { _explicitNullValueManual = value; AdditionalData?.Remove("manual"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manual"); else _explicitNullProperties?.Remove("manual"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerManual _explicitNullValueManual = default!;
 #endif
         /// <summary>The schedule for the job</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerScheduled? Scheduled { get => _explicitNullValueScheduled; set { _explicitNullValueScheduled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled"); else _explicitNullProperties?.Remove("scheduled"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerScheduled? Scheduled { get => _explicitNullValueScheduled; set { _explicitNullValueScheduled = value; AdditionalData?.Remove("scheduled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled"); else _explicitNullProperties?.Remove("scheduled"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerScheduled? _explicitNullValueScheduled = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerScheduled Scheduled { get => _explicitNullValueScheduled; set { _explicitNullValueScheduled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled"); else _explicitNullProperties?.Remove("scheduled"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerScheduled Scheduled { get => _explicitNullValueScheduled; set { _explicitNullValueScheduled = value; AdditionalData?.Remove("scheduled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled"); else _explicitNullProperties?.Remove("scheduled"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerScheduled _explicitNullValueScheduled = default!;
 #endif
         /// <summary>The type of trigger that initiated the job invocation.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTrigger"/> and sets the default values.
@@ -74,7 +77,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "manual", n => { Manual = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerManual>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerManual.CreateFromDiscriminatorValue); } },
                 { "scheduled", n => { Scheduled = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerScheduled>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerScheduled.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobInvocationTriggerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

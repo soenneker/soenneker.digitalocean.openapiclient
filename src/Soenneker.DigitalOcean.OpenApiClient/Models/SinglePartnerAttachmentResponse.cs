@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("partner_attachment") is { } nullNodePartnerAttachment && nullNodePartnerAttachment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartnerAttachment = null;
+            if (parseNode.GetChildNode("partner_attachment") is null) { _explicitNullValuePartnerAttachment = default!; _explicitNullProperties?.Remove("partner_attachment"); }
+            else if (parseNode.GetChildNode("partner_attachment") is { } nullNodePartnerAttachment && nullNodePartnerAttachment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartnerAttachment = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The partner_attachment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachment? PartnerAttachment { get => _explicitNullValuePartnerAttachment; set { _explicitNullValuePartnerAttachment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partner_attachment"); else _explicitNullProperties?.Remove("partner_attachment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachment? PartnerAttachment { get => _explicitNullValuePartnerAttachment; set { _explicitNullValuePartnerAttachment = value; AdditionalData?.Remove("partner_attachment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partner_attachment"); else _explicitNullProperties?.Remove("partner_attachment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachment? _explicitNullValuePartnerAttachment = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachment PartnerAttachment { get => _explicitNullValuePartnerAttachment; set { _explicitNullValuePartnerAttachment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partner_attachment"); else _explicitNullProperties?.Remove("partner_attachment"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachment PartnerAttachment { get => _explicitNullValuePartnerAttachment; set { _explicitNullValuePartnerAttachment = value; AdditionalData?.Remove("partner_attachment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partner_attachment"); else _explicitNullProperties?.Remove("partner_attachment"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachment _explicitNullValuePartnerAttachment = default!;
 #endif
         /// <summary>

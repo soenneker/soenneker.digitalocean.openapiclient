@@ -18,36 +18,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("memory_mb") is { } nullNodeMemoryMb && nullNodeMemoryMb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryMb = null;
-            if (parseNode.GetChildNode("price_per_hour_usd") is { } nullNodePricePerHourUsd && nullNodePricePerHourUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerHourUsd = null;
-            if (parseNode.GetChildNode("price_per_month_usd") is { } nullNodePricePerMonthUsd && nullNodePricePerMonthUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerMonthUsd = null;
-            if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
-            if (parseNode.GetChildNode("vcpus") is { } nullNodeVcpus && nullNodeVcpus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vcpus = null;
+            if (parseNode.GetChildNode("memory_mb") is null) { _explicitNullValueMemoryMb = default!; _explicitNullProperties?.Remove("memory_mb"); }
+            else if (parseNode.GetChildNode("memory_mb") is { } nullNodeMemoryMb && nullNodeMemoryMb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryMb = null;
+            if (parseNode.GetChildNode("price_per_hour_usd") is null) { _explicitNullValuePricePerHourUsd = default!; _explicitNullProperties?.Remove("price_per_hour_usd"); }
+            else if (parseNode.GetChildNode("price_per_hour_usd") is { } nullNodePricePerHourUsd && nullNodePricePerHourUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerHourUsd = null;
+            if (parseNode.GetChildNode("price_per_month_usd") is null) { _explicitNullValuePricePerMonthUsd = default!; _explicitNullProperties?.Remove("price_per_month_usd"); }
+            else if (parseNode.GetChildNode("price_per_month_usd") is { } nullNodePricePerMonthUsd && nullNodePricePerMonthUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerMonthUsd = null;
+            if (parseNode.GetChildNode("slug") is null) { _explicitNullValueSlug = default!; _explicitNullProperties?.Remove("slug"); }
+            else if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("vcpus") is null) { _explicitNullValueVcpus = default!; _explicitNullProperties?.Remove("vcpus"); }
+            else if (parseNode.GetChildNode("vcpus") is { } nullNodeVcpus && nullNodeVcpus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vcpus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Memory in MB (for display).</summary>
-        public long? MemoryMb { get => _explicitNullValueMemoryMb; set { _explicitNullValueMemoryMb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_mb"); else _explicitNullProperties?.Remove("memory_mb"); } }
+        public long? MemoryMb { get => _explicitNullValueMemoryMb; set { _explicitNullValueMemoryMb = value; AdditionalData?.Remove("memory_mb"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_mb"); else _explicitNullProperties?.Remove("memory_mb"); } }
         private long? _explicitNullValueMemoryMb = default!;
         /// <summary>Hourly on-demand price in USD (for display).</summary>
-        public double? PricePerHourUsd { get => _explicitNullValuePricePerHourUsd; set { _explicitNullValuePricePerHourUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_hour_usd"); else _explicitNullProperties?.Remove("price_per_hour_usd"); } }
+        public double? PricePerHourUsd { get => _explicitNullValuePricePerHourUsd; set { _explicitNullValuePricePerHourUsd = value; AdditionalData?.Remove("price_per_hour_usd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_hour_usd"); else _explicitNullProperties?.Remove("price_per_hour_usd"); } }
         private double? _explicitNullValuePricePerHourUsd = default!;
         /// <summary>Monthly on-demand price in USD, assuming continuous usage (for display).</summary>
-        public double? PricePerMonthUsd { get => _explicitNullValuePricePerMonthUsd; set { _explicitNullValuePricePerMonthUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_month_usd"); else _explicitNullProperties?.Remove("price_per_month_usd"); } }
+        public double? PricePerMonthUsd { get => _explicitNullValuePricePerMonthUsd; set { _explicitNullValuePricePerMonthUsd = value; AdditionalData?.Remove("price_per_month_usd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_month_usd"); else _explicitNullProperties?.Remove("price_per_month_usd"); } }
         private double? _explicitNullValuePricePerMonthUsd = default!;
         /// <summary>DO size slug; submit as spec.sandbox.sizeSlug on CreateSession. e.g. &quot;mars-2vcpu-4gb&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private string? _explicitNullValueSlug = default!;
 #nullable restore
 #else
-        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private string _explicitNullValueSlug = default!;
 #endif
         /// <summary>vCPU count (for display).</summary>
-        public long? Vcpus { get => _explicitNullValueVcpus; set { _explicitNullValueVcpus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcpus"); else _explicitNullProperties?.Remove("vcpus"); } }
+        public long? Vcpus { get => _explicitNullValueVcpus; set { _explicitNullValueVcpus = value; AdditionalData?.Remove("vcpus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcpus"); else _explicitNullProperties?.Remove("vcpus"); } }
         private long? _explicitNullValueVcpus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SandboxSize"/> and sets the default values.

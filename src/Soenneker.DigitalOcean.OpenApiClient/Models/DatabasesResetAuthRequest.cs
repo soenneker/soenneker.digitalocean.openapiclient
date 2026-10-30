@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mysql_settings") is { } nullNodeMysqlSettings && nullNodeMysqlSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MysqlSettings = null;
+            if (parseNode.GetChildNode("mysql_settings") is null) { _explicitNullValueMysqlSettings = default!; _explicitNullProperties?.Remove("mysql_settings"); }
+            else if (parseNode.GetChildNode("mysql_settings") is { } nullNodeMysqlSettings && nullNodeMysqlSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MysqlSettings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The mysql_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings? MysqlSettings { get => _explicitNullValueMysqlSettings; set { _explicitNullValueMysqlSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql_settings"); else _explicitNullProperties?.Remove("mysql_settings"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings? MysqlSettings { get => _explicitNullValueMysqlSettings; set { _explicitNullValueMysqlSettings = value; AdditionalData?.Remove("mysql_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql_settings"); else _explicitNullProperties?.Remove("mysql_settings"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings? _explicitNullValueMysqlSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings MysqlSettings { get => _explicitNullValueMysqlSettings; set { _explicitNullValueMysqlSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql_settings"); else _explicitNullProperties?.Remove("mysql_settings"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings MysqlSettings { get => _explicitNullValueMysqlSettings; set { _explicitNullValueMysqlSettings = value; AdditionalData?.Remove("mysql_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mysql_settings"); else _explicitNullProperties?.Remove("mysql_settings"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlSettings _explicitNullValueMysqlSettings = default!;
 #endif
         /// <summary>

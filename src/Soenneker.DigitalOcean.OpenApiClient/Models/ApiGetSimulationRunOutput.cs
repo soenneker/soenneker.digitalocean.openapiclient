@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("scenario_results") is { } nullNodeScenarioResults && nullNodeScenarioResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioResults = null;
-            if (parseNode.GetChildNode("simulation_run") is { } nullNodeSimulationRun && nullNodeSimulationRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimulationRun = null;
+            if (parseNode.GetChildNode("scenario_results") is null) { _explicitNullValueScenarioResults = default!; _explicitNullProperties?.Remove("scenario_results"); }
+            else if (parseNode.GetChildNode("scenario_results") is { } nullNodeScenarioResults && nullNodeScenarioResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioResults = null;
+            if (parseNode.GetChildNode("simulation_run") is null) { _explicitNullValueSimulationRun = default!; _explicitNullProperties?.Remove("simulation_run"); }
+            else if (parseNode.GetChildNode("simulation_run") is { } nullNodeSimulationRun && nullNodeSimulationRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimulationRun = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Per-scenario breakdown of episode outcomes, aggregated from episode rows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationScenarioResult>? ScenarioResults { get => _explicitNullValueScenarioResults; set { _explicitNullValueScenarioResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_results"); else _explicitNullProperties?.Remove("scenario_results"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationScenarioResult>? ScenarioResults { get => _explicitNullValueScenarioResults; set { _explicitNullValueScenarioResults = value; AdditionalData?.Remove("scenario_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_results"); else _explicitNullProperties?.Remove("scenario_results"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationScenarioResult>? _explicitNullValueScenarioResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationScenarioResult> ScenarioResults { get => _explicitNullValueScenarioResults; set { _explicitNullValueScenarioResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_results"); else _explicitNullProperties?.Remove("scenario_results"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationScenarioResult> ScenarioResults { get => _explicitNullValueScenarioResults; set { _explicitNullValueScenarioResults = value; AdditionalData?.Remove("scenario_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_results"); else _explicitNullProperties?.Remove("scenario_results"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationScenarioResult> _explicitNullValueScenarioResults = default!;
 #endif
         /// <summary>One execution of a scenario set against a candidate agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRun? SimulationRun { get => _explicitNullValueSimulationRun; set { _explicitNullValueSimulationRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulation_run"); else _explicitNullProperties?.Remove("simulation_run"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRun? SimulationRun { get => _explicitNullValueSimulationRun; set { _explicitNullValueSimulationRun = value; AdditionalData?.Remove("simulation_run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulation_run"); else _explicitNullProperties?.Remove("simulation_run"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRun? _explicitNullValueSimulationRun = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRun SimulationRun { get => _explicitNullValueSimulationRun; set { _explicitNullValueSimulationRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulation_run"); else _explicitNullProperties?.Remove("simulation_run"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRun SimulationRun { get => _explicitNullValueSimulationRun; set { _explicitNullValueSimulationRun = value; AdditionalData?.Remove("simulation_run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulation_run"); else _explicitNullProperties?.Remove("simulation_run"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationRun _explicitNullValueSimulationRun = default!;
 #endif
         /// <summary>

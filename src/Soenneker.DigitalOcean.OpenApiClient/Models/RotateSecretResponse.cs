@@ -17,27 +17,30 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("previous_secret_expires_at") is { } nullNodePreviousSecretExpiresAt && nullNodePreviousSecretExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousSecretExpiresAt = null;
-            if (parseNode.GetChildNode("previous_secret_revoked") is { } nullNodePreviousSecretRevoked && nullNodePreviousSecretRevoked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousSecretRevoked = null;
-            if (parseNode.GetChildNode("webhook_secret") is { } nullNodeWebhookSecret && nullNodeWebhookSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookSecret = null;
+            if (parseNode.GetChildNode("previous_secret_expires_at") is null) { _explicitNullValuePreviousSecretExpiresAt = default!; _explicitNullProperties?.Remove("previous_secret_expires_at"); }
+            else if (parseNode.GetChildNode("previous_secret_expires_at") is { } nullNodePreviousSecretExpiresAt && nullNodePreviousSecretExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousSecretExpiresAt = null;
+            if (parseNode.GetChildNode("previous_secret_revoked") is null) { _explicitNullValuePreviousSecretRevoked = default!; _explicitNullProperties?.Remove("previous_secret_revoked"); }
+            else if (parseNode.GetChildNode("previous_secret_revoked") is { } nullNodePreviousSecretRevoked && nullNodePreviousSecretRevoked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousSecretRevoked = null;
+            if (parseNode.GetChildNode("webhook_secret") is null) { _explicitNullValueWebhookSecret = default!; _explicitNullProperties?.Remove("webhook_secret"); }
+            else if (parseNode.GetChildNode("webhook_secret") is { } nullNodeWebhookSecret && nullNodeWebhookSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookSecret = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The instant the outgoing secret stops verifying deliveries. Omitted when grace_period_seconds=0.</summary>
-        public DateTimeOffset? PreviousSecretExpiresAt { get => _explicitNullValuePreviousSecretExpiresAt; set { _explicitNullValuePreviousSecretExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_secret_expires_at"); else _explicitNullProperties?.Remove("previous_secret_expires_at"); } }
+        public DateTimeOffset? PreviousSecretExpiresAt { get => _explicitNullValuePreviousSecretExpiresAt; set { _explicitNullValuePreviousSecretExpiresAt = value; AdditionalData?.Remove("previous_secret_expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_secret_expires_at"); else _explicitNullProperties?.Remove("previous_secret_expires_at"); } }
         private DateTimeOffset? _explicitNullValuePreviousSecretExpiresAt = default!;
         /// <summary>True when grace_period_seconds=0 retired the old secret on this call. Exactly one of this and previous_secret_expires_at is present.</summary>
-        public bool? PreviousSecretRevoked { get => _explicitNullValuePreviousSecretRevoked; set { _explicitNullValuePreviousSecretRevoked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_secret_revoked"); else _explicitNullProperties?.Remove("previous_secret_revoked"); } }
+        public bool? PreviousSecretRevoked { get => _explicitNullValuePreviousSecretRevoked; set { _explicitNullValuePreviousSecretRevoked = value; AdditionalData?.Remove("previous_secret_revoked"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_secret_revoked"); else _explicitNullProperties?.Remove("previous_secret_revoked"); } }
         private bool? _explicitNullValuePreviousSecretRevoked = default!;
         /// <summary>The new webhook secret, shown once.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
+        public string? WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; AdditionalData?.Remove("webhook_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
         private string? _explicitNullValueWebhookSecret = default!;
 #nullable restore
 #else
-        public string WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
+        public string WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; AdditionalData?.Remove("webhook_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
         private string _explicitNullValueWebhookSecret = default!;
 #endif
         /// <summary>

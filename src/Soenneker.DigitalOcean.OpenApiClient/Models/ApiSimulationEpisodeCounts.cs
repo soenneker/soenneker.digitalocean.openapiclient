@@ -18,21 +18,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("failure_count") is { } nullNodeFailureCount && nullNodeFailureCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureCount = null;
-            if (parseNode.GetChildNode("inconclusive_count") is { } nullNodeInconclusiveCount && nullNodeInconclusiveCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InconclusiveCount = null;
-            if (parseNode.GetChildNode("success_count") is { } nullNodeSuccessCount && nullNodeSuccessCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessCount = null;
+            if (parseNode.GetChildNode("failure_count") is null) { _explicitNullValueFailureCount = default!; _explicitNullProperties?.Remove("failure_count"); }
+            else if (parseNode.GetChildNode("failure_count") is { } nullNodeFailureCount && nullNodeFailureCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureCount = null;
+            if (parseNode.GetChildNode("inconclusive_count") is null) { _explicitNullValueInconclusiveCount = default!; _explicitNullProperties?.Remove("inconclusive_count"); }
+            else if (parseNode.GetChildNode("inconclusive_count") is { } nullNodeInconclusiveCount && nullNodeInconclusiveCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InconclusiveCount = null;
+            if (parseNode.GetChildNode("success_count") is null) { _explicitNullValueSuccessCount = default!; _explicitNullProperties?.Remove("success_count"); }
+            else if (parseNode.GetChildNode("success_count") is { } nullNodeSuccessCount && nullNodeSuccessCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of episodes with a FAILURE verdict.</summary>
-        public long? FailureCount { get => _explicitNullValueFailureCount; set { _explicitNullValueFailureCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_count"); else _explicitNullProperties?.Remove("failure_count"); } }
+        public long? FailureCount { get => _explicitNullValueFailureCount; set { _explicitNullValueFailureCount = value; AdditionalData?.Remove("failure_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_count"); else _explicitNullProperties?.Remove("failure_count"); } }
         private long? _explicitNullValueFailureCount = default!;
         /// <summary>Number of episodes with an INCONCLUSIVE verdict.</summary>
-        public long? InconclusiveCount { get => _explicitNullValueInconclusiveCount; set { _explicitNullValueInconclusiveCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inconclusive_count"); else _explicitNullProperties?.Remove("inconclusive_count"); } }
+        public long? InconclusiveCount { get => _explicitNullValueInconclusiveCount; set { _explicitNullValueInconclusiveCount = value; AdditionalData?.Remove("inconclusive_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inconclusive_count"); else _explicitNullProperties?.Remove("inconclusive_count"); } }
         private long? _explicitNullValueInconclusiveCount = default!;
         /// <summary>Number of episodes with a SUCCESS verdict.</summary>
-        public long? SuccessCount { get => _explicitNullValueSuccessCount; set { _explicitNullValueSuccessCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_count"); else _explicitNullProperties?.Remove("success_count"); } }
+        public long? SuccessCount { get => _explicitNullValueSuccessCount; set { _explicitNullValueSuccessCount = value; AdditionalData?.Remove("success_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_count"); else _explicitNullProperties?.Remove("success_count"); } }
         private long? _explicitNullValueSuccessCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts"/> and sets the default values.

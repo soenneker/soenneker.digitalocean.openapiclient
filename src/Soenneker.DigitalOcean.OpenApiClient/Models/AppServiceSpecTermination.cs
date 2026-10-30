@@ -17,17 +17,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("drain_seconds") is { } nullNodeDrainSeconds && nullNodeDrainSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DrainSeconds = null;
-            if (parseNode.GetChildNode("grace_period_seconds") is { } nullNodeGracePeriodSeconds && nullNodeGracePeriodSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GracePeriodSeconds = null;
+            if (parseNode.GetChildNode("drain_seconds") is null) { _explicitNullValueDrainSeconds = default!; _explicitNullProperties?.Remove("drain_seconds"); }
+            else if (parseNode.GetChildNode("drain_seconds") is { } nullNodeDrainSeconds && nullNodeDrainSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DrainSeconds = null;
+            if (parseNode.GetChildNode("grace_period_seconds") is null) { _explicitNullValueGracePeriodSeconds = default!; _explicitNullProperties?.Remove("grace_period_seconds"); }
+            else if (parseNode.GetChildNode("grace_period_seconds") is { } nullNodeGracePeriodSeconds && nullNodeGracePeriodSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GracePeriodSeconds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of seconds to wait between selecting a container instance for termination and issuing the TERM signal. Selecting a container instance for termination begins an asynchronous drain of new requests on upstream load-balancers. (Default 15)</summary>
-        public int? DrainSeconds { get => _explicitNullValueDrainSeconds; set { _explicitNullValueDrainSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drain_seconds"); else _explicitNullProperties?.Remove("drain_seconds"); } }
+        public int? DrainSeconds { get => _explicitNullValueDrainSeconds; set { _explicitNullValueDrainSeconds = value; AdditionalData?.Remove("drain_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drain_seconds"); else _explicitNullProperties?.Remove("drain_seconds"); } }
         private int? _explicitNullValueDrainSeconds = default!;
         /// <summary>The number of seconds to wait between sending a TERM signal to a container and issuing a KILL which causes immediate shutdown. (Default 120)</summary>
-        public int? GracePeriodSeconds { get => _explicitNullValueGracePeriodSeconds; set { _explicitNullValueGracePeriodSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grace_period_seconds"); else _explicitNullProperties?.Remove("grace_period_seconds"); } }
+        public int? GracePeriodSeconds { get => _explicitNullValueGracePeriodSeconds; set { _explicitNullValueGracePeriodSeconds = value; AdditionalData?.Remove("grace_period_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grace_period_seconds"); else _explicitNullProperties?.Remove("grace_period_seconds"); } }
         private int? _explicitNullValueGracePeriodSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpecTermination"/> and sets the default values.

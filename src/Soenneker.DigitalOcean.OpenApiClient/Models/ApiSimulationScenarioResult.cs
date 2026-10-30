@@ -18,38 +18,42 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("episodes_finished") is { } nullNodeEpisodesFinished && nullNodeEpisodesFinished.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EpisodesFinished = null;
-            if (parseNode.GetChildNode("scenario_uuid") is { } nullNodeScenarioUuid && nullNodeScenarioUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioUuid = null;
-            if (parseNode.GetChildNode("total_episodes") is { } nullNodeTotalEpisodes && nullNodeTotalEpisodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalEpisodes = null;
-            if (parseNode.GetChildNode("verdict_counts") is { } nullNodeVerdictCounts && nullNodeVerdictCounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerdictCounts = null;
+            if (parseNode.GetChildNode("episodes_finished") is null) { _explicitNullValueEpisodesFinished = default!; _explicitNullProperties?.Remove("episodes_finished"); }
+            else if (parseNode.GetChildNode("episodes_finished") is { } nullNodeEpisodesFinished && nullNodeEpisodesFinished.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EpisodesFinished = null;
+            if (parseNode.GetChildNode("scenario_uuid") is null) { _explicitNullValueScenarioUuid = default!; _explicitNullProperties?.Remove("scenario_uuid"); }
+            else if (parseNode.GetChildNode("scenario_uuid") is { } nullNodeScenarioUuid && nullNodeScenarioUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioUuid = null;
+            if (parseNode.GetChildNode("total_episodes") is null) { _explicitNullValueTotalEpisodes = default!; _explicitNullProperties?.Remove("total_episodes"); }
+            else if (parseNode.GetChildNode("total_episodes") is { } nullNodeTotalEpisodes && nullNodeTotalEpisodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalEpisodes = null;
+            if (parseNode.GetChildNode("verdict_counts") is null) { _explicitNullValueVerdictCounts = default!; _explicitNullProperties?.Remove("verdict_counts"); }
+            else if (parseNode.GetChildNode("verdict_counts") is { } nullNodeVerdictCounts && nullNodeVerdictCounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerdictCounts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Episodes that have finished (successfully or not).</summary>
-        public long? EpisodesFinished { get => _explicitNullValueEpisodesFinished; set { _explicitNullValueEpisodesFinished = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("episodes_finished"); else _explicitNullProperties?.Remove("episodes_finished"); } }
+        public long? EpisodesFinished { get => _explicitNullValueEpisodesFinished; set { _explicitNullValueEpisodesFinished = value; AdditionalData?.Remove("episodes_finished"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("episodes_finished"); else _explicitNullProperties?.Remove("episodes_finished"); } }
         private long? _explicitNullValueEpisodesFinished = default!;
         /// <summary>UUID of the scenario.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScenarioUuid { get => _explicitNullValueScenarioUuid; set { _explicitNullValueScenarioUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_uuid"); else _explicitNullProperties?.Remove("scenario_uuid"); } }
+        public string? ScenarioUuid { get => _explicitNullValueScenarioUuid; set { _explicitNullValueScenarioUuid = value; AdditionalData?.Remove("scenario_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_uuid"); else _explicitNullProperties?.Remove("scenario_uuid"); } }
         private string? _explicitNullValueScenarioUuid = default!;
 #nullable restore
 #else
-        public string ScenarioUuid { get => _explicitNullValueScenarioUuid; set { _explicitNullValueScenarioUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_uuid"); else _explicitNullProperties?.Remove("scenario_uuid"); } }
+        public string ScenarioUuid { get => _explicitNullValueScenarioUuid; set { _explicitNullValueScenarioUuid = value; AdditionalData?.Remove("scenario_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_uuid"); else _explicitNullProperties?.Remove("scenario_uuid"); } }
         private string _explicitNullValueScenarioUuid = default!;
 #endif
         /// <summary>Total episodes for this scenario (its exploration budget).</summary>
-        public long? TotalEpisodes { get => _explicitNullValueTotalEpisodes; set { _explicitNullValueTotalEpisodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_episodes"); else _explicitNullProperties?.Remove("total_episodes"); } }
+        public long? TotalEpisodes { get => _explicitNullValueTotalEpisodes; set { _explicitNullValueTotalEpisodes = value; AdditionalData?.Remove("total_episodes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_episodes"); else _explicitNullProperties?.Remove("total_episodes"); } }
         private long? _explicitNullValueTotalEpisodes = default!;
         /// <summary>Breakdown of episode outcomes by judge verdict. Reused wherever asuccess / failure / inconclusive tally is reported (run row, result summary,per-scenario rollup).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts? VerdictCounts { get => _explicitNullValueVerdictCounts; set { _explicitNullValueVerdictCounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict_counts"); else _explicitNullProperties?.Remove("verdict_counts"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts? VerdictCounts { get => _explicitNullValueVerdictCounts; set { _explicitNullValueVerdictCounts = value; AdditionalData?.Remove("verdict_counts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict_counts"); else _explicitNullProperties?.Remove("verdict_counts"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts? _explicitNullValueVerdictCounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts VerdictCounts { get => _explicitNullValueVerdictCounts; set { _explicitNullValueVerdictCounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict_counts"); else _explicitNullProperties?.Remove("verdict_counts"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts VerdictCounts { get => _explicitNullValueVerdictCounts; set { _explicitNullValueVerdictCounts = value; AdditionalData?.Remove("verdict_counts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict_counts"); else _explicitNullProperties?.Remove("verdict_counts"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts _explicitNullValueVerdictCounts = default!;
 #endif
         /// <summary>

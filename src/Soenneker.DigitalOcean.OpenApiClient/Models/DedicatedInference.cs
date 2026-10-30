@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pending_deployment_spec") is { } nullNodePendingDeploymentSpec && nullNodePendingDeploymentSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingDeploymentSpec = null;
-            if (parseNode.GetChildNode("spec") is { } nullNodeSpec && nullNodeSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spec = null;
+            if (parseNode.GetChildNode("pending_deployment_spec") is null) { _explicitNullValuePendingDeploymentSpec = default!; _explicitNullProperties?.Remove("pending_deployment_spec"); }
+            else if (parseNode.GetChildNode("pending_deployment_spec") is { } nullNodePendingDeploymentSpec && nullNodePendingDeploymentSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingDeploymentSpec = null;
+            if (parseNode.GetChildNode("spec") is null) { _explicitNullValueSpec = default!; _explicitNullProperties?.Remove("spec"); }
+            else if (parseNode.GetChildNode("spec") is { } nullNodeSpec && nullNodeSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spec = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,11 +41,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Pending deployment when status is provisioning or updating.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PendingDeploymentSpec? PendingDeploymentSpec { get => _explicitNullValuePendingDeploymentSpec; set { _explicitNullValuePendingDeploymentSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_deployment_spec"); else _explicitNullProperties?.Remove("pending_deployment_spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PendingDeploymentSpec? PendingDeploymentSpec { get => _explicitNullValuePendingDeploymentSpec; set { _explicitNullValuePendingDeploymentSpec = value; AdditionalData?.Remove("pending_deployment_spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_deployment_spec"); else _explicitNullProperties?.Remove("pending_deployment_spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PendingDeploymentSpec? _explicitNullValuePendingDeploymentSpec = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PendingDeploymentSpec PendingDeploymentSpec { get => _explicitNullValuePendingDeploymentSpec; set { _explicitNullValuePendingDeploymentSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_deployment_spec"); else _explicitNullProperties?.Remove("pending_deployment_spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PendingDeploymentSpec PendingDeploymentSpec { get => _explicitNullValuePendingDeploymentSpec; set { _explicitNullValuePendingDeploymentSpec = value; AdditionalData?.Remove("pending_deployment_spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_deployment_spec"); else _explicitNullProperties?.Remove("pending_deployment_spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PendingDeploymentSpec _explicitNullValuePendingDeploymentSpec = default!;
 #endif
         /// <summary>DigitalOcean region where the Dedicated Inference is hosted.</summary>
@@ -57,11 +59,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Structured configuration for a Dedicated Inference deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec? Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec? Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; AdditionalData?.Remove("spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec? _explicitNullValueSpec = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; AdditionalData?.Remove("spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceSpec _explicitNullValueSpec = default!;
 #endif
         /// <summary>Current state of the Dedicated Inference.</summary>

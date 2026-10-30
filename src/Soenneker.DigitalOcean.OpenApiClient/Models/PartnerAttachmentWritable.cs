@@ -17,14 +17,22 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bgp") is { } nullNodeBgp && nullNodeBgp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bgp = null;
-            if (parseNode.GetChildNode("connection_bandwidth_in_mbps") is { } nullNodeConnectionBandwidthInMbps && nullNodeConnectionBandwidthInMbps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionBandwidthInMbps = null;
-            if (parseNode.GetChildNode("naas_provider") is { } nullNodeNaasProvider && nullNodeNaasProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NaasProvider = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("parent_uuid") is { } nullNodeParentUuid && nullNodeParentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentUuid = null;
-            if (parseNode.GetChildNode("redundancy_zone") is { } nullNodeRedundancyZone && nullNodeRedundancyZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedundancyZone = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("vpc_ids") is { } nullNodeVpcIds && nullNodeVpcIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcIds = null;
+            if (parseNode.GetChildNode("bgp") is null) { _explicitNullValueBgp = default!; _explicitNullProperties?.Remove("bgp"); }
+            else if (parseNode.GetChildNode("bgp") is { } nullNodeBgp && nullNodeBgp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bgp = null;
+            if (parseNode.GetChildNode("connection_bandwidth_in_mbps") is null) { _explicitNullValueConnectionBandwidthInMbps = default!; _explicitNullProperties?.Remove("connection_bandwidth_in_mbps"); }
+            else if (parseNode.GetChildNode("connection_bandwidth_in_mbps") is { } nullNodeConnectionBandwidthInMbps && nullNodeConnectionBandwidthInMbps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionBandwidthInMbps = null;
+            if (parseNode.GetChildNode("naas_provider") is null) { _explicitNullValueNaasProvider = default!; _explicitNullProperties?.Remove("naas_provider"); }
+            else if (parseNode.GetChildNode("naas_provider") is { } nullNodeNaasProvider && nullNodeNaasProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NaasProvider = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("parent_uuid") is null) { _explicitNullValueParentUuid = default!; _explicitNullProperties?.Remove("parent_uuid"); }
+            else if (parseNode.GetChildNode("parent_uuid") is { } nullNodeParentUuid && nullNodeParentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentUuid = null;
+            if (parseNode.GetChildNode("redundancy_zone") is null) { _explicitNullValueRedundancyZone = default!; _explicitNullProperties?.Remove("redundancy_zone"); }
+            else if (parseNode.GetChildNode("redundancy_zone") is { } nullNodeRedundancyZone && nullNodeRedundancyZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedundancyZone = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("vpc_ids") is null) { _explicitNullValueVpcIds = default!; _explicitNullProperties?.Remove("vpc_ids"); }
+            else if (parseNode.GetChildNode("vpc_ids") is { } nullNodeVpcIds && nullNodeVpcIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,60 +40,60 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Optional BGP configurations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableBgp? Bgp { get => _explicitNullValueBgp; set { _explicitNullValueBgp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp"); else _explicitNullProperties?.Remove("bgp"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableBgp? Bgp { get => _explicitNullValueBgp; set { _explicitNullValueBgp = value; AdditionalData?.Remove("bgp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp"); else _explicitNullProperties?.Remove("bgp"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableBgp? _explicitNullValueBgp = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableBgp Bgp { get => _explicitNullValueBgp; set { _explicitNullValueBgp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp"); else _explicitNullProperties?.Remove("bgp"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableBgp Bgp { get => _explicitNullValueBgp; set { _explicitNullValueBgp = value; AdditionalData?.Remove("bgp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp"); else _explicitNullProperties?.Remove("bgp"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableBgp _explicitNullValueBgp = default!;
 #endif
         /// <summary>Bandwidth (in Mbps) of the connection.</summary>
-        public int? ConnectionBandwidthInMbps { get => _explicitNullValueConnectionBandwidthInMbps; set { _explicitNullValueConnectionBandwidthInMbps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_bandwidth_in_mbps"); else _explicitNullProperties?.Remove("connection_bandwidth_in_mbps"); } }
+        public int? ConnectionBandwidthInMbps { get => _explicitNullValueConnectionBandwidthInMbps; set { _explicitNullValueConnectionBandwidthInMbps = value; AdditionalData?.Remove("connection_bandwidth_in_mbps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_bandwidth_in_mbps"); else _explicitNullProperties?.Remove("connection_bandwidth_in_mbps"); } }
         private int? _explicitNullValueConnectionBandwidthInMbps = default!;
         /// <summary>The naas_provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NaasProvider { get => _explicitNullValueNaasProvider; set { _explicitNullValueNaasProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("naas_provider"); else _explicitNullProperties?.Remove("naas_provider"); } }
+        public string? NaasProvider { get => _explicitNullValueNaasProvider; set { _explicitNullValueNaasProvider = value; AdditionalData?.Remove("naas_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("naas_provider"); else _explicitNullProperties?.Remove("naas_provider"); } }
         private string? _explicitNullValueNaasProvider = default!;
 #nullable restore
 #else
-        public string NaasProvider { get => _explicitNullValueNaasProvider; set { _explicitNullValueNaasProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("naas_provider"); else _explicitNullProperties?.Remove("naas_provider"); } }
+        public string NaasProvider { get => _explicitNullValueNaasProvider; set { _explicitNullValueNaasProvider = value; AdditionalData?.Remove("naas_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("naas_provider"); else _explicitNullProperties?.Remove("naas_provider"); } }
         private string _explicitNullValueNaasProvider = default!;
 #endif
         /// <summary>The name of the partner attachment. Must be unique and may only contain alphanumeric characters, dashes, and periods.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Optional associated partner attachment UUID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentUuid { get => _explicitNullValueParentUuid; set { _explicitNullValueParentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_uuid"); else _explicitNullProperties?.Remove("parent_uuid"); } }
+        public string? ParentUuid { get => _explicitNullValueParentUuid; set { _explicitNullValueParentUuid = value; AdditionalData?.Remove("parent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_uuid"); else _explicitNullProperties?.Remove("parent_uuid"); } }
         private string? _explicitNullValueParentUuid = default!;
 #nullable restore
 #else
-        public string ParentUuid { get => _explicitNullValueParentUuid; set { _explicitNullValueParentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_uuid"); else _explicitNullProperties?.Remove("parent_uuid"); } }
+        public string ParentUuid { get => _explicitNullValueParentUuid; set { _explicitNullValueParentUuid = value; AdditionalData?.Remove("parent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_uuid"); else _explicitNullProperties?.Remove("parent_uuid"); } }
         private string _explicitNullValueParentUuid = default!;
 #endif
         /// <summary>Optional redundancy zone for the partner attachment.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRedundancyZone? RedundancyZone { get => _explicitNullValueRedundancyZone; set { _explicitNullValueRedundancyZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redundancy_zone"); else _explicitNullProperties?.Remove("redundancy_zone"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRedundancyZone? RedundancyZone { get => _explicitNullValueRedundancyZone; set { _explicitNullValueRedundancyZone = value; AdditionalData?.Remove("redundancy_zone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redundancy_zone"); else _explicitNullProperties?.Remove("redundancy_zone"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRedundancyZone? _explicitNullValueRedundancyZone = default!;
         /// <summary>The region to create the partner attachment.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRegion? _explicitNullValueRegion = default!;
         /// <summary>An array of VPCs IDs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
+        public List<string>? VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; AdditionalData?.Remove("vpc_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
         private List<string>? _explicitNullValueVpcIds = default!;
 #nullable restore
 #else
-        public List<string> VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
+        public List<string> VpcIds { get => _explicitNullValueVpcIds; set { _explicitNullValueVpcIds = value; AdditionalData?.Remove("vpc_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_ids"); else _explicitNullProperties?.Remove("vpc_ids"); } }
         private List<string> _explicitNullValueVpcIds = default!;
 #endif
         /// <summary>
@@ -118,8 +126,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "naas_provider", n => { NaasProvider = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parent_uuid", n => { ParentUuid = n.GetStringValue(); } },
-                { "redundancy_zone", n => { RedundancyZone = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRedundancyZone>(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRegion>(); } },
+                { "redundancy_zone", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRedundancyZone>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRedundancyZone = default; _explicitNullProperties?.Remove("redundancy_zone"); AdditionalData["redundancy_zone"] = unknown; } else { RedundancyZone = parsed; AdditionalData.Remove("redundancy_zone"); } } },
+                { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PartnerAttachmentWritableRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
                 { "vpc_ids", n => { VpcIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }

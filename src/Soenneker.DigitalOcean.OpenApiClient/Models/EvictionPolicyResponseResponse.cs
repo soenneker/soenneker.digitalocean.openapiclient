@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("eviction_policy") is { } nullNodeEvictionPolicy && nullNodeEvictionPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvictionPolicy = null;
+            if (parseNode.GetChildNode("eviction_policy") is null) { _explicitNullValueEvictionPolicy = default!; _explicitNullProperties?.Remove("eviction_policy"); }
+            else if (parseNode.GetChildNode("eviction_policy") is { } nullNodeEvictionPolicy && nullNodeEvictionPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvictionPolicy = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A string specifying the desired eviction policy for a Caching or Valkey cluster.- `noeviction`: Don&apos;t evict any data, returns error when memory limit is reached.- `allkeys_lru:` Evict any key, least recently used (LRU) first.- `allkeys_random`: Evict keys in a random order.- `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.- `volatile_random`: Evict keys with expiration only in a random order.- `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyModel? EvictionPolicy { get => _explicitNullValueEvictionPolicy; set { _explicitNullValueEvictionPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eviction_policy"); else _explicitNullProperties?.Remove("eviction_policy"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyModel? EvictionPolicy { get => _explicitNullValueEvictionPolicy; set { _explicitNullValueEvictionPolicy = value; AdditionalData?.Remove("eviction_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eviction_policy"); else _explicitNullProperties?.Remove("eviction_policy"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyModel? _explicitNullValueEvictionPolicy = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyResponseResponse"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "eviction_policy", n => { EvictionPolicy = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyModel>(); } },
+                { "eviction_policy", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.EvictionPolicyModel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEvictionPolicy = default; _explicitNullProperties?.Remove("eviction_policy"); AdditionalData["eviction_policy"] = unknown; } else { EvictionPolicy = parsed; AdditionalData.Remove("eviction_policy"); } } },
             };
         }
         /// <summary>

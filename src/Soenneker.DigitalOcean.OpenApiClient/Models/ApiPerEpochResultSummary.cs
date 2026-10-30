@@ -18,21 +18,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("epoch") is { } nullNodeEpoch && nullNodeEpoch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Epoch = null;
-            if (parseNode.GetChildNode("overall_score_percent") is { } nullNodeOverallScorePercent && nullNodeOverallScorePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverallScorePercent = null;
-            if (parseNode.GetChildNode("rows_scored") is { } nullNodeRowsScored && nullNodeRowsScored.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowsScored = null;
+            if (parseNode.GetChildNode("epoch") is null) { _explicitNullValueEpoch = default!; _explicitNullProperties?.Remove("epoch"); }
+            else if (parseNode.GetChildNode("epoch") is { } nullNodeEpoch && nullNodeEpoch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Epoch = null;
+            if (parseNode.GetChildNode("overall_score_percent") is null) { _explicitNullValueOverallScorePercent = default!; _explicitNullProperties?.Remove("overall_score_percent"); }
+            else if (parseNode.GetChildNode("overall_score_percent") is { } nullNodeOverallScorePercent && nullNodeOverallScorePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverallScorePercent = null;
+            if (parseNode.GetChildNode("rows_scored") is null) { _explicitNullValueRowsScored = default!; _explicitNullProperties?.Remove("rows_scored"); }
+            else if (parseNode.GetChildNode("rows_scored") is { } nullNodeRowsScored && nullNodeRowsScored.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowsScored = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>1-indexed epoch number (1 = first pass).</summary>
-        public long? Epoch { get => _explicitNullValueEpoch; set { _explicitNullValueEpoch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("epoch"); else _explicitNullProperties?.Remove("epoch"); } }
+        public long? Epoch { get => _explicitNullValueEpoch; set { _explicitNullValueEpoch = value; AdditionalData?.Remove("epoch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("epoch"); else _explicitNullProperties?.Remove("epoch"); } }
         private long? _explicitNullValueEpoch = default!;
         /// <summary>The overall_score_percent property</summary>
-        public double? OverallScorePercent { get => _explicitNullValueOverallScorePercent; set { _explicitNullValueOverallScorePercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overall_score_percent"); else _explicitNullProperties?.Remove("overall_score_percent"); } }
+        public double? OverallScorePercent { get => _explicitNullValueOverallScorePercent; set { _explicitNullValueOverallScorePercent = value; AdditionalData?.Remove("overall_score_percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overall_score_percent"); else _explicitNullProperties?.Remove("overall_score_percent"); } }
         private double? _explicitNullValueOverallScorePercent = default!;
         /// <summary>The rows_scored property</summary>
-        public long? RowsScored { get => _explicitNullValueRowsScored; set { _explicitNullValueRowsScored = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows_scored"); else _explicitNullProperties?.Remove("rows_scored"); } }
+        public long? RowsScored { get => _explicitNullValueRowsScored; set { _explicitNullValueRowsScored = value; AdditionalData?.Remove("rows_scored"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows_scored"); else _explicitNullProperties?.Remove("rows_scored"); } }
         private long? _explicitNullValueRowsScored = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiPerEpochResultSummary"/> and sets the default values.

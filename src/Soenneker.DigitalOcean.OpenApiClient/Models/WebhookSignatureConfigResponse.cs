@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("secret_status") is { } nullNodeSecretStatus && nullNodeSecretStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretStatus = null;
+            if (parseNode.GetChildNode("secret_status") is null) { _explicitNullValueSecretStatus = default!; _explicitNullProperties?.Remove("secret_status"); }
+            else if (parseNode.GetChildNode("secret_status") is { } nullNodeSecretStatus && nullNodeSecretStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretStatus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Present when a signing secret is configured. Omitted when notconfigured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfigResponseSecretStatus? SecretStatus { get => _explicitNullValueSecretStatus; set { _explicitNullValueSecretStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_status"); else _explicitNullProperties?.Remove("secret_status"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfigResponseSecretStatus? SecretStatus { get => _explicitNullValueSecretStatus; set { _explicitNullValueSecretStatus = value; AdditionalData?.Remove("secret_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_status"); else _explicitNullProperties?.Remove("secret_status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfigResponseSecretStatus? _explicitNullValueSecretStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfigResponseSecretStatus SecretStatus { get => _explicitNullValueSecretStatus; set { _explicitNullValueSecretStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_status"); else _explicitNullProperties?.Remove("secret_status"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfigResponseSecretStatus SecretStatus { get => _explicitNullValueSecretStatus; set { _explicitNullValueSecretStatus = value; AdditionalData?.Remove("secret_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_status"); else _explicitNullProperties?.Remove("secret_status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookSignatureConfigResponseSecretStatus _explicitNullValueSecretStatus = default!;
 #endif
         /// <summary>

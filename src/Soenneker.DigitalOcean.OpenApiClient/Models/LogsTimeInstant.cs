@@ -18,34 +18,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("absolute") is { } nullNodeAbsolute && nullNodeAbsolute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Absolute = null;
-            if (parseNode.GetChildNode("relative") is { } nullNodeRelative && nullNodeRelative.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relative = null;
-            if (parseNode.GetChildNode("unix_nano") is { } nullNodeUnixNano && nullNodeUnixNano.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnixNano = null;
+            if (parseNode.GetChildNode("absolute") is null) { _explicitNullValueAbsolute = default!; _explicitNullProperties?.Remove("absolute"); }
+            else if (parseNode.GetChildNode("absolute") is { } nullNodeAbsolute && nullNodeAbsolute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Absolute = null;
+            if (parseNode.GetChildNode("relative") is null) { _explicitNullValueRelative = default!; _explicitNullProperties?.Remove("relative"); }
+            else if (parseNode.GetChildNode("relative") is { } nullNodeRelative && nullNodeRelative.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relative = null;
+            if (parseNode.GetChildNode("unix_nano") is null) { _explicitNullValueUnixNano = default!; _explicitNullProperties?.Remove("unix_nano"); }
+            else if (parseNode.GetChildNode("unix_nano") is { } nullNodeUnixNano && nullNodeUnixNano.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnixNano = null;
         }
 
         /// <summary>An absolute timestamp. Accepts RFC3339/RFC3339Nano strings or Unix seconds/nanoseconds as decimal strings.</summary>
-        public DateTimeOffset? Absolute { get => _explicitNullValueAbsolute; set { _explicitNullValueAbsolute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("absolute"); else _explicitNullProperties?.Remove("absolute"); } }
+        public DateTimeOffset? Absolute { get => _explicitNullValueAbsolute; set { _explicitNullValueAbsolute = value; AdditionalData?.Remove("absolute"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("absolute"); else _explicitNullProperties?.Remove("absolute"); } }
         private DateTimeOffset? _explicitNullValueAbsolute = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A relative time. Use `now` for the current time, a bare duration such as `1h` or `7d` to look back from now, or an offset such as `now-1h` or `now+30m`. Supported units are `s`, `m`, `h`, `d`, and `w`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Relative { get => _explicitNullValueRelative; set { _explicitNullValueRelative = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relative"); else _explicitNullProperties?.Remove("relative"); } }
+        public string? Relative { get => _explicitNullValueRelative; set { _explicitNullValueRelative = value; AdditionalData?.Remove("relative"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relative"); else _explicitNullProperties?.Remove("relative"); } }
         private string? _explicitNullValueRelative = default!;
 #nullable restore
 #else
-        public string Relative { get => _explicitNullValueRelative; set { _explicitNullValueRelative = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relative"); else _explicitNullProperties?.Remove("relative"); } }
+        public string Relative { get => _explicitNullValueRelative; set { _explicitNullValueRelative = value; AdditionalData?.Remove("relative"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relative"); else _explicitNullProperties?.Remove("relative"); } }
         private string _explicitNullValueRelative = default!;
 #endif
         /// <summary>A Unix nanosecond timestamp, encoded as a string to preserve 64-bit precision.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UnixNano { get => _explicitNullValueUnixNano; set { _explicitNullValueUnixNano = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unix_nano"); else _explicitNullProperties?.Remove("unix_nano"); } }
+        public string? UnixNano { get => _explicitNullValueUnixNano; set { _explicitNullValueUnixNano = value; AdditionalData?.Remove("unix_nano"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unix_nano"); else _explicitNullProperties?.Remove("unix_nano"); } }
         private string? _explicitNullValueUnixNano = default!;
 #nullable restore
 #else
-        public string UnixNano { get => _explicitNullValueUnixNano; set { _explicitNullValueUnixNano = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unix_nano"); else _explicitNullProperties?.Remove("unix_nano"); } }
+        public string UnixNano { get => _explicitNullValueUnixNano; set { _explicitNullValueUnixNano = value; AdditionalData?.Remove("unix_nano"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unix_nano"); else _explicitNullProperties?.Remove("unix_nano"); } }
         private string _explicitNullValueUnixNano = default!;
 #endif
         /// <summary>

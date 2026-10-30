@@ -78,7 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Kubec
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes.Clusters.Item.Kubeconfig.KubeconfigRequestBuilder.KubeconfigRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.digitalocean.com", "/v2/kubernetes/clusters/{clusterId}/kubeconfig", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/yaml, application/json");
             return requestInfo;

@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("invitations") is { } nullNodeInvitations && nullNodeInvitations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invitations = null;
-            if (parseNode.GetChildNode("team") is { } nullNodeTeam && nullNodeTeam.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Team = null;
+            if (parseNode.GetChildNode("invitations") is null) { _explicitNullValueInvitations = default!; _explicitNullProperties?.Remove("invitations"); }
+            else if (parseNode.GetChildNode("invitations") is { } nullNodeInvitations && nullNodeInvitations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invitations = null;
+            if (parseNode.GetChildNode("team") is null) { _explicitNullValueTeam = default!; _explicitNullProperties?.Remove("team"); }
+            else if (parseNode.GetChildNode("team") is { } nullNodeTeam && nullNodeTeam.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Team = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A map of invitee email addresses to invitation status results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeamResponseInvitationsProperty? Invitations { get => _explicitNullValueInvitations; set { _explicitNullValueInvitations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitations"); else _explicitNullProperties?.Remove("invitations"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeamResponseInvitationsProperty? Invitations { get => _explicitNullValueInvitations; set { _explicitNullValueInvitations = value; AdditionalData?.Remove("invitations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitations"); else _explicitNullProperties?.Remove("invitations"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeamResponseInvitationsProperty? _explicitNullValueInvitations = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeamResponseInvitationsProperty Invitations { get => _explicitNullValueInvitations; set { _explicitNullValueInvitations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitations"); else _explicitNullProperties?.Remove("invitations"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeamResponseInvitationsProperty Invitations { get => _explicitNullValueInvitations; set { _explicitNullValueInvitations = value; AdditionalData?.Remove("invitations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitations"); else _explicitNullProperties?.Remove("invitations"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeamResponseInvitationsProperty _explicitNullValueInvitations = default!;
 #endif
         /// <summary>The team resource returned when a team is created in an organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeam? Team { get => _explicitNullValueTeam; set { _explicitNullValueTeam = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team"); else _explicitNullProperties?.Remove("team"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeam? Team { get => _explicitNullValueTeam; set { _explicitNullValueTeam = value; AdditionalData?.Remove("team"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team"); else _explicitNullProperties?.Remove("team"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeam? _explicitNullValueTeam = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeam Team { get => _explicitNullValueTeam; set { _explicitNullValueTeam = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team"); else _explicitNullProperties?.Remove("team"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeam Team { get => _explicitNullValueTeam; set { _explicitNullValueTeam = value; AdditionalData?.Remove("team"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team"); else _explicitNullProperties?.Remove("team"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateTeam _explicitNullValueTeam = default!;
 #endif
         /// <summary>

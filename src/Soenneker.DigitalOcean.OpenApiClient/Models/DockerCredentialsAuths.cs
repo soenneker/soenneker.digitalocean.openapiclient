@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("registry.digitalocean.com") is { } nullNodeRegistryDigitaloceanCom && nullNodeRegistryDigitaloceanCom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryDigitaloceanCom = null;
+            if (parseNode.GetChildNode("registry.digitalocean.com") is null) { _explicitNullValueRegistryDigitaloceanCom = default!; _explicitNullProperties?.Remove("registry.digitalocean.com"); }
+            else if (parseNode.GetChildNode("registry.digitalocean.com") is { } nullNodeRegistryDigitaloceanCom && nullNodeRegistryDigitaloceanCom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryDigitaloceanCom = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The registryDigitaloceanCom property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuthsRegistryDigitaloceanCom? RegistryDigitaloceanCom { get => _explicitNullValueRegistryDigitaloceanCom; set { _explicitNullValueRegistryDigitaloceanCom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry.digitalocean.com"); else _explicitNullProperties?.Remove("registry.digitalocean.com"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuthsRegistryDigitaloceanCom? RegistryDigitaloceanCom { get => _explicitNullValueRegistryDigitaloceanCom; set { _explicitNullValueRegistryDigitaloceanCom = value; AdditionalData?.Remove("registry.digitalocean.com"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry.digitalocean.com"); else _explicitNullProperties?.Remove("registry.digitalocean.com"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuthsRegistryDigitaloceanCom? _explicitNullValueRegistryDigitaloceanCom = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuthsRegistryDigitaloceanCom RegistryDigitaloceanCom { get => _explicitNullValueRegistryDigitaloceanCom; set { _explicitNullValueRegistryDigitaloceanCom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry.digitalocean.com"); else _explicitNullProperties?.Remove("registry.digitalocean.com"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuthsRegistryDigitaloceanCom RegistryDigitaloceanCom { get => _explicitNullValueRegistryDigitaloceanCom; set { _explicitNullValueRegistryDigitaloceanCom = value; AdditionalData?.Remove("registry.digitalocean.com"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry.digitalocean.com"); else _explicitNullProperties?.Remove("registry.digitalocean.com"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DockerCredentialsAuthsRegistryDigitaloceanCom _explicitNullValueRegistryDigitaloceanCom = default!;
 #endif
         /// <summary>

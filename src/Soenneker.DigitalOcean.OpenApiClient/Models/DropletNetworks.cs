@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("v4") is { } nullNodeV4 && nullNodeV4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) V4 = null;
-            if (parseNode.GetChildNode("v6") is { } nullNodeV6 && nullNodeV6.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) V6 = null;
+            if (parseNode.GetChildNode("v4") is null) { _explicitNullValueV4 = default!; _explicitNullProperties?.Remove("v4"); }
+            else if (parseNode.GetChildNode("v4") is { } nullNodeV4 && nullNodeV4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) V4 = null;
+            if (parseNode.GetChildNode("v6") is null) { _explicitNullValueV6 = default!; _explicitNullProperties?.Remove("v6"); }
+            else if (parseNode.GetChildNode("v6") is { } nullNodeV6 && nullNodeV6.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) V6 = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The v4 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4>? V4 { get => _explicitNullValueV4; set { _explicitNullValueV4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v4"); else _explicitNullProperties?.Remove("v4"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4>? V4 { get => _explicitNullValueV4; set { _explicitNullValueV4 = value; AdditionalData?.Remove("v4"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v4"); else _explicitNullProperties?.Remove("v4"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4>? _explicitNullValueV4 = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4> V4 { get => _explicitNullValueV4; set { _explicitNullValueV4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v4"); else _explicitNullProperties?.Remove("v4"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4> V4 { get => _explicitNullValueV4; set { _explicitNullValueV4 = value; AdditionalData?.Remove("v4"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v4"); else _explicitNullProperties?.Remove("v4"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV4> _explicitNullValueV4 = default!;
 #endif
         /// <summary>The v6 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6>? V6 { get => _explicitNullValueV6; set { _explicitNullValueV6 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v6"); else _explicitNullProperties?.Remove("v6"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6>? V6 { get => _explicitNullValueV6; set { _explicitNullValueV6 = value; AdditionalData?.Remove("v6"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v6"); else _explicitNullProperties?.Remove("v6"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6>? _explicitNullValueV6 = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6> V6 { get => _explicitNullValueV6; set { _explicitNullValueV6 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v6"); else _explicitNullProperties?.Remove("v6"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6> V6 { get => _explicitNullValueV6; set { _explicitNullValueV6 = value; AdditionalData?.Remove("v6"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v6"); else _explicitNullProperties?.Remove("v6"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.NetworkV6> _explicitNullValueV6 = default!;
 #endif
         /// <summary>

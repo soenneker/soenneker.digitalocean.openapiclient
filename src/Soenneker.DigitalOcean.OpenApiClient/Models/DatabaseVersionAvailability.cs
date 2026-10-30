@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("end_of_availability") is { } nullNodeEndOfAvailability && nullNodeEndOfAvailability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndOfAvailability = null;
-            if (parseNode.GetChildNode("end_of_life") is { } nullNodeEndOfLife && nullNodeEndOfLife.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndOfLife = null;
-            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("end_of_availability") is null) { _explicitNullValueEndOfAvailability = default!; _explicitNullProperties?.Remove("end_of_availability"); }
+            else if (parseNode.GetChildNode("end_of_availability") is { } nullNodeEndOfAvailability && nullNodeEndOfAvailability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndOfAvailability = null;
+            if (parseNode.GetChildNode("end_of_life") is null) { _explicitNullValueEndOfLife = default!; _explicitNullProperties?.Remove("end_of_life"); }
+            else if (parseNode.GetChildNode("end_of_life") is { } nullNodeEndOfLife && nullNodeEndOfLife.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndOfLife = null;
+            if (parseNode.GetChildNode("version") is null) { _explicitNullValueVersion = default!; _explicitNullProperties?.Remove("version"); }
+            else if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A timestamp referring to the date when the particular version will no longer be available for creating new clusters. If null, the version does not have an end of availability timeline.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndOfAvailability { get => _explicitNullValueEndOfAvailability; set { _explicitNullValueEndOfAvailability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_availability"); else _explicitNullProperties?.Remove("end_of_availability"); } }
+        public string? EndOfAvailability { get => _explicitNullValueEndOfAvailability; set { _explicitNullValueEndOfAvailability = value; AdditionalData?.Remove("end_of_availability"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_availability"); else _explicitNullProperties?.Remove("end_of_availability"); } }
         private string? _explicitNullValueEndOfAvailability = default!;
 #nullable restore
 #else
-        public string EndOfAvailability { get => _explicitNullValueEndOfAvailability; set { _explicitNullValueEndOfAvailability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_availability"); else _explicitNullProperties?.Remove("end_of_availability"); } }
+        public string EndOfAvailability { get => _explicitNullValueEndOfAvailability; set { _explicitNullValueEndOfAvailability = value; AdditionalData?.Remove("end_of_availability"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_availability"); else _explicitNullProperties?.Remove("end_of_availability"); } }
         private string _explicitNullValueEndOfAvailability = default!;
 #endif
         /// <summary>A timestamp referring to the date when the particular version will no longer be supported. If null, the version does not have an end of life timeline.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndOfLife { get => _explicitNullValueEndOfLife; set { _explicitNullValueEndOfLife = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_life"); else _explicitNullProperties?.Remove("end_of_life"); } }
+        public string? EndOfLife { get => _explicitNullValueEndOfLife; set { _explicitNullValueEndOfLife = value; AdditionalData?.Remove("end_of_life"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_life"); else _explicitNullProperties?.Remove("end_of_life"); } }
         private string? _explicitNullValueEndOfLife = default!;
 #nullable restore
 #else
-        public string EndOfLife { get => _explicitNullValueEndOfLife; set { _explicitNullValueEndOfLife = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_life"); else _explicitNullProperties?.Remove("end_of_life"); } }
+        public string EndOfLife { get => _explicitNullValueEndOfLife; set { _explicitNullValueEndOfLife = value; AdditionalData?.Remove("end_of_life"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_life"); else _explicitNullProperties?.Remove("end_of_life"); } }
         private string _explicitNullValueEndOfLife = default!;
 #endif
         /// <summary>The engine version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>

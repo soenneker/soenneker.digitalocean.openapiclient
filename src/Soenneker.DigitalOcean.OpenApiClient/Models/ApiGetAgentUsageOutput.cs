@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("log_insights_usage") is { } nullNodeLogInsightsUsage && nullNodeLogInsightsUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogInsightsUsage = null;
-            if (parseNode.GetChildNode("usage") is { } nullNodeUsage && nullNodeUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Usage = null;
+            if (parseNode.GetChildNode("log_insights_usage") is null) { _explicitNullValueLogInsightsUsage = default!; _explicitNullProperties?.Remove("log_insights_usage"); }
+            else if (parseNode.GetChildNode("log_insights_usage") is { } nullNodeLogInsightsUsage && nullNodeLogInsightsUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogInsightsUsage = null;
+            if (parseNode.GetChildNode("usage") is null) { _explicitNullValueUsage = default!; _explicitNullProperties?.Remove("usage"); }
+            else if (parseNode.GetChildNode("usage") is { } nullNodeUsage && nullNodeUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Usage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Resource Usage Description</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage? LogInsightsUsage { get => _explicitNullValueLogInsightsUsage; set { _explicitNullValueLogInsightsUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_insights_usage"); else _explicitNullProperties?.Remove("log_insights_usage"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage? LogInsightsUsage { get => _explicitNullValueLogInsightsUsage; set { _explicitNullValueLogInsightsUsage = value; AdditionalData?.Remove("log_insights_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_insights_usage"); else _explicitNullProperties?.Remove("log_insights_usage"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage? _explicitNullValueLogInsightsUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage LogInsightsUsage { get => _explicitNullValueLogInsightsUsage; set { _explicitNullValueLogInsightsUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_insights_usage"); else _explicitNullProperties?.Remove("log_insights_usage"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage LogInsightsUsage { get => _explicitNullValueLogInsightsUsage; set { _explicitNullValueLogInsightsUsage = value; AdditionalData?.Remove("log_insights_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_insights_usage"); else _explicitNullProperties?.Remove("log_insights_usage"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage _explicitNullValueLogInsightsUsage = default!;
 #endif
         /// <summary>Resource Usage Description</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; AdditionalData?.Remove("usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage? _explicitNullValueUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; AdditionalData?.Remove("usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage _explicitNullValueUsage = default!;
 #endif
         /// <summary>

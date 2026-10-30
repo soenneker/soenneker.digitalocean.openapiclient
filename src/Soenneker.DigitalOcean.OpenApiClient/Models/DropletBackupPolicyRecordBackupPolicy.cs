@@ -18,23 +18,26 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hour") is { } nullNodeHour && nullNodeHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hour = null;
-            if (parseNode.GetChildNode("plan") is { } nullNodePlan && nullNodePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plan = null;
-            if (parseNode.GetChildNode("weekday") is { } nullNodeWeekday && nullNodeWeekday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Weekday = null;
+            if (parseNode.GetChildNode("hour") is null) { _explicitNullValueHour = default!; _explicitNullProperties?.Remove("hour"); }
+            else if (parseNode.GetChildNode("hour") is { } nullNodeHour && nullNodeHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hour = null;
+            if (parseNode.GetChildNode("plan") is null) { _explicitNullValuePlan = default!; _explicitNullProperties?.Remove("plan"); }
+            else if (parseNode.GetChildNode("plan") is { } nullNodePlan && nullNodePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plan = null;
+            if (parseNode.GetChildNode("weekday") is null) { _explicitNullValueWeekday = default!; _explicitNullProperties?.Remove("weekday"); }
+            else if (parseNode.GetChildNode("weekday") is { } nullNodeWeekday && nullNodeWeekday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Weekday = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The hour of the day that the backup window will start.</summary>
-        public int? Hour { get => _explicitNullValueHour; set { _explicitNullValueHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hour"); else _explicitNullProperties?.Remove("hour"); } }
+        public int? Hour { get => _explicitNullValueHour; set { _explicitNullValueHour = value; AdditionalData?.Remove("hour"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hour"); else _explicitNullProperties?.Remove("hour"); } }
         private int? _explicitNullValueHour = default!;
         /// <summary>The backup plan used for the Droplet. The plan can be either `daily` or `weekly`.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyPlan? Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyPlan? Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; AdditionalData?.Remove("plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyPlan? _explicitNullValuePlan = default!;
         /// <summary>The number of days the backup will be retained.</summary>
         public int? RetentionPeriodDays { get; private set; }
         /// <summary>The day of the week on which the backup will occur.</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyWeekday? Weekday { get => _explicitNullValueWeekday; set { _explicitNullValueWeekday = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weekday"); else _explicitNullProperties?.Remove("weekday"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyWeekday? Weekday { get => _explicitNullValueWeekday; set { _explicitNullValueWeekday = value; AdditionalData?.Remove("weekday"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weekday"); else _explicitNullProperties?.Remove("weekday"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyWeekday? _explicitNullValueWeekday = default!;
         /// <summary>The length of the backup window starting from `hour`.</summary>
         public int? WindowLengthHours { get; private set; }
@@ -64,9 +67,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "hour", n => { Hour = n.GetIntValue(); } },
-                { "plan", n => { Plan = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyPlan>(); } },
+                { "plan", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyPlan>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePlan = default; _explicitNullProperties?.Remove("plan"); AdditionalData["plan"] = unknown; } else { Plan = parsed; AdditionalData.Remove("plan"); } } },
                 { "retention_period_days", n => { RetentionPeriodDays = n.GetIntValue(); } },
-                { "weekday", n => { Weekday = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyWeekday>(); } },
+                { "weekday", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyWeekday>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueWeekday = default; _explicitNullProperties?.Remove("weekday"); AdditionalData["weekday"] = unknown; } else { Weekday = parsed; AdditionalData.Remove("weekday"); } } },
                 { "window_length_hours", n => { WindowLengthHours = n.GetIntValue(); } },
             };
         }

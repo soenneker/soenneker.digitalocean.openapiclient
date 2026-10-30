@@ -17,10 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("latest_tag") is { } nullNodeLatestTag && nullNodeLatestTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestTag = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("registry_name") is { } nullNodeRegistryName && nullNodeRegistryName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryName = null;
-            if (parseNode.GetChildNode("tag_count") is { } nullNodeTagCount && nullNodeTagCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagCount = null;
+            if (parseNode.GetChildNode("latest_tag") is null) { _explicitNullValueLatestTag = default!; _explicitNullProperties?.Remove("latest_tag"); }
+            else if (parseNode.GetChildNode("latest_tag") is { } nullNodeLatestTag && nullNodeLatestTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestTag = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("registry_name") is null) { _explicitNullValueRegistryName = default!; _explicitNullProperties?.Remove("registry_name"); }
+            else if (parseNode.GetChildNode("registry_name") is { } nullNodeRegistryName && nullNodeRegistryName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryName = null;
+            if (parseNode.GetChildNode("tag_count") is null) { _explicitNullValueTagCount = default!; _explicitNullProperties?.Remove("tag_count"); }
+            else if (parseNode.GetChildNode("tag_count") is { } nullNodeTagCount && nullNodeTagCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The latest_tag property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RepositoryTag? LatestTag { get => _explicitNullValueLatestTag; set { _explicitNullValueLatestTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_tag"); else _explicitNullProperties?.Remove("latest_tag"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RepositoryTag? LatestTag { get => _explicitNullValueLatestTag; set { _explicitNullValueLatestTag = value; AdditionalData?.Remove("latest_tag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_tag"); else _explicitNullProperties?.Remove("latest_tag"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RepositoryTag? _explicitNullValueLatestTag = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RepositoryTag LatestTag { get => _explicitNullValueLatestTag; set { _explicitNullValueLatestTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_tag"); else _explicitNullProperties?.Remove("latest_tag"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RepositoryTag LatestTag { get => _explicitNullValueLatestTag; set { _explicitNullValueLatestTag = value; AdditionalData?.Remove("latest_tag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_tag"); else _explicitNullProperties?.Remove("latest_tag"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RepositoryTag _explicitNullValueLatestTag = default!;
 #endif
         /// <summary>The name of the repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The name of the container registry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegistryName { get => _explicitNullValueRegistryName; set { _explicitNullValueRegistryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry_name"); else _explicitNullProperties?.Remove("registry_name"); } }
+        public string? RegistryName { get => _explicitNullValueRegistryName; set { _explicitNullValueRegistryName = value; AdditionalData?.Remove("registry_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry_name"); else _explicitNullProperties?.Remove("registry_name"); } }
         private string? _explicitNullValueRegistryName = default!;
 #nullable restore
 #else
-        public string RegistryName { get => _explicitNullValueRegistryName; set { _explicitNullValueRegistryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry_name"); else _explicitNullProperties?.Remove("registry_name"); } }
+        public string RegistryName { get => _explicitNullValueRegistryName; set { _explicitNullValueRegistryName = value; AdditionalData?.Remove("registry_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry_name"); else _explicitNullProperties?.Remove("registry_name"); } }
         private string _explicitNullValueRegistryName = default!;
 #endif
         /// <summary>The number of tags in the repository.</summary>
-        public int? TagCount { get => _explicitNullValueTagCount; set { _explicitNullValueTagCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_count"); else _explicitNullProperties?.Remove("tag_count"); } }
+        public int? TagCount { get => _explicitNullValueTagCount; set { _explicitNullValueTagCount = value; AdditionalData?.Remove("tag_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_count"); else _explicitNullProperties?.Remove("tag_count"); } }
         private int? _explicitNullValueTagCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Repository"/> and sets the default values.

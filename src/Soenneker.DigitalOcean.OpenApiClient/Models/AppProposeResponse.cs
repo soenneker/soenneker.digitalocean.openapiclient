@@ -17,58 +17,65 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("app_cost") is { } nullNodeAppCost && nullNodeAppCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppCost = null;
-            if (parseNode.GetChildNode("app_is_static") is { } nullNodeAppIsStatic && nullNodeAppIsStatic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppIsStatic = null;
-            if (parseNode.GetChildNode("app_name_available") is { } nullNodeAppNameAvailable && nullNodeAppNameAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppNameAvailable = null;
-            if (parseNode.GetChildNode("app_name_suggestion") is { } nullNodeAppNameSuggestion && nullNodeAppNameSuggestion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppNameSuggestion = null;
-            if (parseNode.GetChildNode("app_tier_downgrade_cost") is { } nullNodeAppTierDowngradeCost && nullNodeAppTierDowngradeCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppTierDowngradeCost = null;
-            if (parseNode.GetChildNode("existing_static_apps") is { } nullNodeExistingStaticApps && nullNodeExistingStaticApps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistingStaticApps = null;
-            if (parseNode.GetChildNode("spec") is { } nullNodeSpec && nullNodeSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spec = null;
+            if (parseNode.GetChildNode("app_cost") is null) { _explicitNullValueAppCost = default!; _explicitNullProperties?.Remove("app_cost"); }
+            else if (parseNode.GetChildNode("app_cost") is { } nullNodeAppCost && nullNodeAppCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppCost = null;
+            if (parseNode.GetChildNode("app_is_static") is null) { _explicitNullValueAppIsStatic = default!; _explicitNullProperties?.Remove("app_is_static"); }
+            else if (parseNode.GetChildNode("app_is_static") is { } nullNodeAppIsStatic && nullNodeAppIsStatic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppIsStatic = null;
+            if (parseNode.GetChildNode("app_name_available") is null) { _explicitNullValueAppNameAvailable = default!; _explicitNullProperties?.Remove("app_name_available"); }
+            else if (parseNode.GetChildNode("app_name_available") is { } nullNodeAppNameAvailable && nullNodeAppNameAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppNameAvailable = null;
+            if (parseNode.GetChildNode("app_name_suggestion") is null) { _explicitNullValueAppNameSuggestion = default!; _explicitNullProperties?.Remove("app_name_suggestion"); }
+            else if (parseNode.GetChildNode("app_name_suggestion") is { } nullNodeAppNameSuggestion && nullNodeAppNameSuggestion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppNameSuggestion = null;
+            if (parseNode.GetChildNode("app_tier_downgrade_cost") is null) { _explicitNullValueAppTierDowngradeCost = default!; _explicitNullProperties?.Remove("app_tier_downgrade_cost"); }
+            else if (parseNode.GetChildNode("app_tier_downgrade_cost") is { } nullNodeAppTierDowngradeCost && nullNodeAppTierDowngradeCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppTierDowngradeCost = null;
+            if (parseNode.GetChildNode("existing_static_apps") is null) { _explicitNullValueExistingStaticApps = default!; _explicitNullProperties?.Remove("existing_static_apps"); }
+            else if (parseNode.GetChildNode("existing_static_apps") is { } nullNodeExistingStaticApps && nullNodeExistingStaticApps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistingStaticApps = null;
+            if (parseNode.GetChildNode("spec") is null) { _explicitNullValueSpec = default!; _explicitNullProperties?.Remove("spec"); }
+            else if (parseNode.GetChildNode("spec") is { } nullNodeSpec && nullNodeSpec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spec = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The monthly cost of the proposed app in USD.</summary>
-        public int? AppCost { get => _explicitNullValueAppCost; set { _explicitNullValueAppCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_cost"); else _explicitNullProperties?.Remove("app_cost"); } }
+        public int? AppCost { get => _explicitNullValueAppCost; set { _explicitNullValueAppCost = value; AdditionalData?.Remove("app_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_cost"); else _explicitNullProperties?.Remove("app_cost"); } }
         private int? _explicitNullValueAppCost = default!;
         /// <summary>Indicates whether the app is a static app.</summary>
-        public bool? AppIsStatic { get => _explicitNullValueAppIsStatic; set { _explicitNullValueAppIsStatic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_is_static"); else _explicitNullProperties?.Remove("app_is_static"); } }
+        public bool? AppIsStatic { get => _explicitNullValueAppIsStatic; set { _explicitNullValueAppIsStatic = value; AdditionalData?.Remove("app_is_static"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_is_static"); else _explicitNullProperties?.Remove("app_is_static"); } }
         private bool? _explicitNullValueAppIsStatic = default!;
         /// <summary>Indicates whether the app name is available.</summary>
-        public bool? AppNameAvailable { get => _explicitNullValueAppNameAvailable; set { _explicitNullValueAppNameAvailable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name_available"); else _explicitNullProperties?.Remove("app_name_available"); } }
+        public bool? AppNameAvailable { get => _explicitNullValueAppNameAvailable; set { _explicitNullValueAppNameAvailable = value; AdditionalData?.Remove("app_name_available"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name_available"); else _explicitNullProperties?.Remove("app_name_available"); } }
         private bool? _explicitNullValueAppNameAvailable = default!;
         /// <summary>The suggested name if the proposed app name is unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppNameSuggestion { get => _explicitNullValueAppNameSuggestion; set { _explicitNullValueAppNameSuggestion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name_suggestion"); else _explicitNullProperties?.Remove("app_name_suggestion"); } }
+        public string? AppNameSuggestion { get => _explicitNullValueAppNameSuggestion; set { _explicitNullValueAppNameSuggestion = value; AdditionalData?.Remove("app_name_suggestion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name_suggestion"); else _explicitNullProperties?.Remove("app_name_suggestion"); } }
         private string? _explicitNullValueAppNameSuggestion = default!;
 #nullable restore
 #else
-        public string AppNameSuggestion { get => _explicitNullValueAppNameSuggestion; set { _explicitNullValueAppNameSuggestion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name_suggestion"); else _explicitNullProperties?.Remove("app_name_suggestion"); } }
+        public string AppNameSuggestion { get => _explicitNullValueAppNameSuggestion; set { _explicitNullValueAppNameSuggestion = value; AdditionalData?.Remove("app_name_suggestion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name_suggestion"); else _explicitNullProperties?.Remove("app_name_suggestion"); } }
         private string _explicitNullValueAppNameSuggestion = default!;
 #endif
         /// <summary>The monthly cost of the proposed app in USD using the previous pricing plan tier. For example, if you propose an app that uses the Professional tier, the `app_tier_downgrade_cost` field displays the monthly cost of the app if it were to use the Basic tier. If the proposed app already uses the lest expensive tier, the field is empty.</summary>
         [Obsolete("")]
-        public int? AppTierDowngradeCost { get => _explicitNullValueAppTierDowngradeCost; set { _explicitNullValueAppTierDowngradeCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_tier_downgrade_cost"); else _explicitNullProperties?.Remove("app_tier_downgrade_cost"); } }
+        public int? AppTierDowngradeCost { get => _explicitNullValueAppTierDowngradeCost; set { _explicitNullValueAppTierDowngradeCost = value; AdditionalData?.Remove("app_tier_downgrade_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_tier_downgrade_cost"); else _explicitNullProperties?.Remove("app_tier_downgrade_cost"); } }
         private int? _explicitNullValueAppTierDowngradeCost = default!;
         /// <summary>The maximum number of free static apps the account can have. We will charge you for any additional static apps.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExistingStaticApps { get => _explicitNullValueExistingStaticApps; set { _explicitNullValueExistingStaticApps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_static_apps"); else _explicitNullProperties?.Remove("existing_static_apps"); } }
+        public string? ExistingStaticApps { get => _explicitNullValueExistingStaticApps; set { _explicitNullValueExistingStaticApps = value; AdditionalData?.Remove("existing_static_apps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_static_apps"); else _explicitNullProperties?.Remove("existing_static_apps"); } }
         private string? _explicitNullValueExistingStaticApps = default!;
 #nullable restore
 #else
-        public string ExistingStaticApps { get => _explicitNullValueExistingStaticApps; set { _explicitNullValueExistingStaticApps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_static_apps"); else _explicitNullProperties?.Remove("existing_static_apps"); } }
+        public string ExistingStaticApps { get => _explicitNullValueExistingStaticApps; set { _explicitNullValueExistingStaticApps = value; AdditionalData?.Remove("existing_static_apps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_static_apps"); else _explicitNullProperties?.Remove("existing_static_apps"); } }
         private string _explicitNullValueExistingStaticApps = default!;
 #endif
         /// <summary>The desired configuration of an application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec? Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec? Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; AdditionalData?.Remove("spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec? _explicitNullValueSpec = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec Spec { get => _explicitNullValueSpec; set { _explicitNullValueSpec = value; AdditionalData?.Remove("spec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spec"); else _explicitNullProperties?.Remove("spec"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpec _explicitNullValueSpec = default!;
 #endif
         /// <summary>

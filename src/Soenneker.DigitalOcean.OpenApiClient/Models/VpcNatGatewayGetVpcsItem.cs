@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("gateway_ip") is { } nullNodeGatewayIp && nullNodeGatewayIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GatewayIp = null;
-            if (parseNode.GetChildNode("subnet_uuid") is { } nullNodeSubnetUuid && nullNodeSubnetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubnetUuid = null;
-            if (parseNode.GetChildNode("vpc_uuid") is { } nullNodeVpcUuid && nullNodeVpcUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcUuid = null;
+            if (parseNode.GetChildNode("gateway_ip") is null) { _explicitNullValueGatewayIp = default!; _explicitNullProperties?.Remove("gateway_ip"); }
+            else if (parseNode.GetChildNode("gateway_ip") is { } nullNodeGatewayIp && nullNodeGatewayIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GatewayIp = null;
+            if (parseNode.GetChildNode("subnet_uuid") is null) { _explicitNullValueSubnetUuid = default!; _explicitNullProperties?.Remove("subnet_uuid"); }
+            else if (parseNode.GetChildNode("subnet_uuid") is { } nullNodeSubnetUuid && nullNodeSubnetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubnetUuid = null;
+            if (parseNode.GetChildNode("vpc_uuid") is null) { _explicitNullValueVpcUuid = default!; _explicitNullProperties?.Remove("vpc_uuid"); }
+            else if (parseNode.GetChildNode("vpc_uuid") is { } nullNodeVpcUuid && nullNodeVpcUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VpcUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,18 +30,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The gateway IP address of the VPC NAT gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GatewayIp { get => _explicitNullValueGatewayIp; set { _explicitNullValueGatewayIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gateway_ip"); else _explicitNullProperties?.Remove("gateway_ip"); } }
+        public string? GatewayIp { get => _explicitNullValueGatewayIp; set { _explicitNullValueGatewayIp = value; AdditionalData?.Remove("gateway_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gateway_ip"); else _explicitNullProperties?.Remove("gateway_ip"); } }
         private string? _explicitNullValueGatewayIp = default!;
 #nullable restore
 #else
-        public string GatewayIp { get => _explicitNullValueGatewayIp; set { _explicitNullValueGatewayIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gateway_ip"); else _explicitNullProperties?.Remove("gateway_ip"); } }
+        public string GatewayIp { get => _explicitNullValueGatewayIp; set { _explicitNullValueGatewayIp = value; AdditionalData?.Remove("gateway_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gateway_ip"); else _explicitNullProperties?.Remove("gateway_ip"); } }
         private string _explicitNullValueGatewayIp = default!;
 #endif
         /// <summary>The unique identifier of the VPC subnet to which the NAT gateway is attached.</summary>
-        public Guid? SubnetUuid { get => _explicitNullValueSubnetUuid; set { _explicitNullValueSubnetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subnet_uuid"); else _explicitNullProperties?.Remove("subnet_uuid"); } }
+        public Guid? SubnetUuid { get => _explicitNullValueSubnetUuid; set { _explicitNullValueSubnetUuid = value; AdditionalData?.Remove("subnet_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subnet_uuid"); else _explicitNullProperties?.Remove("subnet_uuid"); } }
         private Guid? _explicitNullValueSubnetUuid = default!;
         /// <summary>The unique identifier of the VPC to which the NAT gateway is attached.</summary>
-        public Guid? VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_uuid"); else _explicitNullProperties?.Remove("vpc_uuid"); } }
+        public Guid? VpcUuid { get => _explicitNullValueVpcUuid; set { _explicitNullValueVpcUuid = value; AdditionalData?.Remove("vpc_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc_uuid"); else _explicitNullProperties?.Remove("vpc_uuid"); } }
         private Guid? _explicitNullValueVpcUuid = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.VpcNatGatewayGetVpcsItem"/> and sets the default values.

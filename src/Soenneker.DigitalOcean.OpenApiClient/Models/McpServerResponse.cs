@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mcpServer") is { } nullNodeMcpServer && nullNodeMcpServer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServer = null;
+            if (parseNode.GetChildNode("mcpServer") is null) { _explicitNullValueMcpServer = default!; _explicitNullProperties?.Remove("mcpServer"); }
+            else if (parseNode.GetChildNode("mcpServer") is { } nullNodeMcpServer && nullNodeMcpServer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServer = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The MCP server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerResponseMcpServer? McpServer { get => _explicitNullValueMcpServer; set { _explicitNullValueMcpServer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcpServer"); else _explicitNullProperties?.Remove("mcpServer"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerResponseMcpServer? McpServer { get => _explicitNullValueMcpServer; set { _explicitNullValueMcpServer = value; AdditionalData?.Remove("mcpServer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcpServer"); else _explicitNullProperties?.Remove("mcpServer"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerResponseMcpServer? _explicitNullValueMcpServer = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerResponseMcpServer McpServer { get => _explicitNullValueMcpServer; set { _explicitNullValueMcpServer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcpServer"); else _explicitNullProperties?.Remove("mcpServer"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerResponseMcpServer McpServer { get => _explicitNullValueMcpServer; set { _explicitNullValueMcpServer = value; AdditionalData?.Remove("mcpServer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcpServer"); else _explicitNullProperties?.Remove("mcpServer"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.McpServerResponseMcpServer _explicitNullValueMcpServer = default!;
 #endif
         /// <summary>

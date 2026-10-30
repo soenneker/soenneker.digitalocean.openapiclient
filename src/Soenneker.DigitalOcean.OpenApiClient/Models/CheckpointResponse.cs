@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("checkpoint") is { } nullNodeCheckpoint && nullNodeCheckpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checkpoint = null;
+            if (parseNode.GetChildNode("checkpoint") is null) { _explicitNullValueCheckpoint = default!; _explicitNullProperties?.Remove("checkpoint"); }
+            else if (parseNode.GetChildNode("checkpoint") is { } nullNodeCheckpoint && nullNodeCheckpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checkpoint = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A checkpoint of a MicroVM&apos;s memory and disk. New MicroVMs created from a checkpoint start from that state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2? Checkpoint { get => _explicitNullValueCheckpoint; set { _explicitNullValueCheckpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint"); else _explicitNullProperties?.Remove("checkpoint"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2? Checkpoint { get => _explicitNullValueCheckpoint; set { _explicitNullValueCheckpoint = value; AdditionalData?.Remove("checkpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint"); else _explicitNullProperties?.Remove("checkpoint"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2? _explicitNullValueCheckpoint = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2 Checkpoint { get => _explicitNullValueCheckpoint; set { _explicitNullValueCheckpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint"); else _explicitNullProperties?.Remove("checkpoint"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2 Checkpoint { get => _explicitNullValueCheckpoint; set { _explicitNullValueCheckpoint = value; AdditionalData?.Remove("checkpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint"); else _explicitNullProperties?.Remove("checkpoint"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.Checkpoint2 _explicitNullValueCheckpoint = default!;
 #endif
         /// <summary>

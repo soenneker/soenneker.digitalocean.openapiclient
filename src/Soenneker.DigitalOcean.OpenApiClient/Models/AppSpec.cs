@@ -18,21 +18,36 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("databases") is { } nullNodeDatabases && nullNodeDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Databases = null;
-            if (parseNode.GetChildNode("disable_edge_cache") is { } nullNodeDisableEdgeCache && nullNodeDisableEdgeCache.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableEdgeCache = null;
-            if (parseNode.GetChildNode("disable_email_obfuscation") is { } nullNodeDisableEmailObfuscation && nullNodeDisableEmailObfuscation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableEmailObfuscation = null;
-            if (parseNode.GetChildNode("domains") is { } nullNodeDomains && nullNodeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domains = null;
-            if (parseNode.GetChildNode("egress") is { } nullNodeEgress && nullNodeEgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Egress = null;
-            if (parseNode.GetChildNode("enhanced_threat_control_enabled") is { } nullNodeEnhancedThreatControlEnabled && nullNodeEnhancedThreatControlEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnhancedThreatControlEnabled = null;
-            if (parseNode.GetChildNode("functions") is { } nullNodeFunctions && nullNodeFunctions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Functions = null;
-            if (parseNode.GetChildNode("ingress") is { } nullNodeIngress && nullNodeIngress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ingress = null;
-            if (parseNode.GetChildNode("jobs") is { } nullNodeJobs && nullNodeJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jobs = null;
-            if (parseNode.GetChildNode("maintenance") is { } nullNodeMaintenance && nullNodeMaintenance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maintenance = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("services") is { } nullNodeServices && nullNodeServices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Services = null;
-            if (parseNode.GetChildNode("static_sites") is { } nullNodeStaticSites && nullNodeStaticSites.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StaticSites = null;
-            if (parseNode.GetChildNode("workers") is { } nullNodeWorkers && nullNodeWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workers = null;
+            if (parseNode.GetChildNode("databases") is null) { _explicitNullValueDatabases = default!; _explicitNullProperties?.Remove("databases"); }
+            else if (parseNode.GetChildNode("databases") is { } nullNodeDatabases && nullNodeDatabases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Databases = null;
+            if (parseNode.GetChildNode("disable_edge_cache") is null) { _explicitNullValueDisableEdgeCache = default!; _explicitNullProperties?.Remove("disable_edge_cache"); }
+            else if (parseNode.GetChildNode("disable_edge_cache") is { } nullNodeDisableEdgeCache && nullNodeDisableEdgeCache.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableEdgeCache = null;
+            if (parseNode.GetChildNode("disable_email_obfuscation") is null) { _explicitNullValueDisableEmailObfuscation = default!; _explicitNullProperties?.Remove("disable_email_obfuscation"); }
+            else if (parseNode.GetChildNode("disable_email_obfuscation") is { } nullNodeDisableEmailObfuscation && nullNodeDisableEmailObfuscation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableEmailObfuscation = null;
+            if (parseNode.GetChildNode("domains") is null) { _explicitNullValueDomains = default!; _explicitNullProperties?.Remove("domains"); }
+            else if (parseNode.GetChildNode("domains") is { } nullNodeDomains && nullNodeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domains = null;
+            if (parseNode.GetChildNode("egress") is null) { _explicitNullValueEgress = default!; _explicitNullProperties?.Remove("egress"); }
+            else if (parseNode.GetChildNode("egress") is { } nullNodeEgress && nullNodeEgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Egress = null;
+            if (parseNode.GetChildNode("enhanced_threat_control_enabled") is null) { _explicitNullValueEnhancedThreatControlEnabled = default!; _explicitNullProperties?.Remove("enhanced_threat_control_enabled"); }
+            else if (parseNode.GetChildNode("enhanced_threat_control_enabled") is { } nullNodeEnhancedThreatControlEnabled && nullNodeEnhancedThreatControlEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnhancedThreatControlEnabled = null;
+            if (parseNode.GetChildNode("functions") is null) { _explicitNullValueFunctions = default!; _explicitNullProperties?.Remove("functions"); }
+            else if (parseNode.GetChildNode("functions") is { } nullNodeFunctions && nullNodeFunctions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Functions = null;
+            if (parseNode.GetChildNode("ingress") is null) { _explicitNullValueIngress = default!; _explicitNullProperties?.Remove("ingress"); }
+            else if (parseNode.GetChildNode("ingress") is { } nullNodeIngress && nullNodeIngress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ingress = null;
+            if (parseNode.GetChildNode("jobs") is null) { _explicitNullValueJobs = default!; _explicitNullProperties?.Remove("jobs"); }
+            else if (parseNode.GetChildNode("jobs") is { } nullNodeJobs && nullNodeJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jobs = null;
+            if (parseNode.GetChildNode("maintenance") is null) { _explicitNullValueMaintenance = default!; _explicitNullProperties?.Remove("maintenance"); }
+            else if (parseNode.GetChildNode("maintenance") is { } nullNodeMaintenance && nullNodeMaintenance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maintenance = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("services") is null) { _explicitNullValueServices = default!; _explicitNullProperties?.Remove("services"); }
+            else if (parseNode.GetChildNode("services") is { } nullNodeServices && nullNodeServices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Services = null;
+            if (parseNode.GetChildNode("static_sites") is null) { _explicitNullValueStaticSites = default!; _explicitNullProperties?.Remove("static_sites"); }
+            else if (parseNode.GetChildNode("static_sites") is { } nullNodeStaticSites && nullNodeStaticSites.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StaticSites = null;
+            if (parseNode.GetChildNode("workers") is null) { _explicitNullValueWorkers = default!; _explicitNullProperties?.Remove("workers"); }
+            else if (parseNode.GetChildNode("workers") is { } nullNodeWorkers && nullNodeWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -40,113 +55,113 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Database instances which can provide persistence to workloads within theapplication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDatabaseSpec>? Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDatabaseSpec>? Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; AdditionalData?.Remove("databases"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDatabaseSpec>? _explicitNullValueDatabases = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDatabaseSpec> Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDatabaseSpec> Databases { get => _explicitNullValueDatabases; set { _explicitNullValueDatabases = value; AdditionalData?.Remove("databases"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("databases"); else _explicitNullProperties?.Remove("databases"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDatabaseSpec> _explicitNullValueDatabases = default!;
 #endif
         /// <summary>If set to `true`, the app will **not** be cached at the edge (CDN). Enable this option if you want to manage CDN configuration yourself—whether by using an external CDN provider or by handling static content and caching within your app. This setting is also recommended for apps that require real-time data or serve dynamic content, such as those using Server-Sent Events (SSE) over GET, or hosting an MCP (Model Context Protocol) Server that utilizes SSE.  **Note:** This feature is not available for static site components.  For more information, see [Disable CDN Cache](https://docs.digitalocean.com/products/app-platform/how-to/cache-content/#disable-cdn-cache).</summary>
-        public bool? DisableEdgeCache { get => _explicitNullValueDisableEdgeCache; set { _explicitNullValueDisableEdgeCache = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_edge_cache"); else _explicitNullProperties?.Remove("disable_edge_cache"); } }
+        public bool? DisableEdgeCache { get => _explicitNullValueDisableEdgeCache; set { _explicitNullValueDisableEdgeCache = value; AdditionalData?.Remove("disable_edge_cache"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_edge_cache"); else _explicitNullProperties?.Remove("disable_edge_cache"); } }
         private bool? _explicitNullValueDisableEdgeCache = default!;
         /// <summary>If set to `true`, email addresses in the app will not be obfuscated. This isuseful for apps that require email addresses to be visible (in the HTML markup).</summary>
-        public bool? DisableEmailObfuscation { get => _explicitNullValueDisableEmailObfuscation; set { _explicitNullValueDisableEmailObfuscation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_email_obfuscation"); else _explicitNullProperties?.Remove("disable_email_obfuscation"); } }
+        public bool? DisableEmailObfuscation { get => _explicitNullValueDisableEmailObfuscation; set { _explicitNullValueDisableEmailObfuscation = value; AdditionalData?.Remove("disable_email_obfuscation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_email_obfuscation"); else _explicitNullProperties?.Remove("disable_email_obfuscation"); } }
         private bool? _explicitNullValueDisableEmailObfuscation = default!;
         /// <summary>A set of hostnames where the application will be available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDomainSpec>? Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDomainSpec>? Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; AdditionalData?.Remove("domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDomainSpec>? _explicitNullValueDomains = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDomainSpec> Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDomainSpec> Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; AdditionalData?.Remove("domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppDomainSpec> _explicitNullValueDomains = default!;
 #endif
         /// <summary>Specification for app egress configurations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppEgressSpec? Egress { get => _explicitNullValueEgress; set { _explicitNullValueEgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress"); else _explicitNullProperties?.Remove("egress"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppEgressSpec? Egress { get => _explicitNullValueEgress; set { _explicitNullValueEgress = value; AdditionalData?.Remove("egress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress"); else _explicitNullProperties?.Remove("egress"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppEgressSpec? _explicitNullValueEgress = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppEgressSpec Egress { get => _explicitNullValueEgress; set { _explicitNullValueEgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress"); else _explicitNullProperties?.Remove("egress"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppEgressSpec Egress { get => _explicitNullValueEgress; set { _explicitNullValueEgress = value; AdditionalData?.Remove("egress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress"); else _explicitNullProperties?.Remove("egress"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppEgressSpec _explicitNullValueEgress = default!;
 #endif
         /// <summary>If set to `true`, suspicious requests will go through additional security checks to help mitigate layer 7 DDoS attacks.</summary>
-        public bool? EnhancedThreatControlEnabled { get => _explicitNullValueEnhancedThreatControlEnabled; set { _explicitNullValueEnhancedThreatControlEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enhanced_threat_control_enabled"); else _explicitNullProperties?.Remove("enhanced_threat_control_enabled"); } }
+        public bool? EnhancedThreatControlEnabled { get => _explicitNullValueEnhancedThreatControlEnabled; set { _explicitNullValueEnhancedThreatControlEnabled = value; AdditionalData?.Remove("enhanced_threat_control_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enhanced_threat_control_enabled"); else _explicitNullProperties?.Remove("enhanced_threat_control_enabled"); } }
         private bool? _explicitNullValueEnhancedThreatControlEnabled = default!;
         /// <summary>Workloads which expose publicly-accessible HTTP services via Functions Components.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsSpec>? Functions { get => _explicitNullValueFunctions; set { _explicitNullValueFunctions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("functions"); else _explicitNullProperties?.Remove("functions"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsSpec>? Functions { get => _explicitNullValueFunctions; set { _explicitNullValueFunctions = value; AdditionalData?.Remove("functions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("functions"); else _explicitNullProperties?.Remove("functions"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsSpec>? _explicitNullValueFunctions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsSpec> Functions { get => _explicitNullValueFunctions; set { _explicitNullValueFunctions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("functions"); else _explicitNullProperties?.Remove("functions"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsSpec> Functions { get => _explicitNullValueFunctions; set { _explicitNullValueFunctions = value; AdditionalData?.Remove("functions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("functions"); else _explicitNullProperties?.Remove("functions"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppFunctionsSpec> _explicitNullValueFunctions = default!;
 #endif
         /// <summary>Specification for app ingress configurations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpec? Ingress { get => _explicitNullValueIngress; set { _explicitNullValueIngress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ingress"); else _explicitNullProperties?.Remove("ingress"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpec? Ingress { get => _explicitNullValueIngress; set { _explicitNullValueIngress = value; AdditionalData?.Remove("ingress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ingress"); else _explicitNullProperties?.Remove("ingress"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpec? _explicitNullValueIngress = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpec Ingress { get => _explicitNullValueIngress; set { _explicitNullValueIngress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ingress"); else _explicitNullProperties?.Remove("ingress"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpec Ingress { get => _explicitNullValueIngress; set { _explicitNullValueIngress = value; AdditionalData?.Remove("ingress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ingress"); else _explicitNullProperties?.Remove("ingress"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppIngressSpec _explicitNullValueIngress = default!;
 #endif
         /// <summary>Pre and post deployment workloads which do not expose publicly-accessible HTTP routes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobSpec>? Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobSpec>? Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; AdditionalData?.Remove("jobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobSpec>? _explicitNullValueJobs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobSpec> Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobSpec> Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; AdditionalData?.Remove("jobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobSpec> _explicitNullValueJobs = default!;
 #endif
         /// <summary>Specification to configure maintenance settings for the app, such as maintenance mode and archiving the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMaintenanceSpec? Maintenance { get => _explicitNullValueMaintenance; set { _explicitNullValueMaintenance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance"); else _explicitNullProperties?.Remove("maintenance"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMaintenanceSpec? Maintenance { get => _explicitNullValueMaintenance; set { _explicitNullValueMaintenance = value; AdditionalData?.Remove("maintenance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance"); else _explicitNullProperties?.Remove("maintenance"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMaintenanceSpec? _explicitNullValueMaintenance = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMaintenanceSpec Maintenance { get => _explicitNullValueMaintenance; set { _explicitNullValueMaintenance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance"); else _explicitNullProperties?.Remove("maintenance"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMaintenanceSpec Maintenance { get => _explicitNullValueMaintenance; set { _explicitNullValueMaintenance = value; AdditionalData?.Remove("maintenance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance"); else _explicitNullProperties?.Remove("maintenance"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMaintenanceSpec _explicitNullValueMaintenance = default!;
 #endif
         /// <summary>The name of the app. Must be unique across all apps in the same account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The slug form of the geographical origin of the app. Default: `nearest available`</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpecRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpecRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpecRegion? _explicitNullValueRegion = default!;
         /// <summary>Workloads which expose publicly-accessible HTTP services.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpec>? Services { get => _explicitNullValueServices; set { _explicitNullValueServices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("services"); else _explicitNullProperties?.Remove("services"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpec>? Services { get => _explicitNullValueServices; set { _explicitNullValueServices = value; AdditionalData?.Remove("services"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("services"); else _explicitNullProperties?.Remove("services"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpec>? _explicitNullValueServices = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpec> Services { get => _explicitNullValueServices; set { _explicitNullValueServices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("services"); else _explicitNullProperties?.Remove("services"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpec> Services { get => _explicitNullValueServices; set { _explicitNullValueServices = value; AdditionalData?.Remove("services"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("services"); else _explicitNullProperties?.Remove("services"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpec> _explicitNullValueServices = default!;
 #endif
         /// <summary>Content which can be rendered to static web assets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpec>? StaticSites { get => _explicitNullValueStaticSites; set { _explicitNullValueStaticSites = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("static_sites"); else _explicitNullProperties?.Remove("static_sites"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpec>? StaticSites { get => _explicitNullValueStaticSites; set { _explicitNullValueStaticSites = value; AdditionalData?.Remove("static_sites"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("static_sites"); else _explicitNullProperties?.Remove("static_sites"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpec>? _explicitNullValueStaticSites = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpec> StaticSites { get => _explicitNullValueStaticSites; set { _explicitNullValueStaticSites = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("static_sites"); else _explicitNullProperties?.Remove("static_sites"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpec> StaticSites { get => _explicitNullValueStaticSites; set { _explicitNullValueStaticSites = value; AdditionalData?.Remove("static_sites"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("static_sites"); else _explicitNullProperties?.Remove("static_sites"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpec> _explicitNullValueStaticSites = default!;
 #endif
         /// <summary>The vpc property</summary>
@@ -160,11 +175,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Workloads which do not expose publicly-accessible HTTP services.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppWorkerSpec>? Workers { get => _explicitNullValueWorkers; set { _explicitNullValueWorkers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workers"); else _explicitNullProperties?.Remove("workers"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppWorkerSpec>? Workers { get => _explicitNullValueWorkers; set { _explicitNullValueWorkers = value; AdditionalData?.Remove("workers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workers"); else _explicitNullProperties?.Remove("workers"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppWorkerSpec>? _explicitNullValueWorkers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppWorkerSpec> Workers { get => _explicitNullValueWorkers; set { _explicitNullValueWorkers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workers"); else _explicitNullProperties?.Remove("workers"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppWorkerSpec> Workers { get => _explicitNullValueWorkers; set { _explicitNullValueWorkers = value; AdditionalData?.Remove("workers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workers"); else _explicitNullProperties?.Remove("workers"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppWorkerSpec> _explicitNullValueWorkers = default!;
 #endif
         /// <summary>
@@ -206,7 +221,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppJobSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "maintenance", n => { Maintenance = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMaintenanceSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppMaintenanceSpec.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpecRegion>(); } },
+                { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppSpecRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
                 { "services", n => { Services = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppServiceSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "static_sites", n => { StaticSites = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppStaticSiteSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "vpc", n => { Vpc = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsVpc>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsVpc.CreateFromDiscriminatorValue); } },

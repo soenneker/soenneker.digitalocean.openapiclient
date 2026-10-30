@@ -18,17 +18,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("price_per_hour") is { } nullNodePricePerHour && nullNodePricePerHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerHour = null;
-            if (parseNode.GetChildNode("price_per_month") is { } nullNodePricePerMonth && nullNodePricePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerMonth = null;
+            if (parseNode.GetChildNode("price_per_hour") is null) { _explicitNullValuePricePerHour = default!; _explicitNullProperties?.Remove("price_per_hour"); }
+            else if (parseNode.GetChildNode("price_per_hour") is { } nullNodePricePerHour && nullNodePricePerHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerHour = null;
+            if (parseNode.GetChildNode("price_per_month") is null) { _explicitNullValuePricePerMonth = default!; _explicitNullProperties?.Remove("price_per_month"); }
+            else if (parseNode.GetChildNode("price_per_month") is { } nullNodePricePerMonth && nullNodePricePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerMonth = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The price per hour of running time, in USD.</summary>
-        public double? PricePerHour { get => _explicitNullValuePricePerHour; set { _explicitNullValuePricePerHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_hour"); else _explicitNullProperties?.Remove("price_per_hour"); } }
+        public double? PricePerHour { get => _explicitNullValuePricePerHour; set { _explicitNullValuePricePerHour = value; AdditionalData?.Remove("price_per_hour"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_hour"); else _explicitNullProperties?.Remove("price_per_hour"); } }
         private double? _explicitNullValuePricePerHour = default!;
         /// <summary>The price for running continuously for a month (730 hours), in USD.</summary>
-        public double? PricePerMonth { get => _explicitNullValuePricePerMonth; set { _explicitNullValuePricePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_month"); else _explicitNullProperties?.Remove("price_per_month"); } }
+        public double? PricePerMonth { get => _explicitNullValuePricePerMonth; set { _explicitNullValuePricePerMonth = value; AdditionalData?.Remove("price_per_month"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_month"); else _explicitNullProperties?.Remove("price_per_month"); } }
         private double? _explicitNullValuePricePerMonth = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsSizesItemPricing"/> and sets the default values.

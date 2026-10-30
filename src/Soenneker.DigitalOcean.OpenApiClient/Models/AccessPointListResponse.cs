@@ -18,17 +18,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("access_points") is { } nullNodeAccessPoints && nullNodeAccessPoints.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessPoints = null;
+            if (parseNode.GetChildNode("access_points") is null) { _explicitNullValueAccessPoints = default!; _explicitNullProperties?.Remove("access_points"); }
+            else if (parseNode.GetChildNode("access_points") is { } nullNodeAccessPoints && nullNodeAccessPoints.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessPoints = null;
         }
 
         /// <summary>Array of access point objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse>? AccessPoints { get => _explicitNullValueAccessPoints; set { _explicitNullValueAccessPoints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_points"); else _explicitNullProperties?.Remove("access_points"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse>? AccessPoints { get => _explicitNullValueAccessPoints; set { _explicitNullValueAccessPoints = value; AdditionalData?.Remove("access_points"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_points"); else _explicitNullProperties?.Remove("access_points"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse>? _explicitNullValueAccessPoints = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse> AccessPoints { get => _explicitNullValueAccessPoints; set { _explicitNullValueAccessPoints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_points"); else _explicitNullProperties?.Remove("access_points"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse> AccessPoints { get => _explicitNullValueAccessPoints; set { _explicitNullValueAccessPoints = value; AdditionalData?.Remove("access_points"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_points"); else _explicitNullProperties?.Remove("access_points"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse> _explicitNullValueAccessPoints = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

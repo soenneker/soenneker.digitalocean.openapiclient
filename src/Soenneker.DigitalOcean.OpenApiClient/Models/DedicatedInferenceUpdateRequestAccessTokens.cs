@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hugging_face_token") is { } nullNodeHuggingFaceToken && nullNodeHuggingFaceToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HuggingFaceToken = null;
+            if (parseNode.GetChildNode("hugging_face_token") is null) { _explicitNullValueHuggingFaceToken = default!; _explicitNullProperties?.Remove("hugging_face_token"); }
+            else if (parseNode.GetChildNode("hugging_face_token") is { } nullNodeHuggingFaceToken && nullNodeHuggingFaceToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HuggingFaceToken = null;
         }
 
         /// <summary>Hugging Face token required for gated models.</summary>

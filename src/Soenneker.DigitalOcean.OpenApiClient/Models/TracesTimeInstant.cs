@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("absolute") is { } nullNodeAbsolute && nullNodeAbsolute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Absolute = null;
-            if (parseNode.GetChildNode("relative") is { } nullNodeRelative && nullNodeRelative.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relative = null;
+            if (parseNode.GetChildNode("absolute") is null) { _explicitNullValueAbsolute = default!; _explicitNullProperties?.Remove("absolute"); }
+            else if (parseNode.GetChildNode("absolute") is { } nullNodeAbsolute && nullNodeAbsolute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Absolute = null;
+            if (parseNode.GetChildNode("relative") is null) { _explicitNullValueRelative = default!; _explicitNullProperties?.Remove("relative"); }
+            else if (parseNode.GetChildNode("relative") is { } nullNodeRelative && nullNodeRelative.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relative = null;
         }
 
         /// <summary>An absolute timestamp, either RFC3339 (with optional fractional seconds) or a Unix epoch integer as a decimal string. Epoch precision is inferred from magnitude: seconds, milliseconds, microseconds, or nanoseconds.</summary>

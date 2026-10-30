@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("configured_limits") is { } nullNodeConfiguredLimits && nullNodeConfiguredLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfiguredLimits = null;
-            if (parseNode.GetChildNode("effective_limits") is { } nullNodeEffectiveLimits && nullNodeEffectiveLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveLimits = null;
+            if (parseNode.GetChildNode("configured_limits") is null) { _explicitNullValueConfiguredLimits = default!; _explicitNullProperties?.Remove("configured_limits"); }
+            else if (parseNode.GetChildNode("configured_limits") is { } nullNodeConfiguredLimits && nullNodeConfiguredLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfiguredLimits = null;
+            if (parseNode.GetChildNode("effective_limits") is null) { _explicitNullValueEffectiveLimits = default!; _explicitNullProperties?.Remove("effective_limits"); }
+            else if (parseNode.GetChildNode("effective_limits") is { } nullNodeEffectiveLimits && nullNodeEffectiveLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveLimits = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Overrides set for the actor; categories without one are omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverride>? ConfiguredLimits { get => _explicitNullValueConfiguredLimits; set { _explicitNullValueConfiguredLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configured_limits"); else _explicitNullProperties?.Remove("configured_limits"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverride>? ConfiguredLimits { get => _explicitNullValueConfiguredLimits; set { _explicitNullValueConfiguredLimits = value; AdditionalData?.Remove("configured_limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configured_limits"); else _explicitNullProperties?.Remove("configured_limits"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverride>? _explicitNullValueConfiguredLimits = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverride> ConfiguredLimits { get => _explicitNullValueConfiguredLimits; set { _explicitNullValueConfiguredLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configured_limits"); else _explicitNullProperties?.Remove("configured_limits"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverride> ConfiguredLimits { get => _explicitNullValueConfiguredLimits; set { _explicitNullValueConfiguredLimits = value; AdditionalData?.Remove("configured_limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configured_limits"); else _explicitNullProperties?.Remove("configured_limits"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.LimitOverride> _explicitNullValueConfiguredLimits = default!;
 #endif
         /// <summary>Limits in effect for the actor in every category: the lower of your team&apos;s limit and the actor&apos;s override.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits? EffectiveLimits { get => _explicitNullValueEffectiveLimits; set { _explicitNullValueEffectiveLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_limits"); else _explicitNullProperties?.Remove("effective_limits"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits? EffectiveLimits { get => _explicitNullValueEffectiveLimits; set { _explicitNullValueEffectiveLimits = value; AdditionalData?.Remove("effective_limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_limits"); else _explicitNullProperties?.Remove("effective_limits"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits? _explicitNullValueEffectiveLimits = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits EffectiveLimits { get => _explicitNullValueEffectiveLimits; set { _explicitNullValueEffectiveLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_limits"); else _explicitNullProperties?.Remove("effective_limits"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits EffectiveLimits { get => _explicitNullValueEffectiveLimits; set { _explicitNullValueEffectiveLimits = value; AdditionalData?.Remove("effective_limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_limits"); else _explicitNullProperties?.Remove("effective_limits"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.GetActorLimitsResponseEffectiveLimits _explicitNullValueEffectiveLimits = default!;
 #endif
         /// <summary>

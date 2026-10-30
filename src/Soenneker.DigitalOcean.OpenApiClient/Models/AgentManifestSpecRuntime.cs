@@ -18,34 +18,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("adapter") is { } nullNodeAdapter && nullNodeAdapter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Adapter = null;
-            if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
-            if (parseNode.GetChildNode("custom") is { } nullNodeCustom && nullNodeCustom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Custom = null;
+            if (parseNode.GetChildNode("adapter") is null) { _explicitNullValueAdapter = default!; _explicitNullProperties?.Remove("adapter"); }
+            else if (parseNode.GetChildNode("adapter") is { } nullNodeAdapter && nullNodeAdapter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Adapter = null;
+            if (parseNode.GetChildNode("config") is null) { _explicitNullValueConfig = default!; _explicitNullProperties?.Remove("config"); }
+            else if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
+            if (parseNode.GetChildNode("custom") is null) { _explicitNullValueCustom = default!; _explicitNullProperties?.Remove("custom"); }
+            else if (parseNode.GetChildNode("custom") is { } nullNodeCustom && nullNodeCustom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Custom = null;
         }
 
         /// <summary>The adapter property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeAdapter? Adapter { get => _explicitNullValueAdapter; set { _explicitNullValueAdapter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("adapter"); else _explicitNullProperties?.Remove("adapter"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeAdapter? Adapter { get => _explicitNullValueAdapter; set { _explicitNullValueAdapter = value; AdditionalData?.Remove("adapter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("adapter"); else _explicitNullProperties?.Remove("adapter"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeAdapter? _explicitNullValueAdapter = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>OPAQUE, provider-specific runtime config. Only for adapter: codex-agentapi today, where it is the OpenAI Agents API create-session body (agent/environment/input) that doctl forwards verbatim to OpenAI&apos;s POST /v1/agents/sessions; harness-api stores and echoes it but never parses or validates its contents (so DO stays forward-compatible as OpenAI&apos;s schema evolves). The OpenAI session_id is passed on the create call (the openai_session_id query parameter), not in this block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeConfigProperty? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeConfigProperty? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeConfigProperty? _explicitNullValueConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeConfigProperty Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeConfigProperty Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeConfigProperty _explicitNullValueConfig = default!;
 #endif
         /// <summary>BYO container; requires adapter: custom. image is required and should be digest-pinned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeCustom? Custom { get => _explicitNullValueCustom; set { _explicitNullValueCustom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom"); else _explicitNullProperties?.Remove("custom"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeCustom? Custom { get => _explicitNullValueCustom; set { _explicitNullValueCustom = value; AdditionalData?.Remove("custom"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom"); else _explicitNullProperties?.Remove("custom"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeCustom? _explicitNullValueCustom = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeCustom Custom { get => _explicitNullValueCustom; set { _explicitNullValueCustom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom"); else _explicitNullProperties?.Remove("custom"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeCustom Custom { get => _explicitNullValueCustom; set { _explicitNullValueCustom = value; AdditionalData?.Remove("custom"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom"); else _explicitNullProperties?.Remove("custom"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeCustom _explicitNullValueCustom = default!;
 #endif
         /// <summary>
@@ -73,7 +76,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "adapter", n => { Adapter = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeAdapter>(); } },
+                { "adapter", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeAdapter>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAdapter = default; _explicitNullProperties?.Remove("adapter"); AdditionalData["adapter"] = unknown; } else { Adapter = parsed; AdditionalData.Remove("adapter"); } } },
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeConfigProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeConfigProperty.CreateFromDiscriminatorValue); } },
                 { "custom", n => { Custom = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeCustom>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecRuntimeCustom.CreateFromDiscriminatorValue); } },
             };

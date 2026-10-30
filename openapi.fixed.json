@@ -80082,7 +80082,7 @@
         "type": "object",
         "properties": {
           "config": {
-            "$ref": "#/components/schemas/LogsinkUpdateConfig"
+            "$ref": "#/components/schemas/LogsinkCreateAllOf2Config"
           }
         }
       },
@@ -83303,7 +83303,7 @@
             "example": "my-autoscale-pool"
           },
           "config": {
-            "$ref": "#/components/schemas/AutoscalePoolCreateConfig"
+            "$ref": "#/components/schemas/AutoscalePoolConfig"
           },
           "droplet_template": {
             "$ref": "#/components/schemas/AutoscalePoolDropletTemplate"
@@ -113178,15 +113178,6 @@
         }
       },
       "PageLinksPages": {
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ForwardLinks"
-          },
-          {
-            "$ref": "#/components/schemas/BackwardLinks"
-          },
-          {}
-        ],
         "example": {
           "pages": {
             "first": "https://api.digitalocean.com/v2/account/keys?page=1",
@@ -116105,18 +116096,10 @@
         "description": "The region that the floating IP is reserved to. When you query a floating IP, the entire region object will be returned."
       },
       "FloatingIpDroplet": {
-        "anyOf": [
-          {
-            "title": "null",
-            "type": "object",
-            "description": "If the floating IP is not assigned to a Droplet, the value will be null.",
-            "nullable": true
-          },
-          {
-            "$ref": "#/components/schemas/Droplet"
-          }
-        ],
+        "title": "null",
+        "type": "object",
         "description": "The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null. \u003Cbr\u003E\u003Cbr\u003ERequires \u0060droplet:read\u0060 scope.",
+        "nullable": true,
         "example": null
       },
       "FloatingIpCreateAssignToDroplet": {
@@ -116643,18 +116626,10 @@
         "description": "The region that the reserved IP is reserved to. When you query a reserved IP, the entire region object will be returned."
       },
       "ReservedIpDroplet": {
-        "anyOf": [
-          {
-            "title": "null",
-            "type": "object",
-            "description": "If the reserved IP is not assigned to a Droplet, the value will be null.",
-            "nullable": true
-          },
-          {
-            "$ref": "#/components/schemas/Droplet"
-          }
-        ],
+        "title": "null",
+        "type": "object",
         "description": "The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060droplet:read\u0060 scope.",
+        "nullable": true,
         "example": null
       },
       "ReservedIpCreateAssignToDroplet": {
@@ -116706,32 +116681,17 @@
         }
       },
       "ReservedIpv6ListBodyReservedIpv6SItemDroplet": {
-        "anyOf": [
-          {
-            "title": "null",
-            "type": "object",
-            "description": "If the reserved IP is not assigned to a Droplet, the value will be null.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060droplet:read\u0060 scope.",
-            "nullable": true
-          },
-          {
-            "$ref": "#/components/schemas/Droplet"
-          }
-        ],
+        "title": "null",
+        "type": "object",
         "description": "Requires \u0060droplet:read\u0060 scope.",
+        "nullable": true,
         "example": null
       },
       "ReservedIpv6Droplet": {
-        "anyOf": [
-          {
-            "title": "null",
-            "type": "object",
-            "description": "If the reserved IP is not assigned to a Droplet, the value will be null.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060droplet:read\u0060 scope.",
-            "nullable": true
-          },
-          {
-            "$ref": "#/components/schemas/Droplet"
-          }
-        ],
+        "title": "null",
+        "type": "object",
+        "description": "If the reserved IP is not assigned to a Droplet, the value will be null.\u003Cbr\u003E\u003Cbr\u003ERequires \u0060droplet:read\u0060 scope.",
+        "nullable": true,
         "example": null
       },
       "ReservedIpv6ActionAssignAllOf2": {

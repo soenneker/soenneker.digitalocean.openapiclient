@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("base_template") is { } nullNodeBaseTemplate && nullNodeBaseTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseTemplate = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("source_oci_ref") is { } nullNodeSourceOciRef && nullNodeSourceOciRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceOciRef = null;
+            if (parseNode.GetChildNode("base_template") is null) { _explicitNullValueBaseTemplate = default!; _explicitNullProperties?.Remove("base_template"); }
+            else if (parseNode.GetChildNode("base_template") is { } nullNodeBaseTemplate && nullNodeBaseTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseTemplate = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("source_oci_ref") is null) { _explicitNullValueSourceOciRef = default!; _explicitNullProperties?.Remove("source_oci_ref"); }
+            else if (parseNode.GetChildNode("source_oci_ref") is { } nullNodeSourceOciRef && nullNodeSourceOciRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceOciRef = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Base template key. One of: coding-base, coding-claude-code, coding-codex, coding-hermes, coding-opencode, langgraph.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseTemplate { get => _explicitNullValueBaseTemplate; set { _explicitNullValueBaseTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_template"); else _explicitNullProperties?.Remove("base_template"); } }
+        public string? BaseTemplate { get => _explicitNullValueBaseTemplate; set { _explicitNullValueBaseTemplate = value; AdditionalData?.Remove("base_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_template"); else _explicitNullProperties?.Remove("base_template"); } }
         private string? _explicitNullValueBaseTemplate = default!;
 #nullable restore
 #else
-        public string BaseTemplate { get => _explicitNullValueBaseTemplate; set { _explicitNullValueBaseTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_template"); else _explicitNullProperties?.Remove("base_template"); } }
+        public string BaseTemplate { get => _explicitNullValueBaseTemplate; set { _explicitNullValueBaseTemplate = value; AdditionalData?.Remove("base_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_template"); else _explicitNullProperties?.Remove("base_template"); } }
         private string _explicitNullValueBaseTemplate = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The source_oci_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceOciRef { get => _explicitNullValueSourceOciRef; set { _explicitNullValueSourceOciRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_oci_ref"); else _explicitNullProperties?.Remove("source_oci_ref"); } }
+        public string? SourceOciRef { get => _explicitNullValueSourceOciRef; set { _explicitNullValueSourceOciRef = value; AdditionalData?.Remove("source_oci_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_oci_ref"); else _explicitNullProperties?.Remove("source_oci_ref"); } }
         private string? _explicitNullValueSourceOciRef = default!;
 #nullable restore
 #else
-        public string SourceOciRef { get => _explicitNullValueSourceOciRef; set { _explicitNullValueSourceOciRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_oci_ref"); else _explicitNullProperties?.Remove("source_oci_ref"); } }
+        public string SourceOciRef { get => _explicitNullValueSourceOciRef; set { _explicitNullValueSourceOciRef = value; AdditionalData?.Remove("source_oci_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_oci_ref"); else _explicitNullProperties?.Remove("source_oci_ref"); } }
         private string _explicitNullValueSourceOciRef = default!;
 #endif
         /// <summary>

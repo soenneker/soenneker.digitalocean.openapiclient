@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("rule_count") is { } nullNodeRuleCount && nullNodeRuleCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleCount = null;
+            if (parseNode.GetChildNode("rule_count") is null) { _explicitNullValueRuleCount = default!; _explicitNullProperties?.Remove("rule_count"); }
+            else if (parseNode.GetChildNode("rule_count") is { } nullNodeRuleCount && nullNodeRuleCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of alert rules that reference this channel.</summary>
-        public int? RuleCount { get => _explicitNullValueRuleCount; set { _explicitNullValueRuleCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_count"); else _explicitNullProperties?.Remove("rule_count"); } }
+        public int? RuleCount { get => _explicitNullValueRuleCount; set { _explicitNullValueRuleCount = value; AdditionalData?.Remove("rule_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_count"); else _explicitNullProperties?.Remove("rule_count"); } }
         private int? _explicitNullValueRuleCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelUsageComposed"/> and sets the default values.

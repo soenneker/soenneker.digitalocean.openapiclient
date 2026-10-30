@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("candidate_latency") is { } nullNodeCandidateLatency && nullNodeCandidateLatency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateLatency = null;
-            if (parseNode.GetChildNode("token_usage") is { } nullNodeTokenUsage && nullNodeTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUsage = null;
+            if (parseNode.GetChildNode("candidate_latency") is null) { _explicitNullValueCandidateLatency = default!; _explicitNullProperties?.Remove("candidate_latency"); }
+            else if (parseNode.GetChildNode("candidate_latency") is { } nullNodeCandidateLatency && nullNodeCandidateLatency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateLatency = null;
+            if (parseNode.GetChildNode("token_usage") is null) { _explicitNullValueTokenUsage = default!; _explicitNullProperties?.Remove("token_usage"); }
+            else if (parseNode.GetChildNode("token_usage") is { } nullNodeTokenUsage && nullNodeTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUsage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Latency metrics for candidate model invocations (in milliseconds).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics? CandidateLatency { get => _explicitNullValueCandidateLatency; set { _explicitNullValueCandidateLatency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_latency"); else _explicitNullProperties?.Remove("candidate_latency"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics? CandidateLatency { get => _explicitNullValueCandidateLatency; set { _explicitNullValueCandidateLatency = value; AdditionalData?.Remove("candidate_latency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_latency"); else _explicitNullProperties?.Remove("candidate_latency"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics? _explicitNullValueCandidateLatency = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics CandidateLatency { get => _explicitNullValueCandidateLatency; set { _explicitNullValueCandidateLatency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_latency"); else _explicitNullProperties?.Remove("candidate_latency"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics CandidateLatency { get => _explicitNullValueCandidateLatency; set { _explicitNullValueCandidateLatency = value; AdditionalData?.Remove("candidate_latency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_latency"); else _explicitNullProperties?.Remove("candidate_latency"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiLatencyMetrics _explicitNullValueCandidateLatency = default!;
 #endif
         /// <summary>The token_usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage? TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage? TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; AdditionalData?.Remove("token_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage? _explicitNullValueTokenUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; AdditionalData?.Remove("token_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTokenUsage _explicitNullValueTokenUsage = default!;
 #endif
         /// <summary>

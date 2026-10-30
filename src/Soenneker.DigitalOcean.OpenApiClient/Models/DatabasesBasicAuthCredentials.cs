@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("basic_auth_password") is { } nullNodeBasicAuthPassword && nullNodeBasicAuthPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BasicAuthPassword = null;
-            if (parseNode.GetChildNode("basic_auth_username") is { } nullNodeBasicAuthUsername && nullNodeBasicAuthUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BasicAuthUsername = null;
+            if (parseNode.GetChildNode("basic_auth_password") is null) { _explicitNullValueBasicAuthPassword = default!; _explicitNullProperties?.Remove("basic_auth_password"); }
+            else if (parseNode.GetChildNode("basic_auth_password") is { } nullNodeBasicAuthPassword && nullNodeBasicAuthPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BasicAuthPassword = null;
+            if (parseNode.GetChildNode("basic_auth_username") is null) { _explicitNullValueBasicAuthUsername = default!; _explicitNullProperties?.Remove("basic_auth_username"); }
+            else if (parseNode.GetChildNode("basic_auth_username") is { } nullNodeBasicAuthUsername && nullNodeBasicAuthUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BasicAuthUsername = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>basic authentication password for metrics HTTP endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BasicAuthPassword { get => _explicitNullValueBasicAuthPassword; set { _explicitNullValueBasicAuthPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth_password"); else _explicitNullProperties?.Remove("basic_auth_password"); } }
+        public string? BasicAuthPassword { get => _explicitNullValueBasicAuthPassword; set { _explicitNullValueBasicAuthPassword = value; AdditionalData?.Remove("basic_auth_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth_password"); else _explicitNullProperties?.Remove("basic_auth_password"); } }
         private string? _explicitNullValueBasicAuthPassword = default!;
 #nullable restore
 #else
-        public string BasicAuthPassword { get => _explicitNullValueBasicAuthPassword; set { _explicitNullValueBasicAuthPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth_password"); else _explicitNullProperties?.Remove("basic_auth_password"); } }
+        public string BasicAuthPassword { get => _explicitNullValueBasicAuthPassword; set { _explicitNullValueBasicAuthPassword = value; AdditionalData?.Remove("basic_auth_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth_password"); else _explicitNullProperties?.Remove("basic_auth_password"); } }
         private string _explicitNullValueBasicAuthPassword = default!;
 #endif
         /// <summary>basic authentication username for metrics HTTP endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BasicAuthUsername { get => _explicitNullValueBasicAuthUsername; set { _explicitNullValueBasicAuthUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth_username"); else _explicitNullProperties?.Remove("basic_auth_username"); } }
+        public string? BasicAuthUsername { get => _explicitNullValueBasicAuthUsername; set { _explicitNullValueBasicAuthUsername = value; AdditionalData?.Remove("basic_auth_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth_username"); else _explicitNullProperties?.Remove("basic_auth_username"); } }
         private string? _explicitNullValueBasicAuthUsername = default!;
 #nullable restore
 #else
-        public string BasicAuthUsername { get => _explicitNullValueBasicAuthUsername; set { _explicitNullValueBasicAuthUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth_username"); else _explicitNullProperties?.Remove("basic_auth_username"); } }
+        public string BasicAuthUsername { get => _explicitNullValueBasicAuthUsername; set { _explicitNullValueBasicAuthUsername = value; AdditionalData?.Remove("basic_auth_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basic_auth_username"); else _explicitNullProperties?.Remove("basic_auth_username"); } }
         private string _explicitNullValueBasicAuthUsername = default!;
 #endif
         /// <summary>

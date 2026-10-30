@@ -18,9 +18,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("token_usage") is { } nullNodeTokenUsage && nullNodeTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUsage = null;
-            if (parseNode.GetChildNode("total_duration_sec") is { } nullNodeTotalDurationSec && nullNodeTotalDurationSec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalDurationSec = null;
-            if (parseNode.GetChildNode("verdict_counts") is { } nullNodeVerdictCounts && nullNodeVerdictCounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerdictCounts = null;
+            if (parseNode.GetChildNode("token_usage") is null) { _explicitNullValueTokenUsage = default!; _explicitNullProperties?.Remove("token_usage"); }
+            else if (parseNode.GetChildNode("token_usage") is { } nullNodeTokenUsage && nullNodeTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUsage = null;
+            if (parseNode.GetChildNode("total_duration_sec") is null) { _explicitNullValueTotalDurationSec = default!; _explicitNullProperties?.Remove("total_duration_sec"); }
+            else if (parseNode.GetChildNode("total_duration_sec") is { } nullNodeTotalDurationSec && nullNodeTotalDurationSec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalDurationSec = null;
+            if (parseNode.GetChildNode("verdict_counts") is null) { _explicitNullValueVerdictCounts = default!; _explicitNullProperties?.Remove("verdict_counts"); }
+            else if (parseNode.GetChildNode("verdict_counts") is { } nullNodeVerdictCounts && nullNodeVerdictCounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerdictCounts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Per-actor token accounting for a run or episode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; AdditionalData?.Remove("token_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage? _explicitNullValueTokenUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; AdditionalData?.Remove("token_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationTokenUsage _explicitNullValueTokenUsage = default!;
 #endif
         /// <summary>Total wall-clock duration across the run, in seconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalDurationSec { get => _explicitNullValueTotalDurationSec; set { _explicitNullValueTotalDurationSec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_duration_sec"); else _explicitNullProperties?.Remove("total_duration_sec"); } }
+        public string? TotalDurationSec { get => _explicitNullValueTotalDurationSec; set { _explicitNullValueTotalDurationSec = value; AdditionalData?.Remove("total_duration_sec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_duration_sec"); else _explicitNullProperties?.Remove("total_duration_sec"); } }
         private string? _explicitNullValueTotalDurationSec = default!;
 #nullable restore
 #else
-        public string TotalDurationSec { get => _explicitNullValueTotalDurationSec; set { _explicitNullValueTotalDurationSec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_duration_sec"); else _explicitNullProperties?.Remove("total_duration_sec"); } }
+        public string TotalDurationSec { get => _explicitNullValueTotalDurationSec; set { _explicitNullValueTotalDurationSec = value; AdditionalData?.Remove("total_duration_sec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_duration_sec"); else _explicitNullProperties?.Remove("total_duration_sec"); } }
         private string _explicitNullValueTotalDurationSec = default!;
 #endif
         /// <summary>Breakdown of episode outcomes by judge verdict. Reused wherever asuccess / failure / inconclusive tally is reported (run row, result summary,per-scenario rollup).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts? VerdictCounts { get => _explicitNullValueVerdictCounts; set { _explicitNullValueVerdictCounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict_counts"); else _explicitNullProperties?.Remove("verdict_counts"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts? VerdictCounts { get => _explicitNullValueVerdictCounts; set { _explicitNullValueVerdictCounts = value; AdditionalData?.Remove("verdict_counts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict_counts"); else _explicitNullProperties?.Remove("verdict_counts"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts? _explicitNullValueVerdictCounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts VerdictCounts { get => _explicitNullValueVerdictCounts; set { _explicitNullValueVerdictCounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict_counts"); else _explicitNullProperties?.Remove("verdict_counts"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts VerdictCounts { get => _explicitNullValueVerdictCounts; set { _explicitNullValueVerdictCounts = value; AdditionalData?.Remove("verdict_counts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verdict_counts"); else _explicitNullProperties?.Remove("verdict_counts"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEpisodeCounts _explicitNullValueVerdictCounts = default!;
 #endif
         /// <summary>

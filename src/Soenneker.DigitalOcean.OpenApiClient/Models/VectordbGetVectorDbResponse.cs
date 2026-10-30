@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("vector_db") is { } nullNodeVectorDb && nullNodeVectorDb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VectorDb = null;
+            if (parseNode.GetChildNode("vector_db") is null) { _explicitNullValueVectorDb = default!; _explicitNullProperties?.Remove("vector_db"); }
+            else if (parseNode.GetChildNode("vector_db") is { } nullNodeVectorDb && nullNodeVectorDb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VectorDb = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>VectorDB represents a provisioned vector database instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDb? VectorDb { get => _explicitNullValueVectorDb; set { _explicitNullValueVectorDb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_db"); else _explicitNullProperties?.Remove("vector_db"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDb? VectorDb { get => _explicitNullValueVectorDb; set { _explicitNullValueVectorDb = value; AdditionalData?.Remove("vector_db"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_db"); else _explicitNullProperties?.Remove("vector_db"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDb? _explicitNullValueVectorDb = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDb VectorDb { get => _explicitNullValueVectorDb; set { _explicitNullValueVectorDb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_db"); else _explicitNullProperties?.Remove("vector_db"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDb VectorDb { get => _explicitNullValueVectorDb; set { _explicitNullValueVectorDb = value; AdditionalData?.Remove("vector_db"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_db"); else _explicitNullProperties?.Remove("vector_db"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.VectordbVectorDb _explicitNullValueVectorDb = default!;
 #endif
         /// <summary>

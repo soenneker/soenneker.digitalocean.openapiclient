@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("vpc") is { } nullNodeVpc && nullNodeVpc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vpc = null;
+            if (parseNode.GetChildNode("vpc") is null) { _explicitNullValueVpc = default!; _explicitNullProperties?.Remove("vpc"); }
+            else if (parseNode.GetChildNode("vpc") is { } nullNodeVpc && nullNodeVpc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vpc = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Route through a VPC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateNetworkVpc? Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateNetworkVpc? Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; AdditionalData?.Remove("vpc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateNetworkVpc? _explicitNullValueVpc = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateNetworkVpc Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateNetworkVpc Vpc { get => _explicitNullValueVpc; set { _explicitNullValueVpc = value; AdditionalData?.Remove("vpc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vpc"); else _explicitNullProperties?.Remove("vpc"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateNetworkVpc _explicitNullValueVpc = default!;
 #endif
         /// <summary>

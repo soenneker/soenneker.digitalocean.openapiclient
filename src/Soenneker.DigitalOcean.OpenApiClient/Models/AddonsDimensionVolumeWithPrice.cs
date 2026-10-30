@@ -17,31 +17,35 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("low_volume") is { } nullNodeLowVolume && nullNodeLowVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LowVolume = null;
-            if (parseNode.GetChildNode("max_volume") is { } nullNodeMaxVolume && nullNodeMaxVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxVolume = null;
-            if (parseNode.GetChildNode("price_per_unit") is { } nullNodePricePerUnit && nullNodePricePerUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerUnit = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("low_volume") is null) { _explicitNullValueLowVolume = default!; _explicitNullProperties?.Remove("low_volume"); }
+            else if (parseNode.GetChildNode("low_volume") is { } nullNodeLowVolume && nullNodeLowVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LowVolume = null;
+            if (parseNode.GetChildNode("max_volume") is null) { _explicitNullValueMaxVolume = default!; _explicitNullProperties?.Remove("max_volume"); }
+            else if (parseNode.GetChildNode("max_volume") is { } nullNodeMaxVolume && nullNodeMaxVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxVolume = null;
+            if (parseNode.GetChildNode("price_per_unit") is null) { _explicitNullValuePricePerUnit = default!; _explicitNullProperties?.Remove("price_per_unit"); }
+            else if (parseNode.GetChildNode("price_per_unit") is { } nullNodePricePerUnit && nullNodePricePerUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerUnit = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unique identifier for the addon.</summary>
-        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private int? _explicitNullValueId = default!;
         /// <summary>The minimum volume for the volume pricing tier.</summary>
-        public int? LowVolume { get => _explicitNullValueLowVolume; set { _explicitNullValueLowVolume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("low_volume"); else _explicitNullProperties?.Remove("low_volume"); } }
+        public int? LowVolume { get => _explicitNullValueLowVolume; set { _explicitNullValueLowVolume = value; AdditionalData?.Remove("low_volume"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("low_volume"); else _explicitNullProperties?.Remove("low_volume"); } }
         private int? _explicitNullValueLowVolume = default!;
         /// <summary>The maximum volume for the volume pricing tier.</summary>
-        public int? MaxVolume { get => _explicitNullValueMaxVolume; set { _explicitNullValueMaxVolume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_volume"); else _explicitNullProperties?.Remove("max_volume"); } }
+        public int? MaxVolume { get => _explicitNullValueMaxVolume; set { _explicitNullValueMaxVolume = value; AdditionalData?.Remove("max_volume"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_volume"); else _explicitNullProperties?.Remove("max_volume"); } }
         private int? _explicitNullValueMaxVolume = default!;
         /// <summary>The price per unit for the volume tier in US dollars.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PricePerUnit { get => _explicitNullValuePricePerUnit; set { _explicitNullValuePricePerUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_unit"); else _explicitNullProperties?.Remove("price_per_unit"); } }
+        public string? PricePerUnit { get => _explicitNullValuePricePerUnit; set { _explicitNullValuePricePerUnit = value; AdditionalData?.Remove("price_per_unit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_unit"); else _explicitNullProperties?.Remove("price_per_unit"); } }
         private string? _explicitNullValuePricePerUnit = default!;
 #nullable restore
 #else
-        public string PricePerUnit { get => _explicitNullValuePricePerUnit; set { _explicitNullValuePricePerUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_unit"); else _explicitNullProperties?.Remove("price_per_unit"); } }
+        public string PricePerUnit { get => _explicitNullValuePricePerUnit; set { _explicitNullValuePricePerUnit = value; AdditionalData?.Remove("price_per_unit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_unit"); else _explicitNullProperties?.Remove("price_per_unit"); } }
         private string _explicitNullValuePricePerUnit = default!;
 #endif
         /// <summary>

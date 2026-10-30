@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("build") is { } nullNodeBuild && nullNodeBuild.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Build = null;
+            if (parseNode.GetChildNode("build") is null) { _explicitNullValueBuild = default!; _explicitNullProperties?.Remove("build"); }
+            else if (parseNode.GetChildNode("build") is { } nullNodeBuild && nullNodeBuild.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Build = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The build property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SandboxTemplateBuild? Build { get => _explicitNullValueBuild; set { _explicitNullValueBuild = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build"); else _explicitNullProperties?.Remove("build"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SandboxTemplateBuild? Build { get => _explicitNullValueBuild; set { _explicitNullValueBuild = value; AdditionalData?.Remove("build"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build"); else _explicitNullProperties?.Remove("build"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SandboxTemplateBuild? _explicitNullValueBuild = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SandboxTemplateBuild Build { get => _explicitNullValueBuild; set { _explicitNullValueBuild = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build"); else _explicitNullProperties?.Remove("build"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SandboxTemplateBuild Build { get => _explicitNullValueBuild; set { _explicitNullValueBuild = value; AdditionalData?.Remove("build"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build"); else _explicitNullProperties?.Remove("build"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SandboxTemplateBuild _explicitNullValueBuild = default!;
 #endif
         /// <summary>

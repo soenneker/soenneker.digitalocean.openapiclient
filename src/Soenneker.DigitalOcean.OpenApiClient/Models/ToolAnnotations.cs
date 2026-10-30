@@ -18,35 +18,40 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("destructiveHint") is { } nullNodeDestructiveHint && nullNodeDestructiveHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestructiveHint = null;
-            if (parseNode.GetChildNode("idempotentHint") is { } nullNodeIdempotentHint && nullNodeIdempotentHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdempotentHint = null;
-            if (parseNode.GetChildNode("openWorldHint") is { } nullNodeOpenWorldHint && nullNodeOpenWorldHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenWorldHint = null;
-            if (parseNode.GetChildNode("readOnlyHint") is { } nullNodeReadOnlyHint && nullNodeReadOnlyHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadOnlyHint = null;
-            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("destructiveHint") is null) { _explicitNullValueDestructiveHint = default!; _explicitNullProperties?.Remove("destructiveHint"); }
+            else if (parseNode.GetChildNode("destructiveHint") is { } nullNodeDestructiveHint && nullNodeDestructiveHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestructiveHint = null;
+            if (parseNode.GetChildNode("idempotentHint") is null) { _explicitNullValueIdempotentHint = default!; _explicitNullProperties?.Remove("idempotentHint"); }
+            else if (parseNode.GetChildNode("idempotentHint") is { } nullNodeIdempotentHint && nullNodeIdempotentHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdempotentHint = null;
+            if (parseNode.GetChildNode("openWorldHint") is null) { _explicitNullValueOpenWorldHint = default!; _explicitNullProperties?.Remove("openWorldHint"); }
+            else if (parseNode.GetChildNode("openWorldHint") is { } nullNodeOpenWorldHint && nullNodeOpenWorldHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenWorldHint = null;
+            if (parseNode.GetChildNode("readOnlyHint") is null) { _explicitNullValueReadOnlyHint = default!; _explicitNullProperties?.Remove("readOnlyHint"); }
+            else if (parseNode.GetChildNode("readOnlyHint") is { } nullNodeReadOnlyHint && nullNodeReadOnlyHint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadOnlyHint = null;
+            if (parseNode.GetChildNode("title") is null) { _explicitNullValueTitle = default!; _explicitNullProperties?.Remove("title"); }
+            else if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The tool may perform destructive updates.</summary>
-        public bool? DestructiveHint { get => _explicitNullValueDestructiveHint; set { _explicitNullValueDestructiveHint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destructiveHint"); else _explicitNullProperties?.Remove("destructiveHint"); } }
+        public bool? DestructiveHint { get => _explicitNullValueDestructiveHint; set { _explicitNullValueDestructiveHint = value; AdditionalData?.Remove("destructiveHint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destructiveHint"); else _explicitNullProperties?.Remove("destructiveHint"); } }
         private bool? _explicitNullValueDestructiveHint = default!;
         /// <summary>Repeating a call with the same arguments has no additional effect.</summary>
-        public bool? IdempotentHint { get => _explicitNullValueIdempotentHint; set { _explicitNullValueIdempotentHint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotentHint"); else _explicitNullProperties?.Remove("idempotentHint"); } }
+        public bool? IdempotentHint { get => _explicitNullValueIdempotentHint; set { _explicitNullValueIdempotentHint = value; AdditionalData?.Remove("idempotentHint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotentHint"); else _explicitNullProperties?.Remove("idempotentHint"); } }
         private bool? _explicitNullValueIdempotentHint = default!;
         /// <summary>The tool interacts with external systems beyond the provider&apos;s own data.</summary>
-        public bool? OpenWorldHint { get => _explicitNullValueOpenWorldHint; set { _explicitNullValueOpenWorldHint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openWorldHint"); else _explicitNullProperties?.Remove("openWorldHint"); } }
+        public bool? OpenWorldHint { get => _explicitNullValueOpenWorldHint; set { _explicitNullValueOpenWorldHint = value; AdditionalData?.Remove("openWorldHint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openWorldHint"); else _explicitNullProperties?.Remove("openWorldHint"); } }
         private bool? _explicitNullValueOpenWorldHint = default!;
         /// <summary>The tool does not modify anything.</summary>
-        public bool? ReadOnlyHint { get => _explicitNullValueReadOnlyHint; set { _explicitNullValueReadOnlyHint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("readOnlyHint"); else _explicitNullProperties?.Remove("readOnlyHint"); } }
+        public bool? ReadOnlyHint { get => _explicitNullValueReadOnlyHint; set { _explicitNullValueReadOnlyHint = value; AdditionalData?.Remove("readOnlyHint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("readOnlyHint"); else _explicitNullProperties?.Remove("readOnlyHint"); } }
         private bool? _explicitNullValueReadOnlyHint = default!;
         /// <summary>Human-readable tool title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>

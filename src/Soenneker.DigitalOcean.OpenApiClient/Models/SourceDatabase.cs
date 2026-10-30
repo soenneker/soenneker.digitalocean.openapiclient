@@ -17,34 +17,37 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("disable_ssl") is { } nullNodeDisableSsl && nullNodeDisableSsl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableSsl = null;
-            if (parseNode.GetChildNode("ignore_dbs") is { } nullNodeIgnoreDbs && nullNodeIgnoreDbs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreDbs = null;
-            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("disable_ssl") is null) { _explicitNullValueDisableSsl = default!; _explicitNullProperties?.Remove("disable_ssl"); }
+            else if (parseNode.GetChildNode("disable_ssl") is { } nullNodeDisableSsl && nullNodeDisableSsl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableSsl = null;
+            if (parseNode.GetChildNode("ignore_dbs") is null) { _explicitNullValueIgnoreDbs = default!; _explicitNullProperties?.Remove("ignore_dbs"); }
+            else if (parseNode.GetChildNode("ignore_dbs") is { } nullNodeIgnoreDbs && nullNodeIgnoreDbs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreDbs = null;
+            if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
+            else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enables SSL encryption when connecting to the source database.</summary>
-        public bool? DisableSsl { get => _explicitNullValueDisableSsl; set { _explicitNullValueDisableSsl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_ssl"); else _explicitNullProperties?.Remove("disable_ssl"); } }
+        public bool? DisableSsl { get => _explicitNullValueDisableSsl; set { _explicitNullValueDisableSsl = value; AdditionalData?.Remove("disable_ssl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_ssl"); else _explicitNullProperties?.Remove("disable_ssl"); } }
         private bool? _explicitNullValueDisableSsl = default!;
         /// <summary>List of databases that should be ignored during migration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IgnoreDbs { get => _explicitNullValueIgnoreDbs; set { _explicitNullValueIgnoreDbs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_dbs"); else _explicitNullProperties?.Remove("ignore_dbs"); } }
+        public List<string>? IgnoreDbs { get => _explicitNullValueIgnoreDbs; set { _explicitNullValueIgnoreDbs = value; AdditionalData?.Remove("ignore_dbs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_dbs"); else _explicitNullProperties?.Remove("ignore_dbs"); } }
         private List<string>? _explicitNullValueIgnoreDbs = default!;
 #nullable restore
 #else
-        public List<string> IgnoreDbs { get => _explicitNullValueIgnoreDbs; set { _explicitNullValueIgnoreDbs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_dbs"); else _explicitNullProperties?.Remove("ignore_dbs"); } }
+        public List<string> IgnoreDbs { get => _explicitNullValueIgnoreDbs; set { _explicitNullValueIgnoreDbs = value; AdditionalData?.Remove("ignore_dbs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_dbs"); else _explicitNullProperties?.Remove("ignore_dbs"); } }
         private List<string> _explicitNullValueIgnoreDbs = default!;
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SourceDatabaseSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SourceDatabaseSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SourceDatabaseSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SourceDatabaseSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SourceDatabaseSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SourceDatabaseSource _explicitNullValueSource = default!;
 #endif
         /// <summary>

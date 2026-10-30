@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_deployment_names") is { } nullNodeAgentDeploymentNames && nullNodeAgentDeploymentNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentDeploymentNames = null;
-            if (parseNode.GetChildNode("agent_uuids") is { } nullNodeAgentUuids && nullNodeAgentUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUuids = null;
-            if (parseNode.GetChildNode("run_name") is { } nullNodeRunName && nullNodeRunName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunName = null;
-            if (parseNode.GetChildNode("test_case_uuid") is { } nullNodeTestCaseUuid && nullNodeTestCaseUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestCaseUuid = null;
+            if (parseNode.GetChildNode("agent_deployment_names") is null) { _explicitNullValueAgentDeploymentNames = default!; _explicitNullProperties?.Remove("agent_deployment_names"); }
+            else if (parseNode.GetChildNode("agent_deployment_names") is { } nullNodeAgentDeploymentNames && nullNodeAgentDeploymentNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentDeploymentNames = null;
+            if (parseNode.GetChildNode("agent_uuids") is null) { _explicitNullValueAgentUuids = default!; _explicitNullProperties?.Remove("agent_uuids"); }
+            else if (parseNode.GetChildNode("agent_uuids") is { } nullNodeAgentUuids && nullNodeAgentUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUuids = null;
+            if (parseNode.GetChildNode("run_name") is null) { _explicitNullValueRunName = default!; _explicitNullProperties?.Remove("run_name"); }
+            else if (parseNode.GetChildNode("run_name") is { } nullNodeRunName && nullNodeRunName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunName = null;
+            if (parseNode.GetChildNode("test_case_uuid") is null) { _explicitNullValueTestCaseUuid = default!; _explicitNullProperties?.Remove("test_case_uuid"); }
+            else if (parseNode.GetChildNode("test_case_uuid") is { } nullNodeTestCaseUuid && nullNodeTestCaseUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestCaseUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Agent deployment names to run the test case against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AgentDeploymentNames { get => _explicitNullValueAgentDeploymentNames; set { _explicitNullValueAgentDeploymentNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_names"); else _explicitNullProperties?.Remove("agent_deployment_names"); } }
+        public List<string>? AgentDeploymentNames { get => _explicitNullValueAgentDeploymentNames; set { _explicitNullValueAgentDeploymentNames = value; AdditionalData?.Remove("agent_deployment_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_names"); else _explicitNullProperties?.Remove("agent_deployment_names"); } }
         private List<string>? _explicitNullValueAgentDeploymentNames = default!;
 #nullable restore
 #else
-        public List<string> AgentDeploymentNames { get => _explicitNullValueAgentDeploymentNames; set { _explicitNullValueAgentDeploymentNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_names"); else _explicitNullProperties?.Remove("agent_deployment_names"); } }
+        public List<string> AgentDeploymentNames { get => _explicitNullValueAgentDeploymentNames; set { _explicitNullValueAgentDeploymentNames = value; AdditionalData?.Remove("agent_deployment_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_deployment_names"); else _explicitNullProperties?.Remove("agent_deployment_names"); } }
         private List<string> _explicitNullValueAgentDeploymentNames = default!;
 #endif
         /// <summary>Agent UUIDs to run the test case against (legacy agents).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
+        public List<string>? AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; AdditionalData?.Remove("agent_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
         private List<string>? _explicitNullValueAgentUuids = default!;
 #nullable restore
 #else
-        public List<string> AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
+        public List<string> AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; AdditionalData?.Remove("agent_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
         private List<string> _explicitNullValueAgentUuids = default!;
 #endif
         /// <summary>The name of the run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
+        public string? RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; AdditionalData?.Remove("run_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
         private string? _explicitNullValueRunName = default!;
 #nullable restore
 #else
-        public string RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
+        public string RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; AdditionalData?.Remove("run_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
         private string _explicitNullValueRunName = default!;
 #endif
         /// <summary>Test-case UUID to run</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TestCaseUuid { get => _explicitNullValueTestCaseUuid; set { _explicitNullValueTestCaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_case_uuid"); else _explicitNullProperties?.Remove("test_case_uuid"); } }
+        public string? TestCaseUuid { get => _explicitNullValueTestCaseUuid; set { _explicitNullValueTestCaseUuid = value; AdditionalData?.Remove("test_case_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_case_uuid"); else _explicitNullProperties?.Remove("test_case_uuid"); } }
         private string? _explicitNullValueTestCaseUuid = default!;
 #nullable restore
 #else
-        public string TestCaseUuid { get => _explicitNullValueTestCaseUuid; set { _explicitNullValueTestCaseUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_case_uuid"); else _explicitNullProperties?.Remove("test_case_uuid"); } }
+        public string TestCaseUuid { get => _explicitNullValueTestCaseUuid; set { _explicitNullValueTestCaseUuid = value; AdditionalData?.Remove("test_case_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_case_uuid"); else _explicitNullProperties?.Remove("test_case_uuid"); } }
         private string _explicitNullValueTestCaseUuid = default!;
 #endif
         /// <summary>

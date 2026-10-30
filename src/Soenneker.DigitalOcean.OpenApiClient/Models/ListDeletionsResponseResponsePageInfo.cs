@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("end_cursor") is { } nullNodeEndCursor && nullNodeEndCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndCursor = null;
-            if (parseNode.GetChildNode("has_next_page") is { } nullNodeHasNextPage && nullNodeHasNextPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasNextPage = null;
+            if (parseNode.GetChildNode("end_cursor") is null) { _explicitNullValueEndCursor = default!; _explicitNullProperties?.Remove("end_cursor"); }
+            else if (parseNode.GetChildNode("end_cursor") is { } nullNodeEndCursor && nullNodeEndCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndCursor = null;
+            if (parseNode.GetChildNode("has_next_page") is null) { _explicitNullValueHasNextPage = default!; _explicitNullProperties?.Remove("has_next_page"); }
+            else if (parseNode.GetChildNode("has_next_page") is { } nullNodeHasNextPage && nullNodeHasNextPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasNextPage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Cursor of the last item. Pass as `after` to fetch the next page. Present only when there are more results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndCursor { get => _explicitNullValueEndCursor; set { _explicitNullValueEndCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_cursor"); else _explicitNullProperties?.Remove("end_cursor"); } }
+        public string? EndCursor { get => _explicitNullValueEndCursor; set { _explicitNullValueEndCursor = value; AdditionalData?.Remove("end_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_cursor"); else _explicitNullProperties?.Remove("end_cursor"); } }
         private string? _explicitNullValueEndCursor = default!;
 #nullable restore
 #else
-        public string EndCursor { get => _explicitNullValueEndCursor; set { _explicitNullValueEndCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_cursor"); else _explicitNullProperties?.Remove("end_cursor"); } }
+        public string EndCursor { get => _explicitNullValueEndCursor; set { _explicitNullValueEndCursor = value; AdditionalData?.Remove("end_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_cursor"); else _explicitNullProperties?.Remove("end_cursor"); } }
         private string _explicitNullValueEndCursor = default!;
 #endif
         /// <summary>Whether there are more results after this page.</summary>
-        public bool? HasNextPage { get => _explicitNullValueHasNextPage; set { _explicitNullValueHasNextPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_next_page"); else _explicitNullProperties?.Remove("has_next_page"); } }
+        public bool? HasNextPage { get => _explicitNullValueHasNextPage; set { _explicitNullValueHasNextPage = value; AdditionalData?.Remove("has_next_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_next_page"); else _explicitNullProperties?.Remove("has_next_page"); } }
         private bool? _explicitNullValueHasNextPage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListDeletionsResponseResponsePageInfo"/> and sets the default values.

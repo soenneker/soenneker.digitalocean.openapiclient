@@ -18,9 +18,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("load_balancers") is { } nullNodeLoadBalancers && nullNodeLoadBalancers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadBalancers = null;
-            if (parseNode.GetChildNode("volumes") is { } nullNodeVolumes && nullNodeVolumes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volumes = null;
-            if (parseNode.GetChildNode("volume_snapshots") is { } nullNodeVolumeSnapshots && nullNodeVolumeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VolumeSnapshots = null;
+            if (parseNode.GetChildNode("load_balancers") is null) { _explicitNullValueLoadBalancers = default!; _explicitNullProperties?.Remove("load_balancers"); }
+            else if (parseNode.GetChildNode("load_balancers") is { } nullNodeLoadBalancers && nullNodeLoadBalancers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadBalancers = null;
+            if (parseNode.GetChildNode("volumes") is null) { _explicitNullValueVolumes = default!; _explicitNullProperties?.Remove("volumes"); }
+            else if (parseNode.GetChildNode("volumes") is { } nullNodeVolumes && nullNodeVolumes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volumes = null;
+            if (parseNode.GetChildNode("volume_snapshots") is null) { _explicitNullValueVolumeSnapshots = default!; _explicitNullProperties?.Remove("volume_snapshots"); }
+            else if (parseNode.GetChildNode("volume_snapshots") is { } nullNodeVolumeSnapshots && nullNodeVolumeSnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VolumeSnapshots = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A list of IDs for associated load balancers to destroy along with the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? LoadBalancers { get => _explicitNullValueLoadBalancers; set { _explicitNullValueLoadBalancers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancers"); else _explicitNullProperties?.Remove("load_balancers"); } }
+        public List<string>? LoadBalancers { get => _explicitNullValueLoadBalancers; set { _explicitNullValueLoadBalancers = value; AdditionalData?.Remove("load_balancers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancers"); else _explicitNullProperties?.Remove("load_balancers"); } }
         private List<string>? _explicitNullValueLoadBalancers = default!;
 #nullable restore
 #else
-        public List<string> LoadBalancers { get => _explicitNullValueLoadBalancers; set { _explicitNullValueLoadBalancers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancers"); else _explicitNullProperties?.Remove("load_balancers"); } }
+        public List<string> LoadBalancers { get => _explicitNullValueLoadBalancers; set { _explicitNullValueLoadBalancers = value; AdditionalData?.Remove("load_balancers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancers"); else _explicitNullProperties?.Remove("load_balancers"); } }
         private List<string> _explicitNullValueLoadBalancers = default!;
 #endif
         /// <summary>A list of IDs for associated volumes to destroy along with the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        public List<string>? Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; AdditionalData?.Remove("volumes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
         private List<string>? _explicitNullValueVolumes = default!;
 #nullable restore
 #else
-        public List<string> Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
+        public List<string> Volumes { get => _explicitNullValueVolumes; set { _explicitNullValueVolumes = value; AdditionalData?.Remove("volumes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volumes"); else _explicitNullProperties?.Remove("volumes"); } }
         private List<string> _explicitNullValueVolumes = default!;
 #endif
         /// <summary>A list of IDs for associated volume snapshots to destroy along with the cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        public List<string>? VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; AdditionalData?.Remove("volume_snapshots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
         private List<string>? _explicitNullValueVolumeSnapshots = default!;
 #nullable restore
 #else
-        public List<string> VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
+        public List<string> VolumeSnapshots { get => _explicitNullValueVolumeSnapshots; set { _explicitNullValueVolumeSnapshots = value; AdditionalData?.Remove("volume_snapshots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume_snapshots"); else _explicitNullProperties?.Remove("volume_snapshots"); } }
         private List<string> _explicitNullValueVolumeSnapshots = default!;
 #endif
         /// <summary>

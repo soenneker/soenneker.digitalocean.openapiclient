@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("part_numbers") is { } nullNodePartNumbers && nullNodePartNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartNumbers = null;
+            if (parseNode.GetChildNode("part_numbers") is null) { _explicitNullValuePartNumbers = default!; _explicitNullProperties?.Remove("part_numbers"); }
+            else if (parseNode.GetChildNode("part_numbers") is { } nullNodePartNumbers && nullNodePartNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartNumbers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>1-based part indices to presign (single or batched).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? PartNumbers { get => _explicitNullValuePartNumbers; set { _explicitNullValuePartNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("part_numbers"); else _explicitNullProperties?.Remove("part_numbers"); } }
+        public List<int?>? PartNumbers { get => _explicitNullValuePartNumbers; set { _explicitNullValuePartNumbers = value; AdditionalData?.Remove("part_numbers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("part_numbers"); else _explicitNullProperties?.Remove("part_numbers"); } }
         private List<int?>? _explicitNullValuePartNumbers = default!;
 #nullable restore
 #else
-        public List<int?> PartNumbers { get => _explicitNullValuePartNumbers; set { _explicitNullValuePartNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("part_numbers"); else _explicitNullProperties?.Remove("part_numbers"); } }
+        public List<int?> PartNumbers { get => _explicitNullValuePartNumbers; set { _explicitNullValuePartNumbers = value; AdditionalData?.Remove("part_numbers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("part_numbers"); else _explicitNullProperties?.Remove("part_numbers"); } }
         private List<int?> _explicitNullValuePartNumbers = default!;
 #endif
         /// <summary>

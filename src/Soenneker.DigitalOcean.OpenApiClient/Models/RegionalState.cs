@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("eu_west") is { } nullNodeEuWest && nullNodeEuWest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EuWest = null;
-            if (parseNode.GetChildNode("us_east") is { } nullNodeUsEast && nullNodeUsEast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsEast = null;
+            if (parseNode.GetChildNode("eu_west") is null) { _explicitNullValueEuWest = default!; _explicitNullProperties?.Remove("eu_west"); }
+            else if (parseNode.GetChildNode("eu_west") is { } nullNodeEuWest && nullNodeEuWest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EuWest = null;
+            if (parseNode.GetChildNode("us_east") is null) { _explicitNullValueUsEast = default!; _explicitNullProperties?.Remove("us_east"); }
+            else if (parseNode.GetChildNode("us_east") is { } nullNodeUsEast && nullNodeUsEast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsEast = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The eu_west property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState? EuWest { get => _explicitNullValueEuWest; set { _explicitNullValueEuWest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eu_west"); else _explicitNullProperties?.Remove("eu_west"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState? EuWest { get => _explicitNullValueEuWest; set { _explicitNullValueEuWest = value; AdditionalData?.Remove("eu_west"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eu_west"); else _explicitNullProperties?.Remove("eu_west"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState? _explicitNullValueEuWest = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState EuWest { get => _explicitNullValueEuWest; set { _explicitNullValueEuWest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eu_west"); else _explicitNullProperties?.Remove("eu_west"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState EuWest { get => _explicitNullValueEuWest; set { _explicitNullValueEuWest = value; AdditionalData?.Remove("eu_west"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eu_west"); else _explicitNullProperties?.Remove("eu_west"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState _explicitNullValueEuWest = default!;
 #endif
         /// <summary>The us_east property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState? UsEast { get => _explicitNullValueUsEast; set { _explicitNullValueUsEast = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_east"); else _explicitNullProperties?.Remove("us_east"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState? UsEast { get => _explicitNullValueUsEast; set { _explicitNullValueUsEast = value; AdditionalData?.Remove("us_east"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_east"); else _explicitNullProperties?.Remove("us_east"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState? _explicitNullValueUsEast = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState UsEast { get => _explicitNullValueUsEast; set { _explicitNullValueUsEast = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_east"); else _explicitNullProperties?.Remove("us_east"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState UsEast { get => _explicitNullValueUsEast; set { _explicitNullValueUsEast = value; AdditionalData?.Remove("us_east"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_east"); else _explicitNullProperties?.Remove("us_east"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegionState _explicitNullValueUsEast = default!;
 #endif
         /// <summary>

@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("num_nodes") is { } nullNodeNumNodes && nullNodeNumNodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumNodes = null;
+            if (parseNode.GetChildNode("num_nodes") is null) { _explicitNullValueNumNodes = default!; _explicitNullProperties?.Remove("num_nodes"); }
+            else if (parseNode.GetChildNode("num_nodes") is { } nullNodeNumNodes && nullNodeNumNodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumNodes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The num_nodes property</summary>
-        public int? NumNodes { get => _explicitNullValueNumNodes; set { _explicitNullValueNumNodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_nodes"); else _explicitNullProperties?.Remove("num_nodes"); } }
+        public int? NumNodes { get => _explicitNullValueNumNodes; set { _explicitNullValueNumNodes = value; AdditionalData?.Remove("num_nodes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_nodes"); else _explicitNullProperties?.Remove("num_nodes"); } }
         private int? _explicitNullValueNumNodes = default!;
         /// <summary>An array of objects containing the slugs available with various node counts</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

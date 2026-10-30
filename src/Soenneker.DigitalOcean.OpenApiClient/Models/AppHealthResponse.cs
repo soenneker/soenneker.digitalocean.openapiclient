@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("app_health") is { } nullNodeAppHealth && nullNodeAppHealth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppHealth = null;
+            if (parseNode.GetChildNode("app_health") is null) { _explicitNullValueAppHealth = default!; _explicitNullProperties?.Remove("app_health"); }
+            else if (parseNode.GetChildNode("app_health") is { } nullNodeAppHealth && nullNodeAppHealth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppHealth = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The app_health property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealth? AppHealth { get => _explicitNullValueAppHealth; set { _explicitNullValueAppHealth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_health"); else _explicitNullProperties?.Remove("app_health"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealth? AppHealth { get => _explicitNullValueAppHealth; set { _explicitNullValueAppHealth = value; AdditionalData?.Remove("app_health"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_health"); else _explicitNullProperties?.Remove("app_health"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealth? _explicitNullValueAppHealth = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealth AppHealth { get => _explicitNullValueAppHealth; set { _explicitNullValueAppHealth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_health"); else _explicitNullProperties?.Remove("app_health"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealth AppHealth { get => _explicitNullValueAppHealth; set { _explicitNullValueAppHealth = value; AdditionalData?.Remove("app_health"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_health"); else _explicitNullProperties?.Remove("app_health"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppHealth _explicitNullValueAppHealth = default!;
 #endif
         /// <summary>

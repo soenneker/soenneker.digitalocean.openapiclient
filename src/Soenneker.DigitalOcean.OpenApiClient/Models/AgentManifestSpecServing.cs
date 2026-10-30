@@ -18,32 +18,36 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("maxReplicas") is { } nullNodeMaxReplicas && nullNodeMaxReplicas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxReplicas = null;
-            if (parseNode.GetChildNode("minReplicas") is { } nullNodeMinReplicas && nullNodeMinReplicas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinReplicas = null;
-            if (parseNode.GetChildNode("scaleToZero") is { } nullNodeScaleToZero && nullNodeScaleToZero.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScaleToZero = null;
-            if (parseNode.GetChildNode("targetConcurrency") is { } nullNodeTargetConcurrency && nullNodeTargetConcurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetConcurrency = null;
+            if (parseNode.GetChildNode("maxReplicas") is null) { _explicitNullValueMaxReplicas = default!; _explicitNullProperties?.Remove("maxReplicas"); }
+            else if (parseNode.GetChildNode("maxReplicas") is { } nullNodeMaxReplicas && nullNodeMaxReplicas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxReplicas = null;
+            if (parseNode.GetChildNode("minReplicas") is null) { _explicitNullValueMinReplicas = default!; _explicitNullProperties?.Remove("minReplicas"); }
+            else if (parseNode.GetChildNode("minReplicas") is { } nullNodeMinReplicas && nullNodeMinReplicas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinReplicas = null;
+            if (parseNode.GetChildNode("scaleToZero") is null) { _explicitNullValueScaleToZero = default!; _explicitNullProperties?.Remove("scaleToZero"); }
+            else if (parseNode.GetChildNode("scaleToZero") is { } nullNodeScaleToZero && nullNodeScaleToZero.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScaleToZero = null;
+            if (parseNode.GetChildNode("targetConcurrency") is null) { _explicitNullValueTargetConcurrency = default!; _explicitNullProperties?.Remove("targetConcurrency"); }
+            else if (parseNode.GetChildNode("targetConcurrency") is { } nullNodeTargetConcurrency && nullNodeTargetConcurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetConcurrency = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maxReplicas property</summary>
-        public int? MaxReplicas { get => _explicitNullValueMaxReplicas; set { _explicitNullValueMaxReplicas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxReplicas"); else _explicitNullProperties?.Remove("maxReplicas"); } }
+        public int? MaxReplicas { get => _explicitNullValueMaxReplicas; set { _explicitNullValueMaxReplicas = value; AdditionalData?.Remove("maxReplicas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxReplicas"); else _explicitNullProperties?.Remove("maxReplicas"); } }
         private int? _explicitNullValueMaxReplicas = default!;
         /// <summary>The minReplicas property</summary>
-        public int? MinReplicas { get => _explicitNullValueMinReplicas; set { _explicitNullValueMinReplicas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minReplicas"); else _explicitNullProperties?.Remove("minReplicas"); } }
+        public int? MinReplicas { get => _explicitNullValueMinReplicas; set { _explicitNullValueMinReplicas = value; AdditionalData?.Remove("minReplicas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minReplicas"); else _explicitNullProperties?.Remove("minReplicas"); } }
         private int? _explicitNullValueMinReplicas = default!;
         /// <summary>The scaleToZero property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero? ScaleToZero { get => _explicitNullValueScaleToZero; set { _explicitNullValueScaleToZero = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scaleToZero"); else _explicitNullProperties?.Remove("scaleToZero"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero? ScaleToZero { get => _explicitNullValueScaleToZero; set { _explicitNullValueScaleToZero = value; AdditionalData?.Remove("scaleToZero"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scaleToZero"); else _explicitNullProperties?.Remove("scaleToZero"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero? _explicitNullValueScaleToZero = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero ScaleToZero { get => _explicitNullValueScaleToZero; set { _explicitNullValueScaleToZero = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scaleToZero"); else _explicitNullProperties?.Remove("scaleToZero"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero ScaleToZero { get => _explicitNullValueScaleToZero; set { _explicitNullValueScaleToZero = value; AdditionalData?.Remove("scaleToZero"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scaleToZero"); else _explicitNullProperties?.Remove("scaleToZero"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero _explicitNullValueScaleToZero = default!;
 #endif
         /// <summary>The targetConcurrency property</summary>
-        public int? TargetConcurrency { get => _explicitNullValueTargetConcurrency; set { _explicitNullValueTargetConcurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetConcurrency"); else _explicitNullProperties?.Remove("targetConcurrency"); } }
+        public int? TargetConcurrency { get => _explicitNullValueTargetConcurrency; set { _explicitNullValueTargetConcurrency = value; AdditionalData?.Remove("targetConcurrency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetConcurrency"); else _explicitNullProperties?.Remove("targetConcurrency"); } }
         private int? _explicitNullValueTargetConcurrency = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServing"/> and sets the default values.

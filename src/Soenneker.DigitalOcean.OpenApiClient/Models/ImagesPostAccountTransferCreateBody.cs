@@ -54,10 +54,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("recipient_email") != null))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("recipient_uuid") != null))();
-            if (result.ImagesPostAccountTransferCreateBodyTransferToEmail == null && result.ImagesPostAccountTransferCreateBodyTransferToTeam == null && matchesUnionBranch0 && !matchesUnionBranch1) result.ImagesPostAccountTransferCreateBodyTransferToEmail = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ImagesPostAccountTransferCreateBodyTransferToEmail(), parseNode);
-            if (result.ImagesPostAccountTransferCreateBodyTransferToEmail == null && result.ImagesPostAccountTransferCreateBodyTransferToTeam == null && matchesUnionBranch1 && !matchesUnionBranch0) result.ImagesPostAccountTransferCreateBodyTransferToTeam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ImagesPostAccountTransferCreateBodyTransferToTeam(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("recipient_email") && (!shapeMembers1.ContainsKey("recipient_email") || (((shapeMembers1["recipient_email"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("recipient_uuid") && (!shapeMembers1.ContainsKey("recipient_uuid") || (((shapeMembers1["recipient_uuid"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.ImagesPostAccountTransferCreateBodyTransferToEmail == null && result.ImagesPostAccountTransferCreateBodyTransferToTeam == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.ImagesPostAccountTransferCreateBodyTransferToEmail = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ImagesPostAccountTransferCreateBodyTransferToEmail(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.ImagesPostAccountTransferCreateBodyTransferToTeam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.DigitalOcean.OpenApiClient.Models.ImagesPostAccountTransferCreateBodyTransferToTeam(), parseNode);
             if (result.ImagesPostAccountTransferCreateBodyTransferToEmail == null && result.ImagesPostAccountTransferCreateBodyTransferToTeam == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -67,6 +71,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(ImagesPostAccountTransferCreateBodyTransferToEmail != null)
             {
                 return ImagesPostAccountTransferCreateBodyTransferToEmail.GetFieldDeserializers();
@@ -85,8 +91,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (ImagesPostAccountTransferCreateBodyTransferToEmail == null && ImagesPostAccountTransferCreateBodyTransferToTeam == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (ImagesPostAccountTransferCreateBodyTransferToEmail != null && ImagesPostAccountTransferCreateBodyTransferToTeam == null) { if (ImagesPostAccountTransferCreateBodyTransferToEmail is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImagesPostAccountTransferCreateBodyTransferToEmail); return; }
-            if (ImagesPostAccountTransferCreateBodyTransferToTeam != null && ImagesPostAccountTransferCreateBodyTransferToEmail == null) { if (ImagesPostAccountTransferCreateBodyTransferToTeam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImagesPostAccountTransferCreateBodyTransferToTeam); return; }
+            int selectedUnionBranches = 0;
+            if (ImagesPostAccountTransferCreateBodyTransferToEmail != null) selectedUnionBranches++;
+            if (ImagesPostAccountTransferCreateBodyTransferToTeam != null) selectedUnionBranches++;
+            if (ImagesPostAccountTransferCreateBodyTransferToEmail != null && selectedUnionBranches == 1) { if (ImagesPostAccountTransferCreateBodyTransferToEmail is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImagesPostAccountTransferCreateBodyTransferToEmail); return; }
+            if (ImagesPostAccountTransferCreateBodyTransferToTeam != null && selectedUnionBranches == 1) { if (ImagesPostAccountTransferCreateBodyTransferToTeam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImagesPostAccountTransferCreateBodyTransferToTeam); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ImagesPostAccountTransferCreateBodyTransferToEmail != null)

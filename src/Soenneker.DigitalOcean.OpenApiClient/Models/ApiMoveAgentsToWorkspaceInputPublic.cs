@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_uuids") is { } nullNodeAgentUuids && nullNodeAgentUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUuids = null;
-            if (parseNode.GetChildNode("workspace_uuid") is { } nullNodeWorkspaceUuid && nullNodeWorkspaceUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceUuid = null;
+            if (parseNode.GetChildNode("agent_uuids") is null) { _explicitNullValueAgentUuids = default!; _explicitNullProperties?.Remove("agent_uuids"); }
+            else if (parseNode.GetChildNode("agent_uuids") is { } nullNodeAgentUuids && nullNodeAgentUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUuids = null;
+            if (parseNode.GetChildNode("workspace_uuid") is null) { _explicitNullValueWorkspaceUuid = default!; _explicitNullProperties?.Remove("workspace_uuid"); }
+            else if (parseNode.GetChildNode("workspace_uuid") is { } nullNodeWorkspaceUuid && nullNodeWorkspaceUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Agent uuids</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
+        public List<string>? AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; AdditionalData?.Remove("agent_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
         private List<string>? _explicitNullValueAgentUuids = default!;
 #nullable restore
 #else
-        public List<string> AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
+        public List<string> AgentUuids { get => _explicitNullValueAgentUuids; set { _explicitNullValueAgentUuids = value; AdditionalData?.Remove("agent_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_uuids"); else _explicitNullProperties?.Remove("agent_uuids"); } }
         private List<string> _explicitNullValueAgentUuids = default!;
 #endif
         /// <summary>Workspace uuid to move agents to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceUuid { get => _explicitNullValueWorkspaceUuid; set { _explicitNullValueWorkspaceUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_uuid"); else _explicitNullProperties?.Remove("workspace_uuid"); } }
+        public string? WorkspaceUuid { get => _explicitNullValueWorkspaceUuid; set { _explicitNullValueWorkspaceUuid = value; AdditionalData?.Remove("workspace_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_uuid"); else _explicitNullProperties?.Remove("workspace_uuid"); } }
         private string? _explicitNullValueWorkspaceUuid = default!;
 #nullable restore
 #else
-        public string WorkspaceUuid { get => _explicitNullValueWorkspaceUuid; set { _explicitNullValueWorkspaceUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_uuid"); else _explicitNullProperties?.Remove("workspace_uuid"); } }
+        public string WorkspaceUuid { get => _explicitNullValueWorkspaceUuid; set { _explicitNullValueWorkspaceUuid = value; AdditionalData?.Remove("workspace_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_uuid"); else _explicitNullProperties?.Remove("workspace_uuid"); } }
         private string _explicitNullValueWorkspaceUuid = default!;
 #endif
         /// <summary>

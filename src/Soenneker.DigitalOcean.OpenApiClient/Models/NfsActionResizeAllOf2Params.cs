@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("size_gib") is { } nullNodeSizeGib && nullNodeSizeGib.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SizeGib = null;
+            if (parseNode.GetChildNode("size_gib") is null) { _explicitNullValueSizeGib = default!; _explicitNullProperties?.Remove("size_gib"); }
+            else if (parseNode.GetChildNode("size_gib") is { } nullNodeSizeGib && nullNodeSizeGib.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SizeGib = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The new size for the NFS share.</summary>
-        public int? SizeGib { get => _explicitNullValueSizeGib; set { _explicitNullValueSizeGib = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_gib"); else _explicitNullProperties?.Remove("size_gib"); } }
+        public int? SizeGib { get => _explicitNullValueSizeGib; set { _explicitNullValueSizeGib = value; AdditionalData?.Remove("size_gib"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_gib"); else _explicitNullProperties?.Remove("size_gib"); } }
         private int? _explicitNullValueSizeGib = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsActionResizeAllOf2Params"/> and sets the default values.

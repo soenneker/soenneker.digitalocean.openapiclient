@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("autoscale") is { } nullNodeAutoscale && nullNodeAutoscale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Autoscale = null;
+            if (parseNode.GetChildNode("autoscale") is null) { _explicitNullValueAutoscale = default!; _explicitNullProperties?.Remove("autoscale"); }
+            else if (parseNode.GetChildNode("autoscale") is { } nullNodeAutoscale && nullNodeAutoscale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Autoscale = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Contains all autoscaling configuration for a database cluster</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseAutoscaleParams? Autoscale { get => _explicitNullValueAutoscale; set { _explicitNullValueAutoscale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscale"); else _explicitNullProperties?.Remove("autoscale"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseAutoscaleParams? Autoscale { get => _explicitNullValueAutoscale; set { _explicitNullValueAutoscale = value; AdditionalData?.Remove("autoscale"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscale"); else _explicitNullProperties?.Remove("autoscale"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseAutoscaleParams? _explicitNullValueAutoscale = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseAutoscaleParams Autoscale { get => _explicitNullValueAutoscale; set { _explicitNullValueAutoscale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscale"); else _explicitNullProperties?.Remove("autoscale"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseAutoscaleParams Autoscale { get => _explicitNullValueAutoscale; set { _explicitNullValueAutoscale = value; AdditionalData?.Remove("autoscale"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscale"); else _explicitNullProperties?.Remove("autoscale"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseAutoscaleParams _explicitNullValueAutoscale = default!;
 #endif
         /// <summary>

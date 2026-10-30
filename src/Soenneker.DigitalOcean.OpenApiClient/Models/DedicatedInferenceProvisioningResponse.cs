@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dedicated_inference") is { } nullNodeDedicatedInference && nullNodeDedicatedInference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DedicatedInference = null;
-            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+            if (parseNode.GetChildNode("dedicated_inference") is null) { _explicitNullValueDedicatedInference = default!; _explicitNullProperties?.Remove("dedicated_inference"); }
+            else if (parseNode.GetChildNode("dedicated_inference") is { } nullNodeDedicatedInference && nullNodeDedicatedInference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DedicatedInference = null;
+            if (parseNode.GetChildNode("token") is null) { _explicitNullValueToken = default!; _explicitNullProperties?.Remove("token"); }
+            else if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A Dedicated Inference instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInference? DedicatedInference { get => _explicitNullValueDedicatedInference; set { _explicitNullValueDedicatedInference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dedicated_inference"); else _explicitNullProperties?.Remove("dedicated_inference"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInference? DedicatedInference { get => _explicitNullValueDedicatedInference; set { _explicitNullValueDedicatedInference = value; AdditionalData?.Remove("dedicated_inference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dedicated_inference"); else _explicitNullProperties?.Remove("dedicated_inference"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInference? _explicitNullValueDedicatedInference = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInference DedicatedInference { get => _explicitNullValueDedicatedInference; set { _explicitNullValueDedicatedInference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dedicated_inference"); else _explicitNullProperties?.Remove("dedicated_inference"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInference DedicatedInference { get => _explicitNullValueDedicatedInference; set { _explicitNullValueDedicatedInference = value; AdditionalData?.Remove("dedicated_inference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dedicated_inference"); else _explicitNullProperties?.Remove("dedicated_inference"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInference _explicitNullValueDedicatedInference = default!;
 #endif
         /// <summary>Access token for authenticating to Dedicated Inference endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceAccessToken? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceAccessToken? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; AdditionalData?.Remove("token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceAccessToken? _explicitNullValueToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceAccessToken Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceAccessToken Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; AdditionalData?.Remove("token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceAccessToken _explicitNullValueToken = default!;
 #endif
         /// <summary>

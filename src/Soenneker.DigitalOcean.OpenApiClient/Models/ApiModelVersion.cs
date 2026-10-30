@@ -18,21 +18,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("major") is { } nullNodeMajor && nullNodeMajor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Major = null;
-            if (parseNode.GetChildNode("minor") is { } nullNodeMinor && nullNodeMinor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Minor = null;
-            if (parseNode.GetChildNode("patch") is { } nullNodePatch && nullNodePatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patch = null;
+            if (parseNode.GetChildNode("major") is null) { _explicitNullValueMajor = default!; _explicitNullProperties?.Remove("major"); }
+            else if (parseNode.GetChildNode("major") is { } nullNodeMajor && nullNodeMajor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Major = null;
+            if (parseNode.GetChildNode("minor") is null) { _explicitNullValueMinor = default!; _explicitNullProperties?.Remove("minor"); }
+            else if (parseNode.GetChildNode("minor") is { } nullNodeMinor && nullNodeMinor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Minor = null;
+            if (parseNode.GetChildNode("patch") is null) { _explicitNullValuePatch = default!; _explicitNullProperties?.Remove("patch"); }
+            else if (parseNode.GetChildNode("patch") is { } nullNodePatch && nullNodePatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Major version number</summary>
-        public long? Major { get => _explicitNullValueMajor; set { _explicitNullValueMajor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("major"); else _explicitNullProperties?.Remove("major"); } }
+        public long? Major { get => _explicitNullValueMajor; set { _explicitNullValueMajor = value; AdditionalData?.Remove("major"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("major"); else _explicitNullProperties?.Remove("major"); } }
         private long? _explicitNullValueMajor = default!;
         /// <summary>Minor version number</summary>
-        public long? Minor { get => _explicitNullValueMinor; set { _explicitNullValueMinor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minor"); else _explicitNullProperties?.Remove("minor"); } }
+        public long? Minor { get => _explicitNullValueMinor; set { _explicitNullValueMinor = value; AdditionalData?.Remove("minor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minor"); else _explicitNullProperties?.Remove("minor"); } }
         private long? _explicitNullValueMinor = default!;
         /// <summary>Patch version number</summary>
-        public long? Patch { get => _explicitNullValuePatch; set { _explicitNullValuePatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patch"); else _explicitNullProperties?.Remove("patch"); } }
+        public long? Patch { get => _explicitNullValuePatch; set { _explicitNullValuePatch = value; AdditionalData?.Remove("patch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patch"); else _explicitNullProperties?.Remove("patch"); } }
         private long? _explicitNullValuePatch = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelVersion"/> and sets the default values.

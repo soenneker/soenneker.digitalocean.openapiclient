@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("kubernetes_cluster_user") is { } nullNodeKubernetesClusterUser && nullNodeKubernetesClusterUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KubernetesClusterUser = null;
+            if (parseNode.GetChildNode("kubernetes_cluster_user") is null) { _explicitNullValueKubernetesClusterUser = default!; _explicitNullProperties?.Remove("kubernetes_cluster_user"); }
+            else if (parseNode.GetChildNode("kubernetes_cluster_user") is { } nullNodeKubernetesClusterUser && nullNodeKubernetesClusterUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KubernetesClusterUser = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The kubernetes_cluster_user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.User2KubernetesClusterUser? KubernetesClusterUser { get => _explicitNullValueKubernetesClusterUser; set { _explicitNullValueKubernetesClusterUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_cluster_user"); else _explicitNullProperties?.Remove("kubernetes_cluster_user"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.User2KubernetesClusterUser? KubernetesClusterUser { get => _explicitNullValueKubernetesClusterUser; set { _explicitNullValueKubernetesClusterUser = value; AdditionalData?.Remove("kubernetes_cluster_user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_cluster_user"); else _explicitNullProperties?.Remove("kubernetes_cluster_user"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.User2KubernetesClusterUser? _explicitNullValueKubernetesClusterUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.User2KubernetesClusterUser KubernetesClusterUser { get => _explicitNullValueKubernetesClusterUser; set { _explicitNullValueKubernetesClusterUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_cluster_user"); else _explicitNullProperties?.Remove("kubernetes_cluster_user"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.User2KubernetesClusterUser KubernetesClusterUser { get => _explicitNullValueKubernetesClusterUser; set { _explicitNullValueKubernetesClusterUser = value; AdditionalData?.Remove("kubernetes_cluster_user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_cluster_user"); else _explicitNullProperties?.Remove("kubernetes_cluster_user"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.User2KubernetesClusterUser _explicitNullValueKubernetesClusterUser = default!;
 #endif
         /// <summary>

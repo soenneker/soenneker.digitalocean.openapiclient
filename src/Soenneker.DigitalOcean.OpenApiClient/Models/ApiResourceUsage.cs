@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("measurements") is { } nullNodeMeasurements && nullNodeMeasurements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Measurements = null;
-            if (parseNode.GetChildNode("resource_uuid") is { } nullNodeResourceUuid && nullNodeResourceUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceUuid = null;
-            if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
-            if (parseNode.GetChildNode("stop") is { } nullNodeStop && nullNodeStop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stop = null;
+            if (parseNode.GetChildNode("measurements") is null) { _explicitNullValueMeasurements = default!; _explicitNullProperties?.Remove("measurements"); }
+            else if (parseNode.GetChildNode("measurements") is { } nullNodeMeasurements && nullNodeMeasurements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Measurements = null;
+            if (parseNode.GetChildNode("resource_uuid") is null) { _explicitNullValueResourceUuid = default!; _explicitNullProperties?.Remove("resource_uuid"); }
+            else if (parseNode.GetChildNode("resource_uuid") is { } nullNodeResourceUuid && nullNodeResourceUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceUuid = null;
+            if (parseNode.GetChildNode("start") is null) { _explicitNullValueStart = default!; _explicitNullProperties?.Remove("start"); }
+            else if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
+            if (parseNode.GetChildNode("stop") is null) { _explicitNullValueStop = default!; _explicitNullProperties?.Remove("stop"); }
+            else if (parseNode.GetChildNode("stop") is { } nullNodeStop && nullNodeStop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stop = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,28 +33,28 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The measurements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUsageMeasurement>? Measurements { get => _explicitNullValueMeasurements; set { _explicitNullValueMeasurements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("measurements"); else _explicitNullProperties?.Remove("measurements"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUsageMeasurement>? Measurements { get => _explicitNullValueMeasurements; set { _explicitNullValueMeasurements = value; AdditionalData?.Remove("measurements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("measurements"); else _explicitNullProperties?.Remove("measurements"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUsageMeasurement>? _explicitNullValueMeasurements = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUsageMeasurement> Measurements { get => _explicitNullValueMeasurements; set { _explicitNullValueMeasurements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("measurements"); else _explicitNullProperties?.Remove("measurements"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUsageMeasurement> Measurements { get => _explicitNullValueMeasurements; set { _explicitNullValueMeasurements = value; AdditionalData?.Remove("measurements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("measurements"); else _explicitNullProperties?.Remove("measurements"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUsageMeasurement> _explicitNullValueMeasurements = default!;
 #endif
         /// <summary>The resource_uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceUuid { get => _explicitNullValueResourceUuid; set { _explicitNullValueResourceUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_uuid"); else _explicitNullProperties?.Remove("resource_uuid"); } }
+        public string? ResourceUuid { get => _explicitNullValueResourceUuid; set { _explicitNullValueResourceUuid = value; AdditionalData?.Remove("resource_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_uuid"); else _explicitNullProperties?.Remove("resource_uuid"); } }
         private string? _explicitNullValueResourceUuid = default!;
 #nullable restore
 #else
-        public string ResourceUuid { get => _explicitNullValueResourceUuid; set { _explicitNullValueResourceUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_uuid"); else _explicitNullProperties?.Remove("resource_uuid"); } }
+        public string ResourceUuid { get => _explicitNullValueResourceUuid; set { _explicitNullValueResourceUuid = value; AdditionalData?.Remove("resource_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_uuid"); else _explicitNullProperties?.Remove("resource_uuid"); } }
         private string _explicitNullValueResourceUuid = default!;
 #endif
         /// <summary>The start property</summary>
-        public DateTimeOffset? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
+        public DateTimeOffset? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; AdditionalData?.Remove("start"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
         private DateTimeOffset? _explicitNullValueStart = default!;
         /// <summary>The stop property</summary>
-        public DateTimeOffset? Stop { get => _explicitNullValueStop; set { _explicitNullValueStop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop"); else _explicitNullProperties?.Remove("stop"); } }
+        public DateTimeOffset? Stop { get => _explicitNullValueStop; set { _explicitNullValueStop = value; AdditionalData?.Remove("stop"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop"); else _explicitNullProperties?.Remove("stop"); } }
         private DateTimeOffset? _explicitNullValueStop = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiResourceUsage"/> and sets the default values.

@@ -18,11 +18,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("candidate_agent_tokens") is { } nullNodeCandidateAgentTokens && nullNodeCandidateAgentTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateAgentTokens = null;
-            if (parseNode.GetChildNode("generator_tokens") is { } nullNodeGeneratorTokens && nullNodeGeneratorTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneratorTokens = null;
-            if (parseNode.GetChildNode("judge_tokens") is { } nullNodeJudgeTokens && nullNodeJudgeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeTokens = null;
-            if (parseNode.GetChildNode("simulator_tokens") is { } nullNodeSimulatorTokens && nullNodeSimulatorTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimulatorTokens = null;
-            if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
+            if (parseNode.GetChildNode("candidate_agent_tokens") is null) { _explicitNullValueCandidateAgentTokens = default!; _explicitNullProperties?.Remove("candidate_agent_tokens"); }
+            else if (parseNode.GetChildNode("candidate_agent_tokens") is { } nullNodeCandidateAgentTokens && nullNodeCandidateAgentTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CandidateAgentTokens = null;
+            if (parseNode.GetChildNode("generator_tokens") is null) { _explicitNullValueGeneratorTokens = default!; _explicitNullProperties?.Remove("generator_tokens"); }
+            else if (parseNode.GetChildNode("generator_tokens") is { } nullNodeGeneratorTokens && nullNodeGeneratorTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneratorTokens = null;
+            if (parseNode.GetChildNode("judge_tokens") is null) { _explicitNullValueJudgeTokens = default!; _explicitNullProperties?.Remove("judge_tokens"); }
+            else if (parseNode.GetChildNode("judge_tokens") is { } nullNodeJudgeTokens && nullNodeJudgeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgeTokens = null;
+            if (parseNode.GetChildNode("simulator_tokens") is null) { _explicitNullValueSimulatorTokens = default!; _explicitNullProperties?.Remove("simulator_tokens"); }
+            else if (parseNode.GetChildNode("simulator_tokens") is { } nullNodeSimulatorTokens && nullNodeSimulatorTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimulatorTokens = null;
+            if (parseNode.GetChildNode("total_tokens") is null) { _explicitNullValueTotalTokens = default!; _explicitNullProperties?.Remove("total_tokens"); }
+            else if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,51 +35,51 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Tokens consumed by the candidate agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CandidateAgentTokens { get => _explicitNullValueCandidateAgentTokens; set { _explicitNullValueCandidateAgentTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_agent_tokens"); else _explicitNullProperties?.Remove("candidate_agent_tokens"); } }
+        public string? CandidateAgentTokens { get => _explicitNullValueCandidateAgentTokens; set { _explicitNullValueCandidateAgentTokens = value; AdditionalData?.Remove("candidate_agent_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_agent_tokens"); else _explicitNullProperties?.Remove("candidate_agent_tokens"); } }
         private string? _explicitNullValueCandidateAgentTokens = default!;
 #nullable restore
 #else
-        public string CandidateAgentTokens { get => _explicitNullValueCandidateAgentTokens; set { _explicitNullValueCandidateAgentTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_agent_tokens"); else _explicitNullProperties?.Remove("candidate_agent_tokens"); } }
+        public string CandidateAgentTokens { get => _explicitNullValueCandidateAgentTokens; set { _explicitNullValueCandidateAgentTokens = value; AdditionalData?.Remove("candidate_agent_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidate_agent_tokens"); else _explicitNullProperties?.Remove("candidate_agent_tokens"); } }
         private string _explicitNullValueCandidateAgentTokens = default!;
 #endif
         /// <summary>Tokens consumed by the scenario generator.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GeneratorTokens { get => _explicitNullValueGeneratorTokens; set { _explicitNullValueGeneratorTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generator_tokens"); else _explicitNullProperties?.Remove("generator_tokens"); } }
+        public string? GeneratorTokens { get => _explicitNullValueGeneratorTokens; set { _explicitNullValueGeneratorTokens = value; AdditionalData?.Remove("generator_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generator_tokens"); else _explicitNullProperties?.Remove("generator_tokens"); } }
         private string? _explicitNullValueGeneratorTokens = default!;
 #nullable restore
 #else
-        public string GeneratorTokens { get => _explicitNullValueGeneratorTokens; set { _explicitNullValueGeneratorTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generator_tokens"); else _explicitNullProperties?.Remove("generator_tokens"); } }
+        public string GeneratorTokens { get => _explicitNullValueGeneratorTokens; set { _explicitNullValueGeneratorTokens = value; AdditionalData?.Remove("generator_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generator_tokens"); else _explicitNullProperties?.Remove("generator_tokens"); } }
         private string _explicitNullValueGeneratorTokens = default!;
 #endif
         /// <summary>Tokens consumed by the judge.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JudgeTokens { get => _explicitNullValueJudgeTokens; set { _explicitNullValueJudgeTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_tokens"); else _explicitNullProperties?.Remove("judge_tokens"); } }
+        public string? JudgeTokens { get => _explicitNullValueJudgeTokens; set { _explicitNullValueJudgeTokens = value; AdditionalData?.Remove("judge_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_tokens"); else _explicitNullProperties?.Remove("judge_tokens"); } }
         private string? _explicitNullValueJudgeTokens = default!;
 #nullable restore
 #else
-        public string JudgeTokens { get => _explicitNullValueJudgeTokens; set { _explicitNullValueJudgeTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_tokens"); else _explicitNullProperties?.Remove("judge_tokens"); } }
+        public string JudgeTokens { get => _explicitNullValueJudgeTokens; set { _explicitNullValueJudgeTokens = value; AdditionalData?.Remove("judge_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_tokens"); else _explicitNullProperties?.Remove("judge_tokens"); } }
         private string _explicitNullValueJudgeTokens = default!;
 #endif
         /// <summary>Tokens consumed by the user simulator.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SimulatorTokens { get => _explicitNullValueSimulatorTokens; set { _explicitNullValueSimulatorTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulator_tokens"); else _explicitNullProperties?.Remove("simulator_tokens"); } }
+        public string? SimulatorTokens { get => _explicitNullValueSimulatorTokens; set { _explicitNullValueSimulatorTokens = value; AdditionalData?.Remove("simulator_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulator_tokens"); else _explicitNullProperties?.Remove("simulator_tokens"); } }
         private string? _explicitNullValueSimulatorTokens = default!;
 #nullable restore
 #else
-        public string SimulatorTokens { get => _explicitNullValueSimulatorTokens; set { _explicitNullValueSimulatorTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulator_tokens"); else _explicitNullProperties?.Remove("simulator_tokens"); } }
+        public string SimulatorTokens { get => _explicitNullValueSimulatorTokens; set { _explicitNullValueSimulatorTokens = value; AdditionalData?.Remove("simulator_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulator_tokens"); else _explicitNullProperties?.Remove("simulator_tokens"); } }
         private string _explicitNullValueSimulatorTokens = default!;
 #endif
         /// <summary>Total tokens across all actors.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
+        public string? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; AdditionalData?.Remove("total_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
         private string? _explicitNullValueTotalTokens = default!;
 #nullable restore
 #else
-        public string TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
+        public string TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; AdditionalData?.Remove("total_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
         private string _explicitNullValueTotalTokens = default!;
 #endif
         /// <summary>

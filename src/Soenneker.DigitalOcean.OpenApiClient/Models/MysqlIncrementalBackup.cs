@@ -18,23 +18,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("full_backup_week_schedule") is { } nullNodeFullBackupWeekSchedule && nullNodeFullBackupWeekSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullBackupWeekSchedule = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("full_backup_week_schedule") is null) { _explicitNullValueFullBackupWeekSchedule = default!; _explicitNullProperties?.Remove("full_backup_week_schedule"); }
+            else if (parseNode.GetChildNode("full_backup_week_schedule") is { } nullNodeFullBackupWeekSchedule && nullNodeFullBackupWeekSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullBackupWeekSchedule = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable periodic incremental backups. When enabled, full_backup_week_schedule must be set. Incremental backups only store changes since the last backup, making them faster and more storage-efficient than full backups. This is particularly useful for large databases where daily full backups would be too time-consuming or expensive.</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>Comma-separated list of days of the week when full backups should be created. Valid values: mon, tue, wed, thu, fri, sat, sun. Default is null. Example : &quot;mon,fri,sun&quot;. </summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FullBackupWeekSchedule { get => _explicitNullValueFullBackupWeekSchedule; set { _explicitNullValueFullBackupWeekSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_backup_week_schedule"); else _explicitNullProperties?.Remove("full_backup_week_schedule"); } }
+        public string? FullBackupWeekSchedule { get => _explicitNullValueFullBackupWeekSchedule; set { _explicitNullValueFullBackupWeekSchedule = value; AdditionalData?.Remove("full_backup_week_schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_backup_week_schedule"); else _explicitNullProperties?.Remove("full_backup_week_schedule"); } }
         private string? _explicitNullValueFullBackupWeekSchedule = default!;
 #nullable restore
 #else
-        public string FullBackupWeekSchedule { get => _explicitNullValueFullBackupWeekSchedule; set { _explicitNullValueFullBackupWeekSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_backup_week_schedule"); else _explicitNullProperties?.Remove("full_backup_week_schedule"); } }
+        public string FullBackupWeekSchedule { get => _explicitNullValueFullBackupWeekSchedule; set { _explicitNullValueFullBackupWeekSchedule = value; AdditionalData?.Remove("full_backup_week_schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_backup_week_schedule"); else _explicitNullProperties?.Remove("full_backup_week_schedule"); } }
         private string _explicitNullValueFullBackupWeekSchedule = default!;
 #endif
         /// <summary>

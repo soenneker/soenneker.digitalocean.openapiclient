@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("curl") is { } nullNodeCurl && nullNodeCurl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Curl = null;
-            if (parseNode.GetChildNode("javascript") is { } nullNodeJavascript && nullNodeJavascript.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Javascript = null;
-            if (parseNode.GetChildNode("python") is { } nullNodePython && nullNodePython.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Python = null;
-            if (parseNode.GetChildNode("sdk") is { } nullNodeSdk && nullNodeSdk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sdk = null;
+            if (parseNode.GetChildNode("curl") is null) { _explicitNullValueCurl = default!; _explicitNullProperties?.Remove("curl"); }
+            else if (parseNode.GetChildNode("curl") is { } nullNodeCurl && nullNodeCurl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Curl = null;
+            if (parseNode.GetChildNode("javascript") is null) { _explicitNullValueJavascript = default!; _explicitNullProperties?.Remove("javascript"); }
+            else if (parseNode.GetChildNode("javascript") is { } nullNodeJavascript && nullNodeJavascript.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Javascript = null;
+            if (parseNode.GetChildNode("python") is null) { _explicitNullValuePython = default!; _explicitNullProperties?.Remove("python"); }
+            else if (parseNode.GetChildNode("python") is { } nullNodePython && nullNodePython.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Python = null;
+            if (parseNode.GetChildNode("sdk") is null) { _explicitNullValueSdk = default!; _explicitNullProperties?.Remove("sdk"); }
+            else if (parseNode.GetChildNode("sdk") is { } nullNodeSdk && nullNodeSdk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sdk = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The curl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Curl { get => _explicitNullValueCurl; set { _explicitNullValueCurl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("curl"); else _explicitNullProperties?.Remove("curl"); } }
+        public string? Curl { get => _explicitNullValueCurl; set { _explicitNullValueCurl = value; AdditionalData?.Remove("curl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("curl"); else _explicitNullProperties?.Remove("curl"); } }
         private string? _explicitNullValueCurl = default!;
 #nullable restore
 #else
-        public string Curl { get => _explicitNullValueCurl; set { _explicitNullValueCurl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("curl"); else _explicitNullProperties?.Remove("curl"); } }
+        public string Curl { get => _explicitNullValueCurl; set { _explicitNullValueCurl = value; AdditionalData?.Remove("curl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("curl"); else _explicitNullProperties?.Remove("curl"); } }
         private string _explicitNullValueCurl = default!;
 #endif
         /// <summary>The javascript property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Javascript { get => _explicitNullValueJavascript; set { _explicitNullValueJavascript = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("javascript"); else _explicitNullProperties?.Remove("javascript"); } }
+        public string? Javascript { get => _explicitNullValueJavascript; set { _explicitNullValueJavascript = value; AdditionalData?.Remove("javascript"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("javascript"); else _explicitNullProperties?.Remove("javascript"); } }
         private string? _explicitNullValueJavascript = default!;
 #nullable restore
 #else
-        public string Javascript { get => _explicitNullValueJavascript; set { _explicitNullValueJavascript = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("javascript"); else _explicitNullProperties?.Remove("javascript"); } }
+        public string Javascript { get => _explicitNullValueJavascript; set { _explicitNullValueJavascript = value; AdditionalData?.Remove("javascript"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("javascript"); else _explicitNullProperties?.Remove("javascript"); } }
         private string _explicitNullValueJavascript = default!;
 #endif
         /// <summary>The python property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Python { get => _explicitNullValuePython; set { _explicitNullValuePython = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python"); else _explicitNullProperties?.Remove("python"); } }
+        public string? Python { get => _explicitNullValuePython; set { _explicitNullValuePython = value; AdditionalData?.Remove("python"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python"); else _explicitNullProperties?.Remove("python"); } }
         private string? _explicitNullValuePython = default!;
 #nullable restore
 #else
-        public string Python { get => _explicitNullValuePython; set { _explicitNullValuePython = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python"); else _explicitNullProperties?.Remove("python"); } }
+        public string Python { get => _explicitNullValuePython; set { _explicitNullValuePython = value; AdditionalData?.Remove("python"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python"); else _explicitNullProperties?.Remove("python"); } }
         private string _explicitNullValuePython = default!;
 #endif
         /// <summary>The sdk property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sdk { get => _explicitNullValueSdk; set { _explicitNullValueSdk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sdk"); else _explicitNullProperties?.Remove("sdk"); } }
+        public string? Sdk { get => _explicitNullValueSdk; set { _explicitNullValueSdk = value; AdditionalData?.Remove("sdk"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sdk"); else _explicitNullProperties?.Remove("sdk"); } }
         private string? _explicitNullValueSdk = default!;
 #nullable restore
 #else
-        public string Sdk { get => _explicitNullValueSdk; set { _explicitNullValueSdk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sdk"); else _explicitNullProperties?.Remove("sdk"); } }
+        public string Sdk { get => _explicitNullValueSdk; set { _explicitNullValueSdk = value; AdditionalData?.Remove("sdk"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sdk"); else _explicitNullProperties?.Remove("sdk"); } }
         private string _explicitNullValueSdk = default!;
 #endif
         /// <summary>

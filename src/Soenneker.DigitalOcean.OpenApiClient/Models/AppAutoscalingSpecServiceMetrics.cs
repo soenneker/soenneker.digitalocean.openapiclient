@@ -17,9 +17,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cpu") is { } nullNodeCpu && nullNodeCpu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cpu = null;
-            if (parseNode.GetChildNode("request_duration") is { } nullNodeRequestDuration && nullNodeRequestDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestDuration = null;
-            if (parseNode.GetChildNode("requests_per_second") is { } nullNodeRequestsPerSecond && nullNodeRequestsPerSecond.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestsPerSecond = null;
+            if (parseNode.GetChildNode("cpu") is null) { _explicitNullValueCpu = default!; _explicitNullProperties?.Remove("cpu"); }
+            else if (parseNode.GetChildNode("cpu") is { } nullNodeCpu && nullNodeCpu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cpu = null;
+            if (parseNode.GetChildNode("request_duration") is null) { _explicitNullValueRequestDuration = default!; _explicitNullProperties?.Remove("request_duration"); }
+            else if (parseNode.GetChildNode("request_duration") is { } nullNodeRequestDuration && nullNodeRequestDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestDuration = null;
+            if (parseNode.GetChildNode("requests_per_second") is null) { _explicitNullValueRequestsPerSecond = default!; _explicitNullProperties?.Remove("requests_per_second"); }
+            else if (parseNode.GetChildNode("requests_per_second") is { } nullNodeRequestsPerSecond && nullNodeRequestsPerSecond.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestsPerSecond = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Settings for scaling the component based on CPU utilization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetricsCpu? Cpu { get => _explicitNullValueCpu; set { _explicitNullValueCpu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu"); else _explicitNullProperties?.Remove("cpu"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetricsCpu? Cpu { get => _explicitNullValueCpu; set { _explicitNullValueCpu = value; AdditionalData?.Remove("cpu"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu"); else _explicitNullProperties?.Remove("cpu"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetricsCpu? _explicitNullValueCpu = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetricsCpu Cpu { get => _explicitNullValueCpu; set { _explicitNullValueCpu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu"); else _explicitNullProperties?.Remove("cpu"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetricsCpu Cpu { get => _explicitNullValueCpu; set { _explicitNullValueCpu = value; AdditionalData?.Remove("cpu"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu"); else _explicitNullProperties?.Remove("cpu"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetricsCpu _explicitNullValueCpu = default!;
 #endif
         /// <summary>Settings for scaling the component based on request duration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestDuration? RequestDuration { get => _explicitNullValueRequestDuration; set { _explicitNullValueRequestDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_duration"); else _explicitNullProperties?.Remove("request_duration"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestDuration? RequestDuration { get => _explicitNullValueRequestDuration; set { _explicitNullValueRequestDuration = value; AdditionalData?.Remove("request_duration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_duration"); else _explicitNullProperties?.Remove("request_duration"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestDuration? _explicitNullValueRequestDuration = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestDuration RequestDuration { get => _explicitNullValueRequestDuration; set { _explicitNullValueRequestDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_duration"); else _explicitNullProperties?.Remove("request_duration"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestDuration RequestDuration { get => _explicitNullValueRequestDuration; set { _explicitNullValueRequestDuration = value; AdditionalData?.Remove("request_duration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_duration"); else _explicitNullProperties?.Remove("request_duration"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestDuration _explicitNullValueRequestDuration = default!;
 #endif
         /// <summary>Settings for scaling the component based on requests per second.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond? RequestsPerSecond { get => _explicitNullValueRequestsPerSecond; set { _explicitNullValueRequestsPerSecond = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests_per_second"); else _explicitNullProperties?.Remove("requests_per_second"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond? RequestsPerSecond { get => _explicitNullValueRequestsPerSecond; set { _explicitNullValueRequestsPerSecond = value; AdditionalData?.Remove("requests_per_second"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests_per_second"); else _explicitNullProperties?.Remove("requests_per_second"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond? _explicitNullValueRequestsPerSecond = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond RequestsPerSecond { get => _explicitNullValueRequestsPerSecond; set { _explicitNullValueRequestsPerSecond = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests_per_second"); else _explicitNullProperties?.Remove("requests_per_second"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond RequestsPerSecond { get => _explicitNullValueRequestsPerSecond; set { _explicitNullValueRequestsPerSecond = value; AdditionalData?.Remove("requests_per_second"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests_per_second"); else _explicitNullProperties?.Remove("requests_per_second"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond _explicitNullValueRequestsPerSecond = default!;
 #endif
         /// <summary>

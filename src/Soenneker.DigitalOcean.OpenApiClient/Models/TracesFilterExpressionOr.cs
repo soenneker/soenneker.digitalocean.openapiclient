@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("expressions") is { } nullNodeExpressions && nullNodeExpressions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expressions = null;
+            if (parseNode.GetChildNode("expressions") is null) { _explicitNullValueExpressions = default!; _explicitNullProperties?.Remove("expressions"); }
+            else if (parseNode.GetChildNode("expressions") is { } nullNodeExpressions && nullNodeExpressions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expressions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The expressions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>? Expressions { get => _explicitNullValueExpressions; set { _explicitNullValueExpressions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expressions"); else _explicitNullProperties?.Remove("expressions"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>? Expressions { get => _explicitNullValueExpressions; set { _explicitNullValueExpressions = value; AdditionalData?.Remove("expressions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expressions"); else _explicitNullProperties?.Remove("expressions"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression>? _explicitNullValueExpressions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression> Expressions { get => _explicitNullValueExpressions; set { _explicitNullValueExpressions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expressions"); else _explicitNullProperties?.Remove("expressions"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression> Expressions { get => _explicitNullValueExpressions; set { _explicitNullValueExpressions = value; AdditionalData?.Remove("expressions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expressions"); else _explicitNullProperties?.Remove("expressions"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression> _explicitNullValueExpressions = default!;
 #endif
         /// <summary>

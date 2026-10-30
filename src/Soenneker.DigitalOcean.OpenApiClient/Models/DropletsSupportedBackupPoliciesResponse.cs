@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("supported_policies") is { } nullNodeSupportedPolicies && nullNodeSupportedPolicies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedPolicies = null;
+            if (parseNode.GetChildNode("supported_policies") is null) { _explicitNullValueSupportedPolicies = default!; _explicitNullProperties?.Remove("supported_policies"); }
+            else if (parseNode.GetChildNode("supported_policies") is { } nullNodeSupportedPolicies && nullNodeSupportedPolicies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedPolicies = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The supported_policies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy>? SupportedPolicies { get => _explicitNullValueSupportedPolicies; set { _explicitNullValueSupportedPolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported_policies"); else _explicitNullProperties?.Remove("supported_policies"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy>? SupportedPolicies { get => _explicitNullValueSupportedPolicies; set { _explicitNullValueSupportedPolicies = value; AdditionalData?.Remove("supported_policies"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported_policies"); else _explicitNullProperties?.Remove("supported_policies"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy>? _explicitNullValueSupportedPolicies = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy> SupportedPolicies { get => _explicitNullValueSupportedPolicies; set { _explicitNullValueSupportedPolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported_policies"); else _explicitNullProperties?.Remove("supported_policies"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy> SupportedPolicies { get => _explicitNullValueSupportedPolicies; set { _explicitNullValueSupportedPolicies = value; AdditionalData?.Remove("supported_policies"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported_policies"); else _explicitNullProperties?.Remove("supported_policies"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.SupportedDropletBackupPolicy> _explicitNullValueSupportedPolicies = default!;
 #endif
         /// <summary>

@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("prefer") is { } nullNodePrefer && nullNodePrefer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prefer = null;
+            if (parseNode.GetChildNode("prefer") is null) { _explicitNullValuePrefer = default!; _explicitNullProperties?.Remove("prefer"); }
+            else if (parseNode.GetChildNode("prefer") is { } nullNodePrefer && nullNodePrefer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prefer = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>One of: none, cheapest, fastest</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prefer { get => _explicitNullValuePrefer; set { _explicitNullValuePrefer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prefer"); else _explicitNullProperties?.Remove("prefer"); } }
+        public string? Prefer { get => _explicitNullValuePrefer; set { _explicitNullValuePrefer = value; AdditionalData?.Remove("prefer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prefer"); else _explicitNullProperties?.Remove("prefer"); } }
         private string? _explicitNullValuePrefer = default!;
 #nullable restore
 #else
-        public string Prefer { get => _explicitNullValuePrefer; set { _explicitNullValuePrefer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prefer"); else _explicitNullProperties?.Remove("prefer"); } }
+        public string Prefer { get => _explicitNullValuePrefer; set { _explicitNullValuePrefer = value; AdditionalData?.Remove("prefer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prefer"); else _explicitNullProperties?.Remove("prefer"); } }
         private string _explicitNullValuePrefer = default!;
 #endif
         /// <summary>

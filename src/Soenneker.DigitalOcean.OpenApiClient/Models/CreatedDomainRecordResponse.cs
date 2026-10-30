@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("domain_record") is { } nullNodeDomainRecord && nullNodeDomainRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainRecord = null;
+            if (parseNode.GetChildNode("domain_record") is null) { _explicitNullValueDomainRecord = default!; _explicitNullProperties?.Remove("domain_record"); }
+            else if (parseNode.GetChildNode("domain_record") is { } nullNodeDomainRecord && nullNodeDomainRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainRecord = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The domain_record property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DomainRecord? DomainRecord { get => _explicitNullValueDomainRecord; set { _explicitNullValueDomainRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_record"); else _explicitNullProperties?.Remove("domain_record"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DomainRecord? DomainRecord { get => _explicitNullValueDomainRecord; set { _explicitNullValueDomainRecord = value; AdditionalData?.Remove("domain_record"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_record"); else _explicitNullProperties?.Remove("domain_record"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DomainRecord? _explicitNullValueDomainRecord = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DomainRecord DomainRecord { get => _explicitNullValueDomainRecord; set { _explicitNullValueDomainRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_record"); else _explicitNullProperties?.Remove("domain_record"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DomainRecord DomainRecord { get => _explicitNullValueDomainRecord; set { _explicitNullValueDomainRecord = value; AdditionalData?.Remove("domain_record"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_record"); else _explicitNullProperties?.Remove("domain_record"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DomainRecord _explicitNullValueDomainRecord = default!;
 #endif
         /// <summary>

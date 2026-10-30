@@ -18,11 +18,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("addresses") is { } nullNodeAddresses && nullNodeAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Addresses = null;
-            if (parseNode.GetChildNode("droplet_ids") is { } nullNodeDropletIds && nullNodeDropletIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletIds = null;
-            if (parseNode.GetChildNode("kubernetes_ids") is { } nullNodeKubernetesIds && nullNodeKubernetesIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KubernetesIds = null;
-            if (parseNode.GetChildNode("load_balancer_uids") is { } nullNodeLoadBalancerUids && nullNodeLoadBalancerUids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadBalancerUids = null;
-            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("addresses") is null) { _explicitNullValueAddresses = default!; _explicitNullProperties?.Remove("addresses"); }
+            else if (parseNode.GetChildNode("addresses") is { } nullNodeAddresses && nullNodeAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Addresses = null;
+            if (parseNode.GetChildNode("droplet_ids") is null) { _explicitNullValueDropletIds = default!; _explicitNullProperties?.Remove("droplet_ids"); }
+            else if (parseNode.GetChildNode("droplet_ids") is { } nullNodeDropletIds && nullNodeDropletIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletIds = null;
+            if (parseNode.GetChildNode("kubernetes_ids") is null) { _explicitNullValueKubernetesIds = default!; _explicitNullProperties?.Remove("kubernetes_ids"); }
+            else if (parseNode.GetChildNode("kubernetes_ids") is { } nullNodeKubernetesIds && nullNodeKubernetesIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KubernetesIds = null;
+            if (parseNode.GetChildNode("load_balancer_uids") is null) { _explicitNullValueLoadBalancerUids = default!; _explicitNullProperties?.Remove("load_balancer_uids"); }
+            else if (parseNode.GetChildNode("load_balancer_uids") is { } nullNodeLoadBalancerUids && nullNodeLoadBalancerUids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadBalancerUids = null;
+            if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
+            else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,51 +35,51 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An array of strings containing the IPv4 addresses, IPv6 addresses, IPv4 CIDRs, and/or IPv6 CIDRs to which the firewall will allow traffic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        public List<string>? Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; AdditionalData?.Remove("addresses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
         private List<string>? _explicitNullValueAddresses = default!;
 #nullable restore
 #else
-        public List<string> Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        public List<string> Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; AdditionalData?.Remove("addresses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
         private List<string> _explicitNullValueAddresses = default!;
 #endif
         /// <summary>An array containing the IDs of the Droplets to which the firewall will allow traffic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
+        public List<int?>? DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; AdditionalData?.Remove("droplet_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
         private List<int?>? _explicitNullValueDropletIds = default!;
 #nullable restore
 #else
-        public List<int?> DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
+        public List<int?> DropletIds { get => _explicitNullValueDropletIds; set { _explicitNullValueDropletIds = value; AdditionalData?.Remove("droplet_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_ids"); else _explicitNullProperties?.Remove("droplet_ids"); } }
         private List<int?> _explicitNullValueDropletIds = default!;
 #endif
         /// <summary>An array containing the IDs of the Kubernetes clusters to which the firewall will allow traffic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? KubernetesIds { get => _explicitNullValueKubernetesIds; set { _explicitNullValueKubernetesIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_ids"); else _explicitNullProperties?.Remove("kubernetes_ids"); } }
+        public List<string>? KubernetesIds { get => _explicitNullValueKubernetesIds; set { _explicitNullValueKubernetesIds = value; AdditionalData?.Remove("kubernetes_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_ids"); else _explicitNullProperties?.Remove("kubernetes_ids"); } }
         private List<string>? _explicitNullValueKubernetesIds = default!;
 #nullable restore
 #else
-        public List<string> KubernetesIds { get => _explicitNullValueKubernetesIds; set { _explicitNullValueKubernetesIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_ids"); else _explicitNullProperties?.Remove("kubernetes_ids"); } }
+        public List<string> KubernetesIds { get => _explicitNullValueKubernetesIds; set { _explicitNullValueKubernetesIds = value; AdditionalData?.Remove("kubernetes_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_ids"); else _explicitNullProperties?.Remove("kubernetes_ids"); } }
         private List<string> _explicitNullValueKubernetesIds = default!;
 #endif
         /// <summary>An array containing the IDs of the load balancers to which the firewall will allow traffic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? LoadBalancerUids { get => _explicitNullValueLoadBalancerUids; set { _explicitNullValueLoadBalancerUids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancer_uids"); else _explicitNullProperties?.Remove("load_balancer_uids"); } }
+        public List<string>? LoadBalancerUids { get => _explicitNullValueLoadBalancerUids; set { _explicitNullValueLoadBalancerUids = value; AdditionalData?.Remove("load_balancer_uids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancer_uids"); else _explicitNullProperties?.Remove("load_balancer_uids"); } }
         private List<string>? _explicitNullValueLoadBalancerUids = default!;
 #nullable restore
 #else
-        public List<string> LoadBalancerUids { get => _explicitNullValueLoadBalancerUids; set { _explicitNullValueLoadBalancerUids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancer_uids"); else _explicitNullProperties?.Remove("load_balancer_uids"); } }
+        public List<string> LoadBalancerUids { get => _explicitNullValueLoadBalancerUids; set { _explicitNullValueLoadBalancerUids = value; AdditionalData?.Remove("load_balancer_uids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_balancer_uids"); else _explicitNullProperties?.Remove("load_balancer_uids"); } }
         private List<string> _explicitNullValueLoadBalancerUids = default!;
 #endif
         /// <summary>A flat array of tag names as strings to be applied to the resource. Tag names must exist in order to be referenced in a request. &lt;br&gt;&lt;br&gt;Requires `tag:create` and `tag:read` scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>

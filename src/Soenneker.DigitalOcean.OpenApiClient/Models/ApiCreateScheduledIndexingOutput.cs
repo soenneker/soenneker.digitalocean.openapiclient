@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("indexing_info") is { } nullNodeIndexingInfo && nullNodeIndexingInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexingInfo = null;
+            if (parseNode.GetChildNode("indexing_info") is null) { _explicitNullValueIndexingInfo = default!; _explicitNullProperties?.Remove("indexing_info"); }
+            else if (parseNode.GetChildNode("indexing_info") is { } nullNodeIndexingInfo && nullNodeIndexingInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexingInfo = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Metadata for scheduled indexing entries</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiScheduledIndexingInfo? IndexingInfo { get => _explicitNullValueIndexingInfo; set { _explicitNullValueIndexingInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexing_info"); else _explicitNullProperties?.Remove("indexing_info"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiScheduledIndexingInfo? IndexingInfo { get => _explicitNullValueIndexingInfo; set { _explicitNullValueIndexingInfo = value; AdditionalData?.Remove("indexing_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexing_info"); else _explicitNullProperties?.Remove("indexing_info"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiScheduledIndexingInfo? _explicitNullValueIndexingInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiScheduledIndexingInfo IndexingInfo { get => _explicitNullValueIndexingInfo; set { _explicitNullValueIndexingInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexing_info"); else _explicitNullProperties?.Remove("indexing_info"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiScheduledIndexingInfo IndexingInfo { get => _explicitNullValueIndexingInfo; set { _explicitNullValueIndexingInfo = value; AdditionalData?.Remove("indexing_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexing_info"); else _explicitNullProperties?.Remove("indexing_info"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiScheduledIndexingInfo _explicitNullValueIndexingInfo = default!;
 #endif
         /// <summary>

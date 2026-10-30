@@ -17,20 +17,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("acl") is { } nullNodeAcl && nullNodeAcl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Acl = null;
-            if (parseNode.GetChildNode("mongo_user_settings") is { } nullNodeMongoUserSettings && nullNodeMongoUserSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MongoUserSettings = null;
-            if (parseNode.GetChildNode("opensearch_acl") is { } nullNodeOpensearchAcl && nullNodeOpensearchAcl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpensearchAcl = null;
-            if (parseNode.GetChildNode("pg_allow_replication") is { } nullNodePgAllowReplication && nullNodePgAllowReplication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgAllowReplication = null;
+            if (parseNode.GetChildNode("acl") is null) { _explicitNullValueAcl = default!; _explicitNullProperties?.Remove("acl"); }
+            else if (parseNode.GetChildNode("acl") is { } nullNodeAcl && nullNodeAcl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Acl = null;
+            if (parseNode.GetChildNode("mongo_user_settings") is null) { _explicitNullValueMongoUserSettings = default!; _explicitNullProperties?.Remove("mongo_user_settings"); }
+            else if (parseNode.GetChildNode("mongo_user_settings") is { } nullNodeMongoUserSettings && nullNodeMongoUserSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MongoUserSettings = null;
+            if (parseNode.GetChildNode("opensearch_acl") is null) { _explicitNullValueOpensearchAcl = default!; _explicitNullProperties?.Remove("opensearch_acl"); }
+            else if (parseNode.GetChildNode("opensearch_acl") is { } nullNodeOpensearchAcl && nullNodeOpensearchAcl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpensearchAcl = null;
+            if (parseNode.GetChildNode("pg_allow_replication") is null) { _explicitNullValuePgAllowReplication = default!; _explicitNullProperties?.Remove("pg_allow_replication"); }
+            else if (parseNode.GetChildNode("pg_allow_replication") is { } nullNodePgAllowReplication && nullNodePgAllowReplication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgAllowReplication = null;
         }
 
         /// <summary>ACLs (Access Control Lists) specifying permissions on topics within a Kafka cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsAclItem>? Acl { get => _explicitNullValueAcl; set { _explicitNullValueAcl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl"); else _explicitNullProperties?.Remove("acl"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsAclItem>? Acl { get => _explicitNullValueAcl; set { _explicitNullValueAcl = value; AdditionalData?.Remove("acl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl"); else _explicitNullProperties?.Remove("acl"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsAclItem>? _explicitNullValueAcl = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsAclItem> Acl { get => _explicitNullValueAcl; set { _explicitNullValueAcl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl"); else _explicitNullProperties?.Remove("acl"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsAclItem> Acl { get => _explicitNullValueAcl; set { _explicitNullValueAcl = value; AdditionalData?.Remove("acl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl"); else _explicitNullProperties?.Remove("acl"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsAclItem> _explicitNullValueAcl = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,25 +42,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>MongoDB-specific settings for the user. Configure these when creating a user. Updating MongoDB roles or database access after creation is not supported; recreate the user to change them. This option is not currently supported for other database engines.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettings? MongoUserSettings { get => _explicitNullValueMongoUserSettings; set { _explicitNullValueMongoUserSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongo_user_settings"); else _explicitNullProperties?.Remove("mongo_user_settings"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettings? MongoUserSettings { get => _explicitNullValueMongoUserSettings; set { _explicitNullValueMongoUserSettings = value; AdditionalData?.Remove("mongo_user_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongo_user_settings"); else _explicitNullProperties?.Remove("mongo_user_settings"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettings? _explicitNullValueMongoUserSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettings MongoUserSettings { get => _explicitNullValueMongoUserSettings; set { _explicitNullValueMongoUserSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongo_user_settings"); else _explicitNullProperties?.Remove("mongo_user_settings"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettings MongoUserSettings { get => _explicitNullValueMongoUserSettings; set { _explicitNullValueMongoUserSettings = value; AdditionalData?.Remove("mongo_user_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mongo_user_settings"); else _explicitNullProperties?.Remove("mongo_user_settings"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsMongoUserSettings _explicitNullValueMongoUserSettings = default!;
 #endif
         /// <summary>ACLs (Access Control Lists) specifying permissions on index within a OpenSearch cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsOpensearchAclItem>? OpensearchAcl { get => _explicitNullValueOpensearchAcl; set { _explicitNullValueOpensearchAcl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch_acl"); else _explicitNullProperties?.Remove("opensearch_acl"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsOpensearchAclItem>? OpensearchAcl { get => _explicitNullValueOpensearchAcl; set { _explicitNullValueOpensearchAcl = value; AdditionalData?.Remove("opensearch_acl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch_acl"); else _explicitNullProperties?.Remove("opensearch_acl"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsOpensearchAclItem>? _explicitNullValueOpensearchAcl = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsOpensearchAclItem> OpensearchAcl { get => _explicitNullValueOpensearchAcl; set { _explicitNullValueOpensearchAcl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch_acl"); else _explicitNullProperties?.Remove("opensearch_acl"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsOpensearchAclItem> OpensearchAcl { get => _explicitNullValueOpensearchAcl; set { _explicitNullValueOpensearchAcl = value; AdditionalData?.Remove("opensearch_acl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opensearch_acl"); else _explicitNullProperties?.Remove("opensearch_acl"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettingsOpensearchAclItem> _explicitNullValueOpensearchAcl = default!;
 #endif
         /// <summary>For PostgreSQL clusters, set to `true` to grant the user replicationprivileges. When omitted on create or update, the value defaults to`false` and replication privileges are not granted. This option is notcurrently supported for other database engines.</summary>
-        public bool? PgAllowReplication { get => _explicitNullValuePgAllowReplication; set { _explicitNullValuePgAllowReplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_allow_replication"); else _explicitNullProperties?.Remove("pg_allow_replication"); } }
+        public bool? PgAllowReplication { get => _explicitNullValuePgAllowReplication; set { _explicitNullValuePgAllowReplication = value; AdditionalData?.Remove("pg_allow_replication"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_allow_replication"); else _explicitNullProperties?.Remove("pg_allow_replication"); } }
         private bool? _explicitNullValuePgAllowReplication = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.UserSettings"/> and sets the default values.

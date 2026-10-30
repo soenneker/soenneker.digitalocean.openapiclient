@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("alert_rule") is { } nullNodeAlertRule && nullNodeAlertRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertRule = null;
+            if (parseNode.GetChildNode("alert_rule") is null) { _explicitNullValueAlertRule = default!; _explicitNullProperties?.Remove("alert_rule"); }
+            else if (parseNode.GetChildNode("alert_rule") is { } nullNodeAlertRule && nullNodeAlertRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertRule = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>An Insights alert rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRule? AlertRule { get => _explicitNullValueAlertRule; set { _explicitNullValueAlertRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_rule"); else _explicitNullProperties?.Remove("alert_rule"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRule? AlertRule { get => _explicitNullValueAlertRule; set { _explicitNullValueAlertRule = value; AdditionalData?.Remove("alert_rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_rule"); else _explicitNullProperties?.Remove("alert_rule"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRule? _explicitNullValueAlertRule = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRule AlertRule { get => _explicitNullValueAlertRule; set { _explicitNullValueAlertRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_rule"); else _explicitNullProperties?.Remove("alert_rule"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRule AlertRule { get => _explicitNullValueAlertRule; set { _explicitNullValueAlertRule = value; AdditionalData?.Remove("alert_rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_rule"); else _explicitNullProperties?.Remove("alert_rule"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertRule _explicitNullValueAlertRule = default!;
 #endif
         /// <summary>

@@ -18,28 +18,30 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("access_point") is { } nullNodeAccessPoint && nullNodeAccessPoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessPoint = null;
-            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("access_point") is null) { _explicitNullValueAccessPoint = default!; _explicitNullProperties?.Remove("access_point"); }
+            else if (parseNode.GetChildNode("access_point") is { } nullNodeAccessPoint && nullNodeAccessPoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessPoint = null;
+            if (parseNode.GetChildNode("action") is null) { _explicitNullValueAction = default!; _explicitNullProperties?.Remove("action"); }
+            else if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
         }
 
         /// <summary>Represents an NFS access point resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse? AccessPoint { get => _explicitNullValueAccessPoint; set { _explicitNullValueAccessPoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_point"); else _explicitNullProperties?.Remove("access_point"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse? AccessPoint { get => _explicitNullValueAccessPoint; set { _explicitNullValueAccessPoint = value; AdditionalData?.Remove("access_point"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_point"); else _explicitNullProperties?.Remove("access_point"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse? _explicitNullValueAccessPoint = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse AccessPoint { get => _explicitNullValueAccessPoint; set { _explicitNullValueAccessPoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_point"); else _explicitNullProperties?.Remove("access_point"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse AccessPoint { get => _explicitNullValueAccessPoint; set { _explicitNullValueAccessPoint = value; AdditionalData?.Remove("access_point"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_point"); else _explicitNullProperties?.Remove("access_point"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.AccessPointResponse _explicitNullValueAccessPoint = default!;
 #endif
         /// <summary>The action that was submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsAction2? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsAction2? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsAction2? _explicitNullValueAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsAction2 Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsAction2 Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsAction2 _explicitNullValueAction = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

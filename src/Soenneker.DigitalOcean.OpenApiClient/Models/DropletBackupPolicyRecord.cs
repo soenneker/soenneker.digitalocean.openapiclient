@@ -17,38 +17,42 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("backup_enabled") is { } nullNodeBackupEnabled && nullNodeBackupEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupEnabled = null;
-            if (parseNode.GetChildNode("backup_policy") is { } nullNodeBackupPolicy && nullNodeBackupPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupPolicy = null;
-            if (parseNode.GetChildNode("droplet_id") is { } nullNodeDropletId && nullNodeDropletId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletId = null;
-            if (parseNode.GetChildNode("next_backup_window") is { } nullNodeNextBackupWindow && nullNodeNextBackupWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextBackupWindow = null;
+            if (parseNode.GetChildNode("backup_enabled") is null) { _explicitNullValueBackupEnabled = default!; _explicitNullProperties?.Remove("backup_enabled"); }
+            else if (parseNode.GetChildNode("backup_enabled") is { } nullNodeBackupEnabled && nullNodeBackupEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupEnabled = null;
+            if (parseNode.GetChildNode("backup_policy") is null) { _explicitNullValueBackupPolicy = default!; _explicitNullProperties?.Remove("backup_policy"); }
+            else if (parseNode.GetChildNode("backup_policy") is { } nullNodeBackupPolicy && nullNodeBackupPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackupPolicy = null;
+            if (parseNode.GetChildNode("droplet_id") is null) { _explicitNullValueDropletId = default!; _explicitNullProperties?.Remove("droplet_id"); }
+            else if (parseNode.GetChildNode("droplet_id") is { } nullNodeDropletId && nullNodeDropletId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropletId = null;
+            if (parseNode.GetChildNode("next_backup_window") is null) { _explicitNullValueNextBackupWindow = default!; _explicitNullProperties?.Remove("next_backup_window"); }
+            else if (parseNode.GetChildNode("next_backup_window") is { } nullNodeNextBackupWindow && nullNodeNextBackupWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextBackupWindow = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A boolean value indicating whether backups are enabled for the Droplet.</summary>
-        public bool? BackupEnabled { get => _explicitNullValueBackupEnabled; set { _explicitNullValueBackupEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_enabled"); else _explicitNullProperties?.Remove("backup_enabled"); } }
+        public bool? BackupEnabled { get => _explicitNullValueBackupEnabled; set { _explicitNullValueBackupEnabled = value; AdditionalData?.Remove("backup_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_enabled"); else _explicitNullProperties?.Remove("backup_enabled"); } }
         private bool? _explicitNullValueBackupEnabled = default!;
         /// <summary>An object specifying the backup policy for the Droplet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordBackupPolicy? BackupPolicy { get => _explicitNullValueBackupPolicy; set { _explicitNullValueBackupPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_policy"); else _explicitNullProperties?.Remove("backup_policy"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordBackupPolicy? BackupPolicy { get => _explicitNullValueBackupPolicy; set { _explicitNullValueBackupPolicy = value; AdditionalData?.Remove("backup_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_policy"); else _explicitNullProperties?.Remove("backup_policy"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordBackupPolicy? _explicitNullValueBackupPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordBackupPolicy BackupPolicy { get => _explicitNullValueBackupPolicy; set { _explicitNullValueBackupPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_policy"); else _explicitNullProperties?.Remove("backup_policy"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordBackupPolicy BackupPolicy { get => _explicitNullValueBackupPolicy; set { _explicitNullValueBackupPolicy = value; AdditionalData?.Remove("backup_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backup_policy"); else _explicitNullProperties?.Remove("backup_policy"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordBackupPolicy _explicitNullValueBackupPolicy = default!;
 #endif
         /// <summary>The unique identifier for the Droplet.</summary>
-        public int? DropletId { get => _explicitNullValueDropletId; set { _explicitNullValueDropletId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_id"); else _explicitNullProperties?.Remove("droplet_id"); } }
+        public int? DropletId { get => _explicitNullValueDropletId; set { _explicitNullValueDropletId = value; AdditionalData?.Remove("droplet_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet_id"); else _explicitNullProperties?.Remove("droplet_id"); } }
         private int? _explicitNullValueDropletId = default!;
         /// <summary>An object containing keys with the start and end times of the window during which the backup will occur.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow? NextBackupWindow { get => _explicitNullValueNextBackupWindow; set { _explicitNullValueNextBackupWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_backup_window"); else _explicitNullProperties?.Remove("next_backup_window"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow? NextBackupWindow { get => _explicitNullValueNextBackupWindow; set { _explicitNullValueNextBackupWindow = value; AdditionalData?.Remove("next_backup_window"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_backup_window"); else _explicitNullProperties?.Remove("next_backup_window"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow? _explicitNullValueNextBackupWindow = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow NextBackupWindow { get => _explicitNullValueNextBackupWindow; set { _explicitNullValueNextBackupWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_backup_window"); else _explicitNullProperties?.Remove("next_backup_window"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow NextBackupWindow { get => _explicitNullValueNextBackupWindow; set { _explicitNullValueNextBackupWindow = value; AdditionalData?.Remove("next_backup_window"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_backup_window"); else _explicitNullProperties?.Remove("next_backup_window"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DropletBackupPolicyRecordNextBackupWindow _explicitNullValueNextBackupWindow = default!;
 #endif
         /// <summary>

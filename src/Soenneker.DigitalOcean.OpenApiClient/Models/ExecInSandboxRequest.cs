@@ -17,10 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("argv") is { } nullNodeArgv && nullNodeArgv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Argv = null;
-            if (parseNode.GetChildNode("stdin") is { } nullNodeStdin && nullNodeStdin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stdin = null;
-            if (parseNode.GetChildNode("timeout_seconds") is { } nullNodeTimeoutSeconds && nullNodeTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutSeconds = null;
-            if (parseNode.GetChildNode("workdir") is { } nullNodeWorkdir && nullNodeWorkdir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workdir = null;
+            if (parseNode.GetChildNode("argv") is null) { _explicitNullValueArgv = default!; _explicitNullProperties?.Remove("argv"); }
+            else if (parseNode.GetChildNode("argv") is { } nullNodeArgv && nullNodeArgv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Argv = null;
+            if (parseNode.GetChildNode("stdin") is null) { _explicitNullValueStdin = default!; _explicitNullProperties?.Remove("stdin"); }
+            else if (parseNode.GetChildNode("stdin") is { } nullNodeStdin && nullNodeStdin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stdin = null;
+            if (parseNode.GetChildNode("timeout_seconds") is null) { _explicitNullValueTimeoutSeconds = default!; _explicitNullProperties?.Remove("timeout_seconds"); }
+            else if (parseNode.GetChildNode("timeout_seconds") is { } nullNodeTimeoutSeconds && nullNodeTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutSeconds = null;
+            if (parseNode.GetChildNode("workdir") is null) { _explicitNullValueWorkdir = default!; _explicitNullProperties?.Remove("workdir"); }
+            else if (parseNode.GetChildNode("workdir") is { } nullNodeWorkdir && nullNodeWorkdir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workdir = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,34 +32,34 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Program and arguments. Required and non-empty; run directly, with no shell interpretation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Argv { get => _explicitNullValueArgv; set { _explicitNullValueArgv = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("argv"); else _explicitNullProperties?.Remove("argv"); } }
+        public List<string>? Argv { get => _explicitNullValueArgv; set { _explicitNullValueArgv = value; AdditionalData?.Remove("argv"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("argv"); else _explicitNullProperties?.Remove("argv"); } }
         private List<string>? _explicitNullValueArgv = default!;
 #nullable restore
 #else
-        public List<string> Argv { get => _explicitNullValueArgv; set { _explicitNullValueArgv = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("argv"); else _explicitNullProperties?.Remove("argv"); } }
+        public List<string> Argv { get => _explicitNullValueArgv; set { _explicitNullValueArgv = value; AdditionalData?.Remove("argv"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("argv"); else _explicitNullProperties?.Remove("argv"); } }
         private List<string> _explicitNullValueArgv = default!;
 #endif
         /// <summary>Optional base64 stdin payload, delivered in full and then closed so the process sees EOF. One-shot only — there is no streaming stdin on this endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? Stdin { get => _explicitNullValueStdin; set { _explicitNullValueStdin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdin"); else _explicitNullProperties?.Remove("stdin"); } }
+        public byte[]? Stdin { get => _explicitNullValueStdin; set { _explicitNullValueStdin = value; AdditionalData?.Remove("stdin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdin"); else _explicitNullProperties?.Remove("stdin"); } }
         private byte[]? _explicitNullValueStdin = default!;
 #nullable restore
 #else
-        public byte[] Stdin { get => _explicitNullValueStdin; set { _explicitNullValueStdin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdin"); else _explicitNullProperties?.Remove("stdin"); } }
+        public byte[] Stdin { get => _explicitNullValueStdin; set { _explicitNullValueStdin = value; AdditionalData?.Remove("stdin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdin"); else _explicitNullProperties?.Remove("stdin"); } }
         private byte[] _explicitNullValueStdin = default!;
 #endif
         /// <summary>Optional timeout. Clamped server-side (default 60, maximum 240) regardless of the value sent.</summary>
-        public long? TimeoutSeconds { get => _explicitNullValueTimeoutSeconds; set { _explicitNullValueTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_seconds"); else _explicitNullProperties?.Remove("timeout_seconds"); } }
+        public long? TimeoutSeconds { get => _explicitNullValueTimeoutSeconds; set { _explicitNullValueTimeoutSeconds = value; AdditionalData?.Remove("timeout_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_seconds"); else _explicitNullProperties?.Remove("timeout_seconds"); } }
         private long? _explicitNullValueTimeoutSeconds = default!;
         /// <summary>Working directory inside the sandbox. Empty uses the sandbox default (/workspace); not restricted to the workspace root.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Workdir { get => _explicitNullValueWorkdir; set { _explicitNullValueWorkdir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workdir"); else _explicitNullProperties?.Remove("workdir"); } }
+        public string? Workdir { get => _explicitNullValueWorkdir; set { _explicitNullValueWorkdir = value; AdditionalData?.Remove("workdir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workdir"); else _explicitNullProperties?.Remove("workdir"); } }
         private string? _explicitNullValueWorkdir = default!;
 #nullable restore
 #else
-        public string Workdir { get => _explicitNullValueWorkdir; set { _explicitNullValueWorkdir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workdir"); else _explicitNullProperties?.Remove("workdir"); } }
+        public string Workdir { get => _explicitNullValueWorkdir; set { _explicitNullValueWorkdir = value; AdditionalData?.Remove("workdir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workdir"); else _explicitNullProperties?.Remove("workdir"); } }
         private string _explicitNullValueWorkdir = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("kubernetes_cluster") is { } nullNodeKubernetesCluster && nullNodeKubernetesCluster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KubernetesCluster = null;
+            if (parseNode.GetChildNode("kubernetes_cluster") is null) { _explicitNullValueKubernetesCluster = default!; _explicitNullProperties?.Remove("kubernetes_cluster"); }
+            else if (parseNode.GetChildNode("kubernetes_cluster") is { } nullNodeKubernetesCluster && nullNodeKubernetesCluster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KubernetesCluster = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The kubernetes_cluster property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterRead? KubernetesCluster { get => _explicitNullValueKubernetesCluster; set { _explicitNullValueKubernetesCluster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_cluster"); else _explicitNullProperties?.Remove("kubernetes_cluster"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterRead? KubernetesCluster { get => _explicitNullValueKubernetesCluster; set { _explicitNullValueKubernetesCluster = value; AdditionalData?.Remove("kubernetes_cluster"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_cluster"); else _explicitNullProperties?.Remove("kubernetes_cluster"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterRead? _explicitNullValueKubernetesCluster = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterRead KubernetesCluster { get => _explicitNullValueKubernetesCluster; set { _explicitNullValueKubernetesCluster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_cluster"); else _explicitNullProperties?.Remove("kubernetes_cluster"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterRead KubernetesCluster { get => _explicitNullValueKubernetesCluster; set { _explicitNullValueKubernetesCluster = value; AdditionalData?.Remove("kubernetes_cluster"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kubernetes_cluster"); else _explicitNullProperties?.Remove("kubernetes_cluster"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ClusterRead _explicitNullValueKubernetesCluster = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("plan_slug") is { } nullNodePlanSlug && nullNodePlanSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanSlug = null;
+            if (parseNode.GetChildNode("plan_slug") is null) { _explicitNullValuePlanSlug = default!; _explicitNullProperties?.Remove("plan_slug"); }
+            else if (parseNode.GetChildNode("plan_slug") is { } nullNodePlanSlug && nullNodePlanSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The slug identifier for the new plan to apply to the add-on resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlanSlug { get => _explicitNullValuePlanSlug; set { _explicitNullValuePlanSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_slug"); else _explicitNullProperties?.Remove("plan_slug"); } }
+        public string? PlanSlug { get => _explicitNullValuePlanSlug; set { _explicitNullValuePlanSlug = value; AdditionalData?.Remove("plan_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_slug"); else _explicitNullProperties?.Remove("plan_slug"); } }
         private string? _explicitNullValuePlanSlug = default!;
 #nullable restore
 #else
-        public string PlanSlug { get => _explicitNullValuePlanSlug; set { _explicitNullValuePlanSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_slug"); else _explicitNullProperties?.Remove("plan_slug"); } }
+        public string PlanSlug { get => _explicitNullValuePlanSlug; set { _explicitNullValuePlanSlug = value; AdditionalData?.Remove("plan_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_slug"); else _explicitNullProperties?.Remove("plan_slug"); } }
         private string _explicitNullValuePlanSlug = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ingress_url") is { } nullNodeIngressUrl && nullNodeIngressUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IngressUrl = null;
+            if (parseNode.GetChildNode("ingress_url") is null) { _explicitNullValueIngressUrl = default!; _explicitNullProperties?.Remove("ingress_url"); }
+            else if (parseNode.GetChildNode("ingress_url") is { } nullNodeIngressUrl && nullNodeIngressUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IngressUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>A publicly routable HTTPS URL to one guest port of the session&apos;s sandbox. The hostname is stable while the session runs; it is revoked on pause and lock, and rollback moves the session to a new sandbox, so re-fetch after resume, unlock or rollback. Requests must carry the caller&apos;s DO token as a Bearer header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionIngressUrl? IngressUrl { get => _explicitNullValueIngressUrl; set { _explicitNullValueIngressUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ingress_url"); else _explicitNullProperties?.Remove("ingress_url"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionIngressUrl? IngressUrl { get => _explicitNullValueIngressUrl; set { _explicitNullValueIngressUrl = value; AdditionalData?.Remove("ingress_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ingress_url"); else _explicitNullProperties?.Remove("ingress_url"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionIngressUrl? _explicitNullValueIngressUrl = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionIngressUrl IngressUrl { get => _explicitNullValueIngressUrl; set { _explicitNullValueIngressUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ingress_url"); else _explicitNullProperties?.Remove("ingress_url"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionIngressUrl IngressUrl { get => _explicitNullValueIngressUrl; set { _explicitNullValueIngressUrl = value; AdditionalData?.Remove("ingress_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ingress_url"); else _explicitNullProperties?.Remove("ingress_url"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionIngressUrl _explicitNullValueIngressUrl = default!;
 #endif
         /// <summary>

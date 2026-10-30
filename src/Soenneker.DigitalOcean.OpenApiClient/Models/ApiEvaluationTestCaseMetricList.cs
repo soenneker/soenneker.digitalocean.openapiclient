@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("metric_uuids") is { } nullNodeMetricUuids && nullNodeMetricUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricUuids = null;
+            if (parseNode.GetChildNode("metric_uuids") is null) { _explicitNullValueMetricUuids = default!; _explicitNullProperties?.Remove("metric_uuids"); }
+            else if (parseNode.GetChildNode("metric_uuids") is { } nullNodeMetricUuids && nullNodeMetricUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricUuids = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The metric_uuids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? MetricUuids { get => _explicitNullValueMetricUuids; set { _explicitNullValueMetricUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuids"); else _explicitNullProperties?.Remove("metric_uuids"); } }
+        public List<string>? MetricUuids { get => _explicitNullValueMetricUuids; set { _explicitNullValueMetricUuids = value; AdditionalData?.Remove("metric_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuids"); else _explicitNullProperties?.Remove("metric_uuids"); } }
         private List<string>? _explicitNullValueMetricUuids = default!;
 #nullable restore
 #else
-        public List<string> MetricUuids { get => _explicitNullValueMetricUuids; set { _explicitNullValueMetricUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuids"); else _explicitNullProperties?.Remove("metric_uuids"); } }
+        public List<string> MetricUuids { get => _explicitNullValueMetricUuids; set { _explicitNullValueMetricUuids = value; AdditionalData?.Remove("metric_uuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_uuids"); else _explicitNullProperties?.Remove("metric_uuids"); } }
         private List<string> _explicitNullValueMetricUuids = default!;
 #endif
         /// <summary>

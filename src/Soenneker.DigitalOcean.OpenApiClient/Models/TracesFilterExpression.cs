@@ -18,11 +18,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("and") is { } nullNodeAnd && nullNodeAnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) And = null;
-            if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
-            if (parseNode.GetChildNode("not") is { } nullNodeNot && nullNodeNot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Not = null;
-            if (parseNode.GetChildNode("or") is { } nullNodeOr && nullNodeOr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Or = null;
-            if (parseNode.GetChildNode("text_search") is { } nullNodeTextSearch && nullNodeTextSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextSearch = null;
+            if (parseNode.GetChildNode("and") is null) { _explicitNullValueAnd = default!; _explicitNullProperties?.Remove("and"); }
+            else if (parseNode.GetChildNode("and") is { } nullNodeAnd && nullNodeAnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) And = null;
+            if (parseNode.GetChildNode("condition") is null) { _explicitNullValueCondition = default!; _explicitNullProperties?.Remove("condition"); }
+            else if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
+            if (parseNode.GetChildNode("not") is null) { _explicitNullValueNot = default!; _explicitNullProperties?.Remove("not"); }
+            else if (parseNode.GetChildNode("not") is { } nullNodeNot && nullNodeNot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Not = null;
+            if (parseNode.GetChildNode("or") is null) { _explicitNullValueOr = default!; _explicitNullProperties?.Remove("or"); }
+            else if (parseNode.GetChildNode("or") is { } nullNodeOr && nullNodeOr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Or = null;
+            if (parseNode.GetChildNode("text_search") is null) { _explicitNullValueTextSearch = default!; _explicitNullProperties?.Remove("text_search"); }
+            else if (parseNode.GetChildNode("text_search") is { } nullNodeTextSearch && nullNodeTextSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextSearch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,51 +35,51 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The and property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd? And { get => _explicitNullValueAnd; set { _explicitNullValueAnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("and"); else _explicitNullProperties?.Remove("and"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd? And { get => _explicitNullValueAnd; set { _explicitNullValueAnd = value; AdditionalData?.Remove("and"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("and"); else _explicitNullProperties?.Remove("and"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd? _explicitNullValueAnd = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd And { get => _explicitNullValueAnd; set { _explicitNullValueAnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("and"); else _explicitNullProperties?.Remove("and"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd And { get => _explicitNullValueAnd; set { _explicitNullValueAnd = value; AdditionalData?.Remove("and"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("and"); else _explicitNullProperties?.Remove("and"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionAnd _explicitNullValueAnd = default!;
 #endif
         /// <summary>A single field comparison in a traces filter expression.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; AdditionalData?.Remove("condition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition? _explicitNullValueCondition = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; AdditionalData?.Remove("condition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition _explicitNullValueCondition = default!;
 #endif
         /// <summary>A boolean filter tree for traces queries. Exactly one node is set per message. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression? Not { get => _explicitNullValueNot; set { _explicitNullValueNot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not"); else _explicitNullProperties?.Remove("not"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression? Not { get => _explicitNullValueNot; set { _explicitNullValueNot = value; AdditionalData?.Remove("not"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not"); else _explicitNullProperties?.Remove("not"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression? _explicitNullValueNot = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression Not { get => _explicitNullValueNot; set { _explicitNullValueNot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not"); else _explicitNullProperties?.Remove("not"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression Not { get => _explicitNullValueNot; set { _explicitNullValueNot = value; AdditionalData?.Remove("not"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not"); else _explicitNullProperties?.Remove("not"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpression _explicitNullValueNot = default!;
 #endif
         /// <summary>The or property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr? Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr? Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; AdditionalData?.Remove("or"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr? _explicitNullValueOr = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; AdditionalData?.Remove("or"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionOr _explicitNullValueOr = default!;
 #endif
         /// <summary>A substring search across span names, service names, and status messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch? TextSearch { get => _explicitNullValueTextSearch; set { _explicitNullValueTextSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_search"); else _explicitNullProperties?.Remove("text_search"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch? TextSearch { get => _explicitNullValueTextSearch; set { _explicitNullValueTextSearch = value; AdditionalData?.Remove("text_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_search"); else _explicitNullProperties?.Remove("text_search"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch? _explicitNullValueTextSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch TextSearch { get => _explicitNullValueTextSearch; set { _explicitNullValueTextSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_search"); else _explicitNullProperties?.Remove("text_search"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch TextSearch { get => _explicitNullValueTextSearch; set { _explicitNullValueTextSearch = value; AdditionalData?.Remove("text_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_search"); else _explicitNullProperties?.Remove("text_search"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterExpressionTextSearch _explicitNullValueTextSearch = default!;
 #endif
         /// <summary>

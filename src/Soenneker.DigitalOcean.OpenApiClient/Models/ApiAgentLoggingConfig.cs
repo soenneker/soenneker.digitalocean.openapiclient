@@ -17,12 +17,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("galileo_project_id") is { } nullNodeGalileoProjectId && nullNodeGalileoProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GalileoProjectId = null;
-            if (parseNode.GetChildNode("galileo_project_name") is { } nullNodeGalileoProjectName && nullNodeGalileoProjectName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GalileoProjectName = null;
-            if (parseNode.GetChildNode("insights_enabled") is { } nullNodeInsightsEnabled && nullNodeInsightsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsightsEnabled = null;
-            if (parseNode.GetChildNode("insights_enabled_at") is { } nullNodeInsightsEnabledAt && nullNodeInsightsEnabledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsightsEnabledAt = null;
-            if (parseNode.GetChildNode("log_stream_id") is { } nullNodeLogStreamId && nullNodeLogStreamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogStreamId = null;
-            if (parseNode.GetChildNode("log_stream_name") is { } nullNodeLogStreamName && nullNodeLogStreamName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogStreamName = null;
+            if (parseNode.GetChildNode("galileo_project_id") is null) { _explicitNullValueGalileoProjectId = default!; _explicitNullProperties?.Remove("galileo_project_id"); }
+            else if (parseNode.GetChildNode("galileo_project_id") is { } nullNodeGalileoProjectId && nullNodeGalileoProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GalileoProjectId = null;
+            if (parseNode.GetChildNode("galileo_project_name") is null) { _explicitNullValueGalileoProjectName = default!; _explicitNullProperties?.Remove("galileo_project_name"); }
+            else if (parseNode.GetChildNode("galileo_project_name") is { } nullNodeGalileoProjectName && nullNodeGalileoProjectName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GalileoProjectName = null;
+            if (parseNode.GetChildNode("insights_enabled") is null) { _explicitNullValueInsightsEnabled = default!; _explicitNullProperties?.Remove("insights_enabled"); }
+            else if (parseNode.GetChildNode("insights_enabled") is { } nullNodeInsightsEnabled && nullNodeInsightsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsightsEnabled = null;
+            if (parseNode.GetChildNode("insights_enabled_at") is null) { _explicitNullValueInsightsEnabledAt = default!; _explicitNullProperties?.Remove("insights_enabled_at"); }
+            else if (parseNode.GetChildNode("insights_enabled_at") is { } nullNodeInsightsEnabledAt && nullNodeInsightsEnabledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsightsEnabledAt = null;
+            if (parseNode.GetChildNode("log_stream_id") is null) { _explicitNullValueLogStreamId = default!; _explicitNullProperties?.Remove("log_stream_id"); }
+            else if (parseNode.GetChildNode("log_stream_id") is { } nullNodeLogStreamId && nullNodeLogStreamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogStreamId = null;
+            if (parseNode.GetChildNode("log_stream_name") is null) { _explicitNullValueLogStreamName = default!; _explicitNullProperties?.Remove("log_stream_name"); }
+            else if (parseNode.GetChildNode("log_stream_name") is { } nullNodeLogStreamName && nullNodeLogStreamName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogStreamName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,47 +36,47 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Galileo project identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GalileoProjectId { get => _explicitNullValueGalileoProjectId; set { _explicitNullValueGalileoProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("galileo_project_id"); else _explicitNullProperties?.Remove("galileo_project_id"); } }
+        public string? GalileoProjectId { get => _explicitNullValueGalileoProjectId; set { _explicitNullValueGalileoProjectId = value; AdditionalData?.Remove("galileo_project_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("galileo_project_id"); else _explicitNullProperties?.Remove("galileo_project_id"); } }
         private string? _explicitNullValueGalileoProjectId = default!;
 #nullable restore
 #else
-        public string GalileoProjectId { get => _explicitNullValueGalileoProjectId; set { _explicitNullValueGalileoProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("galileo_project_id"); else _explicitNullProperties?.Remove("galileo_project_id"); } }
+        public string GalileoProjectId { get => _explicitNullValueGalileoProjectId; set { _explicitNullValueGalileoProjectId = value; AdditionalData?.Remove("galileo_project_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("galileo_project_id"); else _explicitNullProperties?.Remove("galileo_project_id"); } }
         private string _explicitNullValueGalileoProjectId = default!;
 #endif
         /// <summary>Name of the Galileo project</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GalileoProjectName { get => _explicitNullValueGalileoProjectName; set { _explicitNullValueGalileoProjectName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("galileo_project_name"); else _explicitNullProperties?.Remove("galileo_project_name"); } }
+        public string? GalileoProjectName { get => _explicitNullValueGalileoProjectName; set { _explicitNullValueGalileoProjectName = value; AdditionalData?.Remove("galileo_project_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("galileo_project_name"); else _explicitNullProperties?.Remove("galileo_project_name"); } }
         private string? _explicitNullValueGalileoProjectName = default!;
 #nullable restore
 #else
-        public string GalileoProjectName { get => _explicitNullValueGalileoProjectName; set { _explicitNullValueGalileoProjectName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("galileo_project_name"); else _explicitNullProperties?.Remove("galileo_project_name"); } }
+        public string GalileoProjectName { get => _explicitNullValueGalileoProjectName; set { _explicitNullValueGalileoProjectName = value; AdditionalData?.Remove("galileo_project_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("galileo_project_name"); else _explicitNullProperties?.Remove("galileo_project_name"); } }
         private string _explicitNullValueGalileoProjectName = default!;
 #endif
         /// <summary>Whether insights are enabled</summary>
-        public bool? InsightsEnabled { get => _explicitNullValueInsightsEnabled; set { _explicitNullValueInsightsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights_enabled"); else _explicitNullProperties?.Remove("insights_enabled"); } }
+        public bool? InsightsEnabled { get => _explicitNullValueInsightsEnabled; set { _explicitNullValueInsightsEnabled = value; AdditionalData?.Remove("insights_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights_enabled"); else _explicitNullProperties?.Remove("insights_enabled"); } }
         private bool? _explicitNullValueInsightsEnabled = default!;
         /// <summary>Timestamp when insights were enabled</summary>
-        public DateTimeOffset? InsightsEnabledAt { get => _explicitNullValueInsightsEnabledAt; set { _explicitNullValueInsightsEnabledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights_enabled_at"); else _explicitNullProperties?.Remove("insights_enabled_at"); } }
+        public DateTimeOffset? InsightsEnabledAt { get => _explicitNullValueInsightsEnabledAt; set { _explicitNullValueInsightsEnabledAt = value; AdditionalData?.Remove("insights_enabled_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights_enabled_at"); else _explicitNullProperties?.Remove("insights_enabled_at"); } }
         private DateTimeOffset? _explicitNullValueInsightsEnabledAt = default!;
         /// <summary>Identifier for the log stream</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogStreamId { get => _explicitNullValueLogStreamId; set { _explicitNullValueLogStreamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_stream_id"); else _explicitNullProperties?.Remove("log_stream_id"); } }
+        public string? LogStreamId { get => _explicitNullValueLogStreamId; set { _explicitNullValueLogStreamId = value; AdditionalData?.Remove("log_stream_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_stream_id"); else _explicitNullProperties?.Remove("log_stream_id"); } }
         private string? _explicitNullValueLogStreamId = default!;
 #nullable restore
 #else
-        public string LogStreamId { get => _explicitNullValueLogStreamId; set { _explicitNullValueLogStreamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_stream_id"); else _explicitNullProperties?.Remove("log_stream_id"); } }
+        public string LogStreamId { get => _explicitNullValueLogStreamId; set { _explicitNullValueLogStreamId = value; AdditionalData?.Remove("log_stream_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_stream_id"); else _explicitNullProperties?.Remove("log_stream_id"); } }
         private string _explicitNullValueLogStreamId = default!;
 #endif
         /// <summary>Name of the log stream</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogStreamName { get => _explicitNullValueLogStreamName; set { _explicitNullValueLogStreamName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_stream_name"); else _explicitNullProperties?.Remove("log_stream_name"); } }
+        public string? LogStreamName { get => _explicitNullValueLogStreamName; set { _explicitNullValueLogStreamName = value; AdditionalData?.Remove("log_stream_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_stream_name"); else _explicitNullProperties?.Remove("log_stream_name"); } }
         private string? _explicitNullValueLogStreamName = default!;
 #nullable restore
 #else
-        public string LogStreamName { get => _explicitNullValueLogStreamName; set { _explicitNullValueLogStreamName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_stream_name"); else _explicitNullProperties?.Remove("log_stream_name"); } }
+        public string LogStreamName { get => _explicitNullValueLogStreamName; set { _explicitNullValueLogStreamName = value; AdditionalData?.Remove("log_stream_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_stream_name"); else _explicitNullProperties?.Remove("log_stream_name"); } }
         private string _explicitNullValueLogStreamName = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("forwarding_rules") is { } nullNodeForwardingRules && nullNodeForwardingRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingRules = null;
+            if (parseNode.GetChildNode("forwarding_rules") is null) { _explicitNullValueForwardingRules = default!; _explicitNullProperties?.Remove("forwarding_rules"); }
+            else if (parseNode.GetChildNode("forwarding_rules") is { } nullNodeForwardingRules && nullNodeForwardingRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingRules = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The forwarding_rules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule>? ForwardingRules { get => _explicitNullValueForwardingRules; set { _explicitNullValueForwardingRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_rules"); else _explicitNullProperties?.Remove("forwarding_rules"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule>? ForwardingRules { get => _explicitNullValueForwardingRules; set { _explicitNullValueForwardingRules = value; AdditionalData?.Remove("forwarding_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_rules"); else _explicitNullProperties?.Remove("forwarding_rules"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule>? _explicitNullValueForwardingRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule> ForwardingRules { get => _explicitNullValueForwardingRules; set { _explicitNullValueForwardingRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_rules"); else _explicitNullProperties?.Remove("forwarding_rules"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule> ForwardingRules { get => _explicitNullValueForwardingRules; set { _explicitNullValueForwardingRules = value; AdditionalData?.Remove("forwarding_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_rules"); else _explicitNullProperties?.Remove("forwarding_rules"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ForwardingRule> _explicitNullValueForwardingRules = default!;
 #endif
         /// <summary>

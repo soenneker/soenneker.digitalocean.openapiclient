@@ -17,23 +17,25 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("discount_percent") is { } nullNodeDiscountPercent && nullNodeDiscountPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscountPercent = null;
-            if (parseNode.GetChildNode("instance_sizes") is { } nullNodeInstanceSizes && nullNodeInstanceSizes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceSizes = null;
+            if (parseNode.GetChildNode("discount_percent") is null) { _explicitNullValueDiscountPercent = default!; _explicitNullProperties?.Remove("discount_percent"); }
+            else if (parseNode.GetChildNode("discount_percent") is { } nullNodeDiscountPercent && nullNodeDiscountPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscountPercent = null;
+            if (parseNode.GetChildNode("instance_sizes") is null) { _explicitNullValueInstanceSizes = default!; _explicitNullProperties?.Remove("instance_sizes"); }
+            else if (parseNode.GetChildNode("instance_sizes") is { } nullNodeInstanceSizes && nullNodeInstanceSizes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceSizes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The discount_percent property</summary>
-        public float? DiscountPercent { get => _explicitNullValueDiscountPercent; set { _explicitNullValueDiscountPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discount_percent"); else _explicitNullProperties?.Remove("discount_percent"); } }
+        public float? DiscountPercent { get => _explicitNullValueDiscountPercent; set { _explicitNullValueDiscountPercent = value; AdditionalData?.Remove("discount_percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discount_percent"); else _explicitNullProperties?.Remove("discount_percent"); } }
         private float? _explicitNullValueDiscountPercent = default!;
         /// <summary>The instance_sizes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsInstanceSize>? InstanceSizes { get => _explicitNullValueInstanceSizes; set { _explicitNullValueInstanceSizes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_sizes"); else _explicitNullProperties?.Remove("instance_sizes"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsInstanceSize>? InstanceSizes { get => _explicitNullValueInstanceSizes; set { _explicitNullValueInstanceSizes = value; AdditionalData?.Remove("instance_sizes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_sizes"); else _explicitNullProperties?.Remove("instance_sizes"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsInstanceSize>? _explicitNullValueInstanceSizes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsInstanceSize> InstanceSizes { get => _explicitNullValueInstanceSizes; set { _explicitNullValueInstanceSizes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_sizes"); else _explicitNullProperties?.Remove("instance_sizes"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsInstanceSize> InstanceSizes { get => _explicitNullValueInstanceSizes; set { _explicitNullValueInstanceSizes = value; AdditionalData?.Remove("instance_sizes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_sizes"); else _explicitNullProperties?.Remove("instance_sizes"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppsInstanceSize> _explicitNullValueInstanceSizes = default!;
 #endif
         /// <summary>

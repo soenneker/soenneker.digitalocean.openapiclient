@@ -17,10 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("droplet") is { } nullNodeDroplet && nullNodeDroplet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Droplet = null;
-            if (parseNode.GetChildNode("ip") is { } nullNodeIp && nullNodeIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ip = null;
-            if (parseNode.GetChildNode("region_slug") is { } nullNodeRegionSlug && nullNodeRegionSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionSlug = null;
-            if (parseNode.GetChildNode("reserved_at") is { } nullNodeReservedAt && nullNodeReservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedAt = null;
+            if (parseNode.GetChildNode("droplet") is null) { _explicitNullValueDroplet = default!; _explicitNullProperties?.Remove("droplet"); }
+            else if (parseNode.GetChildNode("droplet") is { } nullNodeDroplet && nullNodeDroplet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Droplet = null;
+            if (parseNode.GetChildNode("ip") is null) { _explicitNullValueIp = default!; _explicitNullProperties?.Remove("ip"); }
+            else if (parseNode.GetChildNode("ip") is { } nullNodeIp && nullNodeIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ip = null;
+            if (parseNode.GetChildNode("region_slug") is null) { _explicitNullValueRegionSlug = default!; _explicitNullProperties?.Remove("region_slug"); }
+            else if (parseNode.GetChildNode("region_slug") is { } nullNodeRegionSlug && nullNodeRegionSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionSlug = null;
+            if (parseNode.GetChildNode("reserved_at") is null) { _explicitNullValueReservedAt = default!; _explicitNullProperties?.Remove("reserved_at"); }
+            else if (parseNode.GetChildNode("reserved_at") is { } nullNodeReservedAt && nullNodeReservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Requires `droplet:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet? Droplet { get => _explicitNullValueDroplet; set { _explicitNullValueDroplet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet"); else _explicitNullProperties?.Remove("droplet"); } }
-        private global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet? _explicitNullValueDroplet = default!;
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet? Droplet { get => _explicitNullValueDroplet; set { _explicitNullValueDroplet = value; AdditionalData?.Remove("droplet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet"); else _explicitNullProperties?.Remove("droplet"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet? _explicitNullValueDroplet = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet Droplet { get => _explicitNullValueDroplet; set { _explicitNullValueDroplet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet"); else _explicitNullProperties?.Remove("droplet"); } }
-        private global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet _explicitNullValueDroplet = default!;
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet Droplet { get => _explicitNullValueDroplet; set { _explicitNullValueDroplet = value; AdditionalData?.Remove("droplet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droplet"); else _explicitNullProperties?.Remove("droplet"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet _explicitNullValueDroplet = default!;
 #endif
         /// <summary>The public IP address of the reserved IPv6. It also serves as its identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
+        public string? Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; AdditionalData?.Remove("ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
         private string? _explicitNullValueIp = default!;
 #nullable restore
 #else
-        public string Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
+        public string Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; AdditionalData?.Remove("ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
         private string _explicitNullValueIp = default!;
 #endif
         /// <summary>The region that the reserved IPv6 is reserved to. When you query a reserved IPv6,the region_slug will be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
+        public string? RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; AdditionalData?.Remove("region_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
         private string? _explicitNullValueRegionSlug = default!;
 #nullable restore
 #else
-        public string RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
+        public string RegionSlug { get => _explicitNullValueRegionSlug; set { _explicitNullValueRegionSlug = value; AdditionalData?.Remove("region_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_slug"); else _explicitNullProperties?.Remove("region_slug"); } }
         private string _explicitNullValueRegionSlug = default!;
 #endif
         /// <summary>The reserved_at property</summary>
-        public DateTimeOffset? ReservedAt { get => _explicitNullValueReservedAt; set { _explicitNullValueReservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_at"); else _explicitNullProperties?.Remove("reserved_at"); } }
+        public DateTimeOffset? ReservedAt { get => _explicitNullValueReservedAt; set { _explicitNullValueReservedAt = value; AdditionalData?.Remove("reserved_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_at"); else _explicitNullProperties?.Remove("reserved_at"); } }
         private DateTimeOffset? _explicitNullValueReservedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItem"/> and sets the default values.
@@ -83,7 +87,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "droplet", n => { Droplet = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet.CreateFromDiscriminatorValue); } },
+                { "droplet", n => { Droplet = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet.CreateFromDiscriminatorValue); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
                 { "region_slug", n => { RegionSlug = n.GetStringValue(); } },
                 { "reserved_at", n => { ReservedAt = n.GetDateTimeOffsetValue(); } },
@@ -96,7 +100,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Droplet>("droplet", Droplet);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ReservedIpv6ListBodyReservedIpv6SItemDroplet>("droplet", Droplet);
             writer.WriteStringValue("ip", Ip);
             writer.WriteStringValue("region_slug", RegionSlug);
             writer.WriteDateTimeOffsetValue("reserved_at", ReservedAt);

@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("scenario_set_uuid") is { } nullNodeScenarioSetUuid && nullNodeScenarioSetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioSetUuid = null;
+            if (parseNode.GetChildNode("scenario_set_uuid") is null) { _explicitNullValueScenarioSetUuid = default!; _explicitNullProperties?.Remove("scenario_set_uuid"); }
+            else if (parseNode.GetChildNode("scenario_set_uuid") is { } nullNodeScenarioSetUuid && nullNodeScenarioSetUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioSetUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>UUID of the deleted scenario set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScenarioSetUuid { get => _explicitNullValueScenarioSetUuid; set { _explicitNullValueScenarioSetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_set_uuid"); else _explicitNullProperties?.Remove("scenario_set_uuid"); } }
+        public string? ScenarioSetUuid { get => _explicitNullValueScenarioSetUuid; set { _explicitNullValueScenarioSetUuid = value; AdditionalData?.Remove("scenario_set_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_set_uuid"); else _explicitNullProperties?.Remove("scenario_set_uuid"); } }
         private string? _explicitNullValueScenarioSetUuid = default!;
 #nullable restore
 #else
-        public string ScenarioSetUuid { get => _explicitNullValueScenarioSetUuid; set { _explicitNullValueScenarioSetUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_set_uuid"); else _explicitNullProperties?.Remove("scenario_set_uuid"); } }
+        public string ScenarioSetUuid { get => _explicitNullValueScenarioSetUuid; set { _explicitNullValueScenarioSetUuid = value; AdditionalData?.Remove("scenario_set_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_set_uuid"); else _explicitNullProperties?.Remove("scenario_set_uuid"); } }
         private string _explicitNullValueScenarioSetUuid = default!;
 #endif
         /// <summary>

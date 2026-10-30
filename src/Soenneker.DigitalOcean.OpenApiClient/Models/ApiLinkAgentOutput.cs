@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("child_agent_uuid") is { } nullNodeChildAgentUuid && nullNodeChildAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildAgentUuid = null;
-            if (parseNode.GetChildNode("parent_agent_uuid") is { } nullNodeParentAgentUuid && nullNodeParentAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentAgentUuid = null;
+            if (parseNode.GetChildNode("child_agent_uuid") is null) { _explicitNullValueChildAgentUuid = default!; _explicitNullProperties?.Remove("child_agent_uuid"); }
+            else if (parseNode.GetChildNode("child_agent_uuid") is { } nullNodeChildAgentUuid && nullNodeChildAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildAgentUuid = null;
+            if (parseNode.GetChildNode("parent_agent_uuid") is null) { _explicitNullValueParentAgentUuid = default!; _explicitNullProperties?.Remove("parent_agent_uuid"); }
+            else if (parseNode.GetChildNode("parent_agent_uuid") is { } nullNodeParentAgentUuid && nullNodeParentAgentUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentAgentUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Routed agent id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChildAgentUuid { get => _explicitNullValueChildAgentUuid; set { _explicitNullValueChildAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_agent_uuid"); else _explicitNullProperties?.Remove("child_agent_uuid"); } }
+        public string? ChildAgentUuid { get => _explicitNullValueChildAgentUuid; set { _explicitNullValueChildAgentUuid = value; AdditionalData?.Remove("child_agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_agent_uuid"); else _explicitNullProperties?.Remove("child_agent_uuid"); } }
         private string? _explicitNullValueChildAgentUuid = default!;
 #nullable restore
 #else
-        public string ChildAgentUuid { get => _explicitNullValueChildAgentUuid; set { _explicitNullValueChildAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_agent_uuid"); else _explicitNullProperties?.Remove("child_agent_uuid"); } }
+        public string ChildAgentUuid { get => _explicitNullValueChildAgentUuid; set { _explicitNullValueChildAgentUuid = value; AdditionalData?.Remove("child_agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_agent_uuid"); else _explicitNullProperties?.Remove("child_agent_uuid"); } }
         private string _explicitNullValueChildAgentUuid = default!;
 #endif
         /// <summary>A unique identifier for the parent agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentAgentUuid { get => _explicitNullValueParentAgentUuid; set { _explicitNullValueParentAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_agent_uuid"); else _explicitNullProperties?.Remove("parent_agent_uuid"); } }
+        public string? ParentAgentUuid { get => _explicitNullValueParentAgentUuid; set { _explicitNullValueParentAgentUuid = value; AdditionalData?.Remove("parent_agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_agent_uuid"); else _explicitNullProperties?.Remove("parent_agent_uuid"); } }
         private string? _explicitNullValueParentAgentUuid = default!;
 #nullable restore
 #else
-        public string ParentAgentUuid { get => _explicitNullValueParentAgentUuid; set { _explicitNullValueParentAgentUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_agent_uuid"); else _explicitNullProperties?.Remove("parent_agent_uuid"); } }
+        public string ParentAgentUuid { get => _explicitNullValueParentAgentUuid; set { _explicitNullValueParentAgentUuid = value; AdditionalData?.Remove("parent_agent_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_agent_uuid"); else _explicitNullProperties?.Remove("parent_agent_uuid"); } }
         private string _explicitNullValueParentAgentUuid = default!;
 #endif
         /// <summary>

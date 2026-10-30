@@ -17,8 +17,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
-            if (parseNode.GetChildNode("resultType") is { } nullNodeResultType && nullNodeResultType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultType = null;
+            if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
+            else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("resultType") is null) { _explicitNullValueResultType = default!; _explicitNullProperties?.Remove("resultType"); }
+            else if (parseNode.GetChildNode("resultType") is { } nullNodeResultType && nullNodeResultType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>One entry per matching series, each carrying the samples evaluated at every step across the requested range.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample>? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample>? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample>? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample> Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample> Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample> _explicitNullValueResult = default!;
 #endif
         /// <summary>The resultType property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MatrixResultType? ResultType { get => _explicitNullValueResultType; set { _explicitNullValueResultType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resultType"); else _explicitNullProperties?.Remove("resultType"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MatrixResultType? ResultType { get => _explicitNullValueResultType; set { _explicitNullValueResultType = value; AdditionalData?.Remove("resultType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resultType"); else _explicitNullProperties?.Remove("resultType"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MatrixResultType? _explicitNullValueResultType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixData"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PromMatrixSample.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "resultType", n => { ResultType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MatrixResultType>(); } },
+                { "resultType", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MatrixResultType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueResultType = default; _explicitNullProperties?.Remove("resultType"); AdditionalData["resultType"] = unknown; } else { ResultType = parsed; AdditionalData.Remove("resultType"); } } },
             };
         }
         /// <summary>

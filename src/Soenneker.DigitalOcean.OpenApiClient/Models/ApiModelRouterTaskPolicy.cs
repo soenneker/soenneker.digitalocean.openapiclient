@@ -18,10 +18,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_task") is { } nullNodeCustomTask && nullNodeCustomTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomTask = null;
-            if (parseNode.GetChildNode("models") is { } nullNodeModels && nullNodeModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Models = null;
-            if (parseNode.GetChildNode("selection_policy") is { } nullNodeSelectionPolicy && nullNodeSelectionPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectionPolicy = null;
-            if (parseNode.GetChildNode("task_slug") is { } nullNodeTaskSlug && nullNodeTaskSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskSlug = null;
+            if (parseNode.GetChildNode("custom_task") is null) { _explicitNullValueCustomTask = default!; _explicitNullProperties?.Remove("custom_task"); }
+            else if (parseNode.GetChildNode("custom_task") is { } nullNodeCustomTask && nullNodeCustomTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomTask = null;
+            if (parseNode.GetChildNode("models") is null) { _explicitNullValueModels = default!; _explicitNullProperties?.Remove("models"); }
+            else if (parseNode.GetChildNode("models") is { } nullNodeModels && nullNodeModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Models = null;
+            if (parseNode.GetChildNode("selection_policy") is null) { _explicitNullValueSelectionPolicy = default!; _explicitNullProperties?.Remove("selection_policy"); }
+            else if (parseNode.GetChildNode("selection_policy") is { } nullNodeSelectionPolicy && nullNodeSelectionPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectionPolicy = null;
+            if (parseNode.GetChildNode("task_slug") is null) { _explicitNullValueTaskSlug = default!; _explicitNullProperties?.Remove("task_slug"); }
+            else if (parseNode.GetChildNode("task_slug") is { } nullNodeTaskSlug && nullNodeTaskSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Task definition embedded in a model router config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails? CustomTask { get => _explicitNullValueCustomTask; set { _explicitNullValueCustomTask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_task"); else _explicitNullProperties?.Remove("custom_task"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails? CustomTask { get => _explicitNullValueCustomTask; set { _explicitNullValueCustomTask = value; AdditionalData?.Remove("custom_task"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_task"); else _explicitNullProperties?.Remove("custom_task"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails? _explicitNullValueCustomTask = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails CustomTask { get => _explicitNullValueCustomTask; set { _explicitNullValueCustomTask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_task"); else _explicitNullProperties?.Remove("custom_task"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails CustomTask { get => _explicitNullValueCustomTask; set { _explicitNullValueCustomTask = value; AdditionalData?.Remove("custom_task"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_task"); else _explicitNullProperties?.Remove("custom_task"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterTaskDetails _explicitNullValueCustomTask = default!;
 #endif
         /// <summary>Models assigned to the task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Models { get => _explicitNullValueModels; set { _explicitNullValueModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("models"); else _explicitNullProperties?.Remove("models"); } }
+        public List<string>? Models { get => _explicitNullValueModels; set { _explicitNullValueModels = value; AdditionalData?.Remove("models"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("models"); else _explicitNullProperties?.Remove("models"); } }
         private List<string>? _explicitNullValueModels = default!;
 #nullable restore
 #else
-        public List<string> Models { get => _explicitNullValueModels; set { _explicitNullValueModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("models"); else _explicitNullProperties?.Remove("models"); } }
+        public List<string> Models { get => _explicitNullValueModels; set { _explicitNullValueModels = value; AdditionalData?.Remove("models"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("models"); else _explicitNullProperties?.Remove("models"); } }
         private List<string> _explicitNullValueModels = default!;
 #endif
         /// <summary>Selection policy preference for choosing among assigned models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy? SelectionPolicy { get => _explicitNullValueSelectionPolicy; set { _explicitNullValueSelectionPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selection_policy"); else _explicitNullProperties?.Remove("selection_policy"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy? SelectionPolicy { get => _explicitNullValueSelectionPolicy; set { _explicitNullValueSelectionPolicy = value; AdditionalData?.Remove("selection_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selection_policy"); else _explicitNullProperties?.Remove("selection_policy"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy? _explicitNullValueSelectionPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy SelectionPolicy { get => _explicitNullValueSelectionPolicy; set { _explicitNullValueSelectionPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selection_policy"); else _explicitNullProperties?.Remove("selection_policy"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy SelectionPolicy { get => _explicitNullValueSelectionPolicy; set { _explicitNullValueSelectionPolicy = value; AdditionalData?.Remove("selection_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selection_policy"); else _explicitNullProperties?.Remove("selection_policy"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiModelRouterSelectionPolicy _explicitNullValueSelectionPolicy = default!;
 #endif
         /// <summary>Task slug</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TaskSlug { get => _explicitNullValueTaskSlug; set { _explicitNullValueTaskSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_slug"); else _explicitNullProperties?.Remove("task_slug"); } }
+        public string? TaskSlug { get => _explicitNullValueTaskSlug; set { _explicitNullValueTaskSlug = value; AdditionalData?.Remove("task_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_slug"); else _explicitNullProperties?.Remove("task_slug"); } }
         private string? _explicitNullValueTaskSlug = default!;
 #nullable restore
 #else
-        public string TaskSlug { get => _explicitNullValueTaskSlug; set { _explicitNullValueTaskSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_slug"); else _explicitNullProperties?.Remove("task_slug"); } }
+        public string TaskSlug { get => _explicitNullValueTaskSlug; set { _explicitNullValueTaskSlug = value; AdditionalData?.Remove("task_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_slug"); else _explicitNullProperties?.Remove("task_slug"); } }
         private string _explicitNullValueTaskSlug = default!;
 #endif
         /// <summary>

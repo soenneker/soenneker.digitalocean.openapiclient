@@ -18,7 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("gpu_model_configs") is { } nullNodeGpuModelConfigs && nullNodeGpuModelConfigs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GpuModelConfigs = null;
+            if (parseNode.GetChildNode("gpu_model_configs") is null) { _explicitNullValueGpuModelConfigs = default!; _explicitNullProperties?.Remove("gpu_model_configs"); }
+            else if (parseNode.GetChildNode("gpu_model_configs") is { } nullNodeGpuModelConfigs && nullNodeGpuModelConfigs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GpuModelConfigs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The gpu_model_configs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceGpuModelConfig>? GpuModelConfigs { get => _explicitNullValueGpuModelConfigs; set { _explicitNullValueGpuModelConfigs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gpu_model_configs"); else _explicitNullProperties?.Remove("gpu_model_configs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceGpuModelConfig>? GpuModelConfigs { get => _explicitNullValueGpuModelConfigs; set { _explicitNullValueGpuModelConfigs = value; AdditionalData?.Remove("gpu_model_configs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gpu_model_configs"); else _explicitNullProperties?.Remove("gpu_model_configs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceGpuModelConfig>? _explicitNullValueGpuModelConfigs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceGpuModelConfig> GpuModelConfigs { get => _explicitNullValueGpuModelConfigs; set { _explicitNullValueGpuModelConfigs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gpu_model_configs"); else _explicitNullProperties?.Remove("gpu_model_configs"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceGpuModelConfig> GpuModelConfigs { get => _explicitNullValueGpuModelConfigs; set { _explicitNullValueGpuModelConfigs = value; AdditionalData?.Remove("gpu_model_configs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gpu_model_configs"); else _explicitNullProperties?.Remove("gpu_model_configs"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.DedicatedInferenceGpuModelConfig> _explicitNullValueGpuModelConfigs = default!;
 #endif
         /// <summary>

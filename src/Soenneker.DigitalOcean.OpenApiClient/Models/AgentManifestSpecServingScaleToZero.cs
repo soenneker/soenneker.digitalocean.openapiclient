@@ -17,13 +17,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("idleSeconds") is { } nullNodeIdleSeconds && nullNodeIdleSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleSeconds = null;
+            if (parseNode.GetChildNode("idleSeconds") is null) { _explicitNullValueIdleSeconds = default!; _explicitNullProperties?.Remove("idleSeconds"); }
+            else if (parseNode.GetChildNode("idleSeconds") is { } nullNodeIdleSeconds && nullNodeIdleSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleSeconds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The idleSeconds property</summary>
-        public long? IdleSeconds { get => _explicitNullValueIdleSeconds; set { _explicitNullValueIdleSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idleSeconds"); else _explicitNullProperties?.Remove("idleSeconds"); } }
+        public long? IdleSeconds { get => _explicitNullValueIdleSeconds; set { _explicitNullValueIdleSeconds = value; AdditionalData?.Remove("idleSeconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idleSeconds"); else _explicitNullProperties?.Remove("idleSeconds"); } }
         private long? _explicitNullValueIdleSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecServingScaleToZero"/> and sets the default values.

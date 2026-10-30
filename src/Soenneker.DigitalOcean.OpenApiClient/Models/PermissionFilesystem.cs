@@ -18,8 +18,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowWrite") is { } nullNodeAllowWrite && nullNodeAllowWrite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowWrite = null;
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("allowWrite") is null) { _explicitNullValueAllowWrite = default!; _explicitNullProperties?.Remove("allowWrite"); }
+            else if (parseNode.GetChildNode("allowWrite") is { } nullNodeAllowWrite && nullNodeAllowWrite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowWrite = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Additional writable paths beyond the workspace. Values must not contain shell-style ${VAR}/$VAR expansions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowWrite { get => _explicitNullValueAllowWrite; set { _explicitNullValueAllowWrite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowWrite"); else _explicitNullProperties?.Remove("allowWrite"); } }
+        public List<string>? AllowWrite { get => _explicitNullValueAllowWrite; set { _explicitNullValueAllowWrite = value; AdditionalData?.Remove("allowWrite"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowWrite"); else _explicitNullProperties?.Remove("allowWrite"); } }
         private List<string>? _explicitNullValueAllowWrite = default!;
 #nullable restore
 #else
-        public List<string> AllowWrite { get => _explicitNullValueAllowWrite; set { _explicitNullValueAllowWrite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowWrite"); else _explicitNullProperties?.Remove("allowWrite"); } }
+        public List<string> AllowWrite { get => _explicitNullValueAllowWrite; set { _explicitNullValueAllowWrite = value; AdditionalData?.Remove("allowWrite"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowWrite"); else _explicitNullProperties?.Remove("allowWrite"); } }
         private List<string> _explicitNullValueAllowWrite = default!;
 #endif
         /// <summary>The mode property</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystemMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystemMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystemMode? _explicitNullValueMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowWrite", n => { AllowWrite = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystemMode>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystemMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
             };
         }
         /// <summary>

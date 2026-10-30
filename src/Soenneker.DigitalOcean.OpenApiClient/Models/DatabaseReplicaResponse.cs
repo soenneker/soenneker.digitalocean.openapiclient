@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("replica") is { } nullNodeReplica && nullNodeReplica.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Replica = null;
+            if (parseNode.GetChildNode("replica") is null) { _explicitNullValueReplica = default!; _explicitNullProperties?.Remove("replica"); }
+            else if (parseNode.GetChildNode("replica") is { } nullNodeReplica && nullNodeReplica.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Replica = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The replica property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseReplicaRead? Replica { get => _explicitNullValueReplica; set { _explicitNullValueReplica = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replica"); else _explicitNullProperties?.Remove("replica"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseReplicaRead? Replica { get => _explicitNullValueReplica; set { _explicitNullValueReplica = value; AdditionalData?.Remove("replica"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replica"); else _explicitNullProperties?.Remove("replica"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseReplicaRead? _explicitNullValueReplica = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseReplicaRead Replica { get => _explicitNullValueReplica; set { _explicitNullValueReplica = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replica"); else _explicitNullProperties?.Remove("replica"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseReplicaRead Replica { get => _explicitNullValueReplica; set { _explicitNullValueReplica = value; AdditionalData?.Remove("replica"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replica"); else _explicitNullProperties?.Remove("replica"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseReplicaRead _explicitNullValueReplica = default!;
 #endif
         /// <summary>

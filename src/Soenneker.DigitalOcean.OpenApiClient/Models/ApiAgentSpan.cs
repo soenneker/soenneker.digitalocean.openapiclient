@@ -17,56 +17,61 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_type") is { } nullNodeAgentType && nullNodeAgentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentType = null;
-            if (parseNode.GetChildNode("common") is { } nullNodeCommon && nullNodeCommon.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Common = null;
-            if (parseNode.GetChildNode("redacted_input") is { } nullNodeRedactedInput && nullNodeRedactedInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedInput = null;
-            if (parseNode.GetChildNode("redacted_output") is { } nullNodeRedactedOutput && nullNodeRedactedOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedOutput = null;
-            if (parseNode.GetChildNode("spans") is { } nullNodeSpans && nullNodeSpans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spans = null;
+            if (parseNode.GetChildNode("agent_type") is null) { _explicitNullValueAgentType = default!; _explicitNullProperties?.Remove("agent_type"); }
+            else if (parseNode.GetChildNode("agent_type") is { } nullNodeAgentType && nullNodeAgentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentType = null;
+            if (parseNode.GetChildNode("common") is null) { _explicitNullValueCommon = default!; _explicitNullProperties?.Remove("common"); }
+            else if (parseNode.GetChildNode("common") is { } nullNodeCommon && nullNodeCommon.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Common = null;
+            if (parseNode.GetChildNode("redacted_input") is null) { _explicitNullValueRedactedInput = default!; _explicitNullProperties?.Remove("redacted_input"); }
+            else if (parseNode.GetChildNode("redacted_input") is { } nullNodeRedactedInput && nullNodeRedactedInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedInput = null;
+            if (parseNode.GetChildNode("redacted_output") is null) { _explicitNullValueRedactedOutput = default!; _explicitNullProperties?.Remove("redacted_output"); }
+            else if (parseNode.GetChildNode("redacted_output") is { } nullNodeRedactedOutput && nullNodeRedactedOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedOutput = null;
+            if (parseNode.GetChildNode("spans") is null) { _explicitNullValueSpans = default!; _explicitNullProperties?.Remove("spans"); }
+            else if (parseNode.GetChildNode("spans") is { } nullNodeSpans && nullNodeSpans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spans = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Agent span</summary>
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentType? AgentType { get => _explicitNullValueAgentType; set { _explicitNullValueAgentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_type"); else _explicitNullProperties?.Remove("agent_type"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentType? AgentType { get => _explicitNullValueAgentType; set { _explicitNullValueAgentType = value; AdditionalData?.Remove("agent_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_type"); else _explicitNullProperties?.Remove("agent_type"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentType? _explicitNullValueAgentType = default!;
         /// <summary>Common optional fields shared by all span types</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpanCommon? Common { get => _explicitNullValueCommon; set { _explicitNullValueCommon = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("common"); else _explicitNullProperties?.Remove("common"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpanCommon? Common { get => _explicitNullValueCommon; set { _explicitNullValueCommon = value; AdditionalData?.Remove("common"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("common"); else _explicitNullProperties?.Remove("common"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpanCommon? _explicitNullValueCommon = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpanCommon Common { get => _explicitNullValueCommon; set { _explicitNullValueCommon = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("common"); else _explicitNullProperties?.Remove("common"); } }
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpanCommon Common { get => _explicitNullValueCommon; set { _explicitNullValueCommon = value; AdditionalData?.Remove("common"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("common"); else _explicitNullProperties?.Remove("common"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpanCommon _explicitNullValueCommon = default!;
 #endif
         /// <summary>The redacted_input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedactedInput { get => _explicitNullValueRedactedInput; set { _explicitNullValueRedactedInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted_input"); else _explicitNullProperties?.Remove("redacted_input"); } }
+        public string? RedactedInput { get => _explicitNullValueRedactedInput; set { _explicitNullValueRedactedInput = value; AdditionalData?.Remove("redacted_input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted_input"); else _explicitNullProperties?.Remove("redacted_input"); } }
         private string? _explicitNullValueRedactedInput = default!;
 #nullable restore
 #else
-        public string RedactedInput { get => _explicitNullValueRedactedInput; set { _explicitNullValueRedactedInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted_input"); else _explicitNullProperties?.Remove("redacted_input"); } }
+        public string RedactedInput { get => _explicitNullValueRedactedInput; set { _explicitNullValueRedactedInput = value; AdditionalData?.Remove("redacted_input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted_input"); else _explicitNullProperties?.Remove("redacted_input"); } }
         private string _explicitNullValueRedactedInput = default!;
 #endif
         /// <summary>The redacted_output property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedactedOutput { get => _explicitNullValueRedactedOutput; set { _explicitNullValueRedactedOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted_output"); else _explicitNullProperties?.Remove("redacted_output"); } }
+        public string? RedactedOutput { get => _explicitNullValueRedactedOutput; set { _explicitNullValueRedactedOutput = value; AdditionalData?.Remove("redacted_output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted_output"); else _explicitNullProperties?.Remove("redacted_output"); } }
         private string? _explicitNullValueRedactedOutput = default!;
 #nullable restore
 #else
-        public string RedactedOutput { get => _explicitNullValueRedactedOutput; set { _explicitNullValueRedactedOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted_output"); else _explicitNullProperties?.Remove("redacted_output"); } }
+        public string RedactedOutput { get => _explicitNullValueRedactedOutput; set { _explicitNullValueRedactedOutput = value; AdditionalData?.Remove("redacted_output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted_output"); else _explicitNullProperties?.Remove("redacted_output"); } }
         private string _explicitNullValueRedactedOutput = default!;
 #endif
         /// <summary>Child spans - must contain between 1 and 999 spansAllowed types: llm, tool, retriever</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTraceSpan>? Spans { get => _explicitNullValueSpans; set { _explicitNullValueSpans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spans"); else _explicitNullProperties?.Remove("spans"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTraceSpan>? Spans { get => _explicitNullValueSpans; set { _explicitNullValueSpans = value; AdditionalData?.Remove("spans"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spans"); else _explicitNullProperties?.Remove("spans"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTraceSpan>? _explicitNullValueSpans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTraceSpan> Spans { get => _explicitNullValueSpans; set { _explicitNullValueSpans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spans"); else _explicitNullProperties?.Remove("spans"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTraceSpan> Spans { get => _explicitNullValueSpans; set { _explicitNullValueSpans = value; AdditionalData?.Remove("spans"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spans"); else _explicitNullProperties?.Remove("spans"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiTraceSpan> _explicitNullValueSpans = default!;
 #endif
         /// <summary>
@@ -94,7 +99,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_type", n => { AgentType = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentType>(); } },
+                { "agent_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAgentType = default; _explicitNullProperties?.Remove("agent_type"); AdditionalData["agent_type"] = unknown; } else { AgentType = parsed; AdditionalData.Remove("agent_type"); } } },
                 { "common", n => { Common = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpanCommon>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSpanCommon.CreateFromDiscriminatorValue); } },
                 { "redacted_input", n => { RedactedInput = n.GetStringValue(); } },
                 { "redacted_output", n => { RedactedOutput = n.GetStringValue(); } },

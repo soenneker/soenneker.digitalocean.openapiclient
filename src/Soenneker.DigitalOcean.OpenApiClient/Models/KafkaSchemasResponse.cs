@@ -17,7 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("subjects") is { } nullNodeSubjects && nullNodeSubjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subjects = null;
+            if (parseNode.GetChildNode("subjects") is null) { _explicitNullValueSubjects = default!; _explicitNullProperties?.Remove("subjects"); }
+            else if (parseNode.GetChildNode("subjects") is { } nullNodeSubjects && nullNodeSubjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subjects = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The subjects property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaSchemaVerbose>? Subjects { get => _explicitNullValueSubjects; set { _explicitNullValueSubjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjects"); else _explicitNullProperties?.Remove("subjects"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaSchemaVerbose>? Subjects { get => _explicitNullValueSubjects; set { _explicitNullValueSubjects = value; AdditionalData?.Remove("subjects"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjects"); else _explicitNullProperties?.Remove("subjects"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaSchemaVerbose>? _explicitNullValueSubjects = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaSchemaVerbose> Subjects { get => _explicitNullValueSubjects; set { _explicitNullValueSubjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjects"); else _explicitNullProperties?.Remove("subjects"); } }
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaSchemaVerbose> Subjects { get => _explicitNullValueSubjects; set { _explicitNullValueSubjects = value; AdditionalData?.Remove("subjects"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjects"); else _explicitNullProperties?.Remove("subjects"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaSchemaVerbose> _explicitNullValueSubjects = default!;
 #endif
         /// <summary>
