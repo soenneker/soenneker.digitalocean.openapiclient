@@ -127,7 +127,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.Api.V
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.Api.V1.Series.SeriesRequestBuilder.SeriesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/v2/insights/query/{region}/prom/api/v1/series{?end*,start*,match%5B%5D*}", RequestAdapter.BaseUrl, "https://api.digitalocean.com", "/v2/insights/query/{region}/prom/api/v1/series", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/v2/insights/query/{region}/prom/api/v1/series{?end*,start*,match%5B%5D*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -148,7 +148,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query.Item.Prom.Api.V
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.digitalocean.com", "/v2/insights/query/{region}/prom/api/v1/series", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             global::Soenneker.OpenApi.Generated.OpenApiFormSerializer.SetContent(requestInfo, body, "{}");
