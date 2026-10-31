@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>The object type, which is always chat.completion.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum FilterOperatorExistsOperator
-    #pragma warning restore CS1591
+    public enum ChatCompletionObject
     {
-        [EnumMember(Value = "FILTER_OPERATOR_EXISTS")]
+        [EnumMember(Value = "chat.completion")]
         #pragma warning disable CS1591
-        FilterOperatorExists,
+        ChatCompletion,
         #pragma warning restore CS1591
     }
 }

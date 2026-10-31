@@ -5831,6 +5831,42 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response body will be a JSON object with a key set to \u0060ssh_key\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SshKeysNewResponse"
+                }
+              }
+            },
+            "links": {
+              "sshKeys_get_by_id": {
+                "$ref": "#/components/links/sshKeys_get_by_id"
+              },
+              "sshKeys_get_by_fingerprint": {
+                "$ref": "#/components/links/sshKeys_get_by_fingerprint"
+              },
+              "sshKeys_delete_by_id": {
+                "$ref": "#/components/links/sshKeys_delete_by_id"
+              },
+              "sshKeys_delete_by_fingerprint": {
+                "$ref": "#/components/links/sshKeys_delete_by_fingerprint"
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -6902,6 +6938,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Config created.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConfigResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -7279,6 +7337,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Clone created.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConfigResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -10807,6 +10887,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Upload transfer created; proceed to request part upload URLs.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceTransferCreated"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -11314,6 +11416,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Upload committed; import in progress.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceUploadCommitted"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -12611,6 +12735,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Template created; build kicked.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTemplateResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -13368,6 +13514,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Trigger created. \u0060webhook_secret\u0060 present for webhook triggers only, shown once.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTriggerResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -14439,6 +14607,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Accepted and queued (also returned for a deduped retry, with the same execution_id). A paused trigger returns 202 with an empty body and queues nothing.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookAcceptedResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [],
@@ -17248,6 +17438,54 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with an \u0060endpoint\u0060 key. This will be set to an object containing the standard CDN endpoint attributes.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExistingEndpointResponse"
+                },
+                "examples": {
+                  "CDN Endpoint": {
+                    "value": {
+                      "endpoint": {
+                        "id": "19f06b6a-3ace-4315-b086-499a0e521b76",
+                        "origin": "static-images.nyc3.digitaloceanspaces.com",
+                        "endpoint": "static-images.nyc3.cdn.digitaloceanspaces.com",
+                        "created_at": "2018-07-19T15:04:16Z",
+                        "ttl": 3600
+                      }
+                    }
+                  },
+                  "CDN Endpoint With Custom Domain": {
+                    "value": {
+                      "endpoint": {
+                        "id": "19f06b6a-3ace-4315-b086-499a0e521b76",
+                        "origin": "static-images.nyc3.digitaloceanspaces.com",
+                        "endpoint": "static-images.nyc3.cdn.digitaloceanspaces.com",
+                        "created_at": "2018-07-19T15:04:16Z",
+                        "certificate_id": "892071a0-bb95-49bc-8021-3afd67a210bf",
+                        "custom_domain": "static.example.com",
+                        "ttl": 3600
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -17663,6 +17901,36 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060certificate\u0060. The value of this will be an object that contains the standard attributes associated with a certificate.\nWhen using Let\u0027s Encrypt, the initial value of the certificate\u0027s \u0060state\u0060 attribute will be \u0060pending\u0060. When the certificate has been successfully issued by Let\u0027s Encrypt, this will transition to \u0060verified\u0060 and be ready for use.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewCertificateResponse"
+                },
+                "examples": {
+                  "Custom Certificate": {
+                    "$ref": "#/components/examples/certificates_custom"
+                  },
+                  "Let\u0027s Encrypt Certificate": {
+                    "$ref": "#/components/examples/certificates_lets_encrypt_pending"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -18663,6 +18931,110 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object with a key of \u0060database\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DatabaseClusterResponse"
+                },
+                "example": {
+                  "database": {
+                    "id": "9cc10173-e9ea-4176-9dbc-a4cee4c4ff30",
+                    "name": "backend",
+                    "engine": "pg",
+                    "version": "14",
+                    "semantic_version": "14.5",
+                    "connection": {
+                      "uri": "postgres://doadmin:example_password@db.example.com:25060/defaultdb?sslmode=require",
+                      "database": "",
+                      "host": "db.example.com",
+                      "port": 25060,
+                      "user": "doadmin",
+                      "password": "example_password",
+                      "ssl": true
+                    },
+                    "private_connection": {
+                      "uri": "postgres://doadmin:example_password@private-db.example.com:25060/defaultdb?sslmode=require",
+                      "database": "",
+                      "host": "private-db.example.com",
+                      "port": 25060,
+                      "user": "doadmin",
+                      "password": "example_password",
+                      "ssl": true
+                    },
+                    "standby_connection": {
+                      "uri": "postgres://doadmin:example_password@replica-db.example.com:25060/defaultdb?sslmode=require",
+                      "database": "",
+                      "host": "replica-db.example.com",
+                      "port": 25060,
+                      "user": "doadmin",
+                      "password": "example_password",
+                      "ssl": true
+                    },
+                    "standby_private_connection": {
+                      "uri": "postgres://doadmin:example_password@private-replica-db.example.com:25060/defaultdb?sslmode=require",
+                      "database": "",
+                      "host": "private-replica-db.example.com",
+                      "port": 25060,
+                      "user": "doadmin",
+                      "password": "example_password",
+                      "ssl": true
+                    },
+                    "users": [
+                      {
+                        "name": "doadmin",
+                        "role": "primary",
+                        "password": "example_password"
+                      }
+                    ],
+                    "db_names": [
+                      "defaultdb"
+                    ],
+                    "num_nodes": 2,
+                    "region": "nyc3",
+                    "status": "creating",
+                    "created_at": "2019-01-11T18:37:36Z",
+                    "maintenance_window": {
+                      "day": "saturday",
+                      "hour": "08:45:12",
+                      "pending": true,
+                      "description": [
+                        "Update TimescaleDB to version 1.2.1",
+                        "Upgrade to PostgreSQL 11.2 and 10.7 bugfix releases"
+                      ]
+                    },
+                    "size": "db-s-2vcpu-4gb",
+                    "tags": [
+                      "production"
+                    ],
+                    "private_network_uuid": "d455e75d-4858-4eec-8c95-da2f0a5f93a7",
+                    "version_end_of_life": "2023-11-09T00:00:00Z",
+                    "version_end_of_availability": "2023-05-09T00:00:00Z",
+                    "storage_size_mib": 61440,
+                    "do_settings": {
+                      "service_cnames": [
+                        "db.example.com",
+                        "database.myapp.io"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -20024,6 +20396,60 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object with a key of \u0060replica\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DatabaseReplicaResponse"
+                },
+                "example": {
+                  "replica": {
+                    "name": "read-nyc3-01",
+                    "connection": {
+                      "uri": "",
+                      "database": "defaultdb",
+                      "host": "read-db.example.com",
+                      "port": 25060,
+                      "user": "doadmin",
+                      "password": "example_password",
+                      "ssl": true
+                    },
+                    "private_connection": {
+                      "uri": "postgres://doadmin:example_password@private-read-db.example.com:25060/defaultdb?sslmode=require",
+                      "database": "",
+                      "host": "private-read-db.example.com",
+                      "port": 25060,
+                      "user": "doadmin",
+                      "password": "example_password",
+                      "ssl": true
+                    },
+                    "region": "nyc3",
+                    "status": "online",
+                    "created_at": "2019-01-11T18:37:36Z",
+                    "do_settings": {
+                      "service_cnames": [
+                        "replica-db.example.com",
+                        "read-replica.myapp.io"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -20504,6 +20930,93 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object with a key of \u0060user\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                },
+                "examples": {
+                  "New User": {
+                    "value": {
+                      "user": {
+                        "name": "app-01",
+                        "role": "normal",
+                        "password": "example_password"
+                      }
+                    }
+                  },
+                  "New User with MySQL Auth Plugin": {
+                    "value": {
+                      "user": {
+                        "name": "app-02",
+                        "role": "normal",
+                        "password": "example_password",
+                        "mysql_settings": {
+                          "auth_plugin": "mysql_native_password"
+                        }
+                      }
+                    }
+                  },
+                  "New User for Postgres with replication rights": {
+                    "value": {
+                      "user": {
+                        "name": "app-02",
+                        "role": "normal",
+                        "password": "example_password",
+                        "settings": {
+                          "pg_allow_replication": true
+                        }
+                      }
+                    }
+                  },
+                  "Kafka User": {
+                    "value": {
+                      "user": {
+                        "name": "app-03",
+                        "role": "normal",
+                        "password": "example_password",
+                        "access_cert": "-----BEGIN CERTIFICATE-----\nMIIEexampleCertificateNotForProductionUseOnly\n-----END CERTIFICATE-----",
+                        "access_key": "-----BEGIN PRIVATE KEY-----\nMIIEexamplePrivateKeyNotForProductionUseOnly\n-----END PRIVATE KEY-----",
+                        "settings": {
+                          "acl": [
+                            {
+                              "id": "acl128aaaa99239",
+                              "permission": "produceconsume",
+                              "topic": "customer-events"
+                            },
+                            {
+                              "id": "acl293098flskdf",
+                              "permission": "produce",
+                              "topic": "customer-events.*"
+                            },
+                            {
+                              "id": "acl128ajei20123",
+                              "permission": "consume",
+                              "topic": "customer-events"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -20767,6 +21280,93 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object with a key of \u0060user\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                },
+                "examples": {
+                  "New User": {
+                    "value": {
+                      "user": {
+                        "name": "app-01",
+                        "role": "normal",
+                        "password": "example_password"
+                      }
+                    }
+                  },
+                  "New User with MySQL Auth Plugin": {
+                    "value": {
+                      "user": {
+                        "name": "app-02",
+                        "role": "normal",
+                        "password": "example_password",
+                        "mysql_settings": {
+                          "auth_plugin": "mysql_native_password"
+                        }
+                      }
+                    }
+                  },
+                  "New User for Postgres with replication rights": {
+                    "value": {
+                      "user": {
+                        "name": "app-02",
+                        "role": "normal",
+                        "password": "example_password",
+                        "settings": {
+                          "pg_allow_replication": true
+                        }
+                      }
+                    }
+                  },
+                  "Kafka User": {
+                    "value": {
+                      "user": {
+                        "name": "app-03",
+                        "role": "normal",
+                        "password": "example_password",
+                        "access_cert": "-----BEGIN CERTIFICATE-----\nMIIEexampleCertificateNotForProductionUseOnly\n-----END CERTIFICATE-----",
+                        "access_key": "-----BEGIN PRIVATE KEY-----\nMIIEexamplePrivateKeyNotForProductionUseOnly\n-----END PRIVATE KEY-----",
+                        "settings": {
+                          "acl": [
+                            {
+                              "id": "acl128aaaa99239",
+                              "permission": "produceconsume",
+                              "topic": "customer-events"
+                            },
+                            {
+                              "id": "acl293098flskdf",
+                              "permission": "produce",
+                              "topic": "customer-events.*"
+                            },
+                            {
+                              "id": "acl128ajei20123",
+                              "permission": "consume",
+                              "topic": "customer-events"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -20991,6 +21591,33 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object with a key of \u0060db\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DatabaseResponse"
+                },
+                "example": {
+                  "db": {
+                    "name": "alpha"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -21280,6 +21907,46 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object with a key of \u0060pool\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectionPoolResponse"
+                },
+                "example": {
+                  "pool": {
+                    "user": "doadmin",
+                    "name": "backend-pool",
+                    "size": 10,
+                    "db": "defaultdb",
+                    "mode": "transaction",
+                    "connection": {
+                      "uri": "postgres://doadmin:example_password@db.example.com:25061/backend-pool?sslmode=require",
+                      "database": "backend-pool",
+                      "host": "db.example.com",
+                      "port": 25061,
+                      "user": "doadmin",
+                      "password": "example_password",
+                      "ssl": true
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -22143,6 +22810,85 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object with a key of \u0060topic\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KafkaTopicResponse"
+                },
+                "example": {
+                  "topic": {
+                    "name": "customer-events",
+                    "partitions": [
+                      {
+                        "size": 4096,
+                        "id": 0,
+                        "in_sync_replicas": 3,
+                        "earliest_offset": 0,
+                        "consumer_groups": [
+                          {
+                            "name": "consumer-group-1",
+                            "offset": 0
+                          },
+                          {
+                            "name": "consumer-group-2",
+                            "offset": 1
+                          }
+                        ]
+                      },
+                      {
+                        "size": 4096,
+                        "id": 1,
+                        "in_sync_replicas": 3,
+                        "earliest_offset": 0,
+                        "consumer_groups": null
+                      }
+                    ],
+                    "replication_factor": 3,
+                    "state": "active",
+                    "config": {
+                      "cleanup_policy": "delete",
+                      "compression_type": "producer",
+                      "delete_retention_ms": 86400000,
+                      "file_delete_delay_ms": 60000,
+                      "flush_messages": 9223372036854776000,
+                      "flush_ms": 9223372036854776000,
+                      "index_interval_bytes": 4096,
+                      "max_compaction_lag_ms": 9223372036854776000,
+                      "max_message_bytes": 1048588,
+                      "message_down_conversion_enable": true,
+                      "message_format_version": "3.0-IV1",
+                      "message_timestamp_difference_max_ms": 9223372036854776000,
+                      "message_timestamp_type": "create_time",
+                      "min_cleanable_dirty_ratio": 0.5,
+                      "min_compaction_lag_ms": 0,
+                      "min_insync_replicas": 1,
+                      "preallocate": false,
+                      "retention_bytes": -1,
+                      "retention_ms": 604800000,
+                      "segment_bytes": 209715200,
+                      "segment_index_bytes": 10485760,
+                      "segment_jitter_ms": 0,
+                      "segment_ms": 604800000
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -22536,6 +23282,86 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object with a key of \u0060sink\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LogsinkResponse"
+                },
+                "examples": {
+                  "Create an opensearch logsink": {
+                    "value": {
+                      "sink": {
+                        "sink_id": "dfcc9f57d86bf58e321c2c6c31c7a971be244ac7",
+                        "sink_name": "logs-sink",
+                        "sink_type": "opensearch",
+                        "config": {
+                          "url": "https://user:passwd@192.168.0.1:25060",
+                          "index_prefix": "opensearch-logs",
+                          "index_days_max": 5
+                        }
+                      }
+                    }
+                  },
+                  "Create an elasticsearch logsink": {
+                    "value": {
+                      "sink": {
+                        "sink_id": "dfcc9f57d86bf58e321c2c6c31c7a971be244ac7",
+                        "sink_name": "logs-sink",
+                        "sink_type": "elasticsearch",
+                        "config": {
+                          "url": "https://user:passwd@192.168.0.1:25060",
+                          "index_prefix": "elasticsearch-logs",
+                          "index_days_max": 5
+                        }
+                      }
+                    }
+                  },
+                  "Create a rsyslog logsink": {
+                    "value": {
+                      "sink": {
+                        "sink_id": "dfcc9f57d86bf58e321c2c6c31c7a971be244ac7",
+                        "sink_name": "logs-sink",
+                        "sink_type": "rsyslog",
+                        "config": {
+                          "server": "192.168.0.1",
+                          "port": 514,
+                          "tls": false,
+                          "format": "rfc5424"
+                        }
+                      }
+                    }
+                  },
+                  "Create a datadog logsink": {
+                    "value": {
+                      "sink": {
+                        "sink_id": "dfcc9f57d86bf58e321c2c6c31c7a971be244ac7",
+                        "sink_name": "logs-sink",
+                        "sink_type": "rsyslog",
+                        "config": {
+                          "site": "http-intake.logs.datadoghq.com",
+                          "datadog_api_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -22867,6 +23693,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON object.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KafkaSchemaResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -23635,6 +24483,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Dedicated Inference update accepted for processing (202). Response contains only the dedicated_inference; no token is returned.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedInferenceUpdateAcceptedResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -23788,6 +24658,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Dedicated Inference create/update accepted for processing (202). Success or failure is not indicated by the response code.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedInferenceProvisioningResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -24143,6 +25035,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Token created; value is returned only once. Store securely.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenCreatedResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -24473,6 +25387,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060domain\u0060. The value of this will be an object that contains the standard attributes associated with a domain.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateDomainResponseResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -24769,6 +25705,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response body will be a JSON object with a key called \u0060domain_record\u0060. The value of this will be an object representing the new record. Attributes that are not applicable for the record type will be set to \u0060null\u0060. An \u0060id\u0060 attribute is generated for each record as part of the object.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatedDomainRecordResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -25235,6 +26193,36 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Accepted",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DropletCreateResponse"
+                },
+                "examples": {
+                  "Single Droplet Create Response": {
+                    "$ref": "#/components/examples/droplet_create_response"
+                  },
+                  "Multiple Droplet Create Response": {
+                    "$ref": "#/components/examples/droplet_multi_create_response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -25899,6 +26887,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060action\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DropletActionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -25966,6 +26976,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060actions\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DropletActionsResponseResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -26680,6 +27712,36 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Accepted",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AutoscalePoolCreateResponse"
+                },
+                "examples": {
+                  "Autoscale Create Response Dynamic Config": {
+                    "$ref": "#/components/examples/autoscale_create_response_dynamic"
+                  },
+                  "Autoscale Create Response Static Config": {
+                    "$ref": "#/components/examples/autoscale_create_response_static"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -27189,6 +28251,85 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a firewall key. This will be set to an object containing the standard firewall attributes.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateFirewallResponseResponse"
+                },
+                "example": {
+                  "firewall": {
+                    "id": "bb4b2611-3d72-467b-8602-280330ecd65c",
+                    "name": "firewall",
+                    "status": "waiting",
+                    "inbound_rules": [
+                      {
+                        "protocol": "tcp",
+                        "ports": "80",
+                        "action": "allow",
+                        "sources": {
+                          "load_balancer_uids": [
+                            "4de7ac8b-495b-4884-9a69-1050c6793cd6"
+                          ]
+                        }
+                      },
+                      {
+                        "protocol": "tcp",
+                        "ports": "22",
+                        "action": "allow",
+                        "sources": {
+                          "tags": [
+                            "gateway"
+                          ],
+                          "addresses": [
+                            "18.0.0.0/8"
+                          ]
+                        }
+                      }
+                    ],
+                    "outbound_rules": [
+                      {
+                        "protocol": "tcp",
+                        "ports": "80",
+                        "action": "allow",
+                        "destinations": {
+                          "addresses": [
+                            "0.0.0.0/0",
+                            "::/0"
+                          ]
+                        }
+                      }
+                    ],
+                    "created_at": "2017-05-23T21:24:00Z",
+                    "droplet_ids": [
+                      8043964
+                    ],
+                    "tags": [],
+                    "pending_changes": [
+                      {
+                        "droplet_id": 8043964,
+                        "removing": false,
+                        "status": "waiting"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -28110,6 +29251,36 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060floating_ip\u0060. The value of this will be an object that contains the standard attributes associated with a floating IP.\nWhen assigning a floating IP to a Droplet at same time as it created, the response\u0027s \u0060links\u0060 object will contain links to both the Droplet and the assignment action. The latter can be used to check the status of the action.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FloatingIpCreatedResponse"
+                },
+                "examples": {
+                  "floating_ip_assigning": {
+                    "$ref": "#/components/examples/floating_ip_assigning"
+                  },
+                  "floating_ip_reserving": {
+                    "$ref": "#/components/examples/floating_ip_reserving"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -28376,6 +29547,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be an object with a key called \u0060action\u0060. The value of this will be an object that contains the standard floating IP action attributes.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FloatingIpActionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -29174,6 +30367,42 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON response containing details about the newly created access key.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessKeyCreateResponseContent"
+                },
+                "examples": {
+                  "New Access Key": {
+                    "value": {
+                      "access_key": {
+                        "id": "dof_v1-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "name": "my-function-access-key",
+                        "secret": "DOSECRETKEYEXAMPLE",
+                        "expires_at": "2026-12-19T10:30:00Z",
+                        "created_at": "2025-12-19T10:30:00Z",
+                        "updated_at": "2025-12-19T10:30:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -29460,6 +30689,45 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key set to \u0060image\u0060.  The value of this will be an image object containing a subset of the standard  image attributes as listed below, including the image\u0027s \u0060id\u0060 and \u0060status\u0060.  After initial creation, the \u0060status\u0060 will be \u0060NEW\u0060. Using the image\u0027s id, you  may query the image\u0027s status by sending a \u0060GET\u0060 request to the  \u0060/v2/images/$IMAGE_ID\u0060 endpoint.  When the \u0060status\u0060 changes to \u0060available\u0060, the image will be ready for use.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewCustomImageResponse"
+                },
+                "example": {
+                  "image": {
+                    "created_at": "2018-09-20T19:28:00Z",
+                    "description": "Cloud-optimized image w/ small footprint",
+                    "distribution": "Ubuntu",
+                    "error_message": "",
+                    "id": 38413969,
+                    "name": "ubuntu-18.04-minimal",
+                    "regions": [],
+                    "type": "custom",
+                    "tags": [
+                      "base-image",
+                      "prod"
+                    ],
+                    "status": "NEW"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -29755,6 +31023,31 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060transfer_id\u0060.  The value of this will be a number that identifies the initiated transfer. If the value is \u00600\u0060, then the transfer has been accepted. Otherwise, the transfer is pending and waiting for the recipient to accept it.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImagesPostAccountTransferCreatedResponse"
+                },
+                "example": {
+                  "transfer_id": 3164444
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -30085,6 +31378,72 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060action\u0060. The value of this will be an object containing the standard image action attributes.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Action"
+                },
+                "example": {
+                  "action": {
+                    "id": 36805527,
+                    "status": "in-progress",
+                    "type": "transfer",
+                    "started_at": "2014-11-14T16:42:45Z",
+                    "completed_at": null,
+                    "resource_id": 7938269,
+                    "resource_type": "image",
+                    "region": {
+                      "name": "New York 3",
+                      "slug": "nyc3",
+                      "sizes": [
+                        "s-1vcpu-3gb",
+                        "m-1vcpu-8gb",
+                        "s-3vcpu-1gb",
+                        "s-1vcpu-2gb",
+                        "s-2vcpu-2gb",
+                        "s-2vcpu-4gb",
+                        "s-4vcpu-8gb",
+                        "s-6vcpu-16gb",
+                        "s-8vcpu-32gb",
+                        "s-12vcpu-48gb",
+                        "s-16vcpu-64gb",
+                        "s-20vcpu-96gb",
+                        "s-1vcpu-1gb",
+                        "c-1vcpu-2gb",
+                        "s-24vcpu-128gb"
+                      ],
+                      "features": [
+                        "private_networking",
+                        "backups",
+                        "ipv6",
+                        "metadata",
+                        "server_id",
+                        "install_agent",
+                        "storage",
+                        "image_transfer"
+                      ],
+                      "available": true
+                    },
+                    "region_slug": "nyc3"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -30427,6 +31786,65 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A single alert rule.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlertRuleResponseResponse"
+                },
+                "example": {
+                  "alert_rule": {
+                    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                    "spec": {
+                      "name": "High CPU",
+                      "query": {
+                        "metric": "do.droplets.cpu_utilization",
+                        "resource_urns": [
+                          "do:droplet:12345"
+                        ],
+                        "tags": [
+                          "env:prod"
+                        ]
+                      },
+                      "condition": {
+                        "window": "EVALUATION_WINDOW_5M"
+                      },
+                      "thresholds": {
+                        "warning": 80,
+                        "critical": 95,
+                        "operator": "THRESHOLD_OPERATOR_GREATER_THAN"
+                      },
+                      "notification_channels": [
+                        {
+                          "notification_channel_id": "550e8400-e29b-41d4-a716-446655440000",
+                          "notify_on": [
+                            "SEVERITY_CRITICAL"
+                          ]
+                        }
+                      ],
+                      "re_alert_duration": "RE_ALERT_DURATION_4H"
+                    },
+                    "status": "ALERT_RULE_STATUS_ACTIVE",
+                    "created_at": "2026-09-03T10:00:00Z",
+                    "updated_at": "2026-09-03T10:00:00Z"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -30770,6 +32188,100 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A single notification channel.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationChannelResponseResponse"
+                },
+                "examples": {
+                  "email": {
+                    "summary": "Email channel",
+                    "value": {
+                      "notification_channel": {
+                        "id": "550e8400-e29b-41d4-a716-446655440000",
+                        "name": "On-call email",
+                        "channel_type": "CHANNEL_TYPE_EMAIL",
+                        "email": {
+                          "to": "alerts@example.com, backup@example.com"
+                        },
+                        "usage": {
+                          "rule_count": 0
+                        },
+                        "created_at": "2026-09-03T10:15:00Z",
+                        "updated_at": "2026-09-03T10:15:00Z"
+                      }
+                    }
+                  },
+                  "slack": {
+                    "summary": "Slack channel with webhook status",
+                    "value": {
+                      "notification_channel": {
+                        "id": "660e8400-e29b-41d4-a716-446655440001",
+                        "name": "Platform alerts",
+                        "channel_type": "CHANNEL_TYPE_SLACK",
+                        "slack": {
+                          "webhook_url_status": {
+                            "configured": true
+                          },
+                          "channel": "#platform-alerts"
+                        },
+                        "usage": {
+                          "rule_count": 0
+                        },
+                        "created_at": "2026-09-03T10:16:00Z",
+                        "updated_at": "2026-09-03T10:16:00Z"
+                      }
+                    }
+                  },
+                  "webhook": {
+                    "summary": "Webhook channel with credential status",
+                    "value": {
+                      "notification_channel": {
+                        "id": "770e8400-e29b-41d4-a716-446655440002",
+                        "name": "Incident webhook",
+                        "channel_type": "CHANNEL_TYPE_WEBHOOK",
+                        "webhook": {
+                          "url": "https://example.com/hook",
+                          "bearer_token": {
+                            "token_status": {
+                              "configured": true
+                            }
+                          },
+                          "headers": {
+                            "X-Custom": "1"
+                          },
+                          "signature": {
+                            "secret_status": {
+                              "configured": true
+                            }
+                          }
+                        },
+                        "usage": {
+                          "rule_count": 0
+                        },
+                        "created_at": "2026-09-03T10:17:00Z",
+                        "updated_at": "2026-09-03T10:17:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -32796,6 +34308,47 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A single export job.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportJob"
+                },
+                "example": {
+                  "export_id": "9f13c09c-c877-436b-9863-dcc39c9dd737",
+                  "type": "agent",
+                  "agent_id": "01a0f3d5-b58d-7c99-a743-7ca0397b7f5d",
+                  "environment_id": "01a0f3d5-b58d-7c99-a743-7ca0397b7f5d",
+                  "status": "complete",
+                  "filters": {
+                    "signal_type": [
+                      "ExecutionFailureToolNotFound"
+                    ],
+                    "session_ids": [
+                      "01a0f3d5-d5f1-798a-9352-2cd8f8b81e78"
+                    ]
+                  },
+                  "created_at": 1791036405,
+                  "completed_at": 1791036405,
+                  "expires_at": 1791641205,
+                  "error_message": null
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -33245,6 +34798,36 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060kubernetes_cluster\u0060. The\nvalue of this will be an object containing the standard attributes of a\nKubernetes cluster.\n\nThe IP address and cluster API server endpoint will not be available until the\ncluster has finished provisioning. The initial value of the cluster\u0027s\n\u0060status.state\u0060 attribute will be \u0060provisioning\u0060. When the cluster is ready,\nthis will transition to \u0060running\u0060.\n",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClusterCreateResponse"
+                },
+                "examples": {
+                  "Kubernetes Cluster Response": {
+                    "$ref": "#/components/examples/kubernetes_clusters_create_basic_response"
+                  },
+                  "Kubernetes Cluster with Multiple Node Pools Response": {
+                    "$ref": "#/components/examples/kubernetes_clusters_multi_pool_response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -33391,6 +34974,33 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060kubernetes_cluster\u0060. The\nvalue of this will be an object containing the standard attributes of a\nKubernetes cluster.\n",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatedClusterResponse"
+                },
+                "examples": {
+                  "Updated Kubernetes Cluster": {
+                    "$ref": "#/components/examples/kubernetes_updated"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -34107,6 +35717,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060node_pool\u0060. The value of\nthis will be an object containing the standard attributes of a node pool.\n",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NodePoolCreateResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -34277,6 +35909,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060node_pool\u0060. The value of\nthis will be an object containing the standard attributes of a node pool.\n",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NodePoolUpdateResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -34719,6 +36373,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response is a JSON object with a key called \u0060run_id\u0060 that you can later use to fetch the run results.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClusterlintRunResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -35123,6 +36799,42 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Accepted",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoadBalancerCreateResponse"
+                },
+                "examples": {
+                  "Basic Create Response": {
+                    "$ref": "#/components/examples/load_balancer_basic_response"
+                  },
+                  "SSL Termination Create Response": {
+                    "$ref": "#/components/examples/load_balancer_ssl_termination_response"
+                  },
+                  "Create Response Using Droplet Tag": {
+                    "$ref": "#/components/examples/load_balancer_using_tag_response"
+                  },
+                  "Sticky Sessions and Custom Health Check": {
+                    "$ref": "#/components/examples/load_balancer_sticky_sessions_and_health_check_response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -35937,6 +37649,70 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060microvm\u0060. A MicroVM created from a container image has \u0060state\u0060 set to \u0060creating\u0060 and an empty endpoint hostname until provisioning finishes. A MicroVM created from a checkpoint is usually already \u0060running\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MicrovmCreatedResponse"
+                },
+                "examples": {
+                  "Creating MicroVM": {
+                    "value": {
+                      "microvm": {
+                        "id": "01a0ef1a-d873-793d-ae6a-5dd6239be62a",
+                        "name": "example-microvm",
+                        "region": "mkc1",
+                        "size": {
+                          "cpu": 1,
+                          "memory": 2048,
+                          "disk": 50
+                        },
+                        "source": {
+                          "oci_ref": "docker.io/library/nginx:latest"
+                        },
+                        "state": "creating",
+                        "networking": "public",
+                        "auto_pause": {
+                          "enabled": true,
+                          "idle_timeout": "5m0s"
+                        },
+                        "auto_resume": true,
+                        "http_protocol": "http",
+                        "ports": [
+                          80
+                        ],
+                        "tags": [
+                          "example"
+                        ],
+                        "urls": [
+                          {
+                            "hostname": "",
+                            "port": 80,
+                            "default": true,
+                            "status": "PENDING"
+                          }
+                        ],
+                        "created_at": "2026-09-29T21:38:29Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -36603,6 +38379,50 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060checkpoint\u0060. The value will be an object containing the standard attributes associated with a checkpoint.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckpointResponse"
+                },
+                "examples": {
+                  "Available Checkpoint": {
+                    "value": {
+                      "checkpoint": {
+                        "id": "01a0ed98-0a74-75dd-a625-e4856adbc298",
+                        "name": "example-checkpoint",
+                        "microvm_id": "01a0ef1a-d873-793d-ae6a-5dd6239be62a",
+                        "microvm_name": "example-microvm",
+                        "region": "mkc1",
+                        "size": {
+                          "cpu": 1,
+                          "memory": 2048,
+                          "disk": 50
+                        },
+                        "status": "CHECKPOINT_AVAILABLE",
+                        "memory_bytes": 2147483648,
+                        "disk_bytes": 1073741824,
+                        "created_at": "2026-09-29T14:35:59Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -40474,6 +42294,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON response containing details about the new NFS share.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NfsCreateResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -40700,6 +42542,43 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060action\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NfsActionsResponse"
+                },
+                "examples": {
+                  "Resize Share Action": {
+                    "value": {
+                      "action": {
+                        "id": "084c3b9c-2382-441b-92d4-10b095bb5d7c",
+                        "region_slug": "atl1",
+                        "resource_id": "baf4827c-6fa9-456f-9dbd-9ddfcacd0720",
+                        "resource_type": "SHARE",
+                        "type": "RESIZE_SHARE",
+                        "status": "IN_PROGRESS",
+                        "started_at": "2026-06-25T08:11:12Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -40956,6 +42835,64 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object containing the created access point and an action object.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessPointActionResponse"
+                },
+                "examples": {
+                  "Creating Access Point": {
+                    "value": {
+                      "access_point": {
+                        "id": "7659ce91-354d-4f61-9cda-ae2c7feb61d9",
+                        "name": "other-vpc",
+                        "share_id": "baf4827c-6fa9-456f-9dbd-9ddfcacd0720",
+                        "path": "/other-vpc",
+                        "vpc_id": "3f34cdb2-1e4f-4100-b5c7-f55f2762085f",
+                        "status": "ACCESS_POINT_CREATING",
+                        "is_default": false,
+                        "created_at": "2026-06-25T08:11:12Z",
+                        "updated_at": "",
+                        "access_policy": {
+                          "anonuid": 65534,
+                          "anongid": 65534,
+                          "protocols": [
+                            "NFS4",
+                            "NFS"
+                          ],
+                          "squash_config": "ROOT_SQUASH",
+                          "identity_enforcement_enabled": false
+                        }
+                      },
+                      "action": {
+                        "id": "084c3b9c-2382-441b-92d4-10b095bb5d7c",
+                        "region_slug": "s2r1",
+                        "resource_id": "7659ce91-354d-4f61-9cda-ae2c7feb61d9",
+                        "resource_type": "SHARE",
+                        "type": "CREATE_ACCESS_POINT",
+                        "status": "IN_PROGRESS",
+                        "started_at": "2026-06-25T08:11:12Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -41216,6 +43153,42 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a \u0060team\u0060 key containing the created team and an optional \u0060invitations\u0060 key mapping invitee email addresses to invitation status objects.\n",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTeamResponse"
+                },
+                "example": {
+                  "team": {
+                    "uuid": "4e1bfbc3-dc3e-41f2-a18f-1b4d7ba71679",
+                    "name": "production"
+                  },
+                  "invitations": {
+                    "member@example.com": {
+                      "status": "ok"
+                    },
+                    "biller@example.com": {
+                      "status": "ok"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -41374,6 +43347,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with details about the partner attachment\nincluding attached VPC network IDs and BGP configuration information",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SinglePartnerAttachmentResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -41509,6 +43504,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with details about the partner attachment\nincluding attached VPC network IDs and BGP configuration information",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SinglePartnerAttachmentResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -41571,6 +43588,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with details about the partner attachment \nand \u0060\u0022state\u0022: \u0022DELETING\u0022\u0060 to indicate that the partner attachment is being deleted.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SinglePartnerAttachmentDeletingResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -41823,6 +43862,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response is an empty JSON object.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyJsonObjectResponseContent"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -41939,6 +44000,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060project\u0060. The value of this will be an object with the standard project attributes",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExistingProjectResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -42876,6 +44959,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with the key \u0060registry\u0060 containing information about your registry.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MultiregistryInfoResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -43307,6 +45412,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key of \u0060garbage_collection\u0060. This will be a json object with attributes representing the currently-active garbage collection.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GarbageCollectionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -44060,6 +46187,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with the key \u0060registry\u0060 containing information about your registry.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistryInfoResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "deprecated": true,
@@ -44844,6 +46993,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key of \u0060garbage_collection\u0060. This will be a json object with attributes representing the currently-active garbage collection.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GarbageCollectionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "deprecated": true,
@@ -45253,6 +47424,36 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060reserved_ip\u0060. The value of this will be an object that contains the standard attributes associated with a reserved IP.\nWhen assigning a reserved IP to a Droplet at same time as it created, the response\u0027s \u0060links\u0060 object will contain links to both the Droplet and the assignment action. The latter can be used to check the status of the action.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservedIpCreatedResponse"
+                },
+                "examples": {
+                  "reserved_ip_assigning": {
+                    "$ref": "#/components/examples/reserved_ip_assigning"
+                  },
+                  "reserved_ip_reserving": {
+                    "$ref": "#/components/examples/reserved_ip_reserving"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -45535,6 +47736,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be an object with a key called \u0060action\u0060. The value of this will be an object that contains the standard reserved IP action attributes.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservedIpActionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -45731,6 +47954,33 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with key \u0060reserved_ipv6\u0060. The value of this will be an object that contains the standard attributes associated with a reserved IPv6.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservedIpv6CreateResponse"
+                },
+                "examples": {
+                  "reserved_ipv6_reserved": {
+                    "$ref": "#/components/examples/reserved_ipv6_reserved"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -45937,6 +48187,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be an object with a key called \u0060action\u0060. The value of this will be an object that contains the standard reserved IP action attributes.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservedIpv6ActionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -45998,6 +48270,35 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "BYOIP prefix request accepted, response will contain the details of the created prefix.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ByoipPrefixCreateResponse"
+                },
+                "example": {
+                  "byoip_prefix": {
+                    "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+                    "status": "in_progress",
+                    "region": "nyc3"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -46261,6 +48562,41 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Details of the updated BYOIP prefix",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ByoipPrefixUpdateResponse"
+                },
+                "example": {
+                  "byoip_prefix": {
+                    "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+                    "status": "active",
+                    "region": "nyc3",
+                    "prefix": "203.0.113.0/24",
+                    "validations": [],
+                    "failure_reason": "",
+                    "advertised": true,
+                    "locked": false,
+                    "project_id": "12345678-1234-1234-1234-123456789012"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -46435,6 +48771,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060scan\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -46864,6 +49222,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object containing suppressed resources.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuppressedResourceRoot"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -47944,6 +50324,82 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A JSON response containing details about the new key.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyCreateResponseContent"
+                },
+                "examples": {
+                  "Read Only Key": {
+                    "value": {
+                      "key": {
+                        "name": "read-only-key",
+                        "access_key": "DOACCESSKEYEXAMPLE",
+                        "secret_key": "DOSECRETKEYEXAMPLE",
+                        "grants": [
+                          {
+                            "bucket": "my-bucket",
+                            "permission": "read"
+                          }
+                        ],
+                        "created_at": "2018-07-19T15:04:16Z"
+                      }
+                    }
+                  },
+                  "Full Access Key": {
+                    "value": {
+                      "key": {
+                        "name": "full-access-key",
+                        "access_key": "DOACCESSKEYEXAMPLE",
+                        "secret_key": "DOSECRETKEYEXAMPLE",
+                        "grants": [
+                          {
+                            "bucket": "",
+                            "permission": "fullaccess"
+                          }
+                        ],
+                        "created_at": "2018-07-19T15:04:16Z"
+                      }
+                    }
+                  },
+                  "Mixed Permission Access Key": {
+                    "value": {
+                      "key": {
+                        "name": "custom-bucket-key",
+                        "access_key": "DOACCESSKEYEXAMPLE",
+                        "secret_key": "DOSECRETKEYEXAMPLE",
+                        "grants": [
+                          {
+                            "bucket": "my-bucket",
+                            "permission": "readwrite"
+                          },
+                          {
+                            "bucket": "my-other-bucket",
+                            "permission": "read"
+                          }
+                        ],
+                        "created_at": "2018-07-19T15:04:16Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -48309,6 +50765,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called tag.  The value of this will be a tag object containing the standard tag attributes",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TagsNewResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -48760,6 +51238,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A successful response.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VectordbCreateVectorDbResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -49615,6 +52115,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060volume\u0060. The value will be an object containing the standard attributes associated with a volume.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -49764,6 +52286,36 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be an object with a key called \u0060action\u0060. The value of this will be an object that contains the standard volume action attributes",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeActionResponse"
+                },
+                "examples": {
+                  "volume_action_attach_response": {
+                    "$ref": "#/components/examples/volume_action_attach_response"
+                  },
+                  "VolumeActionDetachResponse": {
+                    "$ref": "#/components/examples/volume_action_detach_response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -50197,6 +52749,36 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be an object with a key called \u0060action\u0060. The value of this will be an object that contains the standard volume action attributes",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeActionResponse"
+                },
+                "examples": {
+                  "volume_action_attach_response": {
+                    "$ref": "#/components/examples/volume_action_attach_response"
+                  },
+                  "VolumeActionDetachResponse": {
+                    "$ref": "#/components/examples/volume_action_detach_response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -50438,6 +53020,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "You will get back a JSON object that has a \u0060snapshot\u0060 key. This will contain the standard snapshot attributes",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeSnapshotResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -50557,6 +53161,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060vpc\u0060. The value of this will be an object that contains the standard attributes associated with a VPC.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExistingVpcResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -51037,6 +53663,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060peering\u0060, containing  the standard attributes associated with a VPC peering.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VpcPeeringResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -51303,6 +53951,33 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A VPC subnet.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SingleVpcSubnetResponse"
+                },
+                "examples": {
+                  "VPC Subnet Response": {
+                    "$ref": "#/components/examples/single_vpc_subnet"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -51750,6 +54425,40 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "A route.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SingleRouteResponse"
+                },
+                "example": {
+                  "route": {
+                    "id": "f0e1d2c3-b4a5-6789-0fed-cba987654321",
+                    "type": "STATIC",
+                    "destination_cidr": "0.0.0.0/0",
+                    "target_urns": [
+                      "do:droplet:4126873"
+                    ],
+                    "modifiable": true,
+                    "created_at": "2026-01-14T10:05:00Z"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -52022,6 +54731,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060vpc_peering\u0060. The value of this will be an object that contains the standard attributes associated with a VPC peering.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvisioningVpcPeeringResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -52196,6 +54927,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060vpc_peering\u0060. The value of this will be an object that contains the standard attributes associated with a VPC peering.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletingVpcPeeringResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -52308,6 +55061,33 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060vpc_nat_gateway\u0060. This will be\nset to a JSON object that contains the standard VPC NAT gateway attributes.\n",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VpcNatGatewayCreateResponse"
+                },
+                "examples": {
+                  "VPC NAT Gateway Response": {
+                    "$ref": "#/components/examples/vpc_nat_gateway_create"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -52586,6 +55366,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060check\u0060. The value of this will be an object that contains the standard attributes associated with an uptime check.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExistingCheckResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -52967,6 +55769,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060alert\u0060. The value of this will be an object that contains the standard attributes associated with an uptime alert.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExistingAlertResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -64711,19 +67535,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ChatCompletionResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ChatCompletionChunk"
                 }
               }
@@ -64809,19 +67627,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/MessagesCreateResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/MessagesStreamEvent"
                 }
               }
@@ -65026,19 +67838,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ChatCompletionResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ChatCompletionChunk"
                 }
               }
@@ -65129,19 +67935,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ImagesResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ImageGenPartialImageEvent"
                 }
               }
@@ -65440,19 +68240,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateResponseResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateResponseStreamResponse"
                 }
               }
@@ -65681,37 +68475,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/SpeechResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "audio/mpeg": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/InferenceCreateSpeech200MpegResponseSchema"
                 }
               },
               "audio/wav": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/InferenceCreateSpeech200WavResponseSchema"
                 }
               },
               "audio/mp3": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/InferenceCreateSpeech200Mp3ResponseSchema"
                 }
               }
@@ -66094,6 +68874,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "File intent created.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchFileCreateResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -66314,6 +69116,28 @@
           },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "Batch job accepted. Poll \u0060GET /v1/batches/{batch_id}\u0060 for status.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Batch"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -85179,30 +88003,14 @@
         "description": "A typed literal or list value for a traces filter condition. Exactly one kind is set per message."
       },
       "TracesFilterCondition": {
-        "required": [
-          "field",
-          "operator"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/TracesFilterConditionOneOf1"
+            "$ref": "#/components/schemas/TracesFilterConditionOneOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/TracesFilterConditionOneOf2"
+            "$ref": "#/components/schemas/TracesFilterConditionOneOf2Branch"
           }
         ],
-        "properties": {
-          "field": {
-            "$ref": "#/components/schemas/TracesFieldRef"
-          },
-          "operator": {
-            "$ref": "#/components/schemas/TracesFilterConditionOperator"
-          },
-          "value": {
-            "$ref": "#/components/schemas/TracesFilterValue"
-          }
-        },
         "description": "A single field comparison in a traces filter expression."
       },
       "TracesFilterExpression": {
@@ -85592,30 +88400,14 @@
         "description": "A typed literal or list value for a spans filter condition. Exactly one kind is set per message."
       },
       "SpansFilterCondition": {
-        "required": [
-          "field",
-          "operator"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/SpansFilterConditionOneOf1"
+            "$ref": "#/components/schemas/SpansFilterConditionOneOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/SpansFilterConditionOneOf2"
+            "$ref": "#/components/schemas/SpansFilterConditionOneOf2Branch"
           }
         ],
-        "properties": {
-          "field": {
-            "$ref": "#/components/schemas/SpansFilterField"
-          },
-          "operator": {
-            "$ref": "#/components/schemas/SpansFilterConditionOperator"
-          },
-          "value": {
-            "$ref": "#/components/schemas/SpansFilterValue"
-          }
-        },
         "description": "A single field comparison in a spans filter expression."
       },
       "SpansFilterExpression": {
@@ -140899,6 +143691,176 @@
             }
           ]
         }
+      },
+      "TracesFilterConditionOneOf1Branch": {
+        "type": "object",
+        "properties": {
+          "operator": {
+            "enum": [
+              "FILTER_OPERATOR_EXISTS"
+            ],
+            "type": "string",
+            "example": "FILTER_OPERATOR_EXISTS",
+            "x-ms-enum": {
+              "name": "OperatorValue",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "FILTER_OPERATOR_EXISTS",
+                  "name": "FilterOperatorExists"
+                }
+              ]
+            }
+          },
+          "field": {
+            "$ref": "#/components/schemas/TracesFieldRef"
+          },
+          "value": {
+            "$ref": "#/components/schemas/TracesFilterValue"
+          }
+        },
+        "required": [
+          "field",
+          "operator"
+        ]
+      },
+      "TracesFilterConditionOneOf2Branch": {
+        "type": "object",
+        "properties": {
+          "operator": {
+            "enum": [
+              "FILTER_OPERATOR_EQ",
+              "FILTER_OPERATOR_NEQ",
+              "FILTER_OPERATOR_IN",
+              "FILTER_OPERATOR_GTE",
+              "FILTER_OPERATOR_LTE"
+            ],
+            "type": "string",
+            "example": "FILTER_OPERATOR_EQ",
+            "x-ms-enum": {
+              "name": "OperatorValue",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "FILTER_OPERATOR_EQ",
+                  "name": "FilterOperatorEq"
+                },
+                {
+                  "value": "FILTER_OPERATOR_NEQ",
+                  "name": "FilterOperatorNeq"
+                },
+                {
+                  "value": "FILTER_OPERATOR_IN",
+                  "name": "FilterOperatorIn"
+                },
+                {
+                  "value": "FILTER_OPERATOR_GTE",
+                  "name": "FilterOperatorGte"
+                },
+                {
+                  "value": "FILTER_OPERATOR_LTE",
+                  "name": "FilterOperatorLte"
+                }
+              ]
+            }
+          },
+          "field": {
+            "$ref": "#/components/schemas/TracesFieldRef"
+          },
+          "value": {
+            "$ref": "#/components/schemas/TracesFilterValue"
+          }
+        },
+        "required": [
+          "value",
+          "field",
+          "operator"
+        ]
+      },
+      "SpansFilterConditionOneOf1Branch": {
+        "type": "object",
+        "properties": {
+          "operator": {
+            "enum": [
+              "FILTER_OPERATOR_EXISTS"
+            ],
+            "type": "string",
+            "example": "FILTER_OPERATOR_EXISTS",
+            "x-ms-enum": {
+              "name": "OperatorValue",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "FILTER_OPERATOR_EXISTS",
+                  "name": "FilterOperatorExists"
+                }
+              ]
+            }
+          },
+          "field": {
+            "$ref": "#/components/schemas/SpansFilterField"
+          },
+          "value": {
+            "$ref": "#/components/schemas/SpansFilterValue"
+          }
+        },
+        "required": [
+          "field",
+          "operator"
+        ]
+      },
+      "SpansFilterConditionOneOf2Branch": {
+        "type": "object",
+        "properties": {
+          "operator": {
+            "enum": [
+              "FILTER_OPERATOR_EQ",
+              "FILTER_OPERATOR_NEQ",
+              "FILTER_OPERATOR_IN",
+              "FILTER_OPERATOR_GTE",
+              "FILTER_OPERATOR_LTE"
+            ],
+            "type": "string",
+            "example": "FILTER_OPERATOR_EQ",
+            "x-ms-enum": {
+              "name": "OperatorValue",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "FILTER_OPERATOR_EQ",
+                  "name": "FilterOperatorEq"
+                },
+                {
+                  "value": "FILTER_OPERATOR_NEQ",
+                  "name": "FilterOperatorNeq"
+                },
+                {
+                  "value": "FILTER_OPERATOR_IN",
+                  "name": "FilterOperatorIn"
+                },
+                {
+                  "value": "FILTER_OPERATOR_GTE",
+                  "name": "FilterOperatorGte"
+                },
+                {
+                  "value": "FILTER_OPERATOR_LTE",
+                  "name": "FilterOperatorLte"
+                }
+              ]
+            }
+          },
+          "field": {
+            "$ref": "#/components/schemas/SpansFilterField"
+          },
+          "value": {
+            "$ref": "#/components/schemas/SpansFilterValue"
+          }
+        },
+        "required": [
+          "value",
+          "field",
+          "operator"
+        ]
       },
       "SystemoneQuestionCriteriaAnyOf1": {
         "type": "object",

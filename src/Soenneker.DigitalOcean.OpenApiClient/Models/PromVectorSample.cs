@@ -27,8 +27,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #nullable enable
         public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Metric { get => _explicitNullValueMetric; set { _explicitNullValueMetric = value; AdditionalData?.Remove("metric"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric"); else _explicitNullProperties?.Remove("metric"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueMetric = default!;
-        public global::System.Collections.Generic.List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::System.Collections.Generic.List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueValue = default!;
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueValue = default!;
 #nullable restore
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,6 +60,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "metric", n => { Metric = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "value", n => { Value = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
+
             };
         }
         /// <summary>
