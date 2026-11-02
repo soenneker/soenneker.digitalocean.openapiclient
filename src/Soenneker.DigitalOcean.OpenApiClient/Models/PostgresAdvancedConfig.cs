@@ -208,8 +208,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? MaxConnections { get => _explicitNullValueMaxConnections; set { _explicitNullValueMaxConnections = value; AdditionalData?.Remove("max_connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_connections"); else _explicitNullProperties?.Remove("max_connections"); } }
         private int? _explicitNullValueMaxConnections = default!;
         /// <summary>Number of seconds of master unavailability before triggering database failover to standby. The default value is 60.</summary>
-        public int? MaxFailoverReplicationTimeLag { get => _explicitNullValueMaxFailoverReplicationTimeLag; set { _explicitNullValueMaxFailoverReplicationTimeLag = value; AdditionalData?.Remove("max_failover_replication_time_lag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_failover_replication_time_lag"); else _explicitNullProperties?.Remove("max_failover_replication_time_lag"); } }
-        private int? _explicitNullValueMaxFailoverReplicationTimeLag = default!;
+        public decimal? MaxFailoverReplicationTimeLag { get => _explicitNullValueMaxFailoverReplicationTimeLag; set { _explicitNullValueMaxFailoverReplicationTimeLag = value; AdditionalData?.Remove("max_failover_replication_time_lag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_failover_replication_time_lag"); else _explicitNullProperties?.Remove("max_failover_replication_time_lag"); } }
+        private decimal? _explicitNullValueMaxFailoverReplicationTimeLag = default!;
         /// <summary>PostgreSQL maximum number of files that can be open per process.</summary>
         public int? MaxFilesPerProcess { get => _explicitNullValueMaxFilesPerProcess; set { _explicitNullValueMaxFilesPerProcess = value; AdditionalData?.Remove("max_files_per_process"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_files_per_process"); else _explicitNullProperties?.Remove("max_files_per_process"); } }
         private int? _explicitNullValueMaxFilesPerProcess = default!;
@@ -390,7 +390,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "log_line_prefix", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigLogLinePrefix>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLogLinePrefix = default; _explicitNullProperties?.Remove("log_line_prefix"); AdditionalData["log_line_prefix"] = unknown; } else { LogLinePrefix = parsed; AdditionalData.Remove("log_line_prefix"); } } },
                 { "log_min_duration_statement", n => { LogMinDurationStatement = n.GetIntValue(); } },
                 { "max_connections", n => { MaxConnections = n.GetIntValue(); } },
-                { "max_failover_replication_time_lag", n => { MaxFailoverReplicationTimeLag = n.GetIntValue(); } },
+                { "max_failover_replication_time_lag", n => { MaxFailoverReplicationTimeLag = n.GetDecimalValue(); } },
                 { "max_files_per_process", n => { MaxFilesPerProcess = n.GetIntValue(); } },
                 { "max_locks_per_transaction", n => { MaxLocksPerTransaction = n.GetIntValue(); } },
                 { "max_logical_replication_workers", n => { MaxLogicalReplicationWorkers = n.GetIntValue(); } },
@@ -456,7 +456,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PostgresAdvancedConfigLogLinePrefix>("log_line_prefix", LogLinePrefix);
             writer.WriteIntValue("log_min_duration_statement", LogMinDurationStatement);
             writer.WriteIntValue("max_connections", MaxConnections);
-            writer.WriteIntValue("max_failover_replication_time_lag", MaxFailoverReplicationTimeLag);
+            writer.WriteDecimalValue("max_failover_replication_time_lag", MaxFailoverReplicationTimeLag);
             writer.WriteIntValue("max_files_per_process", MaxFilesPerProcess);
             writer.WriteIntValue("max_locks_per_transaction", MaxLocksPerTransaction);
             writer.WriteIntValue("max_logical_replication_workers", MaxLogicalReplicationWorkers);

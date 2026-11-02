@@ -48,8 +48,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         private string _explicitNullValueHost = default!;
 #endif
         /// <summary>Port, 1 to 65535.</summary>
-        public int? Port { get => _explicitNullValuePort; set { _explicitNullValuePort = value; AdditionalData?.Remove("port"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port"); else _explicitNullProperties?.Remove("port"); } }
-        private int? _explicitNullValuePort = default!;
+        public long? Port { get => _explicitNullValuePort; set { _explicitNullValuePort = value; AdditionalData?.Remove("port"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port"); else _explicitNullProperties?.Remove("port"); } }
+        private long? _explicitNullValuePort = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionCreateNetworkVpcDestinationsItem"/> and sets the default values.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "allowed_ip_cidrs", n => { AllowedIpCidrs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "host", n => { Host = n.GetStringValue(); } },
-                { "port", n => { Port = n.GetIntValue(); } },
+                { "port", n => { Port = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_ip_cidrs", AllowedIpCidrs);
             writer.WriteStringValue("host", Host);
-            writer.WriteIntValue("port", Port);
+            writer.WriteLongValue("port", Port);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -71,7 +71,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient
             ApiClientBuilder.RegisterDefaultSerializer<FormSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<MultipartSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
-            ApiClientBuilder.RegisterDefaultDeserializer<TextParseNodeFactory>();
+            global::Soenneker.OpenApi.Generated.OpenApiTextParseNodeFactory.Register();
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
             {

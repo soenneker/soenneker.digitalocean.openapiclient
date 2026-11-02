@@ -123,26 +123,26 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? GroupMinSessionTimeoutMs { get => _explicitNullValueGroupMinSessionTimeoutMs; set { _explicitNullValueGroupMinSessionTimeoutMs = value; AdditionalData?.Remove("group_min_session_timeout_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_min_session_timeout_ms"); else _explicitNullProperties?.Remove("group_min_session_timeout_ms"); } }
         private int? _explicitNullValueGroupMinSessionTimeoutMs = default!;
         /// <summary>How long are delete records retained?</summary>
-        public int? LogCleanerDeleteRetentionMs { get => _explicitNullValueLogCleanerDeleteRetentionMs; set { _explicitNullValueLogCleanerDeleteRetentionMs = value; AdditionalData?.Remove("log_cleaner_delete_retention_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_delete_retention_ms"); else _explicitNullProperties?.Remove("log_cleaner_delete_retention_ms"); } }
-        private int? _explicitNullValueLogCleanerDeleteRetentionMs = default!;
+        public long? LogCleanerDeleteRetentionMs { get => _explicitNullValueLogCleanerDeleteRetentionMs; set { _explicitNullValueLogCleanerDeleteRetentionMs = value; AdditionalData?.Remove("log_cleaner_delete_retention_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_delete_retention_ms"); else _explicitNullProperties?.Remove("log_cleaner_delete_retention_ms"); } }
+        private long? _explicitNullValueLogCleanerDeleteRetentionMs = default!;
         /// <summary>The maximum amount of time message will remain uncompacted. Only applicable for logs that are being compacted</summary>
-        public int? LogCleanerMaxCompactionLagMs { get => _explicitNullValueLogCleanerMaxCompactionLagMs; set { _explicitNullValueLogCleanerMaxCompactionLagMs = value; AdditionalData?.Remove("log_cleaner_max_compaction_lag_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_max_compaction_lag_ms"); else _explicitNullProperties?.Remove("log_cleaner_max_compaction_lag_ms"); } }
-        private int? _explicitNullValueLogCleanerMaxCompactionLagMs = default!;
+        public decimal? LogCleanerMaxCompactionLagMs { get => _explicitNullValueLogCleanerMaxCompactionLagMs; set { _explicitNullValueLogCleanerMaxCompactionLagMs = value; AdditionalData?.Remove("log_cleaner_max_compaction_lag_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_max_compaction_lag_ms"); else _explicitNullProperties?.Remove("log_cleaner_max_compaction_lag_ms"); } }
+        private decimal? _explicitNullValueLogCleanerMaxCompactionLagMs = default!;
         /// <summary>Controls log compactor frequency. Larger value means more frequent compactions but also more space wasted for logs. Consider setting log_cleaner_max_compaction_lag_ms to enforce compactions sooner, instead of setting a very high value for this option.</summary>
         public double? LogCleanerMinCleanableRatio { get => _explicitNullValueLogCleanerMinCleanableRatio; set { _explicitNullValueLogCleanerMinCleanableRatio = value; AdditionalData?.Remove("log_cleaner_min_cleanable_ratio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_min_cleanable_ratio"); else _explicitNullProperties?.Remove("log_cleaner_min_cleanable_ratio"); } }
         private double? _explicitNullValueLogCleanerMinCleanableRatio = default!;
         /// <summary>The minimum time a message will remain uncompacted in the log. Only applicable for logs that are being compacted.</summary>
-        public int? LogCleanerMinCompactionLagMs { get => _explicitNullValueLogCleanerMinCompactionLagMs; set { _explicitNullValueLogCleanerMinCompactionLagMs = value; AdditionalData?.Remove("log_cleaner_min_compaction_lag_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_min_compaction_lag_ms"); else _explicitNullProperties?.Remove("log_cleaner_min_compaction_lag_ms"); } }
-        private int? _explicitNullValueLogCleanerMinCompactionLagMs = default!;
+        public decimal? LogCleanerMinCompactionLagMs { get => _explicitNullValueLogCleanerMinCompactionLagMs; set { _explicitNullValueLogCleanerMinCompactionLagMs = value; AdditionalData?.Remove("log_cleaner_min_compaction_lag_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleaner_min_compaction_lag_ms"); else _explicitNullProperties?.Remove("log_cleaner_min_compaction_lag_ms"); } }
+        private decimal? _explicitNullValueLogCleanerMinCompactionLagMs = default!;
         /// <summary>The default cleanup policy for segments beyond the retention window</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy? LogCleanupPolicy { get => _explicitNullValueLogCleanupPolicy; set { _explicitNullValueLogCleanupPolicy = value; AdditionalData?.Remove("log_cleanup_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_cleanup_policy"); else _explicitNullProperties?.Remove("log_cleanup_policy"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy? _explicitNullValueLogCleanupPolicy = default!;
         /// <summary>The number of messages accumulated on a log partition before messages are flushed to disk</summary>
-        public long? LogFlushIntervalMessages { get => _explicitNullValueLogFlushIntervalMessages; set { _explicitNullValueLogFlushIntervalMessages = value; AdditionalData?.Remove("log_flush_interval_messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_flush_interval_messages"); else _explicitNullProperties?.Remove("log_flush_interval_messages"); } }
-        private long? _explicitNullValueLogFlushIntervalMessages = default!;
+        public decimal? LogFlushIntervalMessages { get => _explicitNullValueLogFlushIntervalMessages; set { _explicitNullValueLogFlushIntervalMessages = value; AdditionalData?.Remove("log_flush_interval_messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_flush_interval_messages"); else _explicitNullProperties?.Remove("log_flush_interval_messages"); } }
+        private decimal? _explicitNullValueLogFlushIntervalMessages = default!;
         /// <summary>The maximum time in ms that a message in any topic is kept in memory before flushed to disk. If not set, the value in log.flush.scheduler.interval.ms is used</summary>
-        public int? LogFlushIntervalMs { get => _explicitNullValueLogFlushIntervalMs; set { _explicitNullValueLogFlushIntervalMs = value; AdditionalData?.Remove("log_flush_interval_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_flush_interval_ms"); else _explicitNullProperties?.Remove("log_flush_interval_ms"); } }
-        private int? _explicitNullValueLogFlushIntervalMs = default!;
+        public decimal? LogFlushIntervalMs { get => _explicitNullValueLogFlushIntervalMs; set { _explicitNullValueLogFlushIntervalMs = value; AdditionalData?.Remove("log_flush_interval_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_flush_interval_ms"); else _explicitNullProperties?.Remove("log_flush_interval_ms"); } }
+        private decimal? _explicitNullValueLogFlushIntervalMs = default!;
         /// <summary>The interval with which Kafka adds an entry to the offset index</summary>
         public int? LogIndexIntervalBytes { get => _explicitNullValueLogIndexIntervalBytes; set { _explicitNullValueLogIndexIntervalBytes = value; AdditionalData?.Remove("log_index_interval_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_index_interval_bytes"); else _explicitNullProperties?.Remove("log_index_interval_bytes"); } }
         private int? _explicitNullValueLogIndexIntervalBytes = default!;
@@ -153,8 +153,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public bool? LogMessageDownconversionEnable { get => _explicitNullValueLogMessageDownconversionEnable; set { _explicitNullValueLogMessageDownconversionEnable = value; AdditionalData?.Remove("log_message_downconversion_enable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_message_downconversion_enable"); else _explicitNullProperties?.Remove("log_message_downconversion_enable"); } }
         private bool? _explicitNullValueLogMessageDownconversionEnable = default!;
         /// <summary>The maximum difference allowed between the timestamp when a broker receives a message and the timestamp specified in the message</summary>
-        public int? LogMessageTimestampDifferenceMaxMs { get => _explicitNullValueLogMessageTimestampDifferenceMaxMs; set { _explicitNullValueLogMessageTimestampDifferenceMaxMs = value; AdditionalData?.Remove("log_message_timestamp_difference_max_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_message_timestamp_difference_max_ms"); else _explicitNullProperties?.Remove("log_message_timestamp_difference_max_ms"); } }
-        private int? _explicitNullValueLogMessageTimestampDifferenceMaxMs = default!;
+        public decimal? LogMessageTimestampDifferenceMaxMs { get => _explicitNullValueLogMessageTimestampDifferenceMaxMs; set { _explicitNullValueLogMessageTimestampDifferenceMaxMs = value; AdditionalData?.Remove("log_message_timestamp_difference_max_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_message_timestamp_difference_max_ms"); else _explicitNullProperties?.Remove("log_message_timestamp_difference_max_ms"); } }
+        private decimal? _explicitNullValueLogMessageTimestampDifferenceMaxMs = default!;
         /// <summary>Define whether the timestamp in the message is message create time or log append time.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogMessageTimestampType? LogMessageTimestampType { get => _explicitNullValueLogMessageTimestampType; set { _explicitNullValueLogMessageTimestampType = value; AdditionalData?.Remove("log_message_timestamp_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_message_timestamp_type"); else _explicitNullProperties?.Remove("log_message_timestamp_type"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogMessageTimestampType? _explicitNullValueLogMessageTimestampType = default!;
@@ -162,20 +162,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public bool? LogPreallocate { get => _explicitNullValueLogPreallocate; set { _explicitNullValueLogPreallocate = value; AdditionalData?.Remove("log_preallocate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_preallocate"); else _explicitNullProperties?.Remove("log_preallocate"); } }
         private bool? _explicitNullValueLogPreallocate = default!;
         /// <summary>The maximum size of the log before deleting messages</summary>
-        public int? LogRetentionBytes { get => _explicitNullValueLogRetentionBytes; set { _explicitNullValueLogRetentionBytes = value; AdditionalData?.Remove("log_retention_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_retention_bytes"); else _explicitNullProperties?.Remove("log_retention_bytes"); } }
-        private int? _explicitNullValueLogRetentionBytes = default!;
+        public decimal? LogRetentionBytes { get => _explicitNullValueLogRetentionBytes; set { _explicitNullValueLogRetentionBytes = value; AdditionalData?.Remove("log_retention_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_retention_bytes"); else _explicitNullProperties?.Remove("log_retention_bytes"); } }
+        private decimal? _explicitNullValueLogRetentionBytes = default!;
         /// <summary>The number of hours to keep a log file before deleting it</summary>
         public int? LogRetentionHours { get => _explicitNullValueLogRetentionHours; set { _explicitNullValueLogRetentionHours = value; AdditionalData?.Remove("log_retention_hours"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_retention_hours"); else _explicitNullProperties?.Remove("log_retention_hours"); } }
         private int? _explicitNullValueLogRetentionHours = default!;
         /// <summary>The number of milliseconds to keep a log file before deleting it (in milliseconds), If not set, the value in log.retention.minutes is used. If set to -1, no time limit is applied.</summary>
-        public int? LogRetentionMs { get => _explicitNullValueLogRetentionMs; set { _explicitNullValueLogRetentionMs = value; AdditionalData?.Remove("log_retention_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_retention_ms"); else _explicitNullProperties?.Remove("log_retention_ms"); } }
-        private int? _explicitNullValueLogRetentionMs = default!;
+        public decimal? LogRetentionMs { get => _explicitNullValueLogRetentionMs; set { _explicitNullValueLogRetentionMs = value; AdditionalData?.Remove("log_retention_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_retention_ms"); else _explicitNullProperties?.Remove("log_retention_ms"); } }
+        private decimal? _explicitNullValueLogRetentionMs = default!;
         /// <summary>The maximum jitter to subtract from logRollTimeMillis (in milliseconds). If not set, the value in log.roll.jitter.hours is used</summary>
-        public int? LogRollJitterMs { get => _explicitNullValueLogRollJitterMs; set { _explicitNullValueLogRollJitterMs = value; AdditionalData?.Remove("log_roll_jitter_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_roll_jitter_ms"); else _explicitNullProperties?.Remove("log_roll_jitter_ms"); } }
-        private int? _explicitNullValueLogRollJitterMs = default!;
+        public decimal? LogRollJitterMs { get => _explicitNullValueLogRollJitterMs; set { _explicitNullValueLogRollJitterMs = value; AdditionalData?.Remove("log_roll_jitter_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_roll_jitter_ms"); else _explicitNullProperties?.Remove("log_roll_jitter_ms"); } }
+        private decimal? _explicitNullValueLogRollJitterMs = default!;
         /// <summary>The maximum time before a new log segment is rolled out (in milliseconds).</summary>
-        public int? LogRollMs { get => _explicitNullValueLogRollMs; set { _explicitNullValueLogRollMs = value; AdditionalData?.Remove("log_roll_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_roll_ms"); else _explicitNullProperties?.Remove("log_roll_ms"); } }
-        private int? _explicitNullValueLogRollMs = default!;
+        public decimal? LogRollMs { get => _explicitNullValueLogRollMs; set { _explicitNullValueLogRollMs = value; AdditionalData?.Remove("log_roll_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_roll_ms"); else _explicitNullProperties?.Remove("log_roll_ms"); } }
+        private decimal? _explicitNullValueLogRollMs = default!;
         /// <summary>The maximum size of a single log file</summary>
         public int? LogSegmentBytes { get => _explicitNullValueLogSegmentBytes; set { _explicitNullValueLogSegmentBytes = value; AdditionalData?.Remove("log_segment_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_segment_bytes"); else _explicitNullProperties?.Remove("log_segment_bytes"); } }
         private int? _explicitNullValueLogSegmentBytes = default!;
@@ -255,24 +255,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "group_initial_rebalance_delay_ms", n => { GroupInitialRebalanceDelayMs = n.GetIntValue(); } },
                 { "group_max_session_timeout_ms", n => { GroupMaxSessionTimeoutMs = n.GetIntValue(); } },
                 { "group_min_session_timeout_ms", n => { GroupMinSessionTimeoutMs = n.GetIntValue(); } },
-                { "log_cleaner_delete_retention_ms", n => { LogCleanerDeleteRetentionMs = n.GetIntValue(); } },
-                { "log_cleaner_max_compaction_lag_ms", n => { LogCleanerMaxCompactionLagMs = n.GetIntValue(); } },
+                { "log_cleaner_delete_retention_ms", n => { LogCleanerDeleteRetentionMs = n.GetLongValue(); } },
+                { "log_cleaner_max_compaction_lag_ms", n => { LogCleanerMaxCompactionLagMs = n.GetDecimalValue(); } },
                 { "log_cleaner_min_cleanable_ratio", n => { LogCleanerMinCleanableRatio = n.GetDoubleValue(); } },
-                { "log_cleaner_min_compaction_lag_ms", n => { LogCleanerMinCompactionLagMs = n.GetIntValue(); } },
+                { "log_cleaner_min_compaction_lag_ms", n => { LogCleanerMinCompactionLagMs = n.GetDecimalValue(); } },
                 { "log_cleanup_policy", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLogCleanupPolicy = default; _explicitNullProperties?.Remove("log_cleanup_policy"); AdditionalData["log_cleanup_policy"] = unknown; } else { LogCleanupPolicy = parsed; AdditionalData.Remove("log_cleanup_policy"); } } },
-                { "log_flush_interval_messages", n => { LogFlushIntervalMessages = n.GetLongValue(); } },
-                { "log_flush_interval_ms", n => { LogFlushIntervalMs = n.GetIntValue(); } },
+                { "log_flush_interval_messages", n => { LogFlushIntervalMessages = n.GetDecimalValue(); } },
+                { "log_flush_interval_ms", n => { LogFlushIntervalMs = n.GetDecimalValue(); } },
                 { "log_index_interval_bytes", n => { LogIndexIntervalBytes = n.GetIntValue(); } },
                 { "log_index_size_max_bytes", n => { LogIndexSizeMaxBytes = n.GetIntValue(); } },
                 { "log_message_downconversion_enable", n => { LogMessageDownconversionEnable = n.GetBoolValue(); } },
-                { "log_message_timestamp_difference_max_ms", n => { LogMessageTimestampDifferenceMaxMs = n.GetIntValue(); } },
+                { "log_message_timestamp_difference_max_ms", n => { LogMessageTimestampDifferenceMaxMs = n.GetDecimalValue(); } },
                 { "log_message_timestamp_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogMessageTimestampType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLogMessageTimestampType = default; _explicitNullProperties?.Remove("log_message_timestamp_type"); AdditionalData["log_message_timestamp_type"] = unknown; } else { LogMessageTimestampType = parsed; AdditionalData.Remove("log_message_timestamp_type"); } } },
                 { "log_preallocate", n => { LogPreallocate = n.GetBoolValue(); } },
-                { "log_retention_bytes", n => { LogRetentionBytes = n.GetIntValue(); } },
+                { "log_retention_bytes", n => { LogRetentionBytes = n.GetDecimalValue(); } },
                 { "log_retention_hours", n => { LogRetentionHours = n.GetIntValue(); } },
-                { "log_retention_ms", n => { LogRetentionMs = n.GetIntValue(); } },
-                { "log_roll_jitter_ms", n => { LogRollJitterMs = n.GetIntValue(); } },
-                { "log_roll_ms", n => { LogRollMs = n.GetIntValue(); } },
+                { "log_retention_ms", n => { LogRetentionMs = n.GetDecimalValue(); } },
+                { "log_roll_jitter_ms", n => { LogRollJitterMs = n.GetDecimalValue(); } },
+                { "log_roll_ms", n => { LogRollMs = n.GetDecimalValue(); } },
                 { "log_segment_bytes", n => { LogSegmentBytes = n.GetIntValue(); } },
                 { "log_segment_delete_delay_ms", n => { LogSegmentDeleteDelayMs = n.GetIntValue(); } },
                 { "max_connections_per_ip", n => { MaxConnectionsPerIp = n.GetIntValue(); } },
@@ -304,24 +304,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("group_initial_rebalance_delay_ms", GroupInitialRebalanceDelayMs);
             writer.WriteIntValue("group_max_session_timeout_ms", GroupMaxSessionTimeoutMs);
             writer.WriteIntValue("group_min_session_timeout_ms", GroupMinSessionTimeoutMs);
-            writer.WriteIntValue("log_cleaner_delete_retention_ms", LogCleanerDeleteRetentionMs);
-            writer.WriteIntValue("log_cleaner_max_compaction_lag_ms", LogCleanerMaxCompactionLagMs);
+            writer.WriteLongValue("log_cleaner_delete_retention_ms", LogCleanerDeleteRetentionMs);
+            writer.WriteDecimalValue("log_cleaner_max_compaction_lag_ms", LogCleanerMaxCompactionLagMs);
             writer.WriteDoubleValue("log_cleaner_min_cleanable_ratio", LogCleanerMinCleanableRatio);
-            writer.WriteIntValue("log_cleaner_min_compaction_lag_ms", LogCleanerMinCompactionLagMs);
+            writer.WriteDecimalValue("log_cleaner_min_compaction_lag_ms", LogCleanerMinCompactionLagMs);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogCleanupPolicy>("log_cleanup_policy", LogCleanupPolicy);
-            writer.WriteLongValue("log_flush_interval_messages", LogFlushIntervalMessages);
-            writer.WriteIntValue("log_flush_interval_ms", LogFlushIntervalMs);
+            writer.WriteDecimalValue("log_flush_interval_messages", LogFlushIntervalMessages);
+            writer.WriteDecimalValue("log_flush_interval_ms", LogFlushIntervalMs);
             writer.WriteIntValue("log_index_interval_bytes", LogIndexIntervalBytes);
             writer.WriteIntValue("log_index_size_max_bytes", LogIndexSizeMaxBytes);
             writer.WriteBoolValue("log_message_downconversion_enable", LogMessageDownconversionEnable);
-            writer.WriteIntValue("log_message_timestamp_difference_max_ms", LogMessageTimestampDifferenceMaxMs);
+            writer.WriteDecimalValue("log_message_timestamp_difference_max_ms", LogMessageTimestampDifferenceMaxMs);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigLogMessageTimestampType>("log_message_timestamp_type", LogMessageTimestampType);
             writer.WriteBoolValue("log_preallocate", LogPreallocate);
-            writer.WriteIntValue("log_retention_bytes", LogRetentionBytes);
+            writer.WriteDecimalValue("log_retention_bytes", LogRetentionBytes);
             writer.WriteIntValue("log_retention_hours", LogRetentionHours);
-            writer.WriteIntValue("log_retention_ms", LogRetentionMs);
-            writer.WriteIntValue("log_roll_jitter_ms", LogRollJitterMs);
-            writer.WriteIntValue("log_roll_ms", LogRollMs);
+            writer.WriteDecimalValue("log_retention_ms", LogRetentionMs);
+            writer.WriteDecimalValue("log_roll_jitter_ms", LogRollJitterMs);
+            writer.WriteDecimalValue("log_roll_ms", LogRollMs);
             writer.WriteIntValue("log_segment_bytes", LogSegmentBytes);
             writer.WriteIntValue("log_segment_delete_delay_ms", LogSegmentDeleteDelayMs);
             writer.WriteIntValue("max_connections_per_ip", MaxConnectionsPerIp);

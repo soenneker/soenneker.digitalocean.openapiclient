@@ -73,8 +73,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public Guid? ShareId { get => _explicitNullValueShareId; set { _explicitNullValueShareId = value; AdditionalData?.Remove("share_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_id"); else _explicitNullProperties?.Remove("share_id"); } }
         private Guid? _explicitNullValueShareId = default!;
         /// <summary>The size of the snapshot in GiB.</summary>
-        public int? SizeGib { get => _explicitNullValueSizeGib; set { _explicitNullValueSizeGib = value; AdditionalData?.Remove("size_gib"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_gib"); else _explicitNullProperties?.Remove("size_gib"); } }
-        private int? _explicitNullValueSizeGib = default!;
+        public decimal? SizeGib { get => _explicitNullValueSizeGib; set { _explicitNullValueSizeGib = value; AdditionalData?.Remove("size_gib"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_gib"); else _explicitNullProperties?.Remove("size_gib"); } }
+        private decimal? _explicitNullValueSizeGib = default!;
         /// <summary>The current status of the snapshot.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsSnapshotResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsSnapshotResponseStatus? _explicitNullValueStatus = default!;
@@ -108,7 +108,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "share_id", n => { ShareId = n.GetGuidValue(); } },
-                { "size_gib", n => { SizeGib = n.GetIntValue(); } },
+                { "size_gib", n => { SizeGib = n.GetDecimalValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsSnapshotResponseStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
@@ -124,7 +124,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("region", Region);
             writer.WriteGuidValue("share_id", ShareId);
-            writer.WriteIntValue("size_gib", SizeGib);
+            writer.WriteDecimalValue("size_gib", SizeGib);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.NfsSnapshotResponseStatus>("status", Status);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

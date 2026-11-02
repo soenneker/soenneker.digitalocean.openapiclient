@@ -161,8 +161,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? IsmHistoryMaxAgeHours { get => _explicitNullValueIsmHistoryMaxAgeHours; set { _explicitNullValueIsmHistoryMaxAgeHours = value; AdditionalData?.Remove("ism_history_max_age_hours"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_max_age_hours"); else _explicitNullProperties?.Remove("ism_history_max_age_hours"); } }
         private int? _explicitNullValueIsmHistoryMaxAgeHours = default!;
         /// <summary>Maximum number of documents before rolling over the audit history index.</summary>
-        public int? IsmHistoryMaxDocs { get => _explicitNullValueIsmHistoryMaxDocs; set { _explicitNullValueIsmHistoryMaxDocs = value; AdditionalData?.Remove("ism_history_max_docs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_max_docs"); else _explicitNullProperties?.Remove("ism_history_max_docs"); } }
-        private int? _explicitNullValueIsmHistoryMaxDocs = default!;
+        public decimal? IsmHistoryMaxDocs { get => _explicitNullValueIsmHistoryMaxDocs; set { _explicitNullValueIsmHistoryMaxDocs = value; AdditionalData?.Remove("ism_history_max_docs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_max_docs"); else _explicitNullProperties?.Remove("ism_history_max_docs"); } }
+        private decimal? _explicitNullValueIsmHistoryMaxDocs = default!;
         /// <summary>The time between rollover checks for the audit history index, in hours.</summary>
         public int? IsmHistoryRolloverCheckPeriodHours { get => _explicitNullValueIsmHistoryRolloverCheckPeriodHours; set { _explicitNullValueIsmHistoryRolloverCheckPeriodHours = value; AdditionalData?.Remove("ism_history_rollover_check_period_hours"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ism_history_rollover_check_period_hours"); else _explicitNullProperties?.Remove("ism_history_rollover_check_period_hours"); } }
         private int? _explicitNullValueIsmHistoryRolloverCheckPeriodHours = default!;
@@ -261,7 +261,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             IsmEnabled = true;
             IsmHistoryEnabled = true;
             IsmHistoryMaxAgeHours = 24;
-            IsmHistoryMaxDocs = 2500000;
+            IsmHistoryMaxDocs = 2500000m;
             IsmHistoryRolloverCheckPeriodHours = 8;
             IsmHistoryRolloverRetentionPeriodDays = 30;
             KeepIndexRefreshInterval = false;
@@ -309,7 +309,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "ism_enabled", n => { IsmEnabled = n.GetBoolValue(); } },
                 { "ism_history_enabled", n => { IsmHistoryEnabled = n.GetBoolValue(); } },
                 { "ism_history_max_age_hours", n => { IsmHistoryMaxAgeHours = n.GetIntValue(); } },
-                { "ism_history_max_docs", n => { IsmHistoryMaxDocs = n.GetIntValue(); } },
+                { "ism_history_max_docs", n => { IsmHistoryMaxDocs = n.GetDecimalValue(); } },
                 { "ism_history_rollover_check_period_hours", n => { IsmHistoryRolloverCheckPeriodHours = n.GetIntValue(); } },
                 { "ism_history_rollover_retention_period_days", n => { IsmHistoryRolloverRetentionPeriodDays = n.GetIntValue(); } },
                 { "keep_index_refresh_interval", n => { KeepIndexRefreshInterval = n.GetBoolValue(); } },
@@ -359,7 +359,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("ism_enabled", IsmEnabled);
             writer.WriteBoolValue("ism_history_enabled", IsmHistoryEnabled);
             writer.WriteIntValue("ism_history_max_age_hours", IsmHistoryMaxAgeHours);
-            writer.WriteIntValue("ism_history_max_docs", IsmHistoryMaxDocs);
+            writer.WriteDecimalValue("ism_history_max_docs", IsmHistoryMaxDocs);
             writer.WriteIntValue("ism_history_rollover_check_period_hours", IsmHistoryRolloverCheckPeriodHours);
             writer.WriteIntValue("ism_history_rollover_retention_period_days", IsmHistoryRolloverRetentionPeriodDays);
             writer.WriteBoolValue("keep_index_refresh_interval", KeepIndexRefreshInterval);

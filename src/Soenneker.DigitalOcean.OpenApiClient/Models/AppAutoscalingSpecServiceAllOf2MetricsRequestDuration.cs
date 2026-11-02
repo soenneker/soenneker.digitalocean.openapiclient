@@ -25,8 +25,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The p95 target request duration in milliseconds for the component.</summary>
-        public int? P95Milliseconds { get => _explicitNullValueP95Milliseconds; set { _explicitNullValueP95Milliseconds = value; AdditionalData?.Remove("p95_milliseconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p95_milliseconds"); else _explicitNullProperties?.Remove("p95_milliseconds"); } }
-        private int? _explicitNullValueP95Milliseconds = default!;
+        public long? P95Milliseconds { get => _explicitNullValueP95Milliseconds; set { _explicitNullValueP95Milliseconds = value; AdditionalData?.Remove("p95_milliseconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p95_milliseconds"); else _explicitNullProperties?.Remove("p95_milliseconds"); } }
+        private long? _explicitNullValueP95Milliseconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestDuration"/> and sets the default values.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "p95_milliseconds", n => { P95Milliseconds = n.GetIntValue(); } },
+                { "p95_milliseconds", n => { P95Milliseconds = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("p95_milliseconds", P95Milliseconds);
+            writer.WriteLongValue("p95_milliseconds", P95Milliseconds);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

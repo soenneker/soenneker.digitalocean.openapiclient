@@ -1585,8 +1585,8 @@ tags:
       resumes on the next HTTP request, command, or console session, with its
       memory, files, and processes intact. By sending requests to the
       `/v2/microvms` endpoints, you can create, list, pause, resume, and delete
-      MicroVMs, run commands and open a console in them, and create checkpoints
-      to start new MicroVMs from a saved state.
+      MicroVMs, run commands and open a console in them, upload and download
+      files, and create checkpoints to start new MicroVMs from a saved state.
 
       Each MicroVM serves its HTTP port at
       `https://{microvm_id}.{region}.microvm.ondigitalocean.com`. Requests to
@@ -36018,6 +36018,159 @@ paths:
       security:
         - bearer_auth:
             - microvm:update
+  /v2/microvms/{microvm_id}/files:
+    put:
+      operationId: microvms_upload_file
+      summary: Upload a file to a MicroVM
+      description: >
+        To write a file into a MicroVM's workload container, send a PUT request
+        to
+
+        `/v2/microvms/{microvm_id}/files?path=<absolute path>` with the raw file
+        content as the
+
+        request body and a `Content-Type` of `application/octet-stream`.
+
+
+        The file replaces any existing regular file at `path` atomically. The
+        parent directory
+
+        must already exist. The request must carry a `Content-Length` header;
+        chunked bodies are
+
+        rejected. A body of up to 64 MiB is accepted, and a `Content-Length` of
+        `0` writes an empty
+
+        file. Pass `sha256` to have the API verify the content before it
+        replaces the target.
+
+
+        Your team needs the `file_transfer` feature. Check `GET
+        /v2/microvms/options`. If the MicroVM
+
+        is paused and auto-resume is on, the request resumes it.
+      tags:
+        - MicroVMs [Public Preview]
+      parameters:
+        - $ref: '#/components/parameters/microvm_id'
+        - $ref: '#/components/parameters/file_path'
+        - $ref: '#/components/parameters/file_mode'
+        - $ref: '#/components/parameters/file_uid'
+        - $ref: '#/components/parameters/file_gid'
+        - $ref: '#/components/parameters/file_sha256'
+      requestBody:
+        description: The raw file content.
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          $ref: '#/components/responses/file_info'
+        '400':
+          $ref: '#/components/responses/errors_bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/errors_forbidden'
+        '404':
+          $ref: '#/components/responses/errors_not_found'
+        '409':
+          $ref: '#/components/responses/file_conflict'
+        '411':
+          $ref: '#/components/responses/length_required'
+        '413':
+          $ref: '#/components/responses/errors_payload_too_large'
+        '422':
+          $ref: '#/components/responses/checksum_mismatch'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+        '500':
+          $ref: '#/components/responses/server_error'
+        '502':
+          $ref: '#/components/responses/bad_gateway'
+        '504':
+          $ref: '#/components/responses/file_timeout'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X PUT \
+              -H "Content-Type: application/octet-stream" \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              --data-binary @config.json \
+              "https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a/files?path=/app/config.json&mode=0600"
+      security:
+        - bearer_auth:
+            - microvm:update
+    get:
+      operationId: microvms_get_file
+      summary: Download a file from a MicroVM
+      description: >
+        To read a file from a MicroVM's workload container, send a GET request
+        to
+
+        `/v2/microvms/{microvm_id}/files?path=<absolute path>`.
+
+
+        The response body is the raw file content with a `Content-Type` of
+
+        `application/octet-stream`. The `Content-Length` and `X-Checksum-Sha256`
+        headers describe the
+
+        file as it was when the transfer began. Only regular files of up to 64
+        MiB can be downloaded.
+
+        A MicroVM serves up to 4 downloads at a time.
+
+
+        Your team needs the `file_transfer` feature. Check `GET
+        /v2/microvms/options`. If the MicroVM
+
+        is paused and auto-resume is on, the request resumes it.
+      tags:
+        - MicroVMs [Public Preview]
+      parameters:
+        - $ref: '#/components/parameters/microvm_id'
+        - $ref: '#/components/parameters/file_path'
+      responses:
+        '200':
+          $ref: '#/components/responses/file_content'
+        '400':
+          $ref: '#/components/responses/errors_bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/errors_forbidden'
+        '404':
+          $ref: '#/components/responses/errors_not_found'
+        '409':
+          $ref: '#/components/responses/file_conflict'
+        '413':
+          $ref: '#/components/responses/errors_payload_too_large'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+        '500':
+          $ref: '#/components/responses/server_error'
+        '502':
+          $ref: '#/components/responses/bad_gateway'
+        '504':
+          $ref: '#/components/responses/file_timeout'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X GET \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              -o output.log \
+              "https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a/files?path=/app/output.log"
+      security:
+        - bearer_auth:
+            - microvm:update
   /v2/microvms/{microvm_id}/checkpoints:
     post:
       operationId: microvmCheckpoints_create
@@ -65184,6 +65337,57 @@ components:
         maximum: 65535
         default: 80
       example: 80
+    file_path:
+      in: query
+      name: path
+      required: true
+      description: The absolute path of the file inside the workload container.
+      schema:
+        type: string
+      example: /app/config.json
+    file_mode:
+      in: query
+      name: mode
+      required: false
+      description: >-
+        The octal permission bits for the file, from `0001` to `0777`. Defaults
+        to `0644`. Setuid, setgid, sticky bits, and `0000` are rejected.
+      schema:
+        type: string
+      example: '0600'
+    file_uid:
+      in: query
+      name: uid
+      required: false
+      description: >-
+        The owner user ID. Set it together with `gid`. Defaults to the workload
+        container's user.
+      schema:
+        type: integer
+        format: uint32
+      example: 1000
+    file_gid:
+      in: query
+      name: gid
+      required: false
+      description: >-
+        The owner group ID. Set it together with `uid`. Defaults to the workload
+        container's group.
+      schema:
+        type: integer
+        format: uint32
+      example: 1000
+    file_sha256:
+      in: query
+      name: sha256
+      required: false
+      description: >-
+        The lowercase hex SHA-256 of the request body. When set, the API
+        verifies the content before it replaces the target. A mismatch returns
+        422 and leaves the existing file unchanged.
+      schema:
+        type: string
+      example: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
     alert_uuid:
       in: path
       name: alert_uuid
@@ -66086,6 +66290,11 @@ components:
       schema:
         type: string
       example: application/json; charset=utf-8
+    x-checksum-sha256:
+      description: The lowercase hex SHA-256 of the file content.
+      schema:
+        type: string
+      example: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
     x-request-id:
       description: >-
         Optionally, some endpoints may include a request ID that should be
@@ -88935,7 +89144,9 @@ components:
               example: 14400
         features:
           type: array
-          description: Features and whether they are enabled for your team.
+          description: >-
+            Features and whether they are enabled for your team. `exec_pty`
+            gates `exec` and `console`; `file_transfer` gates `files`.
           items:
             type: object
             properties:
@@ -89063,6 +89274,41 @@ components:
           type: boolean
           description: Present and `true` when the output exceeded 4 MiB and was cut off.
           example: false
+    file_info:
+      type: object
+      description: Metadata of a file written into a MicroVM.
+      properties:
+        path:
+          type: string
+          description: The absolute path inside the workload container.
+          example: /app/config.json
+        size_bytes:
+          type: integer
+          format: uint64
+          description: The file size in bytes.
+          example: 1024
+        sha256:
+          type: string
+          description: The lowercase hex SHA-256 of the content.
+          example: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+        mode:
+          type: string
+          description: The octal permission bits as written.
+          example: '0644'
+        uid:
+          type: integer
+          format: uint32
+          description: The owner user ID.
+          example: 0
+        gid:
+          type: integer
+          format: uint32
+          description: The owner group ID.
+          example: 0
+      required:
+        - path
+        - size_bytes
+        - sha256
     slack_details:
       type: object
       required:
@@ -113228,6 +113474,153 @@ components:
           $ref: '#/components/headers/ratelimit-remaining'
         ratelimit-reset:
           $ref: '#/components/headers/ratelimit-reset'
+    file_content:
+      description: >-
+        The raw file content. `Content-Length` and `X-Checksum-Sha256` describe
+        the file as it was when the transfer began.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+        X-Checksum-Sha256:
+          $ref: '#/components/headers/x-checksum-sha256'
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+    file_conflict:
+      description: >-
+        The file operation is not possible in the MicroVM's current state.
+        `WORKLOAD_NOT_RUNNING`: the workload container is not running.
+        `NOT_A_REGULAR_FILE`: the path is a directory, device, socket, or
+        symlink. `AGENT_UNSUPPORTED`: the MicroVM runs an image that predates
+        file transfer; recreate it.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/microvm_error'
+          examples:
+            Not A Regular File:
+              value:
+                code: NOT_A_REGULAR_FILE
+                message: /app is not a regular file
+            Workload Not Running:
+              value:
+                code: WORKLOAD_NOT_RUNNING
+                message: workload container is not running
+            Agent Unsupported:
+              value:
+                code: AGENT_UNSUPPORTED
+                message: >-
+                  this MicroVM does not support file transfer; recreate it to
+                  pick up the new agent
+    errors_payload_too_large:
+      description: The file exceeds 64 MiB, or the guest disk is full.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/microvm_error'
+          example:
+            code: PAYLOAD_TOO_LARGE
+            message: file exceeds the 67108864 byte limit
+    file_timeout:
+      description: >-
+        The transfer did not finish within 10 minutes. On upload the target file
+        is unchanged. On download, if the body had already started, the stream
+        ends short of `Content-Length` instead.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/microvm_error'
+          example:
+            code: FILE_TIMEOUT
+            message: file transfer timed out
+    file_info:
+      description: >-
+        The file was written. The `X-Checksum-Sha256` header repeats the digest
+        from the body.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+        X-Checksum-Sha256:
+          $ref: '#/components/headers/x-checksum-sha256'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/file_info'
+          examples:
+            File Written:
+              value:
+                path: /app/config.json
+                size_bytes: 1024
+                sha256: >-
+                  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                mode: '0600'
+                uid: 0
+                gid: 0
+    length_required:
+      description: The request has no `Content-Length` header.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/microvm_error'
+          example:
+            code: LENGTH_REQUIRED
+            message: Content-Length is required
+    checksum_mismatch:
+      description: >-
+        The request body does not match the `sha256` query parameter. The target
+        file is unchanged.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/microvm_error'
+          example:
+            code: CHECKSUM_MISMATCH
+            message: 'sha256 mismatch: expected e3b0c442…, got 9f86d081…'
     list_alert_policy_response:
       description: A list of alert policies.
       headers:

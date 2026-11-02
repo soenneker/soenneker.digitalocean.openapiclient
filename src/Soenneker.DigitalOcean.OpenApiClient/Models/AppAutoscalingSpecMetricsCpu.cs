@@ -25,15 +25,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The average target CPU utilization for the component.</summary>
-        public int? Percent { get => _explicitNullValuePercent; set { _explicitNullValuePercent = value; AdditionalData?.Remove("percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent"); else _explicitNullProperties?.Remove("percent"); } }
-        private int? _explicitNullValuePercent = default!;
+        public long? Percent { get => _explicitNullValuePercent; set { _explicitNullValuePercent = value; AdditionalData?.Remove("percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent"); else _explicitNullProperties?.Remove("percent"); } }
+        private long? _explicitNullValuePercent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecMetricsCpu"/> and sets the default values.
         /// </summary>
         public AppAutoscalingSpecMetricsCpu()
         {
             AdditionalData = new Dictionary<string, object>();
-            Percent = 80;
+            Percent = 80L;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,7 +53,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "percent", n => { Percent = n.GetIntValue(); } },
+                { "percent", n => { Percent = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("percent", Percent);
+            writer.WriteLongValue("percent", Percent);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -25,8 +25,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The target number of requests per second per instance for the component.</summary>
-        public int? PerInstance { get => _explicitNullValuePerInstance; set { _explicitNullValuePerInstance = value; AdditionalData?.Remove("per_instance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_instance"); else _explicitNullProperties?.Remove("per_instance"); } }
-        private int? _explicitNullValuePerInstance = default!;
+        public long? PerInstance { get => _explicitNullValuePerInstance; set { _explicitNullValuePerInstance = value; AdditionalData?.Remove("per_instance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_instance"); else _explicitNullProperties?.Remove("per_instance"); } }
+        private long? _explicitNullValuePerInstance = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.AppAutoscalingSpecServiceAllOf2MetricsRequestsPerSecond"/> and sets the default values.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "per_instance", n => { PerInstance = n.GetIntValue(); } },
+                { "per_instance", n => { PerInstance = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("per_instance", PerInstance);
+            writer.WriteLongValue("per_instance", PerInstance);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

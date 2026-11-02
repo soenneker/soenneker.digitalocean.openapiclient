@@ -157,11 +157,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public bool? EndMarkersInJson { get => _explicitNullValueEndMarkersInJson; set { _explicitNullValueEndMarkersInJson = value; AdditionalData?.Remove("end_markers_in_json"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_markers_in_json"); else _explicitNullProperties?.Remove("end_markers_in_json"); } }
         private bool? _explicitNullValueEndMarkersInJson = default!;
         /// <summary>The number of equality ranges in an equality comparison condition when the optimizer should switch from using index dives to index statistics.</summary>
-        public int? EqRangeIndexDiveLimit { get => _explicitNullValueEqRangeIndexDiveLimit; set { _explicitNullValueEqRangeIndexDiveLimit = value; AdditionalData?.Remove("eq_range_index_dive_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eq_range_index_dive_limit"); else _explicitNullProperties?.Remove("eq_range_index_dive_limit"); } }
-        private int? _explicitNullValueEqRangeIndexDiveLimit = default!;
+        public long? EqRangeIndexDiveLimit { get => _explicitNullValueEqRangeIndexDiveLimit; set { _explicitNullValueEqRangeIndexDiveLimit = value; AdditionalData?.Remove("eq_range_index_dive_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eq_range_index_dive_limit"); else _explicitNullProperties?.Remove("eq_range_index_dive_limit"); } }
+        private long? _explicitNullValueEqRangeIndexDiveLimit = default!;
         /// <summary>The maximum permitted result length, in bytes, for the GROUP_CONCAT() function.</summary>
-        public int? GroupConcatMaxLen { get => _explicitNullValueGroupConcatMaxLen; set { _explicitNullValueGroupConcatMaxLen = value; AdditionalData?.Remove("group_concat_max_len"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_concat_max_len"); else _explicitNullProperties?.Remove("group_concat_max_len"); } }
-        private int? _explicitNullValueGroupConcatMaxLen = default!;
+        public decimal? GroupConcatMaxLen { get => _explicitNullValueGroupConcatMaxLen; set { _explicitNullValueGroupConcatMaxLen = value; AdditionalData?.Remove("group_concat_max_len"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_concat_max_len"); else _explicitNullProperties?.Remove("group_concat_max_len"); } }
+        private decimal? _explicitNullValueGroupConcatMaxLen = default!;
         /// <summary>The time, in seconds, before cached statistics expire.</summary>
         public int? InformationSchemaStatsExpiry { get => _explicitNullValueInformationSchemaStatsExpiry; set { _explicitNullValueInformationSchemaStatsExpiry = value; AdditionalData?.Remove("information_schema_stats_expiry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("information_schema_stats_expiry"); else _explicitNullProperties?.Remove("information_schema_stats_expiry"); } }
         private int? _explicitNullValueInformationSchemaStatsExpiry = default!;
@@ -187,8 +187,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? InnodbFtNumWordOptimize { get => _explicitNullValueInnodbFtNumWordOptimize; set { _explicitNullValueInnodbFtNumWordOptimize = value; AdditionalData?.Remove("innodb_ft_num_word_optimize"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_num_word_optimize"); else _explicitNullProperties?.Remove("innodb_ft_num_word_optimize"); } }
         private int? _explicitNullValueInnodbFtNumWordOptimize = default!;
         /// <summary>The InnoDB FULLTEXT index query result cache size limit, in bytes.</summary>
-        public int? InnodbFtResultCacheLimit { get => _explicitNullValueInnodbFtResultCacheLimit; set { _explicitNullValueInnodbFtResultCacheLimit = value; AdditionalData?.Remove("innodb_ft_result_cache_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_result_cache_limit"); else _explicitNullProperties?.Remove("innodb_ft_result_cache_limit"); } }
-        private int? _explicitNullValueInnodbFtResultCacheLimit = default!;
+        public long? InnodbFtResultCacheLimit { get => _explicitNullValueInnodbFtResultCacheLimit; set { _explicitNullValueInnodbFtResultCacheLimit = value; AdditionalData?.Remove("innodb_ft_result_cache_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_ft_result_cache_limit"); else _explicitNullProperties?.Remove("innodb_ft_result_cache_limit"); } }
+        private long? _explicitNullValueInnodbFtResultCacheLimit = default!;
         /// <summary>The InnoDB FULLTEXT index stopword list for all InnoDB tables.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -213,11 +213,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? InnodbLockWaitTimeout { get => _explicitNullValueInnodbLockWaitTimeout; set { _explicitNullValueInnodbLockWaitTimeout = value; AdditionalData?.Remove("innodb_lock_wait_timeout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_lock_wait_timeout"); else _explicitNullProperties?.Remove("innodb_lock_wait_timeout"); } }
         private int? _explicitNullValueInnodbLockWaitTimeout = default!;
         /// <summary>The size of the buffer, in bytes, that InnoDB uses to write to the log files. on disk.</summary>
-        public int? InnodbLogBufferSize { get => _explicitNullValueInnodbLogBufferSize; set { _explicitNullValueInnodbLogBufferSize = value; AdditionalData?.Remove("innodb_log_buffer_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_log_buffer_size"); else _explicitNullProperties?.Remove("innodb_log_buffer_size"); } }
-        private int? _explicitNullValueInnodbLogBufferSize = default!;
+        public long? InnodbLogBufferSize { get => _explicitNullValueInnodbLogBufferSize; set { _explicitNullValueInnodbLogBufferSize = value; AdditionalData?.Remove("innodb_log_buffer_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_log_buffer_size"); else _explicitNullProperties?.Remove("innodb_log_buffer_size"); } }
+        private long? _explicitNullValueInnodbLogBufferSize = default!;
         /// <summary>The upper limit, in bytes, of the size of the temporary log files used during online DDL operations for InnoDB tables.</summary>
-        public int? InnodbOnlineAlterLogMaxSize { get => _explicitNullValueInnodbOnlineAlterLogMaxSize; set { _explicitNullValueInnodbOnlineAlterLogMaxSize = value; AdditionalData?.Remove("innodb_online_alter_log_max_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_online_alter_log_max_size"); else _explicitNullProperties?.Remove("innodb_online_alter_log_max_size"); } }
-        private int? _explicitNullValueInnodbOnlineAlterLogMaxSize = default!;
+        public long? InnodbOnlineAlterLogMaxSize { get => _explicitNullValueInnodbOnlineAlterLogMaxSize; set { _explicitNullValueInnodbOnlineAlterLogMaxSize = value; AdditionalData?.Remove("innodb_online_alter_log_max_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_online_alter_log_max_size"); else _explicitNullProperties?.Remove("innodb_online_alter_log_max_size"); } }
+        private long? _explicitNullValueInnodbOnlineAlterLogMaxSize = default!;
         /// <summary>When enabled, OPTIMIZE TABLE rebuilds only the InnoDB FULLTEXT index, not the table itself.</summary>
         public bool? InnodbOptimizeFulltextOnly { get => _explicitNullValueInnodbOptimizeFulltextOnly; set { _explicitNullValueInnodbOptimizeFulltextOnly = value; AdditionalData?.Remove("innodb_optimize_fulltext_only"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("innodb_optimize_fulltext_only"); else _explicitNullProperties?.Remove("innodb_optimize_fulltext_only"); } }
         private bool? _explicitNullValueInnodbOptimizeFulltextOnly = default!;
@@ -252,14 +252,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public int? MaxAllowedPacket { get => _explicitNullValueMaxAllowedPacket; set { _explicitNullValueMaxAllowedPacket = value; AdditionalData?.Remove("max_allowed_packet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_allowed_packet"); else _explicitNullProperties?.Remove("max_allowed_packet"); } }
         private int? _explicitNullValueMaxAllowedPacket = default!;
         /// <summary>The execution timeout for `SELECT` statements, in milliseconds. A value of `0` disables the timeout (no limit).</summary>
-        public int? MaxExecutionTime { get => _explicitNullValueMaxExecutionTime; set { _explicitNullValueMaxExecutionTime = value; AdditionalData?.Remove("max_execution_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_execution_time"); else _explicitNullProperties?.Remove("max_execution_time"); } }
-        private int? _explicitNullValueMaxExecutionTime = default!;
+        public long? MaxExecutionTime { get => _explicitNullValueMaxExecutionTime; set { _explicitNullValueMaxExecutionTime = value; AdditionalData?.Remove("max_execution_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_execution_time"); else _explicitNullProperties?.Remove("max_execution_time"); } }
+        private long? _explicitNullValueMaxExecutionTime = default!;
         /// <summary>The maximum size, in bytes, of internal in-memory tables. Also set tmp_table_size. Default is 16777216 (16M)</summary>
         public int? MaxHeapTableSize { get => _explicitNullValueMaxHeapTableSize; set { _explicitNullValueMaxHeapTableSize = value; AdditionalData?.Remove("max_heap_table_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_heap_table_size"); else _explicitNullProperties?.Remove("max_heap_table_size"); } }
         private int? _explicitNullValueMaxHeapTableSize = default!;
         /// <summary>Limits the assumed maximum number of seeks when looking up rows based on a key. Lower values cause the query optimizer to prefer indexes over table scans for non-covering indexes.</summary>
-        public int? MaxSeeksForKey { get => _explicitNullValueMaxSeeksForKey; set { _explicitNullValueMaxSeeksForKey = value; AdditionalData?.Remove("max_seeks_for_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_seeks_for_key"); else _explicitNullProperties?.Remove("max_seeks_for_key"); } }
-        private int? _explicitNullValueMaxSeeksForKey = default!;
+        public decimal? MaxSeeksForKey { get => _explicitNullValueMaxSeeksForKey; set { _explicitNullValueMaxSeeksForKey = value; AdditionalData?.Remove("max_seeks_for_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_seeks_for_key"); else _explicitNullProperties?.Remove("max_seeks_for_key"); } }
+        private decimal? _explicitNullValueMaxSeeksForKey = default!;
         /// <summary>MySQL Incremental Backup configuration settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -356,8 +356,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "default_time_zone", n => { DefaultTimeZone = n.GetStringValue(); } },
                 { "div_precision_increment", n => { DivPrecisionIncrement = n.GetIntValue(); } },
                 { "end_markers_in_json", n => { EndMarkersInJson = n.GetBoolValue(); } },
-                { "eq_range_index_dive_limit", n => { EqRangeIndexDiveLimit = n.GetIntValue(); } },
-                { "group_concat_max_len", n => { GroupConcatMaxLen = n.GetIntValue(); } },
+                { "eq_range_index_dive_limit", n => { EqRangeIndexDiveLimit = n.GetLongValue(); } },
+                { "group_concat_max_len", n => { GroupConcatMaxLen = n.GetDecimalValue(); } },
                 { "information_schema_stats_expiry", n => { InformationSchemaStatsExpiry = n.GetIntValue(); } },
                 { "innodb_adaptive_hash_index", n => { InnodbAdaptiveHashIndex = n.GetBoolValue(); } },
                 { "innodb_change_buffer_max_size", n => { InnodbChangeBufferMaxSize = n.GetIntValue(); } },
@@ -366,12 +366,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "innodb_ft_max_token_size", n => { InnodbFtMaxTokenSize = n.GetIntValue(); } },
                 { "innodb_ft_min_token_size", n => { InnodbFtMinTokenSize = n.GetIntValue(); } },
                 { "innodb_ft_num_word_optimize", n => { InnodbFtNumWordOptimize = n.GetIntValue(); } },
-                { "innodb_ft_result_cache_limit", n => { InnodbFtResultCacheLimit = n.GetIntValue(); } },
+                { "innodb_ft_result_cache_limit", n => { InnodbFtResultCacheLimit = n.GetLongValue(); } },
                 { "innodb_ft_server_stopword_table", n => { InnodbFtServerStopwordTable = n.GetStringValue(); } },
                 { "innodb_ft_user_stopword_table", n => { InnodbFtUserStopwordTable = n.GetStringValue(); } },
                 { "innodb_lock_wait_timeout", n => { InnodbLockWaitTimeout = n.GetIntValue(); } },
-                { "innodb_log_buffer_size", n => { InnodbLogBufferSize = n.GetIntValue(); } },
-                { "innodb_online_alter_log_max_size", n => { InnodbOnlineAlterLogMaxSize = n.GetIntValue(); } },
+                { "innodb_log_buffer_size", n => { InnodbLogBufferSize = n.GetLongValue(); } },
+                { "innodb_online_alter_log_max_size", n => { InnodbOnlineAlterLogMaxSize = n.GetLongValue(); } },
                 { "innodb_optimize_fulltext_only", n => { InnodbOptimizeFulltextOnly = n.GetBoolValue(); } },
                 { "innodb_print_all_deadlocks", n => { InnodbPrintAllDeadlocks = n.GetBoolValue(); } },
                 { "innodb_read_io_threads", n => { InnodbReadIoThreads = n.GetIntValue(); } },
@@ -383,9 +383,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "log_output", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfigLogOutput>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLogOutput = default; _explicitNullProperties?.Remove("log_output"); AdditionalData["log_output"] = unknown; } else { LogOutput = parsed; AdditionalData.Remove("log_output"); } } },
                 { "long_query_time", n => { LongQueryTime = n.GetDoubleValue(); } },
                 { "max_allowed_packet", n => { MaxAllowedPacket = n.GetIntValue(); } },
-                { "max_execution_time", n => { MaxExecutionTime = n.GetIntValue(); } },
+                { "max_execution_time", n => { MaxExecutionTime = n.GetLongValue(); } },
                 { "max_heap_table_size", n => { MaxHeapTableSize = n.GetIntValue(); } },
-                { "max_seeks_for_key", n => { MaxSeeksForKey = n.GetIntValue(); } },
+                { "max_seeks_for_key", n => { MaxSeeksForKey = n.GetDecimalValue(); } },
                 { "mysql_incremental_backup", n => { MysqlIncrementalBackup = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup.CreateFromDiscriminatorValue); } },
                 { "net_buffer_length", n => { NetBufferLength = n.GetIntValue(); } },
                 { "net_read_timeout", n => { NetReadTimeout = n.GetIntValue(); } },
@@ -417,8 +417,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("default_time_zone", DefaultTimeZone);
             writer.WriteIntValue("div_precision_increment", DivPrecisionIncrement);
             writer.WriteBoolValue("end_markers_in_json", EndMarkersInJson);
-            writer.WriteIntValue("eq_range_index_dive_limit", EqRangeIndexDiveLimit);
-            writer.WriteIntValue("group_concat_max_len", GroupConcatMaxLen);
+            writer.WriteLongValue("eq_range_index_dive_limit", EqRangeIndexDiveLimit);
+            writer.WriteDecimalValue("group_concat_max_len", GroupConcatMaxLen);
             writer.WriteIntValue("information_schema_stats_expiry", InformationSchemaStatsExpiry);
             writer.WriteBoolValue("innodb_adaptive_hash_index", InnodbAdaptiveHashIndex);
             writer.WriteIntValue("innodb_change_buffer_max_size", InnodbChangeBufferMaxSize);
@@ -427,12 +427,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteIntValue("innodb_ft_max_token_size", InnodbFtMaxTokenSize);
             writer.WriteIntValue("innodb_ft_min_token_size", InnodbFtMinTokenSize);
             writer.WriteIntValue("innodb_ft_num_word_optimize", InnodbFtNumWordOptimize);
-            writer.WriteIntValue("innodb_ft_result_cache_limit", InnodbFtResultCacheLimit);
+            writer.WriteLongValue("innodb_ft_result_cache_limit", InnodbFtResultCacheLimit);
             writer.WriteStringValue("innodb_ft_server_stopword_table", InnodbFtServerStopwordTable);
             writer.WriteStringValue("innodb_ft_user_stopword_table", InnodbFtUserStopwordTable);
             writer.WriteIntValue("innodb_lock_wait_timeout", InnodbLockWaitTimeout);
-            writer.WriteIntValue("innodb_log_buffer_size", InnodbLogBufferSize);
-            writer.WriteIntValue("innodb_online_alter_log_max_size", InnodbOnlineAlterLogMaxSize);
+            writer.WriteLongValue("innodb_log_buffer_size", InnodbLogBufferSize);
+            writer.WriteLongValue("innodb_online_alter_log_max_size", InnodbOnlineAlterLogMaxSize);
             writer.WriteBoolValue("innodb_optimize_fulltext_only", InnodbOptimizeFulltextOnly);
             writer.WriteBoolValue("innodb_print_all_deadlocks", InnodbPrintAllDeadlocks);
             writer.WriteIntValue("innodb_read_io_threads", InnodbReadIoThreads);
@@ -444,9 +444,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlAdvancedConfigLogOutput>("log_output", LogOutput);
             writer.WriteDoubleValue("long_query_time", LongQueryTime);
             writer.WriteIntValue("max_allowed_packet", MaxAllowedPacket);
-            writer.WriteIntValue("max_execution_time", MaxExecutionTime);
+            writer.WriteLongValue("max_execution_time", MaxExecutionTime);
             writer.WriteIntValue("max_heap_table_size", MaxHeapTableSize);
-            writer.WriteIntValue("max_seeks_for_key", MaxSeeksForKey);
+            writer.WriteDecimalValue("max_seeks_for_key", MaxSeeksForKey);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MysqlIncrementalBackup>("mysql_incremental_backup", MysqlIncrementalBackup);
             writer.WriteIntValue("net_buffer_length", NetBufferLength);
             writer.WriteIntValue("net_read_timeout", NetReadTimeout);

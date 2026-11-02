@@ -51,11 +51,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>A unique identifier for the team.</summary>
-        public int? Id { get; private set; }
+        public decimal? Id { get; private set; }
         /// <summary>A time value given in ISO8601 combined date and time format that represents when the team joined the organization.</summary>
         public DateTimeOffset? JoinedOrganizationAt { get; private set; }
         /// <summary>The number of members on the team.</summary>
-        public int? MemberCount { get; private set; }
+        public decimal? MemberCount { get; private set; }
         /// <summary>The human-readable name for the team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,9 +98,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetDecimalValue(); } },
                 { "joined_organization_at", n => { JoinedOrganizationAt = n.GetDateTimeOffsetValue(); } },
-                { "member_count", n => { MemberCount = n.GetIntValue(); } },
+                { "member_count", n => { MemberCount = n.GetDecimalValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.OrganizationTeamStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "uuid", n => { Uuid = n.GetGuidValue(); } },

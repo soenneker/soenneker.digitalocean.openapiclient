@@ -7,6 +7,7 @@ using Soenneker.DigitalOcean.OpenApiClient.Models;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Checkpoints;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Console;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Exec;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Files;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Pause;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume;
 using System.Collections.Generic;
@@ -36,6 +37,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Exec.ExecRequestBuilder Exec
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Exec.ExecRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The files property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Files.FilesRequestBuilder Files
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Files.FilesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The pause property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Pause.PauseRequestBuilder Pause
