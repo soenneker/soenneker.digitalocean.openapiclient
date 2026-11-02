@@ -2633,6 +2633,326 @@ paths:
       security:
         - bearer_auth:
             - action_gateway:create
+  /v2/action-gateway/provider-credentials:
+    post:
+      operationId: providerCredentials_create
+      summary: Create a Provider Credential
+      description: >-
+        Stores an API key or OAuth client for a catalog provider that supports
+        that
+
+        credential type. Secret material is write-only. Only you can see and use
+        the
+
+        credential unless you share it with your team using `reusable_by_team`.
+
+
+        To use an API key, first create this credential, then create a
+        connection for
+
+        the same provider with `credential.team_credential.credential_id` set to
+        the
+
+        returned `credential.id`. That connection becomes active without OAuth
+        consent.
+
+        Its `user_id` must match the session's `actor_id`.
+
+
+        Creating a credential does not replace existing credentials or
+        connections.
+
+        A duplicate display name for the same provider returns 409.
+      tags:
+        - Action Gateway
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/provider_credential_create'
+            example:
+              provider: example-provider
+              display_name: Production key
+              kind: PROVIDER_CREDENTIAL_KIND_API_KEY
+              api_key: <provider-api-key>
+      responses:
+        '200':
+          $ref: '#/components/responses/provider_credential'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '409':
+          $ref: '#/components/responses/conflict'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+        '500':
+          $ref: '#/components/responses/server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: Curl
+          source: |-
+            curl --request POST \
+              --header "Content-Type: application/json" \
+              --header "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              --data '{"provider":"<provider-slug>","display_name":"Production key","kind":"PROVIDER_CREDENTIAL_KIND_API_KEY","api_key":"<provider-api-key>"}' \
+              "https://api.digitalocean.com/v2/action-gateway/provider-credentials"
+      security:
+        - bearer_auth:
+            - action_gateway:create
+    get:
+      operationId: providerCredentials_list
+      summary: List Provider Credentials
+      description: >-
+        Lists registered credentials visible to you, ordered by provider and
+        display name. Optionally filter by provider slug, ignoring case. An
+        unknown provider returns an empty list. Results are not paginated and
+        exclude DigitalOcean-owned OAuth applications and credentials managed by
+        MCP server registrations.
+      tags:
+        - Action Gateway
+      parameters:
+        - $ref: '#/components/parameters/provider_credential_provider'
+      responses:
+        '200':
+          description: The request was successful. Secret material is not returned.
+          headers:
+            ratelimit-limit:
+              $ref: '#/components/headers/ratelimit-limit'
+            ratelimit-remaining:
+              $ref: '#/components/headers/ratelimit-remaining'
+            ratelimit-reset:
+              $ref: '#/components/headers/ratelimit-reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/provider_credentials_list_response'
+              example:
+                credentials:
+                  - id: example-credential-id
+                    provider: example-provider
+                    display_name: Production key
+                    kind: PROVIDER_CREDENTIAL_KIND_API_KEY
+                    status: PROVIDER_CREDENTIAL_STATUS_ACTIVE
+                    base_url: ''
+                    created_at: '2026-11-01T12:00:00Z'
+                    updated_at: '2026-11-01T12:00:00Z'
+                    owning_user_id: example-digitalocean-user-id
+                    reusable_by_team: false
+                    scope: user
+                    redirect_url: ''
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+        '500':
+          $ref: '#/components/responses/server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: Curl
+          source: |-
+            curl --request GET \
+              --header "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              "https://api.digitalocean.com/v2/action-gateway/provider-credentials?provider=<provider-slug>"
+      security:
+        - bearer_auth:
+            - action_gateway:read
+  /v2/action-gateway/provider-credentials/{id}:
+    get:
+      operationId: providerCredentials_get
+      summary: Get a Provider Credential
+      description: >-
+        Returns metadata for a provider credential, never its secret material.
+        Returns 404 if the credential is unknown, deleted, or not visible to
+        you.
+      tags:
+        - Action Gateway
+      parameters:
+        - $ref: '#/components/parameters/provider_credential_id'
+      responses:
+        '200':
+          $ref: '#/components/responses/provider_credential'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+        '500':
+          $ref: '#/components/responses/server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: Curl
+          source: |-
+            curl --request GET \
+              --header "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              "https://api.digitalocean.com/v2/action-gateway/provider-credentials/<credential-id>"
+      security:
+        - bearer_auth:
+            - action_gateway:read
+    patch:
+      operationId: providerCredentials_update
+      summary: Update a Provider Credential
+      description: >-
+        Rotates an API key or OAuth client secret, or updates credential
+        metadata, in
+
+        place. Send only the fields to change; omitted fields are preserved. No
+        update
+
+        mask is required. The provider, kind, and redirect URL cannot be
+        changed.
+
+
+        The credential keeps its ID and its connections. Those connections use
+        the new
+
+        material on subsequent calls; `revoked_connections` remains zero. For an
+        OAuth
+
+        client, changing secret material or the base URL requires the original
+        `client_id`.
+
+
+        Credentials managed by MCP server registrations accept only secret
+        rotation,
+
+        not display name or base URL changes. Sharing with the team requires the
+
+        appropriate account feature and permissions and cannot be undone.
+      tags:
+        - Action Gateway
+      parameters:
+        - $ref: '#/components/parameters/provider_credential_id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/provider_credential_update'
+            example:
+              api_key: <replacement-provider-api-key>
+      responses:
+        '200':
+          $ref: '#/components/responses/provider_credential'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '409':
+          $ref: '#/components/responses/conflict'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+        '500':
+          $ref: '#/components/responses/server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: Curl
+          source: |-
+            curl --request PATCH \
+              --header "Content-Type: application/json" \
+              --header "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              --data '{"api_key":"<replacement-provider-api-key>"}' \
+              "https://api.digitalocean.com/v2/action-gateway/provider-credentials/<credential-id>"
+      security:
+        - bearer_auth:
+            - action_gateway:update
+    delete:
+      operationId: providerCredentials_delete
+      summary: Delete a Provider Credential
+      description: >-
+        Deletes a provider credential and every connection that uses it. There
+        is no
+
+        confirmation step. Warn affected users before deleting; sessions relying
+        on
+
+        those connections lose provider access. To rotate a key without removing
+
+        connections, update the credential instead.
+
+
+        Returns the deleted credential with status
+        `PROVIDER_CREDENTIAL_STATUS_DELETED`
+
+        and the number of removed connections in `revoked_connections`. Returns
+        404 for
+
+        an unknown or already-deleted credential. A credential still bound to an
+        MCP
+
+        server cannot be deleted separately; delete the server first.
+      tags:
+        - Action Gateway
+      parameters:
+        - $ref: '#/components/parameters/provider_credential_id'
+      responses:
+        '200':
+          description: The credential and its connections were deleted.
+          headers:
+            ratelimit-limit:
+              $ref: '#/components/headers/ratelimit-limit'
+            ratelimit-remaining:
+              $ref: '#/components/headers/ratelimit-remaining'
+            ratelimit-reset:
+              $ref: '#/components/headers/ratelimit-reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/provider_credential_response'
+              example:
+                credential:
+                  id: example-credential-id
+                  provider: example-provider
+                  display_name: Production key
+                  kind: PROVIDER_CREDENTIAL_KIND_API_KEY
+                  status: PROVIDER_CREDENTIAL_STATUS_DELETED
+                  created_at: '2026-11-01T12:00:00Z'
+                  updated_at: '2026-11-01T13:00:00Z'
+                  owning_user_id: example-digitalocean-user-id
+                  reusable_by_team: false
+                  scope: user
+                revoked_connections: 1
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+        '500':
+          $ref: '#/components/responses/server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: Curl
+          source: |-
+            curl --request DELETE \
+              --header "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              "https://api.digitalocean.com/v2/action-gateway/provider-credentials/<credential-id>"
+      security:
+        - bearer_auth:
+            - action_gateway:delete
   /v2/action-gateway/connections:
     post:
       operationId: connections_create
@@ -2647,7 +2967,11 @@ paths:
         read the connection until it is active or expired. A connection through
         a team API-key credential is
 
-        active immediately.
+        active immediately. Register the API key with `POST
+        /v2/action-gateway/provider-credentials`
+
+        first, then set `credential.team_credential.credential_id` to the
+        returned `credential.id`.
 
 
         There is one connection per provider and `user_id` for each DigitalOcean
@@ -2671,15 +2995,26 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/connection_create'
-            example:
-              provider: jira
-              user_id: alice
-              scopes:
-                - write:jira-work
-              connection_parameters:
-                site_url: https://example.atlassian.net
-              credential:
-                digitalocean_oauth: {}
+            examples:
+              oauth:
+                summary: Connect using DigitalOcean's OAuth application
+                value:
+                  provider: jira
+                  user_id: alice
+                  scopes:
+                    - write:jira-work
+                  connection_parameters:
+                    site_url: https://example.atlassian.net
+                  credential:
+                    digitalocean_oauth: {}
+              api_key:
+                summary: Connect using a previously registered API-key credential
+                value:
+                  provider: example-provider
+                  user_id: user-123
+                  credential:
+                    team_credential:
+                      credential_id: example-credential-id
       responses:
         '200':
           description: The connection was created.
@@ -5832,7 +6167,7 @@ paths:
         '401':
           $ref: '#/components/responses/data_plane_responses_unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden'
+          $ref: '#/components/responses/data_plane_responses_forbidden'
         '412':
           $ref: '#/components/responses/precondition_failed'
         '429':
@@ -5921,7 +6256,7 @@ paths:
         '401':
           $ref: '#/components/responses/data_plane_responses_unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden'
+          $ref: '#/components/responses/data_plane_responses_forbidden'
         '412':
           $ref: '#/components/responses/precondition_failed'
         '413':
@@ -6083,7 +6418,7 @@ paths:
         '402':
           $ref: '#/components/responses/payment_required'
         '403':
-          $ref: '#/components/responses/forbidden'
+          $ref: '#/components/responses/data_plane_responses_forbidden'
         '412':
           $ref: '#/components/responses/precondition_failed'
         '413':
@@ -6165,7 +6500,7 @@ paths:
         '401':
           $ref: '#/components/responses/data_plane_responses_unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden'
+          $ref: '#/components/responses/data_plane_responses_forbidden'
         '412':
           $ref: '#/components/responses/precondition_failed'
         '413':
@@ -6239,7 +6574,7 @@ paths:
         '401':
           $ref: '#/components/responses/data_plane_responses_unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden'
+          $ref: '#/components/responses/data_plane_responses_forbidden'
         '404':
           $ref: '#/components/responses/data_plane_responses_not_found'
         '409':
@@ -6304,7 +6639,7 @@ paths:
         '401':
           $ref: '#/components/responses/data_plane_responses_unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden'
+          $ref: '#/components/responses/data_plane_responses_forbidden'
         '404':
           $ref: '#/components/responses/data_plane_responses_not_found'
         '409':
@@ -30224,7 +30559,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30287,7 +30622,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30335,7 +30670,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30412,7 +30747,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30461,7 +30796,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30522,7 +30857,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30569,7 +30904,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30613,7 +30948,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30677,7 +31012,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '422':
@@ -30732,7 +31067,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '429':
@@ -30895,7 +31230,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/traces_not_found'
         '429':
@@ -30982,7 +31317,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/traces_not_found'
         '429':
@@ -31034,7 +31369,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '429':
@@ -31921,7 +32256,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '429':
@@ -39846,7 +40181,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '412':
           $ref: '#/components/responses/precondition_failed-2'
         '429':
@@ -39883,7 +40218,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '412':
           $ref: '#/components/responses/precondition_failed-2'
         '429':
@@ -45848,7 +46183,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '429':
           $ref: '#/components/responses/too_many_requests'
         '500':
@@ -45910,7 +46245,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '409':
           $ref: '#/components/responses/conflict'
         '429':
@@ -45953,7 +46288,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '429':
@@ -46023,7 +46358,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '409':
@@ -46069,7 +46404,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '409':
@@ -46113,7 +46448,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '429':
@@ -46179,7 +46514,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '409':
@@ -46227,7 +46562,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '409':
@@ -61088,7 +61423,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '422':
           $ref: '#/components/responses/unprocessable_entity'
         '424':
@@ -62071,7 +62406,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '422':
           $ref: '#/components/responses/unprocessable_entity'
         '429':
@@ -62504,7 +62839,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '409':
@@ -62691,7 +63026,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '429':
           $ref: '#/components/responses/too_many_requests'
         '500':
@@ -62807,7 +63142,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '429':
@@ -62928,7 +63263,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '412':
@@ -63115,7 +63450,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          $ref: '#/components/responses/forbidden-2'
+          $ref: '#/components/responses/forbidden'
         '404':
           $ref: '#/components/responses/not_found'
         '409':
@@ -63415,6 +63750,24 @@ components:
         type: string
         pattern: ^[A-Za-z0-9._-]{1,64}$
       example: alice
+    provider_credential_provider:
+      name: provider
+      in: query
+      required: false
+      description: >-
+        Optional provider slug, matched case-insensitively. Omit to list
+        credentials for all providers.
+      schema:
+        type: string
+      example: example-provider
+    provider_credential_id:
+      name: id
+      in: path
+      required: true
+      description: Provider credential ID returned when the credential was created.
+      schema:
+        type: string
+      example: example-credential-id
     connection_provider:
       name: provider
       in: query
@@ -66426,6 +66779,384 @@ components:
           items:
             $ref: '#/components/schemas/limit_override'
       description: Sets an actor's overrides.
+    provider_credential_discovery:
+      type: object
+      nullable: true
+      description: >-
+        Team-level MCP tool discovery authorization, not tool invocation
+        authorization.
+      properties:
+        status:
+          type: string
+          description: >-
+            Whether discovery needs authorization, is waiting for it, is active,
+            or has expired.
+          enum:
+            - not_required
+            - pending
+            - active
+            - expired
+          example: active
+        consented_by_user_id:
+          type: string
+          description: >-
+            DigitalOcean user ID of the team owner who authorized discovery, or
+            empty before consent.
+          example: example-digitalocean-user-id
+        consented_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: When discovery was authorized, if consent has been given.
+          example: '2026-11-01T12:00:00Z'
+        authorization_url:
+          type: string
+          description: >-
+            Where a team owner authorizes discovery. Set only while status is
+            pending.
+          example: ''
+    provider_credential:
+      type: object
+      description: >-
+        A stored provider credential. Responses contain metadata only, never API
+        keys, client secrets, or secret storage references.
+      properties:
+        id:
+          type: string
+          description: >-
+            Opaque ID used to select, retrieve, update, or delete the
+            credential.
+          example: example-credential-id
+        provider:
+          type: string
+          description: Provider slug.
+          example: example-provider
+        display_name:
+          type: string
+          maxLength: 255
+          description: >-
+            Label, unique among the team's credentials for this provider,
+            ignoring case.
+          example: Production key
+        kind:
+          type: string
+          description: >-
+            Credential type. NONE, NO_AUTH, and USER_API_KEY describe MCP server
+            credentials; NO_AUTH and USER_API_KEY are output-only values.
+          enum:
+            - PROVIDER_CREDENTIAL_KIND_UNSPECIFIED
+            - PROVIDER_CREDENTIAL_KIND_OAUTH_CLIENT
+            - PROVIDER_CREDENTIAL_KIND_API_KEY
+            - PROVIDER_CREDENTIAL_KIND_NONE
+            - PROVIDER_CREDENTIAL_KIND_NO_AUTH
+            - PROVIDER_CREDENTIAL_KIND_USER_API_KEY
+          example: PROVIDER_CREDENTIAL_KIND_API_KEY
+        base_url:
+          type: string
+          description: >-
+            Normalized HTTPS origin for this credential's provider API, when
+            configured.
+          example: https://api.example.com
+        status:
+          type: string
+          description: >-
+            Credential lifecycle state. Disabled credentials cannot be used by
+            existing or new connections and cannot be re-enabled through this
+            API. DELETED is returned only by deletion.
+          enum:
+            - PROVIDER_CREDENTIAL_STATUS_UNSPECIFIED
+            - PROVIDER_CREDENTIAL_STATUS_ACTIVE
+            - PROVIDER_CREDENTIAL_STATUS_DISABLED
+            - PROVIDER_CREDENTIAL_STATUS_DELETED
+          example: PROVIDER_CREDENTIAL_STATUS_ACTIVE
+        created_at:
+          type: string
+          format: date-time
+          description: When the credential was created.
+          example: '2026-11-01T12:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: When the credential was last modified.
+          example: '2026-11-01T12:00:00Z'
+        owning_user_id:
+          type: string
+          description: >-
+            DigitalOcean user ID of the creator. Absent for a credential shared
+            with the team.
+          example: example-digitalocean-user-id
+        reusable_by_team:
+          type: boolean
+          description: >-
+            Whether everyone on the team can see and use the credential instead
+            of only its creator.
+          example: false
+        redirect_url:
+          type: string
+          description: >-
+            OAuth redirect URI supplied at registration. Empty when using
+            DigitalOcean's callback or when the credential is not an OAuth
+            client.
+          example: ''
+        scope:
+          type: string
+          description: >-
+            Who can use the credential, either its creator (user) or the whole
+            team (team).
+          enum:
+            - user
+            - team
+          example: user
+        discovery:
+          description: >-
+            Authorization to discover a team-scoped MCP server's tools, when
+            required. This authorization is not used to invoke tools.
+          allOf:
+            - $ref: '#/components/schemas/provider_credential_discovery'
+    provider_credentials_list_response:
+      type: object
+      description: Registered credentials visible to the caller, without pagination.
+      properties:
+        credentials:
+          type: array
+          description: >-
+            Credentials ordered by provider and display name, excluding
+            DigitalOcean-owned OAuth applications.
+          items:
+            $ref: '#/components/schemas/provider_credential'
+    provider_credential_create:
+      type: object
+      description: >-
+        Register a credential for a provider that supports the selected kind.
+        API keys require api_key; OAuth clients require client_id and
+        client_secret. Fields for the other kind are rejected. Register custom
+        MCP servers through the MCP server API rather than creating API-key
+        credentials for them here.
+      required:
+        - provider
+        - kind
+        - display_name
+      properties:
+        provider:
+          type: string
+          minLength: 1
+          description: Required provider slug from the provider catalog.
+          example: example-provider
+        kind:
+          type: string
+          description: >-
+            Credential type. NONE is available only for eligible MCP providers
+            when team-scoped provider credentials are enabled; it accepts no
+            credential fields.
+          enum:
+            - PROVIDER_CREDENTIAL_KIND_OAUTH_CLIENT
+            - PROVIDER_CREDENTIAL_KIND_API_KEY
+            - PROVIDER_CREDENTIAL_KIND_NONE
+          example: PROVIDER_CREDENTIAL_KIND_API_KEY
+        display_name:
+          type: string
+          minLength: 1
+          maxLength: 255
+          description: >-
+            Required label, unique among the team's credentials for this
+            provider, ignoring case. A duplicate returns 409.
+          example: Production key
+        api_key:
+          type: string
+          minLength: 1
+          maxLength: 4096
+          writeOnly: true
+          description: >-
+            Required for API-key credentials. Rejected for other kinds. Never
+            returned.
+          example: <provider-api-key>
+        client_id:
+          type: string
+          minLength: 1
+          maxLength: 255
+          description: Required for OAuth client credentials. Rejected for other kinds.
+          example: example-client-id
+        client_secret:
+          type: string
+          minLength: 1
+          maxLength: 1024
+          writeOnly: true
+          description: >-
+            Required for OAuth client credentials. Rejected for other kinds.
+            Never returned.
+          example: <provider-client-secret>
+        base_url:
+          type: string
+          maxLength: 255
+          description: >-
+            Provider API HTTPS origin. Accepted only when the provider allows
+            one, restricted to its allowed hosts, and required when the provider
+            requires it. Do not send this alongside credential_parameters.
+          example: https://api.example.com
+        credential_parameters:
+          type: object
+          additionalProperties: true
+          description: >-
+            Non-secret configuration for API-key providers that declare
+            credential parameters. Validated against the provider's parameter
+            definitions and used to derive base_url. Rejected for other
+            credential kinds.
+          example:
+            subdomain: example
+        reusable_by_team:
+          type: boolean
+          default: false
+          description: >-
+            Share the credential with the team. Defaults to false, so only its
+            creator can see and use it. Requires the team owner role when
+            team-scoped provider credentials are enabled for the account.
+          example: false
+        redirect_url:
+          type: string
+          maxLength: 1024
+          description: >-
+            OAuth clients only. Optional absolute HTTPS redirect URI registered
+            at the provider, with no user information or fragment. Requires
+            custom OAuth redirects to be enabled for the account. Omit to use
+            DigitalOcean's callback. Cannot be changed after registration.
+          example: https://app.example.com/oauth/callback
+      oneOf:
+        - properties:
+            kind:
+              type: string
+              enum:
+                - PROVIDER_CREDENTIAL_KIND_API_KEY
+          required:
+            - api_key
+          not:
+            anyOf:
+              - required:
+                  - client_id
+              - required:
+                  - client_secret
+              - required:
+                  - redirect_url
+        - properties:
+            kind:
+              type: string
+              enum:
+                - PROVIDER_CREDENTIAL_KIND_OAUTH_CLIENT
+          required:
+            - client_id
+            - client_secret
+          not:
+            anyOf:
+              - required:
+                  - api_key
+              - required:
+                  - credential_parameters
+        - properties:
+            kind:
+              type: string
+              enum:
+                - PROVIDER_CREDENTIAL_KIND_NONE
+          not:
+            anyOf:
+              - required:
+                  - api_key
+              - required:
+                  - client_id
+              - required:
+                  - client_secret
+              - required:
+                  - redirect_url
+              - required:
+                  - base_url
+              - required:
+                  - credential_parameters
+    provider_credential_response:
+      type: object
+      description: >-
+        Credential metadata and the number of connections removed by the
+        operation.
+      properties:
+        credential:
+          allOf:
+            - $ref: '#/components/schemas/provider_credential'
+          description: The registered or deleted credential, without secret material.
+        revoked_connections:
+          type: integer
+          format: int32
+          minimum: 0
+          description: >-
+            Number of connections deleted with the credential. Always zero for
+            create, get, and update operations.
+          example: 0
+    credential_parameters:
+      type: object
+      additionalProperties: true
+      description: >-
+        Non-secret configuration for API-key providers that declare credential
+        parameters. Validated against the provider's parameter definitions and
+        used to derive base_url. Rejected for other credential kinds.
+      example:
+        subdomain: example
+    provider_credential_update:
+      type: object
+      minProperties: 1
+      description: >-
+        Change only the supplied fields. Omitted fields remain unchanged; no
+        update mask is required. The provider, kind, and redirect_url cannot be
+        changed. Empty secrets and display names are rejected. Connections keep
+        the same credential ID.
+      properties:
+        display_name:
+          type: string
+          minLength: 1
+          maxLength: 255
+          description: >-
+            New label, unique among the team's credentials for this provider,
+            ignoring case.
+          example: Production key
+        api_key:
+          type: string
+          minLength: 1
+          maxLength: 4096
+          writeOnly: true
+          description: New API key. Only valid for API-key credentials. Never returned.
+          example: <replacement-provider-api-key>
+        client_id:
+          type: string
+          minLength: 1
+          maxLength: 255
+          description: >-
+            OAuth clients only. Required when changing client_id, client_secret,
+            or base_url. Must match the originally registered client ID; a
+            different ID is rejected. Register another credential to use a
+            different OAuth client.
+          example: example-client-id
+        client_secret:
+          type: string
+          minLength: 1
+          maxLength: 1024
+          writeOnly: true
+          description: New OAuth client secret. Requires client_id. Never returned.
+          example: <replacement-provider-client-secret>
+        base_url:
+          type: string
+          maxLength: 255
+          description: >-
+            New HTTPS origin, validated as on creation. An empty string clears
+            it unless the provider requires an origin. OAuth client updates also
+            require client_id.
+          example: https://api.example.com
+        credential_parameters:
+          $ref: '#/components/schemas/credential_parameters'
+        reusable_by_team:
+          type: boolean
+          enum:
+            - true
+          description: >-
+            Set to true to share a credential with the team. Requires
+            team-scoped provider credentials to be enabled and the team owner
+            role to share a private credential. Sharing cannot be undone; false
+            is rejected.
+          example: true
     connection_network:
       type: object
       nullable: true
@@ -105499,6 +106230,52 @@ components:
           example:
             id: server_error
             message: Unexpected server-side error
+    forbidden:
+      description: >
+        The authenticated principal does not have permission to perform this
+        action on the requested resource.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+          example:
+            id: forbidden
+            message: You do not have permission to perform this action.
+    provider_credential:
+      description: The request was successful. Secret material is not returned.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/provider_credential_response'
+          example:
+            credential:
+              id: example-credential-id
+              provider: example-provider
+              display_name: Production key
+              kind: PROVIDER_CREDENTIAL_KIND_API_KEY
+              status: PROVIDER_CREDENTIAL_STATUS_ACTIVE
+              base_url: ''
+              created_at: '2026-11-01T12:00:00Z'
+              updated_at: '2026-11-01T12:00:00Z'
+              owning_user_id: example-digitalocean-user-id
+              reusable_by_team: false
+              scope: user
+              redirect_url: ''
+            revoked_connections: 0
     conflict:
       description: The request could not be completed due to a conflict.
       headers:
@@ -105542,7 +106319,7 @@ components:
           example:
             id: unauthorized
             message: Unable to authenticate you.
-    forbidden:
+    data_plane_responses_forbidden:
       description: >-
         The token or session cannot be used for this request. Tokens without the
         `action_gateway:execute` scope, and accounts that are not in good
@@ -111639,24 +112416,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/prom_error'
-    forbidden-2:
-      description: >
-        The authenticated principal does not have permission to perform this
-        action on the requested resource.
-      headers:
-        ratelimit-limit:
-          $ref: '#/components/headers/ratelimit-limit'
-        ratelimit-remaining:
-          $ref: '#/components/headers/ratelimit-remaining'
-        ratelimit-reset:
-          $ref: '#/components/headers/ratelimit-reset'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error'
-          example:
-            id: forbidden
-            message: You do not have permission to perform this action.
     prom_query_range:
       description: Range query result.
       headers:

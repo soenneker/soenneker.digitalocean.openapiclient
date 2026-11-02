@@ -6,6 +6,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Actors;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Connections;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.McpServers;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.ProviderCredentials;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Toolbelts;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools;
@@ -41,6 +42,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews.OutputViewsRequestBuilder OutputViews
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.OutputViews.OutputViewsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The providerCredentials property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.ProviderCredentials.ProviderCredentialsRequestBuilder ProviderCredentials
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.ProviderCredentials.ProviderCredentialsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sessions property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.SessionsRequestBuilder Sessions

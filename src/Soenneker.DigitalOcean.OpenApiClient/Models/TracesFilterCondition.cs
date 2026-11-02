@@ -52,12 +52,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("operator")?.GetStringValue();
             return mappingValue switch
             {
-                "FILTER_OPERATOR_EQ" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionTracesFilterConditionOneOf2Branch(),
-                "FILTER_OPERATOR_EXISTS" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionTracesFilterConditionOneOf1Branch(),
-                "FILTER_OPERATOR_GTE" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionTracesFilterConditionOneOf2Branch(),
-                "FILTER_OPERATOR_IN" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionTracesFilterConditionOneOf2Branch(),
-                "FILTER_OPERATOR_LTE" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionTracesFilterConditionOneOf2Branch(),
-                "FILTER_OPERATOR_NEQ" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionTracesFilterConditionOneOf2Branch(),
+                "FILTER_OPERATOR_EQ" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionOneOf2BranchVariant(),
+                "FILTER_OPERATOR_EXISTS" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionOneOf1BranchVariant(),
+                "FILTER_OPERATOR_GTE" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionOneOf2BranchVariant(),
+                "FILTER_OPERATOR_IN" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionOneOf2BranchVariant(),
+                "FILTER_OPERATOR_LTE" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionOneOf2BranchVariant(),
+                "FILTER_OPERATOR_NEQ" => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterConditionOneOf2BranchVariant(),
                 _ => new global::Soenneker.DigitalOcean.OpenApiClient.Models.TracesFilterCondition(),
             };
         }
