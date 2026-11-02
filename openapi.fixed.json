@@ -119808,7 +119808,8 @@
             "example": 30
           }
         },
-        "description": "An optional field that will only be present when you set stream_options include_usage to true in your request. When present, it contains a null value except for the last chunk which contains the token usage statistics for the entire request.\n"
+        "description": "An optional field that will only be present when you set stream_options include_usage to true in your request. When present, it contains a null value except for the last chunk which contains the token usage statistics for the entire request.\n",
+        "nullable": true
       },
       "MessagesToolResultBlockParamContent": {
         "oneOf": [
@@ -119942,7 +119943,8 @@
             "$ref": "#/components/schemas/ImagesUsageInputTokensDetails"
           }
         },
-        "description": "Usage statistics for the image generation request."
+        "description": "Usage statistics for the image generation request.",
+        "nullable": true
       },
       "SystemoneQuestionCriteria": {
         "description": "Optional criteria payload. The expected shape depends on \u0060type\u0060: for \u0060noul\u0060, an optional object describing the true/false semantics; for \u0060choice\u0060, an object mapping each option name to a description of that option (minimum 2 options, maximum 255 options); for \u0060score\u0060, an ordered array of descriptive rubric levels (minimum 2, maximum 10 levels). Score levels must be descriptive labels, such as \u0060[\u0022poor\u0022, \u0022average\u0022, \u0022excellent\u0022]\u0060, not numeric values.",
@@ -120007,7 +120009,8 @@
             }
           }
         ],
-        "description": "Up to 4 sequences where the API will stop generating further tokens.\n"
+        "description": "Up to 4 sequences where the API will stop generating further tokens.\n",
+        "nullable": true
       },
       "CreateResponseStreamResponseUsage": {
         "required": [
@@ -120041,7 +120044,8 @@
             "example": 174
           }
         },
-        "description": "An optional field that will only be present when you set \u0060stream_options: {\u0022include_usage\u0022: true}\u0060 in your request. When present, it contains a null value except for the last chunk which contains the token usage statistics for the entire request.\n"
+        "description": "An optional field that will only be present when you set \u0060stream_options: {\u0022include_usage\u0022: true}\u0060 in your request. When present, it contains a null value except for the last chunk which contains the token usage statistics for the entire request.\n",
+        "nullable": true
       },
       "VideoGenerationOutputComposed": {
         "type": "object",
@@ -120052,7 +120056,8 @@
             "format": "uri",
             "example": "https://example.com/output.mp4"
           }
-        }
+        },
+        "nullable": true
       },
       "SshKeysAllResponseAllOf1": {
         "type": "object",
