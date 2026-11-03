@@ -2,7 +2,9 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Configs;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.ImageMessages;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Templates;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Triggers;
@@ -19,10 +21,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The auth property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth.AuthRequestBuilder Auth
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth.AuthRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The configs property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Configs.ConfigsRequestBuilder Configs
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Configs.ConfigsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The imageMessages property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.ImageMessages.ImageMessagesRequestBuilder ImageMessages
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.ImageMessages.ImageMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sessions property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.SessionsRequestBuilder Sessions

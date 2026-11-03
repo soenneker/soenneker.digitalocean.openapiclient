@@ -4,10 +4,12 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Cancel;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoints;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Events;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Fork;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Hitl;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.ImageMessages;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Ingress;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Input;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Pause;
@@ -28,6 +30,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSessionItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The cancel property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Cancel.CancelRequestBuilder Cancel
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Cancel.CancelRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The checkpoints property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoints.CheckpointsRequestBuilder Checkpoints
         {
@@ -47,6 +54,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Hitl.HitlRequestBuilder Hitl
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Hitl.HitlRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The imageMessages property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.ImageMessages.ImageMessagesRequestBuilder ImageMessages
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.ImageMessages.ImageMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ingress property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Ingress.IngressRequestBuilder Ingress

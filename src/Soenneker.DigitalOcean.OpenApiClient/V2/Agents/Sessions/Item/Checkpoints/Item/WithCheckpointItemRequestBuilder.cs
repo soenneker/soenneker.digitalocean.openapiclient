@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoints.Item.ImageMessages;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoints.Item.Rollback;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoin
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithCheckpointItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The imageMessages property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoints.Item.ImageMessages.ImageMessagesRequestBuilder ImageMessages
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoints.Item.ImageMessages.ImageMessagesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The rollback property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoints.Item.Rollback.RollbackRequestBuilder Rollback
         {

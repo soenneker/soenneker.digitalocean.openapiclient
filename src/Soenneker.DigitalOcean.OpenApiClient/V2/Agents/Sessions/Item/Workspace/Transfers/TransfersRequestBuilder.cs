@@ -47,7 +47,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Workspace
         {
         }
         /// <summary>
-        /// Creates an asynchronous, object-storage-backed transfer for payloads larger than the streaming path supports (&gt; ~50 MiB). Bulk bytes never traverse harness-api: the client PUTs/GETs presigned DO Spaces URLs directly.Set `direction` to `upload` or `download`.- `upload`: responds 201 with `transfer_id` + `part_size`; the client then requests per-part presigned PUT URLs, uploads them to Spaces, and calls `commit`.- `download`: responds 202 with `transfer_id`; the client polls GET until `completed` and then fetches `download_url` from Spaces.Upload and cancel currently return 501 until the sandbox backend RPCs ship; download is live.
+        /// Creates an asynchronous, object-storage-backed transfer for payloads larger than the streaming path supports (&gt; ~50 MiB). Bulk bytes never traverse harness-api: the client PUTs/GETs presigned DO Spaces URLs directly.Set `direction` to `upload` or `download`.- `upload`: responds 201 with `transfer_id` + `part_size`; the client then requests per-part presigned PUT URLs, uploads them to Spaces, and calls `commit`.- `download`: responds 202 with `transfer_id`; the client polls GET until `completed` and then fetches `download_url` from Spaces.Upload, download, and cancel are live.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.WorkspaceTransferCreated"/></returns>
         /// <param name="body">The request body</param>
@@ -96,7 +96,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Workspace
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.WorkspaceTransferCreated>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.WorkspaceTransferCreated.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates an asynchronous, object-storage-backed transfer for payloads larger than the streaming path supports (&gt; ~50 MiB). Bulk bytes never traverse harness-api: the client PUTs/GETs presigned DO Spaces URLs directly.Set `direction` to `upload` or `download`.- `upload`: responds 201 with `transfer_id` + `part_size`; the client then requests per-part presigned PUT URLs, uploads them to Spaces, and calls `commit`.- `download`: responds 202 with `transfer_id`; the client polls GET until `completed` and then fetches `download_url` from Spaces.Upload and cancel currently return 501 until the sandbox backend RPCs ship; download is live.
+        /// Creates an asynchronous, object-storage-backed transfer for payloads larger than the streaming path supports (&gt; ~50 MiB). Bulk bytes never traverse harness-api: the client PUTs/GETs presigned DO Spaces URLs directly.Set `direction` to `upload` or `download`.- `upload`: responds 201 with `transfer_id` + `part_size`; the client then requests per-part presigned PUT URLs, uploads them to Spaces, and calls `commit`.- `download`: responds 202 with `transfer_id`; the client polls GET until `completed` and then fetches `download_url` from Spaces.Upload, download, and cancel are live.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

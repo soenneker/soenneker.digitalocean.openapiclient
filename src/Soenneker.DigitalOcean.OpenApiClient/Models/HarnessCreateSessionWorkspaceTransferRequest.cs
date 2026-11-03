@@ -62,16 +62,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string Sha256 { get => _explicitNullValueSha256; set { _explicitNullValueSha256 = value; AdditionalData?.Remove("sha256"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha256"); else _explicitNullProperties?.Remove("sha256"); } }
         private string _explicitNullValueSha256 = default!;
 #endif
-        /// <summary>Optional total payload size. Validated against the maximum staged object size (50 GiB); a larger value returns 413.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SizeBytes { get => _explicitNullValueSizeBytes; set { _explicitNullValueSizeBytes = value; AdditionalData?.Remove("size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_bytes"); else _explicitNullProperties?.Remove("size_bytes"); } }
-        private string? _explicitNullValueSizeBytes = default!;
-#nullable restore
-#else
-        public string SizeBytes { get => _explicitNullValueSizeBytes; set { _explicitNullValueSizeBytes = value; AdditionalData?.Remove("size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_bytes"); else _explicitNullProperties?.Remove("size_bytes"); } }
-        private string _explicitNullValueSizeBytes = default!;
-#endif
+        /// <summary>Optional total payload size, as a JSON number. Validated against the maximum staged object size (50 GiB); a larger value returns 413.</summary>
+        public long? SizeBytes { get => _explicitNullValueSizeBytes; set { _explicitNullValueSizeBytes = value; AdditionalData?.Remove("size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size_bytes"); else _explicitNullProperties?.Remove("size_bytes"); } }
+        private long? _explicitNullValueSizeBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.HarnessCreateSessionWorkspaceTransferRequest"/> and sets the default values.
         /// </summary>
@@ -102,7 +95,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "is_archive", n => { IsArchive = n.GetBoolValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "sha256", n => { Sha256 = n.GetStringValue(); } },
-                { "size_bytes", n => { SizeBytes = n.GetStringValue(); } },
+                { "size_bytes", n => { SizeBytes = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -117,7 +110,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("is_archive", IsArchive);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("sha256", Sha256);
-            writer.WriteStringValue("size_bytes", SizeBytes);
+            writer.WriteLongValue("size_bytes", SizeBytes);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
