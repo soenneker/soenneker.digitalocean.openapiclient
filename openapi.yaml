@@ -1560,9 +1560,9 @@ tags:
       The DigitalOcean Insights API provides observability resources for
       monitoring your infrastructure, including alert rules that evaluate
       metrics, notification channels that deliver alert events, read-only
-      alert instances that record when alert rules fire, PromQL, logs, spans,
-      and traces query interfaces, and per-resource enablement of the metrics,
-      logs, and traces signals.
+      alert instances that record when alert rules fire, user-defined
+      dashboards, PromQL, logs, spans, and traces query interfaces, and
+      per-resource enablement of the metrics, logs, and traces signals.
   - name: Kubernetes
     description: >-
       [DigitalOcean
@@ -31430,6 +31430,291 @@ paths:
             curl -X DELETE \
               -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
               "https://api.digitalocean.com/v2/insights/alert-rules/a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+      security:
+        - bearer_auth:
+            - insights:delete
+  /v2/insights/dashboards:
+    get:
+      operationId: insights_list_dashboards
+      summary: List Dashboards
+      description: >
+        To list the dashboards in your team, send a GET request to
+
+        `/v2/insights/dashboards`.
+
+
+        Results are paginated with `pagination.page` and `pagination.per_page`
+
+        (default `20`, maximum `200`) and can be sorted with `pagination.sort`
+
+        (`name`, `created_at`, or `updated_at`) and `pagination.sort_direction`.
+
+        When `pagination.sort` is omitted, dashboards are ordered by
+        `created_at`
+
+        descending. When it is set, the direction defaults to `asc` unless
+
+        `pagination.sort_direction` is also given.
+      tags:
+        - Insights
+      parameters:
+        - $ref: '#/components/parameters/dashboards_page'
+        - $ref: '#/components/parameters/dashboards_per_page'
+        - $ref: '#/components/parameters/dashboards_sort'
+        - $ref: '#/components/parameters/dashboards_sort_direction'
+      responses:
+        '200':
+          $ref: '#/components/responses/list_dashboards_response'
+        '400':
+          $ref: '#/components/responses/dashboard_bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '429':
+          $ref: '#/components/responses/dashboard_too_many_requests'
+        '500':
+          $ref: '#/components/responses/dashboard_server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X GET \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              "https://api.digitalocean.com/v2/insights/dashboards?pagination.per_page=50&pagination.sort=updated_at&pagination.sort_direction=desc"
+      security:
+        - bearer_auth:
+            - insights:read
+    post:
+      operationId: insights_create_dashboard
+      summary: Create a Dashboard
+      description: >
+        To create a dashboard, send a POST request to `/v2/insights/dashboards`
+
+        with a `spec` containing the dashboard definition as a JSON document
+
+        serialized to a string.
+
+
+        The server derives the dashboard's `name` and `description` from
+
+        `spec.display.name` and `spec.display.description`. Dashboard names are
+
+        unique within a team; reusing a name returns `409`.
+
+
+        The response status is `200` and the body contains the created
+        dashboard.
+      tags:
+        - Insights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dashboard_request'
+            example:
+              spec: >-
+                {"kind":"Dashboard","apiVersion":"perses.dev/v1alpha1","spec":{"display":{"name":"Droplet
+                CPU","description":"CPU utilization across production
+                Droplets."},"duration":"1h","variables":[],"layouts":[{"kind":"Grid","spec":{"items":[{"x":0,"y":0,"width":12,"height":6,"content":{"$ref":"#/spec/panels/cpu"}}]}}],"panels":{"cpu":{"kind":"Panel","spec":{"display":{"name":"CPU
+                utilization"},"plugin":{"kind":"TimeSeriesChart","spec":{}},"queries":[{"kind":"TimeSeriesQuery","spec":{"plugin":{"kind":"MetricsTimeSeriesQuery","spec":{"metricName":"do.droplets.cpu_utilization","kind":"gauge","filters":[],"groupBy":[]}}}}]}}}}}
+      responses:
+        '200':
+          $ref: '#/components/responses/dashboard_response'
+        '400':
+          $ref: '#/components/responses/dashboard_bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '409':
+          $ref: '#/components/responses/dashboard_conflict'
+        '429':
+          $ref: '#/components/responses/dashboard_too_many_requests'
+        '500':
+          $ref: '#/components/responses/dashboard_server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X POST \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              -d '{"spec":"{\"kind\":\"Dashboard\",\"apiVersion\":\"perses.dev/v1alpha1\",\"spec\":{\"display\":{\"name\":\"Droplet CPU\",\"description\":\"CPU utilization across production Droplets.\"},\"duration\":\"1h\",\"variables\":[],\"layouts\":[{\"kind\":\"Grid\",\"spec\":{\"items\":[{\"x\":0,\"y\":0,\"width\":12,\"height\":6,\"content\":{\"$ref\":\"#/spec/panels/cpu\"}}]}}],\"panels\":{\"cpu\":{\"kind\":\"Panel\",\"spec\":{\"display\":{\"name\":\"CPU utilization\"},\"plugin\":{\"kind\":\"TimeSeriesChart\",\"spec\":{}},\"queries\":[{\"kind\":\"TimeSeriesQuery\",\"spec\":{\"plugin\":{\"kind\":\"MetricsTimeSeriesQuery\",\"spec\":{\"metricName\":\"do.droplets.cpu_utilization\",\"kind\":\"gauge\",\"filters\":[],\"groupBy\":[]}}}}]}}}}}"}' \
+              "https://api.digitalocean.com/v2/insights/dashboards"
+      security:
+        - bearer_auth:
+            - insights:create
+  /v2/insights/dashboards/schema:
+    get:
+      operationId: insights_get_dashboardSchema
+      summary: Retrieve the Dashboard Schema
+      description: >
+        To retrieve the JSON Schema that dashboard `spec` documents must
+        satisfy,
+
+        send a GET request to `/v2/insights/dashboards/schema`.
+
+
+        The response body is the JSON Schema document itself (draft 2020-12).
+        Use
+
+        it to validate a dashboard definition before sending it to the create or
+
+        update endpoints.
+      tags:
+        - Insights
+      responses:
+        '200':
+          $ref: '#/components/responses/dashboard_schema_response'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '429':
+          $ref: '#/components/responses/dashboard_too_many_requests'
+        '500':
+          $ref: '#/components/responses/dashboard_server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X GET \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              "https://api.digitalocean.com/v2/insights/dashboards/schema"
+      security:
+        - bearer_auth:
+            - insights:read
+  /v2/insights/dashboards/{uuid}:
+    get:
+      operationId: insights_get_dashboard
+      summary: Retrieve a Dashboard
+      description: |
+        To retrieve a dashboard, send a GET request to
+        `/v2/insights/dashboards/{uuid}`.
+      tags:
+        - Insights
+      parameters:
+        - $ref: '#/components/parameters/dashboard_uuid'
+      responses:
+        '200':
+          $ref: '#/components/responses/dashboard_response'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/dashboard_not_found'
+        '429':
+          $ref: '#/components/responses/dashboard_too_many_requests'
+        '500':
+          $ref: '#/components/responses/dashboard_server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X GET \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              "https://api.digitalocean.com/v2/insights/dashboards/7c9e6679-7425-40de-944b-e07fc1f90ae7"
+      security:
+        - bearer_auth:
+            - insights:read
+    put:
+      operationId: insights_update_dashboard
+      summary: Update a Dashboard
+      description: >
+        To update a dashboard, send a PUT request to
+
+        `/v2/insights/dashboards/{uuid}` with a `spec` containing the full
+
+        dashboard definition as a JSON document serialized to a string.
+
+
+        This endpoint uses replace semantics: the stored `spec` is overwritten
+        in
+
+        full and `name` and `description` are recomputed from the new
+
+        `spec.display`. Changing the name to one already used by another
+        dashboard
+
+        in your team returns `409`.
+      tags:
+        - Insights
+      parameters:
+        - $ref: '#/components/parameters/dashboard_uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dashboard_request'
+            example:
+              spec: >-
+                {"kind":"Dashboard","apiVersion":"perses.dev/v1alpha1","spec":{"display":{"name":"Droplet
+                CPU (production)","description":"CPU utilization across
+                production
+                Droplets."},"duration":"6h","variables":[],"layouts":[{"kind":"Grid","spec":{"items":[{"x":0,"y":0,"width":12,"height":6,"content":{"$ref":"#/spec/panels/cpu"}}]}}],"panels":{"cpu":{"kind":"Panel","spec":{"display":{"name":"CPU
+                utilization"},"plugin":{"kind":"TimeSeriesChart","spec":{}},"queries":[{"kind":"TimeSeriesQuery","spec":{"plugin":{"kind":"MetricsTimeSeriesQuery","spec":{"metricName":"do.droplets.cpu_utilization","kind":"gauge","filters":[],"groupBy":[]}}}}]}}}}}
+      responses:
+        '200':
+          $ref: '#/components/responses/dashboard_response'
+        '400':
+          $ref: '#/components/responses/dashboard_bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/dashboard_not_found'
+        '409':
+          $ref: '#/components/responses/dashboard_conflict'
+        '429':
+          $ref: '#/components/responses/dashboard_too_many_requests'
+        '500':
+          $ref: '#/components/responses/dashboard_server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X PUT \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              -d '{"spec":"{\"kind\":\"Dashboard\",\"apiVersion\":\"perses.dev/v1alpha1\",\"spec\":{\"display\":{\"name\":\"Droplet CPU (production)\",\"description\":\"CPU utilization across production Droplets.\"},\"duration\":\"6h\",\"variables\":[],\"layouts\":[{\"kind\":\"Grid\",\"spec\":{\"items\":[{\"x\":0,\"y\":0,\"width\":12,\"height\":6,\"content\":{\"$ref\":\"#/spec/panels/cpu\"}}]}}],\"panels\":{\"cpu\":{\"kind\":\"Panel\",\"spec\":{\"display\":{\"name\":\"CPU utilization\"},\"plugin\":{\"kind\":\"TimeSeriesChart\",\"spec\":{}},\"queries\":[{\"kind\":\"TimeSeriesQuery\",\"spec\":{\"plugin\":{\"kind\":\"MetricsTimeSeriesQuery\",\"spec\":{\"metricName\":\"do.droplets.cpu_utilization\",\"kind\":\"gauge\",\"filters\":[],\"groupBy\":[]}}}}]}}}}}"}' \
+              "https://api.digitalocean.com/v2/insights/dashboards/7c9e6679-7425-40de-944b-e07fc1f90ae7"
+      security:
+        - bearer_auth:
+            - insights:update
+    delete:
+      operationId: insights_delete_dashboard
+      summary: Delete a Dashboard
+      description: >
+        To delete a dashboard, send a DELETE request to
+
+        `/v2/insights/dashboards/{uuid}`.
+
+
+        A successful request returns `200` with an empty JSON object as the
+        body.
+      tags:
+        - Insights
+      parameters:
+        - $ref: '#/components/parameters/dashboard_uuid'
+      responses:
+        '200':
+          $ref: '#/components/responses/dashboard_deleted_response'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/dashboard_not_found'
+        '429':
+          $ref: '#/components/responses/dashboard_too_many_requests'
+        '500':
+          $ref: '#/components/responses/dashboard_server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X DELETE \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              "https://api.digitalocean.com/v2/insights/dashboards/7c9e6679-7425-40de-944b-e07fc1f90ae7"
       security:
         - bearer_auth:
             - insights:delete
@@ -66248,6 +66533,69 @@ components:
         type: string
         format: uuid
       example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+    dashboards_page:
+      in: query
+      name: pagination.page
+      required: false
+      description: Which 'page' of paginated results to return.
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+      example: 1
+    dashboards_per_page:
+      in: query
+      name: pagination.per_page
+      required: false
+      description: >-
+        Number of items returned per page. Values above `200` are rejected with
+        `400`.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 200
+        default: 20
+      example: 20
+    dashboards_sort:
+      in: query
+      name: pagination.sort
+      required: false
+      description: >-
+        Field to sort by. Matched case-insensitively. When omitted, results are
+        ordered by `created_at` descending. Any other value is rejected with
+        `400`.
+      schema:
+        type: string
+        enum:
+          - name
+          - created_at
+          - updated_at
+      example: updated_at
+    dashboards_sort_direction:
+      in: query
+      name: pagination.sort_direction
+      required: false
+      description: >-
+        Sort direction. Only applied when `pagination.sort` is set, in which
+        case it defaults to `asc`. When `pagination.sort` is omitted, results
+        are ordered by `created_at` descending regardless of this parameter.
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
+      example: desc
+    dashboard_uuid:
+      in: path
+      name: uuid
+      description: >-
+        The unique identifier of the dashboard. Unknown, deleted, or malformed
+        identifiers return `404`.
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: 7c9e6679-7425-40de-944b-e07fc1f90ae7
     notification_channel_id:
       in: path
       name: id
@@ -86577,6 +86925,167 @@ components:
                 - type: object
                   required:
                     - notification_channels
+    dashboard:
+      type: object
+      description: An Insights dashboard.
+      required:
+        - uuid
+        - spec
+        - created_at
+        - updated_at
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          readOnly: true
+          description: A unique identifier for the dashboard.
+          example: 7c9e6679-7425-40de-944b-e07fc1f90ae7
+        name:
+          type: string
+          readOnly: true
+          maxLength: 255
+          description: >-
+            The dashboard's display name. Populated by the server from
+            `spec.display.name`; it cannot be set directly. Omitted when
+            `spec.display.name` is an empty string.
+          example: Droplet CPU
+        description:
+          type: string
+          readOnly: true
+          maxLength: 1000
+          description: >-
+            The dashboard's display description. Populated by the server from
+            `spec.display.description`; it cannot be set directly. Omitted when
+            the spec has no description.
+          example: CPU utilization across production Droplets.
+        spec:
+          type: string
+          description: >-
+            The dashboard definition as a JSON document serialized to a string.
+            The document must have `kind` set to `Dashboard` and a
+            `spec.display.name` between 1 and 255 characters, which is projected
+            to `name`. An optional `spec.display.description` of up to 1000
+            characters is projected to `description`. Retrieve the full JSON
+            Schema from `GET /v2/insights/dashboards/schema`. The document is
+            returned in a normalized form: content is unchanged, but object keys
+            may be reordered and whitespace may differ from the submitted
+            string.
+          example: >-
+            {"kind": "Dashboard", "spec": {"panels": {"cpu": {"kind": "Panel",
+            "spec": {"plugin": {"kind": "TimeSeriesChart", "spec": {}},
+            "display": {"name": "CPU utilization"}, "queries": [{"kind":
+            "TimeSeriesQuery", "spec": {"plugin": {"kind":
+            "MetricsTimeSeriesQuery", "spec": {"kind": "gauge", "filters": [],
+            "groupBy": [], "metricName": "do.droplets.cpu_utilization"}}}}]}}},
+            "display": {"name": "Droplet CPU", "description": "CPU utilization
+            across production Droplets."}, "layouts": [{"kind": "Grid", "spec":
+            {"items": [{"x": 0, "y": 0, "width": 12, "height": 6, "content":
+            {"$ref": "#/spec/panels/cpu"}}]}}], "duration": "1h", "variables":
+            []}, "apiVersion": "perses.dev/v1alpha1"}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Time the dashboard was created.
+          example: '2026-10-29T10:21:44Z'
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Time the dashboard was last updated.
+          example: '2026-10-29T10:21:44Z'
+    dashboards_pagination_response:
+      type: object
+      description: Page-based pagination metadata for a dashboards list.
+      required:
+        - page
+        - per_page
+      properties:
+        page:
+          type: integer
+          description: The current page number.
+          example: 1
+        pages:
+          type: integer
+          description: The total number of pages. Omitted when there are no results.
+          example: 3
+        per_page:
+          type: integer
+          description: The number of items per page.
+          example: 20
+        total:
+          type: integer
+          description: >-
+            The total number of dashboards across all pages. Omitted when there
+            are no results.
+          example: 42
+    list_dashboards_response:
+      type: object
+      description: Response body for listing dashboards.
+      required:
+        - pagination
+      properties:
+        dashboards:
+          type: array
+          description: The requested page of dashboards. Omitted when the page is empty.
+          items:
+            $ref: '#/components/schemas/dashboard'
+        pagination:
+          $ref: '#/components/schemas/dashboards_pagination_response'
+    dashboard_error:
+      type: object
+      description: >-
+        Error body returned by the dashboards service. Unlike most DigitalOcean
+        API errors, this body carries a gRPC status code rather than an `id`
+        string.
+      required:
+        - error
+        - message
+        - code
+      properties:
+        error:
+          type: string
+          description: A human-readable description of the error. Identical to `message`.
+          example: dashboard not found
+        message:
+          type: string
+          description: A human-readable description of the error. Identical to `error`.
+          example: dashboard not found
+        code:
+          type: integer
+          description: >-
+            The gRPC status code for the error. `3` = invalid argument, `5` =
+            not found, `6` = already exists, `8` = resource exhausted, `13` =
+            internal.
+          example: 5
+        details:
+          type: array
+          description: >-
+            Additional machine-readable error details. Omitted when there are
+            none. Each entry carries an `@type` identifying its schema.
+          items:
+            type: object
+            additionalProperties: true
+    dashboard_request:
+      type: object
+      description: Request body for creating or updating a dashboard.
+      required:
+        - spec
+      properties:
+        spec:
+          type: string
+          minLength: 1
+          description: >-
+            The dashboard definition as a JSON document serialized to a string.
+            The document must have `kind` set to `Dashboard` and a
+            `spec.display.name` between 1 and 255 characters. An empty value or
+            a value that is not valid JSON is rejected with `400`. Retrieve the
+            full JSON Schema from `GET /v2/insights/dashboards/schema`.
+          example: >-
+            {"kind":"Dashboard","apiVersion":"perses.dev/v1alpha1","spec":{"display":{"name":"Droplet
+            CPU","description":"CPU utilization across production
+            Droplets."},"duration":"1h","variables":[],"layouts":[{"kind":"Grid","spec":{"items":[{"x":0,"y":0,"width":12,"height":6,"content":{"$ref":"#/spec/panels/cpu"}}]}}],"panels":{"cpu":{"kind":"Panel","spec":{"display":{"name":"CPU
+            utilization"},"plugin":{"kind":"TimeSeriesChart","spec":{}},"queries":[{"kind":"TimeSeriesQuery","spec":{"plugin":{"kind":"MetricsTimeSeriesQuery","spec":{"metricName":"do.droplets.cpu_utilization","kind":"gauge","filters":[],"groupBy":[]}}}}]}}}}}
     email_notification_config:
       type: object
       description: >
@@ -89607,6 +90116,23 @@ components:
         - region
         - version
         - node_pools
+    insights_opt_in-2:
+      type: object
+      nullable: true
+      writeOnly: true
+      description: >-
+        An object specifying the Insights telemetry that the customer opts in to
+        for the Kubernetes cluster. This is only accepted when creating a
+        cluster and is not returned in responses. If the object is omitted, or
+        if `logs` is not set, no opt-in is recorded for the cluster.
+      properties:
+        logs:
+          type: boolean
+          description: >-
+            A boolean value indicating whether the cluster's logs are sent to
+            Insights. Setting this to `false` records an explicit opt-out. When
+            omitted, no choice is recorded.
+          example: true
     cluster:
       type: object
       properties:
@@ -89835,6 +90361,8 @@ components:
           $ref: '#/components/schemas/rdma_shared_dev_plugin'
         coredns_autoscaler:
           $ref: '#/components/schemas/coredns_autoscaler'
+        insights:
+          $ref: '#/components/schemas/insights_opt_in-2'
       required:
         - name
         - region
@@ -113736,6 +114264,289 @@ components:
               status: ALERT_RULE_STATUS_ACTIVE
               created_at: '2026-09-03T10:00:00Z'
               updated_at: '2026-09-03T10:00:00Z'
+    list_dashboards_response:
+      description: A paginated list of dashboards.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/list_dashboards_response'
+          example:
+            dashboards:
+              - uuid: 7c9e6679-7425-40de-944b-e07fc1f90ae7
+                name: Droplet CPU
+                description: CPU utilization across production Droplets.
+                spec: >-
+                  {"kind": "Dashboard", "spec": {"panels": {"cpu": {"kind":
+                  "Panel", "spec": {"plugin": {"kind": "TimeSeriesChart",
+                  "spec": {}}, "display": {"name": "CPU utilization"},
+                  "queries": [{"kind": "TimeSeriesQuery", "spec": {"plugin":
+                  {"kind": "MetricsTimeSeriesQuery", "spec": {"kind": "gauge",
+                  "filters": [], "groupBy": [], "metricName":
+                  "do.droplets.cpu_utilization"}}}}]}}}, "display": {"name":
+                  "Droplet CPU", "description": "CPU utilization across
+                  production Droplets."}, "layouts": [{"kind": "Grid", "spec":
+                  {"items": [{"x": 0, "y": 0, "width": 12, "height": 6,
+                  "content": {"$ref": "#/spec/panels/cpu"}}]}}], "duration":
+                  "1h", "variables": []}, "apiVersion": "perses.dev/v1alpha1"}
+                created_at: '2026-10-29T10:21:44Z'
+                updated_at: '2026-10-29T10:21:44Z'
+              - uuid: 3f2504e0-4f89-41d3-9a0c-0305e82c3301
+                name: Load balancer traffic
+                spec: >-
+                  {"kind": "Dashboard", "spec": {"panels": {"requests": {"kind":
+                  "Panel", "spec": {"plugin": {"kind": "TimeSeriesChart",
+                  "spec": {}}, "display": {"name": "Requests per second"},
+                  "queries": [{"kind": "TimeSeriesQuery", "spec": {"plugin":
+                  {"kind": "MetricsTimeSeriesQuery", "spec": {"kind": "gauge",
+                  "filters": [], "groupBy": [], "metricName":
+                  "do.load_balancers.requests_per_second"}}}}]}}}, "display":
+                  {"name": "Load balancer traffic"}, "layouts": [{"kind":
+                  "Grid", "spec": {"items": [{"x": 0, "y": 0, "width": 12,
+                  "height": 6, "content": {"$ref":
+                  "#/spec/panels/requests"}}]}}], "duration": "6h", "variables":
+                  []}, "apiVersion": "perses.dev/v1alpha1"}
+                created_at: '2026-10-27T16:09:31Z'
+                updated_at: '2026-10-28T09:12:05Z'
+            pagination:
+              page: 1
+              pages: 1
+              per_page: 20
+              total: 2
+    dashboard_bad_request:
+      description: >-
+        The request was malformed. Causes include an empty `spec`, a `spec` that
+        is not valid JSON, a `pagination.per_page` above `200`, or an
+        unsupported `pagination.sort` or `pagination.sort_direction`.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/dashboard_error'
+          example:
+            error: spec is required
+            code: 3
+            message: spec is required
+    dashboard_too_many_requests:
+      description: >-
+        Either the API rate limit has been exceeded, or a dashboards product
+        limit was reached: the team already holds its maximum number of
+        dashboards, or the `spec` contains more panels than allowed per
+        dashboard. Rate-limit responses use the standard DigitalOcean error
+        body. Product-limit responses use the dashboards service error body; a
+        dashboard-count limit carries a `google.rpc.ErrorInfo` detail with
+        `reason` set to `dashboard_limit_reached`.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#/components/schemas/error'
+              - $ref: '#/components/schemas/dashboard_error'
+          examples:
+            rate_limited:
+              summary: API rate limit exceeded
+              value:
+                id: too_many_requests
+                message: API rate limit exceeded.
+            dashboard_limit_reached:
+              summary: Team dashboard limit reached
+              value:
+                error: >-
+                  This team has reached the limit of 50 dashboards. Delete an
+                  existing dashboard before creating another, or contact support
+                  to request a higher limit.
+                code: 8
+                message: >-
+                  This team has reached the limit of 50 dashboards. Delete an
+                  existing dashboard before creating another, or contact support
+                  to request a higher limit.
+                details:
+                  - '@type': type.googleapis.com/google.rpc.ErrorInfo
+                    reason: dashboard_limit_reached
+                    metadata:
+                      limit: '50'
+                      description: >-
+                        This team has reached the limit of 50 dashboards. Delete
+                        an existing dashboard before creating another, or
+                        contact support to request a higher limit.
+            chart_limit_reached:
+              summary: Per-dashboard chart limit reached
+              value:
+                error: >-
+                  Max number of charts reached per dashboard. Delete a chart to
+                  add another, or contact support to request a higher limit.
+                code: 8
+                message: >-
+                  Max number of charts reached per dashboard. Delete a chart to
+                  add another, or contact support to request a higher limit.
+    dashboard_server_error:
+      description: Unexpected server-side error.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/dashboard_error'
+          example:
+            error: internal error
+            code: 13
+            message: internal error
+    dashboard_response:
+      description: A single dashboard.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - dashboard
+            properties:
+              dashboard:
+                $ref: '#/components/schemas/dashboard'
+          example:
+            dashboard:
+              uuid: 7c9e6679-7425-40de-944b-e07fc1f90ae7
+              name: Droplet CPU
+              description: CPU utilization across production Droplets.
+              spec: >-
+                {"kind": "Dashboard", "spec": {"panels": {"cpu": {"kind":
+                "Panel", "spec": {"plugin": {"kind": "TimeSeriesChart", "spec":
+                {}}, "display": {"name": "CPU utilization"}, "queries":
+                [{"kind": "TimeSeriesQuery", "spec": {"plugin": {"kind":
+                "MetricsTimeSeriesQuery", "spec": {"kind": "gauge", "filters":
+                [], "groupBy": [], "metricName":
+                "do.droplets.cpu_utilization"}}}}]}}}, "display": {"name":
+                "Droplet CPU", "description": "CPU utilization across production
+                Droplets."}, "layouts": [{"kind": "Grid", "spec": {"items":
+                [{"x": 0, "y": 0, "width": 12, "height": 6, "content": {"$ref":
+                "#/spec/panels/cpu"}}]}}], "duration": "1h", "variables": []},
+                "apiVersion": "perses.dev/v1alpha1"}
+              created_at: '2026-10-29T10:21:44Z'
+              updated_at: '2026-10-29T10:21:44Z'
+    dashboard_conflict:
+      description: >-
+        Another dashboard in your team already uses the `spec.display.name` in
+        the request. Dashboard names are unique within a team.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/dashboard_error'
+          example:
+            error: dashboard name already exists
+            code: 6
+            message: dashboard name already exists
+    dashboard_schema_response:
+      description: >-
+        The JSON Schema (draft 2020-12) that dashboard `spec` documents must
+        satisfy. The response body is the schema document itself, not wrapped in
+        an object.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            type: object
+            description: A JSON Schema document.
+            additionalProperties: true
+          example:
+            $schema: https://json-schema.org/draft/2020-12/schema
+            $id: https://api.digitalocean.com/v2/insights/dashboards/schema
+            title: Dashboard
+            type: object
+            additionalProperties: false
+            required:
+              - kind
+              - spec
+            properties:
+              apiVersion:
+                const: perses.dev/v1alpha1
+              kind:
+                const: Dashboard
+              spec:
+                type: object
+                required:
+                  - display
+                  - duration
+                  - variables
+                  - layouts
+                  - panels
+    dashboard_not_found:
+      description: >-
+        No dashboard with this identifier exists in your team. Deleted
+        dashboards and dashboards owned by other teams also return this
+        response.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/dashboard_error'
+          example:
+            error: dashboard not found
+            code: 5
+            message: dashboard not found
+    dashboard_deleted_response:
+      description: The dashboard was deleted. The body is an empty JSON object.
+      headers:
+        ratelimit-limit:
+          $ref: '#/components/headers/ratelimit-limit'
+        ratelimit-remaining:
+          $ref: '#/components/headers/ratelimit-remaining'
+        ratelimit-reset:
+          $ref: '#/components/headers/ratelimit-reset'
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: false
+          example: {}
     list_notification_channels_response:
       description: A list of notification channels.
       headers:
@@ -122985,13 +123796,15 @@ components:
 
         also demonstrates setting tags, labels, auto scaling, and a maintenance
 
-        policy.
+        policy. It also opts in to sending the cluster's logs to Insights.
       value:
         name: prod-cluster-01
         region: nyc1
         version: 1.18.6-do.0
         isolated_workers: false
         gpu_operator_ready: false
+        insights:
+          logs: true
         tags:
           - production
           - web-team

@@ -37,6 +37,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("gpu_operator_ready") is { } nullNodeGpuOperatorReady && nullNodeGpuOperatorReady.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GpuOperatorReady = null;
             if (parseNode.GetChildNode("ha") is null) { _explicitNullValueHa = default!; _explicitNullProperties?.Remove("ha"); }
             else if (parseNode.GetChildNode("ha") is { } nullNodeHa && nullNodeHa.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ha = null;
+            if (parseNode.GetChildNode("insights") is null) { _explicitNullValueInsights = default!; _explicitNullProperties?.Remove("insights"); }
+            else if (parseNode.GetChildNode("insights") is { } nullNodeInsights && nullNodeInsights.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Insights = null;
             if (parseNode.GetChildNode("isolated_workers") is null) { _explicitNullValueIsolatedWorkers = default!; _explicitNullProperties?.Remove("isolated_workers"); }
             else if (parseNode.GetChildNode("isolated_workers") is { } nullNodeIsolatedWorkers && nullNodeIsolatedWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsolatedWorkers = null;
             if (parseNode.GetChildNode("maintenance_policy") is null) { _explicitNullValueMaintenancePolicy = default!; _explicitNullProperties?.Remove("maintenance_policy"); }
@@ -168,6 +170,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         private bool? _explicitNullValueHa = default!;
         /// <summary>A unique ID that can be used to identify and reference a Kubernetes cluster.</summary>
         public Guid? Id { get; private set; }
+        /// <summary>An object specifying the Insights telemetry that the customer opts in to for the Kubernetes cluster. This is only accepted when creating a cluster and is not returned in responses. If the object is omitted, or if `logs` is not set, no opt-in is recorded for the cluster.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsOptIn2? Insights { get => _explicitNullValueInsights; set { _explicitNullValueInsights = value; AdditionalData?.Remove("insights"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights"); else _explicitNullProperties?.Remove("insights"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsOptIn2? _explicitNullValueInsights = default!;
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsOptIn2 Insights { get => _explicitNullValueInsights; set { _explicitNullValueInsights = value; AdditionalData?.Remove("insights"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights"); else _explicitNullProperties?.Remove("insights"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsOptIn2 _explicitNullValueInsights = default!;
+#endif
         /// <summary>The public IPv4 address of the Kubernetes master node. This will not be set if high availability is configured on the cluster (v1.21+)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -382,6 +394,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "gpu_operator_ready", n => { GpuOperatorReady = n.GetBoolValue(); } },
                 { "ha", n => { Ha = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "insights", n => { Insights = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsOptIn2>(global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsOptIn2.CreateFromDiscriminatorValue); } },
                 { "ipv4", n => { Ipv4 = n.GetStringValue(); } },
                 { "isolated_workers", n => { IsolatedWorkers = n.GetBoolValue(); } },
                 { "maintenance_policy", n => { MaintenancePolicy = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy.CreateFromDiscriminatorValue); } },
@@ -423,6 +436,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.CorednsAutoscaler>("coredns_autoscaler", CorednsAutoscaler);
             writer.WriteBoolValue("gpu_operator_ready", GpuOperatorReady);
             writer.WriteBoolValue("ha", Ha);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.InsightsOptIn2>("insights", Insights);
             writer.WriteBoolValue("isolated_workers", IsolatedWorkers);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MaintenancePolicy>("maintenance_policy", MaintenancePolicy);
             writer.WriteStringValue("name", Name);

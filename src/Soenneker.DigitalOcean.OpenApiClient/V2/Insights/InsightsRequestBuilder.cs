@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.AlertInstances;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.AlertRules;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Dashboards;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Query;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Resources;
@@ -28,6 +29,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Insights
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.AlertRules.AlertRulesRequestBuilder AlertRules
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.AlertRules.AlertRulesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dashboards property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Dashboards.DashboardsRequestBuilder Dashboards
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.Dashboards.DashboardsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The notificationChannels property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Insights.NotificationChannels.NotificationChannelsRequestBuilder NotificationChannels

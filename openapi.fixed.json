@@ -33990,6 +33990,661 @@
         ]
       }
     },
+    "/v2/insights/dashboards": {
+      "get": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "List Dashboards",
+        "description": "To list the dashboards in your team, send a GET request to\n\u0060/v2/insights/dashboards\u0060.\n\nResults are paginated with \u0060pagination.page\u0060 and \u0060pagination.per_page\u0060\n(default \u006020\u0060, maximum \u0060200\u0060) and can be sorted with \u0060pagination.sort\u0060\n(\u0060name\u0060, \u0060created_at\u0060, or \u0060updated_at\u0060) and \u0060pagination.sort_direction\u0060.\nWhen \u0060pagination.sort\u0060 is omitted, dashboards are ordered by \u0060created_at\u0060\ndescending. When it is set, the direction defaults to \u0060asc\u0060 unless\n\u0060pagination.sort_direction\u0060 is also given.\n",
+        "operationId": "InsightsListDashboards",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/dashboards_page"
+          },
+          {
+            "$ref": "#/components/parameters/dashboards_per_page"
+          },
+          {
+            "$ref": "#/components/parameters/dashboards_sort"
+          },
+          {
+            "$ref": "#/components/parameters/dashboards_sort_direction"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/list_dashboards_response"
+          },
+          "400": {
+            "$ref": "#/components/responses/dashboard_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "description": "Either the API rate limit has been exceeded, or a dashboards product limit was reached: the team already holds its maximum number of dashboards, or the \u0060spec\u0060 contains more panels than allowed per dashboard. Rate-limit responses use the standard DigitalOcean error body. Product-limit responses use the dashboards service error body; a dashboard-count limit carries a \u0060google.rpc.ErrorInfo\u0060 detail with \u0060reason\u0060 set to \u0060dashboard_limit_reached\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardTooManyRequestsResponseError"
+                },
+                "examples": {
+                  "rate_limited": {
+                    "summary": "API rate limit exceeded",
+                    "value": {
+                      "id": "too_many_requests",
+                      "message": "API rate limit exceeded."
+                    }
+                  },
+                  "dashboard_limit_reached": {
+                    "summary": "Team dashboard limit reached",
+                    "value": {
+                      "error": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "details": [
+                        {
+                          "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                          "reason": "dashboard_limit_reached",
+                          "metadata": {
+                            "limit": "50",
+                            "description": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "chart_limit_reached": {
+                    "summary": "Per-dashboard chart limit reached",
+                    "value": {
+                      "error": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/dashboard_server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/insights/dashboards?pagination.per_page=50\u0026pagination.sort=updated_at\u0026pagination.sort_direction=desc\u0022"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "Create a Dashboard",
+        "description": "To create a dashboard, send a POST request to \u0060/v2/insights/dashboards\u0060\nwith a \u0060spec\u0060 containing the dashboard definition as a JSON document\nserialized to a string.\n\nThe server derives the dashboard\u0027s \u0060name\u0060 and \u0060description\u0060 from\n\u0060spec.display.name\u0060 and \u0060spec.display.description\u0060. Dashboard names are\nunique within a team; reusing a name returns \u0060409\u0060.\n\nThe response status is \u0060200\u0060 and the body contains the created dashboard.\n",
+        "operationId": "InsightsCreateDashboard",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DashboardRequest"
+              },
+              "example": {
+                "spec": "{\u0022kind\u0022:\u0022Dashboard\u0022,\u0022apiVersion\u0022:\u0022perses.dev/v1alpha1\u0022,\u0022spec\u0022:{\u0022display\u0022:{\u0022name\u0022:\u0022Droplet CPU\u0022,\u0022description\u0022:\u0022CPU utilization across production Droplets.\u0022},\u0022duration\u0022:\u00221h\u0022,\u0022variables\u0022:[],\u0022layouts\u0022:[{\u0022kind\u0022:\u0022Grid\u0022,\u0022spec\u0022:{\u0022items\u0022:[{\u0022x\u0022:0,\u0022y\u0022:0,\u0022width\u0022:12,\u0022height\u0022:6,\u0022content\u0022:{\u0022$ref\u0022:\u0022#/spec/panels/cpu\u0022}}]}}],\u0022panels\u0022:{\u0022cpu\u0022:{\u0022kind\u0022:\u0022Panel\u0022,\u0022spec\u0022:{\u0022display\u0022:{\u0022name\u0022:\u0022CPU utilization\u0022},\u0022plugin\u0022:{\u0022kind\u0022:\u0022TimeSeriesChart\u0022,\u0022spec\u0022:{}},\u0022queries\u0022:[{\u0022kind\u0022:\u0022TimeSeriesQuery\u0022,\u0022spec\u0022:{\u0022plugin\u0022:{\u0022kind\u0022:\u0022MetricsTimeSeriesQuery\u0022,\u0022spec\u0022:{\u0022metricName\u0022:\u0022do.droplets.cpu_utilization\u0022,\u0022kind\u0022:\u0022gauge\u0022,\u0022filters\u0022:[],\u0022groupBy\u0022:[]}}}}]}}}}}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/dashboard_response"
+          },
+          "400": {
+            "$ref": "#/components/responses/dashboard_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "409": {
+            "$ref": "#/components/responses/dashboard_conflict"
+          },
+          "429": {
+            "description": "Either the API rate limit has been exceeded, or a dashboards product limit was reached: the team already holds its maximum number of dashboards, or the \u0060spec\u0060 contains more panels than allowed per dashboard. Rate-limit responses use the standard DigitalOcean error body. Product-limit responses use the dashboards service error body; a dashboard-count limit carries a \u0060google.rpc.ErrorInfo\u0060 detail with \u0060reason\u0060 set to \u0060dashboard_limit_reached\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardTooManyRequestsResponseError"
+                },
+                "examples": {
+                  "rate_limited": {
+                    "summary": "API rate limit exceeded",
+                    "value": {
+                      "id": "too_many_requests",
+                      "message": "API rate limit exceeded."
+                    }
+                  },
+                  "dashboard_limit_reached": {
+                    "summary": "Team dashboard limit reached",
+                    "value": {
+                      "error": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "details": [
+                        {
+                          "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                          "reason": "dashboard_limit_reached",
+                          "metadata": {
+                            "limit": "50",
+                            "description": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "chart_limit_reached": {
+                    "summary": "Per-dashboard chart limit reached",
+                    "value": {
+                      "error": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/dashboard_server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:create"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022spec\u0022:\u0022{\\\u0022kind\\\u0022:\\\u0022Dashboard\\\u0022,\\\u0022apiVersion\\\u0022:\\\u0022perses.dev/v1alpha1\\\u0022,\\\u0022spec\\\u0022:{\\\u0022display\\\u0022:{\\\u0022name\\\u0022:\\\u0022Droplet CPU\\\u0022,\\\u0022description\\\u0022:\\\u0022CPU utilization across production Droplets.\\\u0022},\\\u0022duration\\\u0022:\\\u00221h\\\u0022,\\\u0022variables\\\u0022:[],\\\u0022layouts\\\u0022:[{\\\u0022kind\\\u0022:\\\u0022Grid\\\u0022,\\\u0022spec\\\u0022:{\\\u0022items\\\u0022:[{\\\u0022x\\\u0022:0,\\\u0022y\\\u0022:0,\\\u0022width\\\u0022:12,\\\u0022height\\\u0022:6,\\\u0022content\\\u0022:{\\\u0022$ref\\\u0022:\\\u0022#/spec/panels/cpu\\\u0022}}]}}],\\\u0022panels\\\u0022:{\\\u0022cpu\\\u0022:{\\\u0022kind\\\u0022:\\\u0022Panel\\\u0022,\\\u0022spec\\\u0022:{\\\u0022display\\\u0022:{\\\u0022name\\\u0022:\\\u0022CPU utilization\\\u0022},\\\u0022plugin\\\u0022:{\\\u0022kind\\\u0022:\\\u0022TimeSeriesChart\\\u0022,\\\u0022spec\\\u0022:{}},\\\u0022queries\\\u0022:[{\\\u0022kind\\\u0022:\\\u0022TimeSeriesQuery\\\u0022,\\\u0022spec\\\u0022:{\\\u0022plugin\\\u0022:{\\\u0022kind\\\u0022:\\\u0022MetricsTimeSeriesQuery\\\u0022,\\\u0022spec\\\u0022:{\\\u0022metricName\\\u0022:\\\u0022do.droplets.cpu_utilization\\\u0022,\\\u0022kind\\\u0022:\\\u0022gauge\\\u0022,\\\u0022filters\\\u0022:[],\\\u0022groupBy\\\u0022:[]}}}}]}}}}}\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/insights/dashboards\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/insights/dashboards/schema": {
+      "get": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "Retrieve the Dashboard Schema",
+        "description": "To retrieve the JSON Schema that dashboard \u0060spec\u0060 documents must satisfy,\nsend a GET request to \u0060/v2/insights/dashboards/schema\u0060.\n\nThe response body is the JSON Schema document itself (draft 2020-12). Use\nit to validate a dashboard definition before sending it to the create or\nupdate endpoints.\n",
+        "operationId": "InsightsGetDashboardSchema",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/dashboard_schema_response"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "429": {
+            "description": "Either the API rate limit has been exceeded, or a dashboards product limit was reached: the team already holds its maximum number of dashboards, or the \u0060spec\u0060 contains more panels than allowed per dashboard. Rate-limit responses use the standard DigitalOcean error body. Product-limit responses use the dashboards service error body; a dashboard-count limit carries a \u0060google.rpc.ErrorInfo\u0060 detail with \u0060reason\u0060 set to \u0060dashboard_limit_reached\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardTooManyRequestsResponseError"
+                },
+                "examples": {
+                  "rate_limited": {
+                    "summary": "API rate limit exceeded",
+                    "value": {
+                      "id": "too_many_requests",
+                      "message": "API rate limit exceeded."
+                    }
+                  },
+                  "dashboard_limit_reached": {
+                    "summary": "Team dashboard limit reached",
+                    "value": {
+                      "error": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "details": [
+                        {
+                          "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                          "reason": "dashboard_limit_reached",
+                          "metadata": {
+                            "limit": "50",
+                            "description": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "chart_limit_reached": {
+                    "summary": "Per-dashboard chart limit reached",
+                    "value": {
+                      "error": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/dashboard_server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/insights/dashboards/schema\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/insights/dashboards/{uuid}": {
+      "get": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "Retrieve a Dashboard",
+        "description": "To retrieve a dashboard, send a GET request to\n\u0060/v2/insights/dashboards/{uuid}\u0060.\n",
+        "operationId": "InsightsGetDashboard",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "The unique identifier of the dashboard. Unknown, deleted, or malformed identifiers return \u0060404\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/dashboard_response"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/dashboard_not_found"
+          },
+          "429": {
+            "description": "Either the API rate limit has been exceeded, or a dashboards product limit was reached: the team already holds its maximum number of dashboards, or the \u0060spec\u0060 contains more panels than allowed per dashboard. Rate-limit responses use the standard DigitalOcean error body. Product-limit responses use the dashboards service error body; a dashboard-count limit carries a \u0060google.rpc.ErrorInfo\u0060 detail with \u0060reason\u0060 set to \u0060dashboard_limit_reached\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardTooManyRequestsResponseError"
+                },
+                "examples": {
+                  "rate_limited": {
+                    "summary": "API rate limit exceeded",
+                    "value": {
+                      "id": "too_many_requests",
+                      "message": "API rate limit exceeded."
+                    }
+                  },
+                  "dashboard_limit_reached": {
+                    "summary": "Team dashboard limit reached",
+                    "value": {
+                      "error": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "details": [
+                        {
+                          "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                          "reason": "dashboard_limit_reached",
+                          "metadata": {
+                            "limit": "50",
+                            "description": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "chart_limit_reached": {
+                    "summary": "Per-dashboard chart limit reached",
+                    "value": {
+                      "error": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/dashboard_server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/insights/dashboards/7c9e6679-7425-40de-944b-e07fc1f90ae7\u0022"
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "Update a Dashboard",
+        "description": "To update a dashboard, send a PUT request to\n\u0060/v2/insights/dashboards/{uuid}\u0060 with a \u0060spec\u0060 containing the full\ndashboard definition as a JSON document serialized to a string.\n\nThis endpoint uses replace semantics: the stored \u0060spec\u0060 is overwritten in\nfull and \u0060name\u0060 and \u0060description\u0060 are recomputed from the new\n\u0060spec.display\u0060. Changing the name to one already used by another dashboard\nin your team returns \u0060409\u0060.\n",
+        "operationId": "InsightsUpdateDashboard",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "The unique identifier of the dashboard. Unknown, deleted, or malformed identifiers return \u0060404\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DashboardRequest"
+              },
+              "example": {
+                "spec": "{\u0022kind\u0022:\u0022Dashboard\u0022,\u0022apiVersion\u0022:\u0022perses.dev/v1alpha1\u0022,\u0022spec\u0022:{\u0022display\u0022:{\u0022name\u0022:\u0022Droplet CPU (production)\u0022,\u0022description\u0022:\u0022CPU utilization across production Droplets.\u0022},\u0022duration\u0022:\u00226h\u0022,\u0022variables\u0022:[],\u0022layouts\u0022:[{\u0022kind\u0022:\u0022Grid\u0022,\u0022spec\u0022:{\u0022items\u0022:[{\u0022x\u0022:0,\u0022y\u0022:0,\u0022width\u0022:12,\u0022height\u0022:6,\u0022content\u0022:{\u0022$ref\u0022:\u0022#/spec/panels/cpu\u0022}}]}}],\u0022panels\u0022:{\u0022cpu\u0022:{\u0022kind\u0022:\u0022Panel\u0022,\u0022spec\u0022:{\u0022display\u0022:{\u0022name\u0022:\u0022CPU utilization\u0022},\u0022plugin\u0022:{\u0022kind\u0022:\u0022TimeSeriesChart\u0022,\u0022spec\u0022:{}},\u0022queries\u0022:[{\u0022kind\u0022:\u0022TimeSeriesQuery\u0022,\u0022spec\u0022:{\u0022plugin\u0022:{\u0022kind\u0022:\u0022MetricsTimeSeriesQuery\u0022,\u0022spec\u0022:{\u0022metricName\u0022:\u0022do.droplets.cpu_utilization\u0022,\u0022kind\u0022:\u0022gauge\u0022,\u0022filters\u0022:[],\u0022groupBy\u0022:[]}}}}]}}}}}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/dashboard_response"
+          },
+          "400": {
+            "$ref": "#/components/responses/dashboard_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/dashboard_not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/dashboard_conflict"
+          },
+          "429": {
+            "description": "Either the API rate limit has been exceeded, or a dashboards product limit was reached: the team already holds its maximum number of dashboards, or the \u0060spec\u0060 contains more panels than allowed per dashboard. Rate-limit responses use the standard DigitalOcean error body. Product-limit responses use the dashboards service error body; a dashboard-count limit carries a \u0060google.rpc.ErrorInfo\u0060 detail with \u0060reason\u0060 set to \u0060dashboard_limit_reached\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardTooManyRequestsResponseError"
+                },
+                "examples": {
+                  "rate_limited": {
+                    "summary": "API rate limit exceeded",
+                    "value": {
+                      "id": "too_many_requests",
+                      "message": "API rate limit exceeded."
+                    }
+                  },
+                  "dashboard_limit_reached": {
+                    "summary": "Team dashboard limit reached",
+                    "value": {
+                      "error": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "details": [
+                        {
+                          "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                          "reason": "dashboard_limit_reached",
+                          "metadata": {
+                            "limit": "50",
+                            "description": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "chart_limit_reached": {
+                    "summary": "Per-dashboard chart limit reached",
+                    "value": {
+                      "error": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/dashboard_server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X PUT \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022spec\u0022:\u0022{\\\u0022kind\\\u0022:\\\u0022Dashboard\\\u0022,\\\u0022apiVersion\\\u0022:\\\u0022perses.dev/v1alpha1\\\u0022,\\\u0022spec\\\u0022:{\\\u0022display\\\u0022:{\\\u0022name\\\u0022:\\\u0022Droplet CPU (production)\\\u0022,\\\u0022description\\\u0022:\\\u0022CPU utilization across production Droplets.\\\u0022},\\\u0022duration\\\u0022:\\\u00226h\\\u0022,\\\u0022variables\\\u0022:[],\\\u0022layouts\\\u0022:[{\\\u0022kind\\\u0022:\\\u0022Grid\\\u0022,\\\u0022spec\\\u0022:{\\\u0022items\\\u0022:[{\\\u0022x\\\u0022:0,\\\u0022y\\\u0022:0,\\\u0022width\\\u0022:12,\\\u0022height\\\u0022:6,\\\u0022content\\\u0022:{\\\u0022$ref\\\u0022:\\\u0022#/spec/panels/cpu\\\u0022}}]}}],\\\u0022panels\\\u0022:{\\\u0022cpu\\\u0022:{\\\u0022kind\\\u0022:\\\u0022Panel\\\u0022,\\\u0022spec\\\u0022:{\\\u0022display\\\u0022:{\\\u0022name\\\u0022:\\\u0022CPU utilization\\\u0022},\\\u0022plugin\\\u0022:{\\\u0022kind\\\u0022:\\\u0022TimeSeriesChart\\\u0022,\\\u0022spec\\\u0022:{}},\\\u0022queries\\\u0022:[{\\\u0022kind\\\u0022:\\\u0022TimeSeriesQuery\\\u0022,\\\u0022spec\\\u0022:{\\\u0022plugin\\\u0022:{\\\u0022kind\\\u0022:\\\u0022MetricsTimeSeriesQuery\\\u0022,\\\u0022spec\\\u0022:{\\\u0022metricName\\\u0022:\\\u0022do.droplets.cpu_utilization\\\u0022,\\\u0022kind\\\u0022:\\\u0022gauge\\\u0022,\\\u0022filters\\\u0022:[],\\\u0022groupBy\\\u0022:[]}}}}]}}}}}\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/insights/dashboards/7c9e6679-7425-40de-944b-e07fc1f90ae7\u0022"
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Insights"
+        ],
+        "summary": "Delete a Dashboard",
+        "description": "To delete a dashboard, send a DELETE request to\n\u0060/v2/insights/dashboards/{uuid}\u0060.\n\nA successful request returns \u0060200\u0060 with an empty JSON object as the body.\n",
+        "operationId": "InsightsDeleteDashboard",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "The unique identifier of the dashboard. Unknown, deleted, or malformed identifiers return \u0060404\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/dashboard_deleted_response"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/dashboard_not_found"
+          },
+          "429": {
+            "description": "Either the API rate limit has been exceeded, or a dashboards product limit was reached: the team already holds its maximum number of dashboards, or the \u0060spec\u0060 contains more panels than allowed per dashboard. Rate-limit responses use the standard DigitalOcean error body. Product-limit responses use the dashboards service error body; a dashboard-count limit carries a \u0060google.rpc.ErrorInfo\u0060 detail with \u0060reason\u0060 set to \u0060dashboard_limit_reached\u0060.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardTooManyRequestsResponseError"
+                },
+                "examples": {
+                  "rate_limited": {
+                    "summary": "API rate limit exceeded",
+                    "value": {
+                      "id": "too_many_requests",
+                      "message": "API rate limit exceeded."
+                    }
+                  },
+                  "dashboard_limit_reached": {
+                    "summary": "Team dashboard limit reached",
+                    "value": {
+                      "error": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                      "details": [
+                        {
+                          "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                          "reason": "dashboard_limit_reached",
+                          "metadata": {
+                            "limit": "50",
+                            "description": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "chart_limit_reached": {
+                    "summary": "Per-dashboard chart limit reached",
+                    "value": {
+                      "error": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit.",
+                      "code": 8,
+                      "message": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/dashboard_server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "insights:delete"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/insights/dashboards/7c9e6679-7425-40de-944b-e07fc1f90ae7\u0022"
+          }
+        ]
+      }
+    },
     "/v2/insights/notification-channels": {
       "get": {
         "tags": [
@@ -88225,6 +88880,155 @@
           }
         }
       },
+      "Dashboard": {
+        "required": [
+          "uuid",
+          "spec",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "description": "A unique identifier for the dashboard.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+          },
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "The dashboard\u0027s display name. Populated by the server from \u0060spec.display.name\u0060; it cannot be set directly. Omitted when \u0060spec.display.name\u0060 is an empty string.",
+            "readOnly": true,
+            "example": "Droplet CPU"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string",
+            "description": "The dashboard\u0027s display description. Populated by the server from \u0060spec.display.description\u0060; it cannot be set directly. Omitted when the spec has no description.",
+            "readOnly": true,
+            "example": "CPU utilization across production Droplets."
+          },
+          "spec": {
+            "type": "string",
+            "description": "The dashboard definition as a JSON document serialized to a string. The document must have \u0060kind\u0060 set to \u0060Dashboard\u0060 and a \u0060spec.display.name\u0060 between 1 and 255 characters, which is projected to \u0060name\u0060. An optional \u0060spec.display.description\u0060 of up to 1000 characters is projected to \u0060description\u0060. Retrieve the full JSON Schema from \u0060GET /v2/insights/dashboards/schema\u0060. The document is returned in a normalized form: content is unchanged, but object keys may be reordered and whitespace may differ from the submitted string.",
+            "example": "{\u0022kind\u0022: \u0022Dashboard\u0022, \u0022spec\u0022: {\u0022panels\u0022: {\u0022cpu\u0022: {\u0022kind\u0022: \u0022Panel\u0022, \u0022spec\u0022: {\u0022plugin\u0022: {\u0022kind\u0022: \u0022TimeSeriesChart\u0022, \u0022spec\u0022: {}}, \u0022display\u0022: {\u0022name\u0022: \u0022CPU utilization\u0022}, \u0022queries\u0022: [{\u0022kind\u0022: \u0022TimeSeriesQuery\u0022, \u0022spec\u0022: {\u0022plugin\u0022: {\u0022kind\u0022: \u0022MetricsTimeSeriesQuery\u0022, \u0022spec\u0022: {\u0022kind\u0022: \u0022gauge\u0022, \u0022filters\u0022: [], \u0022groupBy\u0022: [], \u0022metricName\u0022: \u0022do.droplets.cpu_utilization\u0022}}}}]}}}, \u0022display\u0022: {\u0022name\u0022: \u0022Droplet CPU\u0022, \u0022description\u0022: \u0022CPU utilization across production Droplets.\u0022}, \u0022layouts\u0022: [{\u0022kind\u0022: \u0022Grid\u0022, \u0022spec\u0022: {\u0022items\u0022: [{\u0022x\u0022: 0, \u0022y\u0022: 0, \u0022width\u0022: 12, \u0022height\u0022: 6, \u0022content\u0022: {\u0022$ref\u0022: \u0022#/spec/panels/cpu\u0022}}]}}], \u0022duration\u0022: \u00221h\u0022, \u0022variables\u0022: []}, \u0022apiVersion\u0022: \u0022perses.dev/v1alpha1\u0022}"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Time the dashboard was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-10-29T10:21:44Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Time the dashboard was last updated.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-10-29T10:21:44Z"
+          }
+        },
+        "description": "An Insights dashboard."
+      },
+      "DashboardsPaginationResponse": {
+        "required": [
+          "page",
+          "per_page"
+        ],
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "The current page number.",
+            "example": 1
+          },
+          "pages": {
+            "type": "integer",
+            "description": "The total number of pages. Omitted when there are no results.",
+            "example": 3
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "The number of items per page.",
+            "example": 20
+          },
+          "total": {
+            "type": "integer",
+            "description": "The total number of dashboards across all pages. Omitted when there are no results.",
+            "example": 42
+          }
+        },
+        "description": "Page-based pagination metadata for a dashboards list."
+      },
+      "ListDashboardsResponse": {
+        "required": [
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "dashboards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dashboard"
+            },
+            "description": "The requested page of dashboards. Omitted when the page is empty."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/DashboardsPaginationResponse"
+          }
+        },
+        "description": "Response body for listing dashboards."
+      },
+      "DashboardError": {
+        "required": [
+          "error",
+          "message",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "A human-readable description of the error. Identical to \u0060message\u0060.",
+            "example": "dashboard not found"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of the error. Identical to \u0060error\u0060.",
+            "example": "dashboard not found"
+          },
+          "code": {
+            "type": "integer",
+            "description": "The gRPC status code for the error. \u00603\u0060 = invalid argument, \u00605\u0060 = not found, \u00606\u0060 = already exists, \u00608\u0060 = resource exhausted, \u006013\u0060 = internal.",
+            "example": 5
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DashboardErrorDetailsItemProperty"
+            },
+            "description": "Additional machine-readable error details. Omitted when there are none. Each entry carries an \u0060@type\u0060 identifying its schema."
+          }
+        },
+        "description": "Error body returned by the dashboards service. Unlike most DigitalOcean API errors, this body carries a gRPC status code rather than an \u0060id\u0060 string."
+      },
+      "DashboardRequest": {
+        "required": [
+          "spec"
+        ],
+        "type": "object",
+        "properties": {
+          "spec": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The dashboard definition as a JSON document serialized to a string. The document must have \u0060kind\u0060 set to \u0060Dashboard\u0060 and a \u0060spec.display.name\u0060 between 1 and 255 characters. An empty value or a value that is not valid JSON is rejected with \u0060400\u0060. Retrieve the full JSON Schema from \u0060GET /v2/insights/dashboards/schema\u0060.",
+            "example": "{\u0022kind\u0022:\u0022Dashboard\u0022,\u0022apiVersion\u0022:\u0022perses.dev/v1alpha1\u0022,\u0022spec\u0022:{\u0022display\u0022:{\u0022name\u0022:\u0022Droplet CPU\u0022,\u0022description\u0022:\u0022CPU utilization across production Droplets.\u0022},\u0022duration\u0022:\u00221h\u0022,\u0022variables\u0022:[],\u0022layouts\u0022:[{\u0022kind\u0022:\u0022Grid\u0022,\u0022spec\u0022:{\u0022items\u0022:[{\u0022x\u0022:0,\u0022y\u0022:0,\u0022width\u0022:12,\u0022height\u0022:6,\u0022content\u0022:{\u0022$ref\u0022:\u0022#/spec/panels/cpu\u0022}}]}}],\u0022panels\u0022:{\u0022cpu\u0022:{\u0022kind\u0022:\u0022Panel\u0022,\u0022spec\u0022:{\u0022display\u0022:{\u0022name\u0022:\u0022CPU utilization\u0022},\u0022plugin\u0022:{\u0022kind\u0022:\u0022TimeSeriesChart\u0022,\u0022spec\u0022:{}},\u0022queries\u0022:[{\u0022kind\u0022:\u0022TimeSeriesQuery\u0022,\u0022spec\u0022:{\u0022plugin\u0022:{\u0022kind\u0022:\u0022MetricsTimeSeriesQuery\u0022,\u0022spec\u0022:{\u0022metricName\u0022:\u0022do.droplets.cpu_utilization\u0022,\u0022kind\u0022:\u0022gauge\u0022,\u0022filters\u0022:[],\u0022groupBy\u0022:[]}}}}]}}}}}"
+          }
+        },
+        "description": "Request body for creating or updating a dashboard."
+      },
       "EmailNotificationConfig": {
         "required": [
           "to"
@@ -90888,6 +91692,19 @@
           }
         }
       },
+      "InsightsOptIn2": {
+        "type": "object",
+        "properties": {
+          "logs": {
+            "type": "boolean",
+            "description": "A boolean value indicating whether the cluster\u0027s logs are sent to Insights. Setting this to \u0060false\u0060 records an explicit opt-out. When omitted, no choice is recorded.",
+            "example": true
+          }
+        },
+        "description": "An object specifying the Insights telemetry that the customer opts in to for the Kubernetes cluster. This is only accepted when creating a cluster and is not returned in responses. If the object is omitted, or if \u0060logs\u0060 is not set, no opt-in is recorded for the cluster.",
+        "nullable": true,
+        "writeOnly": true
+      },
       "Cluster": {
         "required": [
           "name",
@@ -91068,6 +91885,9 @@
           },
           "coredns_autoscaler": {
             "$ref": "#/components/schemas/CorednsAutoscaler"
+          },
+          "insights": {
+            "$ref": "#/components/schemas/InsightsOptIn2"
           }
         }
       },
@@ -111595,6 +112415,31 @@
           }
         }
       },
+      "DashboardTooManyRequestsResponse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Error"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardError"
+          }
+        ]
+      },
+      "DashboardResponseResponse": {
+        "required": [
+          "dashboard"
+        ],
+        "type": "object",
+        "properties": {
+          "dashboard": {
+            "$ref": "#/components/schemas/Dashboard"
+          }
+        }
+      },
+      "DashboardDeletedResponseResponse": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "ListNotificationChannelsResponseResponse": {
         "required": [
           "notification_channels",
@@ -126092,6 +126937,10 @@
         "type": "string",
         "format": "binary"
       },
+      "DashboardSchemaResponseResponseContent": {
+        "type": "object",
+        "description": "A JSON Schema document."
+      },
       "TracesBadRequestResponsePlainContent": {
         "type": "string"
       },
@@ -127155,6 +128004,9 @@
         "example": {
           "hugging_face_token": "$HF_TOKEN"
         }
+      },
+      "DashboardErrorDetailsItemProperty": {
+        "type": "object"
       },
       "WebhookNotificationConfigResponseHeadersProperty": {
         "maxProperties": 20,
@@ -138744,6 +139596,53 @@
           ]
         }
       },
+      "DashboardsSort": {
+        "enum": [
+          "name",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "DashboardsSort",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "name",
+              "name": "Name"
+            },
+            {
+              "value": "created_at",
+              "name": "CreatedAt"
+            },
+            {
+              "value": "updated_at",
+              "name": "UpdatedAt"
+            }
+          ]
+        }
+      },
+      "DashboardsSortDirection": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "DashboardsSortDirection",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
       "ResourcesSort": {
         "enum": [
           "resource_urn",
@@ -140841,6 +141740,49 @@
         },
         "x-client-original-error-schema": {
           "$ref": "#/components/schemas/HarnessGetSessionPortForward400PlainResponseSchema"
+        }
+      },
+      "DashboardTooManyRequestsResponseError": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A short identifier corresponding to the HTTP status code returned. For  example, the ID for a response returning a 404 status code would be \u0022not_found.\u0022",
+            "example": "not_found"
+          },
+          "message": {
+            "type": "string",
+            "description": "A message providing additional information about the error, including  details to help resolve it when possible.",
+            "example": "The resource you were accessing could not be found."
+          },
+          "request_id": {
+            "type": "string",
+            "description": "Optionally, some endpoints may include a request ID that should be  provided when reporting bugs or opening support tickets to help  identify the issue.",
+            "example": "4d9d8375-3c56-4925-a3e7-eb137fed17e9"
+          },
+          "error": {
+            "type": "string",
+            "description": "A human-readable description of the error. Identical to \u0060message\u0060.",
+            "example": "dashboard not found"
+          },
+          "code": {
+            "type": "integer",
+            "description": "The gRPC status code for the error. \u00603\u0060 = invalid argument, \u00605\u0060 = not found, \u00606\u0060 = already exists, \u00608\u0060 = resource exhausted, \u006013\u0060 = internal.",
+            "example": 5
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DashboardErrorDetailsItemProperty"
+            },
+            "description": "Additional machine-readable error details. Omitted when there are none. Each entry carries an \u0060@type\u0060 identifying its schema."
+          }
+        },
+        "required": [
+          "message"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/DashboardTooManyRequestsResponse"
         }
       },
       "TracesBadRequestResponsePlainContentError": {
@@ -148384,6 +149326,314 @@
           }
         }
       },
+      "list_dashboards_response": {
+        "description": "A paginated list of dashboards.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ListDashboardsResponse"
+            },
+            "example": {
+              "dashboards": [
+                {
+                  "uuid": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+                  "name": "Droplet CPU",
+                  "description": "CPU utilization across production Droplets.",
+                  "spec": "{\u0022kind\u0022: \u0022Dashboard\u0022, \u0022spec\u0022: {\u0022panels\u0022: {\u0022cpu\u0022: {\u0022kind\u0022: \u0022Panel\u0022, \u0022spec\u0022: {\u0022plugin\u0022: {\u0022kind\u0022: \u0022TimeSeriesChart\u0022, \u0022spec\u0022: {}}, \u0022display\u0022: {\u0022name\u0022: \u0022CPU utilization\u0022}, \u0022queries\u0022: [{\u0022kind\u0022: \u0022TimeSeriesQuery\u0022, \u0022spec\u0022: {\u0022plugin\u0022: {\u0022kind\u0022: \u0022MetricsTimeSeriesQuery\u0022, \u0022spec\u0022: {\u0022kind\u0022: \u0022gauge\u0022, \u0022filters\u0022: [], \u0022groupBy\u0022: [], \u0022metricName\u0022: \u0022do.droplets.cpu_utilization\u0022}}}}]}}}, \u0022display\u0022: {\u0022name\u0022: \u0022Droplet CPU\u0022, \u0022description\u0022: \u0022CPU utilization across production Droplets.\u0022}, \u0022layouts\u0022: [{\u0022kind\u0022: \u0022Grid\u0022, \u0022spec\u0022: {\u0022items\u0022: [{\u0022x\u0022: 0, \u0022y\u0022: 0, \u0022width\u0022: 12, \u0022height\u0022: 6, \u0022content\u0022: {\u0022$ref\u0022: \u0022#/spec/panels/cpu\u0022}}]}}], \u0022duration\u0022: \u00221h\u0022, \u0022variables\u0022: []}, \u0022apiVersion\u0022: \u0022perses.dev/v1alpha1\u0022}",
+                  "created_at": "2026-10-29T10:21:44Z",
+                  "updated_at": "2026-10-29T10:21:44Z"
+                },
+                {
+                  "uuid": "3f2504e0-4f89-41d3-9a0c-0305e82c3301",
+                  "name": "Load balancer traffic",
+                  "spec": "{\u0022kind\u0022: \u0022Dashboard\u0022, \u0022spec\u0022: {\u0022panels\u0022: {\u0022requests\u0022: {\u0022kind\u0022: \u0022Panel\u0022, \u0022spec\u0022: {\u0022plugin\u0022: {\u0022kind\u0022: \u0022TimeSeriesChart\u0022, \u0022spec\u0022: {}}, \u0022display\u0022: {\u0022name\u0022: \u0022Requests per second\u0022}, \u0022queries\u0022: [{\u0022kind\u0022: \u0022TimeSeriesQuery\u0022, \u0022spec\u0022: {\u0022plugin\u0022: {\u0022kind\u0022: \u0022MetricsTimeSeriesQuery\u0022, \u0022spec\u0022: {\u0022kind\u0022: \u0022gauge\u0022, \u0022filters\u0022: [], \u0022groupBy\u0022: [], \u0022metricName\u0022: \u0022do.load_balancers.requests_per_second\u0022}}}}]}}}, \u0022display\u0022: {\u0022name\u0022: \u0022Load balancer traffic\u0022}, \u0022layouts\u0022: [{\u0022kind\u0022: \u0022Grid\u0022, \u0022spec\u0022: {\u0022items\u0022: [{\u0022x\u0022: 0, \u0022y\u0022: 0, \u0022width\u0022: 12, \u0022height\u0022: 6, \u0022content\u0022: {\u0022$ref\u0022: \u0022#/spec/panels/requests\u0022}}]}}], \u0022duration\u0022: \u00226h\u0022, \u0022variables\u0022: []}, \u0022apiVersion\u0022: \u0022perses.dev/v1alpha1\u0022}",
+                  "created_at": "2026-10-27T16:09:31Z",
+                  "updated_at": "2026-10-28T09:12:05Z"
+                }
+              ],
+              "pagination": {
+                "page": 1,
+                "pages": 1,
+                "per_page": 20,
+                "total": 2
+              }
+            }
+          }
+        }
+      },
+      "dashboard_bad_request": {
+        "description": "The request was malformed. Causes include an empty \u0060spec\u0060, a \u0060spec\u0060 that is not valid JSON, a \u0060pagination.per_page\u0060 above \u0060200\u0060, or an unsupported \u0060pagination.sort\u0060 or \u0060pagination.sort_direction\u0060.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DashboardError"
+            },
+            "example": {
+              "error": "spec is required",
+              "code": 3,
+              "message": "spec is required"
+            }
+          }
+        }
+      },
+      "dashboard_too_many_requests": {
+        "description": "Either the API rate limit has been exceeded, or a dashboards product limit was reached: the team already holds its maximum number of dashboards, or the \u0060spec\u0060 contains more panels than allowed per dashboard. Rate-limit responses use the standard DigitalOcean error body. Product-limit responses use the dashboards service error body; a dashboard-count limit carries a \u0060google.rpc.ErrorInfo\u0060 detail with \u0060reason\u0060 set to \u0060dashboard_limit_reached\u0060.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DashboardTooManyRequestsResponse"
+            },
+            "examples": {
+              "rate_limited": {
+                "summary": "API rate limit exceeded",
+                "value": {
+                  "id": "too_many_requests",
+                  "message": "API rate limit exceeded."
+                }
+              },
+              "dashboard_limit_reached": {
+                "summary": "Team dashboard limit reached",
+                "value": {
+                  "error": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                  "code": 8,
+                  "message": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit.",
+                  "details": [
+                    {
+                      "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                      "reason": "dashboard_limit_reached",
+                      "metadata": {
+                        "limit": "50",
+                        "description": "This team has reached the limit of 50 dashboards. Delete an existing dashboard before creating another, or contact support to request a higher limit."
+                      }
+                    }
+                  ]
+                }
+              },
+              "chart_limit_reached": {
+                "summary": "Per-dashboard chart limit reached",
+                "value": {
+                  "error": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit.",
+                  "code": 8,
+                  "message": "Max number of charts reached per dashboard. Delete a chart to add another, or contact support to request a higher limit."
+                }
+              }
+            }
+          }
+        }
+      },
+      "dashboard_server_error": {
+        "description": "Unexpected server-side error.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DashboardError"
+            },
+            "example": {
+              "error": "internal error",
+              "code": 13,
+              "message": "internal error"
+            }
+          }
+        }
+      },
+      "dashboard_response": {
+        "description": "A single dashboard.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DashboardResponseResponse"
+            },
+            "example": {
+              "dashboard": {
+                "uuid": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+                "name": "Droplet CPU",
+                "description": "CPU utilization across production Droplets.",
+                "spec": "{\u0022kind\u0022: \u0022Dashboard\u0022, \u0022spec\u0022: {\u0022panels\u0022: {\u0022cpu\u0022: {\u0022kind\u0022: \u0022Panel\u0022, \u0022spec\u0022: {\u0022plugin\u0022: {\u0022kind\u0022: \u0022TimeSeriesChart\u0022, \u0022spec\u0022: {}}, \u0022display\u0022: {\u0022name\u0022: \u0022CPU utilization\u0022}, \u0022queries\u0022: [{\u0022kind\u0022: \u0022TimeSeriesQuery\u0022, \u0022spec\u0022: {\u0022plugin\u0022: {\u0022kind\u0022: \u0022MetricsTimeSeriesQuery\u0022, \u0022spec\u0022: {\u0022kind\u0022: \u0022gauge\u0022, \u0022filters\u0022: [], \u0022groupBy\u0022: [], \u0022metricName\u0022: \u0022do.droplets.cpu_utilization\u0022}}}}]}}}, \u0022display\u0022: {\u0022name\u0022: \u0022Droplet CPU\u0022, \u0022description\u0022: \u0022CPU utilization across production Droplets.\u0022}, \u0022layouts\u0022: [{\u0022kind\u0022: \u0022Grid\u0022, \u0022spec\u0022: {\u0022items\u0022: [{\u0022x\u0022: 0, \u0022y\u0022: 0, \u0022width\u0022: 12, \u0022height\u0022: 6, \u0022content\u0022: {\u0022$ref\u0022: \u0022#/spec/panels/cpu\u0022}}]}}], \u0022duration\u0022: \u00221h\u0022, \u0022variables\u0022: []}, \u0022apiVersion\u0022: \u0022perses.dev/v1alpha1\u0022}",
+                "created_at": "2026-10-29T10:21:44Z",
+                "updated_at": "2026-10-29T10:21:44Z"
+              }
+            }
+          }
+        }
+      },
+      "dashboard_conflict": {
+        "description": "Another dashboard in your team already uses the \u0060spec.display.name\u0060 in the request. Dashboard names are unique within a team.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DashboardError"
+            },
+            "example": {
+              "error": "dashboard name already exists",
+              "code": 6,
+              "message": "dashboard name already exists"
+            }
+          }
+        }
+      },
+      "dashboard_schema_response": {
+        "description": "The JSON Schema (draft 2020-12) that dashboard \u0060spec\u0060 documents must satisfy. The response body is the schema document itself, not wrapped in an object.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DashboardSchemaResponseResponseContent"
+            },
+            "example": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "$id": "https://api.digitalocean.com/v2/insights/dashboards/schema",
+              "title": "Dashboard",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "spec"
+              ],
+              "properties": {
+                "apiVersion": {
+                  "const": "perses.dev/v1alpha1"
+                },
+                "kind": {
+                  "const": "Dashboard"
+                },
+                "spec": {
+                  "type": "object",
+                  "required": [
+                    "display",
+                    "duration",
+                    "variables",
+                    "layouts",
+                    "panels"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "dashboard_not_found": {
+        "description": "No dashboard with this identifier exists in your team. Deleted dashboards and dashboards owned by other teams also return this response.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DashboardError"
+            },
+            "example": {
+              "error": "dashboard not found",
+              "code": 5,
+              "message": "dashboard not found"
+            }
+          }
+        }
+      },
+      "dashboard_deleted_response": {
+        "description": "The dashboard was deleted. The body is an empty JSON object.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DashboardDeletedResponseResponse"
+            }
+          }
+        }
+      },
       "list_notification_channels_response": {
         "description": "A list of notification channels.",
         "headers": {
@@ -155519,6 +156769,58 @@
         },
         "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
       },
+      "dashboards_page": {
+        "name": "pagination.page",
+        "in": "query",
+        "description": "Which \u0027page\u0027 of paginated results to return.",
+        "schema": {
+          "minimum": 1,
+          "type": "integer",
+          "default": 1
+        },
+        "example": 1
+      },
+      "dashboards_per_page": {
+        "name": "pagination.per_page",
+        "in": "query",
+        "description": "Number of items returned per page. Values above \u0060200\u0060 are rejected with \u0060400\u0060.",
+        "schema": {
+          "maximum": 200,
+          "minimum": 1,
+          "type": "integer",
+          "default": 20
+        },
+        "example": 20
+      },
+      "dashboards_sort": {
+        "name": "pagination.sort",
+        "in": "query",
+        "description": "Field to sort by. Matched case-insensitively. When omitted, results are ordered by \u0060created_at\u0060 descending. Any other value is rejected with \u0060400\u0060.",
+        "schema": {
+          "$ref": "#/components/schemas/DashboardsSort"
+        },
+        "example": "updated_at"
+      },
+      "dashboards_sort_direction": {
+        "name": "pagination.sort_direction",
+        "in": "query",
+        "description": "Sort direction. Only applied when \u0060pagination.sort\u0060 is set, in which case it defaults to \u0060asc\u0060. When \u0060pagination.sort\u0060 is omitted, results are ordered by \u0060created_at\u0060 descending regardless of this parameter.",
+        "schema": {
+          "$ref": "#/components/schemas/DashboardsSortDirection"
+        },
+        "example": "desc"
+      },
+      "dashboard_uuid": {
+        "name": "uuid",
+        "in": "path",
+        "description": "The unique identifier of the dashboard. Unknown, deleted, or malformed identifiers return \u0060404\u0060.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+      },
       "notification_channel_id": {
         "name": "id",
         "in": "path",
@@ -161331,13 +162633,16 @@
         }
       },
       "kubernetes_clusters_multi_pool_request": {
-        "description": "This example request creates a Kubernetes cluster with two node pools. It\nalso demonstrates setting tags, labels, auto scaling, and a maintenance\npolicy.\n",
+        "description": "This example request creates a Kubernetes cluster with two node pools. It\nalso demonstrates setting tags, labels, auto scaling, and a maintenance\npolicy. It also opts in to sending the cluster\u0027s logs to Insights.\n",
         "value": {
           "name": "prod-cluster-01",
           "region": "nyc1",
           "version": "1.18.6-do.0",
           "isolated_workers": false,
           "gpu_operator_ready": false,
+          "insights": {
+            "logs": true
+          },
           "tags": [
             "production",
             "web-team"
@@ -164740,7 +166045,7 @@
     },
     {
       "name": "Insights",
-      "description": "The DigitalOcean Insights API provides observability resources for\nmonitoring your infrastructure, including alert rules that evaluate\nmetrics, notification channels that deliver alert events, read-only\nalert instances that record when alert rules fire, PromQL, logs, spans,\nand traces query interfaces, and per-resource enablement of the metrics,\nlogs, and traces signals."
+      "description": "The DigitalOcean Insights API provides observability resources for\nmonitoring your infrastructure, including alert rules that evaluate\nmetrics, notification channels that deliver alert events, read-only\nalert instances that record when alert rules fire, user-defined\ndashboards, PromQL, logs, spans, and traces query interfaces, and\nper-resource enablement of the metrics, logs, and traces signals."
     },
     {
       "name": "Kubernetes",
@@ -167924,6 +169229,10 @@
       "type": "string",
       "format": "binary"
     },
+    "DashboardSchemaResponseResponse": {
+      "type": "object",
+      "description": "A JSON Schema document."
+    },
     "TracesBadRequestResponsePlain": {
       "type": "string"
     },
@@ -170312,6 +171621,9 @@
       "example": {
         "hugging_face_token": "$HF_TOKEN"
       }
+    },
+    "DashboardErrorDetailsItem": {
+      "type": "object"
     },
     "WebhookNotificationConfigResponseHeaders": {
       "maxProperties": 20,
