@@ -20,6 +20,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
     public partial class SessionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The search property</summary>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder Search
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
@@ -27,6 +28,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
         /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.sessions.item collection</summary>
         /// <param name="position">URN of the session, for example `do:managed_agent_session:&lt;uuid&gt;`.</param>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder"/></returns>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder this[string position]
         {
             get
@@ -53,7 +55,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
         {
         }
         /// <summary>
-        /// Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
+        /// Deprecated: use GET /v2/action-gateway/endpoints for endpoints. This route continues to list legacy sessions with its existing fields and pagination. Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -62,6 +64,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.SessionsRequestBuilder.SessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +85,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListSessionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.Set config.cache to opt into result caching for all eligible tools or a specific list. Caching is off by default and must be enabled for the team.
+        /// Deprecated: use POST /v2/action-gateway/endpoints. Existing sessions and their MCP URLs keep working. A new session may be created as version 1 of a new endpoint whose name is derived from the session name, with part of the session ID appended when that name is taken. The response then includes endpoint_id, endpoint_version_id, and version_number. Such a session counts against your team&apos;s endpoint limit (429 endpoint_limit_exceeded). If every derived name is already used by an endpoint in your team, the request returns 409 endpoint_name_taken. Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.Set config.cache to opt into result caching for all eligible tools or a specific list. Caching is off by default and must be enabled for the team.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse"/></returns>
         /// <param name="body">Describes a session to create.</param>
@@ -90,9 +93,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse?> PostAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -108,6 +113,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             {
                 { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -115,10 +121,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
+        /// Deprecated: use GET /v2/action-gateway/endpoints for endpoints. This route continues to list legacy sessions with its existing fields and pagination. Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.SessionsRequestBuilder.SessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -134,11 +141,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
             return requestInfo;
         }
         /// <summary>
-        /// Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.Set config.cache to opt into result caching for all eligible tools or a specific list. Caching is off by default and must be enabled for the team.
+        /// Deprecated: use POST /v2/action-gateway/endpoints. Existing sessions and their MCP URLs keep working. A new session may be created as version 1 of a new endpoint whose name is derived from the session name, with part of the session ID appended when that name is taken. The response then includes endpoint_id, endpoint_version_id, and version_number. Such a session counts against your team&apos;s endpoint limit (429 endpoint_limit_exceeded). If every derived name is already used by an endpoint in your team, the request returns 409 endpoint_name_taken. Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.Set config.cache to opt into result caching for all eligible tools or a specific list. Caching is off by default and must be enabled for the team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Describes a session to create.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -160,12 +168,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.SessionsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.SessionsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.SessionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
+        /// Deprecated: use GET /v2/action-gateway/endpoints for endpoints. This route continues to list legacy sessions with its existing fields and pagination. Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SessionsRequestBuilderGetQueryParameters 

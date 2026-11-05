@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Approvals.Item
         {
         }
         /// <summary>
-        /// Approves or denies a tool call that is waiting for approval, identifying the session with the `X-Session-Id` header. It behaves the same as `POST /approvals/session/{session_id}/{approval_id}`, which is the path returned in a result&apos;s `_meta.decide`.
+        /// Approves or denies a tool call that is waiting for approval, identifying the session with the `X-Session-Id` header or the endpoint with the `X-Endpoint-Id` header. With `X-Session-Id`, it behaves the same as `POST /approvals/session/{session_id}/{approval_id}`, which is the path returned in a result&apos;s `_meta.decide`. An unknown `X-Endpoint-Id` returns 404.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApprovalDecisionResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -77,7 +77,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Approvals.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApprovalDecisionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ApprovalDecisionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Approves or denies a tool call that is waiting for approval, identifying the session with the `X-Session-Id` header. It behaves the same as `POST /approvals/session/{session_id}/{approval_id}`, which is the path returned in a result&apos;s `_meta.decide`.
+        /// Approves or denies a tool call that is waiting for approval, identifying the session with the `X-Session-Id` header or the endpoint with the `X-Endpoint-Id` header. With `X-Session-Id`, it behaves the same as `POST /approvals/session/{session_id}/{approval_id}`, which is the path returned in a result&apos;s `_meta.decide`. An unknown `X-Endpoint-Id` returns 404.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

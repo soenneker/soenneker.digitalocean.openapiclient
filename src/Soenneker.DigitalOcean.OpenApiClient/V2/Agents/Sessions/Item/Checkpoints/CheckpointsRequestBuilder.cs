@@ -84,7 +84,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoin
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListCheckpointsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListCheckpointsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Synchronous: blocks until the capture reaches READY and returns the terminal Checkpoint — clients never see PENDING on this endpoint and need no poll loop. The checkpoint binds the machine-state capture to the event-log cursor at the cut, so it can later seed forks (POST .../fork) and rollback. Checkpoints are taken between turns; a session with an active turn in flight returns 409.
+        /// Synchronous: blocks until the capture reaches READY and returns the terminal Checkpoint — clients never see PENDING on this endpoint and need no poll loop. The checkpoint binds the machine-state capture to the event-log cursor at the cut, so it can later seed forks (POST .../fork) and rollback. Checkpoints are taken between turns; a session with an active turn in flight returns 409. A checkpoint captures machine state only: the files of a persistent workspace the session has are not in it, and are saved by the workspace itself.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateCheckpointResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -146,7 +146,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item.Checkpoin
             return requestInfo;
         }
         /// <summary>
-        /// Synchronous: blocks until the capture reaches READY and returns the terminal Checkpoint — clients never see PENDING on this endpoint and need no poll loop. The checkpoint binds the machine-state capture to the event-log cursor at the cut, so it can later seed forks (POST .../fork) and rollback. Checkpoints are taken between turns; a session with an active turn in flight returns 409.
+        /// Synchronous: blocks until the capture reaches READY and returns the terminal Checkpoint — clients never see PENDING on this endpoint and need no poll loop. The checkpoint binds the machine-state capture to the event-log cursor at the cut, so it can later seed forks (POST .../fork) and rollback. Checkpoints are taken between turns; a session with an active turn in flight returns 409. A checkpoint captures machine state only: the files of a persistent workspace the session has are not in it, and are saved by the workspace itself.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

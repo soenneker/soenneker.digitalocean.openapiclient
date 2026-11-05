@@ -9,6 +9,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Templates;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Triggers;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.WebhookProviders;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Workspaces;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -55,6 +56,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.WebhookProviders.WebhookProvidersRequestBuilder WebhookProviders
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.WebhookProviders.WebhookProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workspaces property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Workspaces.WorkspacesRequestBuilder Workspaces
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Workspaces.WorkspacesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Agents.AgentsRequestBuilder"/> and sets the default values.

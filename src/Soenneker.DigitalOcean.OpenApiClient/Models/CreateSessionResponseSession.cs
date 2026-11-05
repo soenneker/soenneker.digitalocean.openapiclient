@@ -28,6 +28,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
             if (parseNode.GetChildNode("createdAt") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("createdAt"); }
             else if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("endpoint_id") is null) { _explicitNullValueEndpointId = default!; _explicitNullProperties?.Remove("endpoint_id"); }
+            else if (parseNode.GetChildNode("endpoint_id") is { } nullNodeEndpointId && nullNodeEndpointId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndpointId = null;
+            if (parseNode.GetChildNode("endpoint_version_id") is null) { _explicitNullValueEndpointVersionId = default!; _explicitNullProperties?.Remove("endpoint_version_id"); }
+            else if (parseNode.GetChildNode("endpoint_version_id") is { } nullNodeEndpointVersionId && nullNodeEndpointVersionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndpointVersionId = null;
             if (parseNode.GetChildNode("insights") is null) { _explicitNullValueInsights = default!; _explicitNullProperties?.Remove("insights"); }
             else if (parseNode.GetChildNode("insights") is { } nullNodeInsights && nullNodeInsights.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Insights = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
@@ -44,6 +48,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
             if (parseNode.GetChildNode("updatedAt") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updatedAt"); }
             else if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("version_number") is null) { _explicitNullValueVersionNumber = default!; _explicitNullProperties?.Remove("version_number"); }
+            else if (parseNode.GetChildNode("version_number") is { } nullNodeVersionNumber && nullNodeVersionNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionNumber = null;
         }
 
         /// <summary>Empty when the session is not bound to an actor.</summary>
@@ -91,6 +97,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>When the session was created.</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("createdAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
+        /// <summary>Public parent endpoint UUID. Absent for legacy sessions without a parent.</summary>
+        public Guid? EndpointId { get => _explicitNullValueEndpointId; set { _explicitNullValueEndpointId = value; AdditionalData?.Remove("endpoint_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint_id"); else _explicitNullProperties?.Remove("endpoint_id"); } }
+        private Guid? _explicitNullValueEndpointId = default!;
+        /// <summary>Public composite version ID. Absent for legacy sessions without a parent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EndpointVersionId { get => _explicitNullValueEndpointVersionId; set { _explicitNullValueEndpointVersionId = value; AdditionalData?.Remove("endpoint_version_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint_version_id"); else _explicitNullProperties?.Remove("endpoint_version_id"); } }
+        private string? _explicitNullValueEndpointVersionId = default!;
+#nullable restore
+#else
+        public string EndpointVersionId { get => _explicitNullValueEndpointVersionId; set { _explicitNullValueEndpointVersionId = value; AdditionalData?.Remove("endpoint_version_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint_version_id"); else _explicitNullProperties?.Remove("endpoint_version_id"); } }
+        private string _explicitNullValueEndpointVersionId = default!;
+#endif
         /// <summary>Omitted when no explicit customer Insights choice was stored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -164,6 +183,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>When the session was last modified.</summary>
         public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updatedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
+        /// <summary>Version number within the parent endpoint. Absent for legacy sessions without a parent.</summary>
+        public long? VersionNumber { get => _explicitNullValueVersionNumber; set { _explicitNullValueVersionNumber = value; AdditionalData?.Remove("version_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_number"); else _explicitNullProperties?.Remove("version_number"); } }
+        private long? _explicitNullValueVersionNumber = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.CreateSessionResponseSession"/> and sets the default values.
         /// </summary>
@@ -194,6 +216,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "agentUrn", n => { AgentUrn = n.GetStringValue(); } },
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfig.CreateFromDiscriminatorValue); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "endpoint_id", n => { EndpointId = n.GetGuidValue(); } },
+                { "endpoint_version_id", n => { EndpointVersionId = n.GetStringValue(); } },
                 { "insights", n => { Insights = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionInsightsComposed>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionInsightsComposed.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionNetworkComposed>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionNetworkComposed.CreateFromDiscriminatorValue); } },
@@ -202,6 +226,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "sessionUrn", n => { SessionUrn = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionTools>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionTools.CreateFromDiscriminatorValue); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "version_number", n => { VersionNumber = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -216,6 +241,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("agentUrn", AgentUrn);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfig>("config", Config);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteGuidValue("endpoint_id", EndpointId);
+            writer.WriteStringValue("endpoint_version_id", EndpointVersionId);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionInsightsComposed>("insights", Insights);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionNetworkComposed>("network", Network);
@@ -224,6 +251,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("sessionUrn", SessionUrn);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionTools>("tools", Tools);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
+            writer.WriteLongValue("version_number", VersionNumber);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

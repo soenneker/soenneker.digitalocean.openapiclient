@@ -36,7 +36,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.My
         /// <summary>
         /// Retrieve CPU usage (percent) for a MySQL cluster. Response is a time series of cluster-level CPU usage. Use **aggregate** to get avg, max, or min over the range.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics2"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.My
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.Mysql.Cpu_usage.Cpu_usageRequestBuilder.Cpu_usageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics2?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.Mysql.Cpu_usage.Cpu_usageRequestBuilder.Cpu_usageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.Mysql.Cpu_usage.Cpu_usageRequestBuilder.Cpu_usageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics2> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.Mysql.Cpu_usage.Cpu_usageRequestBuilder.Cpu_usageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Monitoring.Metrics.Database.My
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics2>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.Metrics2.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve CPU usage (percent) for a MySQL cluster. Response is a time series of cluster-level CPU usage. Use **aggregate** to get avg, max, or min over the range.

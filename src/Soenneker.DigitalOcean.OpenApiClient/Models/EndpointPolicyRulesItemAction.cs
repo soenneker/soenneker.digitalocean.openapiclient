@@ -3,18 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
+    /// <summary>Action when the rule matches.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum MetricsStatus
-    #pragma warning restore CS1591
+    public enum EndpointPolicyRulesItemAction
     {
-        [EnumMember(Value = "success")]
+        [EnumMember(Value = "allow")]
         #pragma warning disable CS1591
-        Success,
+        Allow,
         #pragma warning restore CS1591
-        [EnumMember(Value = "error")]
+        [EnumMember(Value = "ask")]
         #pragma warning disable CS1591
-        Error,
+        Ask,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "deny")]
+        #pragma warning disable CS1591
+        Deny,
         #pragma warning restore CS1591
     }
 }

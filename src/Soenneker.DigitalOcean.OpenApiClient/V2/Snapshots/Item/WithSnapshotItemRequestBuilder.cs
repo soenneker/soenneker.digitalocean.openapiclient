@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots.Item.Regions;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSnapshotItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The regions property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots.Item.Regions.RegionsRequestBuilder Regions
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots.Item.Regions.RegionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots.Item.WithSnapshotItemRequestBuilder"/> and sets the default values.
         /// </summary>

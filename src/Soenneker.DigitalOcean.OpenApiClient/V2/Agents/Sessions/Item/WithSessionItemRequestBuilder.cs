@@ -112,7 +112,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item
         {
         }
         /// <summary>
-        /// Persistent workspace contents are retained per tenant policy. Returns 204 No Content on success.
+        /// Persistent workspace contents are retained per tenant policy. A persistent workspace the session holds is saved and kept: it goes to `RELEASING` while the files are saved and then back to `AVAILABLE`. Creating a session on that workspace returns `409` until it is `AVAILABLE` again. Returns 204 No Content on success.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -222,7 +222,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Persistent workspace contents are retained per tenant policy. Returns 204 No Content on success.
+        /// Persistent workspace contents are retained per tenant policy. A persistent workspace the session holds is saved and kept: it goes to `RELEASING` while the files are saved and then back to `AVAILABLE`. Creating a session on that workspace returns `409` until it is `AVAILABLE` again. Returns 204 No Content on success.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

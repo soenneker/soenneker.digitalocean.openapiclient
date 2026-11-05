@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item
         {
         }
         /// <summary>
-        /// Deletes the session and its policy. Succeeds without deleting anything when the session does not exist or you cannot delete it, so repeating a delete also succeeds. A malformed `session_urn` is rejected with 400.
+        /// Deprecated: use DELETE /v2/action-gateway/endpoints/{endpoint_id} for endpoints. This route continues to accept legacy session URNs and delete legacy sessions. Deletes the session and its policy. Succeeds without deleting anything when the session does not exist or you cannot delete it, so repeating a delete also succeeds. A malformed `session_urn` is rejected with 400. When the session is a version of an endpoint, this deletes that version, and deleting the endpoint&apos;s last live version also deletes the endpoint. Deleting the last live version with DELETE /v2/action-gateway/endpoint-versions/{version_id} instead keeps the endpoint, with no live version.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionsDelete200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -45,6 +45,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionsDelete200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -67,10 +68,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionsDelete200Response>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionsDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the session and its policy. Succeeds without deleting anything when the session does not exist or you cannot delete it, so repeating a delete also succeeds. A malformed `session_urn` is rejected with 400.
+        /// Deprecated: use DELETE /v2/action-gateway/endpoints/{endpoint_id} for endpoints. This route continues to accept legacy session URNs and delete legacy sessions. Deletes the session and its policy. Succeeds without deleting anything when the session does not exist or you cannot delete it, so repeating a delete also succeeds. A malformed `session_urn` is rejected with 400. When the session is a version of an endpoint, this deletes that version, and deleting the endpoint&apos;s last live version also deletes the endpoint. Deleting the last live version with DELETE /v2/action-gateway/endpoint-versions/{version_id} instead keeps the endpoint, with no live version.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -90,6 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Item.WithSessionUrnItemRequestBuilder(rawUrl, RequestAdapter);

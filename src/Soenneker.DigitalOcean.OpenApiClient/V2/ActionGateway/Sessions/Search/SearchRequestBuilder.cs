@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search
         {
         }
         /// <summary>
-        /// Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
+        /// Deprecated: use GET /v2/action-gateway/endpoints/search for endpoints. This route continues to search legacy sessions with its existing fields and pagination. Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchSessionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -44,6 +44,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchSessionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,10 +66,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchSessionsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.SearchSessionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
+        /// Deprecated: use GET /v2/action-gateway/endpoints/search for endpoints. This route continues to search legacy sessions with its existing fields and pagination. Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -88,12 +90,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Sessions.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
+        /// Deprecated: use GET /v2/action-gateway/endpoints/search for endpoints. This route continues to search legacy sessions with its existing fields and pagination. Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 

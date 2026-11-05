@@ -26,6 +26,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
             if (parseNode.GetChildNode("resume_on_topoff") is null) { _explicitNullValueResumeOnTopoff = default!; _explicitNullProperties?.Remove("resume_on_topoff"); }
             else if (parseNode.GetChildNode("resume_on_topoff") is { } nullNodeResumeOnTopoff && nullNodeResumeOnTopoff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeOnTopoff = null;
+            if (parseNode.GetChildNode("workspace_id") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspace_id"); }
+            else if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
         }
 
         /// <summary>The config_id property</summary>
@@ -54,6 +56,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Opt the new session in to automatic resumption when the team&apos;s prepayment balance is restored. Defaults to false. Session-scoped, not config-scoped: the referenced config never confers this, so one shared config cannot enrol every session created from it. Omit to leave the default (or to let the ?resume_on_topoff= query parameter supply it).</summary>
         public bool? ResumeOnTopoff { get => _explicitNullValueResumeOnTopoff; set { _explicitNullValueResumeOnTopoff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume_on_topoff"); else _explicitNullProperties?.Remove("resume_on_topoff"); } }
         private bool? _explicitNullValueResumeOnTopoff = default!;
+        /// <summary>Optional persistent workspace to attach at create; its files are mounted at `/workspace`. The workspace must be `AVAILABLE`, otherwise the request returns 409. Accepted only in this JSON form; an environment spec that contains workspace_id is rejected with 400. Returns 403 when persistent workspaces are not enabled for the team.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
+        private string? _explicitNullValueWorkspaceId = default!;
+#nullable restore
+#else
+        public string WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
+        private string _explicitNullValueWorkspaceId = default!;
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -76,6 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "resume_on_topoff", n => { ResumeOnTopoff = n.GetBoolValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -88,7 +101,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteGuidValue("config_id", ConfigId);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("region", Region);
-            writer.WriteBoolValue("resume_on_topoff", ResumeOnTopoff);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteBoolValue("resume_on_topoff", ResumeOnTopoff);
+            writer.WriteStringValue("workspace_id", WorkspaceId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }
