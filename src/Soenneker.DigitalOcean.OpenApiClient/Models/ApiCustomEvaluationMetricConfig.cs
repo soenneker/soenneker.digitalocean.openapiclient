@@ -26,6 +26,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("requires_ground_truth") is { } nullNodeRequiresGroundTruth && nullNodeRequiresGroundTruth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiresGroundTruth = null;
             if (parseNode.GetChildNode("scoring_prompt") is null) { _explicitNullValueScoringPrompt = default!; _explicitNullProperties?.Remove("scoring_prompt"); }
             else if (parseNode.GetChildNode("scoring_prompt") is { } nullNodeScoringPrompt && nullNodeScoringPrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScoringPrompt = null;
+            if (parseNode.GetChildNode("turn_type") is null) { _explicitNullValueTurnType = default!; _explicitNullProperties?.Remove("turn_type"); }
+            else if (parseNode.GetChildNode("turn_type") is { } nullNodeTurnType && nullNodeTurnType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TurnType = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
             else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
@@ -51,6 +53,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string ScoringPrompt { get => _explicitNullValueScoringPrompt; set { _explicitNullValueScoringPrompt = value; AdditionalData?.Remove("scoring_prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scoring_prompt"); else _explicitNullProperties?.Remove("scoring_prompt"); } }
         private string _explicitNullValueScoringPrompt = default!;
 #endif
+        /// <summary>Whether the metric is for single-turn or multi-turn evaluations.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType? TurnType { get => _explicitNullValueTurnType; set { _explicitNullValueTurnType = value; AdditionalData?.Remove("turn_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_type"); else _explicitNullProperties?.Remove("turn_type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType? _explicitNullValueTurnType = default!;
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
@@ -83,6 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "deleted_at", n => { DeletedAt = n.GetDateTimeOffsetValue(); } },
                 { "requires_ground_truth", n => { RequiresGroundTruth = n.GetBoolValue(); } },
                 { "scoring_prompt", n => { ScoringPrompt = n.GetStringValue(); } },
+                { "turn_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTurnType = default; _explicitNullProperties?.Remove("turn_type"); AdditionalData["turn_type"] = unknown; } else { TurnType = parsed; AdditionalData.Remove("turn_type"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -97,6 +103,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("deleted_at", DeletedAt);
             writer.WriteBoolValue("requires_ground_truth", RequiresGroundTruth);
             writer.WriteStringValue("scoring_prompt", ScoringPrompt);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType>("turn_type", TurnType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

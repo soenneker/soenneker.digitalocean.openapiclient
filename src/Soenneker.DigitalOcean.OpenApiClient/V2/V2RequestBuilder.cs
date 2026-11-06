@@ -21,6 +21,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.Firewalls;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Floating_ips;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Functions;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Images;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Insights;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Kubernetes;
@@ -155,6 +156,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.GenAiRequestBuilder GenAi
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.GenAiRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The harnessRuntime property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.HarnessRuntimeRequestBuilder HarnessRuntime
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.HarnessRuntimeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The images property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Images.ImagesRequestBuilder Images

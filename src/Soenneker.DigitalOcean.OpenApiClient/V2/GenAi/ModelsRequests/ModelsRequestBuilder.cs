@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Api_keys;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Catalog;
+using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Catalog_v2;
 using Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Routers;
 using System.Collections.Generic;
 using System.IO;
@@ -29,6 +30,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Catalog.CatalogRequestBuilder Catalog
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Catalog.CatalogRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The catalog_v2 property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Catalog_v2.Catalog_v2RequestBuilder Catalog_v2
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Catalog_v2.Catalog_v2RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The routers property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.ModelsRequests.Routers.RoutersRequestBuilder Routers

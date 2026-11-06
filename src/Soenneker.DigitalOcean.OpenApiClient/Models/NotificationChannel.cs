@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.NotificationChannelChannelType? ChannelType { get; private set; }
         /// <summary>Time the notification channel was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>Email notification channel configuration. Recipients must be verified teammember email addresses.</summary>
+        /// <summary>Email notification channel configuration. Recipients must be verified emailaddresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.EmailNotificationConfig? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }

@@ -22,7 +22,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Model_evaluation_metricsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/model_evaluation_metrics", pathParameters)
+        public Model_evaluation_metricsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/model_evaluation_metrics{?turn_type*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Model_evaluation_metricsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/model_evaluation_metrics", rawUrl)
+        public Model_evaluation_metricsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/gen-ai/model_evaluation_metrics{?turn_type*}", rawUrl)
         {
         }
         /// <summary>
@@ -46,11 +46,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListModelEvaluationMetricsOutput?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListModelEvaluationMetricsOutput?> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics.Model_evaluation_metricsRequestBuilder.Model_evaluation_metricsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListModelEvaluationMetricsOutput> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiListModelEvaluationMetricsOutput> GetAsync(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics.Model_evaluation_metricsRequestBuilder.Model_evaluation_metricsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -71,11 +71,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics.Model_evaluation_metricsRequestBuilder.Model_evaluation_metricsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics.Model_evaluation_metricsRequestBuilder.Model_evaluation_metricsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -91,6 +91,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics.Model_evaluation_metricsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.GenAi.Model_evaluation_metrics.Model_evaluation_metricsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// To list all available metrics for model evaluation, send a GET request to `/v2/genai/model_evaluation_metrics`.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Model_evaluation_metricsRequestBuilderGetQueryParameters 
+        {
+            /// <summary>When set, only return metrics compatible with this turn type.</summary>
+            [QueryParameter("turn_type")]
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType? TurnType { get; set; }
         }
     }
 }

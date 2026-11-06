@@ -47,6 +47,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("range_min") is { } nullNodeRangeMin && nullNodeRangeMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RangeMin = null;
             if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
             else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("turn_type") is null) { _explicitNullValueTurnType = default!; _explicitNullProperties?.Remove("turn_type"); }
+            else if (parseNode.GetChildNode("turn_type") is { } nullNodeTurnType && nullNodeTurnType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TurnType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -131,6 +133,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Distinguishes platform catalog metrics from user-defined LLM-as-judge metrics.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricSource? _explicitNullValueSource = default!;
+        /// <summary>Whether the metric is for single-turn or multi-turn evaluations.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType? TurnType { get => _explicitNullValueTurnType; set { _explicitNullValueTurnType = value; AdditionalData?.Remove("turn_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_type"); else _explicitNullProperties?.Remove("turn_type"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType? _explicitNullValueTurnType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetric"/> and sets the default values.
         /// </summary>
@@ -171,6 +176,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "range_max", n => { RangeMax = n.GetFloatValue(); } },
                 { "range_min", n => { RangeMin = n.GetFloatValue(); } },
                 { "source", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSource = default; _explicitNullProperties?.Remove("source"); AdditionalData["source"] = unknown; } else { Source = parsed; AdditionalData.Remove("source"); } } },
+                { "turn_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTurnType = default; _explicitNullProperties?.Remove("turn_type"); AdditionalData["turn_type"] = unknown; } else { TurnType = parsed; AdditionalData.Remove("turn_type"); } } },
             };
         }
         /// <summary>
@@ -195,6 +201,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteFloatValue("range_max", RangeMax);
             writer.WriteFloatValue("range_min", RangeMin);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricSource>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricTurnType>("turn_type", TurnType);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
