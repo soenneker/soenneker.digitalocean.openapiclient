@@ -33054,14 +33054,23 @@ paths:
     post:
       operationId: insights_create_notificationChannel
       summary: Create a Notification Channel
-      description: |
+      description: >
         To create a notification channel, send a POST request to
+
         `/v2/insights/notification-channels` with a `name` and exactly one of
+
         `email`, `slack`, or `webhook`.
 
-        Email recipients must be verified addresses. Webhook URLs must
+
+        Email recipients must be team contact emails added and verified by a
+        team
+
+        owner. Webhook URLs must
+
         use HTTPS. Secret fields (`slack.webhook_url`, webhook credentials) are
+
         write-only. Subsequent reads never return secret values; they include
+
         optional `*_status` objects when a secret is configured.
       tags:
         - Insights
@@ -89715,10 +89724,12 @@ components:
     email_notification_config:
       type: object
       description: >
-        Email notification channel configuration. Recipients must be verified
-        email
+        Email notification channel configuration. Recipients must be team
+        contact
 
-        addresses.
+        emails added and verified by a team owner. They do not need to be team
+
+        members.
       required:
         - to
       properties:

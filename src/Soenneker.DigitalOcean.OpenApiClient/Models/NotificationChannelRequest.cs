@@ -30,7 +30,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Email notification channel configuration. Recipients must be verified emailaddresses.</summary>
+        /// <summary>Email notification channel configuration. Recipients must be team contactemails added and verified by a team owner. They do not need to be teammembers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.EmailNotificationConfig? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }

@@ -36601,7 +36601,7 @@
           "Insights"
         ],
         "summary": "Create a Notification Channel",
-        "description": "To create a notification channel, send a POST request to\n\u0060/v2/insights/notification-channels\u0060 with a \u0060name\u0060 and exactly one of\n\u0060email\u0060, \u0060slack\u0060, or \u0060webhook\u0060.\n\nEmail recipients must be verified addresses. Webhook URLs must\nuse HTTPS. Secret fields (\u0060slack.webhook_url\u0060, webhook credentials) are\nwrite-only. Subsequent reads never return secret values; they include\noptional \u0060*_status\u0060 objects when a secret is configured.\n",
+        "description": "To create a notification channel, send a POST request to\n\u0060/v2/insights/notification-channels\u0060 with a \u0060name\u0060 and exactly one of\n\u0060email\u0060, \u0060slack\u0060, or \u0060webhook\u0060.\n\nEmail recipients must be team contact emails added and verified by a team\nowner. Webhook URLs must\nuse HTTPS. Secret fields (\u0060slack.webhook_url\u0060, webhook credentials) are\nwrite-only. Subsequent reads never return secret values; they include\noptional \u0060*_status\u0060 objects when a secret is configured.\n",
         "operationId": "InsightsCreateNotificationChannel",
         "requestBody": {
           "content": {
@@ -92070,7 +92070,7 @@
             "example": "alerts@example.com, backup@example.com"
           }
         },
-        "description": "Email notification channel configuration. Recipients must be verified email\naddresses.\n"
+        "description": "Email notification channel configuration. Recipients must be team contact\nemails added and verified by a team owner. They do not need to be team\nmembers.\n"
       },
       "SlackNotificationConfigResponse": {
         "required": [

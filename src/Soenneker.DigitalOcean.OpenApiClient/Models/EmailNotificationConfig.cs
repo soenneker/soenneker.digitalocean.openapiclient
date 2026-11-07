@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Email notification channel configuration. Recipients must be verified emailaddresses.
+    /// Email notification channel configuration. Recipients must be team contactemails added and verified by a team owner. They do not need to be teammembers.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmailNotificationConfig : IAdditionalDataHolder, IParsable
