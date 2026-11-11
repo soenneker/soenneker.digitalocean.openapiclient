@@ -4,12 +4,14 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Access_tokens;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Checkpoints;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Console;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Exec;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Files;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Pause;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Urls;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -23,6 +25,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithMicrovmItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The access_tokens property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Access_tokens.Access_tokensRequestBuilder Access_tokens
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Access_tokens.Access_tokensRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The checkpoints property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Checkpoints.CheckpointsRequestBuilder Checkpoints
         {
@@ -52,6 +59,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume.ResumeRequestBuilder Resume
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume.ResumeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The urls property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Urls.UrlsRequestBuilder Urls
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Urls.UrlsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.WithMicrovmItemRequestBuilder"/> and sets the default values.
@@ -131,6 +143,43 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// To change a MicroVM&apos;s name or tags, send a PATCH request to`/v2/microvms/{microvm_id}`.The MicroVM must be running or paused. Omitted fields keep their currentvalue. Every other field is fixed at create; sending one (for example`size` or `region`) is rejected with a `400` status code, and changing itmeans creating a new MicroVM.`tags` replaces the whole tag set: tags not in the list are removed, and anempty list removes every tag.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse"/></returns>
+        /// <param name="body">The request body for updating a MicroVM. Set at least one field. Fields fixed at create (region, size, source, checkpoint_id, networking, vpc_uuid, http_port, http_protocol, ports, environment, auto_resume, project_id, ingress, egress_policy) are rejected.</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmError">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmError">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse?> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmError.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// To delete a MicroVM and the data on its disk, send a DELETE request to`/v2/microvms/{microvm_id}`. The MicroVM&apos;s checkpoints are not deleted.A successful request returns a `204 No Content` status code.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -166,6 +215,28 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// To change a MicroVM&apos;s name or tags, send a PATCH request to`/v2/microvms/{microvm_id}`.The MicroVM must be running or paused. Omitted fields keep their currentvalue. Every other field is fixed at create; sending one (for example`size` or `region`) is rejected with a `400` status code, and changing itmeans creating a new MicroVM.`tags` replaces the whole tag set: tags not in the list are removed, and anempty list removes every tag.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body for updating a MicroVM. Set at least one field. Fields fixed at create (region, size, source, checkpoint_id, networking, vpc_uuid, http_port, http_protocol, ports, environment, auto_resume, project_id, ingress, egress_policy) are rejected.</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

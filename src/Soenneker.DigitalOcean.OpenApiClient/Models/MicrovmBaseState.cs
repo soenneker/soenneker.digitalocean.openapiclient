@@ -5,7 +5,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>The MicroVM&apos;s current state.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum MicrovmState
+    public enum MicrovmBaseState
     {
         [EnumMember(Value = "creating")]
         #pragma warning disable CS1591

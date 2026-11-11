@@ -10360,7 +10360,7 @@
             }
           },
           "400": {
-            "description": "Invalid manifest/config JSON, incompatible credentials, or invalid query parameter.",
+            "description": "Invalid manifest/config JSON, incompatible credentials, deny-all egress (an empty allowlist) combined with URL-bound credentials, or invalid query parameter.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -42716,6 +42716,481 @@
             "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a\u0022"
           }
         ]
+      },
+      "patch": {
+        "tags": [
+          "MicroVMs [Public Preview]"
+        ],
+        "summary": "Update a MicroVM",
+        "description": "To change a MicroVM\u0027s name or tags, send a PATCH request to\n\u0060/v2/microvms/{microvm_id}\u0060.\n\nThe MicroVM must be running or paused. Omitted fields keep their current\nvalue. Every other field is fixed at create; sending one (for example\n\u0060size\u0060 or \u0060region\u0060) is rejected with a \u0060400\u0060 status code, and changing it\nmeans creating a new MicroVM.\n\n\u0060tags\u0060 replaces the whole tag set: tags not in the list are removed, and an\nempty list removes every tag.\n",
+        "operationId": "MicrovmsUpdate",
+        "parameters": [
+          {
+            "name": "microvmId",
+            "in": "path",
+            "description": "The unique ID of the MicroVM.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MicrovmUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/microvm"
+          },
+          "400": {
+            "$ref": "#/components/responses/errors_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/errors_not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/errors_conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "microvm:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X PATCH \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022name\u0022:\u0022example-microvm-2\u0022,\u0022tags\u0022:[\u0022example\u0022,\u0022prod\u0022]}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/microvms/{microvmId}/urls": {
+      "post": {
+        "tags": [
+          "MicroVMs [Public Preview]"
+        ],
+        "summary": "Add a URL to a MicroVM",
+        "description": "To add a public URL to a MicroVM, send a POST request to\n\u0060/v2/microvms/{microvm_id}/urls\u0060.\n\nThe URL routes to \u0060port\u0060, which must be one of the ports declared at create;\nthe MicroVM\u0027s port set cannot change. The call returns once the URL is\nrecorded; its \u0060status\u0060 is \u0060PENDING\u0060 until the route is published.\n\nThe MicroVM must be running or paused. A MicroVM can have at most 10 URLs,\nthe default one included.\n",
+        "operationId": "MicrovmUrLsCreate",
+        "parameters": [
+          {
+            "name": "microvmId",
+            "in": "path",
+            "description": "The unique ID of the MicroVM.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MicrovmUrlCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/microvm_url"
+          },
+          "400": {
+            "$ref": "#/components/responses/errors_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/errors_not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060url\u0060. The value will be the added URL object.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MicrovmUrlResponse"
+                },
+                "examples": {
+                  "Added URL": {
+                    "value": {
+                      "url": {
+                        "id": "3f6c1a2b-9d4e-5f70-8a1b-2c3d4e5f6a7b",
+                        "hostname": "3f6c1a2b9d4e5f70.mkc1.microvm.ondigitalocean.com",
+                        "port": 8080,
+                        "default": false,
+                        "status": "PENDING"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "microvm:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022port\u0022:8080}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a/urls\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/microvms/{microvmId}/urls/{urlId}": {
+      "delete": {
+        "tags": [
+          "MicroVMs [Public Preview]"
+        ],
+        "summary": "Remove a URL from a MicroVM",
+        "description": "To remove a public URL from a MicroVM, send a DELETE request to\n\u0060/v2/microvms/{microvm_id}/urls/{url_id}\u0060. The URL stops serving traffic.\nThe system default URL cannot be removed.\n\nA successful request returns a \u0060204 No Content\u0060 status code.\n",
+        "operationId": "MicrovmUrLsDelete",
+        "parameters": [
+          {
+            "name": "microvmId",
+            "in": "path",
+            "description": "The unique ID of the MicroVM.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          },
+          {
+            "name": "urlId",
+            "in": "path",
+            "description": "The unique ID of the URL, from the MicroVM\u0027s \u0060urls\u0060 list.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "3f6c1a2b-9d4e-5f70-8a1b-2c3d4e5f6a7b"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "400": {
+            "$ref": "#/components/responses/errors_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/errors_not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "microvm:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a/urls/3f6c1a2b-9d4e-5f70-8a1b-2c3d4e5f6a7b\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/microvms/{microvmId}/access_tokens": {
+      "post": {
+        "tags": [
+          "MicroVMs [Public Preview]"
+        ],
+        "summary": "Create an access token for a MicroVM",
+        "description": "To create an API token that grants access to the public endpoint of one\nMicroVM only, send a POST request to\n\u0060/v2/microvms/{microvm_id}/access_tokens\u0060.\n\nThe token value is returned once, in this response. Save it; list never\nreturns it. To recover a lost token, revoke it and create a new one.\n\nThe token works on every URL of the MicroVM: the default URL and any extra\nURL added with POST \u0060/v2/microvms/{microvm_id}/urls\u0060. This token does not\nrestrict team tokens: team members with \u0060microvm:access\u0060 keep their access\nto the MicroVM. A MicroVM can have at most 10 live access tokens. Deleting\nthe MicroVM revokes its tokens.\n",
+        "operationId": "MicrovmAccessTokensCreate",
+        "parameters": [
+          {
+            "name": "microvmId",
+            "in": "path",
+            "description": "The unique ID of the MicroVM.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MicrovmAccessTokenCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/access_token_created"
+          },
+          "400": {
+            "$ref": "#/components/responses/errors_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/errors_not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/errors_conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          },
+          "200": {
+            "description": "The response will be a JSON object with a key called \u0060access_token\u0060. The \u0060token\u0060 value is shown once, in this response only.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenCreatedResponse"
+                },
+                "examples": {
+                  "Created access token": {
+                    "value": {
+                      "access_token": {
+                        "id": "4f6a1c2e-9d3b-4e7a-8f10-2b5c7d9e1a33",
+                        "micro_vm_id": "01a0ef1a-d873-793d-ae6a-5dd6239be62a",
+                        "name": "alice-workspace",
+                        "created_at": "2026-10-21T14:02:11Z",
+                        "expires_at": "2026-11-20T14:02:11Z",
+                        "token": "dop_v1_2f8e1c3a9b4d6e7f8a0b1c2d3e4f5a6b7c91"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "microvm:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022name\u0022:\u0022alice-workspace\u0022,\u0022expires_in_seconds\u0022:2592000}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a/access_tokens\u0022"
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "MicroVMs [Public Preview]"
+        ],
+        "summary": "List the access tokens of a MicroVM",
+        "description": "To list the live access tokens of a MicroVM, send a GET request to\n\u0060/v2/microvms/{microvm_id}/access_tokens\u0060. Tokens are returned oldest first.\nToken values are never returned. The \u0060id\u0060 of an entry revokes the token\nwith DELETE \u0060/v2/microvms/{microvm_id}/access_tokens/{token_id}\u0060.\n",
+        "operationId": "MicrovmAccessTokensList",
+        "parameters": [
+          {
+            "name": "microvmId",
+            "in": "path",
+            "description": "The unique ID of the MicroVM.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/all_access_tokens"
+          },
+          "400": {
+            "$ref": "#/components/responses/errors_bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/errors_not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "microvm:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a/access_tokens\u0022"
+          }
+        ]
+      }
+    },
+    "/v2/microvms/{microvmId}/access_tokens/{tokenId}": {
+      "delete": {
+        "tags": [
+          "MicroVMs [Public Preview]"
+        ],
+        "summary": "Revoke an access token of a MicroVM",
+        "description": "To revoke an access token, send a DELETE request to\n\u0060/v2/microvms/{microvm_id}/access_tokens/{token_id}\u0060. The token stops\nworking at the edge right away and drops out of the list. Revoke is\npermanent; a revoked token cannot be restored.\n\nA successful request returns a \u0060204 No Content\u0060 status code.\n",
+        "operationId": "MicrovmAccessTokensDelete",
+        "parameters": [
+          {
+            "name": "microvmId",
+            "in": "path",
+            "description": "The unique ID of the MicroVM.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          },
+          {
+            "name": "tokenId",
+            "in": "path",
+            "description": "The unique ID of the access token, from the list.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "4f6a1c2e-9d3b-4e7a-8f10-2b5c7d9e1a33"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/errors_not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "microvm:update"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X DELETE \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/microvms/01a0ef1a-d873-793d-ae6a-5dd6239be62a/access_tokens/4f6a1c2e-9d3b-4e7a-8f10-2b5c7d9e1a33\u0022"
+          }
+        ]
       }
     },
     "/v2/microvms/{microvmId}/pause": {
@@ -42741,7 +43216,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/microvm"
+            "$ref": "#/components/responses/microvm_lifecycle"
           },
           "400": {
             "$ref": "#/components/responses/errors_bad_request"
@@ -42800,7 +43275,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/microvm"
+            "$ref": "#/components/responses/microvm_lifecycle"
           },
           "400": {
             "$ref": "#/components/responses/errors_bad_request"
@@ -95851,6 +96326,23 @@
         },
         "description": "What the MicroVM runs. Set exactly one of \u0060oci_ref\u0060 or \u0060checkpoint_id\u0060."
       },
+      "MicrovmEgressPolicy": {
+        "type": "object",
+        "properties": {
+          "default_action": {
+            "$ref": "#/components/schemas/MicrovmEgressPolicyDefaultAction"
+          },
+          "rules": {
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MicrovmEgressPolicyRulesItem"
+            },
+            "description": "The destinations to allow. Rules match the host only: port, path, and method are not considered, and a hostname that resolves to an IP is not matched by an \u0060ip\u0060 rule. Each rule sets exactly one of \u0060domain\u0060 or \u0060ip\u0060."
+          }
+        },
+        "description": "An outbound allow list. A destination that matches any rule is allowed; \u0060default_action\u0060 decides every other destination. Only valid with \u0060public\u0060 networking, and fixed at create: there is no way to change it later. With a policy set, direct connections out of the MicroVM are dropped; only HTTP and HTTPS through the platform proxy to the allowed destinations works, so clients must honor the injected \u0060HTTP_PROXY\u0060 / \u0060HTTPS_PROXY\u0060 environment. The registries needed to pull the workload image are allowed automatically. On a MicroVM this is the policy set at create, exactly as supplied. On a checkpoint it is the policy a restored MicroVM inherits; a restore cannot change it. Omitted when egress is unrestricted."
+      },
       "MicrovmAutoPause": {
         "type": "object",
         "properties": {
@@ -95870,6 +96362,13 @@
       "MicrovmUrl": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the URL. Use it to remove the URL with DELETE \u0060/v2/microvms/{microvm_id}/urls/{url_id}\u0060.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "3f6c1a2b-9d4e-5f70-8a1b-2c3d4e5f6a7b"
+          },
           "hostname": {
             "type": "string",
             "description": "The endpoint\u0027s hostname. Empty until provisioning finishes. Requests to the endpoint must include a DigitalOcean API token with the \u0060microvm:access\u0060 scope in the \u0060Authorization\u0060 header.",
@@ -95889,7 +96388,90 @@
             "$ref": "#/components/schemas/MicrovmUrlStatus"
           }
         },
-        "description": "An HTTPS endpoint for one of the MicroVM\u0027s ports."
+        "description": "An HTTPS endpoint for one of the MicroVM\u0027s ports: the system default URL minted at create, or one added with POST \u0060/v2/microvms/{microvm_id}/urls\u0060."
+      },
+      "MicrovmBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the MicroVM.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          },
+          "name": {
+            "pattern": "^[a-z0-9-]{1,63}$",
+            "type": "string",
+            "description": "The name of the MicroVM. Must be unique in the region and contain 1 to 63 lowercase letters, digits, and hyphens.",
+            "example": "example-microvm"
+          },
+          "region": {
+            "type": "string",
+            "description": "The slug of the region the MicroVM is in.",
+            "example": "mkc1"
+          },
+          "size": {
+            "$ref": "#/components/schemas/MicrovmSize"
+          },
+          "source": {
+            "$ref": "#/components/schemas/MicrovmSource"
+          },
+          "state": {
+            "$ref": "#/components/schemas/MicrovmBaseState"
+          },
+          "failure_reason": {
+            "type": "string",
+            "description": "Why the MicroVM failed. Present only when \u0060state\u0060 is \u0060failed\u0060.",
+            "readOnly": true,
+            "example": "workload container exited (code 0): exited with code 0"
+          },
+          "networking": {
+            "$ref": "#/components/schemas/MicrovmBaseNetworking"
+          },
+          "egress_policy": {
+            "$ref": "#/components/schemas/MicrovmEgressPolicy"
+          },
+          "auto_pause": {
+            "$ref": "#/components/schemas/MicrovmAutoPause"
+          },
+          "auto_resume": {
+            "type": "boolean",
+            "description": "Whether an HTTP request, command, or console session resumes the MicroVM when it is paused.",
+            "default": true,
+            "example": true
+          },
+          "http_protocol": {
+            "$ref": "#/components/schemas/MicrovmBaseHttpProtocol"
+          },
+          "ports": {
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The guest ports declared on the MicroVM, including the HTTP port. During the public preview, only the HTTP port is reachable through the MicroVM\u0027s endpoint.",
+            "example": [
+              80
+            ]
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MicrovmUrl"
+            },
+            "description": "The MicroVM\u0027s HTTPS endpoints. The entry with \u0060default\u0060 set to \u0060true\u0060 is the endpoint for the HTTP port.",
+            "readOnly": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the MicroVM was created, in ISO 8601 format.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-09-29T21:38:29Z"
+          }
+        },
+        "description": "A MicroVM without its tags. Pause and resume return this shape; read tags with GET \u0060/v2/microvms/{microvm_id}\u0060."
       },
       "Microvm": {
         "type": "object",
@@ -95919,7 +96501,7 @@
             "$ref": "#/components/schemas/MicrovmSource"
           },
           "state": {
-            "$ref": "#/components/schemas/MicrovmState"
+            "$ref": "#/components/schemas/MicrovmBaseState"
           },
           "failure_reason": {
             "type": "string",
@@ -95928,13 +96510,10 @@
             "example": "workload container exited (code 0): exited with code 0"
           },
           "networking": {
-            "$ref": "#/components/schemas/MicrovmNetworking"
+            "$ref": "#/components/schemas/MicrovmBaseNetworking"
           },
-          "vpc_uuid": {
-            "type": "string",
-            "description": "The ID of a VPC network in the same region that belongs to your team. Present only when \u0060networking\u0060 is \u0060vpc\u0060.",
-            "format": "uuid",
-            "example": "5a4981aa-9653-4bd1-bef5-d6bff52042e4"
+          "egress_policy": {
+            "$ref": "#/components/schemas/MicrovmEgressPolicy"
           },
           "auto_pause": {
             "$ref": "#/components/schemas/MicrovmAutoPause"
@@ -95946,7 +96525,7 @@
             "example": true
           },
           "http_protocol": {
-            "$ref": "#/components/schemas/MicrovmHttpProtocol"
+            "$ref": "#/components/schemas/MicrovmBaseHttpProtocol"
           },
           "ports": {
             "maxItems": 5,
@@ -95957,16 +96536,6 @@
             "description": "The guest ports declared on the MicroVM, including the HTTP port. During the public preview, only the HTTP port is reachable through the MicroVM\u0027s endpoint.",
             "example": [
               80
-            ]
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The tags applied to the MicroVM.",
-            "example": [
-              "example"
             ]
           },
           "urls": {
@@ -95983,9 +96552,24 @@
             "format": "date-time",
             "readOnly": true,
             "example": "2026-09-29T21:38:29Z"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The tags applied to the MicroVM.",
+            "example": [
+              "example"
+            ]
+          },
+          "project_id": {
+            "type": "string",
+            "description": "The project the MicroVM belongs to. Omitted when the project could not be resolved.",
+            "format": "uuid",
+            "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
           }
-        },
-        "description": "A MicroVM. All fields are set at creation. There is no update endpoint."
+        }
       },
       "MicrovmCreate": {
         "required": [
@@ -96016,9 +96600,24 @@
           },
           "vpc_uuid": {
             "type": "string",
-            "description": "The ID of a VPC network in the same region that belongs to your team. Required when \u0060networking\u0060 is \u0060vpc\u0060.",
+            "description": "The ID of a VPC network in the same region that belongs to your team. When \u0060networking\u0060 is \u0060vpc\u0060 and this is omitted, the team\u0027s default VPC is used.",
             "format": "uuid",
             "example": "5a4981aa-9653-4bd1-bef5-d6bff52042e4"
+          },
+          "egress_policy": {
+            "$ref": "#/components/schemas/MicrovmEgressPolicy"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "The project to place the MicroVM in. Omit to use the team\u0027s default project. A project that does not belong to the team is rejected.",
+            "format": "uuid",
+            "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
+          },
+          "ingress": {
+            "type": "boolean",
+            "description": "Whether to create the MicroVM with a default public URL. Defaults to \u0060true\u0060. Set to \u0060false\u0060 to create the MicroVM without one; URLs can be added later with POST \u0060/v2/microvms/{microvm_id}/urls\u0060.",
+            "default": true,
+            "example": true
           },
           "auto_pause": {
             "$ref": "#/components/schemas/MicrovmAutoPause"
@@ -96111,7 +96710,7 @@
             "items": {
               "$ref": "#/components/schemas/MicrovmOptionsFeaturesItem"
             },
-            "description": "Features and whether they are enabled for your team. \u0060exec_pty\u0060 gates \u0060exec\u0060 and \u0060console\u0060; \u0060file_transfer\u0060 gates \u0060files\u0060."
+            "description": "Features and whether they are enabled for your team. \u0060exec_pty\u0060 gates \u0060exec\u0060 and \u0060console\u0060; \u0060file_transfer\u0060 gates \u0060files\u0060; \u0060egress_policy\u0060 gates \u0060egress_policy\u0060 on create."
           }
         },
         "description": "The default region, sizes, prices, account limits, and features available to your team."
@@ -96156,6 +96755,15 @@
           "status": {
             "$ref": "#/components/schemas/Checkpoint2Status"
           },
+          "failure_reason": {
+            "type": "string",
+            "description": "Why the checkpoint failed. Present only when \u0060status\u0060 is \u0060CHECKPOINT_FAILED\u0060.",
+            "readOnly": true,
+            "example": "another checkpoint of this MicroVM is in progress; retry shortly"
+          },
+          "egress_policy": {
+            "$ref": "#/components/schemas/MicrovmEgressPolicy"
+          },
           "memory_bytes": {
             "type": "integer",
             "description": "The stored size of the checkpoint\u0027s memory, in bytes.",
@@ -96180,6 +96788,109 @@
         },
         "description": "A checkpoint of a MicroVM\u0027s memory and disk. New MicroVMs created from a checkpoint start from that state."
       },
+      "MicrovmUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "pattern": "^[a-z0-9-]{1,63}$",
+            "type": "string",
+            "description": "The new name. Must be unique in the region and contain 1 to 63 lowercase letters, digits, and hyphens.",
+            "example": "example-microvm-2"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The complete tag set. Replaces the current tags; tags not in the list are removed, and an empty list removes every tag.",
+            "example": [
+              "example",
+              "prod"
+            ]
+          }
+        },
+        "description": "The request body for updating a MicroVM. Set at least one field. Fields fixed at create (region, size, source, checkpoint_id, networking, vpc_uuid, http_port, http_protocol, ports, environment, auto_resume, project_id, ingress, egress_policy) are rejected."
+      },
+      "MicrovmUrlCreate": {
+        "type": "object",
+        "properties": {
+          "port": {
+            "maximum": 65535,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The guest port the URL routes to. Must be one of the MicroVM\u0027s \u0060ports\u0060. Defaults to the MicroVM\u0027s HTTP port when omitted.",
+            "example": 8080
+          }
+        },
+        "description": "The request body for adding a URL to a MicroVM."
+      },
+      "MicrovmAccessToken": {
+        "required": [
+          "id",
+          "micro_vm_id",
+          "name",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the access token. Use it to revoke the token with DELETE \u0060/v2/microvms/{microvm_id}/access_tokens/{token_id}\u0060.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "4f6a1c2e-9d3b-4e7a-8f10-2b5c7d9e1a33"
+          },
+          "micro_vm_id": {
+            "type": "string",
+            "description": "The MicroVM the token grants access to.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name given at create.",
+            "example": "alice-workspace"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the token was created, in ISO 8601 format.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-10-21T14:02:11Z"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "When the token expires. Absent when the token does not expire.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-11-20T14:02:11Z"
+          }
+        },
+        "description": "The metadata of one access token of a MicroVM. The token value is never on this object: it exists only in the create response."
+      },
+      "MicrovmAccessTokenCreate": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "A name for the token. Unique among the live access tokens of the MicroVM.",
+            "example": "alice-workspace"
+          },
+          "expires_in_seconds": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The lifetime of the token in seconds. Omit for a token that does not expire.",
+            "example": 2592000
+          }
+        },
+        "description": "The request body for creating an access token for a MicroVM."
+      },
       "ExecRequest": {
         "required": [
           "argv"
@@ -96202,6 +96913,9 @@
             "type": "string",
             "description": "The working directory to run the command in.",
             "example": "/usr/share/nginx/html"
+          },
+          "output_encoding": {
+            "$ref": "#/components/schemas/ExecRequestOutputEncoding"
           }
         },
         "description": "A command to run in the MicroVM\u0027s workload container. The command runs directly, not through a shell. To use pipes, redirects, or environment variables, run it with \u0060sh -c\u0060. The request body can be up to 1 MiB."
@@ -96211,13 +96925,16 @@
         "properties": {
           "stdout": {
             "type": "string",
-            "description": "The command\u0027s standard output. Bytes that are not valid UTF-8 are replaced.",
+            "description": "The command\u0027s standard output. A UTF-8 string when \u0060output_encoding\u0060 is \u0060utf-8\u0060; standard Base64 when it is \u0060base64\u0060.",
             "example": ""
           },
           "stderr": {
             "type": "string",
-            "description": "The command\u0027s standard error. Bytes that are not valid UTF-8 are replaced.",
+            "description": "The command\u0027s standard error. A UTF-8 string when \u0060output_encoding\u0060 is \u0060utf-8\u0060; standard Base64 when it is \u0060base64\u0060.",
             "example": "nginx version: nginx/1.29.1\n"
+          },
+          "output_encoding": {
+            "$ref": "#/components/schemas/ExecResponseOutputEncoding"
           },
           "exit_code": {
             "type": "integer",
@@ -116778,6 +117495,41 @@
           }
         }
       },
+      "MicrovmUrlResponse": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "$ref": "#/components/schemas/MicrovmUrl"
+          }
+        }
+      },
+      "AllAccessTokensResponse": {
+        "type": "object",
+        "properties": {
+          "access_tokens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MicrovmAccessToken"
+            }
+          }
+        }
+      },
+      "AccessTokenCreatedResponse": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "$ref": "#/components/schemas/AccessTokenCreatedResponseAccessToken"
+          }
+        }
+      },
+      "MicrovmLifecycleResponse": {
+        "type": "object",
+        "properties": {
+          "microvm": {
+            "$ref": "#/components/schemas/MicrovmBase"
+          }
+        }
+      },
       "ListAlertPolicyResponseResponse": {
         "required": [
           "policies",
@@ -124196,6 +124948,56 @@
           }
         }
       },
+      "AccessTokenCreatedResponseAccessToken": {
+        "required": [
+          "id",
+          "micro_vm_id",
+          "name",
+          "created_at",
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the access token. Use it to revoke the token with DELETE \u0060/v2/microvms/{microvm_id}/access_tokens/{token_id}\u0060.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "4f6a1c2e-9d3b-4e7a-8f10-2b5c7d9e1a33"
+          },
+          "micro_vm_id": {
+            "type": "string",
+            "description": "The MicroVM the token grants access to.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name given at create.",
+            "example": "alice-workspace"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the token was created, in ISO 8601 format.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-10-21T14:02:11Z"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "When the token expires. Absent when the token does not expire.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-11-20T14:02:11Z"
+          },
+          "token": {
+            "type": "string",
+            "description": "The token value. Use it as a bearer token against the MicroVM\u0027s endpoint. Shown once, in this response only.",
+            "example": "dop_v1_2f8e1c3a9b4d6e7f8a0b1c2d3e4f5a6b7c91"
+          }
+        }
+      },
       "AllRegistriesInfoResponseRegistriesItem": {
         "type": "object",
         "properties": {
@@ -126467,6 +127269,21 @@
         },
         "description": "An object specifying CDN configurations for a Global load balancer."
       },
+      "MicrovmEgressPolicyRulesItem": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "An exact host such as \u0060api.example.com\u0060, or a wildcard such as \u0060*.example.com\u0060.",
+            "example": "api.example.com"
+          },
+          "ip": {
+            "type": "string",
+            "description": "An exact IP address. CIDR ranges are not supported.",
+            "example": "203.0.113.5"
+          }
+        }
+      },
       "MicrovmOptionsSizesItem": {
         "type": "object",
         "properties": {
@@ -128541,7 +129358,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AgentManifestSpecSandboxEgressAllowItem"
-            }
+            },
+            "description": "Host allowlist. allow: [] with no non-empty allowIps means deny-all (flat spelling: egress: none). With a non-empty allowIps it is IP-only."
           },
           "allowIps": {
             "type": "array",
@@ -128549,7 +129367,7 @@
               "type": "string",
               "example": "example"
             },
-            "description": "Exact IPv4/IPv6 literals (not CIDRs).",
+            "description": "Exact IPv4/IPv6 literals (not CIDRs). Present-but-empty with no non-empty allow means deny-all; allow: [] with a non-empty allowIps is IP-only.",
             "example": [
               "example"
             ]
@@ -128570,7 +129388,7 @@
             "example": true
           }
         },
-        "description": "Requested egress policy (legacy envelope). unrestricted opts out of platform-default host allowlists and cannot combine with allow / allowIps / vpcUuid / subnetUuid. Absent or empty means no destination ACL (same as unrestricted). Flat authors prefer egress: unrestricted (scalar), a bare host list, or an object with allow_hosts / allow_ips / vpc_uuid / subnet_uuid. Platform host defaults are unioned only when allow names something; allowIps does not trigger that union (IP-only turns the destination ACL on without domain rules). VPC attachment is create-time immutable; ownership is verified at session create. Allowlists are a request only: the server intersects them with tenant \u002B platform policy and can only narrow them."
+        "description": "Requested egress policy (legacy envelope object). Absent means no destination ACL, same as unrestricted: true. unrestricted cannot combine with allow / allowIps / vpcUuid / subnetUuid. If allow or allowIps is present and neither list names an entry, the policy is deny-all: every outbound destination is blocked. Deny-all cannot combine with unrestricted / vpcUuid / subnetUuid, and a session that also binds URL-bound credentials is rejected with 400. If the other list names entries, only those are allowed (allow: [] with a non-empty allowIps is IP-only). A null egress, allow or allowIps is rejected with 400; omit the key instead. The flat manifest format spells these differently: egress: none (deny-all), egress: unrestricted, a bare host list (an empty list is deny-all), or an object with allow_hosts / allow_ips / vpc_uuid / subnet_uuid. Platform host defaults are unioned only when allow names something; allowIps does not trigger that union (IP-only turns the destination ACL on without domain rules). VPC attachment is create-time immutable; ownership is verified at session create. Allowlists are a request only: the server intersects them with tenant \u002B platform policy and can only narrow them."
       },
       "AgentManifestSpecToolsMcpServersItem": {
         "type": "object",
@@ -139110,6 +139928,29 @@
           ]
         }
       },
+      "MicrovmEgressPolicyDefaultAction": {
+        "enum": [
+          "deny",
+          "allow"
+        ],
+        "type": "string",
+        "description": "What to do with a destination no rule matches. \u0060deny\u0060 refuses it (an HTTP request gets a 403 and a TLS connection is closed).",
+        "example": "deny",
+        "x-ms-enum": {
+          "name": "MicrovmEgressPolicyDefaultAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deny",
+              "name": "Deny"
+            },
+            {
+              "value": "allow",
+              "name": "Allow"
+            }
+          ]
+        }
+      },
       "MicrovmUrlStatus": {
         "enum": [
           "PENDING",
@@ -139133,7 +139974,7 @@
           ]
         }
       },
-      "MicrovmState": {
+      "MicrovmBaseState": {
         "enum": [
           "creating",
           "running",
@@ -139150,7 +139991,7 @@
         "readOnly": true,
         "example": "running",
         "x-ms-enum": {
-          "name": "MicrovmState",
+          "name": "MicrovmBaseState",
           "modelAsString": false,
           "values": [
             {
@@ -139192,16 +140033,16 @@
           ]
         }
       },
-      "MicrovmNetworking": {
+      "MicrovmBaseNetworking": {
         "enum": [
           "public",
           "vpc"
         ],
         "type": "string",
-        "description": "\u0060public\u0060 sends outbound traffic through a shared NAT gateway. \u0060vpc\u0060 places the MicroVM in the VPC network set by \u0060vpc_uuid\u0060.",
+        "description": "\u0060public\u0060 sends outbound traffic through a shared NAT gateway. \u0060vpc\u0060 places the MicroVM in a VPC network. The VPC ID is not returned.",
         "example": "public",
         "x-ms-enum": {
-          "name": "MicrovmNetworking",
+          "name": "MicrovmBaseNetworking",
           "modelAsString": false,
           "values": [
             {
@@ -139215,7 +140056,7 @@
           ]
         }
       },
-      "MicrovmHttpProtocol": {
+      "MicrovmBaseHttpProtocol": {
         "enum": [
           "http",
           "http2"
@@ -139225,7 +140066,7 @@
         "nullable": true,
         "example": "http",
         "x-ms-enum": {
-          "name": "MicrovmHttpProtocol",
+          "name": "MicrovmBaseHttpProtocol",
           "modelAsString": false,
           "values": [
             {
@@ -139320,6 +140161,52 @@
             {
               "value": "CHECKPOINT_DELETED",
               "name": "CheckpointDeleted"
+            }
+          ]
+        }
+      },
+      "ExecRequestOutputEncoding": {
+        "enum": [
+          "utf-8",
+          "base64"
+        ],
+        "type": "string",
+        "description": "How \u0060stdout\u0060 and \u0060stderr\u0060 are returned. \u0060utf-8\u0060 (the default) is a JSON string; bytes that are not valid UTF-8 become U\u002BFFFD. \u0060base64\u0060 returns the exact bytes. Use \u0060base64\u0060 when the command may emit binary output.",
+        "example": "utf-8",
+        "x-ms-enum": {
+          "name": "ExecRequestOutputEncoding",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "utf-8",
+              "name": "Utf8"
+            },
+            {
+              "value": "base64",
+              "name": "Base64"
+            }
+          ]
+        }
+      },
+      "ExecResponseOutputEncoding": {
+        "enum": [
+          "utf-8",
+          "base64"
+        ],
+        "type": "string",
+        "description": "The encoding of \u0060stdout\u0060 and \u0060stderr\u0060, echoing the request\u0027s \u0060output_encoding\u0060 (or the \u0060utf-8\u0060 default).",
+        "example": "utf-8",
+        "x-ms-enum": {
+          "name": "ExecResponseOutputEncoding",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "utf-8",
+              "name": "Utf8"
+            },
+            {
+              "value": "base64",
+              "name": "Base64"
             }
           ]
         }
@@ -156507,6 +157394,197 @@
           }
         }
       },
+      "errors_conflict": {
+        "description": "The request conflicts with the resource\u0027s current state.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MicrovmError"
+            },
+            "example": {
+              "code": "CONFLICT",
+              "message": "another MicroVM in the region already has the requested name"
+            }
+          }
+        }
+      },
+      "microvm_url": {
+        "description": "The response will be a JSON object with a key called \u0060url\u0060. The value will be the added URL object.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MicrovmUrlResponse"
+            },
+            "examples": {
+              "Added URL": {
+                "value": {
+                  "url": {
+                    "id": "3f6c1a2b-9d4e-5f70-8a1b-2c3d4e5f6a7b",
+                    "hostname": "3f6c1a2b9d4e5f70.mkc1.microvm.ondigitalocean.com",
+                    "port": 8080,
+                    "default": false,
+                    "status": "PENDING"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "all_access_tokens": {
+        "description": "The response will be a JSON object with a key called \u0060access_tokens\u0060. The value will be an array of access token objects, oldest first. Token values are never returned.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AllAccessTokensResponse"
+            },
+            "examples": {
+              "Access tokens": {
+                "value": {
+                  "access_tokens": [
+                    {
+                      "id": "4f6a1c2e-9d3b-4e7a-8f10-2b5c7d9e1a33",
+                      "micro_vm_id": "01a0ef1a-d873-793d-ae6a-5dd6239be62a",
+                      "name": "alice-workspace",
+                      "created_at": "2026-10-21T14:02:11Z",
+                      "expires_at": "2026-11-20T14:02:11Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "access_token_created": {
+        "description": "The response will be a JSON object with a key called \u0060access_token\u0060. The \u0060token\u0060 value is shown once, in this response only.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AccessTokenCreatedResponse"
+            },
+            "examples": {
+              "Created access token": {
+                "value": {
+                  "access_token": {
+                    "id": "4f6a1c2e-9d3b-4e7a-8f10-2b5c7d9e1a33",
+                    "micro_vm_id": "01a0ef1a-d873-793d-ae6a-5dd6239be62a",
+                    "name": "alice-workspace",
+                    "created_at": "2026-10-21T14:02:11Z",
+                    "expires_at": "2026-11-20T14:02:11Z",
+                    "token": "dop_v1_2f8e1c3a9b4d6e7f8a0b1c2d3e4f5a6b7c91"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "microvm_lifecycle": {
+        "description": "The response will be a JSON object with a key called \u0060microvm\u0060. The value is the MicroVM after the pause or resume, without its tags; read tags with GET \u0060/v2/microvms/{microvm_id}\u0060.",
+        "headers": {
+          "ratelimit-limit": {
+            "$ref": "#/components/headers/ratelimit-limit"
+          },
+          "ratelimit-remaining": {
+            "$ref": "#/components/headers/ratelimit-remaining"
+          },
+          "ratelimit-reset": {
+            "$ref": "#/components/headers/ratelimit-reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MicrovmLifecycleResponse"
+            },
+            "examples": {
+              "Paused MicroVM": {
+                "value": {
+                  "microvm": {
+                    "id": "01a0ef1a-d873-793d-ae6a-5dd6239be62a",
+                    "name": "example-microvm",
+                    "region": "mkc1",
+                    "size": {
+                      "cpu": 1,
+                      "memory": 2048,
+                      "disk": 50
+                    },
+                    "source": {
+                      "oci_ref": "docker.io/library/nginx:latest"
+                    },
+                    "state": "paused",
+                    "networking": "public",
+                    "auto_pause": {
+                      "enabled": true,
+                      "idle_timeout": "5m0s"
+                    },
+                    "auto_resume": true,
+                    "http_protocol": "http",
+                    "ports": [
+                      80
+                    ],
+                    "urls": [
+                      {
+                        "id": "3f6c1a2b-9d4e-5f70-8a1b-2c3d4e5f6a7b",
+                        "hostname": "01a0ef1a-d873-793d-ae6a-5dd6239be62a.mkc1.microvm.ondigitalocean.com",
+                        "port": 80,
+                        "default": true,
+                        "status": "ACTIVE"
+                      }
+                    ],
+                    "created_at": "2026-09-29T21:38:29Z"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "exec": {
         "description": "The command ran. HTTP 200 is returned even when the command itself fails. Check \u0060exit_code\u0060 for the command\u0027s result.",
         "headers": {
@@ -162214,7 +163292,7 @@
       "parameters_name": {
         "name": "name",
         "in": "query",
-        "description": "Only return the MicroVM with this exact name.",
+        "description": "Only return MicroVMs whose name contains this substring (case-insensitive).",
         "schema": {
           "type": "string"
         },
@@ -162260,6 +163338,28 @@
           "format": "uuid"
         },
         "example": "01a0ef1a-d873-793d-ae6a-5dd6239be62a"
+      },
+      "url_id": {
+        "name": "url_id",
+        "in": "path",
+        "description": "The unique ID of the URL, from the MicroVM\u0027s \u0060urls\u0060 list.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "3f6c1a2b-9d4e-5f70-8a1b-2c3d4e5f6a7b"
+      },
+      "parameters_token_id": {
+        "name": "token_id",
+        "in": "path",
+        "description": "The unique ID of the access token, from the list.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "4f6a1c2e-9d3b-4e7a-8f10-2b5c7d9e1a33"
       },
       "console_rows": {
         "name": "rows",
@@ -171617,7 +172717,7 @@
     },
     {
       "name": "MicroVMs [Public Preview]",
-      "description": "[DigitalOcean MicroVMs](https://docs.digitalocean.com/products/microvms/)\nare lightweight virtual machines that run a \u0060linux/amd64\u0060 container image\nin an isolated kernel. A MicroVM pauses automatically when it is idle and\nresumes on the next HTTP request, command, or console session, with its\nmemory, files, and processes intact. By sending requests to the\n\u0060/v2/microvms\u0060 endpoints, you can create, list, pause, resume, and delete\nMicroVMs, run commands and open a console in them, upload and download\nfiles, and create checkpoints to start new MicroVMs from a saved state.\n\nEach MicroVM serves its HTTP port at\n\u0060https://{microvm_id}.{region}.microvm.ondigitalocean.com\u0060. Requests to\nthat endpoint require a token with the \u0060microvm:access\u0060 scope."
+      "description": "[DigitalOcean MicroVMs](https://docs.digitalocean.com/products/microvms/)\nare lightweight virtual machines that run a \u0060linux/amd64\u0060 container image\nin an isolated kernel. A MicroVM pauses automatically when it is idle and\nresumes on the next HTTP request, command, or console session, with its\nmemory, files, and processes intact. By sending requests to the\n\u0060/v2/microvms\u0060 endpoints, you can create, list, update, pause, resume,\nand delete MicroVMs, run commands and open a console in them, upload and\ndownload files, add and remove ingress URLs, create access tokens scoped\nto one MicroVM, and create checkpoints to start new MicroVMs from a\nsaved state.\n\nEach MicroVM serves its HTTP port at\n\u0060https://{microvm_id}.{region}.microvm.ondigitalocean.com\u0060. Requests to\nthat endpoint require a token with the \u0060microvm:access\u0060 scope."
     },
     {
       "name": "Monitoring",
@@ -175694,6 +176794,28 @@
         }
       }
     },
+    "MicrovmAllOf2": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The tags applied to the MicroVM.",
+          "example": [
+            "example"
+          ]
+        },
+        "project_id": {
+          "type": "string",
+          "description": "The project the MicroVM belongs to. Omitted when the project could not be resolved.",
+          "format": "uuid",
+          "example": "4de7ac8b-495b-4884-9a69-1050c6793cd6"
+        }
+      },
+      "description": "A MicroVM. Only its name and tags can be changed after creation, with PATCH \u0060/v2/microvms/{microvm_id}\u0060. Every other field is fixed at create."
+    },
     "NfsActionResizeAllOf2": {
       "type": "object",
       "properties": {
@@ -176955,6 +178077,19 @@
           "description": "The UUID of the project to which the reserved IP currently belongs.",
           "format": "uuid",
           "example": "746c6152-2fa2-11ed-92d3-27aaa54e4988"
+        }
+      }
+    },
+    "AccessTokenCreatedResponseAccessTokenAllOf2": {
+      "required": [
+        "token"
+      ],
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "The token value. Use it as a bearer token against the MicroVM\u0027s endpoint. Shown once, in this response only.",
+          "example": "dop_v1_2f8e1c3a9b4d6e7f8a0b1c2d3e4f5a6b7c91"
         }
       }
     },

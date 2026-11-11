@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Requested egress policy (legacy envelope). unrestricted opts out of platform-default host allowlists and cannot combine with allow / allowIps / vpcUuid / subnetUuid. Absent or empty means no destination ACL (same as unrestricted). Flat authors prefer egress: unrestricted (scalar), a bare host list, or an object with allow_hosts / allow_ips / vpc_uuid / subnet_uuid. Platform host defaults are unioned only when allow names something; allowIps does not trigger that union (IP-only turns the destination ACL on without domain rules). VPC attachment is create-time immutable; ownership is verified at session create. Allowlists are a request only: the server intersects them with tenant + platform policy and can only narrow them.
+    /// Requested egress policy (legacy envelope object). Absent means no destination ACL, same as unrestricted: true. unrestricted cannot combine with allow / allowIps / vpcUuid / subnetUuid. If allow or allowIps is present and neither list names an entry, the policy is deny-all: every outbound destination is blocked. Deny-all cannot combine with unrestricted / vpcUuid / subnetUuid, and a session that also binds URL-bound credentials is rejected with 400. If the other list names entries, only those are allowed (allow: [] with a non-empty allowIps is IP-only). A null egress, allow or allowIps is rejected with 400; omit the key instead. The flat manifest format spells these differently: egress: none (deny-all), egress: unrestricted, a bare host list (an empty list is deny-all), or an object with allow_hosts / allow_ips / vpc_uuid / subnet_uuid. Platform host defaults are unioned only when allow names something; allowIps does not trigger that union (IP-only turns the destination ACL on without domain rules). VPC attachment is create-time immutable; ownership is verified at session create. Allowlists are a request only: the server intersects them with tenant + platform policy and can only narrow them.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentManifestSpecSandboxEgress : IAdditionalDataHolder, IParsable
@@ -32,7 +32,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The allow property</summary>
+        /// <summary>Host allowlist. allow: [] with no non-empty allowIps means deny-all (flat spelling: egress: none). With a non-empty allowIps it is IP-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem>? Allow { get => _explicitNullValueAllow; set { _explicitNullValueAllow = value; AdditionalData?.Remove("allow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow"); else _explicitNullProperties?.Remove("allow"); } }
@@ -42,7 +42,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem> Allow { get => _explicitNullValueAllow; set { _explicitNullValueAllow = value; AdditionalData?.Remove("allow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow"); else _explicitNullProperties?.Remove("allow"); } }
         private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgressAllowItem> _explicitNullValueAllow = default!;
 #endif
-        /// <summary>Exact IPv4/IPv6 literals (not CIDRs).</summary>
+        /// <summary>Exact IPv4/IPv6 literals (not CIDRs). Present-but-empty with no non-empty allow means deny-all; allow: [] with a non-empty allowIps is IP-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? AllowIps { get => _explicitNullValueAllowIps; set { _explicitNullValueAllowIps = value; AdditionalData?.Remove("allowIps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowIps"); else _explicitNullProperties?.Remove("allowIps"); } }

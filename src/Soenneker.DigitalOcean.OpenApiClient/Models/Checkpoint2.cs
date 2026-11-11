@@ -18,6 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("egress_policy") is null) { _explicitNullValueEgressPolicy = default!; _explicitNullProperties?.Remove("egress_policy"); }
+            else if (parseNode.GetChildNode("egress_policy") is { } nullNodeEgressPolicy && nullNodeEgressPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EgressPolicy = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("size") is null) { _explicitNullValueSize = default!; _explicitNullProperties?.Remove("size"); }
@@ -30,6 +32,24 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The stored size of the checkpoint&apos;s disk, in bytes.</summary>
         public long? DiskBytes { get; private set; }
+        /// <summary>An outbound allow list. A destination that matches any rule is allowed; `default_action` decides every other destination. Only valid with `public` networking, and fixed at create: there is no way to change it later. With a policy set, direct connections out of the MicroVM are dropped; only HTTP and HTTPS through the platform proxy to the allowed destinations works, so clients must honor the injected `HTTP_PROXY` / `HTTPS_PROXY` environment. The registries needed to pull the workload image are allowed automatically. On a MicroVM this is the policy set at create, exactly as supplied. On a checkpoint it is the policy a restored MicroVM inherits; a restore cannot change it. Omitted when egress is unrestricted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicy? EgressPolicy { get => _explicitNullValueEgressPolicy; set { _explicitNullValueEgressPolicy = value; AdditionalData?.Remove("egress_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_policy"); else _explicitNullProperties?.Remove("egress_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicy? _explicitNullValueEgressPolicy = default!;
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicy EgressPolicy { get => _explicitNullValueEgressPolicy; set { _explicitNullValueEgressPolicy = value; AdditionalData?.Remove("egress_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_policy"); else _explicitNullProperties?.Remove("egress_policy"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicy _explicitNullValueEgressPolicy = default!;
+#endif
+        /// <summary>Why the checkpoint failed. Present only when `status` is `CHECKPOINT_FAILED`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FailureReason { get; private set; }
+#nullable restore
+#else
+        public string FailureReason { get; private set; }
+#endif
         /// <summary>The unique ID of the checkpoint.</summary>
         public Guid? Id { get; private set; }
         /// <summary>The stored size of the checkpoint&apos;s memory, in bytes.</summary>
@@ -101,6 +121,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "disk_bytes", n => { DiskBytes = n.GetLongValue(); } },
+                { "egress_policy", n => { EgressPolicy = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicy>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicy.CreateFromDiscriminatorValue); } },
+                { "failure_reason", n => { FailureReason = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "memory_bytes", n => { MemoryBytes = n.GetLongValue(); } },
                 { "microvm_id", n => { MicrovmId = n.GetGuidValue(); } },
@@ -118,6 +140,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicy>("egress_policy", EgressPolicy);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmSize>("size", Size);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

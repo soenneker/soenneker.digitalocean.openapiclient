@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>The protocol the MicroVM&apos;s HTTP port serves. `null` if the protocol was not set when the MicroVM was created.</summary>
+    /// <summary>The encoding of `stdout` and `stderr`, echoing the request&apos;s `output_encoding` (or the `utf-8` default).</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum MicrovmHttpProtocol
+    public enum ExecResponseOutputEncoding
     {
-        [EnumMember(Value = "http")]
+        [EnumMember(Value = "utf-8")]
         #pragma warning disable CS1591
-        Http,
+        Utf8,
         #pragma warning restore CS1591
-        [EnumMember(Value = "http2")]
+        [EnumMember(Value = "base64")]
         #pragma warning disable CS1591
-        Http2,
+        Base64,
         #pragma warning restore CS1591
     }
 }

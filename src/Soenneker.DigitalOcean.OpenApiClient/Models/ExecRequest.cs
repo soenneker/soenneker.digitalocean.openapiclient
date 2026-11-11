@@ -22,6 +22,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("argv") is { } nullNodeArgv && nullNodeArgv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Argv = null;
             if (parseNode.GetChildNode("cwd") is null) { _explicitNullValueCwd = default!; _explicitNullProperties?.Remove("cwd"); }
             else if (parseNode.GetChildNode("cwd") is { } nullNodeCwd && nullNodeCwd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cwd = null;
+            if (parseNode.GetChildNode("output_encoding") is null) { _explicitNullValueOutputEncoding = default!; _explicitNullProperties?.Remove("output_encoding"); }
+            else if (parseNode.GetChildNode("output_encoding") is { } nullNodeOutputEncoding && nullNodeOutputEncoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputEncoding = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -46,6 +48,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string Cwd { get => _explicitNullValueCwd; set { _explicitNullValueCwd = value; AdditionalData?.Remove("cwd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cwd"); else _explicitNullProperties?.Remove("cwd"); } }
         private string _explicitNullValueCwd = default!;
 #endif
+        /// <summary>How `stdout` and `stderr` are returned. `utf-8` (the default) is a JSON string; bytes that are not valid UTF-8 become U+FFFD. `base64` returns the exact bytes. Use `base64` when the command may emit binary output.</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecRequestOutputEncoding? OutputEncoding { get => _explicitNullValueOutputEncoding; set { _explicitNullValueOutputEncoding = value; AdditionalData?.Remove("output_encoding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_encoding"); else _explicitNullProperties?.Remove("output_encoding"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecRequestOutputEncoding? _explicitNullValueOutputEncoding = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecRequest"/> and sets the default values.
         /// </summary>
@@ -73,6 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "argv", n => { Argv = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "cwd", n => { Cwd = n.GetStringValue(); } },
+                { "output_encoding", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecRequestOutputEncoding>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOutputEncoding = default; _explicitNullProperties?.Remove("output_encoding"); AdditionalData["output_encoding"] = unknown; } else { OutputEncoding = parsed; AdditionalData.Remove("output_encoding"); } } },
             };
         }
         /// <summary>
@@ -84,6 +90,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("argv", Argv);
             writer.WriteStringValue("cwd", Cwd);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecRequestOutputEncoding>("output_encoding", OutputEncoding);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

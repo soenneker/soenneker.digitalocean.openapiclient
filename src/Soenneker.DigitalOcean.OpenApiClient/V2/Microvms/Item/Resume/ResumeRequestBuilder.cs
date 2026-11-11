@@ -36,7 +36,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume
         /// <summary>
         /// To resume a paused MicroVM, send a POST request to `/v2/microvms/{microvm_id}/resume`.The request returns when the change completes. Resuming a MicroVM that is already runningsucceeds. The request returns HTTP 400 when the MicroVM is `creating`, `terminated`, or`failed`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmLifecycleResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmError">When receiving a 400 status code</exception>
@@ -47,11 +47,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmLifecycleResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmLifecycleResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -64,7 +64,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmLifecycleResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmLifecycleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// To resume a paused MicroVM, send a POST request to `/v2/microvms/{microvm_id}/resume`.The request returns when the change completes. Resuming a MicroVM that is already runningsucceeds. The request returns HTTP 400 when the MicroVM is `creating`, `terminated`, or`failed`.

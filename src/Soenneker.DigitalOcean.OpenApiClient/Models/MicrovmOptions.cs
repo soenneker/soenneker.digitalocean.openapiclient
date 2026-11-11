@@ -52,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string DefaultRegion { get => _explicitNullValueDefaultRegion; set { _explicitNullValueDefaultRegion = value; AdditionalData?.Remove("default_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_region"); else _explicitNullProperties?.Remove("default_region"); } }
         private string _explicitNullValueDefaultRegion = default!;
 #endif
-        /// <summary>Features and whether they are enabled for your team. `exec_pty` gates `exec` and `console`; `file_transfer` gates `files`.</summary>
+        /// <summary>Features and whether they are enabled for your team. `exec_pty` gates `exec` and `console`; `file_transfer` gates `files`; `egress_policy` gates `egress_policy` on create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsFeaturesItem>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }

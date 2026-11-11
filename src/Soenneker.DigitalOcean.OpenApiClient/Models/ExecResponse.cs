@@ -20,6 +20,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("exit_code") is null) { _explicitNullValueExitCode = default!; _explicitNullProperties?.Remove("exit_code"); }
             else if (parseNode.GetChildNode("exit_code") is { } nullNodeExitCode && nullNodeExitCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExitCode = null;
+            if (parseNode.GetChildNode("output_encoding") is null) { _explicitNullValueOutputEncoding = default!; _explicitNullProperties?.Remove("output_encoding"); }
+            else if (parseNode.GetChildNode("output_encoding") is { } nullNodeOutputEncoding && nullNodeOutputEncoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputEncoding = null;
             if (parseNode.GetChildNode("stderr") is null) { _explicitNullValueStderr = default!; _explicitNullProperties?.Remove("stderr"); }
             else if (parseNode.GetChildNode("stderr") is { } nullNodeStderr && nullNodeStderr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stderr = null;
             if (parseNode.GetChildNode("stdout") is null) { _explicitNullValueStdout = default!; _explicitNullProperties?.Remove("stdout"); }
@@ -33,7 +35,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The command&apos;s exit code.</summary>
         public int? ExitCode { get => _explicitNullValueExitCode; set { _explicitNullValueExitCode = value; AdditionalData?.Remove("exit_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exit_code"); else _explicitNullProperties?.Remove("exit_code"); } }
         private int? _explicitNullValueExitCode = default!;
-        /// <summary>The command&apos;s standard error. Bytes that are not valid UTF-8 are replaced.</summary>
+        /// <summary>The encoding of `stdout` and `stderr`, echoing the request&apos;s `output_encoding` (or the `utf-8` default).</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecResponseOutputEncoding? OutputEncoding { get => _explicitNullValueOutputEncoding; set { _explicitNullValueOutputEncoding = value; AdditionalData?.Remove("output_encoding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_encoding"); else _explicitNullProperties?.Remove("output_encoding"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecResponseOutputEncoding? _explicitNullValueOutputEncoding = default!;
+        /// <summary>The command&apos;s standard error. A UTF-8 string when `output_encoding` is `utf-8`; standard Base64 when it is `base64`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Stderr { get => _explicitNullValueStderr; set { _explicitNullValueStderr = value; AdditionalData?.Remove("stderr"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stderr"); else _explicitNullProperties?.Remove("stderr"); } }
@@ -43,7 +48,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string Stderr { get => _explicitNullValueStderr; set { _explicitNullValueStderr = value; AdditionalData?.Remove("stderr"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stderr"); else _explicitNullProperties?.Remove("stderr"); } }
         private string _explicitNullValueStderr = default!;
 #endif
-        /// <summary>The command&apos;s standard output. Bytes that are not valid UTF-8 are replaced.</summary>
+        /// <summary>The command&apos;s standard output. A UTF-8 string when `output_encoding` is `utf-8`; standard Base64 when it is `base64`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Stdout { get => _explicitNullValueStdout; set { _explicitNullValueStdout = value; AdditionalData?.Remove("stdout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdout"); else _explicitNullProperties?.Remove("stdout"); } }
@@ -82,6 +87,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "exit_code", n => { ExitCode = n.GetIntValue(); } },
+                { "output_encoding", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecResponseOutputEncoding>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOutputEncoding = default; _explicitNullProperties?.Remove("output_encoding"); AdditionalData["output_encoding"] = unknown; } else { OutputEncoding = parsed; AdditionalData.Remove("output_encoding"); } } },
                 { "stderr", n => { Stderr = n.GetStringValue(); } },
                 { "stdout", n => { Stdout = n.GetStringValue(); } },
                 { "truncated", n => { Truncated = n.GetBoolValue(); } },
@@ -95,6 +101,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("exit_code", ExitCode);
+            writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecResponseOutputEncoding>("output_encoding", OutputEncoding);
             writer.WriteStringValue("stderr", Stderr);
             writer.WriteStringValue("stdout", Stdout);
             writer.WriteBoolValue("truncated", Truncated);

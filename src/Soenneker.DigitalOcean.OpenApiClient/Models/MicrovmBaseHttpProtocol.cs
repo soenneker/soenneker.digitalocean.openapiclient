@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>`public` sends outbound traffic through a shared NAT gateway. `vpc` places the MicroVM in the VPC network set by `vpc_uuid`.</summary>
+    /// <summary>The protocol the MicroVM&apos;s HTTP port serves. `null` if the protocol was not set when the MicroVM was created.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum MicrovmNetworking
+    public enum MicrovmBaseHttpProtocol
     {
-        [EnumMember(Value = "public")]
+        [EnumMember(Value = "http")]
         #pragma warning disable CS1591
-        PublicValue,
+        Http,
         #pragma warning restore CS1591
-        [EnumMember(Value = "vpc")]
+        [EnumMember(Value = "http2")]
         #pragma warning disable CS1591
-        Vpc,
+        Http2,
         #pragma warning restore CS1591
     }
 }

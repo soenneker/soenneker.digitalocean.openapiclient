@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// An HTTPS endpoint for one of the MicroVM&apos;s ports.
+    /// An HTTPS endpoint for one of the MicroVM&apos;s ports: the system default URL minted at create, or one added with POST `/v2/microvms/{microvm_id}/urls`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MicrovmUrl : IAdditionalDataHolder, IParsable
@@ -43,6 +43,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string Hostname { get => _explicitNullValueHostname; set { _explicitNullValueHostname = value; AdditionalData?.Remove("hostname"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostname"); else _explicitNullProperties?.Remove("hostname"); } }
         private string _explicitNullValueHostname = default!;
 #endif
+        /// <summary>The unique ID of the URL. Use it to remove the URL with DELETE `/v2/microvms/{microvm_id}/urls/{url_id}`.</summary>
+        public Guid? Id { get; private set; }
         /// <summary>The guest port the endpoint serves.</summary>
         public int? Port { get => _explicitNullValuePort; set { _explicitNullValuePort = value; AdditionalData?.Remove("port"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port"); else _explicitNullProperties?.Remove("port"); } }
         private int? _explicitNullValuePort = default!;
@@ -76,6 +78,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             {
                 { "default", n => { Default = n.GetBoolValue(); } },
                 { "hostname", n => { Hostname = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
                 { "port", n => { Port = n.GetIntValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmUrlStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
