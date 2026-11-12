@@ -63,7 +63,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; AdditionalData?.Remove("session_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
         private string _explicitNullValueSessionId = default!;
 #endif
-        /// <summary>SessionStatus is the lifecycle state of the sandbox + agent pair. SESSION_STATUS_ALL is a ListSessions status-filter value only -- no session is ever actually in this status. SESSION_STATUS_LOCKED is reserved for internal use and never appears in an end-user-facing response.</summary>
+        /// <summary>SessionStatus is the lifecycle state of the sandbox + agent pair. SESSION_STATUS_ALL is a ListSessions status-filter value only -- no session is ever actually in this status. SESSION_STATUS_LOCKED is reserved for internal use and never appears in an end-user-facing response. SESSION_STATUS_UPDATING is reported while a live config update (PATCH with `manifest_yaml`) is being applied; poll the session until it leaves this status.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionStatus? _explicitNullValueStatus = default!;
         /// <summary>

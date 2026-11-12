@@ -35,7 +35,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Floating_ips
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Floating_ipsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/floating_ips{?page*,per_page*}", pathParameters)
+        public Floating_ipsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/floating_ips{?page*,per_page*,sort*,sort_direction*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Floating_ips
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Floating_ipsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/floating_ips{?page*,per_page*}", rawUrl)
+        public Floating_ipsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/floating_ips{?page*,per_page*,sort*,sort_direction*}", rawUrl)
         {
         }
         /// <summary>
@@ -168,6 +168,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Floating_ips
             /// <summary>Number of items returned per page</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            /// <summary>Field to sort results by. Possible values are `created_at`, `updated_at`,`ip`, `id`, and `droplet_id`. Defaults to `id`. Any other value is treatedas `id`.Sorting by `droplet_id` orders floating IPs by the Droplet they areassigned to. Unassigned floating IPs (`droplet` is null) sort as thelowest value, so they are returned first when `sort_direction` is `asc`and last when it is `desc`.</summary>
+            [QueryParameter("sort")]
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.Sort? Sort { get; set; }
+            /// <summary>Direction to sort results. Possible values are `asc` and `desc`. Defaults to `asc`.</summary>
+            [QueryParameter("sort_direction")]
+            public global::Soenneker.DigitalOcean.OpenApiClient.Models.ParametersSortDirection? SortDirection { get; set; }
         }
     }
 }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// PATCH body for /v2/agents/sessions/{session_id}: an allowlisted subset of session-scoped settings (never environment-spec / config mutation). At least one property below must be present; {} is 400. Unknown top-level keys are rejected with 400. New patchable fields will be added here as optional properties over time.
+    /// PATCH body for /v2/agents/sessions/{session_id}. Either toggle the session-scoped `resume_on_topoff` consent, or change the live config with `manifest_yaml`; the two cannot be combined in one request. At least one property must be present; {} is 400. Unknown top-level keys are rejected with 400.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchSessionRequest : IParsable
@@ -18,11 +18,23 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("manifest_yaml") is null) { _explicitNullValueManifestYaml = default!; _explicitNullProperties?.Remove("manifest_yaml"); }
+            else if (parseNode.GetChildNode("manifest_yaml") is { } nullNodeManifestYaml && nullNodeManifestYaml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManifestYaml = null;
             if (parseNode.GetChildNode("resume_on_topoff") is null) { _explicitNullValueResumeOnTopoff = default!; _explicitNullProperties?.Remove("resume_on_topoff"); }
             else if (parseNode.GetChildNode("resume_on_topoff") is { } nullNodeResumeOnTopoff && nullNodeResumeOnTopoff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeOnTopoff = null;
         }
 
-        /// <summary>When present, sets whether this session opts in to automatic resumption when the team&apos;s prepayment balance is restored after a low-balance pause. Session-scoped consent, not config-scoped. Omitted properties are not modified.</summary>
+        /// <summary>A partial manifest, as YAML, holding only the sections to change: `tools`, `env`, `secrets`. Absent sections are untouched; any other top-level key is 400, and `model` / `permissions` return 501. `tools` is the full replacement list (`tools: []` detaches every MCP server; `tools: null` is 400). `env` and `secrets` are full sets: a key left out is removed. A secret value is a string (set or rotate) or `{}` (keep the current value); per-key `null` is 400. Platform and framework keys and non-plain secrets must be sent back unchanged, or the request is 422. Cannot be combined with `resume_on_topoff`. Requires the team to be enrolled in the config-update feature (403 otherwise).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ManifestYaml { get => _explicitNullValueManifestYaml; set { _explicitNullValueManifestYaml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manifest_yaml"); else _explicitNullProperties?.Remove("manifest_yaml"); } }
+        private string? _explicitNullValueManifestYaml = default!;
+#nullable restore
+#else
+        public string ManifestYaml { get => _explicitNullValueManifestYaml; set { _explicitNullValueManifestYaml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manifest_yaml"); else _explicitNullProperties?.Remove("manifest_yaml"); } }
+        private string _explicitNullValueManifestYaml = default!;
+#endif
+        /// <summary>When present, sets whether this session opts in to automatic resumption when the team&apos;s prepayment balance is restored after a low-balance pause. Session-scoped consent, not config-scoped. Omitted properties are not modified. Cannot be combined with `manifest_yaml`.</summary>
         public bool? ResumeOnTopoff { get => _explicitNullValueResumeOnTopoff; set { _explicitNullValueResumeOnTopoff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume_on_topoff"); else _explicitNullProperties?.Remove("resume_on_topoff"); } }
         private bool? _explicitNullValueResumeOnTopoff = default!;
         /// <summary>
@@ -43,6 +55,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "manifest_yaml", n => { ManifestYaml = n.GetStringValue(); } },
                 { "resume_on_topoff", n => { ResumeOnTopoff = n.GetBoolValue(); } },
             };
         }
@@ -53,6 +66,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("manifest_yaml", ManifestYaml);
             writer.WriteBoolValue("resume_on_topoff", ResumeOnTopoff);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

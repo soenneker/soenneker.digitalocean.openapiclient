@@ -181,10 +181,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Partial update of session-scoped settings (not the agent manifest / config). The body must include at least one recognized patchable property; an empty object {} is 400. Only properties listed on PatchSessionRequest are accepted — any other top-level JSON key is rejected with 400. Omitted properties are left unchanged. Today the only patchable field is resume_on_topoff; more session settings may be added over time. Terminal sessions (DESTROYED, FAILED) cannot be patched.
+        /// Partial update of an existing session. Send exactly one of: `resume_on_topoff` (session-scoped consent), or `manifest_yaml` (live config update of `tools`, `env` and `secrets`). The two cannot be combined, and `{}` is 400. With `manifest_yaml`, absent sections are untouched; `model` and `permissions` return 501. A config update that changes something returns 202 with outcome ACCEPTED and the session in SESSION_STATUS_UPDATING (update state APPLYING): poll GET on the session every 2-5 seconds until the status leaves UPDATING, then read `session.update` (APPLIED, APPLIED_RESTARTED or FAILED). A tools-only update usually finishes in seconds; env and secret changes restart the agent and can take about two minutes. A manifest that changes nothing returns 200 with outcome UNCHANGED. Terminal sessions (DESTROYED, FAILED) cannot be patched.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse"/></returns>
-        /// <param name="body">PATCH body for /v2/agents/sessions/{session_id}: an allowlisted subset of session-scoped settings (never environment-spec / config mutation). At least one property below must be present; {} is 400. Unknown top-level keys are rejected with 400. New patchable fields will be added here as optional properties over time.</param>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionResponse"/></returns>
+        /// <param name="body">PATCH body for /v2/agents/sessions/{session_id}. Either toggle the session-scoped `resume_on_topoff` consent, or change the live config with `manifest_yaml`; the two cannot be combined in one request. At least one property must be present; {} is 400. Unknown top-level keys are rejected with 400.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -192,17 +192,19 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 423 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 501 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse?> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionResponse?> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionResponse> PatchAsync(global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -214,12 +216,14 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item
                 { "403", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "423", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "501", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.GetSessionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Persistent workspace contents are retained per tenant policy. A persistent workspace the session holds is saved and kept: it goes to `RELEASING` while the files are saved and then back to `AVAILABLE`. Creating a session on that workspace returns `409` until it is `AVAILABLE` again. Returns 204 No Content on success.
@@ -260,10 +264,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Sessions.Item
             return requestInfo;
         }
         /// <summary>
-        /// Partial update of session-scoped settings (not the agent manifest / config). The body must include at least one recognized patchable property; an empty object {} is 400. Only properties listed on PatchSessionRequest are accepted — any other top-level JSON key is rejected with 400. Omitted properties are left unchanged. Today the only patchable field is resume_on_topoff; more session settings may be added over time. Terminal sessions (DESTROYED, FAILED) cannot be patched.
+        /// Partial update of an existing session. Send exactly one of: `resume_on_topoff` (session-scoped consent), or `manifest_yaml` (live config update of `tools`, `env` and `secrets`). The two cannot be combined, and `{}` is 400. With `manifest_yaml`, absent sections are untouched; `model` and `permissions` return 501. A config update that changes something returns 202 with outcome ACCEPTED and the session in SESSION_STATUS_UPDATING (update state APPLYING): poll GET on the session every 2-5 seconds until the status leaves UPDATING, then read `session.update` (APPLIED, APPLIED_RESTARTED or FAILED). A tools-only update usually finishes in seconds; env and secret changes restart the agent and can take about two minutes. A manifest that changes nothing returns 200 with outcome UNCHANGED. Terminal sessions (DESTROYED, FAILED) cannot be patched.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">PATCH body for /v2/agents/sessions/{session_id}: an allowlisted subset of session-scoped settings (never environment-spec / config mutation). At least one property below must be present; {} is 400. Unknown top-level keys are rejected with 400. New patchable fields will be added here as optional properties over time.</param>
+        /// <param name="body">PATCH body for /v2/agents/sessions/{session_id}. Either toggle the session-scoped `resume_on_topoff` consent, or change the live config with `manifest_yaml`; the two cannot be combined in one request. At least one property must be present; {} is 400. Unknown top-level keys are rejected with 400.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

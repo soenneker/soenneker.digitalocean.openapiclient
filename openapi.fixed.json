@@ -10953,8 +10953,8 @@
         "tags": [
           "Harness Runtime"
         ],
-        "summary": "PatchSession updates session-scoped settings on an existing session.",
-        "description": "Partial update of session-scoped settings (not the agent manifest / config). The body must include at least one recognized patchable property; an empty object {} is 400. Only properties listed on PatchSessionRequest are accepted \u2014 any other top-level JSON key is rejected with 400. Omitted properties are left unchanged. Today the only patchable field is resume_on_topoff; more session settings may be added over time. Terminal sessions (DESTROYED, FAILED) cannot be patched.",
+        "summary": "PatchSession updates an existing session (session-scoped settings or live config).",
+        "description": "Partial update of an existing session. Send exactly one of: \u0060resume_on_topoff\u0060 (session-scoped consent), or \u0060manifest_yaml\u0060 (live config update of \u0060tools\u0060, \u0060env\u0060 and \u0060secrets\u0060). The two cannot be combined, and \u0060{}\u0060 is 400. With \u0060manifest_yaml\u0060, absent sections are untouched; \u0060model\u0060 and \u0060permissions\u0060 return 501. A config update that changes something returns 202 with outcome ACCEPTED and the session in SESSION_STATUS_UPDATING (update state APPLYING): poll GET on the session every 2-5 seconds until the status leaves UPDATING, then read \u0060session.update\u0060 (APPLIED, APPLIED_RESTARTED or FAILED). A tools-only update usually finishes in seconds; env and secret changes restart the agent and can take about two minutes. A manifest that changes nothing returns 200 with outcome UNCHANGED. Terminal sessions (DESTROYED, FAILED) cannot be patched.",
         "operationId": "HarnessUpdateSession",
         "parameters": [
           {
@@ -10970,7 +10970,7 @@
           }
         ],
         "requestBody": {
-          "description": "PATCH body: allowlisted session-scoped settings. At least one property required.",
+          "description": "PATCH body: either resume_on_topoff or manifest_yaml (not both).",
           "content": {
             "application/json": {
               "schema": {
@@ -10982,7 +10982,7 @@
         },
         "responses": {
           "200": {
-            "description": "Updated session snapshot.",
+            "description": "Updated session snapshot, or outcome UNCHANGED when a manifest changes nothing.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -10997,13 +10997,34 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSessionResponse"
+                  "$ref": "#/components/schemas/PatchSessionResponse"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Config update accepted and applying; the session is SESSION_STATUS_UPDATING. Poll the session until the status changes.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchSessionResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Malformed body, unknown field, or no recognized patchable properties.",
+            "description": "Malformed body, invalid YAML, unknown field or manifest section, invalid values, both properties set, or no recognized patchable properties.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11027,7 +11048,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "Session belongs to another team, or the team is not enrolled in the config-update feature (manifest_yaml only).",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11051,7 +11072,28 @@
             "$ref": "#/components/responses/not_found"
           },
           "409": {
-            "description": "Session is in a terminal state and cannot be updated.",
+            "description": "Session is in a terminal state, not running, paused for zero balance, already updating, busy, or does not support the change (for example env and secrets on a non-hermes session). The message says which.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The change needs a new session (requires_new_session).",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11098,6 +11140,27 @@
           "500": {
             "$ref": "#/components/responses/server_error"
           },
+          "501": {
+            "description": "\u0060model\u0060 or \u0060permissions\u0060 sent in manifest_yaml; not supported yet.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/unexpected_error"
           }
@@ -11112,7 +11175,7 @@
         "x-codeSamples": [
           {
             "lang": "bash",
-            "source": "curl -X PATCH \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022resume_on_topoff\u0022:true}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/agents/sessions/{session_id}\u0022",
+            "source": "curl -X PATCH \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  -d \u0027{\u0022manifest_yaml\u0022:\u0022tools:\\n  - do.actions:\\n      tools: [toolbelt:read-only@1]\\n\u0022}\u0027 \\\n  \u0022https://api.digitalocean.com/v2/agents/sessions/{session_id}\u0022",
             "label": "cURL"
           }
         ]
@@ -33005,6 +33068,12 @@
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/parameters_sort_direction"
           }
         ],
         "responses": {
@@ -33034,11 +33103,11 @@
         "x-codeSamples": [
           {
             "lang": "cURL",
-            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/floating_ips?page=1\u0026per_page=20\u0022 "
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/floating_ips?page=1\u0026per_page=20\u0026sort=droplet_id\u0026sort_direction=asc\u0022 "
           },
           {
             "lang": "Go",
-            "source": "import (\n    \u0022context\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    token := os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022)\n\n    client := godo.NewFromToken(token)\n    ctx := context.TODO()\n\n    opt := \u0026godo.ListOptions{\n        Page:    1,\n        PerPage: 200,\n    }\n\n    floatingIPs, _, err := client.FloatingIPs.List(ctx, opt)\n}"
+            "source": "import (\n    \u0022context\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    token := os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022)\n\n    client := godo.NewFromToken(token)\n    ctx := context.TODO()\n\n    opt := \u0026godo.ListOptions{\n        Page:          1,\n        PerPage:       200,\n        Sort:          \u0022droplet_id\u0022,\n        SortDirection: \u0022asc\u0022,\n    }\n\n    floatingIPs, _, err := client.FloatingIPs.List(ctx, opt)\n}"
           },
           {
             "lang": "Ruby",
@@ -38529,7 +38598,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -38647,7 +38716,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -38788,7 +38857,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -38859,7 +38928,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -38913,7 +38982,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -39028,7 +39097,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -39068,7 +39137,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -39124,7 +39193,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -39180,7 +39249,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -39231,7 +39300,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -39361,7 +39430,7 @@
         "security": [
           {
             "bearer_auth": [
-              "signals:read"
+              "signals:query"
             ]
           }
         ],
@@ -52677,6 +52746,12 @@
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/parameters_sort"
+          },
+          {
+            "$ref": "#/components/parameters/parameters_sort_direction"
           }
         ],
         "responses": {
@@ -52706,11 +52781,11 @@
         "x-codeSamples": [
           {
             "lang": "cURL",
-            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/reserved_ips?page=1\u0026per_page=20\u0022 "
+            "source": "curl -X GET \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/reserved_ips?page=1\u0026per_page=20\u0026sort=droplet_id\u0026sort_direction=asc\u0022 "
           },
           {
             "lang": "Go",
-            "source": "import (\n    \u0022context\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    token := os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022)\n\n    client := godo.NewFromToken(token)\n    ctx := context.TODO()\n\n    opt := \u0026godo.ListOptions{\n        Page:    1,\n        PerPage: 200,\n    }\n\n    reservedIPs, _, err := client.ReservedIPs.List(ctx, opt)\n}"
+            "source": "import (\n    \u0022context\u0022\n    \u0022os\u0022\n\n    \u0022github.com/digitalocean/godo\u0022\n)\n\nfunc main() {\n    token := os.Getenv(\u0022DIGITALOCEAN_TOKEN\u0022)\n\n    client := godo.NewFromToken(token)\n    ctx := context.TODO()\n\n    opt := \u0026godo.ListOptions{\n        Page:          1,\n        PerPage:       200,\n        Sort:          \u0022droplet_id\u0022,\n        SortDirection: \u0022asc\u0022,\n    }\n\n    reservedIPs, _, err := client.ReservedIPs.List(ctx, opt)\n}"
           },
           {
             "lang": "Ruby",
@@ -52718,7 +52793,7 @@
           },
           {
             "lang": "Python",
-            "source": "import os\nfrom pydo import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\nresp = client.reserved_ips.list()"
+            "source": "import os\nfrom pydo import Client\n\nclient = Client(token=os.environ.get(\u0022DIGITALOCEAN_TOKEN\u0022))\n\nresp = client.reserved_ips.list(sort=\u0022droplet_id\u0022, sort_direction=\u0022asc\u0022)"
           }
         ]
       },
@@ -55604,10 +55679,10 @@
             "$ref": "#/components/parameters/page"
           },
           {
-            "$ref": "#/components/parameters/sort"
+            "$ref": "#/components/parameters/parameters_sort-2"
           },
           {
-            "$ref": "#/components/parameters/parameters_sort_direction"
+            "$ref": "#/components/parameters/parameters_sort_direction-2"
           },
           {
             "$ref": "#/components/parameters/parameters_name-2"
@@ -79838,11 +79913,12 @@
           "SESSION_STATUS_DESTROYED",
           "SESSION_STATUS_FAILED",
           "SESSION_STATUS_PAUSED",
+          "SESSION_STATUS_UPDATING",
           "SESSION_STATUS_ALL",
           "SESSION_STATUS_LOCKED"
         ],
         "type": "string",
-        "description": "SessionStatus is the lifecycle state of the sandbox \u002B agent pair. SESSION_STATUS_ALL is a ListSessions status-filter value only -- no session is ever actually in this status. SESSION_STATUS_LOCKED is reserved for internal use and never appears in an end-user-facing response.",
+        "description": "SessionStatus is the lifecycle state of the sandbox \u002B agent pair. SESSION_STATUS_ALL is a ListSessions status-filter value only -- no session is ever actually in this status. SESSION_STATUS_LOCKED is reserved for internal use and never appears in an end-user-facing response. SESSION_STATUS_UPDATING is reported while a live config update (PATCH with \u0060manifest_yaml\u0060) is being applied; poll the session until it leaves this status.",
         "example": "SESSION_STATUS_UNSPECIFIED",
         "x-ms-enum": {
           "name": "SessionStatus",
@@ -79881,6 +79957,10 @@
               "name": "SessionStatusPaused"
             },
             {
+              "value": "SESSION_STATUS_UPDATING",
+              "name": "SessionStatusUpdating"
+            },
+            {
               "value": "SESSION_STATUS_ALL",
               "name": "SessionStatusAll"
             },
@@ -79890,6 +79970,162 @@
             }
           ]
         }
+      },
+      "SessionConfigUpdateState": {
+        "enum": [
+          "APPLYING",
+          "APPLIED",
+          "APPLIED_RESTARTED",
+          "FAILED"
+        ],
+        "type": "string",
+        "description": "State of a live config update. APPLIED_RESTARTED means the agent was restarted to apply it (env and secret changes). FAILED means the update did not take effect; see \u0060reverted\u0060 and \u0060detail\u0060.",
+        "example": "APPLIED",
+        "x-ms-enum": {
+          "name": "SessionConfigUpdateState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "APPLYING",
+              "name": "Applying"
+            },
+            {
+              "value": "APPLIED",
+              "name": "Applied"
+            },
+            {
+              "value": "APPLIED_RESTARTED",
+              "name": "AppliedRestarted"
+            },
+            {
+              "value": "FAILED",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "SessionConfigSectionChanges": {
+        "type": "object",
+        "properties": {
+          "added": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "jira"
+            ]
+          },
+          "removed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "docs"
+            ]
+          },
+          "changed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "github"
+            ]
+          }
+        },
+        "description": "Keys touched in one manifest section."
+      },
+      "SessionConfigChanges": {
+        "type": "object",
+        "properties": {
+          "tools": {
+            "$ref": "#/components/schemas/SessionConfigSectionChanges"
+          },
+          "env": {
+            "$ref": "#/components/schemas/SessionConfigSectionChanges"
+          },
+          "secrets": {
+            "$ref": "#/components/schemas/SessionConfigSectionChanges"
+          }
+        },
+        "description": "Changes per manifest section. Never contains secret values."
+      },
+      "SessionConfigUpdate": {
+        "type": "object",
+        "properties": {
+          "update_id": {
+            "type": "string",
+            "example": "019b0000-0000-7000-8000-000000000001"
+          },
+          "session_id": {
+            "type": "string",
+            "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/SessionConfigUpdateKind"
+          },
+          "state": {
+            "$ref": "#/components/schemas/SessionConfigUpdateState"
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Manifest sections this update touched.",
+            "example": [
+              "tools"
+            ]
+          },
+          "changes": {
+            "$ref": "#/components/schemas/SessionConfigChanges"
+          },
+          "error": {
+            "$ref": "#/components/schemas/SessionConfigUpdateError"
+          },
+          "reverted": {
+            "type": "boolean",
+            "description": "True when a failed update was rolled back to the previous config."
+          },
+          "detail": {
+            "type": "string",
+            "description": "Human-readable explanation, typically for a failed update.",
+            "example": "agent restart did not become healthy; reverted to previous config"
+          },
+          "manifest_hash": {
+            "type": "string",
+            "description": "Hash of the manifest after this update.",
+            "example": "9f2c1a7e"
+          },
+          "previous_hash": {
+            "type": "string",
+            "description": "Hash of the manifest before this update.",
+            "example": "3b8d0e54"
+          },
+          "user_uuid": {
+            "type": "string",
+            "description": "User who requested the update.",
+            "example": "4f3c2b1a-0000-4000-8000-000000000000"
+          },
+          "user_email": {
+            "type": "string",
+            "description": "Email of the user who requested the update.",
+            "example": "user@example.com"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-11T12:00:00Z"
+          },
+          "finished_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-11T12:00:20Z"
+          }
+        },
+        "description": "One live config update (or automatic rollback) of a session."
       },
       "DefinitionsSession": {
         "type": "object",
@@ -80000,6 +80236,20 @@
             "type": "string",
             "description": "The persistent workspace attached to the session, mounted at \u0060/workspace\u0060. Empty when the session has none. Fork and rollback return 409 for a session that has a workspace.",
             "example": "019a2f4e-8c1d-7b3a-9e5f-2d6c8a1b4e70"
+          },
+          "update": {
+            "$ref": "#/components/schemas/SessionConfigUpdate"
+          },
+          "config_drifted": {
+            "type": "boolean",
+            "description": "True when the running config differs from the manifest the session was created from, for example after a successful PATCH with \u0060manifest_yaml\u0060. Omitted when false.",
+            "example": true
+          },
+          "config_diff": {
+            "$ref": "#/components/schemas/SessionConfigChanges"
+          },
+          "manifest": {
+            "$ref": "#/components/schemas/DefinitionsSessionManifestProperty"
           }
         },
         "description": "Session is the user-facing record of a environment session \u002B sandbox pair."
@@ -80245,12 +80495,35 @@
         "properties": {
           "resume_on_topoff": {
             "type": "boolean",
-            "description": "When present, sets whether this session opts in to automatic resumption when the team\u0027s prepayment balance is restored after a low-balance pause. Session-scoped consent, not config-scoped. Omitted properties are not modified.",
+            "description": "When present, sets whether this session opts in to automatic resumption when the team\u0027s prepayment balance is restored after a low-balance pause. Session-scoped consent, not config-scoped. Omitted properties are not modified. Cannot be combined with \u0060manifest_yaml\u0060.",
             "example": false
+          },
+          "manifest_yaml": {
+            "type": "string",
+            "description": "A partial manifest, as YAML, holding only the sections to change: \u0060tools\u0060, \u0060env\u0060, \u0060secrets\u0060. Absent sections are untouched; any other top-level key is 400, and \u0060model\u0060 / \u0060permissions\u0060 return 501. \u0060tools\u0060 is the full replacement list (\u0060tools: []\u0060 detaches every MCP server; \u0060tools: null\u0060 is 400). \u0060env\u0060 and \u0060secrets\u0060 are full sets: a key left out is removed. A secret value is a string (set or rotate) or \u0060{}\u0060 (keep the current value); per-key \u0060null\u0060 is 400. Platform and framework keys and non-plain secrets must be sent back unchanged, or the request is 422. Cannot be combined with \u0060resume_on_topoff\u0060. Requires the team to be enrolled in the config-update feature (403 otherwise).",
+            "example": "tools:\n  - do.actions:\n      tools: [toolbelt:read-only@1]\n"
           }
         },
         "additionalProperties": false,
-        "description": "PATCH body for /v2/agents/sessions/{session_id}: an allowlisted subset of session-scoped settings (never environment-spec / config mutation). At least one property below must be present; {} is 400. Unknown top-level keys are rejected with 400. New patchable fields will be added here as optional properties over time."
+        "description": "PATCH body for /v2/agents/sessions/{session_id}. Either toggle the session-scoped \u0060resume_on_topoff\u0060 consent, or change the live config with \u0060manifest_yaml\u0060; the two cannot be combined in one request. At least one property must be present; {} is 400. Unknown top-level keys are rejected with 400."
+      },
+      "PatchSessionResponse": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/DefinitionsSession"
+          },
+          "outcome": {
+            "$ref": "#/components/schemas/PatchSessionResponseOutcome"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Non-fatal notes about the update."
+          }
+        }
       },
       "CheckpointStatus": {
         "enum": [
@@ -132871,6 +133144,10 @@
         },
         "description": "Write-only map from oauth logical slot to an OAuth assignment UUID. Required when the source declares those slots; never copied from the source."
       },
+      "DefinitionsSessionManifestProperty": {
+        "type": "object",
+        "description": "The effective manifest of the session. Present only when \u0060config_drifted\u0060 is true. Never contains secret values."
+      },
       "ResolvedRuleMatchProperty": {
         "type": "object",
         "additionalProperties": {
@@ -134858,6 +135135,56 @@
           ]
         }
       },
+      "SessionConfigUpdateKind": {
+        "enum": [
+          "update",
+          "rollback"
+        ],
+        "type": "string",
+        "example": "update",
+        "x-ms-enum": {
+          "name": "SessionConfigUpdateKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "update",
+              "name": "Update"
+            },
+            {
+              "value": "rollback",
+              "name": "Rollback"
+            }
+          ]
+        }
+      },
+      "SessionConfigUpdateError": {
+        "enum": [
+          "update_failed",
+          "requires_new_session",
+          "interrupted"
+        ],
+        "type": "string",
+        "description": "Failure class; present when state is FAILED.",
+        "example": "update_failed",
+        "x-ms-enum": {
+          "name": "SessionConfigUpdateError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "update_failed",
+              "name": "UpdateFailed"
+            },
+            {
+              "value": "requires_new_session",
+              "name": "RequiresNewSession"
+            },
+            {
+              "value": "interrupted",
+              "name": "Interrupted"
+            }
+          ]
+        }
+      },
       "ResolvedRuleAction": {
         "enum": [
           "allow",
@@ -135053,6 +135380,29 @@
             {
               "value": "deny",
               "name": "Deny"
+            }
+          ]
+        }
+      },
+      "PatchSessionResponseOutcome": {
+        "enum": [
+          "ACCEPTED",
+          "UNCHANGED"
+        ],
+        "type": "string",
+        "description": "Present for \u0060manifest_yaml\u0060 patches. ACCEPTED (HTTP 202): the update is applying and the session status is SESSION_STATUS_UPDATING; poll GET until the status leaves UPDATING, then read \u0060session.update\u0060. UNCHANGED (HTTP 200): the manifest changes nothing and nothing was recorded.",
+        "example": "ACCEPTED",
+        "x-ms-enum": {
+          "name": "PatchSessionResponseOutcome",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCEPTED",
+              "name": "Accepted"
+            },
+            {
+              "value": "UNCHANGED",
+              "name": "Unchanged"
             }
           ]
         }
@@ -144610,6 +144960,63 @@
           ]
         }
       },
+      "Sort": {
+        "enum": [
+          "created_at",
+          "updated_at",
+          "ip",
+          "id",
+          "droplet_id"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "Sort",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "created_at",
+              "name": "CreatedAt"
+            },
+            {
+              "value": "updated_at",
+              "name": "UpdatedAt"
+            },
+            {
+              "value": "ip",
+              "name": "Ip"
+            },
+            {
+              "value": "id",
+              "name": "Id"
+            },
+            {
+              "value": "droplet_id",
+              "name": "DropletId"
+            }
+          ]
+        }
+      },
+      "ParametersSortDirection": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ParametersSortDirection",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
       "TypeValue": {
         "enum": [
           "application",
@@ -144972,6 +145379,42 @@
             {
               "value": "delete",
               "name": "Delete"
+            }
+          ]
+        }
+      },
+      "ParametersSort": {
+        "enum": [
+          "created_at",
+          "updated_at",
+          "ip",
+          "id",
+          "droplet_id"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ParametersSort",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "created_at",
+              "name": "CreatedAt"
+            },
+            {
+              "value": "updated_at",
+              "name": "UpdatedAt"
+            },
+            {
+              "value": "ip",
+              "name": "Ip"
+            },
+            {
+              "value": "id",
+              "name": "Id"
+            },
+            {
+              "value": "droplet_id",
+              "name": "DropletId"
             }
           ]
         }
@@ -162600,6 +163043,24 @@
         },
         "example": "bb4b2611-3d72-467b-8602-280330ecd65c"
       },
+      "sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "Field to sort results by. Possible values are \u0060created_at\u0060, \u0060updated_at\u0060,\n\u0060ip\u0060, \u0060id\u0060, and \u0060droplet_id\u0060. Defaults to \u0060id\u0060. Any other value is treated\nas \u0060id\u0060.\n\nSorting by \u0060droplet_id\u0060 orders floating IPs by the Droplet they are\nassigned to. Unassigned floating IPs (\u0060droplet\u0060 is null) sort as the\nlowest value, so they are returned first when \u0060sort_direction\u0060 is \u0060asc\u0060\nand last when it is \u0060desc\u0060.\n",
+        "schema": {
+          "$ref": "#/components/schemas/Sort"
+        },
+        "example": "droplet_id"
+      },
+      "parameters_sort_direction": {
+        "name": "sort_direction",
+        "in": "query",
+        "description": "Direction to sort results. Possible values are \u0060asc\u0060 and \u0060desc\u0060. Defaults to \u0060asc\u0060.",
+        "schema": {
+          "$ref": "#/components/schemas/ParametersSortDirection"
+        },
+        "example": "asc"
+      },
       "floating_ip": {
         "name": "floating_ip",
         "in": "path",
@@ -163811,6 +164272,15 @@
         },
         "example": true
       },
+      "parameters_sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "Field to sort results by. Possible values are \u0060created_at\u0060, \u0060updated_at\u0060,\n\u0060ip\u0060, \u0060id\u0060, and \u0060droplet_id\u0060. Defaults to \u0060id\u0060. Any other value is treated\nas \u0060id\u0060.\n\nSorting by \u0060droplet_id\u0060 orders reserved IPs by the Droplet they are\nassigned to. Unassigned reserved IPs (\u0060droplet\u0060 is null) sort as the\nlowest value, so they are returned first when \u0060sort_direction\u0060 is \u0060asc\u0060\nand last when it is \u0060desc\u0060.\n",
+        "schema": {
+          "$ref": "#/components/schemas/ParametersSort"
+        },
+        "example": "droplet_id"
+      },
       "reserved_ip": {
         "name": "reserved_ip",
         "in": "path",
@@ -164087,7 +164557,7 @@
         },
         "example": "fra1"
       },
-      "sort": {
+      "parameters_sort-2": {
         "name": "sort",
         "in": "query",
         "description": "The field to sort by.",
@@ -164097,7 +164567,7 @@
         },
         "example": "created_at"
       },
-      "parameters_sort_direction": {
+      "parameters_sort_direction-2": {
         "name": "sort_direction",
         "in": "query",
         "description": "The direction to sort by. Possible values are \u0060asc\u0060 or \u0060desc\u0060.",
@@ -178369,6 +178839,10 @@
         "format": "uuid"
       },
       "description": "Write-only map from oauth logical slot to an OAuth assignment UUID. Required when the source declares those slots; never copied from the source."
+    },
+    "DefinitionsSessionManifest": {
+      "type": "object",
+      "description": "The effective manifest of the session. Present only when \u0060config_drifted\u0060 is true. Never contains secret values."
     },
     "ResolvedRuleMatch": {
       "type": "object",
