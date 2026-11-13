@@ -34,7 +34,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth.Item.Connections.I
         {
         }
         /// <summary>
-        /// Begins the interactive step again for a connection that needs it. The response includes `authorization` while that step is outstanding. No token is returned.
+        /// Resumes a pending connection&apos;s authorization, or starts a new one for an expired or revoked connection. The connection keeps its id, `user_id`, and scopes, so environments that use it keep working once it is active again. An active connection is returned unchanged. Only the member who owns the connection can reconnect it; for anyone else the response is `404`, the same as for an unknown connection. The response includes `authorization` while the interactive step is outstanding. No token is returned.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderConnectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -67,7 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth.Item.Connections.I
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderConnectionResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderConnectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Begins the interactive step again for a connection that needs it. The response includes `authorization` while that step is outstanding. No token is returned.
+        /// Resumes a pending connection&apos;s authorization, or starts a new one for an expired or revoked connection. The connection keeps its id, `user_id`, and scopes, so environments that use it keep working once it is active again. An active connection is returned unchanged. Only the member who owns the connection can reconnect it; for anyone else the response is `404`, the same as for an unknown connection. The response includes `authorization` while the interactive step is outstanding. No token is returned.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -82,7 +82,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth.Item.Connections
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.ListProviderConnectionsResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.ListProviderConnectionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates, or resumes, the connection `{provider}` will use for `user_id`. `user_id` is the actor identifier the connection acts for, not a DigitalOcean user id. A pending connection includes an `authorization` object the user still has to complete. An active connection omits it. No token is returned. `github` is the provider served today.
+        /// Creates the connection `{provider}` will use for `user_id`. `user_id` is the actor identifier the connection acts for, not a DigitalOcean user id. Each actor has at most one active, pending, or expired connection per provider. If `user_id` already has one, the request fails with `409`. Find that connection&apos;s id with `GET /v2/agents/auth/{provider}/connections?user_id=...`, then resume or restart it with `POST /v2/agents/auth/{provider}/connections/{connection_id}/reconnect`, which keeps its scopes. Revoked connections do not count toward the limit, and list responses omit them. If the only connection `user_id` has for `{provider}` is revoked, for example by `DELETE`, create starts it again under the same connection id, with the scopes in this request. To change a connection&apos;s scopes, delete it and then create it. A successful create returns the connection as `pending`, with an `authorization` object for the interactive step. No token is returned. `github` is the provider served today.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.ProviderConnectionResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -91,6 +91,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth.Item.Connections
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 501 status code</exception>
@@ -111,6 +112,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth.Item.Connections
                 { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "501", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -138,7 +140,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Agents.Auth.Item.Connections
             return requestInfo;
         }
         /// <summary>
-        /// Creates, or resumes, the connection `{provider}` will use for `user_id`. `user_id` is the actor identifier the connection acts for, not a DigitalOcean user id. A pending connection includes an `authorization` object the user still has to complete. An active connection omits it. No token is returned. `github` is the provider served today.
+        /// Creates the connection `{provider}` will use for `user_id`. `user_id` is the actor identifier the connection acts for, not a DigitalOcean user id. Each actor has at most one active, pending, or expired connection per provider. If `user_id` already has one, the request fails with `409`. Find that connection&apos;s id with `GET /v2/agents/auth/{provider}/connections?user_id=...`, then resume or restart it with `POST /v2/agents/auth/{provider}/connections/{connection_id}/reconnect`, which keeps its scopes. Revoked connections do not count toward the limit, and list responses omit them. If the only connection `user_id` has for `{provider}` is revoked, for example by `DELETE`, create starts it again under the same connection id, with the scopes in this request. To change a connection&apos;s scopes, delete it and then create it. A successful create returns the connection as `pending`, with an `authorization` object for the interactive step. No token is returned. `github` is the provider served today.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

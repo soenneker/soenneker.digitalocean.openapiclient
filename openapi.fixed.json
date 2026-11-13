@@ -8649,7 +8649,7 @@
           "Harness Runtime"
         ],
         "summary": "Create a provider connection for one actor.",
-        "description": "Creates, or resumes, the connection \u0060{provider}\u0060 will use for \u0060user_id\u0060. \u0060user_id\u0060 is the actor identifier the connection acts for, not a DigitalOcean user id. A pending connection includes an \u0060authorization\u0060 object the user still has to complete. An active connection omits it. No token is returned. \u0060github\u0060 is the provider served today.",
+        "description": "Creates the connection \u0060{provider}\u0060 will use for \u0060user_id\u0060. \u0060user_id\u0060 is the actor identifier the connection acts for, not a DigitalOcean user id. Each actor has at most one active, pending, or expired connection per provider. If \u0060user_id\u0060 already has one, the request fails with \u0060409\u0060. Find that connection\u0027s id with \u0060GET /v2/agents/auth/{provider}/connections?user_id=...\u0060, then resume or restart it with \u0060POST /v2/agents/auth/{provider}/connections/{connection_id}/reconnect\u0060, which keeps its scopes. Revoked connections do not count toward the limit, and list responses omit them. If the only connection \u0060user_id\u0060 has for \u0060{provider}\u0060 is revoked, for example by \u0060DELETE\u0060, create starts it again under the same connection id, with the scopes in this request. To change a connection\u0027s scopes, delete it and then create it. A successful create returns the connection as \u0060pending\u0060, with an \u0060authorization\u0060 object for the interactive step. No token is returned. \u0060github\u0060 is the provider served today.",
         "operationId": "HarnessCreateProviderConnection",
         "parameters": [
           {
@@ -8676,7 +8676,7 @@
         },
         "responses": {
           "200": {
-            "description": "The connection, plus authorization steps when it is still pending.",
+            "description": "The new connection, \u0060pending\u0060, with the authorization steps the user has to complete.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -8722,6 +8722,27 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "description": "\u0060user_id\u0060 already has an active, pending, or expired connection for \u0060{provider}\u0060. List the connections filtered by \u0060user_id\u0060 to find its id, then reconnect it.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "429": {
             "$ref": "#/components/responses/too_many_requests"
@@ -9009,7 +9030,7 @@
           "Harness Runtime"
         ],
         "summary": "Start a fresh login for an existing connection.",
-        "description": "Begins the interactive step again for a connection that needs it. The response includes \u0060authorization\u0060 while that step is outstanding. No token is returned.",
+        "description": "Resumes a pending connection\u0027s authorization, or starts a new one for an expired or revoked connection. The connection keeps its id, \u0060user_id\u0060, and scopes, so environments that use it keep working once it is active again. An active connection is returned unchanged. Only the member who owns the connection can reconnect it; for anyone else the response is \u0060404\u0060, the same as for an unknown connection. The response includes \u0060authorization\u0060 while the interactive step is outstanding. No token is returned.",
         "operationId": "HarnessPostProviderConnectionReconnect",
         "parameters": [
           {
