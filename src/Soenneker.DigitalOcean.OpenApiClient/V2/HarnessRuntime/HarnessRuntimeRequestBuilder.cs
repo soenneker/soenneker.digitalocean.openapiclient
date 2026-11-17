@@ -2,7 +2,15 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Auth;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Configs;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.ImageMessages;
 using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Regions;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Sessions;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Templates;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Triggers;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.WebhookProviders;
+using Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Workspaces;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,10 +23,50 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HarnessRuntimeRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The auth property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Auth.AuthRequestBuilder Auth
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Auth.AuthRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The configs property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Configs.ConfigsRequestBuilder Configs
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Configs.ConfigsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The imageMessages property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.ImageMessages.ImageMessagesRequestBuilder ImageMessages
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.ImageMessages.ImageMessagesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The regions property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Regions.RegionsRequestBuilder Regions
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Regions.RegionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sessions property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Sessions.SessionsRequestBuilder Sessions
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Sessions.SessionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The templates property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Templates.TemplatesRequestBuilder Templates
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Templates.TemplatesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The triggers property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Triggers.TriggersRequestBuilder Triggers
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Triggers.TriggersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhookProviders property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.WebhookProviders.WebhookProvidersRequestBuilder WebhookProviders
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.WebhookProviders.WebhookProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workspaces property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Workspaces.WorkspacesRequestBuilder Workspaces
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Workspaces.WorkspacesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.HarnessRuntimeRequestBuilder"/> and sets the default values.

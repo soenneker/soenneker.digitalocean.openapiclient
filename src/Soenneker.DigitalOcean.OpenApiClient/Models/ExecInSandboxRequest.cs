@@ -19,6 +19,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("argv") is null) { _explicitNullValueArgv = default!; _explicitNullProperties?.Remove("argv"); }
             else if (parseNode.GetChildNode("argv") is { } nullNodeArgv && nullNodeArgv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Argv = null;
+            if (parseNode.GetChildNode("env") is null) { _explicitNullValueEnv = default!; _explicitNullProperties?.Remove("env"); }
+            else if (parseNode.GetChildNode("env") is { } nullNodeEnv && nullNodeEnv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Env = null;
+            if (parseNode.GetChildNode("keep_stdin_open") is null) { _explicitNullValueKeepStdinOpen = default!; _explicitNullProperties?.Remove("keep_stdin_open"); }
+            else if (parseNode.GetChildNode("keep_stdin_open") is { } nullNodeKeepStdinOpen && nullNodeKeepStdinOpen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeepStdinOpen = null;
             if (parseNode.GetChildNode("stdin") is null) { _explicitNullValueStdin = default!; _explicitNullProperties?.Remove("stdin"); }
             else if (parseNode.GetChildNode("stdin") is { } nullNodeStdin && nullNodeStdin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stdin = null;
             if (parseNode.GetChildNode("timeout_seconds") is null) { _explicitNullValueTimeoutSeconds = default!; _explicitNullProperties?.Remove("timeout_seconds"); }
@@ -39,7 +43,20 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public List<string> Argv { get => _explicitNullValueArgv; set { _explicitNullValueArgv = value; AdditionalData?.Remove("argv"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("argv"); else _explicitNullProperties?.Remove("argv"); } }
         private List<string> _explicitNullValueArgv = default!;
 #endif
-        /// <summary>Optional base64 stdin payload, delivered in full and then closed so the process sees EOF. One-shot only — there is no streaming stdin on this endpoint.</summary>
+        /// <summary>Optional environment variables for this command only; nothing is stored on the session and values are not logged, but any process in the sandbox can read them. For credentials the platform holds, use `spec.secrets`. Keys must match `[A-Z][A-Z0-9_]*` and must not be platform-reserved keys (the same rule as `spec.env`). At most 64 entries, keys up to 256 bytes, values up to 64 KiB.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequestEnvProperty? Env { get => _explicitNullValueEnv; set { _explicitNullValueEnv = value; AdditionalData?.Remove("env"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env"); else _explicitNullProperties?.Remove("env"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequestEnvProperty? _explicitNullValueEnv = default!;
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequestEnvProperty Env { get => _explicitNullValueEnv; set { _explicitNullValueEnv = value; AdditionalData?.Remove("env"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env"); else _explicitNullProperties?.Remove("env"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequestEnvProperty _explicitNullValueEnv = default!;
+#endif
+        /// <summary>Leave the process stdin open. Requires an event-stream response (Accept text/event-stream, or stream=1). The stream starts with event started and an exec_id. A buffered request with this set returns 400.</summary>
+        public bool? KeepStdinOpen { get => _explicitNullValueKeepStdinOpen; set { _explicitNullValueKeepStdinOpen = value; AdditionalData?.Remove("keep_stdin_open"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keep_stdin_open"); else _explicitNullProperties?.Remove("keep_stdin_open"); } }
+        private bool? _explicitNullValueKeepStdinOpen = default!;
+        /// <summary>Optional base64 stdin payload. Without keep_stdin_open it is delivered in full and then closed so the process sees EOF. With keep_stdin_open it is the optional first chunk. Later bytes use POST /v2/harness-runtime/sessions/{session_id}/sandbox/exec/{exec_id}/stdin.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? Stdin { get => _explicitNullValueStdin; set { _explicitNullValueStdin = value; AdditionalData?.Remove("stdin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stdin"); else _explicitNullProperties?.Remove("stdin"); } }
@@ -88,6 +105,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "argv", n => { Argv = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "env", n => { Env = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequestEnvProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequestEnvProperty.CreateFromDiscriminatorValue); } },
+                { "keep_stdin_open", n => { KeepStdinOpen = n.GetBoolValue(); } },
                 { "stdin", n => { Stdin = n.GetByteArrayValue(); } },
                 { "timeout_seconds", n => { TimeoutSeconds = n.GetLongValue(); } },
                 { "workdir", n => { Workdir = n.GetStringValue(); } },
@@ -101,6 +120,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("argv", Argv);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ExecInSandboxRequestEnvProperty>("env", Env);
+            writer.WriteBoolValue("keep_stdin_open", KeepStdinOpen);
             writer.WriteByteArrayValue("stdin", Stdin);
             writer.WriteLongValue("timeout_seconds", TimeoutSeconds);
             writer.WriteStringValue("workdir", Workdir);

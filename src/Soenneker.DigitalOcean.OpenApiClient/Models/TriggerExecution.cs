@@ -36,6 +36,10 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("status_message") is null) { _explicitNullValueStatusMessage = default!; _explicitNullProperties?.Remove("status_message"); }
+            else if (parseNode.GetChildNode("status_message") is { } nullNodeStatusMessage && nullNodeStatusMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusMessage = null;
+            if (parseNode.GetChildNode("status_reason") is null) { _explicitNullValueStatusReason = default!; _explicitNullProperties?.Remove("status_reason"); }
+            else if (parseNode.GetChildNode("status_reason") is { } nullNodeStatusReason && nullNodeStatusReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusReason = null;
             if (parseNode.GetChildNode("trigger_id") is null) { _explicitNullValueTriggerId = default!; _explicitNullProperties?.Remove("trigger_id"); }
             else if (parseNode.GetChildNode("trigger_id") is { } nullNodeTriggerId && nullNodeTriggerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerId = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
@@ -113,6 +117,26 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Per-firing outcome.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerExecutionStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerExecutionStatus? _explicitNullValueStatus = default!;
+        /// <summary>Human-readable detail for status_reason. Omitted when status_reason is omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StatusMessage { get => _explicitNullValueStatusMessage; set { _explicitNullValueStatusMessage = value; AdditionalData?.Remove("status_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_message"); else _explicitNullProperties?.Remove("status_message"); } }
+        private string? _explicitNullValueStatusMessage = default!;
+#nullable restore
+#else
+        public string StatusMessage { get => _explicitNullValueStatusMessage; set { _explicitNullValueStatusMessage = value; AdditionalData?.Remove("status_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_message"); else _explicitNullProperties?.Remove("status_message"); } }
+        private string _explicitNullValueStatusMessage = default!;
+#endif
+        /// <summary>Why a running execution has not started its turn. Omitted when there is nothing to report. Known value: waiting_for_bound_session (a reuse firing is waiting for its bound session to pause; status stays running). Clients should treat an unrecognized value as an opaque string.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StatusReason { get => _explicitNullValueStatusReason; set { _explicitNullValueStatusReason = value; AdditionalData?.Remove("status_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_reason"); else _explicitNullProperties?.Remove("status_reason"); } }
+        private string? _explicitNullValueStatusReason = default!;
+#nullable restore
+#else
+        public string StatusReason { get => _explicitNullValueStatusReason; set { _explicitNullValueStatusReason = value; AdditionalData?.Remove("status_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_reason"); else _explicitNullProperties?.Remove("status_reason"); } }
+        private string _explicitNullValueStatusReason = default!;
+#endif
         /// <summary>The trigger_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -160,6 +184,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerExecutionStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
+                { "status_message", n => { StatusMessage = n.GetStringValue(); } },
+                { "status_reason", n => { StatusReason = n.GetStringValue(); } },
                 { "trigger_id", n => { TriggerId = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -180,6 +206,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("run_id", RunId);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.TriggerExecutionStatus>("status", Status);
+            writer.WriteStringValue("status_message", StatusMessage);
+            writer.WriteStringValue("status_reason", StatusReason);
             writer.WriteStringValue("trigger_id", TriggerId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

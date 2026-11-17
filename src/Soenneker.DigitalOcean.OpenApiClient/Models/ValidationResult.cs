@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Response of POST /v2/agents/sessions/policy/validate: per-rule verdicts for the (agent, version). The same shape is persisted per session in session_policies.verdicts.
+    /// Response of POST /v2/harness-runtime/sessions/policy/validate: per-rule verdicts for the (agent, version). The same shape is persisted per session in session_policies.verdicts.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ValidationResult : IAdditionalDataHolder, IParsable

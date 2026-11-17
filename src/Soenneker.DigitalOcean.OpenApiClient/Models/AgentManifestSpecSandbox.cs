@@ -64,7 +64,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The persistentWorkspace property</summary>
         public bool? PersistentWorkspace { get => _explicitNullValuePersistentWorkspace; set { _explicitNullValuePersistentWorkspace = value; AdditionalData?.Remove("persistentWorkspace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("persistentWorkspace"); else _explicitNullProperties?.Remove("persistentWorkspace"); } }
         private bool? _explicitNullValuePersistentWorkspace = default!;
-        /// <summary>Requested sandbox size (catalog: GET /v2/agents/sessions/sandbox/sizes). Empty means the service default.</summary>
+        /// <summary>Requested sandbox size (catalog: GET /v2/harness-runtime/sessions/sandbox/sizes). Empty means the service default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SizeSlug { get => _explicitNullValueSizeSlug; set { _explicitNullValueSizeSlug = value; AdditionalData?.Remove("sizeSlug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sizeSlug"); else _explicitNullProperties?.Remove("sizeSlug"); } }

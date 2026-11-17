@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// PATCH body for /v2/agents/sessions/{session_id}. Either toggle the session-scoped `resume_on_topoff` consent, or change the live config with `manifest_yaml`; the two cannot be combined in one request. At least one property must be present; {} is 400. Unknown top-level keys are rejected with 400.
+    /// PATCH body for /v2/harness-runtime/sessions/{session_id}. Either toggle the session-scoped `resume_on_topoff` consent, or change the live config with `manifest_yaml`; the two cannot be combined in one request. At least one property must be present; {} is 400. Unknown top-level keys are rejected with 400.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchSessionRequest : IParsable

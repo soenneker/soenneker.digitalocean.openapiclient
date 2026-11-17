@@ -29,7 +29,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Signature-verification scheme applied to a delivery. Omitted on create defaults to custom.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookProviderKey? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookProviderKey? _explicitNullValueProvider = default!;
-        /// <summary>The Payload URL to configure in the external system.</summary>
+        /// <summary>The Payload URL to configure in the external system. The service returns the `/v2/agents` spelling. Paste that value unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }

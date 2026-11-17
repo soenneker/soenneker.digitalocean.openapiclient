@@ -27,6 +27,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("metric_value_type") is { } nullNodeMetricValueType && nullNodeMetricValueType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricValueType = null;
             if (parseNode.GetChildNode("number_value") is null) { _explicitNullValueNumberValue = default!; _explicitNullProperties?.Remove("number_value"); }
             else if (parseNode.GetChildNode("number_value") is { } nullNodeNumberValue && nullNodeNumberValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberValue = null;
+            if (parseNode.GetChildNode("passed") is null) { _explicitNullValuePassed = default!; _explicitNullProperties?.Remove("passed"); }
+            else if (parseNode.GetChildNode("passed") is { } nullNodePassed && nullNodePassed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Passed = null;
             if (parseNode.GetChildNode("reasoning") is null) { _explicitNullValueReasoning = default!; _explicitNullProperties?.Remove("reasoning"); }
             else if (parseNode.GetChildNode("reasoning") is { } nullNodeReasoning && nullNodeReasoning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reasoning = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
@@ -73,6 +75,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The value of the metric as a number.</summary>
         public double? NumberValue { get => _explicitNullValueNumberValue; set { _explicitNullValueNumberValue = value; AdditionalData?.Remove("number_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_value"); else _explicitNullProperties?.Remove("number_value"); } }
         private double? _explicitNullValueNumberValue = default!;
+        /// <summary>Whether the score met the metric&apos;s success threshold. Set for modelevaluation results only, and only when status is COMPLETED; omittedfor skipped or failed metrics.</summary>
+        public bool? Passed { get => _explicitNullValuePassed; set { _explicitNullValuePassed = value; AdditionalData?.Remove("passed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passed"); else _explicitNullProperties?.Remove("passed"); } }
+        private bool? _explicitNullValuePassed = default!;
         /// <summary>Reasoning of the metric result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,6 +131,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "metric_uuid", n => { MetricUuid = n.GetStringValue(); } },
                 { "metric_value_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMetricValueType = default; _explicitNullProperties?.Remove("metric_value_type"); AdditionalData["metric_value_type"] = unknown; } else { MetricValueType = parsed; AdditionalData.Remove("metric_value_type"); } } },
                 { "number_value", n => { NumberValue = n.GetDoubleValue(); } },
+                { "passed", n => { Passed = n.GetBoolValue(); } },
                 { "reasoning", n => { Reasoning = n.GetStringValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResultStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "string_value", n => { StringValue = n.GetStringValue(); } },
@@ -143,6 +149,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteStringValue("metric_uuid", MetricUuid);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricValueType>("metric_value_type", MetricValueType);
             writer.WriteDoubleValue("number_value", NumberValue);
+            writer.WriteBoolValue("passed", Passed);
             writer.WriteStringValue("reasoning", Reasoning);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationMetricResultStatus>("status", Status);
             writer.WriteStringValue("string_value", StringValue);
