@@ -50356,6 +50356,19 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/MultiregistryCreate"
+              },
+              "examples": {
+                "Registry with Insights logs": {
+                  "description": "Creates a registry and opts in to sending its logs to Insights.",
+                  "value": {
+                    "name": "example",
+                    "subscription_tier_slug": "basic",
+                    "region": "fra1",
+                    "insights": {
+                      "logs": true
+                    }
+                  }
+                }
               }
             }
           },
@@ -51587,6 +51600,19 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/RegistryCreateBody"
+              },
+              "examples": {
+                "Registry with Insights logs": {
+                  "description": "Creates a registry and opts in to sending its logs to Insights.",
+                  "value": {
+                    "name": "example",
+                    "subscription_tier_slug": "basic",
+                    "region": "fra1",
+                    "insights": {
+                      "logs": true
+                    }
+                  }
+                }
               }
             }
           },
@@ -98888,6 +98914,19 @@
           }
         }
       },
+      "RegistryInsightsOptIn": {
+        "type": "object",
+        "properties": {
+          "logs": {
+            "type": "boolean",
+            "description": "A boolean value indicating whether the registry\u0027s logs are sent to Insights. Set this to \u0060true\u0060 to send the registry\u0027s logs to Insights. \u0060false\u0060, and omitting \u0060insights\u0060 or \u0060logs\u0060, both create the registry with logs not enabled.",
+            "example": true
+          }
+        },
+        "description": "An object specifying the Insights telemetry that the customer opts in to for the container registry. This is only accepted when creating a registry and is not returned in responses. If the object is omitted, or if \u0060logs\u0060 is not set, the registry is created with logs not enabled.",
+        "nullable": true,
+        "writeOnly": true
+      },
       "MultiregistryCreate": {
         "required": [
           "name"
@@ -98906,6 +98945,9 @@
           },
           "region": {
             "$ref": "#/components/schemas/MultiregistryCreateRegion"
+          },
+          "insights": {
+            "$ref": "#/components/schemas/RegistryInsightsOptIn"
           }
         }
       },
@@ -99177,6 +99219,9 @@
           },
           "region": {
             "$ref": "#/components/schemas/RegistryCreateBodyRegion"
+          },
+          "insights": {
+            "$ref": "#/components/schemas/RegistryInsightsOptIn"
           }
         }
       },

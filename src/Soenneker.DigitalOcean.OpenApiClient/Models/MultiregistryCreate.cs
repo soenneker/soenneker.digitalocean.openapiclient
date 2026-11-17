@@ -17,6 +17,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("insights") is null) { _explicitNullValueInsights = default!; _explicitNullProperties?.Remove("insights"); }
+            else if (parseNode.GetChildNode("insights") is { } nullNodeInsights && nullNodeInsights.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Insights = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
@@ -27,6 +29,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>An object specifying the Insights telemetry that the customer opts in to for the container registry. This is only accepted when creating a registry and is not returned in responses. If the object is omitted, or if `logs` is not set, the registry is created with logs not enabled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryInsightsOptIn? Insights { get => _explicitNullValueInsights; set { _explicitNullValueInsights = value; AdditionalData?.Remove("insights"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights"); else _explicitNullProperties?.Remove("insights"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryInsightsOptIn? _explicitNullValueInsights = default!;
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryInsightsOptIn Insights { get => _explicitNullValueInsights; set { _explicitNullValueInsights = value; AdditionalData?.Remove("insights"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights"); else _explicitNullProperties?.Remove("insights"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryInsightsOptIn _explicitNullValueInsights = default!;
+#endif
         /// <summary>A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,6 +80,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "insights", n => { Insights = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryInsightsOptIn>(global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryInsightsOptIn.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MultiregistryCreateRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
                 { "subscription_tier_slug", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MultiregistryCreateSubscriptionTierSlug>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSubscriptionTierSlug = default; _explicitNullProperties?.Remove("subscription_tier_slug"); AdditionalData["subscription_tier_slug"] = unknown; } else { SubscriptionTierSlug = parsed; AdditionalData.Remove("subscription_tier_slug"); } } },
@@ -80,6 +93,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RegistryInsightsOptIn>("insights", Insights);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MultiregistryCreateRegion>("region", Region);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MultiregistryCreateSubscriptionTierSlug>("subscription_tier_slug", SubscriptionTierSlug);

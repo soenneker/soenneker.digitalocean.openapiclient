@@ -45216,6 +45216,17 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/multiregistry_create'
+            examples:
+              Registry with Insights logs:
+                description: >-
+                  Creates a registry and opts in to sending its logs to
+                  Insights.
+                value:
+                  name: example
+                  subscription_tier_slug: basic
+                  region: fra1
+                  insights:
+                    logs: true
       responses:
         '201':
           $ref: '#/components/responses/multiregistry_info'
@@ -46337,6 +46348,17 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/registry_create'
+            examples:
+              Registry with Insights logs:
+                description: >-
+                  Creates a registry and opts in to sending its logs to
+                  Insights.
+                value:
+                  name: example
+                  subscription_tier_slug: basic
+                  region: fra1
+                  insights:
+                    logs: true
       responses:
         '201':
           $ref: '#/components/responses/registry_info'
@@ -97330,6 +97352,24 @@ components:
               allOf:
                 - readOnly: true
                 - $ref: '#/components/schemas/subscription'
+    registry_insights_opt_in:
+      type: object
+      nullable: true
+      writeOnly: true
+      description: >-
+        An object specifying the Insights telemetry that the customer opts in to
+        for the container registry. This is only accepted when creating a
+        registry and is not returned in responses. If the object is omitted, or
+        if `logs` is not set, the registry is created with logs not enabled.
+      properties:
+        logs:
+          type: boolean
+          description: >-
+            A boolean value indicating whether the registry's logs are sent to
+            Insights. Set this to `true` to send the registry's logs to
+            Insights. `false`, and omitting `insights` or `logs`, both create
+            the registry with logs not enabled.
+          example: true
     multiregistry_create:
       type: object
       properties:
@@ -97367,6 +97407,8 @@ components:
           description: >-
             Slug of the region where registry data is stored. When not provided,
             a region will be selected.
+        insights:
+          $ref: '#/components/schemas/registry_insights_opt_in'
       required:
         - name
     multiregistry:
@@ -97623,6 +97665,8 @@ components:
           description: >-
             Slug of the region where registry data is stored. When not provided,
             a region will be selected.
+        insights:
+          $ref: '#/components/schemas/registry_insights_opt_in'
       required:
         - name
         - subscription_tier_slug
