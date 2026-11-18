@@ -157,7 +157,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "evaluation_trace_spans", n => { EvaluationTraceSpans = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTraceSpan>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationTraceSpan.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "ground_truth", n => { GroundTruth = n.GetStringValue(); } },

@@ -107,7 +107,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "egress", n => { Egress = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgress>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestSpecSandboxEgress.CreateFromDiscriminatorValue); } },
                 { "idleTimeoutSeconds", n => { IdleTimeoutSeconds = n.GetLongValue(); } },

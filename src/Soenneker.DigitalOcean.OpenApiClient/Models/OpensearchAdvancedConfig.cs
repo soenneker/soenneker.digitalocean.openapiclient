@@ -288,7 +288,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(41)
             {
                 { "action_auto_create_index_enabled", n => { ActionAutoCreateIndexEnabled = n.GetBoolValue(); } },
                 { "action_destructive_requires_name", n => { ActionDestructiveRequiresName = n.GetBoolValue(); } },

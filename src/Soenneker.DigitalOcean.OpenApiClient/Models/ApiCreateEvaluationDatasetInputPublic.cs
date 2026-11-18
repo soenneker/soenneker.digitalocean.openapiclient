@@ -79,7 +79,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "dataset_paradigm", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetParadigm>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDatasetParadigm = default; _explicitNullProperties?.Remove("dataset_paradigm"); AdditionalData["dataset_paradigm"] = unknown; } else { DatasetParadigm = parsed; AdditionalData.Remove("dataset_paradigm"); } } },
                 { "dataset_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiEvaluationDatasetType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDatasetType = default; _explicitNullProperties?.Remove("dataset_type"); AdditionalData["dataset_type"] = unknown; } else { DatasetType = parsed; AdditionalData.Remove("dataset_type"); } } },

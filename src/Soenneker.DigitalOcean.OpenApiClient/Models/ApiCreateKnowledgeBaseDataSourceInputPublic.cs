@@ -110,7 +110,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "aws_data_source", n => { AwsDataSource = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAwsDataSource>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAwsDataSource.CreateFromDiscriminatorValue); } },
                 { "chunking_algorithm", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChunkingAlgorithm>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChunkingAlgorithm = default; _explicitNullProperties?.Remove("chunking_algorithm"); AdditionalData["chunking_algorithm"] = unknown; } else { ChunkingAlgorithm = parsed; AdditionalData.Remove("chunking_algorithm"); } } },

@@ -139,7 +139,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "agent_config", n => { AgentConfig = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig.CreateFromDiscriminatorValue); } },
                 { "evaluation_config", n => { EvaluationConfig = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiSimulationEvaluationConfig.CreateFromDiscriminatorValue); } },

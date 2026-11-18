@@ -272,7 +272,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(23)
             {
                 { "active_deployments", n => { ActiveDeployments = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelActiveDeployment>(global::Soenneker.DigitalOcean.OpenApiClient.Models.CustomModelActiveDeployment.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "architecture", n => { Architecture = n.GetStringValue(); } },

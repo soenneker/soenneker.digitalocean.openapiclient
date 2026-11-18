@@ -203,7 +203,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
                 { "candidate_inference_config", n => { CandidateInferenceConfig = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateInferenceConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateInferenceConfig.CreateFromDiscriminatorValue); } },
                 { "candidate_model_name", n => { CandidateModelName = n.GetStringValue(); } },

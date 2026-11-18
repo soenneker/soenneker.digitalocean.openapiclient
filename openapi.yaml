@@ -6390,6 +6390,90 @@ paths:
       security:
         - bearer_auth:
             - action_gateway:read
+  /v2/action-gateway/tools/{tool_slug}/versions:
+    get:
+      operationId: tools_list_versions
+      summary: List Tool Versions
+      description: >-
+        Returns the released versions of one catalog tool, newest first, each
+        with the changes from the version released before it. Every version
+        listed can be pinned as `<tool_slug>@<version>` in an endpoint or
+        toolbelt, and a pin keeps calling that version after newer versions are
+        released. A tool named without a version always calls the latest
+        release, marked `latest`.
+
+
+        Changes are computed by comparing each version's input schema, output
+        schema, and required OAuth scopes with the previous released version.
+        `breaking` marks a change that can make a call that worked against the
+        previous version fail; review those before moving a pin or relying on
+        the latest release. Returns 404 when `tool_slug` is not a catalog tool.
+        Tools of your team's MCP servers are not listed.
+      tags:
+        - Action Gateway
+      parameters:
+        - $ref: '#/components/parameters/tool_slug'
+        - $ref: '#/components/parameters/page_size'
+        - $ref: '#/components/parameters/page_token'
+      responses:
+        '200':
+          description: The request was successful.
+          headers:
+            ratelimit-limit:
+              $ref: '#/components/headers/ratelimit-limit'
+            ratelimit-remaining:
+              $ref: '#/components/headers/ratelimit-remaining'
+            ratelimit-reset:
+              $ref: '#/components/headers/ratelimit-reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_tool_versions_response'
+              example:
+                versions:
+                  - tool_slug: supabase_list_organizations
+                    version: v17
+                    released_at: '2026-11-12T09:30:00Z'
+                    latest: true
+                    previous_version: v16
+                    breaking: true
+                    changes:
+                      - type: requiredScopesAdded
+                        values:
+                          - organizations:read
+                        breaking: true
+                  - tool_slug: supabase_list_organizations
+                    version: v16
+                    released_at: '2026-10-20T14:05:00Z'
+                    latest: false
+                    previous_version: v15
+                    breaking: false
+                    changes:
+                      - type: inputPropertyAdded
+                        path: page.cursor
+                        breaking: false
+                next_page_token: djE1
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+        '500':
+          $ref: '#/components/responses/server_error'
+        default:
+          $ref: '#/components/responses/unexpected_error'
+      x-codeSamples:
+        - lang: cURL
+          source: |-
+            curl -X GET \
+              -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+              "https://api.digitalocean.com/v2/action-gateway/tools/supabase_list_organizations/versions?page_size=20"
+      security:
+        - bearer_auth:
+            - action_gateway:read
   /v2/action-gateway/tools/providers:
     get:
       operationId: tools_list_providers
@@ -7018,6 +7102,13 @@ paths:
         the call with the same arguments. A call that needs the end user to
         connect a provider fails with `_meta.status` set to
         `requires_authorization` or `requires_connection_configuration`.
+
+
+        A call that pins an older released version, such as `version: v16` while
+        `v17` is current, returns `_meta.latest_version` with the current
+        release's version. Calls without a version, and calls pinned to the
+        current release, omit it. List a tool's versions and their changes with
+        `GET /v2/action-gateway/tools/{tool_slug}/versions`.
 
 
         Tools opted into result caching use the session's settings
@@ -10422,7 +10513,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -10498,7 +10589,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -10630,8 +10721,8 @@ paths:
           $ref: '#/components/responses/unauthorized'
         '403':
           description: >-
-            Session belongs to another team, or the team is not enrolled in the
-            config-update feature (manifest_yaml only).
+            The caller holds no access grant on the session, or the team is not
+            enrolled in the config-update feature (manifest_yaml only).
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -10784,7 +10875,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -10891,7 +10982,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -11005,7 +11096,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -11092,7 +11183,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -11205,19 +11296,6 @@ paths:
                 $ref: '#/components/schemas/error'
         '401':
           $ref: '#/components/responses/unauthorized'
-        '403':
-          description: Session belongs to another team.
-          headers:
-            ratelimit-limit:
-              $ref: '#/components/headers/ratelimit-limit'
-            ratelimit-remaining:
-              $ref: '#/components/headers/ratelimit-remaining'
-            ratelimit-reset:
-              $ref: '#/components/headers/ratelimit-reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
         '404':
           $ref: '#/components/responses/not_found'
         '429':
@@ -11309,7 +11387,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -11444,7 +11522,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -11602,7 +11680,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -11712,8 +11790,8 @@ paths:
           $ref: '#/components/responses/unauthorized'
         '403':
           description: >-
-            The session belongs to another team, or this team is not enabled for
-            turn cancel.
+            The caller holds no access grant on the session, or this team is not
+            enabled for turn cancel.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -11798,7 +11876,7 @@ paths:
       description: >-
         Returns the live notices on the session's sandbox image. `type` filters
         the notice kind; the only documented value is `vulnerability`. A session
-        owned by another team returns 403.
+        owned by another team returns 404, the same as an unknown session.
       tags:
         - Harness Runtime
       parameters:
@@ -11853,19 +11931,6 @@ paths:
                 $ref: '#/components/schemas/error'
         '401':
           $ref: '#/components/responses/unauthorized'
-        '403':
-          description: Session belongs to another team.
-          headers:
-            ratelimit-limit:
-              $ref: '#/components/headers/ratelimit-limit'
-            ratelimit-remaining:
-              $ref: '#/components/headers/ratelimit-remaining'
-            ratelimit-reset:
-              $ref: '#/components/headers/ratelimit-reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
         '404':
           $ref: '#/components/responses/not_found'
         '429':
@@ -11966,7 +12031,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -12079,7 +12144,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -12205,7 +12270,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -12366,7 +12431,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -12518,7 +12583,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -12692,8 +12757,8 @@ paths:
           $ref: '#/components/responses/unauthorized'
         '403':
           description: >-
-            Path resolves outside the workspace, or the session belongs to
-            another team.
+            Path resolves outside the workspace, or the caller holds no access
+            grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -12930,8 +12995,8 @@ paths:
                 $ref: '#/components/schemas/error'
         '403':
           description: >-
-            Path resolves outside the workspace, or the session belongs to
-            another team.
+            Path resolves outside the workspace, or the caller holds no access
+            grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -13074,7 +13139,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          description: The session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -13641,8 +13706,8 @@ paths:
                 $ref: '#/components/schemas/error'
         '403':
           description: >-
-            Path resolves outside the workspace, or the session belongs to
-            another team.
+            Path resolves outside the workspace, or the caller holds no access
+            grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -14073,8 +14138,8 @@ paths:
                 $ref: '#/components/schemas/error'
         '403':
           description: >-
-            The port is outside 1024-65535, or the session belongs to another
-            team.
+            The port is outside 1024-65535, or the caller holds no access grant
+            on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -14204,7 +14269,7 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized'
         '403':
-          description: Session belongs to another team.
+          description: The caller holds no access grant on the session.
           headers:
             ratelimit-limit:
               $ref: '#/components/headers/ratelimit-limit'
@@ -73957,6 +74022,117 @@ components:
                       - $ref: '#/components/schemas/health_metrics'
               description: Points oldest first, ending with the slot in progress.
       description: Health of one tool.
+    tool_version_change:
+      type: object
+      description: One difference from the previous released version.
+      properties:
+        type:
+          type: string
+          description: >-
+            What changed. `inputPropertyAdded` is breaking when the property is
+            required. `inputTypeChanged` and `outputTypeChanged` list the new
+            types in `values`, and are breaking when a previously accepted input
+            type is no longer accepted or an output can hold a new type.
+            `requiredScopesAdded` is breaking because a connection authorized
+            before the version may lack the scopes and must be reconnected.
+            `inputSchemaChanged` and `outputSchemaChanged` cover other schema
+            changes and are reported as breaking, except when an output schema
+            is declared for the first time.
+          enum:
+            - inputPropertyAdded
+            - inputPropertyRemoved
+            - inputPropertyRequired
+            - inputPropertyOptional
+            - inputTypeChanged
+            - inputEnumValuesAdded
+            - inputEnumValuesRemoved
+            - inputSchemaChanged
+            - outputPropertyAdded
+            - outputPropertyRemoved
+            - outputPropertyOptional
+            - outputTypeChanged
+            - outputEnumValuesAdded
+            - outputSchemaChanged
+            - requiredScopesAdded
+            - requiredScopesRemoved
+          example: requiredScopesAdded
+        path:
+          type: string
+          description: >-
+            Dotted path of the schema property that changed, for example
+            `page.cursor`. `items[]` names an array's elements. Empty for the
+            schema root and for scope changes.
+          example: page.cursor
+        values:
+          type: array
+          items:
+            type: string
+          description: >-
+            The values the change concerns, sorted: enum values added or
+            removed, the property's new types, or the scopes added or removed.
+            Empty otherwise.
+          example:
+            - organizations:read
+        breaking:
+          type: boolean
+          description: >-
+            True when a call that worked against the previous version can fail
+            against this one.
+          example: true
+    tool_version_release:
+      type: object
+      description: One released version of a catalog tool.
+      properties:
+        tool_slug:
+          type: string
+          description: Catalog tool slug.
+          example: supabase_list_organizations
+        version:
+          type: string
+          description: Version, for example `v3`. Pin it as `<tool_slug>@v3`.
+          example: v17
+        released_at:
+          type: string
+          format: date-time
+          description: When this version was first released.
+          example: '2026-11-12T09:30:00Z'
+        latest:
+          type: boolean
+          description: >-
+            True for the version calls without a pinned version currently use.
+            At most one version is latest; none is while a tool is withdrawn
+            from the catalog.
+          example: true
+        previous_version:
+          type: string
+          description: >-
+            The released version this one is compared with. Empty for the oldest
+            version listed, which has no changes.
+          example: v16
+        breaking:
+          type: boolean
+          description: True when any change is breaking.
+          example: true
+        changes:
+          type: array
+          description: >-
+            Changes from `previous_version`, input changes first, then output,
+            then scopes. Descriptions, titles, and examples are not compared.
+          items:
+            $ref: '#/components/schemas/tool_version_change'
+    list_tool_versions_response:
+      type: object
+      description: One page of a tool's released versions, newest first.
+      properties:
+        versions:
+          type: array
+          description: Released versions, newest first.
+          items:
+            $ref: '#/components/schemas/tool_version_release'
+        next_page_token:
+          type: string
+          description: Pass as `page_token` to read older versions. Empty on the last page.
+          example: djE1
     connection_parameter_spec:
       type: object
       description: >-
@@ -95145,9 +95321,9 @@ components:
         destinations works, so clients must honor the injected `HTTP_PROXY` /
         `HTTPS_PROXY` environment. The registries needed to pull the workload
         image are allowed automatically. On a MicroVM this is the policy set at
-        create, exactly as supplied. On a checkpoint it is the policy a restored
-        MicroVM inherits; a restore cannot change it. Omitted when egress is
-        unrestricted.
+        create, as supplied, except that credential secrets are never returned.
+        On a checkpoint it is the policy a restored MicroVM inherits; a restore
+        cannot change it. Omitted when egress is unrestricted.
       properties:
         default_action:
           type: string
@@ -95180,6 +95356,54 @@ components:
                 type: string
                 description: An exact IP address. CIDR ranges are not supported.
                 example: 203.0.113.5
+        credentials:
+          type: array
+          maxItems: 16
+          description: >-
+            Credentials the platform adds to outbound requests, so the workload
+            never holds them. Settable only at create, and only in regions that
+            support credential injection. Each host must be allowed by a rule
+            (or `default_action` must be `allow`). HTTPS requests to these hosts
+            are intercepted so the credential can be attached; clients that pin
+            certificates will fail on them. The credential is sent in the
+            `authorization` header. Credentials cannot be set when restoring a
+            checkpoint: the restored MicroVM inherits the origin's. Responses
+            include `host`, `path_prefix`, and `scheme` for each credential. The
+            `secret` is never returned.
+          items:
+            type: object
+            required:
+              - host
+              - secret
+            properties:
+              host:
+                type: string
+                description: An exact host. Wildcards and IP addresses are not allowed.
+                example: api.example.com
+              path_prefix:
+                type: string
+                description: >-
+                  Only requests whose path starts with this prefix get the
+                  credential. Must start with `/`. Defaults to every path.
+                example: /v1
+              scheme:
+                type: string
+                enum:
+                  - bearer
+                  - raw
+                default: bearer
+                description: >-
+                  How the value is sent. `bearer` sends `Bearer <secret>`; `raw`
+                  sends the secret as is.
+                example: bearer
+              secret:
+                type: string
+                writeOnly: true
+                maxLength: 8192
+                description: >-
+                  The credential value. It is stored in a secrets vault, never
+                  returned by the API, and cannot be read back.
+                example: s3cr3t-t0k3n
     microvm_auto_pause:
       type: object
       description: >-
@@ -95593,7 +95817,10 @@ components:
           description: >-
             Features and whether they are enabled for your team. `exec_pty`
             gates `exec` and `console`; `file_transfer` gates `files`;
-            `egress_policy` gates `egress_policy` on create.
+            `egress_policy` gates `egress_policy` on create;
+            `egress_credentials` gates `egress_policy.credentials` (requires
+            `egress_policy`, and only in regions that support credential
+            injection).
           items:
             type: object
             properties:

@@ -89,7 +89,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "agent_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAgentKind = default; _explicitNullProperties?.Remove("agent_kind"); AdditionalData["agent_kind"] = unknown; } else { AgentKind = parsed; AdditionalData.Remove("agent_kind"); } } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },

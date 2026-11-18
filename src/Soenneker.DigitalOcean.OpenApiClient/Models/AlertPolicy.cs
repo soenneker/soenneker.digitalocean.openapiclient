@@ -129,7 +129,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "alerts", n => { Alerts = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Alerts>(global::Soenneker.DigitalOcean.OpenApiClient.Models.Alerts.CreateFromDiscriminatorValue); } },
                 { "compare", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AlertPolicyCompare>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCompare = default; _explicitNullProperties?.Remove("compare"); AdditionalData["compare"] = unknown; } else { Compare = parsed; AdditionalData.Remove("compare"); } } },

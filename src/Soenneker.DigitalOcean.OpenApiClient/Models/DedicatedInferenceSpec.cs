@@ -96,7 +96,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "enable_public_endpoint", n => { EnablePublicEndpoint = n.GetBoolValue(); } },
                 { "model_deployments", n => { ModelDeployments = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ModelDeploymentSpec.CreateFromDiscriminatorValue)?.AsList(); } },

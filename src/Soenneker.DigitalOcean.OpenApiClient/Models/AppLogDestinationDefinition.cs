@@ -104,7 +104,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "datadog", n => { Datadog = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDatadogSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationDatadogSpec.CreateFromDiscriminatorValue); } },
                 { "logtail", n => { Logtail = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationLogtailSpec>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationLogtailSpec.CreateFromDiscriminatorValue); } },

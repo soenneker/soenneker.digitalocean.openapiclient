@@ -202,7 +202,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(17)
             {
                 { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponseConnectionApiKey>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponseConnectionApiKey.CreateFromDiscriminatorValue); } },
                 { "connection_parameters", n => { ConnectionParameters = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponseConnectionConnectionParameters>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ConnectionResponseConnectionConnectionParameters.CreateFromDiscriminatorValue); } },

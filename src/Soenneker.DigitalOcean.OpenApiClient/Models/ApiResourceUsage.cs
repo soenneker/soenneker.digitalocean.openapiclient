@@ -79,7 +79,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "measurements", n => { Measurements = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUsageMeasurement>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiUsageMeasurement.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "resource_uuid", n => { ResourceUuid = n.GetStringValue(); } },

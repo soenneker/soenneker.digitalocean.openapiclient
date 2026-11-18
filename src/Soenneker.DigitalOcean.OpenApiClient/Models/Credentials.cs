@@ -111,7 +111,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "certificate_authority_data", n => { CertificateAuthorityData = n.GetByteArrayValue(); } },
                 { "client_certificate_data", n => { ClientCertificateData = n.GetByteArrayValue(); } },

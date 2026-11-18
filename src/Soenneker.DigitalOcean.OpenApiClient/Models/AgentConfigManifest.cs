@@ -79,7 +79,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "apiVersion", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentsDigitaloceanComV1Alpha1ApiVersion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueApiVersion = default; _explicitNullProperties?.Remove("apiVersion"); AdditionalData["apiVersion"] = unknown; } else { ApiVersion = parsed; AdditionalData.Remove("apiVersion"); } } },
                 { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentManifestKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },

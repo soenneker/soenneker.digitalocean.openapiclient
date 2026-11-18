@@ -270,7 +270,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(24)
             {
                 { "agent_config", n => { AgentConfig = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateAgentConfig.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },

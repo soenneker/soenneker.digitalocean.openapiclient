@@ -542,7 +542,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(49)
             {
                 { "anthropic_api_key", n => { AnthropicApiKey = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAnthropicApiKeyInfo>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAnthropicApiKeyInfo.CreateFromDiscriminatorValue); } },
                 { "api_key_infos", n => { ApiKeyInfos = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentApiKeyInfo>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentApiKeyInfo.CreateFromDiscriminatorValue)?.AsList(); } },

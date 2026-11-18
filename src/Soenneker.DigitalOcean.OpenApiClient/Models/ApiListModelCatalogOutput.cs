@@ -140,7 +140,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "available_availability", n => { AvailableAvailability = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "available_badges", n => { AvailableBadges = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

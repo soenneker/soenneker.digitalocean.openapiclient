@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Health;
+using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Item;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Providers;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Search;
 using Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Toolkits;
@@ -40,6 +41,18 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Toolkits.ToolkitsRequestBuilder Toolkits
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Toolkits.ToolkitsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.actionGateway.tools.item collection</summary>
+        /// <param name="position">Catalog tool slug, for example `exa_search`. Required.</param>
+        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Item.WithToolSlugItemRequestBuilder"/></returns>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Item.WithToolSlugItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("toolSlug", position);
+                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.Item.WithToolSlugItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.ActionGateway.Tools.ToolsRequestBuilder"/> and sets the default values.

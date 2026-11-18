@@ -52,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public string DefaultRegion { get => _explicitNullValueDefaultRegion; set { _explicitNullValueDefaultRegion = value; AdditionalData?.Remove("default_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_region"); else _explicitNullProperties?.Remove("default_region"); } }
         private string _explicitNullValueDefaultRegion = default!;
 #endif
-        /// <summary>Features and whether they are enabled for your team. `exec_pty` gates `exec` and `console`; `file_transfer` gates `files`; `egress_policy` gates `egress_policy` on create.</summary>
+        /// <summary>Features and whether they are enabled for your team. `exec_pty` gates `exec` and `console`; `file_transfer` gates `files`; `egress_policy` gates `egress_policy` on create; `egress_credentials` gates `egress_policy.credentials` (requires `egress_policy`, and only in regions that support credential injection).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsFeaturesItem>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
@@ -105,7 +105,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "account_limits", n => { AccountLimits = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmOptionsAccountLimits.CreateFromDiscriminatorValue); } },
                 { "default_region", n => { DefaultRegion = n.GetStringValue(); } },

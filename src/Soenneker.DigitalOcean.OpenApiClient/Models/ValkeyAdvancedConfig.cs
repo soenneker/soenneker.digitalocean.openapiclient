@@ -122,7 +122,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "frequent_snapshots", n => { FrequentSnapshots = n.GetBoolValue(); } },
                 { "valkey_acl_channels_default", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ValkeyAdvancedConfigValkeyAclChannelsDefault>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueValkeyAclChannelsDefault = default; _explicitNullProperties?.Remove("valkey_acl_channels_default"); AdditionalData["valkey_acl_channels_default"] = unknown; } else { ValkeyAclChannelsDefault = parsed; AdditionalData.Remove("valkey_acl_channels_default"); } } },

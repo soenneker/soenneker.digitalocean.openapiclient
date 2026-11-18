@@ -91,7 +91,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "bool_value", n => { BoolValue = n.GetBoolValue(); } },
                 { "number_array_value", n => { NumberArrayValue = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue>(global::Soenneker.DigitalOcean.OpenApiClient.Models.LogsFilterValueNumberArrayValue.CreateFromDiscriminatorValue); } },

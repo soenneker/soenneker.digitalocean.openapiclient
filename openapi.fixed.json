@@ -5613,6 +5613,125 @@
         ]
       }
     },
+    "/v2/action-gateway/tools/{toolSlug}/versions": {
+      "get": {
+        "tags": [
+          "Action Gateway"
+        ],
+        "summary": "List Tool Versions",
+        "description": "Returns the released versions of one catalog tool, newest first, each with the changes from the version released before it. Every version listed can be pinned as \u0060\u003Ctool_slug\u003E@\u003Cversion\u003E\u0060 in an endpoint or toolbelt, and a pin keeps calling that version after newer versions are released. A tool named without a version always calls the latest release, marked \u0060latest\u0060.\n\nChanges are computed by comparing each version\u0027s input schema, output schema, and required OAuth scopes with the previous released version. \u0060breaking\u0060 marks a change that can make a call that worked against the previous version fail; review those before moving a pin or relying on the latest release. Returns 404 when \u0060tool_slug\u0060 is not a catalog tool. Tools of your team\u0027s MCP servers are not listed.",
+        "operationId": "ToolsListVersions",
+        "parameters": [
+          {
+            "name": "toolSlug",
+            "in": "path",
+            "description": "Catalog tool slug, for example \u0060exa_search\u0060. Required.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "exa_web_search"
+          },
+          {
+            "$ref": "#/components/parameters/page_size"
+          },
+          {
+            "$ref": "#/components/parameters/page_token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request was successful.",
+            "headers": {
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/ratelimit-limit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/ratelimit-remaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/ratelimit-reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListToolVersionsResponse"
+                },
+                "example": {
+                  "versions": [
+                    {
+                      "tool_slug": "supabase_list_organizations",
+                      "version": "v17",
+                      "released_at": "2026-11-12T09:30:00Z",
+                      "latest": true,
+                      "previous_version": "v16",
+                      "breaking": true,
+                      "changes": [
+                        {
+                          "type": "requiredScopesAdded",
+                          "values": [
+                            "organizations:read"
+                          ],
+                          "breaking": true
+                        }
+                      ]
+                    },
+                    {
+                      "tool_slug": "supabase_list_organizations",
+                      "version": "v16",
+                      "released_at": "2026-10-20T14:05:00Z",
+                      "latest": false,
+                      "previous_version": "v15",
+                      "breaking": false,
+                      "changes": [
+                        {
+                          "type": "inputPropertyAdded",
+                          "path": "page.cursor",
+                          "breaking": false
+                        }
+                      ]
+                    }
+                  ],
+                  "next_page_token": "djE1"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too_many_requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/server_error"
+          },
+          "default": {
+            "$ref": "#/components/responses/unexpected_error"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": [
+              "action_gateway:read"
+            ]
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \u0022Authorization: Bearer $DIGITALOCEAN_TOKEN\u0022 \\\n  \u0022https://api.digitalocean.com/v2/action-gateway/tools/supabase_list_organizations/versions?page_size=20\u0022"
+          }
+        ]
+      }
+    },
     "/v2/action-gateway/tools/providers": {
       "get": {
         "tags": [
@@ -6523,7 +6642,7 @@
           "Action Gateway Data Plane"
         ],
         "summary": "Invoke Session Tools",
-        "description": "Runs 1 to 10 tool calls in parallel and returns one result per call, in request order. This is the REST form of the \u0060action_invoke\u0060 MCP tool.\n\nEach call is checked against the session\u0027s tool selection and policy, uses the session actor\u0027s connections, and applies any output view bound to the tool in the session. A well-formed request returns \u0060200\u0060 even when some calls fail. Check each item\u0027s \u0060result.status\u0060, and use \u0060success_count\u0060 and \u0060error_count\u0060 to branch without scanning every item.\n\nA call whose policy requires approval fails with \u0060_meta.status\u0060 set to \u0060requires_approval\u0060. Have the session\u0027s owner approve it, then repeat the call with the same arguments. A call that needs the end user to connect a provider fails with \u0060_meta.status\u0060 set to \u0060requires_authorization\u0060 or \u0060requires_connection_configuration\u0060.\n\nTools opted into result caching use the session\u0027s settings automatically. Set cache on an individual tools entry to bypass caching or require a fresher result. The result\u0027s _meta.cache reports cache hits. Hits still incur the standard gateway invocation charge but no additional provider charge, because the provider is not called.",
+        "description": "Runs 1 to 10 tool calls in parallel and returns one result per call, in request order. This is the REST form of the \u0060action_invoke\u0060 MCP tool.\n\nEach call is checked against the session\u0027s tool selection and policy, uses the session actor\u0027s connections, and applies any output view bound to the tool in the session. A well-formed request returns \u0060200\u0060 even when some calls fail. Check each item\u0027s \u0060result.status\u0060, and use \u0060success_count\u0060 and \u0060error_count\u0060 to branch without scanning every item.\n\nA call whose policy requires approval fails with \u0060_meta.status\u0060 set to \u0060requires_approval\u0060. Have the session\u0027s owner approve it, then repeat the call with the same arguments. A call that needs the end user to connect a provider fails with \u0060_meta.status\u0060 set to \u0060requires_authorization\u0060 or \u0060requires_connection_configuration\u0060.\n\nA call that pins an older released version, such as \u0060version: v16\u0060 while \u0060v17\u0060 is current, returns \u0060_meta.latest_version\u0060 with the current release\u0027s version. Calls without a version, and calls pinned to the current release, omit it. List a tool\u0027s versions and their changes with \u0060GET /v2/action-gateway/tools/{tool_slug}/versions\u0060.\n\nTools opted into result caching use the session\u0027s settings automatically. Set cache on an individual tools entry to bypass caching or require a fresher result. The result\u0027s _meta.cache reports cache hits. Hits still incur the standard gateway invocation charge but no additional provider charge, because the provider is not called.",
         "operationId": "GatewayToolsRun",
         "parameters": [
           {
@@ -10786,7 +10905,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -10901,7 +11020,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11069,7 +11188,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Session belongs to another team, or the team is not enrolled in the config-update feature (manifest_yaml only).",
+            "description": "The caller holds no access grant on the session, or the team is not enrolled in the config-update feature (manifest_yaml only).",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11291,7 +11410,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11437,7 +11556,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11607,7 +11726,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11733,7 +11852,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -11890,27 +12009,6 @@
           "401": {
             "$ref": "#/components/responses/unauthorized"
           },
-          "403": {
-            "description": "Session belongs to another team.",
-            "headers": {
-              "ratelimit-limit": {
-                "$ref": "#/components/headers/ratelimit-limit"
-              },
-              "ratelimit-remaining": {
-                "$ref": "#/components/headers/ratelimit-remaining"
-              },
-              "ratelimit-reset": {
-                "$ref": "#/components/headers/ratelimit-reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
           "404": {
             "$ref": "#/components/responses/not_found"
           },
@@ -12040,7 +12138,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -12230,7 +12328,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -12455,7 +12553,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -12602,7 +12700,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "The session belongs to another team, or this team is not enabled for turn cancel.",
+            "description": "The caller holds no access grant on the session, or this team is not enabled for turn cancel.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -12720,7 +12818,7 @@
           "Harness Runtime"
         ],
         "summary": "Read sandbox-image notices for one session.",
-        "description": "Returns the live notices on the session\u0027s sandbox image. \u0060type\u0060 filters the notice kind; the only documented value is \u0060vulnerability\u0060. A session owned by another team returns 403.",
+        "description": "Returns the live notices on the session\u0027s sandbox image. \u0060type\u0060 filters the notice kind; the only documented value is \u0060vulnerability\u0060. A session owned by another team returns 404, the same as an unknown session.",
         "operationId": "HarnessGetSessionImageMessages",
         "parameters": [
           {
@@ -12789,27 +12887,6 @@
           },
           "401": {
             "$ref": "#/components/responses/unauthorized"
-          },
-          "403": {
-            "description": "Session belongs to another team.",
-            "headers": {
-              "ratelimit-limit": {
-                "$ref": "#/components/headers/ratelimit-limit"
-              },
-              "ratelimit-remaining": {
-                "$ref": "#/components/headers/ratelimit-remaining"
-              },
-              "ratelimit-reset": {
-                "$ref": "#/components/headers/ratelimit-reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -12960,7 +13037,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -13122,7 +13199,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -13305,7 +13382,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -13517,7 +13594,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -13719,7 +13796,7 @@
             }
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -13917,7 +13994,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Path resolves outside the workspace, or the session belongs to another team.",
+            "description": "Path resolves outside the workspace, or the caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -14191,7 +14268,7 @@
             }
           },
           "403": {
-            "description": "Path resolves outside the workspace, or the session belongs to another team.",
+            "description": "Path resolves outside the workspace, or the caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -14425,7 +14502,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "The session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -15228,7 +15305,7 @@
             }
           },
           "403": {
-            "description": "Path resolves outside the workspace, or the session belongs to another team.",
+            "description": "Path resolves outside the workspace, or the caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -15730,7 +15807,7 @@
             }
           },
           "403": {
-            "description": "The port is outside 1024-65535, or the session belongs to another team.",
+            "description": "The port is outside 1024-65535, or the caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -15889,7 +15966,7 @@
             "$ref": "#/components/responses/unauthorized"
           },
           "403": {
-            "description": "Session belongs to another team.",
+            "description": "The caller holds no access grant on the session.",
             "headers": {
               "ratelimit-limit": {
                 "$ref": "#/components/headers/ratelimit-limit"
@@ -77976,6 +78053,97 @@
         },
         "description": "Health of one tool."
       },
+      "ToolVersionChange": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ToolVersionChangeType"
+          },
+          "path": {
+            "type": "string",
+            "description": "Dotted path of the schema property that changed, for example \u0060page.cursor\u0060. \u0060items[]\u0060 names an array\u0027s elements. Empty for the schema root and for scope changes.",
+            "example": "page.cursor"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The values the change concerns, sorted: enum values added or removed, the property\u0027s new types, or the scopes added or removed. Empty otherwise.",
+            "example": [
+              "organizations:read"
+            ]
+          },
+          "breaking": {
+            "type": "boolean",
+            "description": "True when a call that worked against the previous version can fail against this one.",
+            "example": true
+          }
+        },
+        "description": "One difference from the previous released version."
+      },
+      "ToolVersionRelease": {
+        "type": "object",
+        "properties": {
+          "tool_slug": {
+            "type": "string",
+            "description": "Catalog tool slug.",
+            "example": "supabase_list_organizations"
+          },
+          "version": {
+            "type": "string",
+            "description": "Version, for example \u0060v3\u0060. Pin it as \u0060\u003Ctool_slug\u003E@v3\u0060.",
+            "example": "v17"
+          },
+          "released_at": {
+            "type": "string",
+            "description": "When this version was first released.",
+            "format": "date-time",
+            "example": "2026-11-12T09:30:00Z"
+          },
+          "latest": {
+            "type": "boolean",
+            "description": "True for the version calls without a pinned version currently use. At most one version is latest; none is while a tool is withdrawn from the catalog.",
+            "example": true
+          },
+          "previous_version": {
+            "type": "string",
+            "description": "The released version this one is compared with. Empty for the oldest version listed, which has no changes.",
+            "example": "v16"
+          },
+          "breaking": {
+            "type": "boolean",
+            "description": "True when any change is breaking.",
+            "example": true
+          },
+          "changes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolVersionChange"
+            },
+            "description": "Changes from \u0060previous_version\u0060, input changes first, then output, then scopes. Descriptions, titles, and examples are not compared."
+          }
+        },
+        "description": "One released version of a catalog tool."
+      },
+      "ListToolVersionsResponse": {
+        "type": "object",
+        "properties": {
+          "versions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolVersionRelease"
+            },
+            "description": "Released versions, newest first."
+          },
+          "next_page_token": {
+            "type": "string",
+            "description": "Pass as \u0060page_token\u0060 to read older versions. Empty on the last page.",
+            "example": "djE1"
+          }
+        },
+        "description": "One page of a tool\u0027s released versions, newest first."
+      },
       "ConnectionParameterSpec": {
         "type": "object",
         "properties": {
@@ -96954,9 +97122,17 @@
               "$ref": "#/components/schemas/MicrovmEgressPolicyRulesItem"
             },
             "description": "The destinations to allow. Rules match the host only: port, path, and method are not considered, and a hostname that resolves to an IP is not matched by an \u0060ip\u0060 rule. Each rule sets exactly one of \u0060domain\u0060 or \u0060ip\u0060."
+          },
+          "credentials": {
+            "maxItems": 16,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MicrovmEgressPolicyCredentialsItem"
+            },
+            "description": "Credentials the platform adds to outbound requests, so the workload never holds them. Settable only at create, and only in regions that support credential injection. Each host must be allowed by a rule (or \u0060default_action\u0060 must be \u0060allow\u0060). HTTPS requests to these hosts are intercepted so the credential can be attached; clients that pin certificates will fail on them. The credential is sent in the \u0060authorization\u0060 header. Credentials cannot be set when restoring a checkpoint: the restored MicroVM inherits the origin\u0027s. Responses include \u0060host\u0060, \u0060path_prefix\u0060, and \u0060scheme\u0060 for each credential. The \u0060secret\u0060 is never returned."
           }
         },
-        "description": "An outbound allow list. A destination that matches any rule is allowed; \u0060default_action\u0060 decides every other destination. Only valid with \u0060public\u0060 networking, and fixed at create: there is no way to change it later. With a policy set, direct connections out of the MicroVM are dropped; only HTTP and HTTPS through the platform proxy to the allowed destinations works, so clients must honor the injected \u0060HTTP_PROXY\u0060 / \u0060HTTPS_PROXY\u0060 environment. The registries needed to pull the workload image are allowed automatically. On a MicroVM this is the policy set at create, exactly as supplied. On a checkpoint it is the policy a restored MicroVM inherits; a restore cannot change it. Omitted when egress is unrestricted."
+        "description": "An outbound allow list. A destination that matches any rule is allowed; \u0060default_action\u0060 decides every other destination. Only valid with \u0060public\u0060 networking, and fixed at create: there is no way to change it later. With a policy set, direct connections out of the MicroVM are dropped; only HTTP and HTTPS through the platform proxy to the allowed destinations works, so clients must honor the injected \u0060HTTP_PROXY\u0060 / \u0060HTTPS_PROXY\u0060 environment. The registries needed to pull the workload image are allowed automatically. On a MicroVM this is the policy set at create, as supplied, except that credential secrets are never returned. On a checkpoint it is the policy a restored MicroVM inherits; a restore cannot change it. Omitted when egress is unrestricted."
       },
       "MicrovmAutoPause": {
         "type": "object",
@@ -97325,7 +97501,7 @@
             "items": {
               "$ref": "#/components/schemas/MicrovmOptionsFeaturesItem"
             },
-            "description": "Features and whether they are enabled for your team. \u0060exec_pty\u0060 gates \u0060exec\u0060 and \u0060console\u0060; \u0060file_transfer\u0060 gates \u0060files\u0060; \u0060egress_policy\u0060 gates \u0060egress_policy\u0060 on create."
+            "description": "Features and whether they are enabled for your team. \u0060exec_pty\u0060 gates \u0060exec\u0060 and \u0060console\u0060; \u0060file_transfer\u0060 gates \u0060files\u0060; \u0060egress_policy\u0060 gates \u0060egress_policy\u0060 on create; \u0060egress_credentials\u0060 gates \u0060egress_policy.credentials\u0060 (requires \u0060egress_policy\u0060, and only in regions that support credential injection)."
           }
         },
         "description": "The default region, sizes, prices, account limits, and features available to your team."
@@ -127923,6 +128099,35 @@
           }
         }
       },
+      "MicrovmEgressPolicyCredentialsItem": {
+        "required": [
+          "host",
+          "secret"
+        ],
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "An exact host. Wildcards and IP addresses are not allowed.",
+            "example": "api.example.com"
+          },
+          "path_prefix": {
+            "type": "string",
+            "description": "Only requests whose path starts with this prefix get the credential. Must start with \u0060/\u0060. Defaults to every path.",
+            "example": "/v1"
+          },
+          "scheme": {
+            "$ref": "#/components/schemas/MicrovmEgressPolicyCredentialsItemScheme"
+          },
+          "secret": {
+            "maxLength": 8192,
+            "type": "string",
+            "description": "The credential value. It is stored in a secrets vault, never returned by the API, and cannot be read back.",
+            "writeOnly": true,
+            "example": "s3cr3t-t0k3n"
+          }
+        }
+      },
       "MicrovmOptionsSizesItem": {
         "type": "object",
         "properties": {
@@ -134726,6 +134931,99 @@
             {
               "value": "HEALTH_DATA_STATUS_NO_DATA",
               "name": "HealthDataStatusNoData"
+            }
+          ]
+        }
+      },
+      "ToolVersionChangeType": {
+        "enum": [
+          "inputPropertyAdded",
+          "inputPropertyRemoved",
+          "inputPropertyRequired",
+          "inputPropertyOptional",
+          "inputTypeChanged",
+          "inputEnumValuesAdded",
+          "inputEnumValuesRemoved",
+          "inputSchemaChanged",
+          "outputPropertyAdded",
+          "outputPropertyRemoved",
+          "outputPropertyOptional",
+          "outputTypeChanged",
+          "outputEnumValuesAdded",
+          "outputSchemaChanged",
+          "requiredScopesAdded",
+          "requiredScopesRemoved"
+        ],
+        "type": "string",
+        "description": "What changed. \u0060inputPropertyAdded\u0060 is breaking when the property is required. \u0060inputTypeChanged\u0060 and \u0060outputTypeChanged\u0060 list the new types in \u0060values\u0060, and are breaking when a previously accepted input type is no longer accepted or an output can hold a new type. \u0060requiredScopesAdded\u0060 is breaking because a connection authorized before the version may lack the scopes and must be reconnected. \u0060inputSchemaChanged\u0060 and \u0060outputSchemaChanged\u0060 cover other schema changes and are reported as breaking, except when an output schema is declared for the first time.",
+        "example": "requiredScopesAdded",
+        "x-ms-enum": {
+          "name": "ToolVersionChangeType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "inputPropertyAdded",
+              "name": "InputPropertyAdded"
+            },
+            {
+              "value": "inputPropertyRemoved",
+              "name": "InputPropertyRemoved"
+            },
+            {
+              "value": "inputPropertyRequired",
+              "name": "InputPropertyRequired"
+            },
+            {
+              "value": "inputPropertyOptional",
+              "name": "InputPropertyOptional"
+            },
+            {
+              "value": "inputTypeChanged",
+              "name": "InputTypeChanged"
+            },
+            {
+              "value": "inputEnumValuesAdded",
+              "name": "InputEnumValuesAdded"
+            },
+            {
+              "value": "inputEnumValuesRemoved",
+              "name": "InputEnumValuesRemoved"
+            },
+            {
+              "value": "inputSchemaChanged",
+              "name": "InputSchemaChanged"
+            },
+            {
+              "value": "outputPropertyAdded",
+              "name": "OutputPropertyAdded"
+            },
+            {
+              "value": "outputPropertyRemoved",
+              "name": "OutputPropertyRemoved"
+            },
+            {
+              "value": "outputPropertyOptional",
+              "name": "OutputPropertyOptional"
+            },
+            {
+              "value": "outputTypeChanged",
+              "name": "OutputTypeChanged"
+            },
+            {
+              "value": "outputEnumValuesAdded",
+              "name": "OutputEnumValuesAdded"
+            },
+            {
+              "value": "outputSchemaChanged",
+              "name": "OutputSchemaChanged"
+            },
+            {
+              "value": "requiredScopesAdded",
+              "name": "RequiredScopesAdded"
+            },
+            {
+              "value": "requiredScopesRemoved",
+              "name": "RequiredScopesRemoved"
             }
           ]
         }
@@ -144384,6 +144682,29 @@
             {
               "value": "deleting",
               "name": "Deleting"
+            }
+          ]
+        }
+      },
+      "MicrovmEgressPolicyCredentialsItemScheme": {
+        "enum": [
+          "bearer",
+          "raw"
+        ],
+        "type": "string",
+        "description": "How the value is sent. \u0060bearer\u0060 sends \u0060Bearer \u003Csecret\u003E\u0060; \u0060raw\u0060 sends the secret as is.",
+        "example": "bearer",
+        "x-ms-enum": {
+          "name": "MicrovmEgressPolicyCredentialsItemScheme",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "bearer",
+              "name": "Bearer"
+            },
+            {
+              "value": "raw",
+              "name": "Raw"
             }
           ]
         }

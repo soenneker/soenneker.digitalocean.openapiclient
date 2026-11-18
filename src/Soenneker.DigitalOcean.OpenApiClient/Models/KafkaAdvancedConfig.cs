@@ -246,7 +246,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(40)
             {
                 { "auto_create_topics_enable", n => { AutoCreateTopicsEnable = n.GetBoolValue(); } },
                 { "compression_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.KafkaAdvancedConfigCompressionType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCompressionType = default; _explicitNullProperties?.Remove("compression_type"); AdditionalData["compression_type"] = unknown; } else { CompressionType = parsed; AdditionalData.Remove("compression_type"); } } },

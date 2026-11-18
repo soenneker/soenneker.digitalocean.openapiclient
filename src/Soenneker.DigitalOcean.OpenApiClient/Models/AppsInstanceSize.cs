@@ -186,7 +186,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "bandwidth_allowance_gib", n => { BandwidthAllowanceGib = n.GetStringValue(); } },
                 { "cpu_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.InstanceSizeCpuType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCpuType = default; _explicitNullProperties?.Remove("cpu_type"); AdditionalData["cpu_type"] = unknown; } else { CpuType = parsed; AdditionalData.Remove("cpu_type"); } } },

@@ -122,7 +122,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "access_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SourceRefAccessType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAccessType = default; _explicitNullProperties?.Remove("access_type"); AdditionalData["access_type"] = unknown; } else { AccessType = parsed; AdditionalData.Remove("access_type"); } } },
                 { "bucket", n => { Bucket = n.GetStringValue(); } },

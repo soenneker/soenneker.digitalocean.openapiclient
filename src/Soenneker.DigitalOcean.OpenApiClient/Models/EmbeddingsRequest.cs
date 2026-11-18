@@ -77,7 +77,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "encoding_format", n => { EncodingFormat = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.EmbeddingsRequestEncodingFormat>(); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.EmbeddingsRequestInput>(global::Soenneker.DigitalOcean.OpenApiClient.Models.EmbeddingsRequestInput.CreateFromDiscriminatorValue); } },

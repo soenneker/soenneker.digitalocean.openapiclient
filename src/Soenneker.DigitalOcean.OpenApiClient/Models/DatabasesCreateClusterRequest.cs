@@ -294,7 +294,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(30)
             {
                 { "autoscale", n => { Autoscale = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseClusterAutoscale>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseClusterAutoscale.CreateFromDiscriminatorValue); } },
                 { "backup_restore", n => { BackupRestore = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackup>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DatabaseBackup.CreateFromDiscriminatorValue); } },

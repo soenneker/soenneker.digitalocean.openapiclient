@@ -85,7 +85,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "component_name", n => { ComponentName = n.GetStringValue(); } },
                 { "component_type", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppInstanceComponentType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueComponentType = default; _explicitNullProperties?.Remove("component_type"); AdditionalData["component_type"] = unknown; } else { ComponentType = parsed; AdditionalData.Remove("component_type"); } } },

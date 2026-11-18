@@ -168,7 +168,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "candidate_model_name", n => { CandidateModelName = n.GetStringValue(); } },
                 { "candidate_model_source", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCandidateModelSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCandidateModelSource = default; _explicitNullProperties?.Remove("candidate_model_source"); AdditionalData["candidate_model_source"] = unknown; } else { CandidateModelSource = parsed; AdditionalData.Remove("candidate_model_source"); } } },

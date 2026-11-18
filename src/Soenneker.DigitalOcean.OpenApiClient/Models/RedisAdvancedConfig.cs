@@ -110,7 +110,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "redis_acl_channels_default", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.RedisAdvancedConfigRedisAclChannelsDefault>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRedisAclChannelsDefault = default; _explicitNullProperties?.Remove("redis_acl_channels_default"); AdditionalData["redis_acl_channels_default"] = unknown; } else { RedisAclChannelsDefault = parsed; AdditionalData.Remove("redis_acl_channels_default"); } } },
                 { "redis_io_threads", n => { RedisIoThreads = n.GetIntValue(); } },

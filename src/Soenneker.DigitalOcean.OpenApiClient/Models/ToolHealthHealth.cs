@@ -65,7 +65,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "data_status", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.HealthMetricsDataStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDataStatus = default; _explicitNullProperties?.Remove("data_status"); AdditionalData["data_status"] = unknown; } else { DataStatus = parsed; AdditionalData.Remove("data_status"); } } },
                 { "latency_p50_ms", n => { LatencyP50Ms = n.GetDoubleValue(); } },

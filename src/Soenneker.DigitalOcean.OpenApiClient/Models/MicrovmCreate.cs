@@ -67,7 +67,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>Whether an HTTP request, command, or console session resumes the MicroVM when it is paused. Set to `false` to require a manual resume.</summary>
         public bool? AutoResume { get => _explicitNullValueAutoResume; set { _explicitNullValueAutoResume = value; AdditionalData?.Remove("auto_resume"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_resume"); else _explicitNullProperties?.Remove("auto_resume"); } }
         private bool? _explicitNullValueAutoResume = default!;
-        /// <summary>An outbound allow list. A destination that matches any rule is allowed; `default_action` decides every other destination. Only valid with `public` networking, and fixed at create: there is no way to change it later. With a policy set, direct connections out of the MicroVM are dropped; only HTTP and HTTPS through the platform proxy to the allowed destinations works, so clients must honor the injected `HTTP_PROXY` / `HTTPS_PROXY` environment. The registries needed to pull the workload image are allowed automatically. On a MicroVM this is the policy set at create, exactly as supplied. On a checkpoint it is the policy a restored MicroVM inherits; a restore cannot change it. Omitted when egress is unrestricted.</summary>
+        /// <summary>An outbound allow list. A destination that matches any rule is allowed; `default_action` decides every other destination. Only valid with `public` networking, and fixed at create: there is no way to change it later. With a policy set, direct connections out of the MicroVM are dropped; only HTTP and HTTPS through the platform proxy to the allowed destinations works, so clients must honor the injected `HTTP_PROXY` / `HTTPS_PROXY` environment. The registries needed to pull the workload image are allowed automatically. On a MicroVM this is the policy set at create, as supplied, except that credential secrets are never returned. On a checkpoint it is the policy a restored MicroVM inherits; a restore cannot change it. Omitted when egress is unrestricted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicy? EgressPolicy { get => _explicitNullValueEgressPolicy; set { _explicitNullValueEgressPolicy = value; AdditionalData?.Remove("egress_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_policy"); else _explicitNullProperties?.Remove("egress_policy"); } }
@@ -191,7 +191,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(16)
             {
                 { "auto_pause", n => { AutoPause = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmAutoPause>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmAutoPause.CreateFromDiscriminatorValue); } },
                 { "auto_resume", n => { AutoResume = n.GetBoolValue(); } },

@@ -79,7 +79,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "crawling_option", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiCrawlingOption>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCrawlingOption = default; _explicitNullProperties?.Remove("crawling_option"); AdditionalData["crawling_option"] = unknown; } else { CrawlingOption = parsed; AdditionalData.Remove("crawling_option"); } } },

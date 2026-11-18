@@ -217,7 +217,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(21)
             {
                 { "frequency_penalty", n => { FrequencyPenalty = n.GetDoubleValue(); } },
                 { "logit_bias", n => { LogitBias = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestLogitBiasProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ChatCompletionRequestLogitBiasProperty.CreateFromDiscriminatorValue); } },

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// An outbound allow list. A destination that matches any rule is allowed; `default_action` decides every other destination. Only valid with `public` networking, and fixed at create: there is no way to change it later. With a policy set, direct connections out of the MicroVM are dropped; only HTTP and HTTPS through the platform proxy to the allowed destinations works, so clients must honor the injected `HTTP_PROXY` / `HTTPS_PROXY` environment. The registries needed to pull the workload image are allowed automatically. On a MicroVM this is the policy set at create, exactly as supplied. On a checkpoint it is the policy a restored MicroVM inherits; a restore cannot change it. Omitted when egress is unrestricted.
+    /// An outbound allow list. A destination that matches any rule is allowed; `default_action` decides every other destination. Only valid with `public` networking, and fixed at create: there is no way to change it later. With a policy set, direct connections out of the MicroVM are dropped; only HTTP and HTTPS through the platform proxy to the allowed destinations works, so clients must honor the injected `HTTP_PROXY` / `HTTPS_PROXY` environment. The registries needed to pull the workload image are allowed automatically. On a MicroVM this is the policy set at create, as supplied, except that credential secrets are never returned. On a checkpoint it is the policy a restored MicroVM inherits; a restore cannot change it. Omitted when egress is unrestricted.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MicrovmEgressPolicy : IAdditionalDataHolder, IParsable
@@ -18,6 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("credentials") is null) { _explicitNullValueCredentials = default!; _explicitNullProperties?.Remove("credentials"); }
+            else if (parseNode.GetChildNode("credentials") is { } nullNodeCredentials && nullNodeCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credentials = null;
             if (parseNode.GetChildNode("default_action") is null) { _explicitNullValueDefaultAction = default!; _explicitNullProperties?.Remove("default_action"); }
             else if (parseNode.GetChildNode("default_action") is { } nullNodeDefaultAction && nullNodeDefaultAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAction = null;
             if (parseNode.GetChildNode("rules") is null) { _explicitNullValueRules = default!; _explicitNullProperties?.Remove("rules"); }
@@ -26,6 +28,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Credentials the platform adds to outbound requests, so the workload never holds them. Settable only at create, and only in regions that support credential injection. Each host must be allowed by a rule (or `default_action` must be `allow`). HTTPS requests to these hosts are intercepted so the credential can be attached; clients that pin certificates will fail on them. The credential is sent in the `authorization` header. Credentials cannot be set when restoring a checkpoint: the restored MicroVM inherits the origin&apos;s. Responses include `host`, `path_prefix`, and `scheme` for each credential. The `secret` is never returned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyCredentialsItem>? Credentials { get => _explicitNullValueCredentials; set { _explicitNullValueCredentials = value; AdditionalData?.Remove("credentials"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentials"); else _explicitNullProperties?.Remove("credentials"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyCredentialsItem>? _explicitNullValueCredentials = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyCredentialsItem> Credentials { get => _explicitNullValueCredentials; set { _explicitNullValueCredentials = value; AdditionalData?.Remove("credentials"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentials"); else _explicitNullProperties?.Remove("credentials"); } }
+        private List<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyCredentialsItem> _explicitNullValueCredentials = default!;
+#endif
         /// <summary>What to do with a destination no rule matches. `deny` refuses it (an HTTP request gets a 403 and a TLS connection is closed).</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyDefaultAction? DefaultAction { get => _explicitNullValueDefaultAction; set { _explicitNullValueDefaultAction = value; AdditionalData?.Remove("default_action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_action"); else _explicitNullProperties?.Remove("default_action"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyDefaultAction? _explicitNullValueDefaultAction = default!;
@@ -64,6 +76,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "credentials", n => { Credentials = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyCredentialsItem>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyCredentialsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "default_action", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyDefaultAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultAction = default; _explicitNullProperties?.Remove("default_action"); AdditionalData["default_action"] = unknown; } else { DefaultAction = parsed; AdditionalData.Remove("default_action"); } } },
                 { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyRulesItem>(global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyRulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -75,6 +88,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyCredentialsItem>("credentials", Credentials);
             writer.WriteEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyDefaultAction>("default_action", DefaultAction);
             writer.WriteCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.MicrovmEgressPolicyRulesItem>("rules", Rules);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

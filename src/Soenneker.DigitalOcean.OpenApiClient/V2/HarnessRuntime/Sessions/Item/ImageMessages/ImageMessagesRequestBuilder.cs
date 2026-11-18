@@ -34,14 +34,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Sessions.Item.I
         {
         }
         /// <summary>
-        /// Returns the live notices on the session&apos;s sandbox image. `type` filters the notice kind; the only documented value is `vulnerability`. A session owned by another team returns 403.
+        /// Returns the live notices on the session&apos;s sandbox image. `type` filters the notice kind; the only documented value is `vulnerability`. A session owned by another team returns 404, the same as an unknown session.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.GetImageMessageResourceResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.DigitalOcean.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
@@ -61,7 +60,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Sessions.Item.I
             {
                 { "400", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.DigitalOcean.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -71,7 +69,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Sessions.Item.I
             return await RequestAdapter.SendAsync<global::Soenneker.DigitalOcean.OpenApiClient.Models.GetImageMessageResourceResponse>(requestInfo, global::Soenneker.DigitalOcean.OpenApiClient.Models.GetImageMessageResourceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the live notices on the session&apos;s sandbox image. `type` filters the notice kind; the only documented value is `vulnerability`. A session owned by another team returns 403.
+        /// Returns the live notices on the session&apos;s sandbox image. `type` filters the notice kind; the only documented value is `vulnerability`. A session owned by another team returns 404, the same as an unknown session.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +97,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Sessions.Item.I
             return new global::Soenneker.DigitalOcean.OpenApiClient.V2.HarnessRuntime.Sessions.Item.ImageMessages.ImageMessagesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the live notices on the session&apos;s sandbox image. `type` filters the notice kind; the only documented value is `vulnerability`. A session owned by another team returns 403.
+        /// Returns the live notices on the session&apos;s sandbox image. `type` filters the notice kind; the only documented value is `vulnerability`. A session owned by another team returns 404, the same as an unknown session.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ImageMessagesRequestBuilderGetQueryParameters 

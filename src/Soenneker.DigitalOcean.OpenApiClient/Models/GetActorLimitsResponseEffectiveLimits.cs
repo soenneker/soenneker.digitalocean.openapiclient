@@ -93,7 +93,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "native_tool_calls_requests_per_minute", n => { NativeToolCallsRequestsPerMinute = n.GetStringValue(); } },
                 { "non_native_tool_calls_requests_per_minute", n => { NonNativeToolCallsRequestsPerMinute = n.GetStringValue(); } },

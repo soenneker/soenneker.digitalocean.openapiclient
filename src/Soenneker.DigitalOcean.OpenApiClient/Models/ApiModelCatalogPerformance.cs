@@ -112,7 +112,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "e2e_latency_p50_seconds", n => { E2eLatencyP50Seconds = n.GetDoubleValue(); } },
                 { "e2e_latency_p75_seconds", n => { E2eLatencyP75Seconds = n.GetDoubleValue(); } },

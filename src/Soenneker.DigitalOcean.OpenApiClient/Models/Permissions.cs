@@ -86,7 +86,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "defaultAction", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionsDefaultAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultAction = default; _explicitNullProperties?.Remove("defaultAction"); AdditionalData["defaultAction"] = unknown; } else { DefaultAction = parsed; AdditionalData.Remove("defaultAction"); } } },
                 { "filesystem", n => { Filesystem = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem>(global::Soenneker.DigitalOcean.OpenApiClient.Models.PermissionFilesystem.CreateFromDiscriminatorValue); } },

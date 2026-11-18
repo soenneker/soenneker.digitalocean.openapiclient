@@ -92,7 +92,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "invoice_preview", n => { InvoicePreview = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.InvoicePreview>(global::Soenneker.DigitalOcean.OpenApiClient.Models.InvoicePreview.CreateFromDiscriminatorValue); } },
                 { "invoices", n => { Invoices = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.InvoicePreview>(global::Soenneker.DigitalOcean.OpenApiClient.Models.InvoicePreview.CreateFromDiscriminatorValue)?.AsList(); } },

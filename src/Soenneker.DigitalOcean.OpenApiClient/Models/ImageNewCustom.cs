@@ -102,7 +102,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "distribution", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.Distribution>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDistribution = default; _explicitNullProperties?.Remove("distribution"); AdditionalData["distribution"] = unknown; } else { Distribution = parsed; AdditionalData.Remove("distribution"); } } },

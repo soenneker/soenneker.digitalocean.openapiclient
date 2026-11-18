@@ -380,7 +380,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(36)
             {
                 { "amd_gpu_device_metrics_exporter_plugin", n => { AmdGpuDeviceMetricsExporterPlugin = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDeviceMetricsExporterPlugin>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDeviceMetricsExporterPlugin.CreateFromDiscriminatorValue); } },
                 { "amd_gpu_device_plugin", n => { AmdGpuDevicePlugin = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDevicePlugin>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AmdGpuDevicePlugin.CreateFromDiscriminatorValue); } },

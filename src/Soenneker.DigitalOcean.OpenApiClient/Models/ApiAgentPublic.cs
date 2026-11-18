@@ -369,7 +369,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(34)
             {
                 { "chatbot", n => { Chatbot = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChatbot>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiChatbot.CreateFromDiscriminatorValue); } },
                 { "chatbot_identifiers", n => { ChatbotIdentifiers = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentChatbotIdentifier>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentChatbotIdentifier.CreateFromDiscriminatorValue)?.AsList(); } },

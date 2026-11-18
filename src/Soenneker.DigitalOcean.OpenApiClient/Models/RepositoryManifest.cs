@@ -119,7 +119,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "blobs", n => { Blobs = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.RepositoryBlob>(global::Soenneker.DigitalOcean.OpenApiClient.Models.RepositoryBlob.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "compressed_size_bytes", n => { CompressedSizeBytes = n.GetIntValue(); } },

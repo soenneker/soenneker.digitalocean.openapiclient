@@ -258,7 +258,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(23)
             {
                 { "agent_uuid", n => { AgentUuid = n.GetStringValue(); } },
                 { "attached_child_agents", n => { AttachedChildAgents = n.GetCollectionOfObjectValues<global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentChildRelationshipVerion>(global::Soenneker.DigitalOcean.OpenApiClient.Models.ApiAgentChildRelationshipVerion.CreateFromDiscriminatorValue)?.AsList(); } },

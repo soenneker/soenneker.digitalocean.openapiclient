@@ -86,7 +86,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "child_agent_uuid", n => { ChildAgentUuid = n.GetStringValue(); } },
                 { "parent_agent_uuid", n => { ParentAgentUuid = n.GetStringValue(); } },

@@ -94,7 +94,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "basic_auth", n => { BasicAuth = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpecBasicAuth>(global::Soenneker.DigitalOcean.OpenApiClient.Models.AppLogDestinationOpenSearchSpecBasicAuth.CreateFromDiscriminatorValue); } },
                 { "cluster_name", n => { ClusterName = n.GetStringValue(); } },

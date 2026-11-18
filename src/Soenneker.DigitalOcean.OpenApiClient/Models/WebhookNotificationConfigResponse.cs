@@ -105,7 +105,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "basic_auth", n => { BasicAuth = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuthResponse>(global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBasicAuthResponse.CreateFromDiscriminatorValue); } },
                 { "bearer_token", n => { BearerToken = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponse>(global::Soenneker.DigitalOcean.OpenApiClient.Models.WebhookBearerTokenResponse.CreateFromDiscriminatorValue); } },
