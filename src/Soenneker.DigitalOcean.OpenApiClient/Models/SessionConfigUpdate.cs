@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// One live config update (or automatic rollback) of a session.
+    /// The most recent session settings update to the session, or the automatic rollback of a failed one.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionConfigUpdate : IAdditionalDataHolder, IParsable
@@ -52,7 +52,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Changes per manifest section. Never contains secret values.</summary>
+        /// <summary>Changes made in each manifest section. Secret values are never included.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChanges? Changes { get => _explicitNullValueChanges; set { _explicitNullValueChanges = value; AdditionalData?.Remove("changes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changes"); else _explicitNullProperties?.Remove("changes"); } }
@@ -127,7 +127,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <summary>The started_at property</summary>
         public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; AdditionalData?.Remove("started_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
         private DateTimeOffset? _explicitNullValueStartedAt = default!;
-        /// <summary>State of a live config update. APPLIED_RESTARTED means the agent was restarted to apply it (env and secret changes). FAILED means the update did not take effect; see `reverted` and `detail`.</summary>
+        /// <summary>State of a session settings update. `APPLYING`: in progress. `APPLIED`: live. `APPLIED_RESTARTED`: live, and the agent was restarted to apply it (`env` and `secrets` changes). `FAILED`: the update did not take effect; see `reverted` and `detail`.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigUpdateState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigUpdateState? _explicitNullValueState = default!;
         /// <summary>The update_id property</summary>

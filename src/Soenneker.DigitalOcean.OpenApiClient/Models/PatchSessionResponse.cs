@@ -27,7 +27,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Present for `manifest_yaml` patches. ACCEPTED (HTTP 202): the update is applying and the session status is SESSION_STATUS_UPDATING; poll GET until the status leaves UPDATING, then read `session.update`. UNCHANGED (HTTP 200): the manifest changes nothing and nothing was recorded.</summary>
+        /// <summary>Returned for `manifest_yaml` requests. `ACCEPTED` (HTTP 202): the update is being applied and the session status is `SESSION_STATUS_UPDATING`. Poll the session until the status changes, then read `session.update`. `UNCHANGED` (HTTP 200): the requested settings match the current ones, so nothing was applied.</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionResponseOutcome? Outcome { get => _explicitNullValueOutcome; set { _explicitNullValueOutcome = value; AdditionalData?.Remove("outcome"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outcome"); else _explicitNullProperties?.Remove("outcome"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.PatchSessionResponseOutcome? _explicitNullValueOutcome = default!;
         /// <summary>Session is the user-facing record of a environment session + sandbox pair.</summary>
@@ -40,7 +40,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSession Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; AdditionalData?.Remove("session"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSession _explicitNullValueSession = default!;
 #endif
-        /// <summary>Non-fatal notes about the update.</summary>
+        /// <summary>Warnings about the update that did not stop it from being accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; AdditionalData?.Remove("warnings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }

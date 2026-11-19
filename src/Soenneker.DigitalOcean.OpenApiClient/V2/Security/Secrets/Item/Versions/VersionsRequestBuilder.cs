@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.DigitalOcean.OpenApiClient.Models;
-using Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item.Versions.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,18 +17,6 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item.Versions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VersionsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.DigitalOcean.OpenApiClient.v2.security.secrets.item.versions.item collection</summary>
-        /// <param name="position">The target version to revert to. Reverting creates a new version with the contents of this version.</param>
-        /// <returns>A <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item.Versions.Item.WithVersionItemRequestBuilder"/></returns>
-        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item.Versions.Item.WithVersionItemRequestBuilder this[int position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("version", position);
-                return new global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item.Versions.Item.WithVersionItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.Secrets.Item.Versions.VersionsRequestBuilder"/> and sets the default values.
         /// </summary>

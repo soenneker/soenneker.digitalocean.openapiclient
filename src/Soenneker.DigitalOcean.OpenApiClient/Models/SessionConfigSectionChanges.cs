@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Keys touched in one manifest section.
+    /// Names of the entries added, removed, or changed in one manifest section.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionConfigSectionChanges : IAdditionalDataHolder, IParsable

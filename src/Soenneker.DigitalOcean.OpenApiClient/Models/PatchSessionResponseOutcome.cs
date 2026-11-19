@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
-    /// <summary>Present for `manifest_yaml` patches. ACCEPTED (HTTP 202): the update is applying and the session status is SESSION_STATUS_UPDATING; poll GET until the status leaves UPDATING, then read `session.update`. UNCHANGED (HTTP 200): the manifest changes nothing and nothing was recorded.</summary>
+    /// <summary>Returned for `manifest_yaml` requests. `ACCEPTED` (HTTP 202): the update is being applied and the session status is `SESSION_STATUS_UPDATING`. Poll the session until the status changes, then read `session.update`. `UNCHANGED` (HTTP 200): the requested settings match the current ones, so nothing was applied.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PatchSessionResponseOutcome
     {
