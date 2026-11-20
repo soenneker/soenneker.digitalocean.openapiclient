@@ -10,6 +10,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Console;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Exec;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Files;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Pause;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Port_forward;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Urls;
 using System.Collections.Generic;
@@ -54,6 +55,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Pause.PauseRequestBuilder Pause
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Pause.PauseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The port_forward property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Port_forward.Port_forwardRequestBuilder Port_forward
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Port_forward.Port_forwardRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The resume property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Microvms.Item.Resume.ResumeRequestBuilder Resume
