@@ -18,6 +18,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("egress") is null) { _explicitNullValueEgress = default!; _explicitNullProperties?.Remove("egress"); }
+            else if (parseNode.GetChildNode("egress") is { } nullNodeEgress && nullNodeEgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Egress = null;
             if (parseNode.GetChildNode("env") is null) { _explicitNullValueEnv = default!; _explicitNullProperties?.Remove("env"); }
             else if (parseNode.GetChildNode("env") is { } nullNodeEnv && nullNodeEnv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Env = null;
             if (parseNode.GetChildNode("secrets") is null) { _explicitNullValueSecrets = default!; _explicitNullProperties?.Remove("secrets"); }
@@ -28,6 +30,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The hosts and IP addresses an `egress` change added or removed, and the new egress mode when it changed. Omitted when the egress policy is unchanged.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges? Egress { get => _explicitNullValueEgress; set { _explicitNullValueEgress = value; AdditionalData?.Remove("egress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress"); else _explicitNullProperties?.Remove("egress"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges? _explicitNullValueEgress = default!;
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges Egress { get => _explicitNullValueEgress; set { _explicitNullValueEgress = value; AdditionalData?.Remove("egress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress"); else _explicitNullProperties?.Remove("egress"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges _explicitNullValueEgress = default!;
+#endif
         /// <summary>Names of the entries added, removed, or changed in one manifest section.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,15 +50,15 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges Env { get => _explicitNullValueEnv; set { _explicitNullValueEnv = value; AdditionalData?.Remove("env"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env"); else _explicitNullProperties?.Remove("env"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges _explicitNullValueEnv = default!;
 #endif
-        /// <summary>Names of the entries added, removed, or changed in one manifest section.</summary>
+        /// <summary>Secret names, never values. On an update, `changed` lists the secrets that got a new value or were bound to another URL or scheme. On `config_diff`, `changed` lists only the secrets bound to a different URL or scheme than in the agent config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges? Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; AdditionalData?.Remove("secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
-        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges? _explicitNullValueSecrets = default!;
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets? Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; AdditionalData?.Remove("secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets? _explicitNullValueSecrets = default!;
 #nullable restore
 #else
-        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; AdditionalData?.Remove("secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
-        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges _explicitNullValueSecrets = default!;
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; AdditionalData?.Remove("secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets _explicitNullValueSecrets = default!;
 #endif
         /// <summary>Names of the entries added, removed, or changed in one manifest section.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,10 +93,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
+                { "egress", n => { Egress = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges.CreateFromDiscriminatorValue); } },
                 { "env", n => { Env = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges.CreateFromDiscriminatorValue); } },
-                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges.CreateFromDiscriminatorValue); } },
+                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges.CreateFromDiscriminatorValue); } },
             };
         }
@@ -95,8 +108,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges>("egress", Egress);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>("env", Env);
-            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>("secrets", Secrets);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets>("secrets", Secrets);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>("tools", Tools);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
