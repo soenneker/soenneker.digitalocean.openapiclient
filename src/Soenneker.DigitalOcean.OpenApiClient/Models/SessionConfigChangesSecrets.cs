@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.DigitalOcean.OpenApiClient.Models
 {
     /// <summary>
-    /// Secret names, never values. On an update, `changed` lists the secrets that got a new value or were bound to another URL or scheme. On `config_diff`, `changed` lists only the secrets bound to a different URL or scheme than in the agent config.
+    /// Secret names, never values. On an update, `changed` lists the secrets that got a new value, were bound to another URL or scheme, or were switched to another OAuth connection. On `config_diff`, `changed` lists only the secrets bound to a different URL or scheme than in the agent config; a switched OAuth connection isn&apos;t listed there.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionConfigChangesSecrets : IAdditionalDataHolder, IParsable

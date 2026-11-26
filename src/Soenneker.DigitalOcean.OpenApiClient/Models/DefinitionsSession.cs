@@ -40,6 +40,8 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("last_event_at") is { } nullNodeLastEventAt && nullNodeLastEventAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastEventAt = null;
             if (parseNode.GetChildNode("manifest") is null) { _explicitNullValueManifest = default!; _explicitNullProperties?.Remove("manifest"); }
             else if (parseNode.GetChildNode("manifest") is { } nullNodeManifest && nullNodeManifest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Manifest = null;
+            if (parseNode.GetChildNode("mutability") is null) { _explicitNullValueMutability = default!; _explicitNullProperties?.Remove("mutability"); }
+            else if (parseNode.GetChildNode("mutability") is { } nullNodeMutability && nullNodeMutability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mutability = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("openai_environment_id") is null) { _explicitNullValueOpenaiEnvironmentId = default!; _explicitNullProperties?.Remove("openai_environment_id"); }
@@ -85,7 +87,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChanges ConfigDiff { get => _explicitNullValueConfigDiff; set { _explicitNullValueConfigDiff = value; AdditionalData?.Remove("config_diff"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config_diff"); else _explicitNullProperties?.Remove("config_diff"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChanges _explicitNullValueConfigDiff = default!;
 #endif
-        /// <summary>True when the running config differs from the manifest the session was created from, for example after a successful PATCH with `manifest_yaml`. Omitted when false.</summary>
+        /// <summary>True when the running config differs from the manifest the session was created from, for example after a successful PATCH with `manifest_yaml`. Omitted when false. `config_diff` doesn&apos;t cover every kind of drift: after an update that only switched an OAuth connection, `config_drifted` is true and `config_diff` is omitted. `manifest` shows the new `actor`.</summary>
         public bool? ConfigDrifted { get => _explicitNullValueConfigDrifted; set { _explicitNullValueConfigDrifted = value; AdditionalData?.Remove("config_drifted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config_drifted"); else _explicitNullProperties?.Remove("config_drifted"); } }
         private bool? _explicitNullValueConfigDrifted = default!;
         /// <summary>Durable Environment Config UUID the session was created from (inline manifests persist a config too, named after the session). Persisted and returned on create/get/list; absent only for sessions created before config references were stored.</summary>
@@ -125,6 +127,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSessionManifestProperty Manifest { get => _explicitNullValueManifest; set { _explicitNullValueManifest = value; AdditionalData?.Remove("manifest"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manifest"); else _explicitNullProperties?.Remove("manifest"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSessionManifestProperty _explicitNullValueManifest = default!;
+#endif
+        /// <summary>Which manifest sections a live config update (`PATCH /v2/agents/sessions/{session_id}` with `manifest_yaml`) can change on this session. It describes what this session&apos;s agent can take, recorded when the session was created. A flag that is `false` answers `409` with `(update_unsupported)` when a PATCH tries to change what it covers. A session created before the field existed reads `false` for every key. A top-level `model` section in `manifest_yaml` returns `400` whatever this says.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionMutability? Mutability { get => _explicitNullValueMutability; set { _explicitNullValueMutability = value; AdditionalData?.Remove("mutability"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mutability"); else _explicitNullProperties?.Remove("mutability"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionMutability? _explicitNullValueMutability = default!;
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionMutability Mutability { get => _explicitNullValueMutability; set { _explicitNullValueMutability = value; AdditionalData?.Remove("mutability"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mutability"); else _explicitNullProperties?.Remove("mutability"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionMutability _explicitNullValueMutability = default!;
 #endif
         /// <summary>User-assignable display name, unique per team among non-terminal sessions. Usable in place of session_id by clients (doctl / Console resolve it to the id via the ListSessions ?name= filter; the {session_id} path stays UUID-only). Supplied via the environment-spec metadata.name, or auto-generated (&quot;session-&lt;agent-type&gt;-&lt;date-time&gt;&quot;) when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -275,7 +287,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(25)
+            return new Dictionary<string, Action<IParseNode>>(26)
             {
                 { "agent_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.AgentKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAgentKind = default; _explicitNullProperties?.Remove("agent_kind"); AdditionalData["agent_kind"] = unknown; } else { AgentKind = parsed; AdditionalData.Remove("agent_kind"); } } },
                 { "config_diff", n => { ConfigDiff = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChanges.CreateFromDiscriminatorValue); } },
@@ -288,6 +300,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
                 { "keep_warm", n => { KeepWarm = n.GetBoolValue(); } },
                 { "last_event_at", n => { LastEventAt = n.GetDateTimeOffsetValue(); } },
                 { "manifest", n => { Manifest = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSessionManifestProperty>(global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSessionManifestProperty.CreateFromDiscriminatorValue); } },
+                { "mutability", n => { Mutability = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionMutability>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionMutability.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "openai_environment_id", n => { OpenaiEnvironmentId = n.GetStringValue(); } },
                 { "openai_session_id", n => { OpenaiSessionId = n.GetStringValue(); } },
@@ -322,6 +335,7 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             writer.WriteBoolValue("keep_warm", KeepWarm);
             writer.WriteDateTimeOffsetValue("last_event_at", LastEventAt);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.DefinitionsSessionManifestProperty>("manifest", Manifest);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionMutability>("mutability", Mutability);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("openai_environment_id", OpenaiEnvironmentId);
             writer.WriteStringValue("openai_session_id", OpenaiSessionId);

@@ -22,8 +22,12 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             else if (parseNode.GetChildNode("egress") is { } nullNodeEgress && nullNodeEgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Egress = null;
             if (parseNode.GetChildNode("env") is null) { _explicitNullValueEnv = default!; _explicitNullProperties?.Remove("env"); }
             else if (parseNode.GetChildNode("env") is { } nullNodeEnv && nullNodeEnv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Env = null;
+            if (parseNode.GetChildNode("permissions") is null) { _explicitNullValuePermissions = default!; _explicitNullProperties?.Remove("permissions"); }
+            else if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
             if (parseNode.GetChildNode("secrets") is null) { _explicitNullValueSecrets = default!; _explicitNullProperties?.Remove("secrets"); }
             else if (parseNode.GetChildNode("secrets") is { } nullNodeSecrets && nullNodeSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secrets = null;
+            if (parseNode.GetChildNode("skills") is null) { _explicitNullValueSkills = default!; _explicitNullProperties?.Remove("skills"); }
+            else if (parseNode.GetChildNode("skills") is { } nullNodeSkills && nullNodeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skills = null;
             if (parseNode.GetChildNode("tools") is null) { _explicitNullValueTools = default!; _explicitNullProperties?.Remove("tools"); }
             else if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
         }
@@ -50,7 +54,17 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges Env { get => _explicitNullValueEnv; set { _explicitNullValueEnv = value; AdditionalData?.Remove("env"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env"); else _explicitNullProperties?.Remove("env"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges _explicitNullValueEnv = default!;
 #endif
-        /// <summary>Secret names, never values. On an update, `changed` lists the secrets that got a new value or were bound to another URL or scheme. On `config_diff`, `changed` lists only the secrets bound to a different URL or scheme than in the agent config.</summary>
+        /// <summary>Changes to the permission policy. A rule is named by its tool and match values, for example `bash &quot;git *&quot;` or `do.actions/web_search`. Omitted when the permissions are identical.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigPermissionsChanges? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; AdditionalData?.Remove("permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigPermissionsChanges? _explicitNullValuePermissions = default!;
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigPermissionsChanges Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; AdditionalData?.Remove("permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigPermissionsChanges _explicitNullValuePermissions = default!;
+#endif
+        /// <summary>Secret names, never values. On an update, `changed` lists the secrets that got a new value, were bound to another URL or scheme, or were switched to another OAuth connection. On `config_diff`, `changed` lists only the secrets bound to a different URL or scheme than in the agent config; a switched OAuth connection isn&apos;t listed there.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets? Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; AdditionalData?.Remove("secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
@@ -59,6 +73,16 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
 #else
         public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; AdditionalData?.Remove("secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
         private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets _explicitNullValueSecrets = default!;
+#endif
+        /// <summary>Skill names, never their content. `changed` lists the skills kept under the same name whose definition changed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSkills? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSkills? _explicitNullValueSkills = default!;
+#nullable restore
+#else
+        public global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSkills Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSkills _explicitNullValueSkills = default!;
 #endif
         /// <summary>Names of the entries added, removed, or changed in one manifest section.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,11 +117,13 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(4)
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "egress", n => { Egress = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges.CreateFromDiscriminatorValue); } },
                 { "env", n => { Env = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigPermissionsChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigPermissionsChanges.CreateFromDiscriminatorValue); } },
                 { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets.CreateFromDiscriminatorValue); } },
+                { "skills", n => { Skills = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSkills>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSkills.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>(global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges.CreateFromDiscriminatorValue); } },
             };
         }
@@ -110,7 +136,9 @@ namespace Soenneker.DigitalOcean.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigEgressChanges>("egress", Egress);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>("env", Env);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigPermissionsChanges>("permissions", Permissions);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSecrets>("secrets", Secrets);
+            writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigChangesSkills>("skills", Skills);
             writer.WriteObjectValue<global::Soenneker.DigitalOcean.OpenApiClient.Models.SessionConfigSectionChanges>("tools", Tools);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
