@@ -38,6 +38,7 @@ using Soenneker.DigitalOcean.OpenApiClient.V2.Registry;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Reports;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ips;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ipv6;
+using Soenneker.DigitalOcean.OpenApiClient.V2.Sandboxes;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Security;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Sizes;
 using Soenneker.DigitalOcean.OpenApiClient.V2.Snapshots;
@@ -241,6 +242,11 @@ namespace Soenneker.DigitalOcean.OpenApiClient.V2
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ipv6.Reserved_ipv6RequestBuilder Reserved_ipv6
         {
             get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Reserved_ipv6.Reserved_ipv6RequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sandboxes property</summary>
+        public global::Soenneker.DigitalOcean.OpenApiClient.V2.Sandboxes.SandboxesRequestBuilder Sandboxes
+        {
+            get => new global::Soenneker.DigitalOcean.OpenApiClient.V2.Sandboxes.SandboxesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The security property</summary>
         public global::Soenneker.DigitalOcean.OpenApiClient.V2.Security.SecurityRequestBuilder Security
